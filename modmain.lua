@@ -34,8 +34,8 @@ AddMinimapAtlas("images/map_icons/phamnhan.xml")
 -- Register phamnhan as a playable character
 AddModCharacter("phamnhan", "MALE")
 
--- Character select override (load deferred until Phase E / Task 14)
--- modimport("scripts/pn/charselect_override.lua")  -- enabled in Phase E
+-- Character select override (Phase E / Task 14)
+modimport("scripts/pn/charselect_override.lua")
 
 -- Register character speech
 STRINGS.CHARACTER_TITLES.phamnhan      = "Phàm Nhân"
