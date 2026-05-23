@@ -7,9 +7,15 @@ set -euo pipefail
 DST_SERVER_DIR="/Users/kimdat546/Desktop/dst-server-docker"
 COMPOSE_BASE="$DST_SERVER_DIR/cli/compose.yml"
 COMPOSE_OVERRIDE="$DST_SERVER_DIR/cli/compose.override.yml"
+ENV_FILE="$DST_SERVER_DIR/.world.env"
 
 if [[ ! -f "$COMPOSE_OVERRIDE" ]]; then
     echo "✗ compose.override.yml missing — did you run Phase F?"
+    exit 1
+fi
+
+if [[ ! -f "$ENV_FILE" ]]; then
+    echo "✗ .world.env missing at $ENV_FILE — generate it via 'python3 cli/extract-env.py server/docker-compose.yml > .world.env'"
     exit 1
 fi
 
@@ -23,19 +29,21 @@ if [[ "$CURRENT_BRANCH" != "pntt-dev" ]]; then
     exit 1
 fi
 
+COMPOSE="docker compose --env-file $ENV_FILE -f $COMPOSE_BASE -f $COMPOSE_OVERRIDE"
+
 echo "→ Starting DST server (pntt-dev branch, mod mounted)..."
-docker compose -f "$COMPOSE_BASE" -f "$COMPOSE_OVERRIDE" up -d
+$COMPOSE up -d master
 
 echo "→ Waiting 90s for server to initialize and load mod..."
 sleep 90
 
 echo "→ Scanning logs for errors..."
-LOG=$(docker compose -f "$COMPOSE_BASE" -f "$COMPOSE_OVERRIDE" logs --tail 500 2>&1)
+LOG=$($COMPOSE logs master --tail 500 2>&1)
 
 if echo "$LOG" | grep -qE "(Lua error|LUA ERROR|Mod failed|Failed to load mod|^\[ERROR\])"; then
     echo "✗ Smoke test FAILED — errors found in log:"
     echo "$LOG" | grep -E "(error|fail|Error|Fail)" -A 3 | head -40
-    docker compose -f "$COMPOSE_BASE" -f "$COMPOSE_OVERRIDE" down
+    $COMPOSE down
     exit 1
 fi
 
@@ -44,7 +52,7 @@ if echo "$LOG" | grep -q "\[PN\] Phàm Nhân Tu Tiên mod loaded"; then
 else
     echo "✗ Smoke test FAILED — mod init message not in logs"
     echo "    (Expected: '[PN] Phàm Nhân Tu Tiên mod loaded')"
-    docker compose -f "$COMPOSE_BASE" -f "$COMPOSE_OVERRIDE" down
+    $COMPOSE down
     exit 1
 fi
 
