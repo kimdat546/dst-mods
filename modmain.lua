@@ -37,4 +37,10 @@ AddModCharacter("phamnhan", "MALE")
 -- Character select override (load deferred until Phase E / Task 14)
 -- modimport("scripts/pn/charselect_override.lua")  -- enabled in Phase E
 
+-- Register character speech
+STRINGS.CHARACTER_TITLES.phamnhan      = "Phàm Nhân"
+STRINGS.CHARACTER_NAMES.phamnhan       = "Phàm Nhân"
+STRINGS.CHARACTER_DESCRIPTIONS.phamnhan= "Một phàm nhân bình thường, mơ ước con đường tu tiên."
+STRINGS.CHARACTER_QUOTES.phamnhan      = "\"Tu đạo chi lộ, nghịch thiên mà hành.\""
+
 print("[PN] Phàm Nhân Tu Tiên mod loaded (Plan 1 — Foundation)")
