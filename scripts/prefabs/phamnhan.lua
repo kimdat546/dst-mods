@@ -15,8 +15,9 @@ local start_inv = {
 }
 
 local function common_postinit(inst)
-    -- Add network tag for future mod features
+    -- Add network tags for mod features
     inst:AddTag("phamnhan")
+    inst:AddTag("pn_aura_target")  -- so pn_aura_source picks us up
 end
 
 local function master_postinit(inst)

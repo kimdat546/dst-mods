@@ -58,4 +58,31 @@ return {
         LINH_MACH_MIN_DIST  = { HA = 0,  TRUNG = 300, THUONG = 600 },
         SCATTER_ATTEMPTS    = 30,                 -- placement tries before giving up per entity
     },
+
+    -- Mob cultivation — mobs in linh mạch aura also accumulate cultivation time
+    MOB_CULTIVATION = {
+        -- Seconds of aura time required for each tier upgrade
+        TIER_THRESHOLDS  = { 300, 900 },  -- 5 min → Tier 1, 15 min → Tier 2
+
+        -- Stat multipliers applied at each tier (cumulative from base)
+        TIER_STATS = {
+            -- Tier 1 — Linh thú
+            { hp_mult = 1.5,  dmg_mult = 1.25, scale = 1.2 },
+            -- Tier 2 — Yêu tu
+            { hp_mult = 2.2,  dmg_mult = 1.6,  scale = 1.35 },
+        },
+
+        -- Visual tint applied at each tier (AnimState:SetMultColour)
+        TIER_TINT = {
+            { 0.4, 1.0, 0.4, 1 },   -- Tier 1: green glow
+            { 1.0, 0.3, 0.6, 1 },   -- Tier 2: red/purple glow
+        },
+
+        -- Tu vi reward when killed by a player (placeholder for nội đan items in Plan 6)
+        KILL_REWARD = {
+            [0] = 0,    -- Tier 0 mobs give nothing direct (Plan 6 adds 50% drop chance)
+            [1] = 120,  -- Tier 1 = trung phẩm equivalent
+            [2] = 300,  -- Tier 2 = thượng phẩm equivalent
+        },
+    },
 }

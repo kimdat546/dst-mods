@@ -51,25 +51,27 @@ function PnAuraSource:_Tick()
     end
 
     local x, y, z = self.inst.Transform:GetWorldPosition()
-    -- Find players in radius. Tag-filtered for cheap query.
-    local ents = TheSim:FindEntities(x, y, z, self.radius, { "player" })
+    -- Find any aura-target entity in radius (players + cultivation-tagged mobs).
+    -- Tag-filtered for cheap query — only entities with pn_aura_target tag.
+    local ents = TheSim:FindEntities(x, y, z, self.radius, { "pn_aura_target" })
 
     local amount = self.rate_per_sec * (TUNING.LINH_MACH.SCAN_INTERVAL or 1.0)
 
     for _, ent in ipairs(ents) do
-        if ent.components and ent.components.pn_tuvi then
-            -- If meditating on this linh mạch, multiply by sit bonus
-            local final_amount = amount
-            if ent.components.pn_meditation
-               and ent.components.pn_meditation:IsMeditating()
-               and ent.components.pn_meditation:GetTarget() == self.inst then
-                final_amount = final_amount * TUNING.TUVI_SOURCES.SIT_MEDITATE_BONUS
-            end
-            ent:PushEvent(Events.TUVI_GAIN, {
-                amount = final_amount,
-                source = "linh_mach_" .. self.tier:lower(),
-            })
+        local final_amount = amount
+
+        -- Player-specific: apply meditation bonus
+        if ent:HasTag("player")
+           and ent.components and ent.components.pn_meditation
+           and ent.components.pn_meditation:IsMeditating()
+           and ent.components.pn_meditation:GetTarget() == self.inst then
+            final_amount = final_amount * TUNING.TUVI_SOURCES.SIT_MEDITATE_BONUS
         end
+
+        ent:PushEvent(Events.TUVI_GAIN, {
+            amount = final_amount,
+            source = "linh_mach_" .. self.tier:lower(),
+        })
     end
 end
 
