@@ -25,6 +25,7 @@ local function master_postinit(inst)
     inst:AddComponent("pn_tuvi")
     inst:AddComponent("pn_canhgioi")
     inst:AddComponent("pn_lifespan")
+    inst:AddComponent("pn_meditation")
     inst:AddComponent("pn_breakthrough")
 
     -- Roll linh căn on first spawn (idempotent — won't re-roll on reload)
