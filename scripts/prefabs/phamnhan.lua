@@ -4,11 +4,13 @@
 
 local MakePlayerCharacter = require("prefabs/player_common")
 
--- Character visual: placeholder uses Hàn Thiên Tôn build from Dengxian mod
--- (shipped as anim/xd_hantianzun.zip in our mod folder; see PLACEHOLDER.md).
+-- Character visual: placeholder built by repacking Hàn Thiên Tôn art (from
+-- Dengxian mod 3235319974) with internal build name renamed to "phamnhan" via
+-- tools/rename_build.py. This lets us follow the DST convention where the
+-- character's build name == prefab name (so default lookups succeed everywhere).
 local assets = {
-    Asset("ANIM", "anim/xd_hantianzun.zip"),
-    Asset("ANIM", "anim/ghost_xd_hantianzun_build.zip"),
+    Asset("ANIM", "anim/phamnhan.zip"),
+    Asset("ANIM", "anim/ghost_phamnhan_build.zip"),
 }
 
 local prefabs = {}
@@ -21,12 +23,9 @@ local function common_postinit(inst)
     -- Add network tags for mod features
     inst:AddTag("phamnhan")
     inst:AddTag("pn_aura_target")  -- so pn_aura_source picks us up
-
-    -- IMPORTANT: SetBuild must run on BOTH client and server, so it lives here
-    -- (not master_postinit which is server-only). Without this on the client,
-    -- the renderer looks up the default build "phamnhan" (= prefab name) which
-    -- doesn't exist → character is invisible.
-    inst.AnimState:SetBuild("xd_hantianzun")
+    -- Default AnimState build = prefab name = "phamnhan" which matches the
+    -- internal build name we baked into anim/phamnhan.zip. No SetBuild override
+    -- needed.
 end
 
 local function master_postinit(inst)
