@@ -40,6 +40,7 @@ AddModCharacter("phamnhan", "MALE")
 AddReplicableComponent("pn_linhcan")
 AddReplicableComponent("pn_tuvi")
 AddReplicableComponent("pn_canhgioi")
+AddReplicableComponent("pn_lifespan")
 -- pn_breakthrough is server-only — no replica registration needed.
 
 -- Attach HUD widget to player controls bottom-left.
