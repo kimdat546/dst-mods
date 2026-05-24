@@ -14,10 +14,15 @@ local PnHudMain = Class(Widget, function(self, owner)
     Widget._ctor(self, "PnHudMain")
     self.owner = owner
 
-    -- Background frame
+    -- Background frame — dark translucent panel (MVP placeholder for real art)
     self.bg = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
-    self.bg:SetSize(280, 165)
-    self.bg:SetTint(0, 0, 0, 0.5)
+    self.bg:SetSize(290, 175)
+    self.bg:SetTint(0.05, 0.05, 0.1, 0.7)
+
+    -- Subtle border (second smaller image layered for a frame effect)
+    self.bg_border = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
+    self.bg_border:SetSize(280, 165)
+    self.bg_border:SetTint(0.1, 0.15, 0.25, 0.4)
 
     -- Linh căn label
     self.linhcan_text = self:AddChild(Text(FONT, FONT_SIZE, ""))
