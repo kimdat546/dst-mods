@@ -34,6 +34,14 @@ AddMinimapAtlas("images/map_icons/phamnhan.xml")
 -- Register phamnhan as a playable character
 AddModCharacter("phamnhan", "MALE")
 
+-- Register cultivation components.
+-- Server components are auto-discovered by name from scripts/components/<name>.lua
+-- when `inst:AddComponent("<name>")` is called. We just need to register their replicas.
+AddReplicableComponent("pn_linhcan")
+AddReplicableComponent("pn_tuvi")
+AddReplicableComponent("pn_canhgioi")
+-- pn_breakthrough is server-only — no replica registration needed.
+
 -- Character select override (Phase E / Task 14)
 modimport("scripts/pn/charselect_override.lua")
 

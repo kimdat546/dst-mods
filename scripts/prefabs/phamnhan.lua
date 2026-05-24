@@ -20,15 +20,29 @@ local function common_postinit(inst)
 end
 
 local function master_postinit(inst)
-    -- Base stats matching Wilson default (no perks for MVP1)
+    -- Cultivation components (order per design spec §2.5)
+    inst:AddComponent("pn_linhcan")
+    inst:AddComponent("pn_tuvi")
+    inst:AddComponent("pn_canhgioi")
+    inst:AddComponent("pn_breakthrough")
+
+    -- Roll linh căn on first spawn (idempotent — won't re-roll on reload)
+    inst:DoTaskInTime(0, function()
+        if inst.components.pn_linhcan and not inst.components.pn_linhcan.rolled then
+            inst.components.pn_linhcan:RollNew()
+            print(string.format("[PN] %s rolled linh căn: %s [%s]",
+                tostring(inst.userid or "?"),
+                inst.components.pn_linhcan:GetDisplay(),
+                inst.components.pn_linhcan:GetElementDisplay()))
+        end
+    end)
+
+    -- Base stats: vanilla Wilson defaults, no perks
     inst.components.health:SetMaxHealth(100)
     inst.components.hunger:SetMax(150)
     inst.components.sanity:SetMax(200)
-
     inst.components.combat.damagemultiplier = 1.0
     inst.components.hunger.hungerrate = TUNING.WILSON_HUNGER_RATE
-
-    -- Plan 1: NO mod components added. Plan 2 adds pn_linhcan, etc.
 end
 
 return MakePlayerCharacter("phamnhan", prefabs, assets, common_postinit, master_postinit, start_inv)
