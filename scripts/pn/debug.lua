@@ -85,4 +85,20 @@ function _G.c_pnstate(player)
     end
 end
 
-print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate")
+-- Set remaining lifespan (in days)
+function _G.c_setlifespan(days, player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player or not player.components.pn_lifespan then return end
+    player.components.pn_lifespan:SetRemaining(days or 0)
+    print(string.format("[PN] Set lifespan remaining = %d for %s",
+        days or 0, tostring(player.userid)))
+end
+
+-- Force death of old age (triggers permadeath flow)
+function _G.c_dieofold(player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player or not player.components.pn_lifespan then return end
+    player.components.pn_lifespan:TriggerPermadeath()
+end
+
+print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold")
