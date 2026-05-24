@@ -6,11 +6,8 @@
 
 local TUNING = require("pn/tuning")
 
-local assets = {
-    Asset("ANIM", "anim/gems.zip"),
-}
-
--- Map each species to a gem animation + tint colour for visual distinction.
+-- Vanilla anim/gems.zip auto-resolved; no mod-local asset declaration.
+-- Map each species to a gem animation for visual distinction.
 local SPECIES_ANIM = {
     TAM_TINH_HOA   = "greengem_idle",
     LINH_TIEN_THAO = "yellowgem_idle",
@@ -109,7 +106,7 @@ local function MakeLinhThao(species_key, prefab_name)
         end)
 
         return inst
-    end, assets)
+    end, {})
 end
 
 return

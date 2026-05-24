@@ -6,9 +6,8 @@ local TUNING = require("pn/tuning")
 
 -- ALL gems in DST share bank "gems" and build "gems"; the colour comes from
 -- the animation name (verified from reference/dst-scripts/scripts/prefabs/gem.lua).
-local assets = {
-    Asset("ANIM", "anim/gems.zip"),
-}
+-- No mod-local assets; reuses vanilla anim/gems.zip auto-resolved by engine.
+local assets = {}
 
 local TIER_ANIM = {
     HA_PHAM     = "bluegem_idle",
