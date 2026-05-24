@@ -16,7 +16,7 @@ local PnHudMain = Class(Widget, function(self, owner)
 
     -- Background frame
     self.bg = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
-    self.bg:SetSize(280, 110)
+    self.bg:SetSize(280, 140)
     self.bg:SetTint(0, 0, 0, 0.5)
 
     -- Linh căn label
@@ -44,6 +44,11 @@ local PnHudMain = Class(Widget, function(self, owner)
     self.bar_text = self:AddChild(Text(FONT, FONT_SIZE - 4, "0 / 0"))
     self.bar_text:SetPosition(0, -25)
     self.bar_text:SetHAlign(ANCHOR_MIDDLE)
+
+    -- Lifespan label (Plan 3)
+    self.lifespan_text = self:AddChild(Text(FONT, FONT_SIZE - 2, ""))
+    self.lifespan_text:SetPosition(0, -50)
+    self.lifespan_text:SetHAlign(ANCHOR_MIDDLE)
 
     self:StartUpdating()
 end)
@@ -85,6 +90,23 @@ function PnHudMain:OnUpdate(dt)
     else
         self.bar_fill:SetSize(2, 12)
         self.bar_text:SetString("- / -")
+    end
+
+    -- Lifespan line
+    local ls = p.replica.pn_lifespan
+    if ls and ls:HasData() then
+        local s
+        if ls:IsPermadeath() then
+            s = "Thọ: ĐÃ TẬN"
+        else
+            s = string.format("Thọ: %d / %d ngày",
+                math.floor(ls:GetRemaining()), math.floor(ls:GetTotal()))
+        end
+        self.lifespan_text:SetString(s)
+        local col = ls:GetColor()
+        self.lifespan_text:SetColour(col[1], col[2], col[3], col[4])
+    else
+        self.lifespan_text:SetString("Thọ: -")
     end
 end
 
