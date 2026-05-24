@@ -85,4 +85,88 @@ return {
             [2] = 300,  -- Tier 2 = thượng phẩm equivalent
         },
     },
+
+    -- Nội đan items dropped by cultivated mobs
+    NOI_DAN = {
+        HA = {
+            tu_vi_burst = 50,
+            display     = "Nội đan hạ phẩm",
+            tex_atlas   = "images/inventoryimages/redgem.xml",  -- placeholder
+            tex_image   = "redgem.tex",
+            anim_bank   = "redgem",
+            anim_build  = "redgem",
+        },
+        TRUNG = {
+            tu_vi_burst = 120,
+            display     = "Nội đan trung phẩm",
+            tex_atlas   = "images/inventoryimages/bluegem.xml",
+            tex_image   = "bluegem.tex",
+            anim_bank   = "bluegem",
+            anim_build  = "bluegem",
+        },
+        THUONG = {
+            tu_vi_burst = 300,
+            display     = "Nội đan thượng phẩm",
+            tex_atlas   = "images/inventoryimages/purplegem.xml",
+            tex_image   = "purplegem.tex",
+            anim_bank   = "purplegem",
+            anim_build  = "purplegem",
+        },
+        -- Drop chances from cultivated mobs killed by players
+        DROP_CHANCE = {
+            [0] = 0.5,  -- Tier 0 mob → 50% hạ phẩm
+            [1] = 1.0,  -- Tier 1 → 100% trung
+            [2] = 1.0,  -- Tier 2 → 100% thượng
+        },
+        -- Bonus linh thảo drop from Tier 2 kills
+        TIER2_LINHTHAO_BONUS_CHANCE = 0.05,
+    },
+
+    -- Linh thảo (spirit herbs) — foraged from biomes, eat for tu vi + buff
+    LINH_THAO = {
+        TAM_TINH_HOA = {
+            tu_vi_burst   = 20,
+            buff          = "sanity_regen",
+            buff_duration = 300,   -- 5 minutes
+            buff_strength = 0.5,   -- +0.5 sanity per second for 5 min
+            display       = "Tâm Tĩnh Hoa",
+            tex_atlas     = "images/inventoryimages/petals.xml",
+            tex_image     = "petals.tex",
+            anim_bank     = "petals",
+            anim_build    = "petals",
+            biome_tag     = "forest",
+        },
+        LINH_TIEN_THAO = {
+            tu_vi_burst   = 15,
+            buff          = "speed_boost",
+            buff_duration = 300,
+            buff_strength = 0.1,   -- +10% speed
+            display       = "Linh Tiền Thảo",
+            tex_atlas     = "images/inventoryimages/petals_evil.xml",
+            tex_image     = "petals_evil.tex",
+            anim_bank     = "petals_evil",
+            anim_build    = "petals_evil",
+            biome_tag     = "grassland",
+        },
+        HONG_LIEN_TU = {
+            tu_vi_burst   = 30,
+            buff          = "fire_resist",
+            buff_duration = 300,
+            buff_strength = 0.5,   -- +50% fire resistance
+            display       = "Hồng Liên Tử",
+            tex_atlas     = "images/inventoryimages/petals_lichen.xml",
+            tex_image     = "petals_lichen.tex",
+            anim_bank     = "petals_lichen",
+            anim_build    = "petals_lichen",
+            biome_tag     = "marsh",
+        },
+    },
+
+    -- Worldgen scatter — linh thảo placement
+    LINH_THAO_WORLDGEN = {
+        COUNT_PER_SPECIES = 30,
+        MIN_DIST_FROM_SPAWN = 100,
+        SCATTER_RADIUS    = 600,
+        SCATTER_ATTEMPTS  = 50,
+    },
 }
