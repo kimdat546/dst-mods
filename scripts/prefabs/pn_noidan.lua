@@ -1,8 +1,26 @@
 -- scripts/prefabs/pn_noidan.lua
 -- Nội đan (inner pill) items dropped by cultivated mobs.
 -- 3 phẩm: Hạ / Trung / Thượng. Eat → push pn_tuvi_gain on eater.
+-- Placeholder visual reuses vanilla "gems" anim bank.
 
 local TUNING = require("pn/tuning")
+
+local assets = {
+    Asset("ANIM", "anim/gems.zip"),
+}
+
+-- All gems share bank/build "gems"; animation determines the colour.
+local TIER_ANIM = {
+    HA     = "redgem_idle",
+    TRUNG  = "bluegem_idle",
+    THUONG = "purplegem_idle",
+}
+
+local TIER_ATLAS = {
+    HA     = "images/inventoryimages/redgem.xml",
+    TRUNG  = "images/inventoryimages/bluegem.xml",
+    THUONG = "images/inventoryimages/purplegem.xml",
+}
 
 local function MakeNoiDan(tier_key, prefab_name)
     return Prefab(prefab_name, function()
@@ -13,10 +31,9 @@ local function MakeNoiDan(tier_key, prefab_name)
 
         MakeInventoryPhysics(inst)
 
-        local cfg = TUNING.NOI_DAN[tier_key]
-        inst.AnimState:SetBank(cfg.anim_bank)
-        inst.AnimState:SetBuild(cfg.anim_build)
-        inst.AnimState:PlayAnimation("idle")
+        inst.AnimState:SetBank("gems")
+        inst.AnimState:SetBuild("gems")
+        inst.AnimState:PlayAnimation(TIER_ANIM[tier_key] or "redgem_idle", true)
 
         inst:AddTag("molebait")
 
@@ -28,7 +45,7 @@ local function MakeNoiDan(tier_key, prefab_name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        inst.components.inventoryitem.atlasname = cfg.tex_atlas
+        inst.components.inventoryitem.atlasname = TIER_ATLAS[tier_key]
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_MEDIUM or 40
@@ -39,6 +56,7 @@ local function MakeNoiDan(tier_key, prefab_name)
         inst.components.edible.healthvalue = 0
         inst.components.edible.sanityvalue = 0
 
+        local cfg = TUNING.NOI_DAN[tier_key]
         inst:ListenForEvent("oneaten", function(_, data)
             if data and data.eater then
                 data.eater:PushEvent("pn_tuvi_gain", {
@@ -49,7 +67,7 @@ local function MakeNoiDan(tier_key, prefab_name)
         end)
 
         return inst
-    end, {})
+    end, assets)
 end
 
 return

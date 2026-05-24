@@ -1,8 +1,27 @@
 -- scripts/prefabs/pn_linhthao.lua
 -- Linh thảo (spirit herbs) — foraged from biomes. Eat for tu vi burst + 5-min buff.
--- 3 species: Tâm Tĩnh Hoa (forest), Linh Tiền Thảo (grassland), Hồng Liên Tử (marsh).
+-- 3 species: Tâm Tĩnh Hoa / Linh Tiền Thảo / Hồng Liên Tử.
+-- Placeholder visual reuses vanilla "gems" anim bank (real bank "petals_lichen" etc.
+-- didn't exist; was causing dedicated_server crashes via corrupted AnimState).
 
 local TUNING = require("pn/tuning")
+
+local assets = {
+    Asset("ANIM", "anim/gems.zip"),
+}
+
+-- Map each species to a gem animation + tint colour for visual distinction.
+local SPECIES_ANIM = {
+    TAM_TINH_HOA   = "greengem_idle",
+    LINH_TIEN_THAO = "yellowgem_idle",
+    HONG_LIEN_TU   = "redgem_idle",
+}
+
+local SPECIES_ATLAS = {
+    TAM_TINH_HOA   = "images/inventoryimages/greengem.xml",
+    LINH_TIEN_THAO = "images/inventoryimages/yellowgem.xml",
+    HONG_LIEN_TU   = "images/inventoryimages/redgem.xml",
+}
 
 local function ApplyBuff(player, cfg)
     if not player then return end
@@ -11,7 +30,6 @@ local function ApplyBuff(player, cfg)
     local s    = cfg.buff_strength or 0
 
     if buff == "sanity_regen" then
-        -- Custom periodic sanity restore. Simple inline implementation.
         local task = player:DoPeriodicTask(1.0, function()
             if player.components.sanity then
                 player.components.sanity:DoDelta(s, true)
@@ -33,7 +51,6 @@ local function ApplyBuff(player, cfg)
         end
 
     elseif buff == "fire_resist" then
-        -- Use vanilla health absorption modifier.
         if player.components.health then
             local old = player.components.health.fire_damage_scale or 1
             player.components.health.fire_damage_scale = math.max(0, old - s)
@@ -55,12 +72,10 @@ local function MakeLinhThao(species_key, prefab_name)
 
         MakeInventoryPhysics(inst)
 
-        local cfg = TUNING.LINH_THAO[species_key]
-        inst.AnimState:SetBank(cfg.anim_bank)
-        inst.AnimState:SetBuild(cfg.anim_build)
-        inst.AnimState:PlayAnimation("idle")
+        inst.AnimState:SetBank("gems")
+        inst.AnimState:SetBuild("gems")
+        inst.AnimState:PlayAnimation(SPECIES_ANIM[species_key] or "greengem_idle", true)
 
-        inst:AddTag("flower")
         inst:AddTag("linh_thao")
 
         inst.entity:SetPristine()
@@ -71,7 +86,7 @@ local function MakeLinhThao(species_key, prefab_name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        inst.components.inventoryitem.atlasname = cfg.tex_atlas
+        inst.components.inventoryitem.atlasname = SPECIES_ATLAS[species_key]
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALL or 20
@@ -82,6 +97,7 @@ local function MakeLinhThao(species_key, prefab_name)
         inst.components.edible.healthvalue = 0
         inst.components.edible.sanityvalue = 0
 
+        local cfg = TUNING.LINH_THAO[species_key]
         inst:ListenForEvent("oneaten", function(_, data)
             if data and data.eater then
                 data.eater:PushEvent("pn_tuvi_gain", {
@@ -93,7 +109,7 @@ local function MakeLinhThao(species_key, prefab_name)
         end)
 
         return inst
-    end, {})
+    end, assets)
 end
 
 return
