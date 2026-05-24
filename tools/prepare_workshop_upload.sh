@@ -21,6 +21,14 @@ cp "$SRC/modicon.tex"    "$DEST/"
 cp "$SRC/modicon.xml"    "$DEST/"
 [ -f "$SRC/PLACEHOLDER.md" ] && cp "$SRC/PLACEHOLDER.md" "$DEST/"
 
+# Steam Workshop preview image (512x512 RGBA PNG, separate from in-game modicon)
+if [ -f "$SRC/preview.png" ]; then
+    cp "$SRC/preview.png" "$DEST/"
+    echo "    + preview.png (Workshop cover)"
+else
+    echo "    ⚠ no preview.png at mod root — Workshop upload form will prompt for one"
+fi
+
 # Game content directories
 for dir in scripts images bigportraits anim strings; do
     if [ -d "$SRC/$dir" ]; then
@@ -47,5 +55,13 @@ fi
 
 echo "✓ Staging done at $DEST"
 echo ""
-echo "Next: open Don't Starve Mod Tools / ModUploader.app and point it at:"
-echo "  $DEST"
+echo "Next steps (Klei in-game Workshop upload flow):"
+echo ""
+echo "1. Point DST at the staged folder:"
+echo "   DST_MODS=\"\$HOME/Library/Application Support/Steam/steamapps/common/Don't Starve Together/dontstarve_steam.app/Contents/mods\""
+echo "   ln -sfn $DEST \"\$DST_MODS/pntt_mod\""
+echo ""
+echo "2. Open DST → Main menu → Mods → find 'Phàm Nhân Tu Tiên' in list"
+echo "3. Click on it → press 'Submit Mod To Workshop' button"
+echo "4. In upload form: choose preview image, set visibility to Unlisted, add changelog"
+echo "5. Click Submit. Workshop URL appears when done."
