@@ -4,8 +4,11 @@
 
 local MakePlayerCharacter = require("prefabs/player_common")
 
+-- Character visual: placeholder uses Hàn Thiên Tôn build from Dengxian mod
+-- (shipped as anim/xd_hantianzun.zip in our mod folder; see PLACEHOLDER.md).
 local assets = {
-    -- Re-use vanilla player skeleton for MVP1. Future plans add anim/phamnhan.zip.
+    Asset("ANIM", "anim/xd_hantianzun.zip"),
+    Asset("ANIM", "anim/ghost_xd_hantianzun_build.zip"),
 }
 
 local prefabs = {}
@@ -21,6 +24,11 @@ local function common_postinit(inst)
 end
 
 local function master_postinit(inst)
+    -- Use Hàn Thiên Tôn placeholder build until we ship our own character art.
+    -- AnimState was already set to bank "wilson" + build "phamnhan" by MakePlayerCharacter;
+    -- override the build to the actual file we ship.
+    inst.AnimState:SetBuild("xd_hantianzun")
+
     -- Cultivation components (order per design spec §2.5)
     inst:AddComponent("pn_linhcan")
     inst:AddComponent("pn_tuvi")

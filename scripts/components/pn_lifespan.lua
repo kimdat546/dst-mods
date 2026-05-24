@@ -21,13 +21,13 @@ local PnLifespan = Class(function(self, inst)
         -- Decay on every in-game day transition (dusk -> night counts as one cycle finished)
         -- We listen on the world; the world fires "phasechanged" every transition.
         -- We tick on "day" specifically to match "1 day passed = 1 lifespan day lost".
-        if GLOBAL.TheWorld then
+        if TheWorld then
             self._world_handler = function(_, data)
                 if data and data.newphase == "day" then
                     self:_DecayOneDay()
                 end
             end
-            inst:ListenForEvent("phasechanged", self._world_handler, GLOBAL.TheWorld)
+            inst:ListenForEvent("phasechanged", self._world_handler, TheWorld)
         end
     end
 end)
@@ -111,8 +111,8 @@ end
 
 function PnLifespan:OnRemoveEntity()
     -- Detach world listener so the handler doesn't outlive the player entity.
-    if self._world_handler and GLOBAL.TheWorld then
-        GLOBAL.TheWorld:RemoveEventCallback("phasechanged", self._world_handler)
+    if self._world_handler and TheWorld then
+        TheWorld:RemoveEventCallback("phasechanged", self._world_handler)
     end
 end
 
