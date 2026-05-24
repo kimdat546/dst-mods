@@ -56,7 +56,7 @@ function PnCanhGioi:_ApplyStatDelta(old_tier, new_tier)
     if self.inst.components.locomotor then
         local cur = self.inst.components.locomotor:GetExternalSpeedMultiplier(self.inst, "pn_canhgioi_speed")
                     or 1.0
-        self.inst.components.locomotor:SetExternalMultiplier(
+        self.inst.components.locomotor:SetExternalSpeedMultiplier(
             self.inst, "pn_canhgioi_speed",
             cur + s.SPEED_MULT_DELTA * tier_delta
         )

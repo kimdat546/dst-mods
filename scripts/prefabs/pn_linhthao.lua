@@ -42,10 +42,10 @@ local function ApplyBuff(player, cfg)
     elseif buff == "speed_boost" then
         if player.components.locomotor then
             local key = "pn_linhthao_speed"
-            player.components.locomotor:SetExternalMultiplier(player, key, 1 + s)
+            player.components.locomotor:SetExternalSpeedMultiplier(player, key, 1 + s)
             player:DoTaskInTime(dur, function()
                 if player.components.locomotor then
-                    player.components.locomotor:RemoveExternalMultiplier(player, key)
+                    player.components.locomotor:RemoveExternalSpeedMultiplier(player, key)
                 end
             end)
         end
