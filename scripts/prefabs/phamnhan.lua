@@ -21,13 +21,16 @@ local function common_postinit(inst)
     -- Add network tags for mod features
     inst:AddTag("phamnhan")
     inst:AddTag("pn_aura_target")  -- so pn_aura_source picks us up
+
+    -- IMPORTANT: SetBuild must run on BOTH client and server, so it lives here
+    -- (not master_postinit which is server-only). Without this on the client,
+    -- the renderer looks up the default build "phamnhan" (= prefab name) which
+    -- doesn't exist → character is invisible.
+    inst.AnimState:SetBuild("xd_hantianzun")
 end
 
 local function master_postinit(inst)
-    -- Use Hàn Thiên Tôn placeholder build until we ship our own character art.
-    -- AnimState was already set to bank "wilson" + build "phamnhan" by MakePlayerCharacter;
-    -- override the build to the actual file we ship.
-    inst.AnimState:SetBuild("xd_hantianzun")
+    -- (SetBuild moved to common_postinit so client also applies it.)
 
     -- Cultivation components (order per design spec §2.5)
     inst:AddComponent("pn_linhcan")
