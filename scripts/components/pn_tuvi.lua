@@ -14,6 +14,9 @@ local PnTuVi = Class(function(self, inst)
         inst:ListenForEvent(Events.TUVI_GAIN, function(_, data)
             self:_OnTuViGain(data)
         end)
+        if inst.DoTaskInTime then
+            inst:DoTaskInTime(0, function() self:_PushToReplica() end)
+        end
     end
 end)
 

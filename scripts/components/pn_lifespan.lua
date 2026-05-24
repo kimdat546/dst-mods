@@ -13,6 +13,11 @@ local PnLifespan = Class(function(self, inst)
     self.permadeath = false
 
     if inst then
+        -- Push initial state to replica so HUD shows 60/60 immediately, not 0/0.
+        if inst.DoTaskInTime then
+            inst:DoTaskInTime(0, function() self:_PushToReplica() end)
+        end
+
         -- Extend lifespan on breakthrough
         inst:ListenForEvent(Events.CANHGIOI_UP, function(_, _)
             self:_OnBreakthrough()

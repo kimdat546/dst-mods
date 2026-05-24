@@ -1,6 +1,9 @@
 -- scripts/widgets/pn_hud_main.lua
 -- HUD overlay showing player's linh căn / cảnh giới / tu vi progress.
 -- Attaches via AddClassPostConstruct("widgets/controls") in modmain.
+--
+-- Right-click + drag the HUD background to move it anywhere on screen.
+-- Position is saved to TheSim:SetPersistentString and restored next session.
 
 local Widget = require("widgets/widget")
 local Text   = require("widgets/text")
@@ -10,6 +13,24 @@ local Realms = require("pn/realms")
 local FONT     = NUMBERFONT
 local FONT_SIZE = 22
 
+local POSITION_SAVE_KEY = "pn_hud_position"
+
+local function LoadSavedPosition(callback)
+    -- Async load. callback(x, y) when done. If no saved data, callback is not invoked.
+    TheSim:GetPersistentString(POSITION_SAVE_KEY, function(success, data)
+        if success and data and data ~= "" then
+            local x, y = string.match(data, "([%-%d%.]+),([%-%d%.]+)")
+            if x and y then
+                callback(tonumber(x), tonumber(y))
+            end
+        end
+    end)
+end
+
+local function SavePosition(x, y)
+    TheSim:SetPersistentString(POSITION_SAVE_KEY, string.format("%.1f,%.1f", x, y), false)
+end
+
 local PnHudMain = Class(Widget, function(self, owner)
     Widget._ctor(self, "PnHudMain")
     self.owner = owner
@@ -18,6 +39,8 @@ local PnHudMain = Class(Widget, function(self, owner)
     self.bg = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
     self.bg:SetSize(290, 175)
     self.bg:SetTint(0.05, 0.05, 0.1, 0.7)
+    -- Make bg clickable so right-click drag works
+    self.bg:SetClickable(true)
 
     -- Subtle border (second smaller image layered for a frame effect)
     self.bg_border = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
@@ -68,22 +91,78 @@ local PnHudMain = Class(Widget, function(self, owner)
     self.breakthrough_text:SetColour(1, 0.85, 0.2, 1)  -- gold
     self._breakthrough_until = 0
 
+    -- Drag-to-reposition state
+    self._dragging = false
+    self._drag_start_mouse = nil  -- screen pos when drag started
+    self._drag_start_widget = nil -- widget pos when drag started
+
     -- Hook breakthrough event for celebration text
     if owner then
         self._breakthrough_listener = function(_, data)
             if data and data.new_tier then
-                local Realms = require("pn/realms")
                 self.breakthrough_text:SetString("✦ Đột phá: " .. Realms.GetDisplay(data.new_tier) .. " ✦")
-                self._breakthrough_until = GetTime() + 5.0  -- show for 5 seconds
+                self._breakthrough_until = GetTime() + 5.0
             end
         end
         owner:ListenForEvent("pn_canhgioi_up", self._breakthrough_listener)
     end
 
+    -- Restore saved position (async)
+    LoadSavedPosition(function(x, y)
+        if self.inst and self.inst:IsValid() then
+            self:SetPosition(x, y)
+        end
+    end)
+
     self:StartUpdating()
 end)
 
+-- Right-click + drag handler. DST routes mouse clicks on a widget through
+-- the bg's OnControl (the clickable child); we intercept at the parent level.
+function PnHudMain:OnMouseButton(button, down, x, y)
+    if button == MOUSEBUTTON_RIGHT then
+        if down then
+            -- Only start drag if click is over our bg area
+            if self.bg and self.bg:IsVisible() then
+                self._dragging = true
+                local mx, my = TheInput:GetScreenPosition():Get()
+                self._drag_start_mouse  = { x = mx, y = my }
+                local pos = self:GetPosition()
+                self._drag_start_widget = { x = pos.x, y = pos.y }
+                return true
+            end
+        else
+            -- Right-click released → end drag, save position
+            if self._dragging then
+                self._dragging = false
+                local pos = self:GetPosition()
+                SavePosition(pos.x, pos.y)
+                return true
+            end
+        end
+    end
+    return false
+end
+
 function PnHudMain:OnUpdate(dt)
+    -- Handle drag movement (poll mouse position while dragging)
+    if self._dragging then
+        if not TheInput:IsMouseDown(MOUSEBUTTON_RIGHT) then
+            -- Mouse released outside our area; end drag + save
+            self._dragging = false
+            local pos = self:GetPosition()
+            SavePosition(pos.x, pos.y)
+        else
+            local mx, my = TheInput:GetScreenPosition():Get()
+            local dx = mx - self._drag_start_mouse.x
+            local dy = my - self._drag_start_mouse.y
+            self:SetPosition(
+                self._drag_start_widget.x + dx,
+                self._drag_start_widget.y + dy
+            )
+        end
+    end
+
     local p = self.owner
     if not p or not p.replica then return end
 
@@ -100,13 +179,20 @@ function PnHudMain:OnUpdate(dt)
         self.linhcan_text:SetString("Linh căn: ?")
     end
 
-    -- Cảnh giới line
+    -- Cảnh giới line — always show (Phàm Nhân for tier 0)
     if cg then
-        self.canhgioi_text:SetString(cg:GetDisplay())
+        local display = cg:GetDisplay()
+        -- GetDisplay can return empty if Realms returned nil; guard with default
+        if display == nil or display == "" then
+            display = "Phàm Nhân"
+        end
+        self.canhgioi_text:SetString(display)
         local col = cg:GetColor()
-        self.canhgioi_text:SetColour(col[1], col[2], col[3], col[4])
+        if col then
+            self.canhgioi_text:SetColour(col[1], col[2], col[3], col[4])
+        end
     else
-        self.canhgioi_text:SetString("?")
+        self.canhgioi_text:SetString("Phàm Nhân")
     end
 
     -- Tu vi bar

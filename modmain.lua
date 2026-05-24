@@ -46,11 +46,13 @@ AddReplicableComponent("pn_canhgioi")
 AddReplicableComponent("pn_lifespan")
 -- pn_breakthrough is server-only — no replica registration needed.
 
--- Attach HUD widget to player controls bottom-left.
+-- Attach HUD widget to TOP-LEFT corner (above health/sanity/hunger badges).
+-- Originally on bottom_root (-400, 90) but that overlapped inventory slots and
+-- blocked clicks. top_root anchors at (0,0) = top-center, so go left + slightly down.
 AddClassPostConstruct("widgets/controls", function(self)
     local PnHudMain = require("widgets/pn_hud_main")
-    self.pn_hud = self.bottom_root:AddChild(PnHudMain(self.owner))
-    self.pn_hud:SetPosition(-400, 90)
+    self.pn_hud = self.top_root:AddChild(PnHudMain(self.owner))
+    self.pn_hud:SetPosition(-580, -100)
 end)
 
 -- Permadeath enforcement: when pn_lifespan.permadeath is true, the player cannot

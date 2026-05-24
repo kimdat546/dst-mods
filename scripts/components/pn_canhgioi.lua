@@ -13,6 +13,12 @@ local PnCanhGioi = Class(function(self, inst)
         inst:ListenForEvent(Events.CANHGIOI_UP, function(_, data)
             self:_OnCanhGioiUp(data)
         end)
+        -- Push the initial tier (0 = Phàm Nhân) to the replica immediately so the
+        -- HUD shows "Phàm Nhân" right away instead of empty (default net value
+        -- isn't reliably synced before first explicit set).
+        if inst.DoTaskInTime then
+            inst:DoTaskInTime(0, function() self:_PushToReplica() end)
+        end
     end
 end)
 
