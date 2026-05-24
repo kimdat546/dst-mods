@@ -25,4 +25,37 @@ return {
         BONUS_PER_TIER   = 5,   -- +5 days per Luyện Khí tier breakthrough
         DECAY_PER_DAY    = 1,
     },
+
+    -- Linh mạch sources — 3 tiers, scatter on worldgen
+    LINH_MACH = {
+        HA_PHAM = {
+            rate_per_sec = 1.0,
+            aura_radius  = 4,
+            tint         = { 0.5, 0.85, 1.0 },   -- light blue
+        },
+        TRUNG_PHAM = {
+            rate_per_sec = 2.5,
+            aura_radius  = 5,
+            tint         = { 1.0, 0.85, 0.3 },   -- gold
+        },
+        THUONG_PHAM = {
+            rate_per_sec = 5.0,
+            aura_radius  = 6,
+            tint         = { 1.0, 0.4, 0.7 },    -- pinkish red
+        },
+        SCAN_INTERVAL = 1.0,                      -- seconds between aura ticks
+    },
+
+    -- Tu vi source burst values (for items in later plans, defined here for reference)
+    TUVI_SOURCES = {
+        SIT_MEDITATE_BONUS  = 1.5,                -- multiplier when sitting on linh mạch
+        AMBIENT_PER_MIN     = 3,                  -- Plan 6 — ambient passive gain
+    },
+
+    -- Worldgen scatter
+    WORLDGEN = {
+        LINH_MACH_COUNT     = { HA = 20, TRUNG = 6, THUONG = 2 },
+        LINH_MACH_MIN_DIST  = { HA = 0,  TRUNG = 300, THUONG = 600 },
+        SCATTER_ATTEMPTS    = 30,                 -- placement tries before giving up per entity
+    },
 }
