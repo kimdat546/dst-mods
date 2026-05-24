@@ -158,4 +158,24 @@ function _G.c_mobcult(player)
     end
 end
 
-print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold, c_spawnlinhmach, c_aurastate, c_mobcult")
+-- Spawn an item in player's inventory (or at feet if inventory full)
+function _G.c_giveitem(prefab_name, count, player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player then return end
+    count = count or 1
+    for i = 1, count do
+        local item = GLOBAL.SpawnPrefab(prefab_name)
+        if item then
+            if player.components.inventory then
+                player.components.inventory:GiveItem(item)
+            else
+                local x, y, z = player.Transform:GetWorldPosition()
+                item.Transform:SetPosition(x, y, z)
+            end
+        end
+    end
+    print(string.format("[PN] Gave %d × %s to %s",
+        count, prefab_name, tostring(player.userid)))
+end
+
+print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold, c_spawnlinhmach, c_aurastate, c_mobcult, c_giveitem")
