@@ -8,6 +8,8 @@ GLOBAL.setmetatable(env, {
 PrefabFiles = {
     "phamnhan",
     "pn_linhkhi_source",
+    "pn_noidan",
+    "pn_linhthao",
 }
 
 Assets = {
@@ -125,6 +127,46 @@ AddPrefabPostInit("world", function(inst)
     end)
 end)
 
+-- Linh thảo worldgen scatter — 30 of each species spread around the map.
+AddPrefabPostInit("world", function(inst)
+    if not GLOBAL.TheWorld.ismastersim then return end
+    inst:DoTaskInTime(0.5, function()
+        local cfg = GLOBAL.require("pn/tuning").LINH_THAO_WORLDGEN
+        if not cfg then return end
+        local map = GLOBAL.TheWorld.Map
+        if not map then return end
+
+        local species_prefabs = {
+            "pn_linhthao_tam_tinh_hoa",
+            "pn_linhthao_linh_tien_thao",
+            "pn_linhthao_hong_lien_tu",
+        }
+
+        local placed = 0
+        for _, prefab in ipairs(species_prefabs) do
+            for i = 1, cfg.COUNT_PER_SPECIES do
+                local attempts = 0
+                while attempts < cfg.SCATTER_ATTEMPTS do
+                    local angle = math.random() * 2 * math.pi
+                    local r     = cfg.MIN_DIST_FROM_SPAWN + math.random() * cfg.SCATTER_RADIUS
+                    local x, z  = math.cos(angle) * r, math.sin(angle) * r
+                    if map:IsAboveGroundAtPoint(x, 0, z) then
+                        local ent = GLOBAL.SpawnPrefab(prefab)
+                        if ent then
+                            ent.Transform:SetPosition(x, 0, z)
+                            placed = placed + 1
+                            break
+                        end
+                    end
+                    attempts = attempts + 1
+                end
+            end
+        end
+
+        print(string.format("[PN] Scattered %d linh thảo on worldgen", placed))
+    end)
+end)
+
 -- Character select override (Phase E / Task 14)
 modimport("scripts/pn/charselect_override.lua")
 
@@ -133,6 +175,14 @@ STRINGS.CHARACTER_TITLES.phamnhan      = "Phàm Nhân"
 STRINGS.CHARACTER_NAMES.phamnhan       = "Phàm Nhân"
 STRINGS.CHARACTER_DESCRIPTIONS.phamnhan= "Một phàm nhân bình thường, mơ ước con đường tu tiên."
 STRINGS.CHARACTER_QUOTES.phamnhan      = "\"Tu đạo chi lộ, nghịch thiên mà hành.\""
+
+-- Item display names
+STRINGS.NAMES.PN_NOIDAN_HA     = "Nội đan hạ phẩm"
+STRINGS.NAMES.PN_NOIDAN_TRUNG  = "Nội đan trung phẩm"
+STRINGS.NAMES.PN_NOIDAN_THUONG = "Nội đan thượng phẩm"
+STRINGS.NAMES.PN_LINHTHAO_TAM_TINH_HOA   = "Tâm Tĩnh Hoa"
+STRINGS.NAMES.PN_LINHTHAO_LINH_TIEN_THAO = "Linh Tiền Thảo"
+STRINGS.NAMES.PN_LINHTHAO_HONG_LIEN_TU   = "Hồng Liên Tử"
 
 -- Debug console commands (always loaded during MVP; gate behind config in later plans)
 modimport("scripts/pn/debug.lua")
