@@ -6,7 +6,7 @@
 set -euo pipefail
 
 SRC="/Users/kimdat546/Desktop/pham-nhan-tu-tien-mod"
-DEST="/tmp/pntt_mod_workshop"
+DEST="/Users/kimdat546/Desktop/pham-nhan-tu-tien-upload"
 
 echo "→ Cleaning staging dir at $DEST..."
 rm -rf "$DEST"
@@ -55,13 +55,10 @@ fi
 
 echo "✓ Staging done at $DEST"
 echo ""
-echo "Next steps (Klei in-game Workshop upload flow):"
-echo ""
-echo "1. Point DST at the staged folder:"
-echo "   DST_MODS=\"\$HOME/Library/Application Support/Steam/steamapps/common/Don't Starve Together/dontstarve_steam.app/Contents/mods\""
-echo "   ln -sfn $DEST \"\$DST_MODS/pntt_mod\""
-echo ""
-echo "2. Open DST → Main menu → Mods → find 'Phàm Nhân Tu Tiên' in list"
-echo "3. Click on it → press 'Submit Mod To Workshop' button"
-echo "4. In upload form: choose preview image, set visibility to Unlisted, add changelog"
-echo "5. Click Submit. Workshop URL appears when done."
+echo "Next steps:"
+echo "  1. Open your Klei mod upload tool (the same one you used for dang-tien-viet-mod-upload)"
+echo "  2. When asked to select the mod folder, browse to:"
+echo "       $DEST"
+echo "  3. Fill metadata (most auto-loaded from modinfo.lua)"
+echo "  4. Choose preview image, set visibility = Unlisted, write changelog"
+echo "  5. Submit"
