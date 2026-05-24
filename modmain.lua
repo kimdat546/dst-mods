@@ -50,6 +50,38 @@ AddClassPostConstruct("widgets/controls", function(self)
     self.pn_hud:SetPosition(-400, 90)
 end)
 
+-- Permadeath enforcement: when pn_lifespan.permadeath is true, the player cannot
+-- be revived by any means. We monkey-patch Health:DoDelta to prevent healing from
+-- restoring life, and listen for revive attempts to abort them.
+AddComponentPostInit("health", function(self)
+    local _SetVal = self.SetVal
+    function self:SetVal(val, cause, afflicter)
+        local inst = self.inst
+        if inst and inst.components and inst.components.pn_lifespan
+           and inst.components.pn_lifespan:IsPermadeath()
+           and val > 0 then
+            -- Block any attempt to set HP above 0 once permadeath is set.
+            return _SetVal(self, 0, cause or "permadeath", afflicter)
+        end
+        return _SetVal(self, val, cause, afflicter)
+    end
+end)
+
+-- Block ghost-form revival actions for permadeath players.
+AddPrefabPostInit("world", function(inst)
+    if not GLOBAL.TheWorld.ismastersim then return end
+    inst:ListenForEvent("ms_playerreroll", function(_, data)
+        local p = data and data.player
+        if p and p.components and p.components.pn_lifespan
+           and p.components.pn_lifespan:IsPermadeath() then
+            -- Cancel reroll
+            print(string.format("[PN] Blocked reroll for permadeath player %s",
+                tostring(p.userid)))
+            return false
+        end
+    end)
+end)
+
 -- Character select override (Phase E / Task 14)
 modimport("scripts/pn/charselect_override.lua")
 
