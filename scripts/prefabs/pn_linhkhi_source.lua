@@ -4,10 +4,8 @@
 
 local TUNING = require("pn/tuning")
 
-local assets = {
-    -- Reuse vanilla firefly_lightsource anim as placeholder.
-    Asset("ANIM", "anim/firefly_lightsource.zip"),
-}
+-- No mod-local assets; reuses vanilla firefly_lightsource anim (auto-resolved by engine).
+local assets = {}
 
 local function MakeLinhKhi(tier_key, prefab_name)
     return Prefab(prefab_name, function()
