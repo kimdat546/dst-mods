@@ -97,17 +97,34 @@ function PnMobCultivation:_UpgradeTo(new_tier)
 end
 
 function PnMobCultivation:_OnDeath()
-    if self.current_tier == 0 then return end
     local killer = self.inst.components.combat
                    and self.inst.components.combat.lastattacker
     if not killer or not killer:HasTag("player") then return end
 
-    local reward = TUNING.MOB_CULTIVATION.KILL_REWARD[self.current_tier]
-    if reward and reward > 0 then
-        killer:PushEvent(Events.TUVI_GAIN, {
-            amount = reward,
-            source = "noidan_t" .. tostring(self.current_tier),
-        })
+    -- Determine which nội đan tier drops based on mob's current tier
+    local tier        = self.current_tier
+    local drop_chance = TUNING.NOI_DAN.DROP_CHANCE[tier]
+    if not drop_chance then return end
+
+    if math.random() > drop_chance then return end
+
+    local prefab_name = (tier == 0) and "pn_noidan_ha"
+                     or (tier == 1) and "pn_noidan_trung"
+                     or "pn_noidan_thuong"
+
+    local x, y, z = self.inst.Transform:GetWorldPosition()
+    local item = SpawnPrefab(prefab_name)
+    if item then
+        item.Transform:SetPosition(x, y, z)
+    end
+
+    -- Tier 2: bonus linh thảo (5% chance to drop a random species)
+    if tier == 2 and math.random() < (TUNING.NOI_DAN.TIER2_LINHTHAO_BONUS_CHANCE or 0.05) then
+        local species = { "pn_linhthao_tam_tinh_hoa", "pn_linhthao_linh_tien_thao", "pn_linhthao_hong_lien_tu" }
+        local bonus = SpawnPrefab(species[math.random(#species)])
+        if bonus then
+            bonus.Transform:SetPosition(x + 0.5, y, z)
+        end
     end
 end
 
