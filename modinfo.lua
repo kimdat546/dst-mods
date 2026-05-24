@@ -19,7 +19,7 @@ Tính năng MVP1:
 ALPHA: chỉ tester nội bộ. Permadeath bật mặc định. Asset placeholder.
 ]]
 author = "kimdat546"
-version = "0.1.2-mvp1"
+version = "0.1.3-mvp1"
 
 forumthread = ""
 

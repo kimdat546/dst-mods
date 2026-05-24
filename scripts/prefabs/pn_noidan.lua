@@ -13,11 +13,10 @@ local TIER_ANIM = {
     THUONG = "purplegem_idle",
 }
 
-local TIER_ATLAS = {
-    HA     = "images/inventoryimages/redgem.xml",
-    TRUNG  = "images/inventoryimages/bluegem.xml",
-    THUONG = "images/inventoryimages/purplegem.xml",
-}
+-- NOTE: vanilla gem.lua does NOT set inventoryitem.atlasname (relies on DST
+-- default). Setting `atlasname = "images/inventoryimages/redgem.xml"` triggers
+-- `resolvefilepath` Lua error because that asset lives inside DST's bundled
+-- images.zip — not accessible from mod search paths. Removed in 0.1.3.
 
 local function MakeNoiDan(tier_key, prefab_name)
     return Prefab(prefab_name, function()
@@ -42,7 +41,7 @@ local function MakeNoiDan(tier_key, prefab_name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        inst.components.inventoryitem.atlasname = TIER_ATLAS[tier_key]
+        -- atlasname intentionally omitted (see comment at top of file).
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_MEDIUM or 40

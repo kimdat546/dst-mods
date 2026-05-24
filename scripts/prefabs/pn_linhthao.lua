@@ -14,11 +14,11 @@ local SPECIES_ANIM = {
     HONG_LIEN_TU   = "redgem_idle",
 }
 
-local SPECIES_ATLAS = {
-    TAM_TINH_HOA   = "images/inventoryimages/greengem.xml",
-    LINH_TIEN_THAO = "images/inventoryimages/yellowgem.xml",
-    HONG_LIEN_TU   = "images/inventoryimages/redgem.xml",
-}
+-- NOTE: vanilla gem.lua does NOT set inventoryitem.atlasname (relies on DST
+-- default). Setting `atlasname = "images/inventoryimages/greengem.xml"`
+-- triggers `resolvefilepath` Lua error during worldgen — the asset lives in
+-- DST's bundled images.zip, not accessible from mod search paths.
+-- This was the actual 2026-05-24 caves shard crash. Removed in 0.1.3.
 
 local function ApplyBuff(player, cfg)
     if not player then return end
@@ -83,7 +83,7 @@ local function MakeLinhThao(species_key, prefab_name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        inst.components.inventoryitem.atlasname = SPECIES_ATLAS[species_key]
+        -- atlasname intentionally omitted (see comment at top of file).
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALL or 20
