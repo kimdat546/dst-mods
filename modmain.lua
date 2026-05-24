@@ -7,6 +7,7 @@ GLOBAL.setmetatable(env, {
 
 PrefabFiles = {
     "phamnhan",
+    "pn_linhkhi_source",
 }
 
 Assets = {
@@ -82,6 +83,48 @@ AddPrefabPostInit("world", function(inst)
     end)
 end)
 
+-- Worldgen scatter — place linh mạch across the map on world init.
+AddPrefabPostInit("world", function(inst)
+    if not GLOBAL.TheWorld.ismastersim then return end
+
+    -- Defer until next frame so the map is fully ready.
+    inst:DoTaskInTime(0, function()
+        local cfg = GLOBAL.require("pn/tuning").WORLDGEN
+        if not cfg or not cfg.LINH_MACH_COUNT then return end
+
+        local map = GLOBAL.TheWorld.Map
+        if not map then return end
+
+        local function place(prefab_name, count, min_dist)
+            for i = 1, count do
+                local attempts = 0
+                while attempts < (cfg.SCATTER_ATTEMPTS or 30) do
+                    local angle = math.random() * 2 * math.pi
+                    local r     = min_dist + math.random() * 400
+                    local x, z  = math.cos(angle) * r, math.sin(angle) * r
+                    if map:IsAboveGroundAtPoint(x, 0, z) then
+                        local ent = GLOBAL.SpawnPrefab(prefab_name)
+                        if ent then
+                            ent.Transform:SetPosition(x, 0, z)
+                            break
+                        end
+                    end
+                    attempts = attempts + 1
+                end
+            end
+        end
+
+        place("pn_linhkhi_ha",     cfg.LINH_MACH_COUNT.HA,     cfg.LINH_MACH_MIN_DIST.HA)
+        place("pn_linhkhi_trung",  cfg.LINH_MACH_COUNT.TRUNG,  cfg.LINH_MACH_MIN_DIST.TRUNG)
+        place("pn_linhkhi_thuong", cfg.LINH_MACH_COUNT.THUONG, cfg.LINH_MACH_MIN_DIST.THUONG)
+
+        print(string.format(
+            "[PN] Scattered linh mạch: %d hạ, %d trung, %d thượng",
+            cfg.LINH_MACH_COUNT.HA, cfg.LINH_MACH_COUNT.TRUNG, cfg.LINH_MACH_COUNT.THUONG
+        ))
+    end)
+end)
+
 -- Character select override (Phase E / Task 14)
 modimport("scripts/pn/charselect_override.lua")
 
@@ -93,5 +136,6 @@ STRINGS.CHARACTER_QUOTES.phamnhan      = "\"Tu đạo chi lộ, nghịch thiên 
 
 -- Debug console commands (always loaded during MVP; gate behind config in later plans)
 modimport("scripts/pn/debug.lua")
+modimport("scripts/pn/actions.lua")
 
 print("[PN] Phàm Nhân Tu Tiên mod loaded (Plan 1 — Foundation)")
