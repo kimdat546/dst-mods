@@ -29,19 +29,10 @@ AddClassPostConstruct("widgets/redux/characterselect", function(self)
     end
 end)
 
--- Server-side: if a player joins as a non-phamnhan character (e.g. via the
--- c_select console command or a stale save), force-convert them to phamnhan.
-AddPrefabPostInit("world", function(inst)
-    if not GLOBAL.TheWorld.ismastersim then return end
-
-    inst:ListenForEvent("ms_playerjoined", function(_, player)
-        if player.prefab ~= "phamnhan" then
-            print(string.format("[PN] Player %s joined as %s - converting to phamnhan",
-                tostring(player.userid), tostring(player.prefab)))
-            GLOBAL.TheWorld:PushEvent("ms_playerdespawnandreplace", {
-                player    = player,
-                newprefab = "phamnhan",
-            })
-        end
-    end)
-end)
+-- Server-side conversion via ms_playerdespawnandreplace REMOVED in 0.1.1.
+-- It was firing during initial spawn and destabilizing Steam IPC on macOS
+-- Rosetta dedicated server (root cause of the 2026-05-24 crash). Plan 8 will
+-- re-add it via a safer mechanism (kick + reconnect prompt) after verifying
+-- the in-game upload runs without it.
+-- For now, the client-side filter above ensures only "phamnhan" appears in
+-- the select UI — which is sufficient for end-user flow.

@@ -14,25 +14,31 @@ local function MakeLinhKhi(tier_key, prefab_name)
         inst.entity:AddAnimState()
         inst.entity:AddNetwork()
         inst.entity:AddMiniMapEntity()
-        inst.entity:AddLight()
+        -- Light removed — was crashing dedicated_server on macOS Rosetta.
+        -- Visual atmosphere is nice-to-have; tier is already shown via tint + minimap icon.
 
         MakeObstaclePhysics(inst, 0.5)
 
         inst.MiniMapEntity:SetIcon("globalpos.tex")  -- vanilla placeholder icon
 
-        inst.AnimState:SetBank("firefly_lightsource")
-        inst.AnimState:SetBuild("firefly_lightsource")
+        -- Use vanilla "shadow_chunk" or "stalker_atrium" as placeholder visual.
+        -- "firefly_lightsource" doesn't exist as a bank in current DST — was causing
+        -- hundreds of "Could not find anim bank [FROMNUM]" warnings.
+        -- redgem/bluegem/purplegem are reliable vanilla banks that always exist.
+        local bank_for_tier = {
+            HA_PHAM     = "bluegem",
+            TRUNG_PHAM  = "yellowgem",
+            THUONG_PHAM = "purplegem",
+        }
+        local bank = bank_for_tier[tier_key] or "bluegem"
+        inst.AnimState:SetBank(bank)
+        inst.AnimState:SetBuild(bank)
         inst.AnimState:PlayAnimation("idle", true)
+        -- Scale up so a gem looks like a meaningful world entity
+        inst.Transform:SetScale(2.5, 2.5, 2.5)
 
         local tint = TUNING.LINH_MACH[tier_key].tint or { 1, 1, 1 }
         inst.AnimState:SetMultColour(tint[1], tint[2], tint[3], 1)
-
-        -- Light source for atmospheric glow
-        inst.Light:SetIntensity(0.6)
-        inst.Light:SetRadius(TUNING.LINH_MACH[tier_key].aura_radius or 4)
-        inst.Light:SetFalloff(0.5)
-        inst.Light:SetColour(tint[1], tint[2], tint[3])
-        inst.Light:Enable(true)
 
         inst:AddTag("pn_linhkhi_source")
         inst:AddTag("structure")  -- groups with other static structures for save handling

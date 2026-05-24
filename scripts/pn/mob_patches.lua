@@ -2,19 +2,19 @@
 -- Apply pn_mob_cultivation to a curated list of vanilla mob prefabs.
 -- AddPrefabPostInit runs on every spawn of each prefab (server-side only here).
 
+-- IMPORTANT: only mobs with health + combat components.
+-- Birds (crow/robin/canary) don't have combat — they crash on tier upgrade.
 local MOBS_TO_PATCH = {
     -- Spiders
     "spider", "spider_warrior", "spider_hider", "spider_spitter", "spider_dropper",
     -- Hounds
     "hound", "firehound", "icehound",
-    -- Insects / amphibians
-    "mosquito", "frog", "killerbee", "bee",
+    -- Amphibians / aggressive insects
+    "frog", "killerbee",
     -- Pigs / mermen
     "merm", "pigman", "pigguard",
     -- Clockwork
     "clockworkknight", "clockworkbishop", "clockworkrook",
-    -- Birds
-    "crow", "robin", "canary",
     -- Bunnymen (caves)
     "bunnyman",
 }
