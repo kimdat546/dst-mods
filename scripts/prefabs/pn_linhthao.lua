@@ -17,11 +17,13 @@ local SPECIES_ANIM = {
     HONG_LIEN_TU   = "redgem_idle",
 }
 
--- NOTE: vanilla gem.lua does NOT set inventoryitem.atlasname (relies on DST
--- default). Setting `atlasname = "images/inventoryimages/greengem.xml"`
--- triggers `resolvefilepath` Lua error during worldgen — the asset lives in
--- DST's bundled images.zip, not accessible from mod search paths.
--- This was the actual 2026-05-24 caves shard crash. Removed in 0.1.3.
+-- Inventory icon mapping: reuse vanilla gem inventoryimages (see pn_noidan.lua
+-- for the same pattern). Set ONLY imagename — DST auto-resolves the atlas.
+local SPECIES_IMAGENAME = {
+    TAM_TINH_HOA   = "greengem",
+    LINH_TIEN_THAO = "yellowgem",
+    HONG_LIEN_TU   = "orangegem",
+}
 
 local function ApplyBuff(player, cfg)
     if not player then return end
@@ -86,7 +88,7 @@ local function MakeLinhThao(species_key, prefab_name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        -- atlasname intentionally omitted (see comment at top of file).
+        inst.components.inventoryitem.imagename = SPECIES_IMAGENAME[species_key]
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALL or 20

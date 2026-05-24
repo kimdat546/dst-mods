@@ -16,10 +16,15 @@ local TIER_ANIM = {
     THUONG = "purplegem_idle",
 }
 
--- NOTE: vanilla gem.lua does NOT set inventoryitem.atlasname (relies on DST
--- default). Setting `atlasname = "images/inventoryimages/redgem.xml"` triggers
--- `resolvefilepath` Lua error because that asset lives inside DST's bundled
--- images.zip — not accessible from mod search paths. Removed in 0.1.3.
+-- Inventory icon mapping: reuse vanilla gem inventoryimages (.tex/.xml live
+-- inside DST's bundled images.zip). Set ONLY imagename (NOT atlasname) — DST
+-- auto-resolves via the vanilla atlas. This makes items show proper icons
+-- instead of the purple "?" missing-image placeholder.
+local TIER_IMAGENAME = {
+    HA     = "redgem",
+    TRUNG  = "bluegem",
+    THUONG = "purplegem",
+}
 
 local function MakeNoiDan(tier_key, prefab_name)
     return Prefab(prefab_name, function()
@@ -44,7 +49,7 @@ local function MakeNoiDan(tier_key, prefab_name)
         inst:AddComponent("inspectable")
 
         inst:AddComponent("inventoryitem")
-        -- atlasname intentionally omitted (see comment at top of file).
+        inst.components.inventoryitem.imagename = TIER_IMAGENAME[tier_key]
 
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = TUNING.STACK_SIZE_MEDIUM or 40

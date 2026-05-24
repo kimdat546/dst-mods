@@ -19,12 +19,14 @@ end
 AddAction(PN_MEDITATE)
 
 -- Wire the action to right-click on linh mạch entities.
--- COMPONENT_ACTIONS.SCENE table: triggered for inspectable / scene-level interactions.
-AddComponentAction("SCENE", "pn_aura_source", function(inst, doer, actions, right)
-    if right and doer and doer.components and doer.components.pn_meditation
-       and not doer.components.pn_meditation:IsMeditating() then
-        table.insert(actions, ACTIONS.PN_MEDITATE)
-    end
+-- COMPONENT_ACTIONS.SCENE callbacks fire on CLIENT to decide which actions
+-- appear in the right-click menu. So we must gate by things the CLIENT can see:
+-- TAGS (replicated), not server-only components (pn_aura_source, pn_meditation).
+AddComponentAction("SCENE", "inspectable", function(inst, doer, actions, right)
+    if not right then return end
+    if not inst:HasTag("pn_linhkhi_source") then return end
+    if not doer:HasTag("phamnhan") then return end
+    table.insert(actions, ACTIONS.PN_MEDITATE)
 end)
 
 -- Provide a stategraph action handler so the action runs through normal anim flow.

@@ -37,6 +37,19 @@ AddMinimapAtlas("images/map_icons/phamnhan.xml")
 -- Register phamnhan as a playable character
 AddModCharacter("phamnhan", "MALE")
 
+-- Remove ALL vanilla DST characters from the character select screen so only
+-- "Phàm Nhân" is selectable. AddClassPostConstruct widget filter alone wasn't
+-- enough — RemoveDefaultCharacter is the proper Klei API to delist a char
+-- from MAIN_CHARACTERLIST before the select widget even reads it.
+local VANILLA_CHARS = {
+    "wilson", "willow", "wendy", "wolfgang", "wx78", "wickerbottom",
+    "woodie", "wes", "waxwell", "wathgrithr", "webber", "winona",
+    "warly", "wormwood", "wortox", "wurt", "walter", "wanda",
+}
+for _, c in ipairs(VANILLA_CHARS) do
+    RemoveDefaultCharacter(c)
+end
+
 -- Register cultivation components.
 -- Server components are auto-discovered by name from scripts/components/<name>.lua
 -- when `inst:AddComponent("<name>")` is called. We just need to register their replicas.
@@ -72,19 +85,50 @@ AddComponentPostInit("health", function(self)
     end
 end)
 
--- Block ghost-form revival actions for permadeath players.
+-- Block ghost-form revival for permadeath players. DST's touchstones,
+-- revive amulets, Heart of the Beast, and Florid Postern (home portal) all
+-- end up firing the player's "ms_respawnedfromghost" event after they apply
+-- the revive. We listen for that on every player and immediately re-kill +
+-- re-flag permadeath if needed.
 AddPrefabPostInit("world", function(inst)
     if not GLOBAL.TheWorld.ismastersim then return end
-    inst:ListenForEvent("ms_playerreroll", function(_, data)
-        local p = data and data.player
-        if p and p.components and p.components.pn_lifespan
-           and p.components.pn_lifespan:IsPermadeath() then
-            -- Cancel reroll
-            print(string.format("[PN] Blocked reroll for permadeath player %s",
-                tostring(p.userid)))
-            return false
-        end
+
+    local function HookPlayer(player)
+        if player._pn_permadeath_hook then return end
+        player._pn_permadeath_hook = true
+
+        -- After ANY revive completes, check permadeath flag and re-kill.
+        player:ListenForEvent("ms_respawnedfromghost", function()
+            local ls = player.components and player.components.pn_lifespan
+            if ls and ls:IsPermadeath() then
+                print(string.format("[PN] Blocking respawn for permadeath %s",
+                    tostring(player.userid)))
+                -- Re-kill on next frame so the revive flow completes its
+                -- cleanup, then we override back to dead.
+                player:DoTaskInTime(0.1, function()
+                    if player.components and player.components.health then
+                        player.components.health:Kill()
+                    end
+                end)
+            end
+        end)
+
+        -- Also block reroll (Florid Postern at world reset)
+        player:ListenForEvent("ms_playerreroll", function()
+            local ls = player.components and player.components.pn_lifespan
+            if ls and ls:IsPermadeath() then
+                return false
+            end
+        end)
+    end
+
+    inst:ListenForEvent("ms_playerjoined", function(_, p)
+        if p then HookPlayer(p) end
     end)
+    -- Also hook any existing players (in case mod loads mid-game)
+    if GLOBAL.AllPlayers then
+        for _, p in ipairs(GLOBAL.AllPlayers) do HookPlayer(p) end
+    end
 end)
 
 -- Worldgen scatter — place linh mạch across the map on world init.

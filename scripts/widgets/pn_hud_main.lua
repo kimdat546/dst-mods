@@ -84,28 +84,17 @@ local PnHudMain = Class(Widget, function(self, owner)
     self.meditating_text:SetHAlign(ANCHOR_MIDDLE)
     self.meditating_text:SetColour(0.6, 0.95, 0.4, 1)
 
-    -- Breakthrough flash (Plan 7) — temporary text shown on tier-up
-    self.breakthrough_text = self:AddChild(Text(FONT, FONT_SIZE + 6, ""))
-    self.breakthrough_text:SetPosition(0, 60)
-    self.breakthrough_text:SetHAlign(ANCHOR_MIDDLE)
-    self.breakthrough_text:SetColour(1, 0.85, 0.2, 1)  -- gold
-    self._breakthrough_until = 0
+    -- (Breakthrough text notification removed per user feedback. The cảnh giới
+    -- line + tu vi bar empty-then-fill pattern is enough visual feedback.
+    -- A proper dantian-icon + fire-animation FX is planned for a future polish
+    -- pass — see memory/realm_redesign_feedback.md.)
 
     -- Drag-to-reposition state
     self._dragging = false
     self._drag_start_mouse = nil  -- screen pos when drag started
     self._drag_start_widget = nil -- widget pos when drag started
 
-    -- Hook breakthrough event for celebration text
-    if owner then
-        self._breakthrough_listener = function(_, data)
-            if data and data.new_tier then
-                self.breakthrough_text:SetString("✦ Đột phá: " .. Realms.GetDisplay(data.new_tier) .. " ✦")
-                self._breakthrough_until = GetTime() + 5.0
-            end
-        end
-        owner:ListenForEvent("pn_canhgioi_up", self._breakthrough_listener)
-    end
+    -- (Breakthrough listener removed — see comment above.)
 
     -- Restore saved position (async)
     LoadSavedPosition(function(x, y)
@@ -232,13 +221,6 @@ function PnHudMain:OnUpdate(dt)
     end
     self.meditating_text:SetString(meditating and "✨ Đang thiền (×1.5)" or "")
 
-    -- Breakthrough text fade-out
-    if self._breakthrough_until > 0 then
-        if GetTime() > self._breakthrough_until then
-            self.breakthrough_text:SetString("")
-            self._breakthrough_until = 0
-        end
-    end
 end
 
 return PnHudMain
