@@ -56,6 +56,25 @@ local PnHudMain = Class(Widget, function(self, owner)
     self.meditating_text:SetHAlign(ANCHOR_MIDDLE)
     self.meditating_text:SetColour(0.6, 0.95, 0.4, 1)
 
+    -- Breakthrough flash (Plan 7) — temporary text shown on tier-up
+    self.breakthrough_text = self:AddChild(Text(FONT, FONT_SIZE + 6, ""))
+    self.breakthrough_text:SetPosition(0, 60)
+    self.breakthrough_text:SetHAlign(ANCHOR_MIDDLE)
+    self.breakthrough_text:SetColour(1, 0.85, 0.2, 1)  -- gold
+    self._breakthrough_until = 0
+
+    -- Hook breakthrough event for celebration text
+    if owner then
+        self._breakthrough_listener = function(_, data)
+            if data and data.new_tier then
+                local Realms = require("pn/realms")
+                self.breakthrough_text:SetString("✦ Đột phá: " .. Realms.GetDisplay(data.new_tier) .. " ✦")
+                self._breakthrough_until = GetTime() + 5.0  -- show for 5 seconds
+            end
+        end
+        owner:ListenForEvent("pn_canhgioi_up", self._breakthrough_listener)
+    end
+
     self:StartUpdating()
 end)
 
@@ -121,6 +140,14 @@ function PnHudMain:OnUpdate(dt)
         meditating = p.components.pn_meditation:IsMeditating()
     end
     self.meditating_text:SetString(meditating and "✨ Đang thiền (×1.5)" or "")
+
+    -- Breakthrough text fade-out
+    if self._breakthrough_until > 0 then
+        if GetTime() > self._breakthrough_until then
+            self.breakthrough_text:SetString("")
+            self._breakthrough_until = 0
+        end
+    end
 end
 
 return PnHudMain
