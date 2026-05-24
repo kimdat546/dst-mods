@@ -191,6 +191,33 @@ STRINGS.NAMES.PN_LINHTHAO_TAM_TINH_HOA   = "Tâm Tĩnh Hoa"
 STRINGS.NAMES.PN_LINHTHAO_LINH_TIEN_THAO = "Linh Tiền Thảo"
 STRINGS.NAMES.PN_LINHTHAO_HONG_LIEN_TU   = "Hồng Liên Tử"
 
+-- Linh mạch huyệt names (right-click "Examine" shows these)
+STRINGS.NAMES.PN_LINHKHI_HA     = "Linh Mạch Huyệt (hạ phẩm)"
+STRINGS.NAMES.PN_LINHKHI_TRUNG  = "Linh Mạch Huyệt (trung phẩm)"
+STRINGS.NAMES.PN_LINHKHI_THUONG = "Linh Mạch Huyệt (thượng phẩm)"
+
+-- Player Phàm Nhân's inspect quotes for our custom prefabs.
+-- DST resolves these via STRINGS.CHARACTERS.<UPPER>.DESCRIBE.<UPPER_PREFAB>
+STRINGS.CHARACTERS.PHAMNHAN = STRINGS.CHARACTERS.PHAMNHAN or {}
+STRINGS.CHARACTERS.PHAMNHAN.DESCRIBE = STRINGS.CHARACTERS.PHAMNHAN.DESCRIBE or {}
+
+local D = STRINGS.CHARACTERS.PHAMNHAN.DESCRIBE
+
+-- Linh mạch huyệt — examine quotes per tier
+D.PN_LINHKHI_HA     = "Một mạch linh khí mỏng manh... vẫn đủ để tu luyện sơ bộ."
+D.PN_LINHKHI_TRUNG  = "Linh khí ở đây đậm đặc hơn. Tốc độ tu vi nhanh lên đáng kể."
+D.PN_LINHKHI_THUONG = "Đại linh mạch! Đứng đây là kho báu vô giá cho người tu tiên."
+
+-- Nội đan
+D.PN_NOIDAN_HA     = "Nội đan thô sơ của yêu thú thấp cấp. Ăn vào tăng chút tu vi."
+D.PN_NOIDAN_TRUNG  = "Nội đan của linh thú. Linh khí cô đặc, hấp thụ tốt."
+D.PN_NOIDAN_THUONG = "Nội đan của yêu tu. Một viên quý giá."
+
+-- Linh thảo
+D.PN_LINHTHAO_TAM_TINH_HOA   = "Hoa làm tâm an, tinh thần thanh tỉnh. Ăn nó là một cảm giác bình yên."
+D.PN_LINHTHAO_LINH_TIEN_THAO = "Cỏ linh tiền. Người mang nó bước chân khinh nhanh như gió."
+D.PN_LINHTHAO_HONG_LIEN_TU   = "Hạt sen lửa đỏ rực. Khí huyết ấm áp, hỏa độc khó xâm."
+
 -- Debug console commands (always loaded during MVP; gate behind config in later plans)
 modimport("scripts/pn/debug.lua")
 modimport("scripts/pn/actions.lua")
