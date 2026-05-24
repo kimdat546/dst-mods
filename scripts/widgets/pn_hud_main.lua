@@ -16,7 +16,7 @@ local PnHudMain = Class(Widget, function(self, owner)
 
     -- Background frame
     self.bg = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
-    self.bg:SetSize(280, 140)
+    self.bg:SetSize(280, 165)
     self.bg:SetTint(0, 0, 0, 0.5)
 
     -- Linh căn label
@@ -49,6 +49,12 @@ local PnHudMain = Class(Widget, function(self, owner)
     self.lifespan_text = self:AddChild(Text(FONT, FONT_SIZE - 2, ""))
     self.lifespan_text:SetPosition(0, -50)
     self.lifespan_text:SetHAlign(ANCHOR_MIDDLE)
+
+    -- Meditating indicator (Plan 4)
+    self.meditating_text = self:AddChild(Text(FONT, FONT_SIZE - 4, ""))
+    self.meditating_text:SetPosition(0, -75)
+    self.meditating_text:SetHAlign(ANCHOR_MIDDLE)
+    self.meditating_text:SetColour(0.6, 0.95, 0.4, 1)
 
     self:StartUpdating()
 end)
@@ -108,6 +114,13 @@ function PnHudMain:OnUpdate(dt)
     else
         self.lifespan_text:SetString("Thọ: -")
     end
+
+    -- Meditation indicator (server-only state; we sneak-peek via player.components)
+    local meditating = false
+    if p.components and p.components.pn_meditation then
+        meditating = p.components.pn_meditation:IsMeditating()
+    end
+    self.meditating_text:SetString(meditating and "✨ Đang thiền (×1.5)" or "")
 end
 
 return PnHudMain
