@@ -42,6 +42,13 @@ AddReplicableComponent("pn_tuvi")
 AddReplicableComponent("pn_canhgioi")
 -- pn_breakthrough is server-only — no replica registration needed.
 
+-- Attach HUD widget to player controls bottom-left.
+AddClassPostConstruct("widgets/controls", function(self)
+    local PnHudMain = require("widgets/pn_hud_main")
+    self.pn_hud = self.bottom_root:AddChild(PnHudMain(self.owner))
+    self.pn_hud:SetPosition(-400, 90)
+end)
+
 -- Character select override (Phase E / Task 14)
 modimport("scripts/pn/charselect_override.lua")
 
