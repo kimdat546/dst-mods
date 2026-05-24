@@ -137,5 +137,6 @@ STRINGS.CHARACTER_QUOTES.phamnhan      = "\"Tu đạo chi lộ, nghịch thiên 
 -- Debug console commands (always loaded during MVP; gate behind config in later plans)
 modimport("scripts/pn/debug.lua")
 modimport("scripts/pn/actions.lua")
+modimport("scripts/pn/mob_patches.lua")
 
 print("[PN] Phàm Nhân Tu Tiên mod loaded (Plan 1 — Foundation)")
