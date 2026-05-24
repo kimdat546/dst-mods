@@ -101,4 +101,42 @@ function _G.c_dieofold(player)
     player.components.pn_lifespan:TriggerPermadeath()
 end
 
-print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold")
+-- Spawn a linh mạch at the player's position
+function _G.c_spawnlinhmach(tier, player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player then return end
+    tier = (tier or "ha"):lower()
+    local prefab_map = { ha = "pn_linhkhi_ha", trung = "pn_linhkhi_trung", thuong = "pn_linhkhi_thuong" }
+    local prefab = prefab_map[tier]
+    if not prefab then
+        print("[PN] Invalid tier. Use: ha | trung | thuong")
+        return
+    end
+    local x, y, z = player.Transform:GetWorldPosition()
+    local ent = GLOBAL.SpawnPrefab(prefab)
+    if ent then
+        ent.Transform:SetPosition(x + 3, y, z)
+        print(string.format("[PN] Spawned %s at (%.1f, %.1f, %.1f)", prefab, x + 3, y, z))
+    end
+end
+
+-- Print aura state of the linh mạch nearest to player (within 20 tiles)
+function _G.c_aurastate(player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player then return end
+    local x, y, z = player.Transform:GetWorldPosition()
+    local ents = GLOBAL.TheSim:FindEntities(x, y, z, 20, { "pn_linhkhi_source" })
+    if #ents == 0 then
+        print("[PN] No linh mạch within 20 tiles")
+        return
+    end
+    for _, e in ipairs(ents) do
+        if e.components.pn_aura_source then
+            local a = e.components.pn_aura_source
+            print(string.format("  - %s tier=%s rate=%.2f/s radius=%d",
+                e.prefab, a.tier, a.rate_per_sec, a.radius))
+        end
+    end
+end
+
+print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold, c_spawnlinhmach, c_aurastate")
