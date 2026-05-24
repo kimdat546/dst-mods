@@ -139,4 +139,23 @@ function _G.c_aurastate(player)
     end
 end
 
-print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold, c_spawnlinhmach, c_aurastate")
+-- Inspect mob cultivation states near player (within 20 tiles)
+function _G.c_mobcult(player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player then return end
+    local x, y, z = player.Transform:GetWorldPosition()
+    local ents = GLOBAL.TheSim:FindEntities(x, y, z, 20, { "pn_aura_target" })
+    if #ents == 0 then
+        print("[PN] No aura targets within 20 tiles")
+        return
+    end
+    for _, e in ipairs(ents) do
+        if e.components and e.components.pn_mob_cultivation then
+            local m = e.components.pn_mob_cultivation
+            print(string.format("  - %s tier=%d time_in_aura=%.1fs",
+                tostring(e.prefab), m:GetTier(), m:GetTimeInAura()))
+        end
+    end
+end
+
+print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold, c_spawnlinhmach, c_aurastate, c_mobcult")
