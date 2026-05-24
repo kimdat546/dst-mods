@@ -10,6 +10,14 @@ MOD_ROOT = Path(__file__).parent.parent
 ASSET_RE = re.compile(r'Asset\s*\(\s*"([A-Z]+)"\s*,\s*"([^"]+)"\s*\)')
 XML_TEX_RE = re.compile(r'<Texture\s+filename="([^"]+)"')
 
+# Vanilla bundled anim paths — DST resolves these from its app-bundle databundles,
+# so they won't exist in our mod folder. Whitelist them.
+VANILLA_ANIMS = {
+    "anim/gems.zip",
+    "anim/firefly_lightsource.zip",
+}
+
+
 def main() -> int:
     errors = []
 
@@ -18,6 +26,8 @@ def main() -> int:
             continue
         text = lua_file.read_text(encoding="utf-8", errors="ignore")
         for kind, path in ASSET_RE.findall(text):
+            if kind == "ANIM" and path in VANILLA_ANIMS:
+                continue
             full = MOD_ROOT / path
             if not full.exists():
                 errors.append(f"{lua_file.relative_to(MOD_ROOT)}: Asset(\"{kind}\", \"{path}\") not found")
@@ -39,6 +49,7 @@ def main() -> int:
 
     print("✓ All asset references valid")
     return 0
+
 
 if __name__ == "__main__":
     sys.exit(main())

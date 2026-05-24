@@ -5,8 +5,11 @@
 
 local TUNING = require("pn/tuning")
 
--- Vanilla anim/gems.zip auto-resolved; no mod-local asset declaration needed.
+-- Declare vanilla anim explicitly so the gems bank is resident before construct.
 -- All gems share bank/build "gems"; animation determines the colour.
+local assets = {
+    Asset("ANIM", "anim/gems.zip"),
+}
 local TIER_ANIM = {
     HA     = "redgem_idle",
     TRUNG  = "bluegem_idle",
@@ -63,7 +66,7 @@ local function MakeNoiDan(tier_key, prefab_name)
         end)
 
         return inst
-    end, {})
+    end, assets)
 end
 
 return

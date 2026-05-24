@@ -86,8 +86,11 @@ AddPrefabPostInit("world", function(inst)
 end)
 
 -- Worldgen scatter — place linh mạch across the map on world init.
+-- IMPORTANT: TheWorld.ismastersim is true on BOTH master+caves shards (each is master
+-- of its own shard). To run only on the surface (forest) shard, check the world tag.
 AddPrefabPostInit("world", function(inst)
     if not GLOBAL.TheWorld.ismastersim then return end
+    if GLOBAL.TheWorld:HasTag("cave") then return end  -- skip caves shard
 
     -- Defer until next frame so the map is fully ready.
     inst:DoTaskInTime(0, function()
@@ -128,8 +131,10 @@ AddPrefabPostInit("world", function(inst)
 end)
 
 -- Linh thảo worldgen scatter — 30 of each species spread around the map.
+-- Same shard guard as linh mạch: only surface world, not caves.
 AddPrefabPostInit("world", function(inst)
     if not GLOBAL.TheWorld.ismastersim then return end
+    if GLOBAL.TheWorld:HasTag("cave") then return end  -- skip caves shard
     inst:DoTaskInTime(0.5, function()
         local cfg = GLOBAL.require("pn/tuning").LINH_THAO_WORLDGEN
         if not cfg then return end
