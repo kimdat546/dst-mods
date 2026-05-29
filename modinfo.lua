@@ -1,4 +1,4 @@
-name = "Phàm Nhân Tu Tiên"
+name = "Phàm Nhân Tu Tiên [Alpha]"
 description = [[
 Mod tu tiên lấy cảm hứng từ tiểu thuyết 「凡人修仙传」(Phàm Nhân Tu Tiên Truyện) của 忘语.
 
@@ -19,7 +19,7 @@ Tính năng MVP1:
 ALPHA: chỉ tester nội bộ. Permadeath bật mặc định. Asset placeholder.
 ]]
 author = "kimdat546"
-version = "0.1.11-mvp1"
+version = "0.1.12-mvp1"
 
 forumthread = ""
 
