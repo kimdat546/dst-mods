@@ -17,6 +17,16 @@ Assets = {
     Asset("ATLAS", "images/pn_ui.xml"),
     Asset("IMAGE", "images/pn_ui.tex"),
 
+    -- Skill / spell icon atlases (placeholder from Dengxian; see docs/icon-assets-reference.md)
+    Asset("ATLAS", "images/pn_spell_icons.xml"),
+    Asset("IMAGE", "images/pn_spell_icons.tex"),
+    Asset("ATLAS", "images/skills/pn_htz_skillicon.xml"),
+    Asset("IMAGE", "images/skills/pn_htz_skillicon.tex"),
+    Asset("ATLAS", "images/skills/pn_wmz_skillicon.xml"),
+    Asset("IMAGE", "images/skills/pn_wmz_skillicon.tex"),
+    Asset("ATLAS", "images/skills/pn_wukong_bsicons.xml"),
+    Asset("IMAGE", "images/skills/pn_wukong_bsicons.tex"),
+
     Asset("IMAGE", "images/saveslot_portraits/phamnhan.tex"),
     Asset("ATLAS", "images/saveslot_portraits/phamnhan.xml"),
 

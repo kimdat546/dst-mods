@@ -19,8 +19,8 @@ local ELEMENT_MEDALLION = {
 }
 local DEFAULT_MEDALLION = "level2.tex"  -- purple (mixed / Ngụy)
 
--- Smaller now, per user feedback.
-local MEDALLION_W, MEDALLION_H = 84, 93
+-- Smaller again per feedback. Tweak these two numbers to resize the medallion.
+local MEDALLION_W, MEDALLION_H = 58, 64
 
 local FONT = CHATFONT
 local POSITION_SAVE_KEY = "pn_hud_position"
@@ -49,20 +49,20 @@ local PnHudMain = Class(Widget, function(self, owner)
     self._cur_medallion = DEFAULT_MEDALLION
 
     -- Tu vi progress (e.g. "120/282") — INSIDE the medallion, on its plaque area
-    self.tuvi_text = self:AddChild(Text(FONT, 12, ""))
-    self.tuvi_text:SetPosition(0, -30)
+    self.tuvi_text = self:AddChild(Text(FONT, 11, ""))
+    self.tuvi_text:SetPosition(0, -20)
 
     -- Realm name — BELOW the medallion
-    self.canhgioi_text = self:AddChild(Text(FONT, 17, ""))
-    self.canhgioi_text:SetPosition(0, -58)
+    self.canhgioi_text = self:AddChild(Text(FONT, 16, ""))
+    self.canhgioi_text:SetPosition(0, -42)
 
     -- Lifespan — its own icon-prefixed line below
-    self.lifespan_text = self:AddChild(Text(FONT, 15, ""))
-    self.lifespan_text:SetPosition(0, -78)
+    self.lifespan_text = self:AddChild(Text(FONT, 14, ""))
+    self.lifespan_text:SetPosition(0, -60)
 
     -- Meditating indicator
-    self.meditating_text = self:AddChild(Text(FONT, 14, ""))
-    self.meditating_text:SetPosition(0, -96)
+    self.meditating_text = self:AddChild(Text(FONT, 13, ""))
+    self.meditating_text:SetPosition(0, -76)
     self.meditating_text:SetColour(0.6, 0.95, 0.4, 1)
 
     self._dragging = false
