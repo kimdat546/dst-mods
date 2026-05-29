@@ -1,28 +1,32 @@
 -- scripts/widgets/pn_hud_main.lua
--- Compact cultivation HUD using Dengxian's UI atlas (copied as images/pn_ui.*).
--- Layout: a backing panel + realm name on top, a tu vi bar (xuetiao art) below,
--- with small linh căn + lifespan lines. Right-click + drag to reposition.
---
--- All sprite region names are constants below — if a chosen sprite looks wrong
--- in-game, just swap the region name (see images/pn_ui.xml for the full list).
+-- Compact cultivation HUD centered on Dengxian's "đan điền" medallion art.
+-- The medallion (a gourd-with-flame icon on a pedestal) is the centerpiece —
+-- the flame colour reflects the player's primary linh căn element. The realm
+-- name sits on the medallion's plaque; a slim tu vi bar + lifespan show below.
+-- Right-click + drag to reposition (saved across sessions).
 
 local Widget = require("widgets/widget")
 local Text   = require("widgets/text")
 local Image  = require("widgets/image")
-local Realms = require("pn/realms")
 
 local ATLAS = "images/pn_ui.xml"
 
--- Sprite regions from the Dengxian atlas (pn_ui.xml). Tweak if they look off.
-local SPR_PANEL    = "yqdback.tex"     -- backing panel (引导 back)
-local SPR_BAR_BG   = "xuetiao3.tex"    -- thin empty bar frame
-local SPR_BAR_FILL = "xuetiao2.tex"    -- filled bar segment
+-- "level1-6" are dantian medallions, each with a different element flame.
+-- Map our linh căn element → the medallion that best matches its colour.
+local ELEMENT_MEDALLION = {
+    THUY = "level1.tex",  -- blue flame  → Water
+    KIM  = "level3.tex",  -- golden orb  → Metal
+    MOC  = "level4.tex",  -- cyan figure → Wood
+    THO  = "level5.tex",  -- phoenix     → Earth
+    HOA  = "level6.tex",  -- red flame   → Fire
+}
+local DEFAULT_MEDALLION = "level2.tex"  -- purple swirl (mixed / Ngụy)
+
+local SPR_BAR = "xuetiao2.tex"  -- rounded bar fill
 
 local FONT      = CHATFONT
-local FONT_SIZE = 20
-
-local PANEL_W, PANEL_H = 220, 150
-local BAR_W = 180
+local MEDALLION_W, MEDALLION_H = 130, 144
+local BAR_W = 116
 
 local POSITION_SAVE_KEY = "pn_hud_position"
 
@@ -34,7 +38,6 @@ local function LoadSavedPosition(cb)
         end
     end)
 end
-
 local function SavePosition(x, y)
     TheSim:SetPersistentString(POSITION_SAVE_KEY, string.format("%.1f,%.1f", x, y), false)
 end
@@ -43,49 +46,41 @@ local PnHudMain = Class(Widget, function(self, owner)
     Widget._ctor(self, "PnHudMain")
     self.owner = owner
 
-    self.root = self:AddChild(Widget("root"))
+    -- Đan điền medallion (centerpiece). Element-driven sprite set in OnUpdate.
+    self.medallion = self:AddChild(Image(ATLAS, DEFAULT_MEDALLION))
+    self.medallion:SetSize(MEDALLION_W, MEDALLION_H)
+    self.medallion:SetPosition(0, 0)
+    self.medallion:SetClickable(true)
+    self._cur_medallion = DEFAULT_MEDALLION
 
-    -- Backing panel
-    self.panel = self.root:AddChild(Image(ATLAS, SPR_PANEL))
-    self.panel:SetSize(PANEL_W, PANEL_H)
-    self.panel:SetClickable(true)
+    -- Realm name — overlaid on the medallion's plaque (lower portion)
+    self.canhgioi_text = self:AddChild(Text(FONT, 18, ""))
+    self.canhgioi_text:SetPosition(0, -44)
 
-    -- Realm name (top, bold-ish via larger size + tint)
-    self.canhgioi_text = self.root:AddChild(Text(FONT, FONT_SIZE + 4, ""))
-    self.canhgioi_text:SetPosition(0, 46)
+    -- Tu vi bar background (dark) + fill (bright), below the medallion
+    self.bar_bg = self:AddChild(Image(ATLAS, SPR_BAR))
+    self.bar_bg:SetSize(BAR_W, 12)
+    self.bar_bg:SetPosition(0, -78)
+    self.bar_bg:SetTint(0.15, 0.15, 0.18, 0.9)
 
-    -- Linh căn line (small, below realm)
-    self.linhcan_text = self.root:AddChild(Text(FONT, FONT_SIZE - 4, ""))
-    self.linhcan_text:SetPosition(0, 22)
-    self.linhcan_text:SetColour(0.8, 0.85, 0.7, 1)
+    self.bar_fill = self:AddChild(Image(ATLAS, SPR_BAR))
+    self.bar_fill:SetSize(BAR_W, 12)
+    self.bar_fill:SetPosition(0, -78)
+    self.bar_fill:SetTint(0.4, 0.85, 1, 1)
 
-    -- Tu vi bar — empty frame
-    self.bar_bg = self.root:AddChild(Image(ATLAS, SPR_BAR_BG))
-    self.bar_bg:SetSize(BAR_W, 18)
-    self.bar_bg:SetPosition(0, -4)
+    self.bar_text = self:AddChild(Text(FONT, 13, ""))
+    self.bar_text:SetPosition(0, -78)
 
-    -- Tu vi bar — fill (width scaled by percent in OnUpdate)
-    self.bar_fill = self.root:AddChild(Image(ATLAS, SPR_BAR_FILL))
-    self.bar_fill:SetSize(BAR_W, 14)
-    self.bar_fill:SetPosition(0, -4)
+    -- Lifespan
+    self.lifespan_text = self:AddChild(Text(FONT, 15, ""))
+    self.lifespan_text:SetPosition(0, -98)
 
-    -- Tu vi numeric overlay
-    self.bar_text = self.root:AddChild(Text(FONT, FONT_SIZE - 6, ""))
-    self.bar_text:SetPosition(0, -4)
-
-    -- Lifespan line (bottom)
-    self.lifespan_text = self.root:AddChild(Text(FONT, FONT_SIZE - 4, ""))
-    self.lifespan_text:SetPosition(0, -30)
-
-    -- Meditating indicator (very bottom)
-    self.meditating_text = self.root:AddChild(Text(FONT, FONT_SIZE - 6, ""))
-    self.meditating_text:SetPosition(0, -52)
+    -- Meditating indicator
+    self.meditating_text = self:AddChild(Text(FONT, 14, ""))
+    self.meditating_text:SetPosition(0, -116)
     self.meditating_text:SetColour(0.6, 0.95, 0.4, 1)
 
-    -- Drag state
     self._dragging = false
-    self._drag_start_mouse = nil
-    self._drag_start_widget = nil
 
     LoadSavedPosition(function(x, y)
         if self.inst and self.inst:IsValid() then self:SetPosition(x, y) end
@@ -95,24 +90,28 @@ local PnHudMain = Class(Widget, function(self, owner)
 end)
 
 function PnHudMain:OnMouseButton(button, down, x, y)
-    if button == MOUSEBUTTON_RIGHT then
-        if down then
-            self._dragging = true
-            local mx, my = TheInput:GetScreenPosition():Get()
-            self._drag_start_mouse = { x = mx, y = my }
-            local pos = self:GetPosition()
-            self._drag_start_widget = { x = pos.x, y = pos.y }
-            return true
-        else
-            if self._dragging then
-                self._dragging = false
-                local pos = self:GetPosition()
-                SavePosition(pos.x, pos.y)
-                return true
-            end
-        end
+    if button ~= MOUSEBUTTON_RIGHT then return false end
+    if down then
+        self._dragging = true
+        local mx, my = TheInput:GetScreenPosition():Get()
+        self._drag_start_mouse = { x = mx, y = my }
+        local pos = self:GetPosition()
+        self._drag_start_widget = { x = pos.x, y = pos.y }
+        return true
+    elseif self._dragging then
+        self._dragging = false
+        local pos = self:GetPosition()
+        SavePosition(pos.x, pos.y)
+        return true
     end
     return false
+end
+
+local function PickMedallion(lc)
+    if not (lc and lc:HasData()) then return DEFAULT_MEDALLION end
+    local raw = lc:GetElements()  -- comma list, e.g. "HOA,KIM"
+    local first = raw and string.match(raw, "[^,]+")
+    return ELEMENT_MEDALLION[first or ""] or DEFAULT_MEDALLION
 end
 
 function PnHudMain:OnUpdate(dt)
@@ -131,40 +130,38 @@ function PnHudMain:OnUpdate(dt)
 
     local p = self.owner
     if not p or not p.replica then return end
-
     local lc = p.replica.pn_linhcan
     local tv = p.replica.pn_tuvi
     local cg = p.replica.pn_canhgioi
     local ls = p.replica.pn_lifespan
 
-    -- Cảnh giới (always show, default Phàm Nhân)
+    -- Medallion sprite by element
+    local want = PickMedallion(lc)
+    if want ~= self._cur_medallion then
+        self.medallion:SetTexture(ATLAS, want)
+        self._cur_medallion = want
+    end
+
+    -- Realm name on plaque
     if cg then
-        local display = cg:GetDisplay()
-        if display == nil or display == "" then display = "Phàm Nhân" end
-        self.canhgioi_text:SetString(display)
+        local d = cg:GetDisplay()
+        if d == nil or d == "" then d = "Phàm Nhân" end
+        self.canhgioi_text:SetString(d)
         local col = cg:GetColor()
         if col then self.canhgioi_text:SetColour(col[1], col[2], col[3], col[4]) end
     else
         self.canhgioi_text:SetString("Phàm Nhân")
     end
 
-    -- Linh căn
-    if lc and lc:HasData() then
-        local el = lc:GetElementDisplay()
-        self.linhcan_text:SetString(el ~= "" and (lc:GetDisplay() .. " (" .. el .. ")") or lc:GetDisplay())
-    else
-        self.linhcan_text:SetString("")
-    end
-
     -- Tu vi bar
     if tv and tv:HasData() then
         local pct = tv:GetPercent()
-        local fill_w = math.max(2, math.floor(BAR_W * pct))
-        self.bar_fill:SetSize(fill_w, 14)
-        self.bar_fill:SetPosition(-(BAR_W / 2) + fill_w / 2, -4)
-        self.bar_text:SetString(string.format("%d / %d", math.floor(tv:GetCurrent()), math.floor(tv:GetCap())))
+        local fw = math.max(2, math.floor(BAR_W * pct))
+        self.bar_fill:SetSize(fw, 12)
+        self.bar_fill:SetPosition(-(BAR_W / 2) + fw / 2, -78)
+        self.bar_text:SetString(string.format("%d/%d", math.floor(tv:GetCurrent()), math.floor(tv:GetCap())))
     else
-        self.bar_fill:SetSize(2, 14)
+        self.bar_fill:SetSize(2, 12)
         self.bar_text:SetString("")
     end
 
@@ -173,7 +170,7 @@ function PnHudMain:OnUpdate(dt)
         if ls:IsPermadeath() then
             self.lifespan_text:SetString("Thọ: ĐÃ TẬN")
         else
-            self.lifespan_text:SetString(string.format("Thọ: %d / %d",
+            self.lifespan_text:SetString(string.format("Thọ: %d/%d",
                 math.floor(ls:GetRemaining()), math.floor(ls:GetTotal())))
         end
         local col = ls:GetColor()
@@ -183,9 +180,9 @@ function PnHudMain:OnUpdate(dt)
     end
 
     -- Meditation
-    local meditating = p.components and p.components.pn_meditation
+    local med = p.components and p.components.pn_meditation
         and p.components.pn_meditation:IsMeditating()
-    self.meditating_text:SetString(meditating and "✨ Đang thiền" or "")
+    self.meditating_text:SetString(med and "✨ Đang thiền" or "")
 end
 
 return PnHudMain
