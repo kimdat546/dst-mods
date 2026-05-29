@@ -1,34 +1,42 @@
 #!/usr/bin/env bash
-# Fast local-test sync: stage the mod, then copy it directly into the
-# subscribed Workshop content folder. DST loads the mod from there, so this
-# skips the entire Workshop upload→Steam-sync cycle.
+# Fast local-test sync: stage the mod, then copy it as a REAL FOLDER into the
+# game's local mods directory (Contents/mods/). DST scans that dir and shows
+# local mods in the Server Mods menu — no Workshop upload needed.
 #
-# Workflow:  edit code → ./tools/sync_local.sh → restart DST → test
+# Workflow:  edit code → ./tools/sync_local.sh → restart DST → enable in Mods menu → test
 #
-# The Workshop content folder IS writable (it's NOT inside the code-signed
-# .app bundle). We only avoid touching mod.manifest (Steam's own metadata).
+# Why a real folder (not symlink, not workshop content):
+#   - Symlinks into Contents/mods/ can go stale/broken (we hit this — a dead
+#     symlink to /tmp silently failed to load).
+#   - User-created folders under Contents/mods/ ARE writable (the macOS
+#     provenance lock only applies to Steam-installed files in the bundle).
+#   - This matches how the working `tu-tien-lite` local mod is set up.
 
 set -euo pipefail
 
-MOD_ID="3732043578"
-WS="$HOME/Library/Application Support/Steam/steamapps/workshop/content/322330/$MOD_ID"
+MODS_DIR="$HOME/Library/Application Support/Steam/steamapps/common/Don't Starve Together/dontstarve_steam.app/Contents/mods"
+DEST="$MODS_DIR/pham-nhan-tu-tien"
 STAGED="$HOME/Desktop/pham-nhan-tu-tien-upload"
 
-if [[ ! -d "$WS" ]]; then
-    echo "✗ Workshop folder not found: $WS"
-    echo "  Are you subscribed to the mod on Steam? Subscribe once, then this works."
+if [[ ! -d "$MODS_DIR" ]]; then
+    echo "✗ DST mods dir not found: $MODS_DIR"
     exit 1
 fi
 
-# 1. Re-stage from source (runs checks via the staging script's own logic)
+# 1. Re-stage from source
 echo "→ Staging mod..."
 "$(dirname "$0")/prepare_workshop_upload.sh" > /dev/null
 
-# 2. Mirror staged → workshop folder (preserve Steam's mod.manifest)
-echo "→ Syncing to Workshop content folder..."
-rsync -a --delete --exclude="mod.manifest" "$STAGED/" "$WS/"
+# 2. Replace the local mod folder with the fresh staged copy
+echo "→ Copying into local mods folder..."
+rm -rf "$DEST"
+mkdir -p "$DEST"
+cp -R "$STAGED/" "$DEST/"
 
-echo "✓ Synced version $(grep '^version' "$WS/modinfo.lua" | sed 's/version *= *//')"
+echo "✓ Synced version $(grep '^version' "$DEST/modinfo.lua" | sed 's/version *= *//') to:"
+echo "  $DEST"
 echo ""
-echo "Next: fully quit DST (Cmd+Q) and relaunch, then Host Game."
-echo "(DST caches mod code at launch — a restart is required to pick up changes.)"
+echo "Next:"
+echo "  1. Fully quit DST (Cmd+Q) and relaunch."
+echo "  2. Mods → Server Mods → enable 'Phàm Nhân Tu Tiên [Alpha]'."
+echo "  3. Host Game and test."
