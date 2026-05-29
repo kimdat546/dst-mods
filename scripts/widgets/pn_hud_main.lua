@@ -1,28 +1,36 @@
 -- scripts/widgets/pn_hud_main.lua
--- HUD overlay showing player's linh căn / cảnh giới / tu vi progress.
--- Attaches via AddClassPostConstruct("widgets/controls") in modmain.
+-- Compact cultivation HUD using Dengxian's UI atlas (copied as images/pn_ui.*).
+-- Layout: a backing panel + realm name on top, a tu vi bar (xuetiao art) below,
+-- with small linh căn + lifespan lines. Right-click + drag to reposition.
 --
--- Right-click + drag the HUD background to move it anywhere on screen.
--- Position is saved to TheSim:SetPersistentString and restored next session.
+-- All sprite region names are constants below — if a chosen sprite looks wrong
+-- in-game, just swap the region name (see images/pn_ui.xml for the full list).
 
 local Widget = require("widgets/widget")
 local Text   = require("widgets/text")
 local Image  = require("widgets/image")
 local Realms = require("pn/realms")
 
-local FONT     = NUMBERFONT
-local FONT_SIZE = 22
+local ATLAS = "images/pn_ui.xml"
+
+-- Sprite regions from the Dengxian atlas (pn_ui.xml). Tweak if they look off.
+local SPR_PANEL    = "yqdback.tex"     -- backing panel (引导 back)
+local SPR_BAR_BG   = "xuetiao3.tex"    -- thin empty bar frame
+local SPR_BAR_FILL = "xuetiao2.tex"    -- filled bar segment
+
+local FONT      = CHATFONT
+local FONT_SIZE = 20
+
+local PANEL_W, PANEL_H = 220, 150
+local BAR_W = 180
 
 local POSITION_SAVE_KEY = "pn_hud_position"
 
-local function LoadSavedPosition(callback)
-    -- Async load. callback(x, y) when done. If no saved data, callback is not invoked.
-    TheSim:GetPersistentString(POSITION_SAVE_KEY, function(success, data)
-        if success and data and data ~= "" then
+local function LoadSavedPosition(cb)
+    TheSim:GetPersistentString(POSITION_SAVE_KEY, function(ok, data)
+        if ok and data and data ~= "" then
             local x, y = string.match(data, "([%-%d%.]+),([%-%d%.]+)")
-            if x and y then
-                callback(tonumber(x), tonumber(y))
-            end
+            if x and y then cb(tonumber(x), tonumber(y)) end
         end
     end)
 end
@@ -35,93 +43,67 @@ local PnHudMain = Class(Widget, function(self, owner)
     Widget._ctor(self, "PnHudMain")
     self.owner = owner
 
-    -- Background frame — dark translucent panel (MVP placeholder for real art)
-    self.bg = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
-    self.bg:SetSize(290, 175)
-    self.bg:SetTint(0.05, 0.05, 0.1, 0.7)
-    -- Make bg clickable so right-click drag works
-    self.bg:SetClickable(true)
+    self.root = self:AddChild(Widget("root"))
 
-    -- Subtle border (second smaller image layered for a frame effect)
-    self.bg_border = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
-    self.bg_border:SetSize(280, 165)
-    self.bg_border:SetTint(0.1, 0.15, 0.25, 0.4)
+    -- Backing panel
+    self.panel = self.root:AddChild(Image(ATLAS, SPR_PANEL))
+    self.panel:SetSize(PANEL_W, PANEL_H)
+    self.panel:SetClickable(true)
 
-    -- Linh căn label
-    self.linhcan_text = self:AddChild(Text(FONT, FONT_SIZE, ""))
-    self.linhcan_text:SetPosition(0, 35)
-    self.linhcan_text:SetHAlign(ANCHOR_MIDDLE)
+    -- Realm name (top, bold-ish via larger size + tint)
+    self.canhgioi_text = self.root:AddChild(Text(FONT, FONT_SIZE + 4, ""))
+    self.canhgioi_text:SetPosition(0, 46)
 
-    -- Cảnh giới label
-    self.canhgioi_text = self:AddChild(Text(FONT, FONT_SIZE + 2, ""))
-    self.canhgioi_text:SetPosition(0, 5)
-    self.canhgioi_text:SetHAlign(ANCHOR_MIDDLE)
+    -- Linh căn line (small, below realm)
+    self.linhcan_text = self.root:AddChild(Text(FONT, FONT_SIZE - 4, ""))
+    self.linhcan_text:SetPosition(0, 22)
+    self.linhcan_text:SetColour(0.8, 0.85, 0.7, 1)
 
-    -- Tu vi progress bar background
-    self.bar_bg = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
-    self.bar_bg:SetSize(240, 14)
-    self.bar_bg:SetPosition(0, -25)
-    self.bar_bg:SetTint(0.2, 0.2, 0.2, 0.8)
+    -- Tu vi bar — empty frame
+    self.bar_bg = self.root:AddChild(Image(ATLAS, SPR_BAR_BG))
+    self.bar_bg:SetSize(BAR_W, 18)
+    self.bar_bg:SetPosition(0, -4)
 
-    -- Tu vi progress bar fill
-    self.bar_fill = self:AddChild(Image("images/hud.xml", "inv_slot.tex"))
-    self.bar_fill:SetTint(0.4, 0.85, 1, 1)
-    self.bar_fill:SetPosition(-120, -25)
+    -- Tu vi bar — fill (width scaled by percent in OnUpdate)
+    self.bar_fill = self.root:AddChild(Image(ATLAS, SPR_BAR_FILL))
+    self.bar_fill:SetSize(BAR_W, 14)
+    self.bar_fill:SetPosition(0, -4)
 
     -- Tu vi numeric overlay
-    self.bar_text = self:AddChild(Text(FONT, FONT_SIZE - 4, "0 / 0"))
-    self.bar_text:SetPosition(0, -25)
-    self.bar_text:SetHAlign(ANCHOR_MIDDLE)
+    self.bar_text = self.root:AddChild(Text(FONT, FONT_SIZE - 6, ""))
+    self.bar_text:SetPosition(0, -4)
 
-    -- Lifespan label (Plan 3)
-    self.lifespan_text = self:AddChild(Text(FONT, FONT_SIZE - 2, ""))
-    self.lifespan_text:SetPosition(0, -50)
-    self.lifespan_text:SetHAlign(ANCHOR_MIDDLE)
+    -- Lifespan line (bottom)
+    self.lifespan_text = self.root:AddChild(Text(FONT, FONT_SIZE - 4, ""))
+    self.lifespan_text:SetPosition(0, -30)
 
-    -- Meditating indicator (Plan 4)
-    self.meditating_text = self:AddChild(Text(FONT, FONT_SIZE - 4, ""))
-    self.meditating_text:SetPosition(0, -75)
-    self.meditating_text:SetHAlign(ANCHOR_MIDDLE)
+    -- Meditating indicator (very bottom)
+    self.meditating_text = self.root:AddChild(Text(FONT, FONT_SIZE - 6, ""))
+    self.meditating_text:SetPosition(0, -52)
     self.meditating_text:SetColour(0.6, 0.95, 0.4, 1)
 
-    -- (Breakthrough text notification removed per user feedback. The cảnh giới
-    -- line + tu vi bar empty-then-fill pattern is enough visual feedback.
-    -- A proper dantian-icon + fire-animation FX is planned for a future polish
-    -- pass — see memory/realm_redesign_feedback.md.)
-
-    -- Drag-to-reposition state
+    -- Drag state
     self._dragging = false
-    self._drag_start_mouse = nil  -- screen pos when drag started
-    self._drag_start_widget = nil -- widget pos when drag started
+    self._drag_start_mouse = nil
+    self._drag_start_widget = nil
 
-    -- (Breakthrough listener removed — see comment above.)
-
-    -- Restore saved position (async)
     LoadSavedPosition(function(x, y)
-        if self.inst and self.inst:IsValid() then
-            self:SetPosition(x, y)
-        end
+        if self.inst and self.inst:IsValid() then self:SetPosition(x, y) end
     end)
 
     self:StartUpdating()
 end)
 
--- Right-click + drag handler. DST routes mouse clicks on a widget through
--- the bg's OnControl (the clickable child); we intercept at the parent level.
 function PnHudMain:OnMouseButton(button, down, x, y)
     if button == MOUSEBUTTON_RIGHT then
         if down then
-            -- Only start drag if click is over our bg area
-            if self.bg and self.bg:IsVisible() then
-                self._dragging = true
-                local mx, my = TheInput:GetScreenPosition():Get()
-                self._drag_start_mouse  = { x = mx, y = my }
-                local pos = self:GetPosition()
-                self._drag_start_widget = { x = pos.x, y = pos.y }
-                return true
-            end
+            self._dragging = true
+            local mx, my = TheInput:GetScreenPosition():Get()
+            self._drag_start_mouse = { x = mx, y = my }
+            local pos = self:GetPosition()
+            self._drag_start_widget = { x = pos.x, y = pos.y }
+            return true
         else
-            -- Right-click released → end drag, save position
             if self._dragging then
                 self._dragging = false
                 local pos = self:GetPosition()
@@ -134,21 +116,16 @@ function PnHudMain:OnMouseButton(button, down, x, y)
 end
 
 function PnHudMain:OnUpdate(dt)
-    -- Handle drag movement (poll mouse position while dragging)
     if self._dragging then
         if not TheInput:IsMouseDown(MOUSEBUTTON_RIGHT) then
-            -- Mouse released outside our area; end drag + save
             self._dragging = false
             local pos = self:GetPosition()
             SavePosition(pos.x, pos.y)
         else
             local mx, my = TheInput:GetScreenPosition():Get()
-            local dx = mx - self._drag_start_mouse.x
-            local dy = my - self._drag_start_mouse.y
             self:SetPosition(
-                self._drag_start_widget.x + dx,
-                self._drag_start_widget.y + dy
-            )
+                self._drag_start_widget.x + (mx - self._drag_start_mouse.x),
+                self._drag_start_widget.y + (my - self._drag_start_mouse.y))
         end
     end
 
@@ -158,69 +135,57 @@ function PnHudMain:OnUpdate(dt)
     local lc = p.replica.pn_linhcan
     local tv = p.replica.pn_tuvi
     local cg = p.replica.pn_canhgioi
+    local ls = p.replica.pn_lifespan
 
-    -- Linh căn line
-    if lc and lc:HasData() then
-        local elements = lc:GetElementDisplay()
-        local s = elements ~= "" and (lc:GetDisplay() .. " (" .. elements .. ")") or lc:GetDisplay()
-        self.linhcan_text:SetString(s)
-    else
-        self.linhcan_text:SetString("Linh căn: ?")
-    end
-
-    -- Cảnh giới line — always show (Phàm Nhân for tier 0)
+    -- Cảnh giới (always show, default Phàm Nhân)
     if cg then
         local display = cg:GetDisplay()
-        -- GetDisplay can return empty if Realms returned nil; guard with default
-        if display == nil or display == "" then
-            display = "Phàm Nhân"
-        end
+        if display == nil or display == "" then display = "Phàm Nhân" end
         self.canhgioi_text:SetString(display)
         local col = cg:GetColor()
-        if col then
-            self.canhgioi_text:SetColour(col[1], col[2], col[3], col[4])
-        end
+        if col then self.canhgioi_text:SetColour(col[1], col[2], col[3], col[4]) end
     else
         self.canhgioi_text:SetString("Phàm Nhân")
+    end
+
+    -- Linh căn
+    if lc and lc:HasData() then
+        local el = lc:GetElementDisplay()
+        self.linhcan_text:SetString(el ~= "" and (lc:GetDisplay() .. " (" .. el .. ")") or lc:GetDisplay())
+    else
+        self.linhcan_text:SetString("")
     end
 
     -- Tu vi bar
     if tv and tv:HasData() then
         local pct = tv:GetPercent()
-        local fill_w = math.max(2, math.floor(240 * pct))
-        self.bar_fill:SetSize(fill_w, 12)
-        self.bar_fill:SetPosition(-120 + fill_w / 2, -25)
-        self.bar_text:SetString(string.format("%d / %d tu vi",
-            math.floor(tv:GetCurrent()), math.floor(tv:GetCap())))
+        local fill_w = math.max(2, math.floor(BAR_W * pct))
+        self.bar_fill:SetSize(fill_w, 14)
+        self.bar_fill:SetPosition(-(BAR_W / 2) + fill_w / 2, -4)
+        self.bar_text:SetString(string.format("%d / %d", math.floor(tv:GetCurrent()), math.floor(tv:GetCap())))
     else
-        self.bar_fill:SetSize(2, 12)
-        self.bar_text:SetString("- / -")
+        self.bar_fill:SetSize(2, 14)
+        self.bar_text:SetString("")
     end
 
-    -- Lifespan line
-    local ls = p.replica.pn_lifespan
+    -- Lifespan
     if ls and ls:HasData() then
-        local s
         if ls:IsPermadeath() then
-            s = "Thọ: ĐÃ TẬN"
+            self.lifespan_text:SetString("Thọ: ĐÃ TẬN")
         else
-            s = string.format("Thọ: %d / %d ngày",
-                math.floor(ls:GetRemaining()), math.floor(ls:GetTotal()))
+            self.lifespan_text:SetString(string.format("Thọ: %d / %d",
+                math.floor(ls:GetRemaining()), math.floor(ls:GetTotal())))
         end
-        self.lifespan_text:SetString(s)
         local col = ls:GetColor()
-        self.lifespan_text:SetColour(col[1], col[2], col[3], col[4])
+        if col then self.lifespan_text:SetColour(col[1], col[2], col[3], col[4]) end
     else
-        self.lifespan_text:SetString("Thọ: -")
+        self.lifespan_text:SetString("")
     end
 
-    -- Meditation indicator (server-only state; we sneak-peek via player.components)
-    local meditating = false
-    if p.components and p.components.pn_meditation then
-        meditating = p.components.pn_meditation:IsMeditating()
-    end
-    self.meditating_text:SetString(meditating and "✨ Đang thiền (×1.5)" or "")
-
+    -- Meditation
+    local meditating = p.components and p.components.pn_meditation
+        and p.components.pn_meditation:IsMeditating()
+    self.meditating_text:SetString(meditating and "✨ Đang thiền" or "")
 end
 
 return PnHudMain

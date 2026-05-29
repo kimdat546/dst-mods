@@ -13,6 +13,10 @@ PrefabFiles = {
 }
 
 Assets = {
+    -- Cultivation HUD atlas (borrowed from Dengxian; see PLACEHOLDER.md)
+    Asset("ATLAS", "images/pn_ui.xml"),
+    Asset("IMAGE", "images/pn_ui.tex"),
+
     Asset("IMAGE", "images/saveslot_portraits/phamnhan.tex"),
     Asset("ATLAS", "images/saveslot_portraits/phamnhan.xml"),
 
