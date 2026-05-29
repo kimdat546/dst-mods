@@ -7,12 +7,19 @@
 -- Damage scales lightly with the wielder's cảnh giới (Luyện Khí tier): each
 -- tier adds DAMAGE_PER_TIER, rewarding cultivation.
 
+-- Held/ground visual: a custom swap build (our sword art composited into the
+-- spear's atlas frames, build renamed swap_pn_truc_phong_van_kiem). The "spear"
+-- BANK provides the animations; our BUILD provides the sword texture. The symbol
+-- inside the build is still named "swap_spear" (we only renamed the build).
 local assets = {
-    Asset("ANIM", "anim/spear.zip"),
-    Asset("ANIM", "anim/swap_spear.zip"),
+    Asset("ANIM", "anim/spear.zip"),                          -- bank (animations)
+    Asset("ANIM", "anim/swap_pn_truc_phong_van_kiem.zip"),    -- our sword build
     Asset("ATLAS", "images/inventoryimages/pn_truc_phong_van_kiem.xml"),
     Asset("IMAGE", "images/inventoryimages/pn_truc_phong_van_kiem.tex"),
 }
+
+local SWAP_BUILD  = "swap_pn_truc_phong_van_kiem"
+local SWAP_SYMBOL = "swap_spear"  -- symbol name inside the build (unchanged)
 
 local BASE_DAMAGE     = 40
 local DAMAGE_PER_TIER = 4
@@ -30,7 +37,7 @@ local function CalcDamage(inst)
 end
 
 local function onequip(inst, owner)
-    owner.AnimState:OverrideSymbol("swap_object", "swap_spear", "swap_spear")
+    owner.AnimState:OverrideSymbol("swap_object", SWAP_BUILD, SWAP_SYMBOL)
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
     -- Refresh damage based on current wielder tier
@@ -60,7 +67,7 @@ local function fn()
     MakeInventoryPhysics(inst)
 
     inst.AnimState:SetBank("spear")
-    inst.AnimState:SetBuild("swap_spear")
+    inst.AnimState:SetBuild(SWAP_BUILD)
     inst.AnimState:PlayAnimation("idle")
 
     inst:AddTag("sharp")
