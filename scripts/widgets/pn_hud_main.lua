@@ -1,9 +1,7 @@
 -- scripts/widgets/pn_hud_main.lua
--- Compact cultivation HUD centered on Dengxian's "đan điền" medallion art.
--- The medallion (a gourd-with-flame icon on a pedestal) is the centerpiece —
--- the flame colour reflects the player's primary linh căn element. The realm
--- name sits on the medallion's plaque; a slim tu vi bar + lifespan show below.
--- Right-click + drag to reposition (saved across sessions).
+-- Compact cultivation HUD: a small đan điền medallion with tu vi progress shown
+-- INSIDE it (on the plaque), realm name BELOW it, and lifespan as its own
+-- icon-prefixed line. Right-click + drag to reposition (saved across sessions).
 
 local Widget = require("widgets/widget")
 local Text   = require("widgets/text")
@@ -11,23 +9,20 @@ local Image  = require("widgets/image")
 
 local ATLAS = "images/pn_ui.xml"
 
--- "level1-6" are dantian medallions, each with a different element flame.
--- Map our linh căn element → the medallion that best matches its colour.
+-- Dantian medallions (level1-6), each a different element flame colour.
 local ELEMENT_MEDALLION = {
-    THUY = "level1.tex",  -- blue flame  → Water
-    KIM  = "level3.tex",  -- golden orb  → Metal
-    MOC  = "level4.tex",  -- cyan figure → Wood
-    THO  = "level5.tex",  -- phoenix     → Earth
-    HOA  = "level6.tex",  -- red flame   → Fire
+    THUY = "level1.tex",  -- blue  → Water
+    KIM  = "level3.tex",  -- gold  → Metal
+    MOC  = "level4.tex",  -- cyan  → Wood
+    THO  = "level5.tex",  -- phoenix → Earth
+    HOA  = "level6.tex",  -- red   → Fire
 }
-local DEFAULT_MEDALLION = "level2.tex"  -- purple swirl (mixed / Ngụy)
+local DEFAULT_MEDALLION = "level2.tex"  -- purple (mixed / Ngụy)
 
-local SPR_BAR = "xuetiao2.tex"  -- rounded bar fill
+-- Smaller now, per user feedback.
+local MEDALLION_W, MEDALLION_H = 84, 93
 
-local FONT      = CHATFONT
-local MEDALLION_W, MEDALLION_H = 130, 144
-local BAR_W = 116
-
+local FONT = CHATFONT
 local POSITION_SAVE_KEY = "pn_hud_position"
 
 local function LoadSavedPosition(cb)
@@ -46,38 +41,28 @@ local PnHudMain = Class(Widget, function(self, owner)
     Widget._ctor(self, "PnHudMain")
     self.owner = owner
 
-    -- Đan điền medallion (centerpiece). Element-driven sprite set in OnUpdate.
+    -- Đan điền medallion (small centerpiece)
     self.medallion = self:AddChild(Image(ATLAS, DEFAULT_MEDALLION))
     self.medallion:SetSize(MEDALLION_W, MEDALLION_H)
     self.medallion:SetPosition(0, 0)
     self.medallion:SetClickable(true)
     self._cur_medallion = DEFAULT_MEDALLION
 
-    -- Realm name — overlaid on the medallion's plaque (lower portion)
-    self.canhgioi_text = self:AddChild(Text(FONT, 18, ""))
-    self.canhgioi_text:SetPosition(0, -44)
+    -- Tu vi progress (e.g. "120/282") — INSIDE the medallion, on its plaque area
+    self.tuvi_text = self:AddChild(Text(FONT, 12, ""))
+    self.tuvi_text:SetPosition(0, -30)
 
-    -- Tu vi bar background (dark) + fill (bright), below the medallion
-    self.bar_bg = self:AddChild(Image(ATLAS, SPR_BAR))
-    self.bar_bg:SetSize(BAR_W, 12)
-    self.bar_bg:SetPosition(0, -78)
-    self.bar_bg:SetTint(0.15, 0.15, 0.18, 0.9)
+    -- Realm name — BELOW the medallion
+    self.canhgioi_text = self:AddChild(Text(FONT, 17, ""))
+    self.canhgioi_text:SetPosition(0, -58)
 
-    self.bar_fill = self:AddChild(Image(ATLAS, SPR_BAR))
-    self.bar_fill:SetSize(BAR_W, 12)
-    self.bar_fill:SetPosition(0, -78)
-    self.bar_fill:SetTint(0.4, 0.85, 1, 1)
-
-    self.bar_text = self:AddChild(Text(FONT, 13, ""))
-    self.bar_text:SetPosition(0, -78)
-
-    -- Lifespan
+    -- Lifespan — its own icon-prefixed line below
     self.lifespan_text = self:AddChild(Text(FONT, 15, ""))
-    self.lifespan_text:SetPosition(0, -98)
+    self.lifespan_text:SetPosition(0, -78)
 
     -- Meditating indicator
     self.meditating_text = self:AddChild(Text(FONT, 14, ""))
-    self.meditating_text:SetPosition(0, -116)
+    self.meditating_text:SetPosition(0, -96)
     self.meditating_text:SetColour(0.6, 0.95, 0.4, 1)
 
     self._dragging = false
@@ -109,7 +94,7 @@ end
 
 local function PickMedallion(lc)
     if not (lc and lc:HasData()) then return DEFAULT_MEDALLION end
-    local raw = lc:GetElements()  -- comma list, e.g. "HOA,KIM"
+    local raw = lc:GetElements()
     local first = raw and string.match(raw, "[^,]+")
     return ELEMENT_MEDALLION[first or ""] or DEFAULT_MEDALLION
 end
@@ -142,7 +127,15 @@ function PnHudMain:OnUpdate(dt)
         self._cur_medallion = want
     end
 
-    -- Realm name on plaque
+    -- Tu vi inside medallion
+    if tv and tv:HasData() then
+        self.tuvi_text:SetString(string.format("%d/%d",
+            math.floor(tv:GetCurrent()), math.floor(tv:GetCap())))
+    else
+        self.tuvi_text:SetString("")
+    end
+
+    -- Realm name below
     if cg then
         local d = cg:GetDisplay()
         if d == nil or d == "" then d = "Phàm Nhân" end
@@ -153,24 +146,12 @@ function PnHudMain:OnUpdate(dt)
         self.canhgioi_text:SetString("Phàm Nhân")
     end
 
-    -- Tu vi bar
-    if tv and tv:HasData() then
-        local pct = tv:GetPercent()
-        local fw = math.max(2, math.floor(BAR_W * pct))
-        self.bar_fill:SetSize(fw, 12)
-        self.bar_fill:SetPosition(-(BAR_W / 2) + fw / 2, -78)
-        self.bar_text:SetString(string.format("%d/%d", math.floor(tv:GetCurrent()), math.floor(tv:GetCap())))
-    else
-        self.bar_fill:SetSize(2, 12)
-        self.bar_text:SetString("")
-    end
-
-    -- Lifespan
+    -- Lifespan as its own icon line
     if ls and ls:HasData() then
         if ls:IsPermadeath() then
-            self.lifespan_text:SetString("Thọ: ĐÃ TẬN")
+            self.lifespan_text:SetString("⏳ Thọ tận")
         else
-            self.lifespan_text:SetString(string.format("Thọ: %d/%d",
+            self.lifespan_text:SetString(string.format("⏳ %d/%d",
                 math.floor(ls:GetRemaining()), math.floor(ls:GetTotal())))
         end
         local col = ls:GetColor()
