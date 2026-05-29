@@ -15,6 +15,8 @@ XML_TEX_RE = re.compile(r'<Texture\s+filename="([^"]+)"')
 VANILLA_ANIMS = {
     "anim/gems.zip",
     "anim/firefly_lightsource.zip",
+    "anim/spear.zip",
+    "anim/swap_spear.zip",
 }
 
 

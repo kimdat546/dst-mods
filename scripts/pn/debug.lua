@@ -178,4 +178,15 @@ function _G.c_giveitem(prefab_name, count, player)
         count, prefab_name, tostring(player.userid)))
 end
 
-print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold, c_spawnlinhmach, c_aurastate, c_mobcult, c_giveitem")
+-- Quick give the flying sword
+function _G.c_givekiem(player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player then return end
+    local item = GLOBAL.SpawnPrefab("pn_truc_phong_van_kiem")
+    if item and player.components.inventory then
+        player.components.inventory:GiveItem(item)
+        print("[PN] Gave Trúc Phong Vân Kiếm")
+    end
+end
+
+print("[PN] Debug commands loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_setlifespan, c_dieofold, c_spawnlinhmach, c_aurastate, c_mobcult, c_giveitem, c_givekiem")

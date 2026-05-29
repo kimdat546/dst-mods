@@ -10,6 +10,7 @@ PrefabFiles = {
     "pn_linhkhi_source",
     "pn_noidan",
     "pn_linhthao",
+    "pn_truc_phong_van_kiem",
 }
 
 Assets = {
@@ -249,6 +250,9 @@ STRINGS.NAMES.PN_LINHTHAO_TAM_TINH_HOA   = "Tâm Tĩnh Hoa"
 STRINGS.NAMES.PN_LINHTHAO_LINH_TIEN_THAO = "Linh Tiền Thảo"
 STRINGS.NAMES.PN_LINHTHAO_HONG_LIEN_TU   = "Hồng Liên Tử"
 
+-- Pháp bảo / vũ khí
+STRINGS.NAMES.PN_TRUC_PHONG_VAN_KIEM = "Trúc Phong Vân Kiếm"
+
 -- Linh mạch huyệt names (right-click "Examine" shows these)
 STRINGS.NAMES.PN_LINHKHI_HA     = "Linh Mạch Huyệt (hạ phẩm)"
 STRINGS.NAMES.PN_LINHKHI_TRUNG  = "Linh Mạch Huyệt (trung phẩm)"
@@ -275,6 +279,9 @@ D.PN_NOIDAN_THUONG = "Nội đan của yêu tu. Một viên quý giá."
 D.PN_LINHTHAO_TAM_TINH_HOA   = "Hoa làm tâm an, tinh thần thanh tỉnh. Ăn nó là một cảm giác bình yên."
 D.PN_LINHTHAO_LINH_TIEN_THAO = "Cỏ linh tiền. Người mang nó bước chân khinh nhanh như gió."
 D.PN_LINHTHAO_HONG_LIEN_TU   = "Hạt sen lửa đỏ rực. Khí huyết ấm áp, hỏa độc khó xâm."
+
+-- Pháp bảo
+D.PN_TRUC_PHONG_VAN_KIEM = "Trúc Phong Vân Kiếm — phi kiếm dẫn động phong vân. Cảnh giới càng cao, kiếm càng sắc."
 
 -- Debug console commands (always loaded during MVP; gate behind config in later plans)
 modimport("scripts/pn/debug.lua")
