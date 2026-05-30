@@ -74,7 +74,13 @@ function PnHud:OnUpdate()
     local lc, tv, cg = p.replica.pn_linhcan, p.replica.pn_tuvi, p.replica.pn_canhgioi
 
     local want = PickMedallion(lc)
-    if want ~= self._cur then self.medallion:SetTexture(ATLAS, want); self._cur = want end
+    if want ~= self._cur then
+        self.medallion:SetTexture(ATLAS, want)
+        -- SetTexture resets the image to the atlas region's native size (~186x206),
+        -- so we MUST re-apply our intended size after every texture change.
+        self.medallion:SetSize(MED_W, MED_H)
+        self._cur = want
+    end
 
     if cg then
         local d = cg:GetDisplay(); if d=="" then d="Phàm Nhân" end
