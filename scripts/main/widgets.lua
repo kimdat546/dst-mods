@@ -1,0 +1,5 @@
+AddClassPostConstruct("widgets/controls", function(self)
+    local PnHud = require("widgets/pn_hud_dantian")
+    self.pn_hud = self.top_root:AddChild(PnHud(self.owner))
+    self.pn_hud:SetPosition(-560, -90)
+end)
