@@ -66,4 +66,25 @@ function GLOBAL.c_pnhud(height, yfactor)
     print(string.format("[PN] c_pnhud  H=%d  W=%d  yfactor=%.2f", H, W, YF))
 end
 
-print("[PN] debug loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_pnhud")
+local Herbs = GLOBAL.require("pn/herbs")
+
+function GLOBAL.c_giveherbs(player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not (player and player.components.inventory) then return end
+    for _, def in ipairs(Herbs.herbs) do
+        local h = GLOBAL.SpawnPrefab(def.id); if h then player.components.inventory:GiveItem(h) end
+        local s = GLOBAL.SpawnPrefab(def.id .. "_seed"); if s then player.components.inventory:GiveItem(s) end
+    end
+    print("[PN] gave all herbs + seeds")
+end
+
+function GLOBAL.c_spawnwild(id, player)
+    player = player or GLOBAL.ConsoleCommandPlayer()
+    if not player then return end
+    local def = Herbs.Get(id) or Herbs.herbs[1]
+    local x, y, z = player.Transform:GetWorldPosition()
+    local p = GLOBAL.SpawnPrefab(def.id .. "_plant")
+    if p then p.Transform:SetPosition(x + 2, 0, z); print("[PN] spawned " .. def.id .. "_plant") end
+end
+
+print("[PN] debug loaded: c_addtuvi, c_settier, c_setlinhcan, c_pnstate, c_pnhud, c_giveherbs, c_spawnwild")
