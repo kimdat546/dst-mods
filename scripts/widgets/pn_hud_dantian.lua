@@ -7,7 +7,7 @@ local ATLAS = "images/pn_ui.xml"
 local FONT = CHATFONT
 
 -- Medallion native aspect 186:206 ≈ 0.903. Pick a height, derive width to keep ratio.
-local MED_H = 96
+local MED_H = 100
 local MED_W = math.floor(MED_H * 186 / 206)  -- ≈ 57
 
 local SAVE_KEY = "pn_hud_position"
@@ -33,7 +33,7 @@ local PnHud = Class(Widget, function(self, owner)
 
     -- Tu vi number sits INSIDE the medallion's empty lower slot (not below it).
     self.tuvi_text = self:AddChild(Text(FONT, 13, ""))
-    self.tuvi_text:SetPosition(0, -(MED_H * 0.33))
+    self.tuvi_text:SetPosition(0, -(MED_H * 0.36))
     -- Cảnh giới label below the medallion.
     self.canhgioi_text = self:AddChild(Text(FONT, 15, ""))
     self.canhgioi_text:SetPosition(0, -(MED_H/2) - 12)
