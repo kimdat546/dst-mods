@@ -25,7 +25,7 @@ AddSimPostInit(function(world)
     if world.components.regrowthmanager then
         for _, def in ipairs(Herbs.herbs) do
             world.components.regrowthmanager:SetRegrowthForType(
-                def.id .. "_plant", def.wild_regrow * TOTAL_DAY)
+                def.id .. "_plant", def.wild_regrow * TOTAL_DAY, def.id .. "_plant")
         end
     end
 end)

@@ -42,6 +42,7 @@ local function MakeWild(def)
         inst.components.pickable.onpickedfn = onpicked
         inst.components.pickable.onregenfn = onregen
         inst.components.pickable.picksound = "dontstarve/wilson/pickup_plants"
+        AddToRegrowthManager(inst)  -- enables off-screen world replenishment
         return inst
     end
     return Prefab(wid, fn, assets)

@@ -48,7 +48,7 @@ local function fn()
 
     inst:AddComponent("pn_linhdien")
 
-    inst.OnLoad = onbuilt
+    inst:ListenForEvent("onbuilt", onbuilt)  -- fires when crafted/placed, not on every load
     return inst
 end
 

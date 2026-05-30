@@ -71,6 +71,9 @@ local function MakeSeedItem(def)
         MakeInventoryFloatable(inst, "small", 0.1, 0.7)
 
         inst._custom_candeploy_fn = CanPlant
+        -- Use the always-present grid placer so we don't need a per-seed placer prefab
+        -- (avoids per-frame "unknown prefab <id>_seed_placer" log spam + missing ghost).
+        inst.overridedeployplacername = "gridplacer"
         inst.entity:SetPristine()
         if not TheWorld.ismastersim then return inst end
 
