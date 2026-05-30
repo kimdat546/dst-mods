@@ -7,7 +7,7 @@ local ATLAS = "images/pn_ui.xml"
 local FONT = CHATFONT
 
 -- Medallion native aspect 186:206 ≈ 0.903. Pick a height, derive width to keep ratio.
-local MED_H = 64
+local MED_H = 32
 local MED_W = math.floor(MED_H * 186 / 206)  -- ≈ 57
 
 local SAVE_KEY = "pn_hud_position"
