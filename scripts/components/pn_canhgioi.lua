@@ -51,8 +51,18 @@ end
 function PnCanhGioi:OnSave() return { tier=self.tier } end
 function PnCanhGioi:OnLoad(data)
     if not data then return end
-    self.tier = data.tier or 0  -- stats already baked into the save; do NOT re-apply
+    self.tier = data.tier or 0
     self:_PushToReplica()
+    -- DST does not persist maxhealth/damagemultiplier/hungerrate/locomotor mults by
+    -- default, so re-apply the cumulative stat delta on load. Loop per-layer (d=1)
+    -- to exactly reproduce the live breakthrough sequence (matters for the
+    -- multiplicative hungerrate). Deferred so master_postinit base stats land first.
+    if self.tier > 0 and self.inst then
+        local target = self.tier
+        self.inst:DoTaskInTime(0, function()
+            for t = 1, target do self:_ApplyStatDelta(t - 1, t) end
+        end)
+    end
 end
 
 return PnCanhGioi
