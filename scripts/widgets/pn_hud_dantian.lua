@@ -80,7 +80,9 @@ function PnHud:OnUpdate()
         self.medallion:SetTexture(ATLAS, want)
         -- SetTexture resets the image to the atlas region's native size (~186x206),
         -- so we MUST re-apply our intended size after every texture change.
-        self.medallion:SetSize(MED_W, MED_H)
+        -- Prefer live debug values (set via c_pnhud) so console tweaks don't snap back.
+        local h = self._dbg_H or MED_H
+        self.medallion:SetSize(math.floor(h * 186 / 206), h)
         self._cur = want
     end
 
