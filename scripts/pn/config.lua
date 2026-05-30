@@ -30,4 +30,16 @@ return {
         "rook", "knight", "bishop",
         "deerclops", "moose", "bearger", "dragonfly",
     },
+
+    -- Farming (Plan A)
+    LINHDIEN = {
+        ACCEL_MULT = 2.0,   -- crops in range grow 2x faster
+        RADIUS = 6,         -- tiles-ish world units
+        SCAN_PERIOD = 2,    -- seconds between linh điền rescans
+    },
+    HERB = {
+        WILD_SCATTER_COUNT = 24,  -- wild herbs scattered near spawn on world start
+        WILD_SCATTER_RADIUS = 60,
+        CROP_STAGES = 3,          -- seed -> sprout -> mature
+    },
 }
