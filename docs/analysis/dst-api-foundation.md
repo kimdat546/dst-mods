@@ -698,5 +698,24 @@ inst.components.locomotor:RemoveExternalSpeedMultiplier(inst, "tuvi_realm")
 
 ---
 
+## Pitfall #9: AddSimPostInit truyền PLAYER, không phải world
+
+`mods.lua: ModWrangler:SimPostInit(wilson)` → callback của `AddSimPostInit(fn)` được gọi
+`fn(wilson)` (player), KHÔNG phải world. Dùng `world.Map`/`world.components.regrowthmanager`
+trong đó → `attempt to index local 'world' (a nil value)` → **mod bị disable**.
+
+- **Lấy world instance:** `AddPrefabPostInit("world", function(inst) ... end)` — `inst` là TheWorld,
+  chạy trên cả Master/Caves; check `inst.ismastersim` để chỉ chạy server.
+- Hoặc tham chiếu `GLOBAL.TheWorld` trực tiếp (nếu đã chắc world tồn tại).
+
+```lua
+AddPrefabPostInit("world", function(world)
+    if not world.ismastersim then return end
+    -- world.Map, world.components.regrowthmanager, world:DoTaskInTime(...) đều dùng được
+end)
+```
+
+---
+
 *Mọi snippet trên dựa trên source verify được. Khi nghi ngờ một API, luôn grep lại
 trong `reference/dst-scripts/scripts/` trước khi code — đừng đoán.*
