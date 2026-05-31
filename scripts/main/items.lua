@@ -7,13 +7,17 @@ local function addfiles(...) for _, f in ipairs({...}) do table.insert(PrefabFil
 addfiles("pn_herb_items", "pn_herb_crop", "pn_herb_plant", "pn_linhdien")
 
 Assets = Assets or {}
-table.insert(Assets, Asset("ATLAS", "images/inventoryimages/pn_herbs.xml"))
-table.insert(Assets, Asset("IMAGE", "images/inventoryimages/pn_herbs.tex"))
-table.insert(Assets, Asset("IMAGE", "images/map_icons/pn_linhdien.tex"))
-table.insert(Assets, Asset("ATLAS", "images/map_icons/pn_linhdien.xml"))
+-- per-herb inventory icon atlases (one .tex/.xml per icon) + the herb anim builds
 for _, def in ipairs(Herbs.herbs) do
+    table.insert(Assets, Asset("ATLAS", "images/inventoryimages/" .. def.id .. ".xml"))
+    table.insert(Assets, Asset("IMAGE", "images/inventoryimages/" .. def.id .. ".tex"))
     table.insert(Assets, Asset("ANIM", "anim/" .. def.build .. ".zip"))
 end
+-- linh điền: minimap icon (map_icons) + a separate inventory-style crafting icon
+table.insert(Assets, Asset("IMAGE", "images/map_icons/pn_linhdien.tex"))
+table.insert(Assets, Asset("ATLAS", "images/map_icons/pn_linhdien.xml"))
+table.insert(Assets, Asset("ATLAS", "images/inventoryimages/pn_linhdien_icon.xml"))
+table.insert(Assets, Asset("IMAGE", "images/inventoryimages/pn_linhdien_icon.tex"))
 
 AddMinimapAtlas("images/map_icons/pn_linhdien.xml")
 

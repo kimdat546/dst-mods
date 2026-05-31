@@ -1,11 +1,14 @@
 -- Herb inventory items (pn_herb_<x>) and their seeds (pn_herb_<x>_seed).
 -- Seeds are deployable on walkable ground → spawn the matching crop.
+-- Each herb has its OWN inventory atlas images/inventoryimages/<id>.{tex,xml}
+-- (one atlas per icon = the proven-working pattern; element name == "<id>.tex").
 local Herbs = require("pn/herbs")
 
-local ATLAS = "images/inventoryimages/pn_herbs.xml"
+local function atlas_of(def) return "images/inventoryimages/" .. def.id .. ".xml" end
+local function tex_of(def)   return "images/inventoryimages/" .. def.id .. ".tex" end
 
 local function MakeHerbItem(def)
-    local assets = { Asset("ATLAS", ATLAS), Asset("IMAGE", "images/inventoryimages/pn_herbs.tex") }
+    local assets = { Asset("ATLAS", atlas_of(def)), Asset("IMAGE", tex_of(def)) }
 
     local function fn()
         local inst = CreateEntity()
@@ -26,8 +29,8 @@ local function MakeHerbItem(def)
 
         inst:AddComponent("inspectable")
         inst:AddComponent("inventoryitem")
-        inst.components.inventoryitem.atlasname = ATLAS
-        inst.components.inventoryitem.imagename = def.id  -- sprite key == prefab name
+        inst.components.inventoryitem.atlasname = atlas_of(def)
+        inst.components.inventoryitem.imagename = def.id  -- sprite key == prefab name (.tex appended)
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = 40
         inst:AddComponent("tradable")
@@ -48,12 +51,14 @@ local function OnDeploySeed(def)
     end
 end
 
-local function CanPlant(inst, pt, mouseover, deployer)
-    return TheWorld.Map:IsPassableAtPoint(pt.x, 0, pt.z) and not TheWorld.Map:IsPointNearHole(pt)
+local function CanPlant(inst, pt, mouseover, deployer, rot)
+    return (TheWorld.Map:IsPassableAtPoint(pt.x, 0, pt.z)
+        and not TheWorld.Map:IsPointNearHole(pt)) and true or false
 end
 
 local function MakeSeedItem(def)
-    local assets = { Asset("ATLAS", ATLAS), Asset("IMAGE", "images/inventoryimages/pn_herbs.tex") }
+    -- seed shares the herb's icon atlas
+    local assets = { Asset("ATLAS", atlas_of(def)), Asset("IMAGE", tex_of(def)) }
     local sid = def.id .. "_seed"
 
     local function fn()
@@ -68,24 +73,24 @@ local function MakeSeedItem(def)
         inst.AnimState:PlayAnimation("idle")
 
         inst:AddTag("pn_herb_seed")
+        inst:AddTag("deployedplant")   -- classifies item as a ground-plantable (vanilla seeds do this)
         MakeInventoryFloatable(inst, "small", 0.1, 0.7)
 
-        inst._custom_candeploy_fn = CanPlant
-        -- Use the always-present grid placer so we don't need a per-seed placer prefab
-        -- (avoids per-frame "unknown prefab <id>_seed_placer" log spam + missing ghost).
-        inst.overridedeployplacername = "gridplacer"
+        inst._custom_candeploy_fn = CanPlant   -- consulted client-side; set BEFORE SetPristine
         inst.entity:SetPristine()
         if not TheWorld.ismastersim then return inst end
 
         inst:AddComponent("inspectable")
         inst:AddComponent("inventoryitem")
-        inst.components.inventoryitem.atlasname = ATLAS
-        inst.components.inventoryitem.imagename = def.id  -- share herb icon for v1
+        inst.components.inventoryitem.atlasname = atlas_of(def)
+        inst.components.inventoryitem.imagename = def.id  -- share herb icon
         inst:AddComponent("stackable")
         inst.components.stackable.maxsize = 20
 
         inst:AddComponent("deployable")
         inst.components.deployable:SetDeployMode(DEPLOYMODE.CUSTOM)
+        inst.components.deployable:SetUseGridPlacer(true)             -- replicated generic placer
+        inst.components.deployable:SetDeploySpacing(DEPLOYSPACING.DEFAULT)
         inst.components.deployable.ondeploy = OnDeploySeed(def)
         return inst
     end

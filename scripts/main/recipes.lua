@@ -4,7 +4,7 @@ local TECH = GLOBAL.TECH
 AddRecipe2("pn_linhdien",
     { Ingredient("cutgrass", 6), Ingredient("twigs", 4), Ingredient("rocks", 2) },
     TECH.SCIENCE_ONE,
-    { placer = "pn_linhdien_placer", atlas = "images/map_icons/pn_linhdien.xml", image = "pn_linhdien.tex" },
+    { placer = "pn_linhdien_placer", atlas = "images/inventoryimages/pn_linhdien_icon.xml", image = "pn_linhdien.tex" },
     { "STRUCTURES" })
 
 STRINGS.NAMES.PN_LINHDIEN = "Linh Điền"
