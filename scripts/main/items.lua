@@ -19,20 +19,20 @@ AddMinimapAtlas("images/map_icons/pn_linhdien.xml")
 
 local TOTAL_DAY = GLOBAL.TUNING.TOTAL_DAY_TIME or 480
 
--- Wild herb regrowth (replenishes harvested-and-removed wild herbs over time).
-AddSimPostInit(function(world)
+-- AddSimPostInit passes the PLAYER, not the world — use AddPrefabPostInit("world", ...)
+-- which runs on the world entity (master sim). Both setups live here.
+AddPrefabPostInit("world", function(world)
     if not world.ismastersim then return end
+
+    -- Wild herb regrowth (replenishes wild herbs over time).
     if world.components.regrowthmanager then
         for _, def in ipairs(Herbs.herbs) do
             world.components.regrowthmanager:SetRegrowthForType(
                 def.id .. "_plant", def.wild_regrow * TOTAL_DAY, def.id .. "_plant")
         end
     end
-end)
 
--- Scatter some wild herbs near spawn on world start (no worldgen edits).
-AddSimPostInit(function(world)
-    if not world.ismastersim then return end
+    -- Scatter some wild herbs near spawn on world start (no worldgen edits).
     world:DoTaskInTime(2, function()
         local map = world.Map
         local R = config.HERB.WILD_SCATTER_RADIUS
