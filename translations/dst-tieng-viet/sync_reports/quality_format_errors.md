@@ -1,0 +1,212 @@
+# Quality Check Report — vietnamese.po
+| Loại | Số lượng |
+|---|---|
+| 🚨 Lỗi format string | 68 |
+| ⚠️ Chưa dịch | 0 |
+| ↩️ Newline mismatch | 0 |
+
+## Chi tiết
+
+### `STRINGS.BALATRO.JIMBO_REWARD_2`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{reward}'] VI=[]
+
+### `STRINGS.BALATRO.JIMBO_REWARD_5`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{reward}'] VI=[]
+
+### `STRINGS.CHARACTERS.GENERIC.DESCRIBE.PLAYER.GHOST`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.GENERIC.DESCRIBE.PLAYER.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.GENERIC.DESCRIBE.WILLOW.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WALTER.DESCRIBE.WILLOW.ATTACKER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WANDA.ATTACKER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WANDA.FIRESTARTER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WANDA.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WANDA.GHOST`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WANDA.MURDERER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WICKERBOTTOM.ATTACKER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WICKERBOTTOM.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WARLY.DESCRIBE.WICKERBOTTOM.GHOST`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.SINGINGSHELL_OCTAVE3.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{note}'] VI=['{ghi chú}']
+
+### `STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.SINGINGSHELL_OCTAVE4.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{note}'] VI=['{ghi chú}']
+
+### `STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WAXWELL.MURDERER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78.ATTACKER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.WALTER.MURDERER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.WAXWELL.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.WENDY.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.WILLOW.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.WINONA.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.WOLFGANG.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WEBBER.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người chiến thắng}']
+
+### `STRINGS.CHARACTERS.WENDY.DESCRIBE.WINONA.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WENDY.DESCRIBE.WOLFGANG.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WENDY.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người chiến thắng}']
+
+### `STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WENDY.ATTACKER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.PLAYER.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WATHGRITHR.FIRESTARTER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WAXWELL.MURDERER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WEBBER.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WENDY.FIRESTARTER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WES.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WOLFGANG.ATTACKER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WOODIE.BEAVERGHOST`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.WORTOX.FIRESTARTER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WILLOW.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người chiến thắng}']
+
+### `STRINGS.CHARACTERS.WINONA.DESCRIBE.WORMWOOD.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WINONA.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người chiến thắng}']
+
+### `STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WES.MURDERER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WOLFGANG.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người chiến thắng}']
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.PLAYER.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WATHGRITHR.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WEBBER.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WENDY.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WENDY.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WES.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WICKERBOTTOM.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WILLOW.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WINONA.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WOODIE.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.WURT.GENERIC`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WOODIE.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người chiến thắng}']
+
+### `STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WAXWELL.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WOLFGANG.REVIVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WURT.MURDERER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=[]
+
+### `STRINGS.CHARACTERS.WORTOX.DESCRIBE.WALTER.ATTACKER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WORTOX.DESCRIBE.WILLOW.MURDERER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTERS.WORTOX.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người chiến thắng}']
+
+### `STRINGS.CHARACTERS.WURT.DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{winner}'] VI=['{người thắng cuộc}']
+
+### `STRINGS.CHARACTERS.WX78.DESCRIBE.WOODIE.BEAVER`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['%s'] VI=[]
+
+### `STRINGS.CHARACTER_BIOS.wx78.3.desc`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{ [LoadEmpathyModLibraryExW().......ERROR_DATA_PATH_NOT_FOUND] }'] VI=['{ [Tảithưviệnmô-đunvềnhậnthức......LỖI_không_TÌM_THẤY_DỮ_LIỆU] }']
+
+### `STRINGS.UI.PURCHASEPACKSCREEN.NOT_ENOUGH_BODY`
+- 🚨 FORMAT LỖI: Format mismatch: EN=['{chest_name}', '{currency_needed}'] VI=['{chest_name}', '{currence_needed}']

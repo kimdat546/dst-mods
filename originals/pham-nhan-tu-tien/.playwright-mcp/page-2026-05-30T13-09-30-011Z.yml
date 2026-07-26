@@ -1,0 +1,682 @@
+- generic [active] [ref=e1]:
+  - link "欢迎进入 一口气了解凡人小说里法宝的层次，多例说明，长文警告 - 知乎,盲人用户使用操作智能引导，请按快捷键Ctrl+Alt+R；阅读详细操作说明请按快捷键Ctrl+Alt+问号键。":
+    - /url: javascript:void(0)
+    - img [ref=e2] [cursor=pointer]
+  - generic [ref=e4]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - link "知乎" [ref=e8] [cursor=pointer]:
+          - /url: https://www.zhihu.com
+          - img [ref=e9]
+        - generic [ref=e13]:
+          - generic [ref=e14]:
+            - navigation [ref=e15]:
+              - link "关注" [ref=e16] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Ffollow
+                - generic [ref=e17]: 关注
+              - link "推荐" [ref=e18] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2F
+                - generic [ref=e19]: 推荐
+              - link "热榜" [ref=e20] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fhot
+                - generic [ref=e21]: 热榜
+              - link "专栏" [ref=e22] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fcolumn-square
+                - generic [ref=e23]: 专栏
+              - link "圈子 New" [ref=e24] [cursor=pointer]:
+                - /url: https://www.zhihu.com/signin?next=%2Fring-feeds
+                - generic [ref=e25]:
+                  - text: 圈子
+                  - generic [ref=e26]: New
+              - link "付费咨询" [ref=e28] [cursor=pointer]:
+                - /url: https://www.zhihu.com/consult
+                - generic [ref=e29]: 付费咨询
+              - link "知学堂" [ref=e30] [cursor=pointer]:
+                - /url: https://www.zhihu.com/education/learning
+                - generic [ref=e31]: 知学堂
+            - generic [ref=e32]:
+              - search [ref=e33]:
+                - generic [ref=e37]:
+                  - combobox "搜索" [ref=e38]
+                  - button "搜索" [ref=e39] [cursor=pointer]:
+                    - img [ref=e41]
+                - link "直答" [ref=e43] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/
+                  - img [ref=e44]
+                  - text: 直答
+              - generic [ref=e47]:
+                - generic [ref=e49] [cursor=pointer]: 切换模式
+                - button "登录/注册" [ref=e51] [cursor=pointer]
+          - generic:
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic: 一口气了解凡人小说里法宝的层次，多例说明，长文警告
+                        - generic:
+                          - generic:
+                            - generic:
+                              - generic: 首发于
+                              - link "凡人修仙传":
+                                - /url: //www.zhihu.com/column/c_1895191236949820632
+                          - generic:
+                            - generic:
+                              - generic: 切换模式
+                            - generic:
+                              - button:
+                                - img
+    - main [ref=e53]:
+      - generic [ref=e55]:
+        - generic [ref=e57]:
+          - img "一口气了解凡人小说里法宝的层次，多例说明，长文警告" [ref=e61]
+          - article [ref=e62]:
+            - generic [ref=e63]:
+              - heading "一口气了解凡人小说里法宝的层次，多例说明，长文警告" [level=1] [ref=e64]
+              - generic [ref=e67]:
+                - link "小说动漫迷ANFANS" [ref=e70] [cursor=pointer]:
+                  - /url: //www.zhihu.com/people/shi-wei-kong-jian-91
+                  - img "小说动漫迷ANFANS" [ref=e71]
+                - generic [ref=e72]:
+                  - link "小说动漫迷ANFANS" [ref=e76] [cursor=pointer]:
+                    - /url: //www.zhihu.com/people/shi-wei-kong-jian-91
+                  - generic [ref=e79]: 原创，谢谢喜欢
+              - generic [ref=e81]:
+                - link "收录于 · 凡人修仙传" [ref=e82] [cursor=pointer]:
+                  - /url: https://www.zhihu.com/column/c_1895191236949820632
+                  - img [ref=e83]
+                  - generic [ref=e86]: 收录于 · 凡人修仙传
+                  - img [ref=e87]
+                - generic [ref=e89] [cursor=pointer]:
+                  - generic [ref=e91]: "创作声明: 内容包含剧透"
+                  - img [ref=e92]
+            - generic [ref=e98]:
+              - paragraph [ref=e99]: （温馨提示：全文3700余字。）
+              - paragraph [ref=e100]: 《凡人修仙传》中法宝是修士实力的重要组成部分，和敌人斗法时，功法、法宝、灵宠、符箓、阵法发挥着各自的作用，手段各式各样，打斗画面也精彩纷呈。本篇文章着重介绍法宝。
+              - figure [ref=e101]:
+                - img [ref=e103]
+              - paragraph [ref=e104]:
+                - text: 在最新的动画中，韩立逃离了
+                - link "虚天殿" [ref=e106] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E8%99%9A%E5%A4%A9%E6%AE%BF&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLomZrlpKnmrr8iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.tGzzFqSxHtfAERanjOGrzWN7FFv5EI0S5RLwkLZLMpQ&zhida_source=entity
+                  - text: 虚天殿
+                  - img [ref=e107]
+                - text: ，在一个无人孤岛上，从储物袋中放出了他近段时间来收获的法宝，有虚天鼎、寒冰珠、玄天戈、五行环、
+                - link "金雷竹小箭" [ref=e110] [cursor=pointer]:
+                  - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E9%87%91%E9%9B%B7%E7%AB%B9%E5%B0%8F%E7%AE%AD&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLph5Hpm7fnq7nlsI_nrq0iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.50Od2uLaMx7DvSA_ih6DcfT608aUbBbl09M4Tx_fTnU&zhida_source=entity
+                  - text: 金雷竹小箭
+                  - img [ref=e111]
+                - text: 等，真是收获满满，韩立不愧是大收藏家！
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e113]: 这些法宝中有通天灵宝，有古宝，有法宝，还有法器，细心的道友不禁要问，这些法宝有分类，是怎样的？威力又如何？
+              - paragraph [ref=e114]:
+                - text: 在小说中，法宝大致分为
+                - generic [ref=e115]:
+                  - text: 11种层次：法器、符宝及真宝、法宝残片、法宝、本命法宝、古宝、仿通天灵宝、通天灵宝、玄天圣器、
+                  - link "玄天残宝" [ref=e117] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E7%8E%84%E5%A4%A9%E6%AE%8B%E5%AE%9D&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLnjoTlpKnmrovlrp0iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.aQefxSWOdTzLpff2iXn0Odun54MrGiD8DVe0mfw-qI8&zhida_source=entity
+                    - text: 玄天残宝
+                    - img [ref=e118]
+                  - text: 、玄天之宝
+                - text: （后作《凡人修仙之仙界篇》还有更高层次的仙器，本篇文章不作细谈）。
+              - figure [ref=e120]:
+                - img [ref=e122]
+              - paragraph [ref=e123]: 下面按顺序逐一介绍，并举例说明。
+              - heading "1、法器" [level=2] [ref=e124]
+              - paragraph [ref=e125]: 法器分为下、中、上、顶级，由于制作和使用的门槛都比较低，通常是炼气期和筑基期的修士在使用。当然，法器的威力一般不高。
+              - figure [ref=e126]:
+                - img [ref=e128]
+              - paragraph [ref=e129]:
+                - generic [ref=e130]:
+                  - link "引魂钟" [ref=e132] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E5%BC%95%E9%AD%82%E9%92%9F&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLlvJXprYLpkp8iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.FzA45sB_zZw6sQs2Eo4W9nlETssI-H7B-3YYRr9fUUw&zhida_source=entity
+                    - text: 引魂钟
+                    - img [ref=e133]
+                  - text: ：
+                - text: 小说中出现的第一件法器，是能控制铁奴（曲魂）的法宝。在七玄门，韩立打败墨大夫后，用鲜血覆面，与曲魂建立了联系，勉强能控制其行动。而在引魂钟上滴下精血，凡人同样能驱使曲魂。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e135]:
+                - generic [ref=e136]:
+                  - text: 叶状法器和
+                  - link "神风舟" [ref=e138] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E7%A5%9E%E9%A3%8E%E8%88%9F&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLnpZ7po47oiJ8iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.nsYBfQaxPupDOuBn67NMQGPJViaGFFkXkv3W5pEoSXU&zhida_source=entity
+                    - text: 神风舟
+                    - img [ref=e139]
+                  - text: ：
+                - text: 韩立在黄枫谷修行期间，外出一般采用叶子状飞行法器和神风舟。
+              - paragraph [ref=e141]: 前者单人用，比较普通，是低阶或出身低微修士常用的飞行法器；后者是韩立用墨蛟的蛟鳍和尾部炼制而成的，速度快，更灵活，也能容纳四五个人。
+              - figure [ref=e142]:
+                - img [ref=e144]
+              - paragraph [ref=e145]:
+                - generic [ref=e146]:
+                  - link "大挪移令" [ref=e148] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E5%A4%A7%E6%8C%AA%E7%A7%BB%E4%BB%A4&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLlpKfmjKrnp7vku6QiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.467ZkMbKQwTqFuxTqjQuuSjGG6oAXVMo_CC9m7AauqA&zhida_source=entity
+                    - text: 大挪移令
+                    - img [ref=e149]
+                  - text: ：
+                - text: 是古修士们进行超远距离传送时，必须具备的一个法器，能保证传送的安全，否则传送时形成的空间压力，会把人给挤压至死。韩立凭借上古传送阵和大挪移令，从天南大陆传送到了乱星海。
+              - heading "2、符宝及真宝" [level=2] [ref=e151]
+              - paragraph [ref=e152]: 符宝是结丹期及以上修士制作的具有符箓和法宝双重特性的特殊符箓，有“伪法宝”之称。
+              - paragraph [ref=e153]: 他们取自身法宝的威能，封印到符箓之中，最多能封印法宝十分之一的威能，可以隔段时间多次炼制，属于消耗品。
+              - paragraph [ref=e154]: 这种一般留给后人或徒弟用来防身和保命。低阶修士在斗法中使用，能轻松地击杀同阶修士。
+              - figure [ref=e155]:
+                - img [ref=e157]
+              - paragraph [ref=e158]: 而真宝是最顶级的符宝，最多能封印法宝三分之一的威能。它虽然威力惊人，但却是一次性消耗品，而且只能是血脉后人才能使用。
+              - figure [ref=e159]:
+                - img [ref=e161]
+              - paragraph [ref=e162]:
+                - generic [ref=e163]:
+                  - link "飞剑符宝" [ref=e165] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E9%A3%9E%E5%89%91%E7%AC%A6%E5%AE%9D&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLpo57liZHnrKblrp0iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.-8eo8yptzuCKASLRS8O2X18Q8ScLddEvVJbsz7e2pPU&zhida_source=entity
+                    - text: 飞剑符宝
+                    - img [ref=e166]
+                  - text: ：
+                - text: 来自于金光上人，是未入门黄枫谷前韩立的巨大依仗，凭借此符宝，轻松击杀了意图袭击他的两个修士。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e168]:
+                - generic [ref=e169]:
+                  - link "青冥针符宝" [ref=e171] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E9%9D%92%E5%86%A5%E9%92%88%E7%AC%A6%E5%AE%9D&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLpnZLlhqXpkojnrKblrp0iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.X-8TOSahImiC6bGlzpgqkyLBtKB7SftLb__1Zd_1Rk8&zhida_source=entity
+                    - text: 青冥针符宝
+                    - img [ref=e172]
+                  - text: ：
+                - text: 是元婴老怪青易居士用本命法宝青冥针炼制而成，犀利之极，威力惊人。在虚天殿中，他送给韩立防身保命。后文韩立在对战温天仁和慕姓老者中均有所使用。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e174]:
+                - generic [ref=e175]:
+                  - link "火鸟真宝" [ref=e177] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E7%81%AB%E9%B8%9F%E7%9C%9F%E5%AE%9D&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLngavpuJ_nnJ_lrp0iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.1PBA3dE7RYyHBtk8t1AkteMub_aaS0CBN5I-Z7EBWBo&zhida_source=entity
+                    - text: 火鸟真宝
+                    - img [ref=e178]
+                  - text: ：
+                - text: 在越京篇章中，师兄刘靖祭出火鸟真宝，一鼓作气，轻松地灭杀了四大血侍。而此前，黄枫谷众人与血侍斗法相持，且有伤亡，陷入僵局。
+              - heading "3、法宝残片" [level=2] [ref=e180]
+              - paragraph [ref=e181]: 顾名思义，即法宝损坏后剩下的部分。
+              - figure [ref=e182]:
+                - img [ref=e184]
+              - paragraph [ref=e185]:
+                - generic [ref=e186]:
+                  - link "隐形破布" [ref=e188] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E9%9A%90%E5%BD%A2%E7%A0%B4%E5%B8%83&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLpmpDlvaLnoLTluIMiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.zFyLDPMkfzQtiP4EMTXjPkd-PyszUlvAyssgkdH_Zr0&zhida_source=entity
+                    - text: 隐形破布
+                    - img [ref=e189]
+                  - text: ：
+                - text: 用它来罩住物体，会立即隐形，而且一丝灵气都不会外泄，同时不会妨碍灵气从外面进入。韩立在太南小会上交换所得，用来隐匿小绿瓶非常方便。
+              - heading "4、法宝" [level=2] [ref=e191]
+              - paragraph [ref=e192]: 设定是结丹期及以上修士才能炼制，数量稀少。修士会用丹火、婴火日夜淬炼以增加其威力，不会轻易拿出来示人。
+              - figure [ref=e193]:
+                - img [ref=e195]
+              - paragraph [ref=e196]: 而从机缘或斗法中获得他人遗留的法宝，如果是斗法攻击类型的，必须经过长时间炼化再重新继承，但由于新主人难以做到与法宝心神完全合一，它的威力会丧失大半。
+              - figure [ref=e197]:
+                - img [ref=e199]
+              - paragraph [ref=e200]:
+                - generic [ref=e201]:
+                  - link "绿煌剑" [ref=e203] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E7%BB%BF%E7%85%8C%E5%89%91&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLnu7_nhYzliZEiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.YxJ9OH_poYHKZjjRAPN7D8D6562qH3wAjI3Hn4ZZiqA&zhida_source=entity
+                    - text: 绿煌剑
+                    - img [ref=e204]
+                  - text: ：
+                - text: 原为御灵宗结丹修士（假曲魂）的法宝，是韩立获得的第一件法宝。韩立炼化绿煌剑后，用来防身、飞行和斗法。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e206]:
+                - generic [ref=e207]:
+                  - link "婆罗珠" [ref=e209] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E5%A9%86%E7%BD%97%E7%8F%A0&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLlqYbnvZfnj6AiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.xpQRYyanOobf4y7AIHmORqzfv5RGAhgXHdBAaxieS5U&zhida_source=entity
+                    - text: 婆罗珠
+                    - img [ref=e210]
+                  - text: ：
+                - text: 原为极阴老祖身上的手链，在虚天殿第三关极妙幻境前赐给韩立。它穿着四个拇指大小的椭圆珠子，散发着青光，具有定身安魂的奇效。
+              - paragraph [ref=e212]: 后文韩立在阴冥之地，凭此轻松过了阴风一关。此外，韩立在结婴时，它同养魂木等，一起发挥安魂的作用。
+              - figure [ref=e213]:
+                - img [ref=e215]
+              - paragraph [ref=e216]:
+                - generic [ref=e217]:
+                  - link "混元钵" [ref=e219] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E6%B7%B7%E5%85%83%E9%92%B5&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLmt7flhYPpkrUiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.aXBW0p7O6Aid3sFGd-ceBZ20-XKmE-Brpk44Dj4QrDk&zhida_source=entity
+                    - text: 混元钵
+                    - img [ref=e220]
+                  - text: ：
+                - text: 原为六连殿古长老的法宝，韩立用阵法围困和击杀古长老后获得。后来，韩立把它交给曲魂，混元钵被炼化后成为曲魂重要的攻击和防御手段。
+              - heading "5、本命法宝" [level=2] [ref=e222]
+              - paragraph [ref=e223]: 本命法宝是法宝中特殊的存在，威力相对更强。修士经过滴血认主，在体内培育本命法宝。他与神魂连通，可随主人修为增长、培育时间增长而威力增强。如果本命法宝损毁，主人也会遭到反噬。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e224]:
+                - generic [ref=e225]:
+                  - link "朱雀环" [ref=e227] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E6%9C%B1%E9%9B%80%E7%8E%AF&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLmnLHpm4Dnjq8iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.MX_Hz5ZLXy31VkT21z9V9n5zz-z5RQTP6l6qixOSSqQ&zhida_source=entity
+                    - text: 朱雀环
+                    - img [ref=e228]
+                  - text: ：
+                - text: 南宫婉的本命法宝，外表是火红圆环，是火属性法宝。南宫婉在血色禁地对战墨蛟时，在掩月宗对付师姐时均有使用，威力不小。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e230]:
+                - generic [ref=e231]:
+                  - link "青竹蜂云剑" [ref=e233] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E9%9D%92%E7%AB%B9%E8%9C%82%E4%BA%91%E5%89%91&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLpnZLnq7nonILkupHliZEiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.W7yekamSJtOdZWGN-F0iy_ctIkjv5tlqdODPNlvRVck&zhida_source=entity
+                    - text: 青竹蜂云剑
+                    - img [ref=e234]
+                  - text: ：
+                - text: 韩立的本命法宝，由七十二根金雷竹长剑组成。韩立多次炼化，先后加入了蚁后炼晶、庚精等，让青竹蜂云剑坚固无比又锋利至极。
+              - paragraph [ref=e236]: 此外，银月魂魄也从狼首玉如意转移，成为青竹蜂云剑的器灵。青竹蜂云剑是韩立在人界和灵界纵横最重要的法宝。
+              - heading "6、古宝" [level=2] [ref=e237]
+              - paragraph [ref=e238]: 古宝是古修士们修炼的宝物。古宝神通单一，但威力一般极大，远非普通的法宝能比得上。但由于古时的炼宝之法、材料和现在的大不相同，古宝只能和法器一样随身携带着使用，无法被收入体内。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e239]:
+                - generic [ref=e240]:
+                  - link "花篮古宝" [ref=e242] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E8%8A%B1%E7%AF%AE%E5%8F%A4%E5%AE%9D&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLoirHnr67lj6Tlrp0iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.GIli6-Bye1ASLkVf_PFdLQ0Mlj057oFlqDKUWJofHLg&zhida_source=entity
+                    - text: 花篮古宝
+                    - img [ref=e243]
+                  - text: ：
+                - text: 原属于花脸怪人，他用它轻易压制和收取了胡月等人的法宝。韩立击杀他后获得，后文在收取狼首玉如意和元明灯时发挥着出人意料的作用。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e245]:
+                - generic [ref=e246]:
+                  - link "血色披风" [ref=e248] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E8%A1%80%E8%89%B2%E6%8A%AB%E9%A3%8E&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLooYDoibLmiqvpo44iLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.cQ-zaNtFuLAygQE8QjqMkUjvCJgsPd930Je8iacFfp4&zhida_source=entity
+                    - text: 血色披风
+                    - img [ref=e249]
+                  - text: ：
+                - text: 虚天殿宝光阁所取的古宝。它疑似残次的顶阶古宝，速度快到能暂时逃匿元婴修士的追捕，但灵力消耗大，且容易失控。在后续的乱星海和慕兰草原中，韩立能成功跑路，血色披风功不可没。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e251]: 五行环：虚天殿宝光阁所取的古宝。它有困敌和防御的作用，对战斗帮助比较大。但它对付如玄骨上人这种特殊的鬼修，毫无用处。而且对付实力高的修士，五行环也用处不大，后文在与温天仁斗法中损毁。
+              - heading "7、通天灵宝仿制品" [level=2] [ref=e252]
+              - paragraph [ref=e253]: 仿照通天灵宝炼制而成。虽然威能逊于正品，但也远远超出一般的法宝。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e254]:
+                - generic [ref=e255]:
+                  - link "三焰扇" [ref=e257] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E4%B8%89%E7%84%B0%E6%89%87&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLkuInnhLDmiYciLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.fuUuAXGRDyT0qtrqntpuDhowdUmiw7wyIIPFUfEOxOw&zhida_source=entity
+                    - text: 三焰扇
+                    - img [ref=e258]
+                  - text: ：
+                - text: 韩立在大衍神君的指导下仿照七焰扇炼制而成，由乌凤翎、赤火蛟鳞等制作而成。它具有纯攻击性，威力巨大，后来韩立飞升灵界前留给了南宫婉。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e260]:
+                - generic [ref=e261]:
+                  - link "平山印" [ref=e263] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E5%B9%B3%E5%B1%B1%E5%8D%B0&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLlubPlsbHljbAiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.doNq3BRMPJx5JQtdIRak2sh917PAjTLPbXguJZ62sNY&zhida_source=entity
+                    - text: 平山印
+                    - img [ref=e264]
+                  - text: ：
+                - text: 是仿造掌天印炼制出来的，只有本体威能的十之一二，但是用它平山开地完全不在话下。它是大晋叶家炼制的宝物，在拍卖会上由太一门所得，后来在昆吾山中被毁。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e266]:
+                - generic [ref=e267]:
+                  - link "万妖幡" [ref=e269] [cursor=pointer]:
+                    - /url: https://zhida.zhihu.com/search?content_id=248548470&content_type=Article&match_order=1&q=%E4%B8%87%E5%A6%96%E5%B9%A1&zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3ODAzMTkzNjgsInEiOiLkuIflppbluaEiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoyNDg1NDg0NzAsImNvbnRlbnRfdHlwZSI6IkFydGljbGUiLCJtYXRjaF9vcmRlciI6MSwiemRfdG9rZW4iOm51bGx9.tVDO44tQJBDbEg2AD8Hn1YDOUIAxWDY-AfMrSfE5UME&zhida_source=entity
+                    - text: 万妖幡
+                    - img [ref=e270]
+                  - text: ：
+                - text: 天妖幡的仿制品，在众多仿制品中威能最接近正品。它高二百余丈，通体灰白，幡面妖影重重，闪动着妖族符文，具有扭曲空间的神通。经过万妖谷万年妖气的长期浸泡，威力之大超乎想象。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e272]: 除了上面，还有化仙宗年轻少女的四象尺（八灵尺仿制品）、风老怪的万刃盘、天魔宗的赤鸣鼓、小极宫的乾蓝鼎、叶家的弥天镯（映月环仿制品，疑似）等等。
+              - heading "8、通天灵宝" [level=2] [ref=e273]
+              - paragraph [ref=e274]: 通天灵宝，是古宝中有莫大神通的称呼。元婴修士即便拥有，也难以真正发挥其威能。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e275]: 虚天鼎：被称为乱星海第一至宝，是一种通天灵宝。它防御力惊人，具有储存和转化灵气等作用。韩立得到虚天鼎后，很长一段时间都没法打开和使用，韩立在结婴后，才慢慢地炼化，开始发挥其威能。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e276]: 七焰扇：在通天灵宝中排名靠后。韩立在坠魔谷探宝中获得七焰扇得炼制方法，但碍于材料难以寻觅，只能炼制其仿制品三焰扇。
+              - paragraph [ref=e277]: 此外，还有八灵尺、黑风旗、天妖幡、映月环（疑似）、赤魂幡、掌天印等等，限于篇幅就不展开叙述。
+              - figure:
+                - generic:
+                  - img
+              - heading "9、玄天圣器" [level=2] [ref=e278]
+              - paragraph [ref=e279]: 仿照玄天之宝炼制而成。用一些奇异材料与手段，也可以从玄天之宝中提炼少许力量，炼制出仿制品。
+              - paragraph [ref=e280]: 在广寒界，海王族女子体内的玄天圣器具有探测功能，感应到韩立的玄天残刃。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e281]: 此外，角蚩族青年也拥有一件玄天圣器，外表是一只通体雪白剔透的小钟，可惜在与韩立斗法中自爆损毁。
+              - heading "10、玄天残宝" [level=2] [ref=e282]
+              - paragraph [ref=e283]: 玄天之宝破损后形成的残片经过炼制，成为玄天残宝。灵界的大部分大乘，能够拥有一两件玄天之宝仿制品或玄天残宝护身，算是非常不错了。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e284]: 玄天残刃：韩立在魔金山脉，从魔猿那得到玄天之宝的残刃。该宝物出自魔界，只要将一些梵圣真魔功蕴含的魔气注入其中，便能轻易控制。此宝威力极大，较轻松地就击杀了角蚩族青年和母魔。
+              - paragraph [ref=e285]
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e286]: 紫言鼎：韩立从血光圣祖化身手中抢到。以宝物的变化莫测而言，紫言鼎威能明显强于玄天残刃。后文紫言鼎以一宝之力就轻易困住了两名合体期魔尊。
+              - paragraph [ref=e287]: 此外，还有黄元子的巨型晶环、赤雷老祖的银色古镜、明尊的阵盘等等，也是玄天残宝。
+              - figure:
+                - generic:
+                  - img
+              - heading "11、玄天之宝" [level=2] [ref=e288]
+              - paragraph [ref=e289]: 开天辟地时诞生于虚无之中的宝物，或者是由蕴含一界法则之力的灵草结出的灵果形成的。它拥有不可思议的神通，能无视一界的天地法则。玄天之宝的出世，每一次在灵界百族中都会引起一番血雨腥风。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e290]: 玄天斩灵剑：在混沌万灵榜上排名第三的顶级至宝，韩立在机缘巧合中得到。剑中蕴含毁灭法则，杀伤力极强，韩立凭此斩杀众多顶级强者，但在韩立飞升仙界时被天雷击碎损毁。
+              - paragraph [ref=e291]: 此外玄天之宝还有黑魔匕、化天盾、破天锤、迷天钟、星月旗、幻天境、玄天圣树、土皇钉、黄风图、银钧天书等等。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e292]: 以上就是法宝的11种层次，而小说最开始的小绿瓶（掌天瓶）不在此列中，而是属于层次更高的仙器，这里不多加叙述。
+              - paragraph [ref=e293]: 法宝这11种层次，关于威力大小，有这样一种普遍的看法：法器<符宝（真宝）<法宝残片<法宝<古宝<通天灵宝仿制品<通天灵宝<玄天圣器<玄天之宝。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e294]: 对于一般法宝而言，这种排序大体上是没问题的。
+              - paragraph [ref=e295]: 但是，对于一些特殊的法宝，需要动态和辩证去看待。如韩立的本命法宝青竹蜂云剑，其威能随着主人修为提升不断增强，从人界到灵界，再到仙界，都发挥着巨大的作用。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e296]: 从另一个角度，从法宝的形成上去理解，所谓法器、法宝、古宝、玄天之宝其实是相对平行的产物：法器是炼气及以上修士就能炼制的，法宝是结丹及以上修士炼制的，古宝是古修士炼制的，玄天之宝是自然形成的（也存在人为炼制）。
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e297]: 小说中，它们没有严格去界定威能大小。好材料炼制的法器威能未必弱于法宝，玄天之宝也未必都胜于不断强化的本命法宝。
+              - paragraph [ref=e298]:
+                - generic [ref=e299]: 也许，没有这种呆板的设定，《凡人修仙传》小说才能有趣和精彩。
+              - paragraph [ref=e300]: 道友怎么看？
+              - figure:
+                - generic:
+                  - img
+              - paragraph [ref=e301]: （全文完，谢谢阅读，同名公众号查看更多好文！）
+              - paragraph
+            - button "发布于 2024-09-24 17:37・四川" [ref=e302]
+            - generic [ref=e304]:
+              - link "凡人修仙传" [ref=e307] [cursor=pointer]:
+                - /url: //www.zhihu.com/topic/23557439
+                - generic [ref=e308]: 凡人修仙传
+              - link "凡人修仙传（动画）" [ref=e311] [cursor=pointer]:
+                - /url: //www.zhihu.com/topic/21190346
+                - generic [ref=e312]: 凡人修仙传（动画）
+            - link "图片 告别“文档焦虑”！千问让处理变得超轻松～ 文本、PDF、PPT、表格、图片…50+格式一键导入，千问AI自动翻译、总结、生成脑图，结果可导出。 查看详情 用户头像 千问 的广告" [ref=e314] [cursor=pointer]:
+              - /url: https://www.qianwen.com/?ch=webtongyi@gp_zhztzhihugpwebty01_normal2_39&from=zhihu&aid=755269&cb=https%3A%2F%2Fsugar.zhihu.com%2Fplutus_adreaper_callback%3Fsi%3Debdb7784-731f-4d28-8383-c4bd6b4bbd8a%26os%3D3%26zid%3D1629%26zaid%3D3745686%26zcid%3D3736406%26cid%3D3736406%26event%3D__EVENTTYPE__%26value%3D__EVENTVALUE__%26ts%3D__TIMESTAMP__%26cts%3D__TS__%26mh%3D__MEMBERHASHID__%26adv%3D755269%26ocg%3D0%26cp%3D0%26ocs%3D0%26aic%3D0%26atp%3D0%26ct%3D0%26ed%3DGiBNJgVzfCMmUW9XFyEvRA8xBGxJICwkOhh0FlwxKw1aY0gnWzUoISkYYEFAPSBRDHgJbEkuNjNzFXQSRDkoDVpyD3kLe2N4fhdgXwRmegZNKlcvUSdncGhJJ1oBBBX7VFpzP94%3D&ua=Mozilla%2F5.0+%28Macintosh%3B+Intel+Mac+OS+X+10_15_7%29+AppleWebKit%2F537.36+%28KHTML%2C+like+Gecko%29+Chrome%2F148.0.0.0+Safari%2F537.36&os=3&campaignId=2743635&adgroupId=3745686&creativeId=3736406&accountId=755269&ip=2401:d800:581:fdb5:ec8d:2dbb:9d23:cade&ipv6=2401:d800:581:fdb5:ec8d:2dbb:9d23:cade&spu=biz%3D0%26ci%3D3736406%26si%3Dda65265b-4822-42c2-800f-7d32bd7e6911%26ts%3D1780146569%26zid%3D1629
+              - generic [ref=e315]:
+                - img "图片" [ref=e317]
+                - generic [ref=e318]:
+                  - generic [ref=e319]:
+                    - generic [ref=e320]: 告别“文档焦虑”！千问让处理变得超轻松～
+                    - generic [ref=e322]:
+                      - text: 文本、PDF、PPT、表格、图片…50+格式一键导入，千问AI自动翻译、总结、生成脑图，结果可导出。
+                      - generic [ref=e324]:
+                        - img [ref=e325]
+                        - generic [ref=e327]: 查看详情
+                  - generic [ref=e328]:
+                    - generic [ref=e329]:
+                      - img "用户头像" [ref=e331]
+                      - generic [ref=e332]:
+                        - generic [ref=e333]: 千问
+                        - generic [ref=e334]: 的广告
+                    - img [ref=e335]
+            - generic [ref=e340]:
+              - generic [ref=e341]:
+                - button "赞同 105" [ref=e343] [cursor=pointer]:
+                  - img [ref=e345]
+                  - text: 赞同 105
+                - button "反对" [ref=e347] [cursor=pointer]:
+                  - img [ref=e349]
+              - button "6 条评论" [ref=e351] [cursor=pointer]:
+                - img [ref=e353]
+                - text: 6 条评论
+              - button "收藏" [ref=e355] [cursor=pointer]:
+                - img [ref=e357]
+                - text: "156"
+              - button "喜欢" [ref=e359] [cursor=pointer]:
+                - img [ref=e361]
+                - text: "11"
+              - button "分享" [ref=e365] [cursor=pointer]:
+                - img [ref=e367]
+                - text: 分享
+              - button "申请转载" [ref=e369] [cursor=pointer]:
+                - img [ref=e371]
+                - text: 申请转载
+              - button [ref=e375] [cursor=pointer]:
+                - img [ref=e377]
+              - button [ref=e383] [cursor=pointer]:
+                - img [ref=e385]
+          - generic [ref=e389]:
+            - textbox [ref=e400]
+            - generic [ref=e407]: 暂无评论
+        - generic [ref=e416]:
+          - generic "边栏锚点"
+          - generic [ref=e417]:
+            - complementary "关于作者" [ref=e418]:
+              - generic [ref=e420]: 关于作者
+              - generic [ref=e422]:
+                - link "小说动漫迷ANFANS" [ref=e425] [cursor=pointer]:
+                  - /url: //www.zhihu.com/people/shi-wei-kong-jian-91
+                  - img "小说动漫迷ANFANS" [ref=e426]
+                - generic [ref=e427]:
+                  - link "小说动漫迷ANFANS" [ref=e430] [cursor=pointer]:
+                    - /url: //www.zhihu.com/people/shi-wei-kong-jian-91
+                  - generic [ref=e432]: 原创，谢谢喜欢
+              - generic [ref=e433]:
+                - generic [ref=e435]:
+                  - link "回答" [ref=e436] [cursor=pointer]:
+                    - /url: //www.zhihu.com/people/shi-wei-kong-jian-91/answers
+                    - generic [ref=e437]:
+                      - generic [ref=e438]: 回答
+                      - strong
+                  - link "文章" [ref=e439] [cursor=pointer]:
+                    - /url: //www.zhihu.com/people/shi-wei-kong-jian-91/posts
+                    - generic [ref=e440]:
+                      - generic [ref=e441]: 文章
+                      - strong
+                  - link "关注者" [ref=e442] [cursor=pointer]:
+                    - /url: //www.zhihu.com/people/shi-wei-kong-jian-91/followers
+                    - generic [ref=e443]:
+                      - generic [ref=e444]: 关注者
+                      - strong
+                - generic [ref=e445]:
+                  - button "关注" [ref=e446] [cursor=pointer]:
+                    - img [ref=e448]
+                    - text: 关注
+                  - button "发私信" [ref=e450] [cursor=pointer]:
+                    - img [ref=e452]
+                    - text: 发私信
+            - generic [ref=e454]:
+              - img
+              - generic [ref=e455]:
+                - img [ref=e456]
+                - generic [ref=e458]: 大家都在搜
+                - button "换一换" [ref=e459] [cursor=pointer]:
+                  - img [ref=e460]
+                  - text: 换一换
+              - generic [ref=e462]:
+                - generic [ref=e463] [cursor=pointer]:
+                  - link "南开大学通报生科院院长学术造假 358 万" [ref=e465]:
+                    - /url: https://www.zhihu.com/search?q=%E5%8D%97%E5%BC%80%E5%A4%A7%E5%AD%A6%E9%80%9A%E6%8A%A5%E7%94%9F%E7%A7%91%E9%99%A2%E9%99%A2%E9%95%BF%E5%AD%A6%E6%9C%AF%E9%80%A0%E5%81%87&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "南开大学通报生科院院长学术造假" [ref=e466]
+                    - generic [ref=e467]: 358 万
+                  - generic [ref=e468]: 新
+                - generic [ref=e469] [cursor=pointer]:
+                  - link "释永信一审被判 24 年 357 万" [ref=e471]:
+                    - /url: https://www.zhihu.com/search?q=%E9%87%8A%E6%B0%B8%E4%BF%A1%E4%B8%80%E5%AE%A1%E8%A2%AB%E5%88%A4+24+%E5%B9%B4&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "释永信一审被判 24 年" [ref=e472]
+                    - generic [ref=e473]: 357 万
+                  - generic [ref=e474]: 热
+                - generic [ref=e475] [cursor=pointer]:
+                  - link "中山大学通报论文图片及数据存疑 342 万" [ref=e477]:
+                    - /url: https://www.zhihu.com/search?q=%E4%B8%AD%E5%B1%B1%E5%A4%A7%E5%AD%A6%E9%80%9A%E6%8A%A5%E8%AE%BA%E6%96%87%E5%9B%BE%E7%89%87%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%AD%98%E7%96%91&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "中山大学通报论文图片及数据存疑" [ref=e478]
+                    - generic [ref=e479]: 342 万
+                  - generic [ref=e480]: 新
+                - generic [ref=e481] [cursor=pointer]:
+                  - link "钱学森从未说过「人再笨还学不会微积分吗」 335 万" [ref=e483]:
+                    - /url: https://www.zhihu.com/search?q=%E9%92%B1%E5%AD%A6%E6%A3%AE%E4%BB%8E%E6%9C%AA%E8%AF%B4%E8%BF%87%E3%80%8C%E4%BA%BA%E5%86%8D%E7%AC%A8%E8%BF%98%E5%AD%A6%E4%B8%8D%E4%BC%9A%E5%BE%AE%E7%A7%AF%E5%88%86%E5%90%97%E3%80%8D&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "钱学森从未说过「人再笨还学不会微积分吗」" [ref=e484]
+                    - generic [ref=e485]: 335 万
+                  - generic [ref=e486]: 新
+                - generic [ref=e487] [cursor=pointer]:
+                  - link "演员林沐然从中戏转入大专 332 万" [ref=e489]:
+                    - /url: https://www.zhihu.com/search?q=%E6%BC%94%E5%91%98%E6%9E%97%E6%B2%90%E7%84%B6%E4%BB%8E%E4%B8%AD%E6%88%8F%E8%BD%AC%E5%85%A5%E5%A4%A7%E4%B8%93&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "演员林沐然从中戏转入大专" [ref=e490]
+                    - generic [ref=e491]: 332 万
+                  - generic [ref=e492]: 新
+                - generic [ref=e493] [cursor=pointer]:
+                  - link "女大学生被家人骗入戒网瘾学校 328 万" [ref=e495]:
+                    - /url: https://www.zhihu.com/search?q=%E5%A5%B3%E5%A4%A7%E5%AD%A6%E7%94%9F%E8%A2%AB%E5%AE%B6%E4%BA%BA%E9%AA%97%E5%85%A5%E6%88%92%E7%BD%91%E7%98%BE%E5%AD%A6%E6%A0%A1&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "女大学生被家人骗入戒网瘾学校" [ref=e496]
+                    - generic [ref=e497]: 328 万
+                  - generic [ref=e498]: 热
+                - generic [ref=e499] [cursor=pointer]:
+                  - link "耿同学讲故事抖音账号被永久限流 310 万" [ref=e501]:
+                    - /url: https://www.zhihu.com/search?q=%E8%80%BF%E5%90%8C%E5%AD%A6%E8%AE%B2%E6%95%85%E4%BA%8B%E6%8A%96%E9%9F%B3%E8%B4%A6%E5%8F%B7%E8%A2%AB%E6%B0%B8%E4%B9%85%E9%99%90%E6%B5%81&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "耿同学讲故事抖音账号被永久限流" [ref=e502]
+                    - generic [ref=e503]: 310 万
+                  - generic [ref=e504]: 热
+                - generic [ref=e505] [cursor=pointer]:
+                  - link "孙俪眼睛血管破裂 289 万" [ref=e507]:
+                    - /url: https://www.zhihu.com/search?q=%E5%AD%99%E4%BF%AA%E7%9C%BC%E7%9D%9B%E8%A1%80%E7%AE%A1%E7%A0%B4%E8%A3%82&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                    - generic "孙俪眼睛血管破裂" [ref=e508]
+                    - generic [ref=e509]: 289 万
+                  - generic [ref=e510]: 热
+                - link "新格伦火箭发射台爆炸 273 万" [ref=e513] [cursor=pointer]:
+                  - /url: https://www.zhihu.com/search?q=%E6%96%B0%E6%A0%BC%E4%BC%A6%E7%81%AB%E7%AE%AD%E5%8F%91%E5%B0%84%E5%8F%B0%E7%88%86%E7%82%B8&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                  - generic "新格伦火箭发射台爆炸" [ref=e514]
+                  - generic [ref=e515]: 273 万
+                - link "高志凯称全球或爆发金融危机 267 万" [ref=e518] [cursor=pointer]:
+                  - /url: https://www.zhihu.com/search?q=%E9%AB%98%E5%BF%97%E5%87%AF%E7%A7%B0%E5%85%A8%E7%90%83%E6%88%96%E7%88%86%E5%8F%91%E9%87%91%E8%9E%8D%E5%8D%B1%E6%9C%BA&search_source=Trending&utm_content=search_hot&utm_medium=organic&utm_source=zhihu&type=content
+                  - generic "高志凯称全球或爆发金融危机" [ref=e519]
+                  - generic [ref=e520]: 267 万
+    - complementary:
+      - button "回到顶部" [ref=e521] [cursor=pointer]:
+        - img [ref=e522]
+  - generic [ref=e527] [cursor=pointer]:
+    - combobox [ref=e528]
+    - img [ref=e529]
+  - generic [ref=e533]:
+    - generic [ref=e537]:
+      - generic [ref=e538]:
+        - generic [ref=e539]:
+          - generic [ref=e540]:
+            - generic [ref=e541]: 打开知乎App
+            - generic [ref=e542]: 在「我的页」右上角打开扫一扫
+            - generic [ref=e550]: 其他扫码方式：微信
+          - generic [ref=e551]:
+            - button "下载知乎App" [ref=e553] [cursor=pointer]
+            - button "无障碍模式" [ref=e555] [cursor=pointer]
+        - generic [ref=e557]:
+          - generic [ref=e559]:
+            - generic [ref=e560]:
+              - generic [ref=e561]:
+                - button "验证码登录" [ref=e562] [cursor=pointer]
+                - button "密码登录" [ref=e563] [cursor=pointer]
+                - link "开通机构号" [ref=e564] [cursor=pointer]:
+                  - /url: /org/signup
+              - textbox [ref=e568]:
+                - /placeholder: 手机号
+              - generic [ref=e569]:
+                - textbox [ref=e572]:
+                  - /placeholder: 输入 6 位短信验证码
+                - button "获取短信验证码" [ref=e573] [cursor=pointer]
+              - generic [ref=e574]:
+                - button
+                - button "获取语音验证码" [ref=e575] [cursor=pointer]:
+                  - generic [ref=e576]: 获取语音验证码
+              - button "登录/注册" [ref=e577] [cursor=pointer]
+            - generic:
+              - log
+          - generic [ref=e580]: 其他方式登录
+          - generic [ref=e583]:
+            - button [ref=e584] [cursor=pointer]:
+              - img [ref=e585]
+            - button [ref=e587] [cursor=pointer]:
+              - img [ref=e588]
+            - button [ref=e590] [cursor=pointer]:
+              - img [ref=e591]
+          - generic [ref=e593]:
+            - text: 未注册手机验证后自动登录，注册即代表同意
+            - link "《知乎协议》" [ref=e594] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/zhihu-terms
+            - link "《隐私保护指引》" [ref=e595] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/privacy
+      - generic:
+        - paragraph: 扫码下载知乎 App
+        - button "关闭二维码":
+          - img
+          - text: 关闭二维码
+    - button "关闭" [ref=e596] [cursor=pointer]:
+      - img [ref=e597]
+  - generic [ref=e601]:
+    - generic [ref=e605]:
+      - generic [ref=e606]:
+        - generic [ref=e607]:
+          - generic [ref=e608]:
+            - generic [ref=e609]: 打开知乎App
+            - generic [ref=e610]: 在「我的页」右上角打开扫一扫
+            - generic [ref=e618]: 其他扫码方式：微信
+          - generic [ref=e619]:
+            - button "下载知乎App" [ref=e621] [cursor=pointer]
+            - button "无障碍模式" [ref=e623] [cursor=pointer]
+        - generic [ref=e625]:
+          - generic [ref=e627]:
+            - generic [ref=e628]:
+              - generic [ref=e629]:
+                - button "验证码登录" [ref=e630] [cursor=pointer]
+                - button "密码登录" [ref=e631] [cursor=pointer]
+                - link "开通机构号" [ref=e632] [cursor=pointer]:
+                  - /url: /org/signup
+              - textbox [ref=e636]:
+                - /placeholder: 手机号
+              - generic [ref=e637]:
+                - textbox [ref=e640]:
+                  - /placeholder: 输入 6 位短信验证码
+                - button "获取短信验证码" [ref=e641] [cursor=pointer]
+              - generic [ref=e642]:
+                - button
+                - button "获取语音验证码" [ref=e643] [cursor=pointer]:
+                  - generic [ref=e644]: 获取语音验证码
+              - button "登录/注册" [ref=e645] [cursor=pointer]
+            - generic:
+              - log
+          - generic [ref=e648]: 其他方式登录
+          - generic [ref=e651]:
+            - button [ref=e652] [cursor=pointer]:
+              - img [ref=e653]
+            - button [ref=e655] [cursor=pointer]:
+              - img [ref=e656]
+            - button [ref=e658] [cursor=pointer]:
+              - img [ref=e659]
+          - generic [ref=e661]:
+            - text: 未注册手机验证后自动登录，注册即代表同意
+            - link "《知乎协议》" [ref=e662] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/zhihu-terms
+            - link "《隐私保护指引》" [ref=e663] [cursor=pointer]:
+              - /url: https://www.zhihu.com/term/privacy
+      - generic:
+        - paragraph: 扫码下载知乎 App
+        - button "关闭二维码":
+          - img
+          - text: 关闭二维码
+    - button "关闭" [ref=e664] [cursor=pointer]:
+      - img [ref=e665]

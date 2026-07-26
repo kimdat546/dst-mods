@@ -1,0 +1,779 @@
+- generic [active] [ref=e1]:
+  - navigation "Fandom top navigation" [ref=e2]:
+    - link "Fandom homepage" [ref=e3] [cursor=pointer]:
+      - /url: https://www.fandom.com/
+      - img [ref=e4]
+    - generic [ref=e7]:
+      - textbox "Search" [ref=e8]
+      - img [ref=e9]
+    - generic [ref=e11]:
+      - link "Sign In" [ref=e13] [cursor=pointer]:
+        - /url: https://auth.fandom.com/signin?source=mw&redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n&selang=vi&metadata=header-signin-button
+      - link "Create a Free Account" [ref=e15] [cursor=pointer]:
+        - /url: https://auth.fandom.com/register?source=mw&redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n&selang=vi&metadata=header-registration-button
+  - generic "Community navigation" [ref=e16]:
+    - link "Fandom homepage" [ref=e18] [cursor=pointer]:
+      - /url: https://www.fandom.com/
+      - img [ref=e19]
+    - link "Don't Starve Wiki" [ref=e21] [cursor=pointer]:
+      - /url: https://dont-starve-game.fandom.com/vi/wiki/Don%27t_Starve_Wiki
+      - img "Don't Starve Wiki" [ref=e22]
+    - navigation [ref=e23]:
+      - list [ref=e24]:
+        - listitem [ref=e25]:
+          - generic [ref=e26]:
+            - generic [ref=e27] [cursor=pointer]:
+              - img [ref=e28]
+              - generic [ref=e30]: Explore
+            - img "hiện" [ref=e31]
+        - listitem [ref=e33]:
+          - generic [ref=e34]:
+            - link "Don't Starve" [ref=e35] [cursor=pointer]:
+              - /url: https://dont-starve-game.fandom.com/vi/wiki/Don%27t_Starve
+              - generic [ref=e36]: Don't Starve
+            - img "hiện" [ref=e37]
+        - listitem [ref=e39]:
+          - generic [ref=e40]:
+            - link "DLC" [ref=e41] [cursor=pointer]:
+              - /url: https://dont-starve-game.fandom.com/vi/wiki/DLC
+              - generic [ref=e42]: DLC
+            - img "hiện" [ref=e43]
+        - listitem [ref=e45]:
+          - generic [ref=e46]:
+            - link "Don't Starve Together" [ref=e47] [cursor=pointer]:
+              - /url: https://dont-starve-game.fandom.com/vi/wiki/Don%27t_Starve_Together
+              - generic [ref=e48]: Don't Starve Together
+            - img "hiện" [ref=e49]
+        - listitem [ref=e51]:
+          - generic [ref=e52]:
+            - generic [ref=e54] [cursor=pointer]: Cộng đồng
+            - img "hiện" [ref=e55]
+    - button "Open searchbar" [ref=e58] [cursor=pointer]:
+      - img [ref=e59]
+    - generic [ref=e61]:
+      - link "Discuss" [ref=e62] [cursor=pointer]:
+        - /url: /vi/f
+        - img
+      - link "Switch to Dark Theme" [ref=e63] [cursor=pointer]:
+        - /url: "#"
+        - img
+    - link "Sign In" [ref=e66] [cursor=pointer]:
+      - /url: https://auth.fandom.com/signin?source=mw&redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n&selang=vi&metadata=header-signin-button
+      - generic [ref=e67]:
+        - img
+        - text: Sign In
+  - generic [ref=e68]:
+    - navigation "Fandom navigation" [ref=e70]:
+      - generic [ref=e71]:
+        - link "Home" [ref=e74] [cursor=pointer]:
+          - /url: https://www.fandom.com/
+          - generic [ref=e75]:
+            - img [ref=e77]
+            - generic [ref=e79]: Home
+        - button "Explore" [ref=e81] [cursor=pointer]:
+          - generic [ref=e82]:
+            - img [ref=e84]
+            - generic [ref=e87]: Explore
+        - link "Saved" [ref=e90] [cursor=pointer]:
+          - /url: https://www.fandom.com/saved
+          - generic [ref=e91]:
+            - img [ref=e93]
+            - generic [ref=e95]: Saved
+        - link "Progress" [ref=e98] [cursor=pointer]:
+          - /url: https://www.fandom.com/progress
+          - generic [ref=e99]:
+            - img [ref=e101]
+            - generic [ref=e103]: Progress
+        - button "Lịch sử" [ref=e105] [cursor=pointer]:
+          - generic [ref=e106]:
+            - img [ref=e108]
+            - generic [ref=e110]: Lịch sử
+    - navigation "Fandom navigation" [ref=e112]:
+      - button "More" [ref=e114] [cursor=pointer]:
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - generic [ref=e119]: More
+  - generic [ref=e120]:
+    - generic [ref=e122]:
+      - iframe [ref=e125]:
+        - generic [ref=f402e5]:
+          - generic [ref=f402e6]:
+            - link:
+              - /url: https://app.adroll.com/optout/
+              - img [ref=f402e8] [cursor=pointer]
+          - link [ref=f402e9] [cursor=pointer]:
+            - /url: http://d.adroll.com/click/?adroll_insertion_id=68aa96d4289f29d53ecb45e59ca3fb47&adroll_height=250&adroll_width=970&site_url=http%3A//dont-starve-game.fandom.com&adroll_ad_payload=__HIA_UBkwHFA-LIA94AAY1TXYgbVRTOTLYiVAqusFB9WcEsPuwkczMzmZlqLDP52WyS3c3-JJuE4ji5czeZbuYnk0m2FZS-iAj6ICJCi1hEUHwVwQcfyvZKbTs3Belj64uIPomgT1bRO1v2dfHCPXAO5-873zk_Jl5i8YJWbYhVQdzttlZK7UalU5eFerOdxAvFjZVSsbbWrHdL3VYpV5K3lMbWxhxeaHQbnXalLLWq2kp5tbtS7ra1rHD2O-bSIAz98blMxoaOGeyjcMxN3f009JwMcjNhYFqI8-xh5jw0HT-viAIvLE1Cxxh7kwCivGkF3nB4ZHGQZU-cvGWP_aF5-cgUx5h2343dDOQaU9fwA2NoPg4IUeDkjxXouSFywzyttUTjIXJizaJWbhyawRRxfdNB6T3TtTwnbm-J5oRD28orgqIKOSAASVF4Vc3yiqrIiirxWUmUFABysipK1BuG-b4WP92nKFYVR2mbm0PJbNbE0ZaumiNhdzvoin1vK8wKPqwUoa2PQPayWs4V-6hf852V0cW1YEcU4WCv1jQh54u7nUJQRE5l1Gmtw536tJZr1HMb09rQrQzWxIPORR9sqtWgW29yr5sHpVBU2xW-3FztSbvP4oX2WrPZrtbXd8paRy_WKpVVvSDrCl5Y3S5JO62dSk3XC91qcXuzGNN4bpZIPmy_jJ_u0fnsGz3vEp2mDW23X741z97-7fDOr1_9_MW3b__5ze8_PHh476na4YXE5BPT5yhX4QCZ45ADvegd_NwJU42uYnZDi67N7J_eeDK6frLvp6eiz-aj21f9wLMmMLQ9N7qDX1Qg7PVEWUZ7KhKhSUkA0JLELIA9BCQRAiTxvGKB6O6tJ-ben8199O8HUUQBHN54dA1_ff_z6x8fA4gITkS_0P_X_eSV6FEs_o7FPx_yaZmXCJPETI8w8_gMZTkNgJKWQJquAWFewAnCqCd2T5jz-HmtoRWM0rrRWjcagTc2io-X16hr9UVucRfR7Noswd7lCHMhTvlaLMxYWDgZ-pAwNmZoqv3Y5OJFYKGeBXkVKT2gyJbSy_EWlIAoSIBKKBNmRB3H9L97SJj38Nbx9Z3QaGZqZw7sfTujp0ogpWspDcCBUThS9JQKQqMxmBjrg1RBSGlZlzB_YMYibHuWYG68RdgOPjMe-ZO-MZWNrGSIPGG7Nwn76tEyEdah8OwqYUfklbOEfRNnaHXHNGyHkuqjgJ6w7yNrmQNSWlak3DKI5wxyy5yQ5mNQhL2CT_NpnucBEJUs1b__H2NgZw8Sz9gcv2ciyZLosQIpJ6hxtns4adohmavfJKe-xKdpF2Mf0d1y-_8BxAxwTcQTLHMDTl4vqds&adroll_subnetwork=r&cpm=aeN9CAAAAADATl089RKK6lD6Vyn3SrSJCkl2Lw&adroll_network=index&desturl=https%3A//icmarkets-vnk.com/en/trade-oil/%3Fcamp%3D84303%26utm_source%3Dadroll%26utm_medium%3Ddisplay%26utm_campaign%3Dadr_en_vn_pr_lal%26utm_term%3Dlal%26utm_content%3Doil%26placement%3Ddont-starve-game.fandom.com%26adrclid%3D8389361315880992089878950254581167945%26adct%3DgAAAAABp430IB0DZLj2b24aodpgdOqZCYTvkzzE1nKwpd3qvzan0twXyuvhx_7Sfdo5uyAuIG5-pOoc-QbmT7k9rLlpI4ggK9mYeaIYuRe9p1Vjvuwy2d9KcVkE9ZPKxe4Ovf45t2-N8
+      - generic [ref=e126]: Advertisement
+    - generic [ref=e128]:
+      - link "Skip to content" [ref=e129] [cursor=pointer]:
+        - /url: "#page-header"
+      - banner [ref=e131]:
+        - link "Don't Starve Wiki" [ref=e132] [cursor=pointer]:
+          - /url: https://dont-starve-game.fandom.com/vi/wiki/Don%27t_Starve_Wiki
+          - img "Don't Starve Wiki" [ref=e133]
+        - generic [ref=e134]:
+          - link "Don't Starve Wiki" [ref=e136] [cursor=pointer]:
+            - /url: https://dont-starve-game.fandom.com/vi/wiki/Don%27t_Starve_Wiki
+          - generic [ref=e137]:
+            - generic [ref=e138]: "1.937"
+            - generic [ref=e139]: pages
+          - generic [ref=e140]:
+            - link "Discuss" [ref=e141] [cursor=pointer]:
+              - /url: /vi/f
+              - img
+            - link "Switch to Dark Theme" [ref=e142] [cursor=pointer]:
+              - /url: "#"
+              - img
+        - navigation [ref=e143]:
+          - list [ref=e144]:
+            - listitem [ref=e145]:
+              - generic [ref=e146]:
+                - generic [ref=e147] [cursor=pointer]:
+                  - img [ref=e148]
+                  - generic [ref=e150]: Explore
+                - img "hiện" [ref=e151]
+            - listitem [ref=e153]:
+              - generic [ref=e154]:
+                - link "Don't Starve" [ref=e155] [cursor=pointer]:
+                  - /url: https://dont-starve-game.fandom.com/vi/wiki/Don%27t_Starve
+                  - generic [ref=e156]: Don't Starve
+                - img "hiện" [ref=e157]
+            - listitem [ref=e159]:
+              - generic [ref=e160]:
+                - link "DLC" [ref=e161] [cursor=pointer]:
+                  - /url: https://dont-starve-game.fandom.com/vi/wiki/DLC
+                  - generic [ref=e162]: DLC
+                - img "hiện" [ref=e163]
+            - listitem [ref=e165]:
+              - generic [ref=e166]:
+                - link "Don't Starve Together" [ref=e167] [cursor=pointer]:
+                  - /url: https://dont-starve-game.fandom.com/vi/wiki/Don%27t_Starve_Together
+                  - generic [ref=e168]: Don't Starve Together
+                - img "hiện" [ref=e169]
+            - listitem [ref=e171]:
+              - generic [ref=e172]:
+                - generic [ref=e174] [cursor=pointer]: Cộng đồng
+                - img "hiện" [ref=e175]
+      - generic [ref=e177]:
+        - main [ref=e178]:
+          - generic [ref=e180]:
+            - generic "Mục lục" [ref=e181]:
+              - button "Mục lục" [ref=e182] [cursor=pointer]:
+                - img [ref=e183]
+              - text: . . . . . . . . . .
+            - link "Sửa đổi" [ref=e185] [cursor=pointer]:
+              - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit&uselang=vi&metadata=article-registration-edit-article
+              - img [ref=e186]
+            - link "Sign In to Save" [ref=e188] [cursor=pointer]:
+              - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fcollections%3Dsave&uselang=vi&metadata=collections-save-button
+              - img [ref=e189]
+          - generic [ref=e191]:
+            - generic [ref=e194]:
+              - text: "trong:"
+              - link "Tây Du Ký" [ref=e195] [cursor=pointer]:
+                - /url: /vi/wiki/Th%E1%BB%83_lo%E1%BA%A1i:T%C3%A2y_Du_K%C3%BD
+            - generic [ref=e196]:
+              - heading "Bạch Cốt Phu Nhân" [level=1] [ref=e198]
+              - generic [ref=e199]:
+                - link "Comments" [ref=e200] [cursor=pointer]:
+                  - /url: "#articleComments"
+                  - img
+                - link "Sign In to Save" [ref=e202] [cursor=pointer]:
+                  - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fcollections%3Dsave&uselang=vi&metadata=collections-save-button
+                  - img
+                  - generic [ref=e203]: Save
+                - link "Sửa đổi" [ref=e204] [cursor=pointer]:
+                  - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit&uselang=vi&metadata=article-registration-edit-article
+                  - img
+                  - text: Sửa đổi
+                - button "Page Tools" [ref=e206]:
+                  - img
+          - generic [ref=e209]:
+            - paragraph
+            - region [ref=e210]:
+              - heading "Bạch Cốt Phu Nhân" [level=2] [ref=e211]
+              - generic [ref=e213]:
+                - generic [ref=e214]:
+                  - figure [ref=e215]:
+                    - link "Bạch Cốt Phu Nhân view image" [ref=e216] [cursor=pointer]:
+                      - /url: https://static.wikia.nocookie.net/dont-starve/images/f/f4/B%E1%BA%A1ch_C%E1%BB%91t_Phu_Nh%C3%A2n.png/revision/latest?cb=20210817100447&path-prefix=vi
+                      - img "Bạch Cốt Phu Nhân" [ref=e217]
+                      - generic "view image" [ref=e220]:
+                        - img [ref=e221]
+                  - generic [ref=e223]:
+                    - heading "Biệt Danh" [level=3] [ref=e224]
+                    - generic [ref=e225]: Bạch Cốt Tinh
+                  - generic [ref=e226]:
+                    - heading "Châm Ngôn" [level=3] [ref=e227]
+                    - generic [ref=e228]: Ngàn năm Bạch Cốt Hóa Âm Phong
+                  - generic [ref=e229]:
+                    - heading "Khả Năng" [level=3] [ref=e230]
+                    - generic [ref=e231]:
+                      - list [ref=e232]:
+                        - listitem [ref=e233]: Thiên niên thi ma thành tinh.
+                      - list [ref=e234]:
+                        - listitem [ref=e235]: Giỏi khống chế xương cốt.
+                      - list [ref=e236]:
+                        - listitem [ref=e237]: Tâm địa tàn độc, thích uống máu ăn tim
+                      - list [ref=e238]:
+                        - listitem [ref=e239]: Yêu thuật nham hiểm và sống hai mặt
+                - table "Chỉ số" [ref=e241]:
+                  - caption [ref=e242]: Chỉ số
+                  - rowgroup [ref=e243]:
+                    - row "Health Hunger Sanity" [ref=e244]:
+                      - columnheader "Health" [ref=e245]:
+                        - link "Health" [ref=e247] [cursor=pointer]:
+                          - /url: /vi/wiki/Health
+                          - img "Health" [ref=e248]
+                      - columnheader "Hunger" [ref=e249]:
+                        - link "Hunger" [ref=e251] [cursor=pointer]:
+                          - /url: /vi/wiki/Hunger
+                          - img "Hunger" [ref=e252]
+                      - columnheader "Sanity" [ref=e253]:
+                        - link "Sanity" [ref=e255] [cursor=pointer]:
+                          - /url: /vi/wiki/Sanity
+                          - img "Sanity" [ref=e256]
+                  - rowgroup [ref=e257]:
+                    - row "150 150 250" [ref=e258]:
+                      - cell "150" [ref=e259]
+                      - cell "150" [ref=e260]
+                      - cell "250" [ref=e261]
+                - generic [ref=e262]:
+                  - generic [ref=e263]:
+                    - heading "Vật Dụng Đặc Biệt" [level=3] [ref=e264]:
+                      - text: Vật Dụng
+                      - text: Đặc Biệt
+                    - generic [ref=e265]: Bạch Cốt Yêu Kính, Cốt Tiên, Cốt Nhận, Cốt Trượng, Âm Sâm Chi Tâm, Doanh Phong Trừu, Kiên Cốt Phi, Bất Phế Y, Huyết Sắc Nghê, Ôn Huyền Bào, Vụ Ẩn Thường
+                  - generic [ref=e266]:
+                    - heading "Vật Dụng Khởi Đầu" [level=3] [ref=e267]:
+                      - text: Vật Dụng
+                      - text: Khởi Đầu
+                    - generic [ref=e268]:
+                      - link "Mảnh Xương" [ref=e269] [cursor=pointer]:
+                        - /url: /vi/wiki/M%E1%BA%A3nh_X%C6%B0%C6%A1ng
+                      - text: ","
+                      - link "Nhiên Liệu Ác Mộng" [ref=e270] [cursor=pointer]:
+                        - /url: /vi/wiki/Nhi%C3%AAn_Li%E1%BB%87u_%C3%81c_M%E1%BB%99ng
+                      - text: ","
+                      - link "Gỗ Sống" [ref=e271] [cursor=pointer]:
+                        - /url: /vi/wiki/G%E1%BB%97_S%E1%BB%91ng
+                      - text: ", Bạch Cốt Yêu Kính"
+                  - generic [ref=e272]:
+                    - heading "Đồ ăn yêu thích" [level=3] [ref=e273]:
+                      - link "Đồ ăn yêu thích" [ref=e274] [cursor=pointer]:
+                        - /url: /vi/wiki/L%C6%B0%C6%A1ng_Th%E1%BB%B1c#Đồ_ăn_yêu_thích
+                    - link "Tim Mách Lẻo" [ref=e276] [cursor=pointer]:
+                      - /url: /vi/wiki/Tim_M%C3%A1ch_L%E1%BA%BBo
+            - paragraph
+            - paragraph [ref=e277]
+            - generic [ref=e278]:
+              - text: “Ngàn năm Bạch Cốt hóa Âm Phong”
+              - paragraph [ref=e279]: –Bạch Cốt Phu Nhân
+            - paragraph [ref=e280]:
+              - text: Bạch Cốt Phu Nhân là một nhân vật trong mod
+              - link "Tây Du Ký" [ref=e281] [cursor=pointer]:
+                - /url: /vi/wiki/T%C3%A2y_Du_K%C3%BD
+              - text: ", lấy ý tưởng từ Bạch Cốt Tinh, một trong 81 kiếp nạn mà Đường Tăng gặp trên con đường đi Tây Thiên thỉnh kinh."
+            - navigation "Mục lục" [ref=e282]:
+              - button "hiện" [ref=e283]
+              - generic [ref=e284]:
+                - heading "Mục lục" [level=2] [ref=e285]:
+                  - img [ref=e286]
+                  - text: Mục lục
+                - generic [ref=e288]:
+                  - text: "["
+                  - generic "hiện" [ref=e289] [cursor=pointer]: ẩn
+                  - text: "]"
+              - list [ref=e290]:
+                - listitem [ref=e291]:
+                  - link "1. Đặc điểm" [ref=e292] [cursor=pointer]:
+                    - /url: "#Đặc_điểm"
+                    - generic [ref=e293]: "1."
+                    - generic [ref=e294]: Đặc điểm
+                  - list [ref=e295]:
+                    - listitem [ref=e296]:
+                      - link "1.1. Thi ma thành tinh" [ref=e297] [cursor=pointer]:
+                        - /url: "#Thi_ma_thành_tinh"
+                        - generic [ref=e298]: 1.1.
+                        - generic [ref=e299]: Thi ma thành tinh
+                    - listitem [ref=e300]:
+                      - link "1.2. Bạch Cốt Yêu Thuật" [ref=e301] [cursor=pointer]:
+                        - /url: "#Bạch_Cốt_Yêu_Thuật"
+                        - generic [ref=e302]: 1.2.
+                        - generic [ref=e303]: Bạch Cốt Yêu Thuật
+                    - listitem [ref=e304]:
+                      - link "1.3. Thích uống máu tươi" [ref=e305] [cursor=pointer]:
+                        - /url: "#Thích_uống_máu_tươi"
+                        - generic [ref=e306]: 1.3.
+                        - generic [ref=e307]: Thích uống máu tươi
+                    - listitem [ref=e308]:
+                      - link "1.4. Thao túng xương cốt" [ref=e309] [cursor=pointer]:
+                        - /url: "#Thao_túng_xương_cốt"
+                        - generic [ref=e310]: 1.4.
+                        - generic [ref=e311]: Thao túng xương cốt
+                    - listitem [ref=e312]:
+                      - link "1.5. Xuất quỷ nhập thần" [ref=e313] [cursor=pointer]:
+                        - /url: "#Xuất_quỷ_nhập_thần"
+                        - generic [ref=e314]: 1.5.
+                        - generic [ref=e315]: Xuất quỷ nhập thần
+                    - listitem [ref=e316]:
+                      - link "1.6. Kẻ hai mặt" [ref=e317] [cursor=pointer]:
+                        - /url: "#Kẻ_hai_mặt"
+                        - generic [ref=e318]: 1.6.
+                        - generic [ref=e319]: Kẻ hai mặt
+                - listitem [ref=e320]:
+                  - link "2. Mẹo" [ref=e321] [cursor=pointer]:
+                    - /url: "#Mẹo"
+                    - generic [ref=e322]: "2."
+                    - generic [ref=e323]: Mẹo
+                - listitem [ref=e324]:
+                  - link "3. Skin" [ref=e325] [cursor=pointer]:
+                    - /url: "#Skin"
+                    - generic [ref=e326]: "3."
+                    - generic [ref=e327]: Skin
+                - listitem [ref=e328]:
+                  - link "4. Thư viện ảnh" [ref=e329] [cursor=pointer]:
+                    - /url: "#Thư_viện_ảnh"
+                    - generic [ref=e330]: "4."
+                    - generic [ref=e331]: Thư viện ảnh
+            - generic [ref=e336]:
+              - generic [ref=e337]:
+                - application "Connatix video player" [ref=e339]
+                - generic [ref=e342]:
+                  - generic [ref=e347]:
+                    - button "More" [ref=e349] [cursor=pointer]:
+                      - img [ref=e351]
+                    - menu:
+                      - generic: Quality
+                    - generic:
+                      - menu:
+                        - generic: 360p
+                        - generic: 720p
+                        - generic: 1080p
+                        - generic: Auto(360p)
+                  - generic [ref=e355]:
+                    - button "Previous (Shift + P)" [ref=e358] [cursor=pointer]:
+                      - img [ref=e360]
+                    - button "Play (SPACE)" [ref=e365] [cursor=pointer]:
+                      - img [ref=e367]
+                    - button "Next (Shift + N)" [ref=e371] [cursor=pointer]:
+                      - img [ref=e373]
+                  - generic [ref=e377]:
+                    - button "Unmute (M)" [ref=e381] [cursor=pointer]:
+                      - img [ref=e383]
+                    - generic [ref=e391]: 00:00
+                    - slider "Seek" [ref=e401] [cursor=pointer]: "0"
+                    - generic [ref=e403]: 41:20
+                    - generic [ref=e404]:
+                      - button "Settings" [ref=e407] [cursor=pointer]:
+                        - img [ref=e409]
+                      - generic:
+                        - menu:
+                          - generic: 360p
+                          - generic: 720p
+                          - generic: 1080p
+                          - generic: Auto(360p)
+                    - button "Full Screen (F)" [ref=e413] [cursor=pointer]:
+                      - img [ref=e415]
+                  - generic:
+                    - generic:
+                      - menu
+                - text: "Coming up:"
+                - generic:
+                  - iframe [ref=e417]:
+                    
+                  - iframe [ref=e418]:
+                    
+                  - iframe [ref=e419]:
+                    
+              - button "Close Player" [ref=e421]:
+                - img [ref=e422]
+            - heading "Đặc điểm Sign in to edit" [level=2] [ref=e426]:
+              - text: Đặc điểm
+              - link "Sign in to edit" [ref=e428] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D1&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e429]
+            - heading "Thi ma thành tinh Sign in to edit" [level=3] [ref=e431]:
+              - text: Thi ma thành tinh
+              - link "Sign in to edit" [ref=e433] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D2&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e434]
+            - paragraph [ref=e436]:
+              - text: Là yêu tinh, sau khi chết hóa thành quỷ hồn, chuyên phá làng phá xóm, chỉ có thể hồi sinh bằng
+              - link "Hài Cốt" [ref=e437] [cursor=pointer]:
+                - /url: /vi/wiki/H%C3%A0i_C%E1%BB%91t
+              - text: ", sau khi hồi sinh, tất cả các chỉ số trạng thái sẽ đạt tối đa."
+            - paragraph [ref=e438]:
+              - text: Thuốc hồi máu không có tác dụng đối với Bạch Cốt Tinh. Tuy nhiên
+              - link "túi muỗi" [ref=e439] [cursor=pointer]:
+                - /url: /vi/wiki/T%C3%BAi_Mu%E1%BB%97i
+              - text: có tác dụng rất cao. Sát thương từ
+              - link "Sinh Vật Ảo Ảnh" [ref=e440] [cursor=pointer]:
+                - /url: /vi/wiki/Sinh_V%E1%BA%ADt_%E1%BA%A2o_%E1%BA%A2nh
+              - text: chỉ làm tiêu hao
+              - link "độ no" [ref=e441] [cursor=pointer]:
+                - /url: /vi/wiki/S%E1%BB%A9c_%C4%90%C3%B3i
+              - text: của Bạch Cốt Tinh. Bạch Cốt Tinh không thể tạo
+              - link "Tim Mách Lẻo" [ref=e442] [cursor=pointer]:
+                - /url: /vi/wiki/Tim_M%C3%A1ch_L%E1%BA%BBo
+              - text: .
+            - heading "Bạch Cốt Yêu Thuật Sign in to edit" [level=3] [ref=e443]:
+              - text: Bạch Cốt Yêu Thuật
+              - link "Sign in to edit" [ref=e445] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D3&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e446]
+            - paragraph [ref=e448]:
+              - text: Bạch Cốt Tinh có một thẻ chế tác riêng biệt gọi là Bạch Cốt, dùng để chế tạo bằng yêu thuật Bạch Cốt, như vũ khí bằng xương,
+              - link "Hài Cốt" [ref=e449] [cursor=pointer]:
+                - /url: /vi/wiki/H%C3%A0i_C%E1%BB%91t
+              - text: ", hoặc Âm Sâm Chi Tâm. Vũ khí xương có thể sửa được bằng"
+              - link "Mảnh Xương" [ref=e450] [cursor=pointer]:
+                - /url: /vi/wiki/M%E1%BA%A3nh_X%C6%B0%C6%A1ng
+              - text: .
+            - paragraph [ref=e451]
+            - heading "Thích uống máu tươi Sign in to edit" [level=3] [ref=e452]:
+              - text: Thích uống máu tươi
+              - link "Sign in to edit" [ref=e454] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D4&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e455]
+            - paragraph [ref=e457]:
+              - text: Bạch Cốt Tinh thích uống máu tươi, có thể ăn
+              - link "Tim Mách Lẻo" [ref=e458] [cursor=pointer]:
+                - /url: /vi/wiki/Tim_M%C3%A1ch_L%E1%BA%BBo
+              - text: và
+              - link "Nhiên Liệu Ác Mộng" [ref=e459] [cursor=pointer]:
+                - /url: /vi/wiki/Nhi%C3%AAn_Li%E1%BB%87u_%C3%81c_M%E1%BB%99ng
+              - text: . Ăn
+              - link "thịt tươi" [ref=e460] [cursor=pointer]:
+                - /url: /vi/wiki/Th%E1%BB%8Bt
+              - text: chẳng những không bị ảnh hưởng tiêu cực, ngược lại còn tăng cả ba thuộc tính trạng thái. Các món mặn khác nhận ít hiệu quả hơn bình thường. Món chay có hiệu quả cực thấp. Ăn
+              - link "Tâm Nhĩ Hắc Ám" [ref=e461] [cursor=pointer]:
+                - /url: /vi/wiki/T%C3%A2m_Nh%C4%A9_H%E1%BA%AFc_%C3%81m
+              - text: sẽ khiến Bạch Cốt Tinh tăng 50 no và tăng gấp đôi sát thương trong một ngày.
+            - paragraph [ref=e462]
+            - heading "Thao túng xương cốt Sign in to edit" [level=3] [ref=e463]:
+              - text: Thao túng xương cốt
+              - link "Sign in to edit" [ref=e465] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D5&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e466]
+            - paragraph [ref=e468]:
+              - text: Tự tay giết chết sinh vật lớn sẽ để lại một cái xác. Bấm chuột trái vào xác sẽ phanh thây xác lấy chiến lợi phẩm, có tỷ lệ nhận được
+              - link "Mảnh Xương" [ref=e469] [cursor=pointer]:
+                - /url: /vi/wiki/M%E1%BA%A3nh_X%C6%B0%C6%A1ng
+              - text: . Bấm chuột phải vào xác sẽ phân rã xác thành
+              - link "Nguyên Liệu Ác Mộng" [ref=e470] [cursor=pointer]:
+                - /url: /vi/wiki/Nhi%C3%AAn_Li%E1%BB%87u_%C3%81c_M%E1%BB%99ng
+              - text: cùng số lượng. Không nhấn gì sau một thời gian ngắn sẽ nhận được chiến lợi phẩm như người khác.
+            - paragraph [ref=e471]:
+              - text: Có thể dùng
+              - link "Nhiên Liệu Ác Mộng" [ref=e472] [cursor=pointer]:
+                - /url: /vi/wiki/Nhi%C3%AAn_Li%E1%BB%87u_%C3%81c_M%E1%BB%99ng
+              - text: để hồi sinh
+              - link "Hài Cốt" [ref=e473] [cursor=pointer]:
+                - /url: /vi/wiki/H%C3%A0i_C%E1%BB%91t
+              - text: làm Lâu La. Lâu La sẽ làm giảm lợi ích nhận được trong thức ăn của Bạch Cốt Tinh.
+            - heading "Xuất quỷ nhập thần Sign in to edit" [level=3] [ref=e474]:
+              - text: Xuất quỷ nhập thần
+              - link "Sign in to edit" [ref=e476] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D6&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e477]
+            - paragraph [ref=e479]:
+              - text: Tay không bấm chuột phải vào bản thân để tạo ra Sương Mù quanh bản thân và tiêu hao một ít
+              - link "độ no" [ref=e480] [cursor=pointer]:
+                - /url: /vi/wiki/S%E1%BB%A9c_%C4%90%C3%B3i
+              - text: . Di chuyển trong Sương Mù sẽ nhanh nhẹn, không bị các sinh vật khác phát hiện, và kẻ địch từ bỏ truy đuổi.
+            - paragraph [ref=e481]: Sương Mù chỉ tồn tại trong một khoảng thời gian tại vị trí hô hoán. Sau khi Sương Mù tan biến rồi mới có thể gọi thêm lần nữa.
+            - paragraph [ref=e482]
+            - heading "Kẻ hai mặt Sign in to edit" [level=3] [ref=e483]:
+              - text: Kẻ hai mặt
+              - link "Sign in to edit" [ref=e485] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D7&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e486]
+            - paragraph [ref=e488]: Bấm phím H (hoặc biểu tượng 2 mặt ở góc trên phải) có thể luân phiên thay đổi giữa 2 khuôn mặt. Biến thành Bạch Cốt Diện sẽ nhanh hơn biến thành Mỹ Nhân Diện. Bạch Cốt Diện nhanh nhẹn, linh hoạt hơn, nhưng không thể mang trang phục (mũ/áo). Mỹ Nhân Diện có thể mang trang phục, khi bị thương sẽ khiến sinh vật trung lập thương cảm. Biến Bạch Cốt Diện sẽ kinh động xung quanh. Chủ dộng tấn công sinh vật hoặc bị đói sẽ không thể duy trì Mỹ Nhân Diện.
+            - paragraph [ref=e489]
+            - heading "Prototype Mẹo Sign in to edit" [level=2] [ref=e490]:
+              - generic [ref=e491]:
+                - link "Prototype" [ref=e493] [cursor=pointer]:
+                  - /url: /vi/wiki/Prototype
+                  - img "Prototype" [ref=e494]
+                - text: Mẹo
+              - link "Sign in to edit" [ref=e496] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D8&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e497]
+            - list [ref=e499]:
+              - listitem [ref=e500]:
+                - text: Bạch Cốt là nhân vật có sát thương cao nhất khi cộng dồn
+                - link "Tâm Nhĩ Hắc Ám" [ref=e501] [cursor=pointer]:
+                  - /url: /vi/wiki/T%C3%A2m_Nh%C4%A9_H%E1%BA%AFc_%C3%81m
+                - text: với Ngưng Vị Đan, chỉ cần di chuyển cho phù hợp và có đồng đội hứng đòn thay thế, Bạch Cốt có thể diệt trùm rất rất nhanh.
+              - listitem [ref=e502]:
+                - text: Trạng thái hồn của Bạch Cốt có thể ám
+                - link "Thường Xanh" [ref=e503] [cursor=pointer]:
+                  - /url: /vi/wiki/Th%C6%B0%E1%BB%9Dng_Xanh
+                - text: để tạo ra
+                - link "Thần Rừng" [ref=e504] [cursor=pointer]:
+                  - /url: /vi/wiki/Th%E1%BA%A7n_R%E1%BB%ABng
+                - text: ", ám"
+                - link "Chó Sói" [ref=e505] [cursor=pointer]:
+                  - /url: /vi/wiki/Ch%C3%B3_S%C4%83n
+                - text: tạo ra
+                - link "Chó Săn Xanh" [ref=e506] [cursor=pointer]:
+                  - /url: /vi/wiki/Ch%C3%B3_S%C4%83n#Ch.C3.B3_S.C4.83n_Xanh
+                - text: ", ám"
+                - link "Chó Săn Xanh" [ref=e507] [cursor=pointer]:
+                  - /url: /vi/wiki/Ch%C3%B3_S%C4%83n#Ch.C3.B3_S.C4.83n_Xanh
+                - text: tạo ra
+                - link "Chó Săn Đỏ" [ref=e508] [cursor=pointer]:
+                  - /url: /vi/wiki/Ch%C3%B3_S%C4%83n#Ch.C3.B3_S.C4.83n_.C4.90.E1.BB.8F
+                - text: ", ám"
+                - link "Lợn" [ref=e509] [cursor=pointer]:
+                  - /url: /vi/wiki/L%E1%BB%A3n
+                - text: tạo ra
+                - link "Lợn Sói" [ref=e510] [cursor=pointer]:
+                  - /url: /vi/wiki/L%E1%BB%A3n_S%C3%B3i
+                - text: .
+              - listitem [ref=e511]:
+                - text: Bạch Cốt gặp khá nhiều phiền toái dưới hang khi không thể mang áo mũ, cân nhắc dùng
+                - link "Quả Phát Sáng" [ref=e512] [cursor=pointer]:
+                  - /url: /vi/wiki/Glow_Berry
+                - text: thay thế.
+              - listitem [ref=e513]:
+                - text: Thường xuyên chế tạo
+                - link "Hài Cốt" [ref=e514] [cursor=pointer]:
+                  - /url: /vi/wiki/H%C3%A0i_C%E1%BB%91t
+                - text: ở những nơi hay qua lại hoặc gần trùm là một thói quen rất tốt để tránh cho Bạch Cốt phải đi xa để hồi sinh.
+              - listitem [ref=e515]:
+                - text: Bạch Cốt Diện không thể giao dịch với phần lớn NPC như Thái Thượng Lão Quân hay
+                - link "Vua Lợn" [ref=e516] [cursor=pointer]:
+                  - /url: /vi/wiki/Vua_L%E1%BB%A3n
+                - text: ", cần phải chuyển sang Mỹ Nhân Diện để thực hiện những thao tác này. Bạch Cốt Diện cũng thường xuyên bị quái thiện tính như"
+                - link "Lợn" [ref=e517] [cursor=pointer]:
+                  - /url: /vi/wiki/L%E1%BB%A3n
+                - text: hay
+                - link "Thỏ Người" [ref=e518] [cursor=pointer]:
+                  - /url: /vi/wiki/Th%E1%BB%8F_Ng%C6%B0%E1%BB%9Di
+                - text: đuổi đánh.
+            - heading "Skin Sign in to edit" [level=2] [ref=e519]:
+              - text: Skin
+              - link "Sign in to edit" [ref=e521] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D9&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e522]
+            - paragraph [ref=e524]
+            - generic [ref=e525]:
+              - generic [ref=e526]:
+                - link "Thương Bạch Phu Nhân view image" [ref=e529] [cursor=pointer]:
+                  - /url: /vi/wiki/T%E1%BA%ADp_tin:Th%C6%B0%C6%A1ng_B%E1%BA%A1ch_Phu_Nh%C3%A2n.png
+                  - img "Thương Bạch Phu Nhân" [ref=e530]
+                  - generic "view image" [ref=e533]:
+                    - img [ref=e534]
+                - generic [ref=e536]: Thương Bạch Phu Nhân
+              - generic [ref=e537]:
+                - link "Lê Viên Họa Bì view image" [ref=e540] [cursor=pointer]:
+                  - /url: /vi/wiki/T%E1%BA%ADp_tin:L%C3%AA_Vi%C3%AAn_H%E1%BB%8Da_B%C3%AC.png
+                  - img "Lê Viên Họa Bì" [ref=e541]
+                  - generic "view image" [ref=e544]:
+                    - img [ref=e545]
+                - generic [ref=e547]: Lê Viên Họa Bì
+            - heading "Blueprint Thư viện ảnh Sign in to edit" [level=2] [ref=e548]:
+              - generic [ref=e549]:
+                - link "Blueprint" [ref=e551] [cursor=pointer]:
+                  - /url: /vi/wiki/Blueprint
+                  - img "Blueprint" [ref=e552]
+                - text: Thư viện ảnh
+              - link "Sign in to edit" [ref=e554] [cursor=pointer]:
+                - /url: https://auth.fandom.com/signin?redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fveaction%3Dedit%26section%3D10&uselang=vi&metadata=article-registration-edit-article-section
+                - img [ref=e555]
+            - generic [ref=e558]:
+              - link "Áp phích quảng cáo nhân vật Bạch Cốt Phu Nhân view image" [ref=e561] [cursor=pointer]:
+                - /url: /vi/wiki/T%E1%BA%ADp_tin:WhiteBone_promo.jpg
+                - img "Áp phích quảng cáo nhân vật Bạch Cốt Phu Nhân" [ref=e562]
+                - generic "view image" [ref=e565]:
+                  - img [ref=e566]
+              - generic [ref=e568]: Áp phích quảng cáo nhân vật Bạch Cốt Phu Nhân
+          - generic [ref=e569]:
+            - generic "Toggle Thể loại" [ref=e570]:
+              - generic [ref=e571] [cursor=pointer]:
+                - text: Thể loại
+                - img [ref=e572]
+            - generic [ref=e574]:
+              - text: Community content is available under
+              - link "CC-BY-SA" [ref=e575] [cursor=pointer]:
+                - /url: https://www.fandom.com/licensing
+              - text: unless otherwise noted.
+            - generic [ref=e578]:
+              - paragraph [ref=e580]: Comments
+              - generic [ref=e581]:
+                - img [ref=e583]
+                - heading "Start a conversation" [level=3] [ref=e585]
+                - heading "Sign in to share your thoughts and get the conversation going." [level=4] [ref=e586]
+                - link "SIGN IN" [ref=e587] [cursor=pointer]:
+                  - /url: /login?metadata=anonymous-article-comments-login-source&redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fanon-comments-auth-source%3Dlogin%23articleComments
+                - paragraph [ref=e588]:
+                  - text: Don't have account?
+                  - link "Register now" [ref=e589] [cursor=pointer]:
+                    - /url: /register?metadata=anonymous-article-comments-register-source&redirect=https%3A%2F%2Fdont-starve-game.fandom.com%2Fvi%2Fwiki%2FB%25E1%25BA%25A1ch_C%25E1%25BB%2591t_Phu_Nh%25C3%25A2n%3Fanon-comments-auth-source%3Dregister%23articleComments
+        - complementary [ref=e590]:
+          - generic [ref=e591]:
+            - generic [ref=e593]:
+              - iframe [ref=e595]:
+                - generic [ref=f403e5]:
+                  - generic [ref=f403e6]:
+                    - link:
+                      - /url: https://app.adroll.com/optout/
+                      - img [ref=f403e8] [cursor=pointer]
+                  - link [ref=f403e9] [cursor=pointer]:
+                    - /url: http://d.adroll.com/click/?adroll_insertion_id=d2c46062ea5cfb5b63850972121b5b30&adroll_height=600&adroll_width=300&site_url=http%3A//dont-starve-game.fandom.com&adroll_ad_payload=__HIBAEBkwHFA-7IA-oAAY1TTWzjRBSO3S5CWrQSRaoEXIpEKg514ont2F6IKjs_zf9P07RJtMI440niJnbcxEnbA2jhBiwSPwKkgsSCkJA4ceK-3UHL7tpZCS3isnDhACeExIk_LePu9lox0nzSe_Pmzffe--an0PM0Xi5lCjulaosv5bOxdrKhlFPZWr20gJdTlY10qlBqFNvp9nY6nhY3pepmZREvVzPZSlHMNnfymaK4EWsp5Y2tduXJb6g3-q7rTC5Goya09PEAuRNmZg8icGRFkR11x7ph2j3m4VHUtA0Tokl0HeqWk5B4juVWp66lTUbTMUQJ3RiPhsMTj4UMc2olDHPiDPXDE1dwRzd7dhCmIVub2Zoz1ob6gwsuGluJUwOObBfZbuLhe6skB0RW4DHICTNx9fEMMT3dQpGubhsjKyC8SvLCoWkkJE6SuTjggCCJIg9EnhN4wpXjJIkVeTlOTBaQaOgmekqwVIdUkjt0D3PMPnegb-aVMtjryf3CQcapdzdm2UajkhzXUdxkd9PDurkvbtSau1o-X6vFMzvWtsbFLI2zTFSuDbazqsWwamw0GGVm3YMB05dr2XRGyx2a5WbjsAVNN9cSewe7yRyUpo10Rs-pDb25Uyk_hZebpUajmS-WtzJKS00VstmcmhRVCS_n6mlha3srW1DVZDufqtdSwWAvzkPU3Wsv4Mc7pD8DrTM6IB01IZlY5sYSffO341u_fvD1u98fXf309-_u_XjnscLxpdD0E91hyLzcPtInLgM63uv46TO66h1huqJ4H83Nn19-1Lt6duxn57zPl7ybR854ZEyha45s7xZ-ToKw0-FFEXVlxENd4AUADYGPAdhBQOAhQALLSgbwbt94ZPGd-eKH99_zPFLAlR--evP-F6_O__z4tADPxyHvF7L_urtw2fs7gH8C-Pd9NiKygk8tYKrjU0v4AgDxCABSRAARIgOfehaHfEo-k71PreNnlKqS1NJlbbusVcejiZZ6IGCtqBRXmJUdRLIr8xB9m_GpS0HKlwLQAzDwgutAnzIxRVINApeNV4CBOgZkZSR1gCQaUifOGlAARJKAIBR9ao8ETsi-cuxTb-HN0_94BtHozIzumwMzqobTIKwqYQXAvpY8MdSwDFyt2p9q5X44yYWVmO1Tf2DK8OmmX237dAtfmOw50542E7WYoPGsT7ev-_SLJ1LyaYsU9_ZrPr3nrzd9-hUcJW9bumZaZKQOGpNP7DjIWGNIe1mWFddAhJXiYnyNiUXkmExGQF_G52MRVhBZCTGB_e3_aAI9vxd6wmRYxAooLnW7MgtE1jB4n76DF3TT9ReL1_1zX-LzhMXEQURZdu8_xAx94MaWEkFe6bZY850&adroll_subnetwork=r&cpm=aeN9CAAAAACZbtqFW5hag5gh8WkqsgQoD6HQ7A&adroll_network=index&s=400DC53366772EAA&desturl=https%3A//icmarkets-vnk.com/en/trading-markets/indices/%3Fcamp%3D84303%26utm_source%3Dadroll%26utm_medium%3Ddisplay%26utm_campaign%3Dadr_en_vn_pr_lal%26utm_term%3Dlal%26utm_content%3Dindices%26placement%3Ddont-starve-game.fandom.com%26adrclid%3D8389361315877417435484333880749635401%26adct%3DgAAAAABp430I-zv9YyIDaFv7zIcTotgS0d6iTqn_I4DCIWmtzmAc2VtZpmtzl9czfvRs35ottTsKRgCW0qv5UEXb1AwAum-4RSVhcndTOK6nYhahhRdBfKAUtQJgoylMAnB3-pD3F2bs
+              - generic [ref=e596]: Advertisement
+            - generic [ref=e597]:
+              - iframe [ref=e599]:
+                - link [ref=f404e2] [cursor=pointer]:
+                  - /url: https://googleads.g.doubleclick.net/pcs/click?xai=AKAOjss7SF2R7hezYN_JrZzf1kWTJen-9nvYEgZnvLy8aA_m7Z21Du3lOcoALs1BfQH7Hd0CK37gZFPM3_2F1phtGsIRTLV3KMD1aCODWUvko2FiisDeQPHs81pJxKXNDYCcsUuhOvZ29zJ50ivMfxb94lPVBPismU_qIgLfDgWI67G63G_ssMCaGDCr-H2Td7aYrUDHv_2JtnjYfR5afWVwJEzc6OUwntWcuHzUD1R33AZawYfUySNi20SF7Qa0lYhP8BaqmS6r5Fxc-RK-gSCUjIoHxO8fkg4A6Eu3pgf3WE4YQvnlU877t7-t6bZ7x1ukMbYfZKfJ_Aq-w05T9BmXu2FVM9aGneNzf2vXf4mEUVgpYTHRC_6sus7G2qJUTOZeaxzBDK03_5ZIYzrjbd1mfGctFXadA_BfMNPuJYmz-5nIP7-TdslOzo8NSKBFRGnYhqx2KwRWKuFDODvT7_U1XQOQZX2wYLKG9IfGF5ZTRWKo81zvLFbdM4dQ3LiGxROfsx1oUA&sai=AMfl-YS2kGXhV0cRijqc23bVpwvsCF9a2A-BZUWUgO3USzI4iRDMGVUbudrWwS9tkYFxI1GwhjE_MBNiQqqaT72nHETKGnauzmTYg34eij1-mZS0ddm3dKfFVXMDLytldTSL6Csik_1joz8UdjJKB1tykFAG8IG90CFpuH5n-Y5yvEQ-SUMplFoFbb2N6uazX2eM4cwT8rDVlgqqvKutavCM2sVOB30k51G2vokk8Xhc7uvmIP0BCT0NLmHQrdbdYHbqJGLpMuj-eLj_d4C_iKnpu_nIWvk9jzwUg0mD59POxvlra1bFFa5eWbgtXiZZlbh9DEIQShqB8Ru3Mka_u2GFPOBdx8J-PtHjVg&sig=Cg0ArKJSzKIuUEPdPj_G&fbs_aeid=%5Bgw_fbsaeid%5D&adurl=https://www.gamespot.com/
+              - generic [ref=e600]: Advertisement
+            - generic [ref=e602]:
+              - iframe [ref=e604]:
+                - generic [active] [ref=f413e1]:
+                  - link "___" [ref=f413e2] [cursor=pointer]:
+                    - /url: "#"
+                  - generic [ref=f413e7]:
+                    - generic [ref=f413e8]:
+                      - link:
+                        - /url: https://app.adroll.com/optout/
+                        - img [ref=f413e10] [cursor=pointer]
+                    - link [ref=f413e11] [cursor=pointer]:
+                      - /url: http://d.adroll.com/click/?adroll_insertion_id=82a0938562874c34102aa073eac645ac&adroll_height=250&adroll_width=300&site_url=http%3A//dont-starve-game.fandom.com&adroll_ad_payload=__HIBBsBkwHFBAjIBAQAAY1TS28bVRT2jNMKqagSQYoEbFKpjljE9lzP446rWmXscWLHj7h24jhRxXBn5toePDOeeMYmRQJlg0QkkKigFJUFD1Ug8QPYk14Ums6ki3bBorBhgcSim-54CK5TZRtxpfNJ5-g8vvO4v8Yus2Su1c60ljINKNWXyo06rIsttVHqxMmcurpcVCu19epWcatdlIqwKTeaqzNkToDVDixvwo2V5bJaFxVpc6tZ5V_6kdnpB4HnX0qnLcNBowEO_OTEHaSMoZPGbjoYIRMnh5advmIgx8vJAs_xC-PA0fzheGTgHDJHQ9s-tjjYtMZOzrR8z0bXj03TGGT13Kmbhl1t4mreSLPRs4AAj5zciWIM3QC7QY7WWqDxBnammkmtST9AowlO9pCDU13kmkNnSm-B5jRsy8zJvJzlJcADSc7wkiRlRCBAOQMlACWRl7JQBBBSbyPI9ZTpy3u0i3IBcasSWvXQhotwfsnfGXS9TM2QS0LvenUF9Wu6b1cED9Vb1aAw2UadQdOuaLWgodlmvde2jU7QqS5vZNc7m7xh0zpvt1tXG45Q6dYqk_UC73XVErbGVzWkdMedEedOepaKtkFnRbXe1MqVl8lcp7a-3lmp1teWlM28WimVyvkCzMtkrtwqimvttVIlny9sraitq-p0jZeOYsyjHy6TF3Q6n4GmD3foNC3DcntLB7PsvSf7hz9___Dpk492b3318PEvD56v7F-Ljb9AXpLuKuhj5AdJoId75JVTphreJuyqEn5-ZP32znPhl6f7fn0mvDMb3rvtjYbm2AisoRsekldlw9B1AULczWLBQKIgAsMUhQwwdAxEwQBY5DjZBOH9g7MzN45mbv37cRjSBj759I9w75v3Pvt276SBMCKx8Hcqfz6K74Z_TeHvKfxzk0tBToyYOGH0iJkl5wGQUgDIKRGkgChHzEUSi5jsqewj5gq5oDSUglasa-261hgNfU19drxaVanOJ-c3MM2uHMXY-8mIuTZN-cYU0BRMEg88I2IswtBUg6nJJfPAxLppcFks60CGpqxLnGnQe-RFQNGAEbNNHX0qH-xHzIekefL7TiGanljpt6yBlc4niiCRVxIKMPpa4VjJJ7Ig0Br9sVbvJwp8Qsm4EfOUMGbEdqLXDiN2k5z3t71xT5tALSNqAhexW3cj9vXjU4pYhzZ38_2I3Y5q3Yh9l6RpbQdplkNX6uER_cCeh83FJBBTMpTgIkhxUIRwMZlJyXxWlCJ2l5wDKUmUpSxO0pWwP_2PIbBHj2MvWkkuC5EgySYvygjyfJdye0DiyAqimerd6Mx35Bxl4XuYXpbbi87eObgYv0EulDt8raG2GiWr1y-sNdVyq7FsD3VkL5s4E5SV_H_EDJmEVlwC5JoImx9IDg&adroll_subnetwork=r&cpm=aeN9CAAAAACosVcSE9BwNVO9CyaOUhubEFlgeg&adroll_network=index&desturl=https%3A//icmarkets-vnk.com/en/trade-oil/%3Fcamp%3D84303%26utm_source%3Dadroll%26utm_medium%3Ddisplay%26utm_campaign%3Dadr_en_vn_pr_lal%26utm_term%3Dlal%26utm_content%3Doil%26placement%3Ddont-starve-game.fandom.com%26adrclid%3D8389361316823666251478276176536975177%26adct%3DgAAAAABp430Ivw__cjD3M5GkGZzCbBs_tjWg3zzsY2DPB8sOZ9zMjP42A2-nX7goLwx8zRiAgyM9fkYcepS2GV35HPaxo4hG-mn6zU8x3M3gsJV5kAlHPpRYuZttV3B0AZztRwQAYotX
+              - generic [ref=e605]: Advertisement
+      - iframe [ref=e609]:
+        - generic [ref=f405e5]:
+          - generic [ref=f405e6]:
+            - link:
+              - /url: https://app.adroll.com/optout/
+              - img [ref=f405e8] [cursor=pointer]
+          - link [ref=f405e9] [cursor=pointer]:
+            - /url: http://d.adroll.com/click/?adroll_insertion_id=5a8263bb030f4173f815bf8c6e5cb44e&adroll_height=250&adroll_width=970&site_url=http%3A//dont-starve-game.fandom.com&adroll_ad_payload=__HIA_oBkwHFA-fIA-MAAY1TS2gkRRie7mRFWFkwQmD1EsEJHtIzXdPv1TH0PJJ57WR2kpnMDIttPyqT3pl-pLtnkiwoOSroQSQo6yEinjx4UvAkmK1l3d2uLOgeV0E8eBNBTz7Q6izrMVhQH_w_f33_4_vrh9RLNJpXay2-xvGbg-5qudeq9BsS1-j0ZtB8aW21XKpf7jQG5UG3LJalttxqr82i-VapUCnWqu1aoSQO1Gauvtm40utfvEW9uR1Ffngpm93d3c3YpqMHIxiFzNQdZUzPyUI3G0Z6EDFbXgD3mCjQLdsdZpdN3fHzMs-x3OIkcrTQmwQmzOtW4I3Hpx4HWvbEyVt26I_1_VNX8ka3h24SpkFXm7qaH2hj_dGDCAZO_rFhem4E3Sh_mnWRMJjQSWyL-JmkoClkhroDM1u6a3lOUuoiYTXHtpWXOVnhRMABQZY5RZBkUQGKwrE5SeQVIcdxYo4FJNqM8kM1OQWf9FHlVbs2rciK22-ydVbpsoUgCCZyjW9NO_6KdN1uqBVWU0UxzLl6e1VpeSDXkie2PBqNHWkv9Na7o7V2UdroO9emdWlTB2a3oa_Z274fXWdWd_mGYlZ985o02V_nQkHkBtVOtDLZZ-qOXdvhjWfRfO9yp9OrNZobK2q_UKpXKtVCUSrIaL66XhY2uhuVeqFQHNRK61dKiayXTlLUg69fRk8bZD4jzfD2yDxtk-izcnuOvvPL8d0Pvvru898PUfzrtw-_v_9U_fhqanKk-wxRK9qGehgxQI_fQs-dMdX4BqLX1PjDE_un15-MPzo79uNz8Sdz8Z0bfuBZEzOyPTe-i16UTdMweEmCWwrkTV3gBWBaAp8DpgGBwJsACiwrWyC-d_uJ2XdPZt__5704Jg18cXR4fHTwJf7svwZijFLxz-T-8WDmIP4zgb8S-PuQzUisgKkZRBmYmkMXABAzAMgZAWTIGmDqBZTClHJm9ZhaRs-rLbWolZtat6m1Ai_USo_WV2uojQVmYRMSdvUkRd9jMHU1oXwtAT0BC81EvokpG1GEapS4XLQALGhYJqtA2QCyZMmGyFqmAHhOAARNCVM7JDAk9-1jTL2D2o9_4xmFZqd2dtce2dlCugzSBTWtAnNbK54ahbQCIq21PdGa2-kil1ZzLqZ-Q5SF6R5e_hHTfXQh3PEnQ20qaTlB41lMD25i-tXTVcK0Q5obFTG9g1-5iOk3UJbkdnTNdoikPgzIF_Z9aC0xQMhIsiAugWTKQFxiuAybtITpA3QeZERO4HjIEEnob_7HEOiTh6lnbIYFBpAgJ-SknCjoCmdg-j6a0e0IzzZu4nOfovOkitCHZLPc4b_EDMNC9iV974fTxmlm6A&adroll_subnetwork=r&cpm=aeN9CAAAAAANGHydYMrQkJ2D47bS6xFJqTsKIg&adroll_network=index&desturl=https%3A//www.icmarkets-vnk.com/en/start-forex-trading/%3Fcamp%3D84303%26utm_source%3Dadroll%26utm_medium%3Ddisplay%26utm_campaign%3Dadr_en_vn_pr_lal%26utm_term%3Dlal%26utm_content%3Dforex%26placement%3Ddont-starve-game.fandom.com%26adrclid%3D8389361315883957869199302764952336201%26adct%3DgAAAAABp430IFLll4dTd0Fc7vjR8hDktEaqie3s2--qawD0guKcJg1-XGaFyItthbAv--AsLmmfWSTgLKDFU2amrds4I2dZPWiAIkPuOseIDwTgz29L-98xcdIRFeyW94Uuali7gjf58
+    - contentinfo [ref=e610]:
+      - generic [ref=e611]:
+        - generic [ref=e612]:
+          - heading "Fandom homepage" [level=2] [ref=e613]:
+            - link "Fandom homepage" [ref=e614] [cursor=pointer]:
+              - /url: https://www.fandom.com/
+              - img "Fandom logo" [ref=e615]
+          - generic [ref=e616]:
+            - heading "Explore properties" [level=3] [ref=e617]
+            - list [ref=e618]:
+              - listitem [ref=e619]:
+                - link "Fandom" [ref=e620] [cursor=pointer]:
+                  - /url: https://www.fandom.com/
+              - listitem [ref=e621]:
+                - link "Fanatical" [ref=e622] [cursor=pointer]:
+                  - /url: https://www.fanatical.com/
+              - listitem [ref=e623]:
+                - link "GameSpot" [ref=e624] [cursor=pointer]:
+                  - /url: https://www.gamespot.com/
+              - listitem [ref=e625]:
+                - link "Metacritic" [ref=e626] [cursor=pointer]:
+                  - /url: https://www.metacritic.com/
+              - listitem [ref=e627]:
+                - link "TV Guide" [ref=e628] [cursor=pointer]:
+                  - /url: https://www.tvguide.com/
+              - listitem [ref=e629]:
+                - link "Honest Entertainment" [ref=e630] [cursor=pointer]:
+                  - /url: https://www.youtube.com/user/screenjunkies
+          - generic [ref=e631]:
+            - heading "Theo dõi chúng tôi" [level=3] [ref=e632]
+            - list [ref=e633]:
+              - listitem [ref=e634]:
+                - link "Follow Fandom on Facebook" [ref=e635] [cursor=pointer]:
+                  - /url: https://www.facebook.com/getfandom
+                  - img [ref=e636]
+              - listitem [ref=e638]:
+                - link "Follow Fandom on Twitter" [ref=e639] [cursor=pointer]:
+                  - /url: https://twitter.com/getfandom
+                  - img [ref=e640]
+              - listitem [ref=e642]:
+                - link "Follow Fandom on Youtube" [ref=e643] [cursor=pointer]:
+                  - /url: https://www.youtube.com/fandomentertainment
+                  - img [ref=e644]
+              - listitem [ref=e646]:
+                - link "Follow Fandom on Instagram" [ref=e647] [cursor=pointer]:
+                  - /url: https://www.instagram.com/getfandom/
+                  - img [ref=e648]
+              - listitem [ref=e650]:
+                - link "Follow Fandom on LinkedIn" [ref=e651] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/157252
+                  - img [ref=e652]
+        - generic [ref=e655]:
+          - heading "Tổng quan" [level=3] [ref=e656]
+          - list [ref=e657]:
+            - listitem [ref=e658]:
+              - link "What is Fandom?" [ref=e659] [cursor=pointer]:
+                - /url: https://www.fandom.com/what-is-fandom
+            - listitem [ref=e660]:
+              - link "Thiết yếu" [ref=e661] [cursor=pointer]:
+                - /url: https://www.fandom.com/essentials
+            - listitem [ref=e662]:
+              - link "Giới thiệu" [ref=e663] [cursor=pointer]:
+                - /url: https://www.fandom.com/about
+            - listitem [ref=e664]:
+              - link "Tuyển dụng" [ref=e665] [cursor=pointer]:
+                - /url: https://www.fandom.com/careers
+            - listitem [ref=e666]:
+              - link "Báo chí" [ref=e667] [cursor=pointer]:
+                - /url: https://www.fandom.com/press
+            - listitem [ref=e668]:
+              - link "Liên hệ" [ref=e669] [cursor=pointer]:
+                - /url: https://www.fandom.com/about#contact
+            - listitem [ref=e670]:
+              - link "Điều khoản sử dụng" [ref=e671] [cursor=pointer]:
+                - /url: https://www.fandom.com/terms-of-use
+            - listitem [ref=e672]:
+              - link "Chính sách bảo mật" [ref=e673] [cursor=pointer]:
+                - /url: https://www.fandom.com/privacy-policy
+            - listitem [ref=e674]:
+              - link "Đạo luật Dịch vụ số" [ref=e675] [cursor=pointer]:
+                - /url: https://www.fandom.com/digital-services-act
+            - listitem [ref=e676]:
+              - link "Sơ đồ web toàn cầu" [ref=e677] [cursor=pointer]:
+                - /url: //community.fandom.com/Sitemap
+            - listitem [ref=e678]:
+              - link "Sơ đồ web cục bộ" [ref=e679] [cursor=pointer]:
+                - /url: /vi/wiki/Local_Sitemap
+            - listitem [ref=e680]:
+              - button "Cookies Settings" [ref=e681]
+        - generic [ref=e682]:
+          - generic [ref=e683]:
+            - heading "Cộng đồng" [level=3] [ref=e684]
+            - list [ref=e685]:
+              - listitem [ref=e686]:
+                - link "Trung tâm Cộng đồng" [ref=e687] [cursor=pointer]:
+                  - /url: http://congdong.fandom.com/wiki/Trang_Ch%C3%ADnh
+              - listitem [ref=e688]:
+                - link "Hỗ trợ" [ref=e689] [cursor=pointer]:
+                  - /url: https://fandom.zendesk.com/
+              - listitem [ref=e690]:
+                - link "Trợ giúp" [ref=e691] [cursor=pointer]:
+                  - /url: http://congdong.fandom.com/wiki/%C4%90%E1%BA%B7c_bi%E1%BB%87t:Li%C3%AAn_h%E1%BB%87
+          - generic [ref=e692]:
+            - heading "Quảng cáo" [level=3] [ref=e693]
+            - list [ref=e694]:
+              - listitem [ref=e695]:
+                - link "Media Kit" [ref=e696] [cursor=pointer]:
+                  - /url: https://about.fandom.com/mediakit
+        - generic [ref=e697]:
+          - generic [ref=e698]:
+            - heading "Fandom Apps" [level=3] [ref=e699]
+            - text: Mang những fandom yêu thích theo cùng bạn và không bao giờ bỏ lỡ tin tức cập nhật.
+          - generic [ref=e700]:
+            - img "Fandom App logo" [ref=e701]
+            - list [ref=e702]:
+              - listitem [ref=e703]:
+                - link "Fandom's Apple Store" [ref=e704] [cursor=pointer]:
+                  - /url: https://apps.apple.com/us/app/fandom-videos-news-reviews/id1230063803
+                  - img "Store icon" [ref=e705]
+              - listitem [ref=e706]:
+                - link "Fandom's Google Play" [ref=e707] [cursor=pointer]:
+                  - /url: https://play.google.com/store/apps/details?id=com.fandom.app&referrer=utm_source%3Dwikia%26utm_medium%3Dglobalfooter
+                  - img "Store icon" [ref=e708]
+      - generic [ref=e709]:
+        - generic [ref=e710]: Don't Starve Wiki là một wiki thuộc Fandom Trò chơi.
+        - button "Xem bản di động" [ref=e712]
+  - generic: Cookies Settings

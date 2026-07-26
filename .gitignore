@@ -12,3 +12,5 @@ _infra/
 # Nặng 234MB + là code có bản quyền của Klei → không đẩy lên repo public.
 # Sinh lại: giải nén .../Don't Starve Together/data/databundles/scripts.zip
 translations/dst-tieng-viet/game_source/
+settings.local.json là cấu hình riêng từng máy
+.claude/settings.local.json

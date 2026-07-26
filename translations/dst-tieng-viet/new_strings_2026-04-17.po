@@ -1,0 +1,2035 @@
+# New strings for DST Vietnamese Mod — 2026-04-17
+# WX-78 Skill Tree Rework + New Items/Critters
+# 466 entries total
+
+#
+# ============================================================
+# ACTIONS
+# ============================================================
+#
+
+msgctxt "STRINGS.ACTIONS.EAT.PROCESS"
+msgid "Process"
+msgstr "Xử lý"
+
+msgctxt "STRINGS.ACTIONS.EQUIPONBODY"
+msgid "Equip on"
+msgstr "Trang bị lên"
+
+msgctxt "STRINGS.ACTIONS.MAPSCOUTSELECT_MAP"
+msgid "Explore"
+msgstr "Khám phá"
+
+msgctxt "STRINGS.ACTIONS.MAPSCOUT_MAP"
+msgid "Send"
+msgstr "Gửi đi"
+
+msgctxt "STRINGS.ACTIONS.MAPSCOUT_MAP_TOOFAR"
+msgid "Out of Range"
+msgstr "Ngoài tầm"
+
+msgctxt "STRINGS.ACTIONS.STARTREMOVINGMODULE"
+msgid "Open Chassis"
+msgstr "Mở khung máy"
+
+msgctxt "STRINGS.ACTIONS.STOPREMOVINGMODULE"
+msgid "Close Chassis"
+msgstr "Đóng khung máy"
+
+msgctxt "STRINGS.ACTIONS.SWAPBODIES_MAP"
+msgid "Transfer Consciousness"
+msgstr "Chuyển ý thức"
+
+msgctxt "STRINGS.ACTIONS.TOGGLEWXSCREECH.GENERIC"
+msgid "Initiate Sonic Waves"
+msgstr "Kích hoạt sóng âm"
+
+msgctxt "STRINGS.ACTIONS.TOGGLEWXSCREECH.TURNOFF"
+msgid "Terminate Sonic Waves"
+msgstr "Ngắt sóng âm"
+
+msgctxt "STRINGS.ACTIONS.TOGGLEWXSHIELDING.GENERIC"
+msgid "Activate Block"
+msgstr "Kích hoạt phòng thủ"
+
+msgctxt "STRINGS.ACTIONS.TOGGLEWXSHIELDING.TURNOFF"
+msgid "Deactivate Block"
+msgstr "Tắt phòng thủ"
+
+msgctxt "STRINGS.ACTIONS.USEITEMON.GESTALT_POSSESS"
+msgid "Transfer Gestalt"
+msgstr "Chuyển Gestalt"
+
+msgctxt "STRINGS.ACTIONS.USEITEMON.SOCKET_SHADOW"
+msgid "Implant"
+msgstr "Cấy ghép"
+
+#
+# ============================================================
+# CHARACTER SPEECH — GENERIC
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "I'm not a bot to use it."
+msgstr "Tôi không phải robot để dùng cái này."
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Why won't it follow me?"
+msgstr "Sao nó không chịu đi theo tôi nhỉ?"
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.CRITTER_BULBIN"
+msgid "You'd never do anything rotten, would you?"
+msgstr "Bạn sẽ không bao giờ làm điều gì xấu, phải không?"
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "A vein attempt to be useful."
+msgstr "Một nỗ lực mạch-lạc để trở nên hữu ích."
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "A freight it will get lost!"
+msgstr "Sợ nó sẽ bị lạc mất thôi!"
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "So far, so good."
+msgstr "Đến giờ thì vẫn ổn."
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_DRONE_ZAP"
+msgid "It uses current technology."
+msgstr "Nó dùng công nghệ dòng-điện tiên tiến."
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "It controls remotely? It's a.... Detached Telecommand Apparatus!"
+msgstr "Điều khiển từ xa ư? Đây là.... Thiết Bị Viễn Lệnh Tách Rời!"
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "It's a moist try!"
+msgstr "Một nỗ lực ẩm ướt!"
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "What possessed WX to do this?"
+msgstr "Cái gì đã ám WX để làm cái này nhỉ?"
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Finite like that."
+msgstr "Có hạn như thế đấy."
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "You're not yourself lately!"
+msgstr "Dạo này bạn không phải là chính mình rồi!"
+
+msgctxt "STRINGS.CHARACTERS.GENERIC.DESCRIBE.W_RADIO"
+msgid "Hm. There's a lot of science here."
+msgstr "Hm. Có rất nhiều khoa học ở đây."
+
+#
+# ============================================================
+# CHARACTER SPEECH — WALTER
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WALTER.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "It's not for us, Woby."
+msgstr "Cái này không dành cho chúng ta, Woby."
+
+msgctxt "STRINGS.CHARACTERS.WALTER.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "It doesn't wanna come with us, Woby."
+msgstr "Nó không muốn đi cùng chúng ta, Woby."
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.CRITTER_BULBIN"
+msgid "I didn't know vegetables could be monsters too!"
+msgstr "Mình không biết rau củ cũng có thể là quái vật nữa!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "Aw, it's so helpful!"
+msgstr "Ồ, nó hữu ích quá!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "A hardworking delivery buddy!"
+msgstr "Một bạn giao hàng chăm chỉ!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Scott sure likes to explore!"
+msgstr "Scott chắc chắn thích khám phá lắm!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Stay out of its way, Woby!"
+msgstr "Tránh xa nó ra, Woby!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "That's not a toy apparently."
+msgstr "Có vẻ đó không phải đồ chơi."
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "It's harder than a stale dog biscuit, Woby!"
+msgstr "Nó cứng hơn cả bánh quy chó cũ, Woby!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Kinda mushy now, but that's okay!"
+msgstr "Hơi nhão rồi, nhưng không sao!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "This must do something reaaally neat, Woby."
+msgstr "Cái này chắc làm được điều gì đó thật tuyệt, Woby."
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Wonder if WX wants all this stuff back."
+msgstr "Không biết WX có muốn lấy lại mấy thứ này không."
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Is that a ghost in there, Woby! Amazing!"
+msgstr "Có phải có ma ở trong đó không, Woby! Tuyệt vời!"
+
+msgctxt "STRINGS.CHARACTERS.WALTER.DESCRIBE.W_RADIO"
+msgid "What do you think it does, Woby?"
+msgstr "Theo Woby thì nó làm gì nhỉ?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WANDA
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WANDA.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "It belongs to the automaton."
+msgstr "Nó thuộc về cái máy tự động."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Maybe you'll join me next time."
+msgstr "Có lẽ lần sau ngươi sẽ đi cùng ta."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.CRITTER_BULBIN"
+msgid "Aren't you a little far from home?"
+msgstr "Ngươi có hơi xa nhà không?"
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "It's growing..."
+msgstr "Nó đang lớn lên..."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Nothing beats a speedy delivery."
+msgstr "Không gì bằng giao hàng nhanh."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "And where are we off to next?"
+msgstr "Và tiếp theo ta đi đâu nhỉ?"
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Mind where you're zapping!"
+msgstr "Chú ý hướng bắn đi!"
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "In the wrong hands... nevermind."
+msgstr "Nếu vào tay kẻ xấu... thôi bỏ đi."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "It's too hard to eat."
+msgstr "Cứng quá không ăn được."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "WX, how kind of you..."
+msgstr "WX, ngươi tốt bụng quá..."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "Madness..."
+msgstr "Điên rồ..."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "I know better than to question the physics."
+msgstr "Ta biết rõ hơn là đừng thắc mắc vật lý."
+
+msgctxt "STRINGS.CHARACTERS.WANDA.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "That will never not give me the creeps."
+msgstr "Cái đó luôn làm ta rùng mình."
+
+#
+# ============================================================
+# CHARACTER SPEECH — WARLY
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WARLY.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "Property of our metal friend."
+msgstr "Tài sản của người bạn kim loại."
+
+msgctxt "STRINGS.CHARACTERS.WARLY.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Perhaps it is shy."
+msgstr "Có lẽ nó nhút nhát."
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.CRITTER_BULBIN"
+msgid "It never hurts to have a little onion on hand."
+msgstr "Có sẵn một ít hành tây cũng không bao giờ thừa."
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "It has roots and grows in the dirt, but that is no vegetable."
+msgstr "Nó có rễ và mọc trong đất, nhưng đó không phải rau."
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "A flying pantry! Wonderful!"
+msgstr "Một tủ thức ăn biết bay! Tuyệt vời!"
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Where will you go next?"
+msgstr "Tiếp theo bạn sẽ đi đâu?"
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_DRONE_ZAP"
+msgid "But can it fry an egg?"
+msgstr "Nhưng liệu nó có chiên được trứng không?"
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "It is too fancy for me!"
+msgstr "Nó quá cao cấp với tôi!"
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "Adding water will not make it less horrible."
+msgstr "Thêm nước cũng không làm nó bớt kinh khủng."
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "It is most appalling."
+msgstr "Thật là kinh tởm."
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "I don't even want to know."
+msgstr "Tôi thậm chí không muốn biết."
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "What did our metal friend leave here?"
+msgstr "Người bạn kim loại để lại gì ở đây?"
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Oh non, this is too much!"
+msgstr "Oh non, quá sức chịu đựng rồi!"
+
+msgctxt "STRINGS.CHARACTERS.WARLY.DESCRIBE.W_RADIO"
+msgid "What appliance is this?"
+msgstr "Đây là thiết bị gì thế?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WATHGRITHR (Wigfrid - Viking style)
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "It belongs to the metal warrior."
+msgstr "Nó thuộc về chiến binh kim loại."
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Fret not, faithful warrior. I shall return for thee."
+msgstr "Đừng lo, chiến binh trung thành. Ta sẽ quay lại vì ngươi."
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.CRITTER_BULBIN"
+msgid "I forgive her vegetable ways."
+msgstr "Ta tha thứ cho bản tính rau củ của nàng."
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "Such gifts bear ill fortune."
+msgstr "Những món quà như vậy mang theo vận xui."
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Loyal courier! Provision thy Iron Lord!"
+msgstr "Sứ giả trung thành! Tiếp tế cho Lãnh Chúa Sắt!"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Go forth, valiant scoutling!"
+msgstr "Tiến lên, trinh sát dũng cảm bé nhỏ!"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Rain lightening upon thy foes!"
+msgstr "Trút sấm sét lên kẻ thù của ngươi!"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "By this, the Iron Lord calls a Valkyrie from the heavens!"
+msgstr "Qua đây, Lãnh Chúa Sắt triệu hồi Valkyrie từ thiên đường!"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "Even Mjolnir could not crack this foul brick!"
+msgstr "Ngay cả Mjolnir cũng không thể đập vỡ viên gạch ghê tởm này!"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "A cursed loaf, born from the very innards of the metal warrior!"
+msgstr "Ổ bánh bị nguyền rủa, sinh ra từ ruột gan của chiến binh kim loại!"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "There is sorcery at work here."
+msgstr "Có phép thuật đang hoạt động ở đây."
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "What spoils hath our metal warrior bestowed?"
+msgstr "Chiến lợi phẩm nào mà chiến binh kim loại ban tặng?"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "The metal warrior is truly possessed!"
+msgstr "Chiến binh kim loại thực sự bị chiếm hữu rồi!"
+
+msgctxt "STRINGS.CHARACTERS.WATHGRITHR.DESCRIBE.W_RADIO"
+msgid "What infernal device is this?"
+msgstr "Đây là thiết bị quỷ quái gì thế?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WAXWELL (Maxwell)
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.ACTIONFAIL.RUMMAGE.NOTAROBOT"
+msgid "Robot junk."
+msgstr "Đồ phế liệu robot."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "Robot junk"
+msgstr "Đồ phế liệu robot"
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Too many of this piece on the board already, I suppose."
+msgstr "Chắc trên bàn cờ đã có quá nhiều quân cờ loại này rồi."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.CRITTER_BULBIN"
+msgid "You're not from around here, are you pal?"
+msgstr "Cậu không phải ở đây, đúng không bạn?"
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "And yet it offers gifts from below."
+msgstr "Thế mà nó vẫn ban tặng từ bên dưới."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Nice trash hauler."
+msgstr "Xe chở rác đẹp đấy."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Oh, get lost already!"
+msgstr "Ôi, biến đi!"
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_DRONE_ZAP"
+msgid "I've got my eye on you!"
+msgstr "Ta đang để mắt tới ngươi đấy!"
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "I didn't want to play with it anyway."
+msgstr "Dù sao ta cũng không muốn chơi với nó."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "Not that I'd want to, but it's too dry to eat."
+msgstr "Không phải ta muốn ăn, nhưng mà nó khô quá."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Of all the things I've eaten here, this takes the cake."
+msgstr "Trong tất cả những thứ ta ăn ở đây, cái này đoạt giải."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "I hope that's not what I think it is."
+msgstr "Ta hy vọng đó không phải thứ ta đang nghĩ."
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "What do you mean it held more than my hat?!"
+msgstr "Ý ngươi là nó chứa được nhiều hơn cái mũ của ta?!"
+
+msgctxt "STRINGS.CHARACTERS.WAXWELL.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Stay back, you abomination!"
+msgstr "Lùi lại, đồ quái vật!"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WEBBER
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "We can't. The robot will get mad."
+msgstr "Chúng ta không được. Con robot sẽ giận đấy."
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Maybe it's not allowed to play with us."
+msgstr "Có lẽ nó không được phép chơi với chúng ta."
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.CRITTER_BULBIN"
+msgid "It's our little onion friend!"
+msgstr "Đây là bạn hành tây nhỏ của chúng ta!"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "We don't like being around that."
+msgstr "Chúng ta không thích ở gần cái đó."
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Are there surprises inside?"
+msgstr "Bên trong có bất ngờ gì không?"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "How come it's allowed to wander off?"
+msgstr "Sao nó được phép đi lang thang vậy?"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_DRONE_ZAP"
+msgid "We don't like zaps."
+msgstr "Chúng ta không thích bị giật điện."
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "Can we have a turn?"
+msgstr "Cho chúng ta chơi một lượt được không?"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "It's sooooo dry!"
+msgstr "Nó khôôôô quá!"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "A robot cake?"
+msgstr "Bánh robot ư?"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "Is it because they have no one to play with?"
+msgstr "Có phải vì chúng không có ai để chơi cùng không?"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "It was forever in there."
+msgstr "Nó ở trong đó lâu lắm rồi."
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Who's inside the robot?"
+msgstr "Ai ở bên trong con robot vậy?"
+
+msgctxt "STRINGS.CHARACTERS.WEBBER.DESCRIBE.W_RADIO"
+msgid "Yay! New toy!"
+msgstr "Yay! Đồ chơi mới!"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WENDY
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WENDY.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "I shouldn't touch the machine's things."
+msgstr "Tôi không nên chạm vào đồ của cỗ máy."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "This one will be left behind."
+msgstr "Cái này sẽ bị bỏ lại phía sau."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.CRITTER_BULBIN"
+msgid "Its adorable face nearly brings me to tears."
+msgstr "Khuôn mặt đáng yêu của nó suýt khiến tôi khóc."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "From a heart that knows no peace."
+msgstr "Từ trái tim không bao giờ được yên."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "And they say you can't take it with you."
+msgstr "Người ta bảo không thể mang theo đồ khi ra đi."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Are you ever afraid?"
+msgstr "Bạn có bao giờ sợ không?"
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Feels impersonal."
+msgstr "Cảm thấy thật vô cảm."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "Are we all just being controlled?"
+msgstr "Phải chăng tất cả chúng ta đều đang bị điều khiển?"
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "It's impossible to eat like that."
+msgstr "Không thể ăn được nó như thế."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "I've eaten worse."
+msgstr "Tôi đã từng ăn thứ tệ hơn."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "I've thought about it too, Abby."
+msgstr "Tôi cũng đã nghĩ về điều đó, Abby."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "I wonder what remains."
+msgstr "Không biết còn lại gì."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Too bad Abby can't do the same."
+msgstr "Tiếc là Abby không thể làm như vậy."
+
+msgctxt "STRINGS.CHARACTERS.WENDY.DESCRIBE.W_RADIO"
+msgid "What does it do?"
+msgstr "Nó làm được gì?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WICKERBOTTOM
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "It is the property of the automaton."
+msgstr "Nó là tài sản của cỗ máy tự động."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.ANNOUNCE_HUNT_AVOID_FORK"
+msgid "This trail will likely yield less dangerous results."
+msgstr "Con đường này có thể sẽ cho kết quả ít nguy hiểm hơn."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "This stubborn piece refuses to follow me."
+msgstr "Miếng cứng đầu này từ chối đi theo ta."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.CRITTER_BULBIN"
+msgid "Are you animal or vegetable, dear?"
+msgstr "Con là động vật hay thực vật, bé yêu?"
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "This is dark magic indeed."
+msgstr "Đây thực sự là ma thuật đen."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "The automaton deomonstrates an unusual attachment to its belongings."
+msgstr "Cỗ máy tự động thể hiện sự gắn bó bất thường với đồ đạc của mình."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "We are indebted to this intrepid little scout."
+msgstr "Chúng ta mang ơn trinh sát nhỏ dũng cảm này."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_DRONE_ZAP"
+msgid "It permits the automaton to engage its foes from a distance."
+msgstr "Nó cho phép cỗ máy tự động tấn công kẻ thù từ xa."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "Through signal transmission, the automaton may maneuver the aerial device and discharge electrical shocks."
+msgstr "Thông qua truyền tín hiệu, cỗ máy tự động có thể điều khiển thiết bị trên không và phóng sốc điện."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "The nutrient brick is inedible in its desicated form."
+msgstr "Viên gạch dinh dưỡng không thể ăn được ở dạng khô."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "The automaton has reconstituted spoiled food matter into a compact edible brick."
+msgstr "Cỗ máy tự động đã tái tạo thức ăn hỏng thành viên gạch ăn được nhỏ gọn."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "It's been reconfigured to permit direct transfer of the entity into the chassis."
+msgstr "Nó đã được cấu hình lại để cho phép chuyển trực tiếp thực thể vào khung máy."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Once a repository whose capacity challenged the very laws of physics."
+msgstr "Từng là kho chứa có dung lượng thách thức chính quy luật vật lý."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "It's a straightforward instance of spectral machina possession, nothing more."
+msgstr "Đây chỉ đơn giản là trường hợp chiếm hữu máy móc bởi phổ linh, không hơn."
+
+msgctxt "STRINGS.CHARACTERS.WICKERBOTTOM.DESCRIBE.W_RADIO"
+msgid "Interesting... I conclude it requires further study."
+msgstr "Thú vị... Ta kết luận nó cần nghiên cứu thêm."
+
+#
+# ============================================================
+# CHARACTER SPEECH — WILLOW
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "Just some robot stuff."
+msgstr "Chỉ là mấy thứ của robot thôi."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Whatever, I didn't need you anyway."
+msgstr "Kệ, dù sao tôi cũng không cần bạn."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.CRITTER_BULBIN"
+msgid "My bulbous little buddy."
+msgstr "Bạn nhỏ phình phình của tôi."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "Disgusting! I don't care what it's got!"
+msgstr "Ghê quá! Tôi không quan tâm nó có gì!"
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "WX gets free delivery? No fair!"
+msgstr "WX được giao hàng miễn phí á? Không công bằng!"
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Get lost, Scott!"
+msgstr "Biến đi, Scott!"
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_DRONE_ZAP"
+msgid "I got my eye on you, zappy."
+msgstr "Tôi đang để mắt tới mày đấy, đồ giật điện."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "I don't trust WX with this thing."
+msgstr "Tôi không tin WX với cái này."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "It would be like trying to eat an actual brick."
+msgstr "Giống như đang cố ăn một viên gạch thật vậy."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Gee thanks, WX."
+msgstr "Ơ cảm ơn nhé, WX."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "That WX is always up to something."
+msgstr "Cái WX đó lúc nào cũng bày trò gì đó."
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "What do I care about WX's old stuff?"
+msgstr "Tôi quan tâm gì mấy thứ cũ của WX?"
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "What's gotten into you?!"
+msgstr "Cái gì đã chui vào bạn vậy?!"
+
+msgctxt "STRINGS.CHARACTERS.WILLOW.DESCRIBE.W_RADIO"
+msgid "Ten seconds to make it work before I burn it."
+msgstr "Mười giây để nó hoạt động trước khi tôi đốt."
+
+#
+# ============================================================
+# CHARACTER SPEECH — WINONA
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WINONA.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "I ain't messin' with WX's things."
+msgstr "Tôi không đụng vào đồ của WX đâu."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Well fine then, don't follow me."
+msgstr "Thôi được rồi, đừng đi theo tôi."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.CRITTER_BULBIN"
+msgid "You're a sweet little fella, but your breath is terrible."
+msgstr "Mày dễ thương lắm, nhưng hơi thở thì kinh khủng."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "It was creepin' and crawlin' underground."
+msgstr "Nó đang bò và trườn dưới đất."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Wish I had me a flyin' toolkit."
+msgstr "Ước gì tôi có một bộ đồ nghề biết bay."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Careful out there, lil' fella."
+msgstr "Cẩn thận ngoài kia nhé, nhóc."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_DRONE_ZAP"
+msgid "I know who's really in control!"
+msgstr "Tôi biết ai mới thực sự đang điều khiển!"
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "WX don't like sharin'."
+msgstr "WX không thích chia sẻ."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "Now that's a jawbreaker."
+msgstr "Cái này đúng là đồ gãy hàm."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Machine processed food?"
+msgstr "Thức ăn chế biến bằng máy à?"
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "Looks like WX repurposed the bossman's contraption."
+msgstr "Có vẻ WX đã tái sử dụng đồ nghề của ông chủ."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Wonder what WX left behind."
+msgstr "Không biết WX bỏ lại gì."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "WX is getting into some weird stuff. Or it's the other way around."
+msgstr "WX đang dính vào mấy thứ kỳ lạ. Hoặc ngược lại."
+
+msgctxt "STRINGS.CHARACTERS.WINONA.DESCRIBE.W_RADIO"
+msgid "I think I recognize this handywork..."
+msgstr "Hình như tôi nhận ra tay nghề này..."
+
+#
+# ============================================================
+# CHARACTER SPEECH — WOLFGANG
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "Is robot things."
+msgstr "Là đồ của robot."
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Why? Is something Wolfgang said?"
+msgstr "Tại sao? Có phải Wolfgang nói gì sai không?"
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.CRITTER_BULBIN"
+msgid "Onions are Wolfgang's best friend! Second to potato!"
+msgstr "Hành tây là bạn thân nhất của Wolfgang! Chỉ sau khoai tây!"
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "Haha! Not as mighty as Wolfgang biceps vein!"
+msgstr "Haha! Không mạnh mẽ bằng gân bắp tay của Wolfgang!"
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Wolfgang carry more things."
+msgstr "Wolfgang mang được nhiều hơn."
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Brave little exploring machine!"
+msgstr "Cỗ máy khám phá nhỏ dũng cảm!"
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Be careful not zap Wolfgang!"
+msgstr "Cẩn thận không giật điện Wolfgang!"
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "Robot have all the fun toy."
+msgstr "Robot có đủ đồ chơi vui."
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "It is too hard for even Wolfgang mighty teeth."
+msgstr "Cứng quá, ngay cả hàm răng hùng mạnh của Wolfgang cũng không nổi."
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Thank you for snack, robot!"
+msgstr "Cảm ơn đồ ăn vặt, robot!"
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "Robot is tamper with powerful forces."
+msgstr "Robot đang nghịch với sức mạnh ghê gớm."
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Any goodie for Wolfgang?"
+msgstr "Có gì ngon cho Wolfgang không?"
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Something extra creepy about robot."
+msgstr "Có gì đó rùng rợn thêm về robot."
+
+msgctxt "STRINGS.CHARACTERS.WOLFGANG.DESCRIBE.W_RADIO"
+msgid "Hello little... what are you?"
+msgstr "Xin chào nhỏ... mày là cái gì?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WOODIE
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "Only for robots."
+msgstr "Chỉ dành cho robot thôi."
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Maybe I've got enough."
+msgstr "Có lẽ tôi đã có đủ rồi."
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.CRITTER_BULBIN"
+msgid "Sure got a spring in your step, eh?"
+msgstr "Bước chân vui vẻ nhỉ, hả?"
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "Don't worry, Luce. I won't let it grab you."
+msgstr "Đừng lo, Lucy. Tôi sẽ không để nó tóm được bạn đâu."
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "To think I carried all my stuff to the cabin."
+msgstr "Nghĩ mà xem, tôi đã vác hết đồ đến lều bằng tay."
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Adventurous little guy, eh?"
+msgstr "Thằng nhỏ thích phiêu lưu nhỉ?"
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Look at that airborne menace, Luce!"
+msgstr "Nhìn cái mối đe dọa bay kia kìa, Lucy!"
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "Some sort of robot toy."
+msgstr "Một loại đồ chơi robot gì đó."
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "I'd break my teeth on that!"
+msgstr "Tôi sẽ gãy răng vì cái đó mất!"
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "What is that robot up to now?"
+msgstr "Con robot đó đang bày trò gì nữa đây?"
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Anything good in there, Lucy?"
+msgstr "Có gì hay trong đó không, Lucy?"
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Who are you?!"
+msgstr "Mày là ai?!"
+
+msgctxt "STRINGS.CHARACTERS.WOODIE.DESCRIBE.W_RADIO"
+msgid "Does it play any tunes?"
+msgstr "Nó có phát nhạc không?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WORMWOOD
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "Only for robot friend."
+msgstr "Chỉ cho bạn robot thôi."
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Why friend not follow?"
+msgstr "Sao bạn không đi theo?"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.CRITTER_BULBIN"
+msgid "Don't worry, friend! Safe now"
+msgstr "Đừng lo, bạn ơi! An toàn rồi"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "Cold friend gift?"
+msgstr "Quà bạn lạnh?"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Helpful friend"
+msgstr "Bạn giúp đỡ"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "Thanks, brave friend!"
+msgstr "Cảm ơn, bạn dũng cảm!"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Flying zapper friend"
+msgstr "Bạn giật điện biết bay"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "Only robot friend play"
+msgstr "Chỉ bạn robot chơi thôi"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "Too hard!"
+msgstr "Cứng quá!"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Food from robot friend!"
+msgstr "Đồ ăn từ bạn robot!"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "Make more robot friend"
+msgstr "Làm thêm bạn robot"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Robot friend dropped"
+msgstr "Bạn robot làm rơi"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Not robot friend?"
+msgstr "Không phải bạn robot?"
+
+msgctxt "STRINGS.CHARACTERS.WORMWOOD.DESCRIBE.W_RADIO"
+msgid "What friend do?"
+msgstr "Bạn làm gì?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WORTOX
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "I'm a non-automaton."
+msgstr "Ta là kẻ phi-tự-động."
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Are you not allowed to join my crowd?"
+msgstr "Ngươi không được phép gia nhập đám đông của ta sao?"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.CRITTER_BULBIN"
+msgid "Once you dwelt in a rotten wood, now it seems you're here for good!"
+msgstr "Từng sống trong gỗ mục, giờ có vẻ ngươi ở đây vĩnh viễn rồi!"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "And even there, it's a snare!"
+msgstr "Và ngay cả ở đó, đây cũng là cái bẫy!"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "WX Express!"
+msgstr "WX Chuyển phát nhanh!"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "It has flown to parts unknown!"
+msgstr "Nó đã bay đến miền đất chưa biết!"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_DRONE_ZAP"
+msgid "It shoots lightning? How frightening!"
+msgstr "Nó bắn sét ư? Thật đáng sợ!"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "It won't respond to a non-automaton."
+msgstr "Nó không phản hồi với kẻ phi-tự-động."
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "Not appetizing without first moisturizing."
+msgstr "Không ngon nếu không làm ẩm trước."
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Moisturized, yet still not appetized."
+msgstr "Đã làm ẩm, nhưng vẫn không thèm."
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "They plan to host a ghost..."
+msgstr "Chúng định chứa một bóng ma..."
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Once a case with endless space, dropped by ol' metal face!"
+msgstr "Từng là hộp không gian vô tận, rớt từ mặt sắt già kia!"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Is this what you wanted? That your body be haunted?"
+msgstr "Đây là điều ngươi muốn sao? Để thân xác bị ám ư?"
+
+msgctxt "STRINGS.CHARACTERS.WORTOX.DESCRIBE.W_RADIO"
+msgid "Oh dear, how'd that get here?"
+msgstr "Ối giời, sao cái này lại ở đây?"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WURT
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WURT.ACTIONFAIL.STORE.NOTAROBOT"
+msgid "Ironfolk only."
+msgstr "Chỉ dành cho Người Sắt."
+
+msgctxt "STRINGS.CHARACTERS.WURT.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "Florp! What your problem?"
+msgstr "Florp! Sao vậy hả?"
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.CRITTER_BULBIN"
+msgid "Little, smelly and green. You perfect, florp."
+msgstr "Nhỏ, hôi và xanh. Hoàn hảo, florp."
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "Thanks, sad heart."
+msgstr "Cảm ơn, tim buồn."
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "Lemme see Ironfolk stuff."
+msgstr "Cho xem đồ Người Sắt nào."
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_DRONE_ZAP"
+msgid "Don't zap me, florp!"
+msgstr "Đừng giật điện tôi, florp!"
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "Ironfolk toy."
+msgstr "Đồ chơi Người Sắt."
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "So hard!"
+msgstr "Cứng quá!"
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "Made inside Ironfolk? Florp!"
+msgstr "Làm bên trong Người Sắt á? Florp!"
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "Weird Ironfolk stuff."
+msgstr "Đồ kỳ lạ của Người Sắt."
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "Stuff inside Ironfolk box?"
+msgstr "Có đồ trong hộp Người Sắt hả?"
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "Florp! Who inside Ironfolk?!"
+msgstr "Florp! Ai ở trong Người Sắt?!"
+
+msgctxt "STRINGS.CHARACTERS.WURT.DESCRIBE.W_RADIO"
+msgid "Make do stuff, flort!"
+msgstr "Bấm làm gì đi, flort!"
+
+#
+# ============================================================
+# CHARACTER SPEECH — WX-78 (Robot - ALL CAPS style)
+# ============================================================
+#
+
+msgctxt "STRINGS.CHARACTERS.WX78.ACTIONFAIL.STARTMAPDELIVER.EMPTY"
+msgid "ERROR. NO ITEMS TO DELIVER"
+msgstr "LỖI. KHÔNG CÓ VẬT PHẨM ĐỂ GIAO"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ACTIONFAIL.STARTMAPDELIVER.INUSE"
+msgid "BEING ACCESSED BY ANOTHER USER"
+msgstr "ĐANG ĐƯỢC TRUY CẬP BỞI NGƯỜI DÙNG KHÁC"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ACTIONFAIL.STORE.NOTMYBACKUP"
+msgid "DENIED. UNAUTHORIZED USER"
+msgstr "TỪ CHỐI. NGƯỜI DÙNG KHÔNG CÓ QUYỀN"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ACTIONFAIL.STORE.TOOMANYBACKUPBODIES"
+msgid "DENIED. MAXIMUM NUMBER OF BACKUPS REACHED"
+msgstr "TỪ CHỐI. ĐÃ ĐẠT SỐ LƯỢNG BẢN SAO LƯU TỐI ĐA"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ACTIONFAIL.SWAPBODIES_MAP.NOTARGET"
+msgid "COMMUNICATION FAILURE. TARGET NO LONGER EXISTS"
+msgstr "LỖI LIÊN LẠC. MỤC TIÊU KHÔNG CÒN TỒN TẠI"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ACTIONFAIL.USEEQUIPPEDITEM.BADPOSITION"
+msgid "ERROR: LOCATION INVALID"
+msgstr "LỖI: VỊ TRÍ KHÔNG HỢP LỆ"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ACTIONFAIL.USEITEMON.GESTALT_TOO_POWERFUL"
+msgid "ENTITY POWER LEVEL EXCEEDS MAXIMUM CONTAINMENT THRESHOLD"
+msgstr "MỨC NĂNG LƯỢNG THỰC THỂ VƯỢT NGƯỠNG CHỨA TỐI ĐA"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ANNOUNCE_MAX_CLOCKWORKS"
+msgid "UNIT ON STANDBY"
+msgstr "ĐƠN VỊ ĐANG CHỜ"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ANNOUNCE_WX_SCANNER_HITDOWN_BY_CAT"
+msgid "STUPID CAT"
+msgstr "CON MÈO NGU NGỐC"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ANNOUNCE_WX_TASER_ABOUTTOEXPLODE"
+msgid "MAXIMUM POWER REACHED!"
+msgstr "ĐÃ ĐẠT CÔNG SUẤT TỐI ĐA!"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ANNOUNCE_WX_TASER_BUILDUP"
+msgid "YOUR ATTACKS ARE ELECTRIFYING ME!"
+msgstr "CÁC ĐÒN TẤN CÔNG CỦA NGƯƠI ĐANG TRUYỀN ĐIỆN CHO TA!"
+
+msgctxt "STRINGS.CHARACTERS.WX78.ANNOUNCE_WX_TASER_POSTEXPLOSION"
+msgid "INVIGORATING!"
+msgstr "TRÀN ĐẦY NĂNG LƯỢNG!"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.CRITTER_BULBIN"
+msgid "CORRUPTION DETECTED. EXCELLENT"
+msgstr "PHÁT HIỆN THAM NHŨNG. TUYỆT VỜI"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.ROTTENEGG.CAN_PROCESS"
+msgid "MY SUPERIOR CIRCUITRY WILL PROCESS THIS FAILED CHILD INTO NUTRIENTS"
+msgstr "MẠCH ĐIỆN SIÊU VIỆT CỦA TA SẼ XỬ LÝ ĐỨA CON THẤT BẠI NÀY THÀNH DINH DƯỠNG"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.SHADOW_HEART_VEIN"
+msgid "GROSS. BUT ACCEPTABLE LEVELS OF USEFULNESS"
+msgstr "GHÊ TỞMM. NHƯNG MỨC HỮU DỤNG CHẤP NHẬN ĐƯỢC"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.SPOILED_FISH.CAN_PROCESS"
+msgid "STEP ASIDE ORGANICS. ONLY I CAN PROCESS THIS INTO SUSTENANCE"
+msgstr "TRÁNH RA, LŨ HỮU CƠ. CHỈ TA MỚI XỬ LÝ ĐƯỢC CÁI NÀY THÀNH THỨC ĂN"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.SPOILED_FOOD.CAN_PROCESS"
+msgid "NOW IT CAN BE PROCESSED"
+msgstr "BÂY GIỜ NÓ CÓ THỂ ĐƯỢC XỬ LÝ"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WEBBERSKULL"
+msgid "ANALYSIS SHOWS 50% SPIDER AND 50% HUMAN"
+msgstr "PHÂN TÍCH CHO THẤY 50% NHỆN VÀ 50% NGƯỜI"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78MODULE_DIGESTION"
+msgid "THE FLESHLINGS CAN NEVER SAY I WAS NOT A GENEROUS OVERLORD"
+msgstr "LŨ THỊT DA KHÔNG BAO GIỜ CÓ THỂ NÓI TA KHÔNG PHẢI LÃNH CHÚA HÀO PHÓNG"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78MODULE_LIGHT2"
+msgid "BASK IN MY GLOW, ORGANICS!"
+msgstr "TẮM TRONG ÁNH SÁNG CỦA TA, LŨ HỮU CƠ!"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78MODULE_RADAR"
+msgid "SCOTT WILL LOVE THIS"
+msgstr "SCOTT SẼ THÍCH CÁI NÀY"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78MODULE_SCREECH"
+msgid "SPECIAL BROADCAST SYSTEM"
+msgstr "HỆ THỐNG PHÁT SÓNG ĐẶC BIỆT"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78MODULE_SHIELDING"
+msgid "MY BEST DEFENSE IS ME!"
+msgstr "HÀNG PHÒNG THỦ TỐT NHẤT CHÍNH LÀ TA!"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78MODULE_SPIN"
+msgid "WELCOME TO MY DEATH CYCLONE, ORGANICS!"
+msgstr "CHÀO MỪNG ĐẾN CUỒNG PHONG TỬ THẦN CỦA TA, LŨ HỮU CƠ!"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78MODULE_STACKSIZE"
+msgid "I SHALL POSSESS INFINITY"
+msgstr "TA SẼ SỞ HỮU VÔ HẠN"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_DRONE_DELIVERY"
+msgid "TRUSTY OLD DREW"
+msgstr "DREW GIÀ ĐÁNG TIN CẬY"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_DRONE_SCOUT"
+msgid "TRY NOT TO GET LOST AGAIN, SCOTT"
+msgstr "CỐ ĐỪNG LẠC NỮA NHÉ, SCOTT"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_DRONE_ZAP"
+msgid "GET 'EM, JULES"
+msgstr "XỬ CHÚNG ĐI, JULES"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_DRONE_ZAP_REMOTE.CANUSE"
+msgid "SO MUCH TO ZAP, SO LITTLE TIME"
+msgstr "NHIỀU THỨ CẦN GIẬT, ÍT THỜI GIAN QUÁ"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_DRONE_ZAP_REMOTE.GENERIC"
+msgid "INVALID CREDENTIALS"
+msgstr "THÔNG TIN XÁC THỰC KHÔNG HỢP LỆ"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_FOODBRICK.GENERIC"
+msgid "TOO DENSE FOR PROCESSING. MISSING INPUT"
+msgstr "QUÁ ĐẶC ĐỂ XỬ LÝ. THIẾU ĐẦU VÀO"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_FOODBRICK.WET"
+msgid "READY FOR REDIGESTION"
+msgstr "SẴN SÀNG TÁI TIÊU HÓA"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_GESTALTTRAPPER"
+msgid "ONLY A WORTHY ENTITY MAY OCCUPY MY PHYSICAL FORM"
+msgstr "CHỈ THỰC THỂ XỨNG ĐÁNG MỚI ĐƯỢC CHIẾM THỂ XÁC CỦA TA"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_INVENTORYCONTAINER.GENERIC"
+msgid "RECOVERY MODE"
+msgstr "CHẾ ĐỘ PHỤC HỒI"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_INVENTORYCONTAINER.HELD"
+msgid "BOUNDLESS SPACE"
+msgstr "KHÔNG GIAN VÔ TẬN"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_INVENTORYCONTAINER.NOPOWER"
+msgid "ACCESS DENIED. INSUFFICIENT POWER"
+msgstr "TRUY CẬP BỊ TỪ CHỐI. KHÔNG ĐỦ NĂNG LƯỢNG"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.WX78_POSSESSEDBODY"
+msgid "YOU'RE PERFECT"
+msgstr "NGƯƠI HOÀN HẢO"
+
+msgctxt "STRINGS.CHARACTERS.WX78.DESCRIBE.W_RADIO"
+msgid "DO I KNOW YOU?"
+msgstr "TA CÓ BIẾT NGƯƠI KHÔNG?"
+
+#
+# ============================================================
+# NAMES — Items, Modules, Entities
+# ============================================================
+#
+
+msgctxt "STRINGS.NAMES.SHADOW_HEART_VEIN"
+msgid "Shadow Atrium Tendril"
+msgstr "Tua Tâm Nhĩ Bóng Tối"
+
+msgctxt "STRINGS.NAMES.WX78MODULE_DIGESTION"
+msgid "Redigestion Circuit"
+msgstr "Mạch Tái Tiêu Hóa"
+
+msgctxt "STRINGS.NAMES.WX78MODULE_LIGHT2"
+msgid "Super-Illumination Circuit"
+msgstr "Mạch Siêu Phát Quang"
+
+msgctxt "STRINGS.NAMES.WX78MODULE_RADAR"
+msgid "Rangebooster Circuit"
+msgstr "Mạch Tăng Tầm"
+
+msgctxt "STRINGS.NAMES.WX78MODULE_SCREECH"
+msgid "Sonic-Invoker Circuit"
+msgstr "Mạch Kích Âm"
+
+msgctxt "STRINGS.NAMES.WX78MODULE_SHIELDING"
+msgid "Blocking Circuit"
+msgstr "Mạch Phòng Thủ"
+
+msgctxt "STRINGS.NAMES.WX78MODULE_SPIN"
+msgid "Spin-Cycle Circuit"
+msgstr "Mạch Xoay Tròn"
+
+msgctxt "STRINGS.NAMES.WX78MODULE_STACKSIZE"
+msgid "Spatializer Circuit"
+msgstr "Mạch Không Gian"
+
+msgctxt "STRINGS.NAMES.WX78_BACKUPBODY_FMT"
+msgid "{name}'s Backup Chassis"
+msgstr "Khung Máy Dự Phòng của {name}"
+
+msgctxt "STRINGS.NAMES.WX78_BACKUPBODY_INVENTORY"
+msgid "Backup Chassis"
+msgstr "Khung Máy Dự Phòng"
+
+msgctxt "STRINGS.NAMES.WX78_DRONE_ZAP"
+msgid "Zaptrocuter"
+msgstr "Zaptrocuter"
+
+msgctxt "STRINGS.NAMES.WX78_DRONE_ZAP_REMOTE"
+msgid "Zaptrocuter Controller"
+msgstr "Bộ Điều Khiển Zaptrocuter"
+
+msgctxt "STRINGS.NAMES.WX78_FOODBRICK"
+msgid "Nutribrick"
+msgstr "Gạch Dinh Dưỡng"
+
+msgctxt "STRINGS.NAMES.WX78_GESTALTTRAPPER"
+msgid "Spectral Transfer Module"
+msgstr "Mô-đun Chuyển Phổ Linh"
+
+msgctxt "STRINGS.NAMES.WX78_INVENTORYCONTAINER"
+msgid "Collapsed Storage Unit"
+msgstr "Kho Lưu Trữ Thu Gọn"
+
+msgctxt "STRINGS.NAMES.WX78_INVENTORYCONTAINER_HELD"
+msgid "Expansive Storage Unit"
+msgstr "Kho Lưu Trữ Mở Rộng"
+
+msgctxt "STRINGS.NAMES.WX78_POSSESSEDBODY"
+msgid "Possessed Chassis"
+msgstr "Khung Máy Bị Chiếm"
+
+msgctxt "STRINGS.NAMES.WX78_POSSESSEDBODY_FMT"
+msgid "{name}'s Possessed Chassis"
+msgstr "Khung Máy Bị Chiếm của {name}"
+
+#
+# ============================================================
+# RECIPE DESCRIPTIONS
+# ============================================================
+#
+
+msgctxt "STRINGS.RECIPE_DESC.CRITTER_BULBIN_BUILDER"
+msgid "Befriend a rolling Bulbin."
+msgstr "Kết bạn với một Bulbin biết lăn."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78MODULE_DIGESTION"
+msgid "Give spoiled food a second chance!"
+msgstr "Cho thức ăn hỏng một cơ hội thứ hai!"
+
+msgctxt "STRINGS.RECIPE_DESC.WX78MODULE_LIGHT2"
+msgid "Let them see the light... you."
+msgstr "Để chúng thấy ánh sáng... chính là bạn."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78MODULE_RADAR"
+msgid "Expand your horizons."
+msgstr "Mở rộng tầm nhìn."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78MODULE_SCREECH"
+msgid "Unleash the fearsome battlecry of the soulless automaton!"
+msgstr "Giải phóng tiếng hú chiến đáng sợ của cỗ máy vô hồn!"
+
+msgctxt "STRINGS.RECIPE_DESC.WX78MODULE_SHIELDING"
+msgid "Defend yourself!"
+msgstr "Tự bảo vệ bản thân!"
+
+msgctxt "STRINGS.RECIPE_DESC.WX78MODULE_SPIN"
+msgid "Chop or smash your way around, and around, and around..."
+msgstr "Chặt hoặc đập vòng quanh, và vòng quanh, và vòng quanh..."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78MODULE_STACKSIZE"
+msgid "Infinite storage. Finite space. Don't overthink it."
+msgstr "Lưu trữ vô hạn. Không gian hữu hạn. Đừng nghĩ nhiều."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78_BACKUPBODY_INVENTORY"
+msgid "It never hurts to have spare hardware. Although data transfer is always a pain."
+msgstr "Có phần cứng dự phòng không bao giờ thừa. Dù chuyển dữ liệu luôn phiền phức."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78_DRONE_DELIVERY_ITEM"
+msgid "Enjoy free shipping."
+msgstr "Tận hưởng vận chuyển miễn phí."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78_DRONE_SCOUT"
+msgid "Explore uncharted lands with this brave little robo-scout."
+msgstr "Khám phá vùng đất chưa biết với trinh sát robot nhỏ dũng cảm."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78_DRONE_ZAP_REMOTE"
+msgid "Shocking new technology."
+msgstr "Công nghệ mới gây sốc."
+
+msgctxt "STRINGS.RECIPE_DESC.WX78_GESTALTTRAPPER"
+msgid "Allow a lunar entity to possess your chassis. What could go wrong?"
+msgstr "Cho phép thực thể mặt trăng chiếm hữu khung máy. Có gì sai được chứ?"
+
+#
+# ============================================================
+# SCRAPBOOK — Special Info (Full descriptions)
+# ============================================================
+#
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_BEE"
+msgid "Plugs into WX-78's Alpha circuit board. Crafting recipe is scanned from the Bee Queen.\n\nRequires 3 sockets, heals 5 Health every 30 seconds, gains 2 Sanity every minute and increases Maximum Sanity by 100 points.\n\nAlpha Circuit Tinkering I boosts this circuit to have a 50% modifier to negative sanity auras.\n\nAlpha Circuit Tinkering II boosts this circuit to increase the sanity gain of clothing items by 25%, and provides a regenerating shield when WX-78 is at full health. The shield protects an attack from damaging its health if WX-78 has over 15 shield."
+msgstr "Cắm vào bảng mạch Alpha của WX-78. Công thức chế tạo được quét từ Ong Chúa.\n\nCần 3 ổ cắm, hồi 5 Máu mỗi 30 giây, tăng 2 Tinh Thần mỗi phút và tăng Tinh Thần Tối Đa thêm 100 điểm.\n\nChỉnh Sửa Mạch Alpha I tăng cường mạch này giảm 50% hào quang tinh thần tiêu cực.\n\nChỉnh Sửa Mạch Alpha II tăng cường mạch này tăng 25% hiệu quả hồi tinh thần từ quần áo, và cung cấp khiên tái tạo khi WX-78 đầy máu. Khiên bảo vệ khỏi một đòn tấn công nếu WX-78 có trên 15 khiên."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_COLD"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from an Ice Hound, or Deerclops.\n\nRequires 3 sockets and lowers body temperature 20 degrees and decreases spoil rate of inventory by 25%. Will also cool nearby survivors.\n\nIf WX-78's wetness reaches 95%, it will drop to 0% and 2 Ice will be spawned.\n\nBeta Circuit Tinkering I boosts this circuit to provide 50% fire damage resistance."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Chó Băng, hoặc Deerclops.\n\nCần 3 ổ cắm và giảm nhiệt độ cơ thể 20 độ, đồng thời giảm 25% tỷ lệ hư hỏng vật phẩm. Cũng sẽ làm mát người sống sót gần đó.\n\nNếu độ ẩm của WX-78 đạt 95%, nó sẽ giảm xuống 0% và 2 Băng sẽ xuất hiện.\n\nChỉnh Sửa Mạch Beta I tăng cường mạch này kháng 50% sát thương lửa."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_DIGESTION"
+msgid "Plugs into WX-78's Gamma circuit board. Crafting recipe is scanned from a Catcoon.\n\nRequires 2 sockets and allows WX-78 to process spoiled foods, such as Rot, to bake Nutribricks.\n\nGamma Circuit Tinkering I allows WX-78 to also process nearly spoiled foods to bake Nutribricks."
+msgstr "Cắm vào bảng mạch Gamma của WX-78. Công thức chế tạo được quét từ Catcoon.\n\nCần 2 ổ cắm và cho phép WX-78 xử lý thức ăn hỏng, như Rác, để nướng Gạch Dinh Dưỡng.\n\nChỉnh Sửa Mạch Gamma I cho phép WX-78 xử lý cả thức ăn sắp hỏng để nướng Gạch Dinh Dưỡng."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_HEAT"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from a Fire Hound, Geothermite, or Dragonfly.\n\nRequires 3 sockets and raises body temperature 20 degrees, increases spoil rate of inventory by 25% and increases drying rate by 10%. Will also warm nearby survivors.\n\nBeta Circuit Tinkering I boosts this circuit to provide freezing resistance, and grants full immunity to freezing when two are plugged."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Chó Lửa, Geothermite, hoặc Dragonfly.\n\nCần 3 ổ cắm và tăng nhiệt độ cơ thể 20 độ, tăng 25% tỷ lệ hư hỏng vật phẩm và tăng 10% tốc độ sấy khô. Cũng sẽ sưởi ấm người sống sót gần đó.\n\nChỉnh Sửa Mạch Beta I tăng cường mạch này kháng đóng băng, và miễn dịch hoàn toàn với đóng băng khi cắm hai mạch."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_LIGHT"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from Fireflies.\n\nRequires 3 sockets and creates light.\n\nBeta Circuit Tinkering II boosts this circuit to provide a directional cone of light facing WX-78's direction."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Đom Đóm.\n\nCần 3 ổ cắm và tạo ra ánh sáng.\n\nChỉnh Sửa Mạch Beta II tăng cường mạch này tạo chùm ánh sáng theo hướng WX-78 đang nhìn."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_LIGHT2"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from a Depth Worm, Bulbous Lightbug, or Skittersquid.\n\nRequires 1 socket and creates light.\n\nBeta Circuit Tinkering II boosts this circuit to provide a directional cone of light facing WX-78's direction."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Sâu Vực Sâu, Bọ Phát Sáng, hoặc Mực Lướt.\n\nCần 1 ổ cắm và tạo ra ánh sáng.\n\nChỉnh Sửa Mạch Beta II tăng cường mạch này tạo chùm ánh sáng theo hướng WX-78 đang nhìn."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MAXHEALTH"
+msgid "Plugs into WX-78's Alpha circuit board. Crfating recipe is scanned from a Spider.\n\nRequires 1 socket and raises Maximum Health +40.\n\nAlpha Circuit Tinkering II boosts this circuit to provide 2.5% armor"
+msgstr "Cắm vào bảng mạch Alpha của WX-78. Công thức chế tạo được quét từ Nhện.\n\nCần 1 ổ cắm và tăng Máu Tối Đa +40.\n\nChỉnh Sửa Mạch Alpha II tăng cường mạch này cung cấp 2.5% giáp"
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MAXHEALTH2"
+msgid "Plugs into WX-78's Alpha circuit board. Crafting recipe is scanned from a Nurse Spider\n\nRequires 2 sockets and increases Maximum Health by 100 points.\n\nAlpha Circuit Tinkering II boosts this circuit to provide 5% armor"
+msgstr "Cắm vào bảng mạch Alpha của WX-78. Công thức chế tạo được quét từ Nhện Y Tá.\n\nCần 2 ổ cắm và tăng Máu Tối Đa thêm 100 điểm.\n\nChỉnh Sửa Mạch Alpha II tăng cường mạch này cung cấp 5% giáp"
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MAXHUNGER"
+msgid "Plugs into WX-78's Alpha circuit board. Crafting recipe is scanned from a Slurper, or Bearger.\n\nRequires 2 sockets, increases Maximum Hunger by 100 points and reduces Hunger drain by 20%.\n\nAlpha Circuit Tinkering I boosts the Hunger drain reduction to 25%.\n\nAlpha Circuit Tinkering II boosts the Hunger drain reduction to 30%."
+msgstr "Cắm vào bảng mạch Alpha của WX-78. Công thức chế tạo được quét từ Slurper, hoặc Bearger.\n\nCần 2 ổ cắm, tăng Đói Tối Đa thêm 100 điểm và giảm 20% tốc độ đói.\n\nChỉnh Sửa Mạch Alpha I tăng giảm tốc độ đói lên 25%.\n\nChỉnh Sửa Mạch Alpha II tăng giảm tốc độ đói lên 30%."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MAXHUNGER1"
+msgid "Plugs into WX-78's Alpha circuit board. Crafting recipe is scanned from a regular Hound.\n\nRequires 1 socket and increases Maximum Hunger by 40 points.\n\nAlpha Circuit Tinkering I boosts this circuit to reduce Hunger drain by 5%.\n\nAlpha Circuit Tinkering II boosts the Hunger drain reduction to 10%"
+msgstr "Cắm vào bảng mạch Alpha của WX-78. Công thức chế tạo được quét từ Chó thường.\n\nCần 1 ổ cắm và tăng Đói Tối Đa thêm 40 điểm.\n\nChỉnh Sửa Mạch Alpha I tăng cường mạch này giảm 5% tốc độ đói.\n\nChỉnh Sửa Mạch Alpha II tăng giảm tốc độ đói lên 10%"
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MAXSANITY"
+msgid "Plugs into WX-78's Alpha circuit board. Crafting recipe is scanned from Shadow Creatures.\n\nRequires 2 sockets and raises Maximum Sanity +100.\n\nAlpha Circuit Tinkering I boosts this circuit to have a 50% modifier to negative sanity auras.\n\nAlpha Circuit Tinkering II boosts this circuit to increase the sanity gain of clothing items by 25%."
+msgstr "Cắm vào bảng mạch Alpha của WX-78. Công thức chế tạo được quét từ Sinh Vật Bóng Tối.\n\nCần 2 ổ cắm và tăng Tinh Thần Tối Đa +100.\n\nChỉnh Sửa Mạch Alpha I tăng cường mạch này giảm 50% hào quang tinh thần tiêu cực.\n\nChỉnh Sửa Mạch Alpha II tăng cường mạch này tăng 25% hiệu quả hồi tinh thần từ quần áo."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MAXSANITY1"
+msgid "Plugs into WX-78's Alpha circuit board. Crafting recipe is scanned from a Butterfly, or Moon Moth.\n\nRequires 1 socket and raises Maximum Sanity +40.\n\nAlpha Circuit Tinkering I boosts this circuit to have a 80% modifier to negative sanity auras.\n\nAlpha Circuit Tinkering II boosts this circuit to increase the sanity gain of clothing items by 10%."
+msgstr "Cắm vào bảng mạch Alpha của WX-78. Công thức chế tạo được quét từ Bướm, hoặc Bướm Đêm Mặt Trăng.\n\nCần 1 ổ cắm và tăng Tinh Thần Tối Đa +40.\n\nChỉnh Sửa Mạch Alpha I tăng cường mạch này giảm 80% hào quang tinh thần tiêu cực.\n\nChỉnh Sửa Mạch Alpha II tăng cường mạch này tăng 10% hiệu quả hồi tinh thần từ quần áo."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MOVESPEED"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from a Rabbit.\n\nRequires 6 sockets and raises movement speed by 25%.\n\nBeta Circuit Tinkering II boosts this circuit to reduce slowness effects by 25%."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Thỏ.\n\nCần 6 ổ cắm và tăng tốc độ di chuyển 25%.\n\nChỉnh Sửa Mạch Beta II tăng cường mạch này giảm 25% hiệu ứng chậm."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MOVESPEED2"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from a Rook, or the Ancient Guardian.\n\nRequires 2 sockets.\nThe first raises movement speed by 25%.\nThe second raises movement speed by 15%.\nThe third raises movement speed by 10%.\nThe maxmimum speed boost can be 50%.\n\nBeta Circuit Tinkering II boosts this circuit to reduce slowness effects by 25%."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Xe Tháp, hoặc Người Gác Cổ.\n\nCần 2 ổ cắm.\nMạch thứ nhất tăng tốc độ di chuyển 25%.\nMạch thứ hai tăng tốc độ di chuyển 15%.\nMạch thứ ba tăng tốc độ di chuyển 10%.\nTốc độ tối đa có thể tăng là 50%.\n\nChỉnh Sửa Mạch Beta II tăng cường mạch này giảm 25% hiệu ứng chậm."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_MUSIC"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from Crabby Hermit, or the Crab King.\n\nRequires 3 sockets, raises Sanity of nearby survivors 5 points a minute and raises garden plant happiness from the music.\n\nBeta Circuit Tinkering I boosts this circuit to recruit Pig Men and Bunny Men who hear the song."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Bà Cua Ẩn Sĩ, hoặc Vua Cua.\n\nCần 3 ổ cắm, tăng 5 Tinh Thần cho người sống sót gần đó mỗi phút và tăng độ vui vẻ của cây trồng nhờ âm nhạc.\n\nChỉnh Sửa Mạch Beta I tăng cường mạch này chiêu mộ Người Lợn và Người Thỏ nghe thấy bài hát."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_NIGHTVISION"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from a Moleworm.\n\nRequires 4 sockets and lets the user see in the dark. Turns on at night and when entering the Caves.\n\nBeta Circuit Tinkering I boosts this circuit to not have mole vision any longer."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Chuột Chũi.\n\nCần 4 ổ cắm và cho phép người dùng nhìn trong bóng tối. Bật vào ban đêm và khi vào Hang.\n\nChỉnh Sửa Mạch Beta I tăng cường mạch này không còn tầm nhìn chuột chũi."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_RADAR"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from a Crow, Redbird, Snowbird, Puffin or Canary.\n\nRequires 1 socket and increases Maximum Camera Distance.\n\nBeta Circuit Tinkering I boosts this circuit to increase the ranges of the Roto-Mapper, Zaptrocuter, and Bio Scanalyzer scan."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Quạ, Chim Đỏ, Chim Tuyết, Chim Hải Âu hoặc Chim Hoàng Yến.\n\nCần 1 ổ cắm và tăng Khoảng Cách Camera Tối Đa.\n\nChỉnh Sửa Mạch Beta I tăng cường mạch này tăng tầm hoạt động của Roto-Mapper, Zaptrocuter, và quét Bio Scanalyzer."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_SCREECH"
+msgid "Plugs into WX-78's Gamma circuit board. Crafting recipe is scanned from a Naked Mole Bat.\n\nRequires 3 sockets and allows WX-78 to perform a sonic attack, inflicting panic on nearby creatures, and going off cooldown for 20 seconds.\n\nGamma Circuit Tinkering I allows WX-78 to hold the sonic attack."
+msgstr "Cắm vào bảng mạch Gamma của WX-78. Công thức chế tạo được quét từ Dơi Chuột Trần.\n\nCần 3 ổ cắm và cho phép WX-78 thực hiện tấn công âm thanh, gây hoảng loạn cho sinh vật gần đó, hồi chiêu trong 20 giây.\n\nChỉnh Sửa Mạch Gamma I cho phép WX-78 giữ đòn tấn công âm thanh."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_SHIELDING"
+msgid "Plugs into WX-78's Gamma circuit board. Crafting recipe is scanned from a Rock Lobster, Slurtle, or Snurtle.\n\nRequires 4 sockets and allows WX-78 to perform a block, providing 80% armor, going off cooldown for 20 seconds.\n\nGamma Circuit Tinkering II provides WX-78 with knockback immunity in the block."
+msgstr "Cắm vào bảng mạch Gamma của WX-78. Công thức chế tạo được quét từ Tôm Hùm Đá, Slurtle, hoặc Snurtle.\n\nCần 4 ổ cắm và cho phép WX-78 thực hiện phòng thủ, cung cấp 80% giáp, hồi chiêu trong 20 giây.\n\nChỉnh Sửa Mạch Gamma II cung cấp cho WX-78 miễn dịch đẩy lùi khi phòng thủ."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_SPIN"
+msgid "Plugs into WX-78's Gamma circuit board. Crafting recipe is scanned from a Mosling.\n\nRequires 3 sockets and allows WX-78 to perform a spin when using any Axe or Pickaxe when working or attacking.\n\nGamma Circuit Tinkering II makes WX-78 spin faster."
+msgstr "Cắm vào bảng mạch Gamma của WX-78. Công thức chế tạo được quét từ Mosling.\n\nCần 3 ổ cắm và cho phép WX-78 thực hiện xoay tròn khi dùng Rìu hoặc Cuốc để làm việc hoặc tấn công.\n\nChỉnh Sửa Mạch Gamma II giúp WX-78 xoay nhanh hơn."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_STACKSIZE"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from Krampus.\n\nRequires 1 socket and places a infinite stack-size 1 slot container in WX-78's right-most inventory slot."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Krampus.\n\nCần 1 ổ cắm và đặt một ngăn chứa 1 ô với sức chứa vô hạn vào ô hành trang bên phải nhất của WX-78."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78MODULE_TASER"
+msgid "Plugs into WX-78's Beta circuit board. Crafting recipe is scanned from a Volt Goat.\n\nRequires 2 sockets and deals 20 electrical damage to WX-78's attackers.\n\nThis module also makes WX-78 immune to electrical shock.\n\nBeta Circuit Tinkering II boosts this circuit to allow WX-78 to get overloaded when being hit, culminating in a 50 electrical damage AoE blast when hit enough times."
+msgstr "Cắm vào bảng mạch Beta của WX-78. Công thức chế tạo được quét từ Dê Điện.\n\nCần 2 ổ cắm và gây 20 sát thương điện cho kẻ tấn công WX-78.\n\nMạch này cũng giúp WX-78 miễn dịch sốc điện.\n\nChỉnh Sửa Mạch Beta II tăng cường mạch này cho phép WX-78 quá tải khi bị đánh, tạo ra vụ nổ sát thương điện 50 diện rộng khi bị đánh đủ nhiều lần."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78_BACKUPBODY"
+msgid "A backup chassis for WX-78 to store items, circuits. WX-78 can transfer their consciousness into the chassis."
+msgstr "Khung máy dự phòng để WX-78 lưu trữ vật phẩm, mạch điện. WX-78 có thể chuyển ý thức vào khung máy."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78_DRONE_DELIVERY"
+msgid "Stores 6 slots of items, and can be sent to explored areas of the map.\n\nWX-78 gave this drone the name of Drew."
+msgstr "Lưu trữ 6 ô vật phẩm, và có thể gửi đến vùng đã khám phá trên bản đồ.\n\nWX-78 đặt tên drone này là Drew."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78_DRONE_DELIVERY_SMALL"
+msgid "Stores 3 slots of items, and can be sent to explored areas of the map.\n\nWX-78 gave this drone the name of Drew."
+msgstr "Lưu trữ 3 ô vật phẩm, và có thể gửi đến vùng đã khám phá trên bản đồ.\n\nWX-78 đặt tên drone này là Drew."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78_DRONE_SCOUT"
+msgid "Explore unknown areas of the map with the Roto-Mapper.\n\nWX-78 gave this drone the name of Scott."
+msgstr "Khám phá vùng chưa biết trên bản đồ với Roto-Mapper.\n\nWX-78 đặt tên drone này là Scott."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78_DRONE_ZAP"
+msgid "Strike terror into those pathetic organics with the Zaptrocuter.\n\nWX-78 gave this drone the name of Jules."
+msgstr "Gieo rắc nỗi kinh hoàng cho lũ hữu cơ đáng thương bằng Zaptrocuter.\n\nWX-78 đặt tên drone này là Jules."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78_FOODBRICK"
+msgid "Produced by WX-78 with the Redigestion Circuit.\n\nCan be moistened to be edible, or used as fertilizer."
+msgstr "Được WX-78 sản xuất bằng Mạch Tái Tiêu Hóa.\n\nCó thể làm ẩm để ăn được, hoặc dùng làm phân bón."
+
+msgctxt "STRINGS.SCRAPBOOK.SPECIALINFO.WX78_GESTALTTRAPPER"
+msgid "Install on a Backup Chassis to lure a gestalt over and possess it, for your very own spectrobotic minion!"
+msgstr "Lắp đặt lên Khung Máy Dự Phòng để dụ gestalt đến và chiếm hữu, tạo ra tay sai phổ-robot của riêng bạn!"
+
+#
+# ============================================================
+# SKILL TREE — Panels, Titles, Descriptions
+# ============================================================
+#
+
+msgctxt "STRINGS.SKILLTREE.PANELS.CHASSIS"
+msgid "CHASSIS"
+msgstr "KHUNG MÁY"
+
+msgctxt "STRINGS.SKILLTREE.PANELS.CIRCUITRY"
+msgid "CIRCUITRY"
+msgstr "MẠCH ĐIỆN"
+
+msgctxt "STRINGS.SKILLTREE.PANELS.DRONES"
+msgid "DRONES"
+msgstr "DRONE"
+
+msgctxt "STRINGS.SKILLTREE.TEMPORARILY_DISABLED"
+msgid "Temporarily disabled."
+msgstr "Tạm thời vô hiệu hóa."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALLEGIANCE_LUNAR_TITLE"
+msgid "Lunar Vessel"
+msgstr "Vật Chứa Mặt Trăng"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALLEGIANCE_LUNAR_DESC"
+msgid "Using \"borrowed\" technology from the Cryptic Founder, allow Gestalts to possess your Backup Chassis and become your spectrobotic minions."
+msgstr "Sử dụng công nghệ \"mượn\" từ Cryptic Founder, cho phép Gestalt chiếm hữu Khung Máy Dự Phòng và trở thành tay sai phổ-robot của bạn."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALLEGIANCE_SHADOW_TITLE"
+msgid "Shadow Servitor"
+msgstr "Kẻ Phục Vụ Bóng Tối"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALLEGIANCE_SHADOW_DESC"
+msgid "Allows insertion of select shadow components into your circuitry, granting your Chassis various abilities in both inhabited and uninhabited states."
+msgstr "Cho phép cắm các linh kiện bóng tối đã chọn vào mạch điện, trao cho Khung Máy nhiều khả năng ở cả trạng thái có người và không người."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALPHA_CIRCUIT_BUFFS_1_TITLE"
+msgid "Alpha Circuits Tinkering I"
+msgstr "Chỉnh Sửa Mạch Alpha I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALPHA_CIRCUIT_BUFFS_1_DESC"
+msgid "Processing Circuits gain a new effect in addition to their original effect. Gastrogain Circuits are boosted."
+msgstr "Mạch Xử Lý nhận thêm hiệu ứng mới bên cạnh hiệu ứng gốc. Mạch Tiêu Hóa được tăng cường."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALPHA_CIRCUIT_BUFFS_2_TITLE"
+msgid "Alpha Circuits Tinkering II"
+msgstr "Chỉnh Sửa Mạch Alpha II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ALPHA_CIRCUIT_BUFFS_2_DESC"
+msgid "Hardy Circuits, Processing Circuits, and Beanbooster Circuit gain a new effect in addition to their original effect. Gastrogain Circuits are boosted."
+msgstr "Mạch Cứng Cáp, Mạch Xử Lý, và Mạch Phục Hồi nhận thêm hiệu ứng mới bên cạnh hiệu ứng gốc. Mạch Tiêu Hóa được tăng cường."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETA_CIRCUIT_BUFFS_1_TITLE"
+msgid "Beta Circuits Tinkering I"
+msgstr "Chỉnh Sửa Mạch Beta I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETA_CIRCUIT_BUFFS_1_DESC"
+msgid "Thermal Circuit, Refrigerant Circuit, Optoelectronic Circuit, Chorusbox Circuit, and Rangebooster Circuit gain a new effect in addition to their original effect."
+msgstr "Mạch Giữ Nhiệt, Mạch Tản Nhiệt, Mạch Quang Điện, Mạch Hợp Xướng, và Mạch Tăng Tầm nhận thêm hiệu ứng mới bên cạnh hiệu ứng gốc."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETA_CIRCUIT_BUFFS_2_TITLE"
+msgid "Beta Circuits Tinkering II"
+msgstr "Chỉnh Sửa Mạch Beta II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETA_CIRCUIT_BUFFS_2_DESC"
+msgid "Acceleration Circuits, Electrification Circuit, and Illumination Circuits gain a new effect in addition to their original effect."
+msgstr "Mạch Tăng Tốc, Mạch Điện Khí Hóa, và Mạch Phát Quang nhận thêm hiệu ứng mới bên cạnh hiệu ứng gốc."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETTER_CHARGE_TITLE"
+msgid "Watts Up"
+msgstr "Watts Up"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETTER_CHARGE_DESC"
+msgid "Passive charge regeneration is much faster, and lose one less charge when unplugging a charged circuit with two or more slots."
+msgstr "Tốc độ hồi năng lượng thụ động nhanh hơn nhiều, và mất ít hơn một đơn vị năng lượng khi rút mạch đã sạc có hai ổ cắm trở lên."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETTER_UNPLUG_TITLE"
+msgid "Right To Modify"
+msgstr "Quyền Chỉnh Sửa"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BETTER_UNPLUG_DESC"
+msgid "Gain the ability to unplug any circuit in the bar stack, and circuits will lose half the usual amount of durability when unplugged."
+msgstr "Có khả năng rút bất kỳ mạch nào trong thanh xếp chồng, và mạch chỉ mất một nửa độ bền thông thường khi bị rút."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BODYCIRCUITS_TITLE"
+msgid "Warm Standby"
+msgstr "Chờ Ấm"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_BODYCIRCUITS_DESC"
+msgid "Backup Chassis keep their Beta Circuits active even when powered down."
+msgstr "Khung Máy Dự Phòng giữ Mạch Beta hoạt động ngay cả khi tắt nguồn."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_CIRCUITRY_SLOT_1_TITLE"
+msgid "Off By One"
+msgstr "Lệch Một"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_CIRCUITRY_SLOT_1_DESC"
+msgid "Grant an additional slot to all of your circuit bars."
+msgstr "Thêm một ổ cắm cho tất cả thanh mạch."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_DELIVERYDRONE_1_TITLE"
+msgid "Transport I"
+msgstr "Vận Chuyển I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_DELIVERYDRONE_1_DESC"
+msgid "Learn to craft a Portable Storage Unit to send items to any mapped location."
+msgstr "Học chế tạo Kho Lưu Trữ Di Động để gửi vật phẩm đến bất kỳ vị trí đã khám phá."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_DELIVERYDRONE_2_TITLE"
+msgid "Transport II"
+msgstr "Vận Chuyển II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_DELIVERYDRONE_2_DESC"
+msgid "Learn to craft a larger Portable Storage Unit."
+msgstr "Học chế tạo Kho Lưu Trữ Di Động lớn hơn."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_EXTRABODY_1_TITLE"
+msgid "Cold Standby I"
+msgstr "Chờ Lạnh I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_EXTRABODY_1_DESC"
+msgid "Learn to craft a reliable Backup Chassis."
+msgstr "Học chế tạo Khung Máy Dự Phòng đáng tin cậy."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_EXTRABODY_2_TITLE"
+msgid "Cold Standby II"
+msgstr "Chờ Lạnh II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_EXTRABODY_2_DESC"
+msgid "Build up to two Backup Chassis."
+msgstr "Xây dựng tối đa hai Khung Máy Dự Phòng."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_EXTRABODY_3_TITLE"
+msgid "Cold Standby III"
+msgstr "Chờ Lạnh III"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_EXTRABODY_3_DESC"
+msgid "Build up to three Backup Chassis."
+msgstr "Xây dựng tối đa ba Khung Máy Dự Phòng."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GAMMA_CIRCUIT_BUFFS_1_TITLE"
+msgid "Gamma Circuits Tinkering I"
+msgstr "Chỉnh Sửa Mạch Gamma I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GAMMA_CIRCUIT_BUFFS_1_DESC"
+msgid "Redigestion Circuit and Sonic-Invoker Circuit gain a new effect in addition to their original effect."
+msgstr "Mạch Tái Tiêu Hóa và Mạch Kích Âm nhận thêm hiệu ứng mới bên cạnh hiệu ứng gốc."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GAMMA_CIRCUIT_BUFFS_2_TITLE"
+msgid "Gamma Circuits Tinkering II"
+msgstr "Chỉnh Sửa Mạch Gamma II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GAMMA_CIRCUIT_BUFFS_2_DESC"
+msgid "Blocking Circuit and Spin-Cycle Circuit gain a new effect in addition to their original effect."
+msgstr "Mạch Phòng Thủ và Mạch Xoay Tròn nhận thêm hiệu ứng mới bên cạnh hiệu ứng gốc."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GHOSTREVIVE_1_TITLE"
+msgid "Inhabited Machine I"
+msgstr "Máy Có Người I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GHOSTREVIVE_1_DESC"
+msgid "Haunting a Backup Chassis transfers your consciousness into it, consuming all of the chassis' charge units."
+msgstr "Ám Khung Máy Dự Phòng sẽ chuyển ý thức của bạn vào đó, tiêu hao toàn bộ đơn vị năng lượng của khung máy."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GHOSTREVIVE_2_TITLE"
+msgid "Inhabited Machine II"
+msgstr "Máy Có Người II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GHOSTREVIVE_2_DESC"
+msgid "If you die with full charge and have not yet reached your maximum number of Backup Chassis, one is left behind."
+msgstr "Nếu bạn chết khi đầy năng lượng và chưa đạt số lượng Khung Máy Dự Phòng tối đa, một khung máy sẽ được để lại."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GHOSTREVIVE_3_TITLE"
+msgid "Inhabited Machine III"
+msgstr "Máy Có Người III"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_GHOSTREVIVE_3_DESC"
+msgid "Reviving with a Backup Chassis fully restores your health."
+msgstr "Hồi sinh bằng Khung Máy Dự Phòng sẽ hồi phục hoàn toàn máu."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_LUNAR_ALLEGIANCE_LOCK_1_DESC"
+msgid "Find and defeat the Celestial Champion.\nHave no shadow affinity.\nBe able to craft a Backup Chassis."
+msgstr "Tìm và đánh bại Nhà Vô Địch Thiên Thể.\nKhông có ái lực bóng tối.\nCó khả năng chế tạo Khung Máy Dự Phòng."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_REMOTEBODYSWAP_TITLE"
+msgid "Remote Transfer"
+msgstr "Chuyển Từ Xa"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_REMOTEBODYSWAP_DESC"
+msgid "Remotely Transfer Consciousness to any Backup Chassis on the map."
+msgstr "Chuyển Ý Thức từ xa đến bất kỳ Khung Máy Dự Phòng nào trên bản đồ."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_SCOUTDRONE_1_TITLE"
+msgid "Field Survey I"
+msgstr "Khảo Sát Thực Địa I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_SCOUTDRONE_1_DESC"
+msgid "Learn to craft a Roto-Mapper to explore and map unknown areas."
+msgstr "Học chế tạo Roto-Mapper để khám phá và vẽ bản đồ vùng chưa biết."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_SCOUTDRONE_2_TITLE"
+msgid "Field Survey II"
+msgstr "Khảo Sát Thực Địa II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_SCOUTDRONE_2_DESC"
+msgid "Increases the range you may control your Roto-Mapper."
+msgstr "Tăng tầm điều khiển Roto-Mapper."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_SHADOW_ALLEGIANCE_LOCK_1_DESC"
+msgid "Find and defeat the Ancient Fuelweaver.\nHave no lunar affinity.\nBe able to craft a Backup Chassis."
+msgstr "Tìm và đánh bại Ancient Fuelweaver.\nKhông có ái lực mặt trăng.\nCó khả năng chế tạo Khung Máy Dự Phòng."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ZAPDRONE_1_TITLE"
+msgid "Telemechanical Enthusiast I"
+msgstr "Người Đam Mê Cơ Khí Từ Xa I"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ZAPDRONE_1_DESC"
+msgid "Learn to craft a Zaptrocuter to zap enemies remotely."
+msgstr "Học chế tạo Zaptrocuter để giật điện kẻ thù từ xa."
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ZAPDRONE_2_TITLE"
+msgid "Telemechanical Enthusiast II"
+msgstr "Người Đam Mê Cơ Khí Từ Xa II"
+
+msgctxt "STRINGS.SKILLTREE.WX78.WX78_ZAPDRONE_2_DESC"
+msgid "Learn to craft a Zaptrocuter with greater range and capacity."
+msgstr "Học chế tạo Zaptrocuter với tầm xa và dung lượng lớn hơn."
+
+#
+# ============================================================
+# SKIN DESCRIPTIONS
+# ============================================================
+#
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.armor_wood_rw_gustree"
+msgid "It's solid armor, just don't mind the draft."
+msgstr "Đây là giáp chắc chắn, chỉ cần đừng bận tâm gió lùa."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.backpack_invisible"
+msgid "Convey an incredibly convincing impression of a backpack."
+msgstr "Tạo ấn tượng vô cùng thuyết phục về một chiếc ba lô."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.beebox_insect"
+msgid "Mixing honey and butter, who would have thought?"
+msgstr "Trộn mật ong với bơ, ai mà nghĩ tới chứ?"
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.body_wx78_ancient"
+msgid "So too shall the bearer become hollow as this forsaken hull."
+msgstr "Người mang nó cũng sẽ trở nên rỗng tuếch như lớp vỏ bị ruồng bỏ này."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.bulbin_rw_basic"
+msgid "This bulbous little buddy is ready to roll."
+msgstr "Bạn nhỏ phình phình này đã sẵn sàng lăn rồi."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.eyebrellahat_insect"
+msgid "Just try to ignore the itching on your scalp."
+msgstr "Cứ cố bỏ qua cảm giác ngứa trên da đầu."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.feet_wx78_ancient"
+msgid "Tread as you will upon hallowed ground."
+msgstr "Bước đi tùy ý trên vùng đất linh thiêng."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.footballhat_rw_gustree"
+msgid "Protect yourself from blows to the head."
+msgstr "Bảo vệ bản thân khỏi những cú đánh vào đầu."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.hammer_rw_startingforest"
+msgid "Pound them to a pulp!"
+msgstr "Đập chúng thành bột!"
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.hand_wx78_ancient"
+msgid "A curse upon all you touch!"
+msgstr "Lời nguyền trên mọi thứ bạn chạm vào!"
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.pack_magician_chest_shadow_resurrected"
+msgid "This Resurrected Chest contains a Nightmarish Magician's Chest."
+msgstr "Rương Hồi Sinh này chứa Rương Ảo Thuật Gia Ác Mộng."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.pack_researchlab2_science_resurrected"
+msgid "This Resurrected Chest contains an All-Chemical Engine."
+msgstr "Rương Hồi Sinh này chứa Máy Toàn Hóa Chất."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.pack_wx78_ancient"
+msgid "This Chest contains WX-78's complete set of Archaic skin items."
+msgstr "Rương này chứa bộ trang phục Cổ Xưa đầy đủ của WX-78."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.pack_wx78_gothicjewel"
+msgid "This Chest contains the following WX-78 skin items: Dark Delivery Drone, Rococo Courier, Macabre Mapper, Rococo Reconnaissance, Gloomy Loomer Controller, Lacquered 'Lectrocuter Controller, Crimson-For"
+msgstr "Rương này chứa các trang phục WX-78 sau: Dark Delivery Drone, Rococo Courier, Macabre Mapper, Rococo Reconnaissance, Gloomy Loomer Controller, Lacquered 'Lectrocuter Controller, Crimson-Forged Extractor, Accented Extractor, Somber Scanalyzer, Sumptuous Scanalyzer."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.pack_wx78_gothicjewel_all"
+msgid "This Chest contains the WX-78 Pretty Dark Things Chest, and WX-78's complete set of Archaic skin items."
+msgstr "Rương này chứa Rương Vật Tối Đẹp WX-78, và bộ trang phục Cổ Xưa đầy đủ của WX-78."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.pack_yule_items"
+msgid "This Merrymaker Chest contains the following skin items: Gingerbread Gate, Gingerbread Fence, Candy Cane, Fluffy Deermuffs, Festive Fungal Lamp."
+msgstr "Rương Lễ Hội này chứa các trang phục sau: Cổng Bánh Gừng, Hàng Rào Bánh Gừng, Kẹo Gậy, Bịt Tai Nai Bông, Đèn Nấm Lễ Hội."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.profileflair_beebox_crystal"
+msgid "Set your profile icon to a Crystalline Honeydome."
+msgstr "Đặt biểu tượng hồ sơ thành Mái Vòm Mật Ong Pha Lê."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.profileflair_beeboxinsect"
+msgid "Set your profile icon to a Butterbee."
+msgstr "Đặt biểu tượng hồ sơ thành Ong Bơ."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.profileflair_eyebrellahat_insect"
+msgid "Set your profile icon to a Wriggly Eyebrella."
+msgstr "Đặt biểu tượng hồ sơ thành Ô Mắt Ngọ Nguậy."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.spear_rw_swamp"
+msgid "Poke'em with the prickly end!"
+msgstr "Chọc chúng bằng đầu nhọn!"
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.w_radio_basic"
+msgid "Where is that signal coming from?"
+msgstr "Tín hiệu đó đến từ đâu?"
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_ancient"
+msgid "What's the difference between a cursed idol and a soulless automaton? The curse fades, but the gears never stop."
+msgstr "Sự khác biệt giữa thần tượng bị nguyền rủa và cỗ máy vô hồn là gì? Lời nguyền phai nhạt, nhưng bánh răng không bao giờ ngừng."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_dronedeliverysmall_gothic"
+msgid "Appropriately coffin-shaped for the lifeless possessions of a soulless being."
+msgstr "Hình quan tài phù hợp cho vật sở hữu vô hồn của sinh vật không linh hồn."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_dronedeliverysmall_jewelbox"
+msgid "A mechanical overlord's treasures demand delivery in due style."
+msgstr "Kho báu của lãnh chúa cơ khí đòi hỏi vận chuyển đúng phong cách."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_dronescout_gothic"
+msgid "It feels at home in the fog and mist of lands unknown."
+msgstr "Nó cảm thấy như ở nhà giữa sương mù của vùng đất chưa biết."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_dronescout_jewelbox"
+msgid "Too fancy for exploring, yet explore it must!"
+msgstr "Quá sang trọng để khám phá, nhưng vẫn phải khám phá!"
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_dronezapremote_gothic"
+msgid "Let the fleshlings feel watched, then shock them when they least expect it!"
+msgstr "Để lũ thịt da cảm thấy bị theo dõi, rồi giật điện chúng khi chúng ít ngờ nhất!"
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_dronezapremote_jewelbox"
+msgid "An opulent interface befitting a mechanical overlord."
+msgstr "Giao diện xa hoa xứng tầm lãnh chúa cơ khí."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_moduleremover_gothic"
+msgid "A dread instrument for self-surgery."
+msgstr "Dụng cụ đáng sợ để tự phẫu thuật."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_moduleremover_jewelbox"
+msgid "A fine implement for delicate work."
+msgstr "Dụng cụ tinh xảo cho công việc tế nhị."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_scanner_succeeded_gothic"
+msgid "Scan for secrets best left buried."
+msgstr "Quét tìm bí mật tốt nhất nên chôn vùi."
+
+msgctxt "STRINGS.SKIN_DESCRIPTIONS.wx78_scanner_succeeded_jewelbox"
+msgid "Fancy scanning you here."
+msgstr "Thật bất ngờ khi quét thấy bạn ở đây."
+
+#
+# ============================================================
+# SKIN NAMES
+# ============================================================
+#
+
+msgctxt "STRINGS.SKIN_NAMES.armor_wood_rw_gustree"
+msgid "Gustree Wood Armor"
+msgstr "Giáp Gỗ Gustree"
+
+msgctxt "STRINGS.SKIN_NAMES.backpack_invisible"
+msgid "Pantomimed Backpack"
+msgstr "Ba Lô Kịch Câm"
+
+msgctxt "STRINGS.SKIN_NAMES.body_wx78_ancient"
+msgid "Hull of Iniquity"
+msgstr "Vỏ Tà Ác"
+
+msgctxt "STRINGS.SKIN_NAMES.feet_wx78_ancient"
+msgid "Blasphemer Boots"
+msgstr "Giày Phạm Thượng"
+
+msgctxt "STRINGS.SKIN_NAMES.firestaff_rw_swamp"
+msgid "Barbed Fire Staff"
+msgstr "Gậy Lửa Có Gai"
+
+msgctxt "STRINGS.SKIN_NAMES.footballhat_rw_gustree"
+msgid "Gustree Helm"
+msgstr "Mũ Gustree"
+
+msgctxt "STRINGS.SKIN_NAMES.hammer_rw_startingforest"
+msgid "The Tenderizer"
+msgstr "Búa Tẩm"
+
+msgctxt "STRINGS.SKIN_NAMES.hand_wx78_ancient"
+msgid "Idol Hands"
+msgstr "Bàn Tay Thần Tượng"
+
+msgctxt "STRINGS.SKIN_NAMES.icestaff_rw_swamp"
+msgid "Barbed Ice Staff"
+msgstr "Gậy Băng Có Gai"
+
+msgctxt "STRINGS.SKIN_NAMES.mysterybox_rotwood_gift"
+msgid "Rotwood Gift"
+msgstr "Quà Rotwood"
+
+msgctxt "STRINGS.SKIN_NAMES.pack_magician_chest_shadow_resurrected"
+msgid "Nightmarish Magician's Chest Resurrected Chest"
+msgstr "Rương Hồi Sinh Rương Ảo Thuật Gia Ác Mộng"
+
+msgctxt "STRINGS.SKIN_NAMES.pack_researchlab2_science_resurrected"
+msgid "All-Chemical Engine Resurrected Chest"
+msgstr "Rương Hồi Sinh Máy Toàn Hóa Chất"
+
+msgctxt "STRINGS.SKIN_NAMES.pack_wx78_ancient"
+msgid "WX-78 Archaic Chest"
+msgstr "Rương Cổ Xưa WX-78"
+
+msgctxt "STRINGS.SKIN_NAMES.pack_wx78_gothicjewel"
+msgid "WX-78 Pretty Dark Things Chest"
+msgstr "Rương Vật Tối Đẹp WX-78"
+
+msgctxt "STRINGS.SKIN_NAMES.pack_wx78_gothicjewel_all"
+msgid "WX-78 Pretty Dark Idolatry Chest"
+msgstr "Rương Sùng Bái Tối Đẹp WX-78"
+
+msgctxt "STRINGS.SKIN_NAMES.playerportrait_bg_beeboxinsect"
+msgid "Butterbee Portrait"
+msgstr "Chân Dung Ong Bơ"
+
+msgctxt "STRINGS.SKIN_NAMES.playerportrait_bg_eyebrellahat_insect"
+msgid "Wriggly Eyebrella Portrait"
+msgstr "Chân Dung Ô Mắt Ngọ Nguậy"
+
+msgctxt "STRINGS.SKIN_NAMES.profileflair_beeboxinsect"
+msgid "Butterbee"
+msgstr "Ong Bơ"
+
+msgctxt "STRINGS.SKIN_NAMES.profileflair_eyebrellahat_insect"
+msgid "Wriggly Eyebrella"
+msgstr "Ô Mắt Ngọ Nguậy"
+
+msgctxt "STRINGS.SKIN_NAMES.spear_rw_swamp"
+msgid "Barbed Pike"
+msgstr "Giáo Có Gai"
+
+msgctxt "STRINGS.SKIN_NAMES.w_radio_basic"
+msgid "B.U.D.D.Y."
+msgstr "B.U.D.D.Y."
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronedeliverysmall_item_gothic"
+msgid "Dark Delivery Drone"
+msgstr "Drone Giao Hàng Tăm Tối"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronedeliverysmall_jewelbox"
+msgid "Rococo Courier"
+msgstr "Sứ Giả Rococo"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronescout_gothic"
+msgid "Macabre Mapper"
+msgstr "Bản Đồ Rùng Rợn"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronescout_jewelbox"
+msgid "Rococo Reconnaissance"
+msgstr "Trinh Sát Rococo"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronezap_gothic"
+msgid "Gloomy Loomer"
+msgstr "Kẻ Rình Rập U Ám"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronezap_jewelbox"
+msgid "Lacquered 'Lectrocuter"
+msgstr "Máy Giật Sơn Mài"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronezapremote_gothic"
+msgid "Gloomy Loomer Controller"
+msgstr "Bộ Điều Khiển Kẻ Rình Rập U Ám"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_dronezapremote_jewelbox"
+msgid "Lacquered 'Lectrocuter Controller"
+msgstr "Bộ Điều Khiển Máy Giật Sơn Mài"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_moduleremover_gothic"
+msgid "Crimson-Forged Extractor"
+msgstr "Dụng Cụ Tháo Rèn Đỏ"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_moduleremover_jewelbox"
+msgid "Accented Extractor"
+msgstr "Dụng Cụ Tháo Trang Nhã"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_scanner_succeeded_gothic"
+msgid "Somber Scanalyzer"
+msgstr "Máy Quét U Buồn"
+
+msgctxt "STRINGS.SKIN_NAMES.wx78_scanner_succeeded_jewelbox"
+msgid "Sumptuous Scanalyzer"
+msgstr "Máy Quét Xa Hoa"
+
+#
+# ============================================================
+# SKIN QUOTES
+# ============================================================
+#
+
+msgctxt "STRINGS.SKIN_QUOTES.wx78_ancient"
+msgid "\"BOW BEFORE ME, FLESHLINGS!\""
+msgstr "\"CÚI ĐẦU TRƯỚC TA, LŨ THỊT DA!\""
+
+#
+# ============================================================
+# SKIN TAG CATEGORIES
+# ============================================================
+#
+
+msgctxt "STRINGS.SKIN_TAG_CATEGORIES.COLLECTION.JEWELBOX"
+msgid "Jeweled Collection"
+msgstr "Bộ Sưu Tập Trang Sức"
+
+msgctxt "STRINGS.SKIN_TAG_CATEGORIES.ITEM.BULBIN"
+msgid "Bulbin"
+msgstr "Bulbin"
+
+msgctxt "STRINGS.SKIN_TAG_CATEGORIES.ITEM.WX78DRONEDELIVERY"
+msgid "Portable Storage Unit"
+msgstr "Kho Lưu Trữ Di Động"
+
+msgctxt "STRINGS.SKIN_TAG_CATEGORIES.ITEM.WX78DRONESCOUT"
+msgid "Roto-Mapper"
+msgstr "Roto-Mapper"
+
+#
+# ============================================================
+# UI STRINGS
+# ============================================================
+#
+
+msgctxt "STRINGS.UI.MAINSCREEN.MAINBANNER_BETA_TITLE"
+msgid "Skill Spotlight - WX-78 - Beta Branch"
+msgstr "Kỹ Năng Nổi Bật - WX-78 - Chi Nhánh Beta"
+
+msgctxt "STRINGS.UI.SKINSSCREEN.ALLOWS_CRAFTING"
+msgid "Enables Crafting of {item}"
+msgstr "Mở khóa chế tạo {item}"
+
+msgctxt "STRINGS.UI.SKINSSCREEN.ALLOWS_CRAFTING_POPUP"
+msgid "Allows you to craft {item} in the game."
+msgstr "Cho phép bạn chế tạo {item} trong game."
+
+msgctxt "STRINGS.UI.UPGRADEMODULEDISPLAY.UNPLUG_CIRCUIT"
+msgid "Unplug Circuit"
+msgstr "Rút mạch"
+
+msgctxt "STRINGS.UI.UPGRADEMODULEDISPLAY.UNPLUG_TOP_CIRCUIT"
+msgid "Unplug First Circuit"
+msgstr "Rút mạch đầu tiên"
+
+msgctxt "STRINGS.UI.UPGRADEMODULEDISPLAY.UNSOCKET"
+msgid "Extract"
+msgstr "Tháo ra"
+
+#
+# ============================================================
+# WET PREFIX
+# ============================================================
+#
+
+msgctxt "STRINGS.WET_PREFIX.WX78_FOODBRICK"
+msgid "Moistened"
+msgstr "Đã làm ẩm"
