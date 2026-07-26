@@ -1,0 +1,5 @@
+# Debug dump — sinh lại được bằng DEBUG_SCANNER / DEBUG_MISSING
+runtime_dump.txt
+scanner.txt
+scanner_nonspeech_cn.txt
+.DS_Store

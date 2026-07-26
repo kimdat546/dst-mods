@@ -19,7 +19,9 @@ table.insert(textfix_patterns, {"(%d+%.?%d*)点", "%1 điểm"})
 table.insert(textfix_patterns, {"砍%((%d+)%)", "Chặt(%1)"})
 table.insert(textfix_patterns, {"挖%((%d+)%)", "Đào(%1)"})
 table.insert(textfix_patterns, {"敲%((%d+)%)", "Đập(%1)"})
+table.insert(textfix_patterns, {"凿%((%d+)%)", "Đục(%1)"})
 table.insert(textfix_patterns, {"装饰度%((%d+)%)", "Trang trí(%1)"})
+table.insert(textfix_patterns, {"心魔值[:：]%s*(%d+)", "Giá trị Tâm Ma: %1"})
 table.insert(textfix_patterns, {"耐久:%s*", "Độ bền: "})
 table.insert(textfix_patterns, {"耐久度:%s*", "Độ bền: "})
 table.insert(textfix_patterns, {"第(%d+)层", "Tầng %1"})
@@ -145,6 +147,61 @@ local SUBS = {
     ["丝线"] = "Tơ",
     ["蜘蛛丝"] = "Tơ nhện",
     ["蜘蛛腺"] = "Hạch nhện",
+
+    -- Tu tiên mật quyển / item info labels (must come BEFORE single chars below)
+    ["放热:"] = "Tỏa nhiệt: ",
+    ["放热："] = "Tỏa nhiệt: ",
+    ["工具:"] = "Công cụ: ",
+    ["工具："] = "Công cụ: ",
+    ["攻击距离:"] = "Tầm tấn công: ",
+    ["攻击距离："] = "Tầm tấn công: ",
+    ["位面伤害:"] = "Sát thương vị diện: ",
+    ["位面伤害："] = "Sát thương vị diện: ",
+    ["品阶:"] = "Phẩm cấp: ",
+    ["品阶："] = "Phẩm cấp: ",
+    ["基础神通:"] = "Thần thông cơ bản: ",
+    ["基础神通："] = "Thần thông cơ bản: ",
+    ["娴熟:"] = "Thuần thục: ",
+    ["娴熟："] = "Thuần thục: ",
+    ["叠加:"] = "Cộng dồn: ",
+    ["叠加："] = "Cộng dồn: ",
+    ["新鲜度:"] = "Độ tươi: ",
+    ["新鲜度："] = "Độ tươi: ",
+    ["剩余天数:"] = "Số ngày còn lại: ",
+    ["剩余天数："] = "Số ngày còn lại: ",
+    ["心魔值:"] = "Giá trị Tâm Ma: ",
+    ["心魔值："] = "Giá trị Tâm Ma: ",
+    ["距离:"] = "Khoảng cách: ",
+    ["距离："] = "Khoảng cách: ",
+
+    -- Realm levels
+    ["凡级"] = "Cấp Phàm",
+    ["仙级"] = "Cấp Tiên",
+    ["神级"] = "Cấp Thần",
+    ["玄级"] = "Cấp Huyền",
+    ["地级"] = "Cấp Địa",
+    ["天级"] = "Cấp Thiên",
+    ["黄级"] = "Cấp Hoàng",
+
+    -- Common phrases in cultivation manual
+    ["强大怪物蕴藏的"] = "Của quái vật mạnh ẩn chứa ",
+    ["都在里面了"] = " đều ở trong đó",
+    ["需要达到"] = "Cần đạt đến ",
+    ["期才能驾驭这"] = " kỳ mới có thể điều khiển ",
+    ["玄宝"] = "huyền bảo",
+    ["猎犬"] = "Liệp khuyển",
+    ["帮助修士进行战斗"] = "trợ giúp tu sĩ chiến đấu",
+    ["每次撕咬"] = "mỗi lần cắn xé ",
+    ["增加"] = "tăng ",
+    ["位面"] = "Vị diện",
+    ["距离"] = "Khoảng cách",
+    ["放热"] = "Tỏa nhiệt",
+    ["工具"] = "Công cụ",
+    ["品阶"] = "Phẩm cấp",
+    ["娴熟"] = "Thuần thục",
+    ["叠加"] = "Cộng dồn",
+    ["新鲜度"] = "Độ tươi",
+    ["剩余天数"] = "Số ngày còn lại",
 
     -- Cooldown messages
     ["冷却中"] = "Đang hồi chiêu",

@@ -61,40 +61,98 @@ end
 rawset(_G, "dangtien_viet_has_chinese", has_chinese)
 
 -- =========================================================================
--- TextWidget hook — render-time translation
+-- Translation core — applies textfix/patterns/word_fix to a string
 -- =========================================================================
 local logged_missing = {}
-local oldSetString = TextWidget.SetString
-TextWidget.SetString = function(guid, str)
-    if type(str) == "string" and #str > 0 then
-        local translated = textfix[str]
-        if not translated then
-            -- trimmed-match fallback
-            local trimmed = str:match("^(.-)%s*$")
-            if trimmed and trimmed ~= str and textfix[trimmed] then
-                translated = textfix[trimmed] .. str:sub(#trimmed + 1)
-            end
-        end
-        if translated then
-            str = translated
-        else
-            -- pattern matching for format strings
-            for _, p in ipairs(textfix_patterns) do
-                str = str:gsub(p[1], p[2])
-            end
-            -- substring replacement for compound text
-            for cn, vn in pairs(word_fix) do
-                str = str:gsub(cn, vn)
-            end
-            -- log missing CN strings (debug only)
-            if DEBUG_MISSING and has_chinese(str) and not logged_missing[str]
-               and not str:find("DangTienVN", 1, true) then
-                logged_missing[str] = true
-                print("[DangTienVN] MISSING_CN: " .. str)
-            end
+local function translate_str(str)
+    if type(str) ~= "string" or #str == 0 then return str end
+    local translated = textfix[str]
+    if not translated then
+        local trimmed = str:match("^(.-)%s*$")
+        if trimmed and trimmed ~= str and textfix[trimmed] then
+            translated = textfix[trimmed] .. str:sub(#trimmed + 1)
         end
     end
-    oldSetString(guid, str)
+    if translated then return translated end
+    -- pattern matching first, then substring replace
+    for _, p in ipairs(textfix_patterns) do
+        str = str:gsub(p[1], p[2])
+    end
+    for cn, vn in pairs(word_fix) do
+        str = str:gsub(cn, vn)
+    end
+    if DEBUG_MISSING and has_chinese(str) and not logged_missing[str]
+       and not str:find("DangTienVN", 1, true) then
+        logged_missing[str] = true
+        print("[DangTienVN] MISSING_CN: " .. str)
+    end
+    return str
+end
+rawset(_G, "dangtien_viet_translate", translate_str)
+
+-- DIAG counter: how often each hook fires
+local hook_counts = {textwidget=0, text=0, multi=0, textedit=0}
+local function diag_tick(name)
+    hook_counts[name] = (hook_counts[name] or 0) + 1
+    if hook_counts[name] % 200 == 0 then
+        print("[DangTienVN] DIAG " .. name .. " calls=" .. hook_counts[name])
+    end
+end
+
+-- Hook 1: TextWidget (C++ class, low-level renderer)
+local oldSetString = TextWidget.SetString
+TextWidget.SetString = function(guid, str)
+    diag_tick("textwidget")
+    oldSetString(guid, translate_str(str))
+end
+
+-- Hook 2: Text widget (Lua class, used by popups/screens)
+-- This is the Lua wrapper — many widgets call self:SetString() which routes here
+local Text = require "widgets/text"
+if Text and Text.SetString then
+    local oldTextSetString = Text.SetString
+    Text.SetString = function(self, str)
+        diag_tick("text")
+        return oldTextSetString(self, translate_str(str))
+    end
+end
+if Text and Text.SetMultilineTruncatedString then
+    local oldMulti = Text.SetMultilineTruncatedString
+    Text.SetMultilineTruncatedString = function(self, str, ...)
+        diag_tick("multi")
+        return oldMulti(self, translate_str(str), ...)
+    end
+end
+
+-- Hook 2.5: scan all loaded widget modules for any class with SetString
+-- (some mods define custom widgets that don't extend Text)
+local function hook_widget_module(modname)
+    local ok, mod = pcall(require, modname)
+    if not ok or type(mod) ~= "table" then return end
+    if mod.SetString and mod ~= Text then
+        local orig = mod.SetString
+        mod.SetString = function(self, str)
+            diag_tick("text") -- count under "text"
+            return orig(self, translate_str(str))
+        end
+    end
+end
+-- DST built-in text-like widgets
+for _, m in ipairs({
+    "widgets/numericspinner",
+    "widgets/spinner",
+    "widgets/textbutton",
+    "widgets/imagebutton",
+}) do hook_widget_module(m) end
+
+-- Hook 3: TextEdit widget (input fields, also extends Text often)
+local ok_te, TextEdit = pcall(require, "widgets/textedit")
+if ok_te and TextEdit and TextEdit.SetString then
+    local oldTE = TextEdit.SetString
+    TextEdit.SetString = function(self, str)
+        diag_tick("textedit")
+        return oldTE(self, translate_str(str))
+    end
 end
 
 -- =========================================================================
@@ -103,6 +161,7 @@ end
 -- Glossary (canonical names from wiki PDF) — load FIRST so later phases reuse
 modimport("scripts/wiki_glossary.lua")
 modimport("scripts/textfix_dynamic.lua")
+-- modimport("scripts/book_dump.lua")  -- disabled: no longer needed
 
 -- Phase translation tables (textfix + word_fix entries)
 -- Uncomment as phases are completed:
@@ -115,9 +174,15 @@ modimport("scripts/textfix_dynamic.lua")
 -- =========================================================================
 mod_env.AddSimPostInit(function()
     modimport("scripts/phase2_strings.lua")
+    modimport("scripts/phase3_speech_wangmazi.lua")
+    modimport("scripts/phase4_mod_private.lua")
+    modimport("scripts/phase5_book_strings_data.lua")
+    modimport("scripts/phase5_book_strings.lua")
 
     if DEBUG_SCANNER then
         modimport("scripts/strings_scanner.lua")
+        modimport("scripts/global_scanner.lua")
+        modimport("scripts/runtime_dump.lua")
     end
 end)
 
