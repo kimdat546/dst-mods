@@ -58,12 +58,12 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 | Mod | Thư mục | Loại | Version | Tác giả | Workshop ID |
 |---|---|---|---|---|---|
 | DST Tiếng Việt | `translations/dst-tieng-viet` | Dịch game gốc | 2026.5 (git) | Datgavl | **3683660917** |
-| Đăng Tiên VN | `translations/dang-tien-viet` | Dịch mod 登仙 | 1.0.0 | kimdat546 | *cần điền* (mod nguồn: 3235319974) |
+| Đăng Tiên VN | `translations/dang-tien-viet` | Dịch mod 登仙 | 1.1.0 (git) / **1.0.0 trên Workshop** | kimdat546 | **3719981130** (mod nguồn: 3235319974) |
 | Myth Words VN | `translations/myth-words-viet` | Dịch mod | 1.2 | Datgavl | *cần điền* |
 | Phàm Nhân Tu Tiên | `originals/pham-nhan-tu-tien` | Tự làm (alpha) | 0.2.0-remake-m1 | kimdat546 | *chưa publish?* |
 | Tu Tiên Lite | `originals/tu-tien-lite` | Tự làm | 1.0.0 | kimdat546 + Claude | *cần điền* |
 
-> **TODO:** điền Workshop ID thật cho các mod đã publish (lấy từ link Steam Workshop của mình).
+> **TODO:** còn thiếu Workshop ID của Myth Words VN và Tu Tiên Lite.
 
 ---
 
@@ -94,6 +94,10 @@ Dịch mod tu tiên tiếng Trung **【登仙】** (nguồn Workshop `3235319974
   nên bản dịch cũ không hỏng, chỉ thiếu phần mới.
 - **Còn phải làm:** thoại **9 nhân vật** (~28.000 dòng Hán) — Trần Bình An, Hàn Thiên Tôn, Long Thái Tử,
   Tinh Vệ, Tô Đát Kỷ, Ngộ Không, Lạc Thần, Vân Tiêu, Thi Cơ. TSV đã trích sẵn trong `translation_pipeline/`.
+- **⚠ Khi chơi thử bản local:** bạn đang sub chính bản Workshop của mình (`3719981130`, v1.0.0),
+  trùng tên và trùng `priority = -10000` với bản đang phát triển → trong danh sách Client Mods sẽ có
+  hai dòng không phân biệt được. `tools/sync_local.sh` tự gắn tiền tố `[LOCAL]` vào tên bản cài để
+  khỏi bật nhầm; nhớ **tắt bản Workshop** khi test.
 - **Chữ nằm trong ảnh** (không dịch được bằng STRINGS): 40 trang Tu Tiên Mật Quyển `images/xd_info_*.tex`,
   10 ảnh tên nhân vật `images/names_xd_*.tex`, và nhãn UI nướng trong atlas `images/xd_ui.tex`.
   **Lưu ý quan trọng:** `xd_info_0.tex` là **khung sách RỖNG** — nên không cần vẽ lại 40 trang chữ,

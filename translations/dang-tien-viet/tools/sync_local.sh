@@ -52,6 +52,12 @@ rsync -a \
     --exclude '*.txt' --exclude '.DS_Store' \
     "$SRC"/ "$STAGE"/
 
+# Gắn nhãn [LOCAL] vào tên hiển thị.
+# Bản Workshop (3719981130) trùng tên và trùng priority=-10000, bật nhầm bản
+# cũ là tưởng bản dịch hỏng. Chỉ sửa ở bản cài, repo giữ tên sạch để upload.
+sed -i '' 's/^name = "\(.*\)"$/name = "[LOCAL] \1"/' "$STAGE/modinfo.lua"
+grep -E '^name' "$STAGE/modinfo.lua" | sed 's/^/  đặt tên: /'
+
 finder_rm "$MODS_DIR/$MODNAME"
 osascript >/dev/null <<EOF
 tell application "Finder"
