@@ -40,7 +40,12 @@ def main():
             if len(parts) < 2:
                 continue
             cn, vn = parts[0], parts[1]
-            vn_map[cn] = vn
+            # File dịch giữ \n dưới dạng 2 ký tự; phần nạp full.tsv bên dưới lại
+            # đổi chúng thành xuống dòng thật. Chuẩn hoá cả hai vế để khớp được,
+            # và để lua_escape() không escape nhầm thành \\n.
+            unesc = lambda s: s.replace("\\n", "\n").replace("\\t", "\t")
+            vn_map[cn] = unesc(vn)
+            vn_map[unesc(cn)] = unesc(vn)
     print(f"Loaded {len(vn_map)} translations")
 
     # Load full entries (path → cn)

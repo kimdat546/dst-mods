@@ -248,6 +248,7 @@ set_str(CHAR .. ".ANNOUNCE_TRAP_WENT_OFF", "Đã kích động cơ quan, cần c
 set_str(CHAR .. ".ANNOUNCE_UNIMPLEMENTED", "Thời cơ chưa đến, cưỡng cầu vô ích.")
 set_str(CHAR .. ".ANNOUNCE_WORMHOLE", "Kẽ nứt không gian, cứ thử thám hiểm xem.")
 set_str(CHAR .. ".ANNOUNCE_TOWNPORTALTELEPORT", "Sóng động trận truyền tống không ổn, vẫn có thể dùng một lần.")
+set_str(CHAR .. ".ANNOUNCE_CANFIX", "Hư hỏng như vậy, chỉ là chuyện nhỏ.")
 set_str(CHAR .. ".ANNOUNCE_ACCOMPLISHMENT", "Trên đại đạo, lại tiến thêm một bước.")
 set_str(CHAR .. ".ANNOUNCE_ACCOMPLISHMENT_DONE", "Thần thông mới thành, tâm có sở đắc.")
 set_str(CHAR .. ".ANNOUNCE_INSUFFICIENTFERTILIZER", "Địa lực cằn cỗi, cần dùng linh phân tưới dưỡng.")
@@ -313,6 +314,7 @@ set_str(CHAR .. ".ANNOUNCE_OCEANFISHING_IDLE_QUOTE[1]", "Dưới biển sâu, ch
 set_str(CHAR .. ".ANNOUNCE_OCEANFISHING_IDLE_QUOTE[2]", "Hôm nay cá không cắn câu, hay là thời khắc không đúng?")
 set_str(CHAR .. ".ANNOUNCE_OCEANFISHING_IDLE_QUOTE[3]", "Câu cá cũng là tu tâm, không vội không nóng.")
 set_str(CHAR .. ".ANNOUNCE_WEIGHT", "Nặng {weight} cân... cũng được.")
+set_str(CHAR .. ".ANNOUNCE_WEIGHT_HEAVY", "Nặng {weight} cân!\nVật này phi thường, ẩn chứa linh cơ.")
 set_str(CHAR .. ".ANNOUNCE_WINCH_CLAW_MISS", "Vuốt quào hụt, dòng chảy ngầm dưới nước khá mạnh.")
 set_str(CHAR .. ".ANNOUNCE_WINCH_CLAW_NO_ITEM", "Trống rỗng, vật dưới nước đã bị ai đó lấy mất?")
 set_str(CHAR .. ".ANNOUNCE_WEAK_RAT", "Con chuột này khí huyết yếu ớt, khó đảm đương việc lớn.")
@@ -2959,4 +2961,4 @@ set_str(CHAR .. ".DESCRIBE_PLANTSTRESSORHAPPINESS", "Vật này dường như c�
 set_str(CHAR .. ".EAT_FOOD.TALLBIRDEGG_CRACKED", "Trứng điểu phàm, miễn cưỡng no bụng.")
 set_str(CHAR .. ".EAT_FOOD.WINTERSFEASTFUEL", "Linh thực ngày lễ, hàm chứa tường vân.")
 
-print("[DangTienVN] XD_WANGMAZI speech: 2951 translated, 8 missing")
+print("[DangTienVN] XD_WANGMAZI speech: 2953 translated, 6 missing")
