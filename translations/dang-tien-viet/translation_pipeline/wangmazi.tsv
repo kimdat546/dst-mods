@@ -1,0 +1,2960 @@
+path	original	line	comment
+ACTIONFAIL.APPRAISE.NOTNOW	聒噪！王某此刻无暇分心。	7	暂无注释
+ACTIONFAIL.REPAIR.WRONGPIECE	荒谬！此物与阵法格格不入。	11	化石骨架拼接错误
+ACTIONFAIL.BUILD.MOUNTED	待我下了坐骑再行事。	15	建造失败（骑乘状态）
+ACTIONFAIL.BUILD.HASPET	已有灵兽相伴，不必再多。	16	建造失败（已经有一个宠物了）
+ACTIONFAIL.BUILD.TICOON	此等凡物，不入王某法眼。	17	暂无注释
+ACTIONFAIL.SHAVE.AWAKEBEEFALO	待其沉睡再动手不迟。	21	给醒着的牛刮毛
+ACTIONFAIL.SHAVE.GENERIC	此兽野性未驯，还需等待时机。	22	刮牛毛失败
+ACTIONFAIL.SHAVE.NOBITS	已无毛可刮，不必白费功夫。	23	给没毛的牛刮毛
+ACTIONFAIL.SHAVE.REFUSE	此术非你所能承受。	24	暂无注释
+ACTIONFAIL.SHAVE.SOMEONEELSESBEEFALO	此兽已有主，强取无益。	25	暂无注释
+ACTIONFAIL.STORE.GENERIC	此物不入我眼。	29	存放东西失败
+ACTIONFAIL.STORE.NOTALLOWED	此物与储物法器相斥。	30	存放东西--不被允许
+ACTIONFAIL.STORE.INUSE	有人正在使用，稍后再来。	31	别人正在用箱子
+ACTIONFAIL.STORE.NOTMASTERCHEF	厨艺之道，非我所长。	32	暂无注释
+ACTIONFAIL.CONSTRUCT.INUSE	有人正在使用，且待片刻。	36	建筑正在使用
+ACTIONFAIL.CONSTRUCT.NOTALLOWED	此地不宜建造。	37	建筑不允许使用
+ACTIONFAIL.CONSTRUCT.EMPTY	材料不足，还需搜集。	38	建筑空了
+ACTIONFAIL.CONSTRUCT.MISMATCH	材料不符，需另寻他物。	39	升级套件错误（目前用不到）
+ACTIONFAIL.CONSTRUCT.NOTREADY	时机未到，还需准备。	40	暂无注释
+ACTIONFAIL.RUMMAGE.GENERIC	此物无需查看。	44	打开箱子失败
+ACTIONFAIL.RUMMAGE.INUSE	有人正在使用，稍候片刻。	45	打开箱子 正在使用
+ACTIONFAIL.RUMMAGE.NOTMASTERCHEF	厨艺非我所长。	46	暂无注释
+ACTIONFAIL.UNLOCK.WRONGKEY	钥匙不对，需另寻他法。	50	暂无注释
+ACTIONFAIL.USEKLAUSSACKKEY.WRONGKEY	此钥非此锁所用。	54	使用克劳斯钥匙
+ACTIONFAIL.USEKLAUSSACKKEY.KLAUS	强敌当前，需谨慎应对。	55	克劳斯
+ACTIONFAIL.ACTIVATE.LOCKED_GATE	需寻得对应钥匙方可开启。	59	远古钥匙
+ACTIONFAIL.ACTIVATE.HOSTBUSY	对方无暇回应，且等待片刻。	60	暂无注释
+ACTIONFAIL.ACTIVATE.CARNIVAL_HOST_HERE	目标就在附近...	61	暂无注释
+ACTIONFAIL.ACTIVATE.NOCARNIVAL	人已散去，来迟一步。	62	暂无注释
+ACTIONFAIL.ACTIVATE.EMPTY_CATCOONDEN	巢穴已空，毫无收获。	63	暂无注释
+ACTIONFAIL.ACTIVATE.KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDERS	数量不足，游戏无法进行。	64	暂无注释
+ACTIONFAIL.ACTIVATE.KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDING_SPOTS	藏身之处太过稀少。	65	暂无注释
+ACTIONFAIL.ACTIVATE.KITCOON_HIDEANDSEEK_ONE_GAME_PER_DAY	今日已尽兴，明日再来。	66	暂无注释
+ACTIONFAIL.ACTIVATE.MANNEQUIN_EQUIPSWAPFAILED	人偶无法装备此物。	67	暂无注释
+ACTIONFAIL.ACTIVATE.PILLOWFIGHT_NO_HANDPILLOW	手中无枕，如何参与？	68	暂无注释
+ACTIONFAIL.OPEN_CRAFTING.PROFESSIONALCHEF	灶火之技，何足道哉。	72	暂无注释
+ACTIONFAIL.OPEN_CRAFTING.SHADOWMAGIC	鬼蜮伎俩，也敢献丑。	73	暂无注释
+ACTIONFAIL.COOK.GENERIC	凡俗炊爨，徒耗光阴。	77	做饭失败
+ACTIONFAIL.COOK.INUSE	炉鼎有主，退下。	78	做饭失败-别人在用锅
+ACTIONFAIL.COOK.TOOFAR	此等距离，神念亦可及。	79	做饭失败-太远
+ACTIONFAIL.START_CARRAT_RACE.NO_RACERS	既无胆魄，何谈机缘。	83	暂无注释
+ACTIONFAIL.DISMANTLE.COOKING	真火未熄，擅动者伤。	87	暂无注释
+ACTIONFAIL.DISMANTLE.INUSE	先来后到，此乃规矩。	88	暂无注释
+ACTIONFAIL.DISMANTLE.NOTEMPTY	杂芜并存，徒损灵机。	89	暂无注释
+ACTIONFAIL.FISH_OCEAN.TOODEEP	水不在深，有龙则灵。	93	暂无注释
+ACTIONFAIL.OCEAN_FISHING_POND.WRONGGEAR	杀鸡焉用牛刀。	97	暂无注释
+ACTIONFAIL.GIVE.GENERIC	此物，与你无用。	117	给予失败
+ACTIONFAIL.GIVE.DEAD	神魂已散，授之无益。	118	给予 -目标死亡
+ACTIONFAIL.GIVE.SLEEPING	入定之时，不宜打扰。	119	给予--目标睡觉
+ACTIONFAIL.GIVE.BUSY	待你事了，再议不迟。	120	给予--目标正忙
+ACTIONFAIL.GIVE.ABIGAILHEART	残魂执念，何苦强留人间。	121	给阿比盖尔 救赎之心
+ACTIONFAIL.GIVE.GHOSTHEART	阴魂不散，不如重入轮回。	122	给鬼魂 救赎之心
+ACTIONFAIL.GIVE.NOTGEM	凡石顽砾，岂是灵材。	123	给的不是宝石
+ACTIONFAIL.GIVE.WRONGGEM	属性相克，不可妄用。	124	给错了宝石
+ACTIONFAIL.GIVE.NOTSTAFF	此非阵眼所需之物。	125	给月石祭坛的物品不是法杖
+ACTIONFAIL.GIVE.MUSHROOMFARM_NEEDSSHROOM	此阵，尚缺一味菌引。	126	蘑菇农场需要蘑菇
+ACTIONFAIL.GIVE.MUSHROOMFARM_NEEDSLOG	需以至阴灵木为基。	127	蘑菇农场需要活木
+ACTIONFAIL.GIVE.MUSHROOMFARM_NOMOONALLOWED	月华过盛，反损菌灵。	128	暂无注释
+ACTIONFAIL.GIVE.SLOTFULL	阵眼已足，不可再添。	129	已经放了材料后，再给雕像桌子再给一个材料
+ACTIONFAIL.GIVE.FOODFULL	腹蕴未消，纳新徒劳。	130	没调用
+ACTIONFAIL.GIVE.NOTDISH	浊气太重，不堪入腹。	131	没调用
+ACTIONFAIL.GIVE.DUPLICATE	此卷功法，早已参透。	132	给雕像桌子已经学习过的图纸
+ACTIONFAIL.GIVE.NOTSCULPTABLE	材质凡劣，难承道韵。	133	给陶艺圆盘的东西不对
+ACTIONFAIL.GIVE.NOTATRIUMKEY	符文有谬，非启阵之钥。	134	中庭钥匙不对
+ACTIONFAIL.GIVE.CANTSHADOWREVIVE	阵法未复，强启无益。	135	中庭仍在CD
+ACTIONFAIL.GIVE.WRONGSHADOWFORM	形骸有误，魂难附体。	136	没调用
+ACTIONFAIL.GIVE.NOMOON	此地不见太阴，阵法难成。	137	洞穴里建造月石科技
+ACTIONFAIL.GIVE.PIGKINGGAME_MESSY	场地芜杂，非博弈之所。	138	猪王旁边有建筑，不能开始抢元宝
+ACTIONFAIL.GIVE.PIGKINGGAME_DANGER	煞气隐现，不宜戏耍。	139	危险，不能开始抢元宝
+ACTIONFAIL.GIVE.PIGKINGGAME_TOOLATE	时辰已过，明日请早。	140	不是白天，不能开始抢元宝
+ACTIONFAIL.GIVE.CARNIVALGAME_INVALID_ITEM	俗物不堪入局。	141	暂无注释
+ACTIONFAIL.GIVE.CARNIVALGAME_ALREADY_PLAYING	局未终了，静候即可。	142	暂无注释
+ACTIONFAIL.GIVE.SPIDERNOHAT	此物灵性，与彼相冲。	143	暂无注释
+ACTIONFAIL.GIVE.TERRARIUM_REFUSE	灵蕴不合，徒劳无功。	144	暂无注释
+ACTIONFAIL.GIVE.TERRARIUM_COOLDOWN	宝光内敛，尚需温养。	145	暂无注释
+ACTIONFAIL.GIVE.NOTAMONKEY	人妖殊途，心意难通。	146	暂无注释
+ACTIONFAIL.GIVE.QUEENBUSY	女王有要务在身，稍后再献。	147	暂无注释
+ACTIONFAIL.GIVETOPLAYER.FULL	道友的储物袋，似乎已无余地。	151	给玩家一个东西 -但是背包满了
+ACTIONFAIL.GIVETOPLAYER.DEAD	神魂离体，授之无益。	152	给死亡的玩家一个东西
+ACTIONFAIL.GIVETOPLAYER.SLEEPING	既是入定，不便叨扰。	153	给睡觉的玩家一个东西
+ACTIONFAIL.GIVETOPLAYER.BUSY	道友正忙，稍后再议。	154	给忙碌的玩家一个东西
+ACTIONFAIL.GIVEALLTOPLAYER.FULL	储物袋已满，这些材料暂且由我保管。	158	给人一组东西 但是背包满了
+ACTIONFAIL.GIVEALLTOPLAYER.DEAD	身死道消，外物何用。	159	给于死去的玩家一组物品
+ACTIONFAIL.GIVEALLTOPLAYER.SLEEPING	机缘未至，待你醒转再予不迟。	160	给于正在睡觉的玩家一组物品
+ACTIONFAIL.GIVEALLTOPLAYER.BUSY	道友先处理要务，此物可暂存于我处。	161	给于正在忙碌的玩家一组物品
+ACTIONFAIL.WRITE.GENERIC	凡纸俗墨，不堪承载道韵。	165	鞋子失败
+ACTIONFAIL.WRITE.INUSE	笔墨有人正在使用，稍候片刻。	166	写字 正在使用中
+ACTIONFAIL.DRAW.NOIMAGE	无图可临，如何下笔？	170	画图缺乏图像
+ACTIONFAIL.CHANGEIN.GENERIC	此等俗物，不换也罢。	174	换装失败 
+ACTIONFAIL.CHANGEIN.BURNING	火势未定，不宜更衣。	175	换装失败-着火了
+ACTIONFAIL.CHANGEIN.INUSE	更衣之处有人，且待。	176	衣橱有人占用
+ACTIONFAIL.CHANGEIN.NOTENOUGHHAIR	化形之基不足，难以维系。	177	暂无注释
+ACTIONFAIL.CHANGEIN.NOOCCUPANT	阵中无灵，术法难施。	178	暂无注释
+ACTIONFAIL.ATTUNE.NOHEALTH	气血有亏，强施此术恐伤及本源。	182	制造肉雕像血量不足
+ACTIONFAIL.MOUNT.TARGETINCOMBAT	坐骑心性未平，暂不宜驾驭。	186	骑乘，牛正在战斗
+ACTIONFAIL.MOUNT.INUSE	此兽已有主，不便强夺。	187	骑乘（牛被占据）
+ACTIONFAIL.MOUNT.SLEEPING	灵兽蛰伏，且待其苏醒。	188	暂无注释
+ACTIONFAIL.SADDLE.TARGETINCOMBAT	战意正酣，此时上鞍非明智之举。	192	给战斗状态的牛上鞍
+ACTIONFAIL.TEACH.KNOWN	此卷功法，早已了然于胸。	196	学习已经知道的蓝图
+ACTIONFAIL.TEACH.CANTLEARN	道法相悖，习之无益。	197	学习无法学习的蓝图
+ACTIONFAIL.TEACH.WRONGWORLD	界域法则不同，此图在此界无效。	198	学习另外一个世界的地图
+ACTIONFAIL.TEACH.MESSAGEBOTTLEMANAGER_NOT_FOUND	天机蒙昧，难窥其踪。	199	Likely trying to read messagebottle treasure map in caves  --暂无注释
+ACTIONFAIL.TEACH.STASH_MAP_NOT_FOUND	图卷所指之地，似不存于此方世界。	200	Likely trying to read stash map  in world without stash                    --暂无注释
+ACTIONFAIL.WRAPBUNDLE.EMPTY	空无一物，何以成包？	204	打包纸是空的
+ACTIONFAIL.PICKUP.RESTRICTION	非吾道之器，不取。	208	熔炉模式下捡起错误的武器
+ACTIONFAIL.PICKUP.INUSE	此物有主，不便强取。	209	捡起已经打开的容器
+ACTIONFAIL.PICKUP.NOTMINE_SPIDER	非我驯化之灵宠，不可妄动。	210	暂无注释
+ACTIONFAIL.PICKUP.NOTMINE_YOTC[0]	此兽野性未驯，强捉无益。	213	暂无注释
+ACTIONFAIL.PICKUP.NOTMINE_YOTC[1]	待其心服，再召不迟。	214	暂无注释
+ACTIONFAIL.PICKUP.NO_HEAVY_LIFTING	肉身之力，非我所长。	216	暂无注释
+ACTIONFAIL.PICKUP.FULL_OF_CURSES	怨气缠身，沾染不祥。	217	暂无注释
+ACTIONFAIL.SLAUGHTER.TOOFAR	距离过远，剑气难及。	221	屠杀？？ 因为太远而失败
+ACTIONFAIL.REPLATE.MISMATCH	器皿与灵食属性不合，不宜盛装。	225	暴食-换盘子换错了 比如用碗换碟子
+ACTIONFAIL.REPLATE.SAMEDISH	器皿已合，无需更换。	226	暴食-换盘子已经换了
+ACTIONFAIL.SAIL.REPAIR	舟船之技，非我所精。	230	暂无注释
+ACTIONFAIL.ROW_FAIL.BAD_TIMING0	划桨之韵，稍有偏差。	234	暂无注释
+ACTIONFAIL.ROW_FAIL.BAD_TIMING1	力道未济，还需协调。	235	暂无注释
+ACTIONFAIL.ROW_FAIL.BAD_TIMING2	潮汐不定，难以借力。	236	暂无注释
+ACTIONFAIL.LOWER_SAIL_FAIL[0]	风向有变，落帆不易。	240	暂无注释
+ACTIONFAIL.LOWER_SAIL_FAIL[1]	缆绳缠滞，稍安勿躁。	241	暂无注释
+ACTIONFAIL.LOWER_SAIL_FAIL[2]	时机稍纵，下次再试。	242	暂无注释
+ACTIONFAIL.BATHBOMB.GLASSED	水域已固，浴丹难融。	246	暂无注释
+ACTIONFAIL.BATHBOMB.ALREADY_BOMBED	灵蕴已布，过犹不及。	247	暂无注释
+ACTIONFAIL.GIVE_TACKLESKETCH.DUPLICATE	此钓具图谱，我已参详过了。	251	暂无注释
+ACTIONFAIL.COMPARE_WEIGHABLE.FISH_TOO_SMALL	此鱼尚未通灵，不入品阶。	255	暂无注释
+ACTIONFAIL.COMPARE_WEIGHABLE.OVERSIZEDVEGGIES_TOO_SMALL	药龄尚浅，不堪入药。	256	暂无注释
+ACTIONFAIL.PLANTREGISTRY_RESEARCH_FAIL.GENERIC	此草木特性，已记录在案。	274	暂无注释
+ACTIONFAIL.PLANTREGISTRY_RESEARCH_FAIL.FERTILIZER	此等浊物，无益于灵植辨析。	275	暂无注释
+ACTIONFAIL.FILL_OCEAN.UNSUITABLE_FOR_PLANTS	此地水脉，与此灵植属性相冲。	279	暂无注释
+ACTIONFAIL.POUR_WATER.OUT_OF_WATER	壶中已空，待我取些灵泉来。	283	暂无注释
+ACTIONFAIL.POUR_WATER_GROUNDTILE.OUT_OF_WATER	甘露已尽，需再汲取。	287	暂无注释
+ACTIONFAIL.USEITEMON.BEEF_BELL_INVALID_TARGET	此非可驯化之灵兽，铃对其无效。	291	暂无注释
+ACTIONFAIL.USEITEMON.BEEF_BELL_ALREADY_USED	此铃已与它兽结下灵契。	292	暂无注释
+ACTIONFAIL.USEITEMON.BEEF_BELL_HAS_BEEF_ALREADY	一铃一契，方是正理。	293	暂无注释
+ACTIONFAIL.HITCHUP.NEEDBEEF	需有灵兽在侧，方可系挂。	297	暂无注释
+ACTIONFAIL.HITCHUP.NEEDBEEF_CLOSER	距离过远，灵契感应不及。	298	暂无注释
+ACTIONFAIL.HITCHUP.BEEF_HITCHED	灵契已成，暂且安分。	299	暂无注释
+ACTIONFAIL.HITCHUP.INMOOD	此兽心绪不宁，暂且难以约束。	300	暂无注释
+ACTIONFAIL.MARK.ALREADY_MARKED	此物已有印记，无需重复。	304	暂无注释
+ACTIONFAIL.MARK.NOT_PARTICIPANT	非与会之人，不可标记。	305	暂无注释
+ACTIONFAIL.YOTB_STARTCONTEST.DOESNTWORK	此地法则有异，赛事难启。	309	暂无注释
+ACTIONFAIL.YOTB_STARTCONTEST.ALREADYACTIVE	赛事正酣，静待下一轮即可。	310	暂无注释
+ACTIONFAIL.YOTB_UNLOCKSKIN.ALREADYKNOWN	此等变化之术，早已掌握。	314	暂无注释
+ACTIONFAIL.CARNIVALGAME_FEED.TOO_LATE	时机已过，强求无益。	318	暂无注释
+ACTIONFAIL.HERD_FOLLOWERS.WEBBERONLY	此族裔，只认其同源之主。	322	暂无注释
+ACTIONFAIL.HARVEST.DOER_ISNT_MODULE_OWNER	此物已有灵主，强取恐遭反噬。	371	暂无注释
+ANNOUNCE_CANNOT_BUILD.NO_INGREDIENTS	材料不全，巧妇难为无米之炊。	384	暂无注释
+ANNOUNCE_CANNOT_BUILD.NO_TECH	此物炼制之法，尚未参透。	385	暂无注释
+ANNOUNCE_CANNOT_BUILD.NO_STATION	需有相应器鼎，方可炼制。	386	暂无注释
+ACTIONFAIL_GENERIC	此事，暂不可为。	388	动作失败
+ANNOUNCE_BOAT_LEAK	船体有损，灵光外泄。	389	暂无注释
+ANNOUNCE_BOAT_SINK	舟将倾覆，需早作打算。	390	暂无注释
+ANNOUNCE_DIG_DISEASE_WARNING	此灵植病气侵体，已损根基。	391	removed  --挖起生病的植物
+ANNOUNCE_PICK_DISEASE_WARNING	此物气息晦暗，似染污秽。	392	removed  --（植物生病）
+ANNOUNCE_ADVENTUREFAIL	天时不利，暂且退避。	393	没调用（废案）
+ANNOUNCE_MOUNT_LOWHEALTH	坐骑伤重，不宜再战。	394	牛血量过低
+ANNOUNCE_BEES	蜂毒虽微，扰人清修。	413	戴养蜂帽被蜜蜂蛰
+ANNOUNCE_BOOMERANG	暗器回旋，雕虫小技。	414	回旋镖
+ANNOUNCE_CHARLIE	有杀气潜伏，匿于暗处。	415	查理即将攻击
+ANNOUNCE_CHARLIE_ATTACK	宵小之辈，只敢行偷袭之举。	416	被查理攻击
+ANNOUNCE_COLD	玄阴之气，竟能透我护体罡风。	418	过冷
+ANNOUNCE_HOT	此地炎阳之力，非同寻常。	419	过热
+ANNOUNCE_CRAFTING_FAIL	灵材不足，法诀难成。	420	没调用
+ANNOUNCE_DEERCLOPS	好强的妖气！来者绝非善类。	421	boss来袭
+ANNOUNCE_CAVEIN	洞窟不稳，恐有坍塌之危。	422	要地震了？？？
+ANNOUNCE_ANTLION_SINKHOLE[0]	地动山摇，是那沙中妖物作怪。	425	蚁狮造成地陷。迅速锁定源头。
+ANNOUNCE_ANTLION_SINKHOLE[1]	地脉被扰，需小心应对。	426	地陷持续。保持谨慎。
+ANNOUNCE_ANTLION_SINKHOLE[2]	待平息此事，再寻它算账。	427	地陷中。计划后续行动。
+ANNOUNCE_ANTLION_TRIBUTE[0]	暂且予它些好处，免生事端。	431	向蚁狮进贡。基于利弊的权宜之计。
+ANNOUNCE_ANTLION_TRIBUTE[1]	小恩小惠，只为稳住此獠。	432	进贡时。说明策略意图。
+ANNOUNCE_ANTLION_TRIBUTE[2]	哼，权当喂食看门犬了。	433	进贡时。带有一丝轻蔑的务实。
+ANNOUNCE_SACREDCHEST_YES	机缘已至，秘法自现。	435	远古宝箱物品正确给出蓝图
+ANNOUNCE_SACREDCHEST_NO	供奉不合，机缘未到。	436	远古宝箱
+ANNOUNCE_DUSK	金乌西坠，正是吐纳调息之时。	437	进入黄昏
+ANNOUNCE_EAT.GENERIC	可充饥肠，聊胜于无。	442	吃东西
+ANNOUNCE_EAT.PAINFUL	此物浊气太重，不宜多食。	443	吃怪物肉
+ANNOUNCE_EAT.SPOILED	腐坏之物，恐伤道基。	444	吃腐烂食物
+ANNOUNCE_EAT.STALE	灵气已失，味同嚼蜡。	445	吃黄色食物
+ANNOUNCE_EAT.INVALID	此非可食之物。	446	拒吃
+ANNOUNCE_EAT.YUCKY	滋味怪异，难以入口。	447	吃红色食物
+ANNOUNCE_ENCUMBERED[0]	哼...此物...颇有...分量...	462	负重。承认重量，但保持定力。
+ANNOUNCE_ENCUMBERED[1]	待我...调息...片刻...	463	负重。计划短暂调整。
+ANNOUNCE_ENCUMBERED[2]	区区...重负...何足...挂齿...	464	负重。轻蔑中带着坚韧。
+ANNOUNCE_ENCUMBERED[3]	纵是...山岳...亦能...扛鼎...	465	负重。展现力量与决心。
+ANNOUNCE_ENCUMBERED[4]	莫非...此石...内蕴...玄机...	466	负重。思考物品的特殊性。
+ANNOUNCE_ENCUMBERED[5]	千年...道行...岂惧...物重...	467	负重。以修为自励。
+ANNOUNCE_ENCUMBERED[6]	呔...！	468	负重。发力时的吐气开声。
+ANNOUNCE_ENCUMBERED[7]	气贯...周身...	469	负重。运用内力法门。
+ANNOUNCE_ENCUMBERED[8]	真元...运转...	470	负重。调动法力支撑。
+ANNOUNCE_ATRIUM_DESTABILIZING[0]	地动山摇，此地不宜久留。	474	中庭击杀boss后即将刷新
+ANNOUNCE_ATRIUM_DESTABILIZING[1]	异象频生，恐有变故。 	475	中庭震动
+ANNOUNCE_ATRIUM_DESTABILIZING[2]	空间不稳，需速离此地。	476	中庭击杀boss后即将刷新
+ANNOUNCE_RUINS_RESET	地宫禁制重启，那些傀儡又复苏了。	478	地下重置。冷静观察现象。
+ANNOUNCE_SNARED	骨牢之术？雕虫小技。	479	被骨笼困住。轻蔑评价。
+ANNOUNCE_SNARED_IVY	草木成精，也学人困敌？	480	被藤蔓困住。点明本质。
+ANNOUNCE_REPELLED	护体灵光？尚欠火候。	481	被远古守护者力场弹开。评价其防御强度。
+ANNOUNCE_ENTER_DARK	至阴之地，正合我功体。	482	进入黑暗。视为有利环境。
+ANNOUNCE_ENTER_LIGHT	昼光刺目，扰人清静。	483	进入光源。轻微不适，视为干扰。
+ANNOUNCE_FREEDOM	天高海阔，任我遨游。	484	获得自由（废案）。平静陈述。
+ANNOUNCE_HIGHRESEARCH	大道玄妙，又窥得一丝真谛。	485	高研究值（废案）。淡然感悟。
+ANNOUNCE_HOUNDS	有妖气逼近，是巡山犬类。	486	猎犬将至。感知并判断来敌。
+ANNOUNCE_WORMS	地脉震动，有巨虫潜行。	487	蠕虫袭击。感知地下威胁。
+ANNOUNCE_HUNGRY	腹中灵气渐消，需进补了。	488	饥饿。从修炼角度描述。
+ANNOUNCE_HUNT_BEAST_NEARBY	附近有强大气血波动，是头不错的猎物。	489	即将找到野兽。感知目标价值。
+ANNOUNCE_HUNT_LOST_TRAIL	踪迹至此断绝，此兽颇通隐匿。	490	猎物踪迹丢失。客观分析。
+ANNOUNCE_HUNT_LOST_TRAIL_SPRING	雨水冲刷，痕迹难寻。	491	雨天踪迹丢失。归因于环境。
+ANNOUNCE_HUNT_START_FORK	此地气息混杂，需仔细分辨。	492	狩猎开始有分岔。谨慎分析。
+ANNOUNCE_HUNT_SUCCESSFUL_FORK	果然在此，休想逃脱。	493	狩猎成功找到正确路径。冷静确认。
+ANNOUNCE_HUNT_WRONG_FORK	气息有异，莫非是调虎离山？	494	选错狩猎路径。警觉可能中计。
+ANNOUNCE_HUNT_AVOID_FORK	气息消散，暂且作罢。	495	放弃狩猎。果断止损。
+ANNOUNCE_INV_FULL	储物袋已满，需整理一番。	496	背包已满。平静处理。
+ANNOUNCE_KNOCKEDOUT	神魂...遭外力所制...	497	被催眠。冷静描述自身状态。
+ANNOUNCE_LOWRESEARCH	道法粗浅，无甚可悟。	498	低研究值（废案）。淡然评价。
+ANNOUNCE_MOSQUITOS	血蚊扰人，不堪其烦。	499	被蚊子叮咬。轻微烦躁。
+ANNOUNCE_NOWARDROBEONFIRE	衣橱起火，需先灭火。	500	橱柜着火。直接指出问题。
+ANNOUNCE_NODANGERGIFT	险境未除，不宜分心他顾。	501	危险时开礼物。谨慎判断。
+ANNOUNCE_NOMOUNTEDGIFT	骑乘之时，不便开启。	502	骑牛时开礼物。说明客观限制。
+ANNOUNCE_NODANGERSLEEP	周遭气机凶险，不可入定。	503	危险时睡觉。感知危险，放弃行动。
+ANNOUNCE_NODAYSLEEP	白日阳气正盛，非休眠之时。	504	白天睡觉。从修炼角度解释不合时宜。
+ANNOUNCE_NODAYSLEEP_CAVE	地穴无昼夜之分，然心绪不宁，难以安眠。	505	洞穴白天睡觉。结合环境与心境说明。
+ANNOUNCE_NOHUNGERSLEEP	饥肠辘辘，难以入静。	506	饥饿时睡觉。陈述生理影响。
+ANNOUNCE_NOSLEEPONFIRE	卧榻之侧岂容火患？	507	营帐着火。引用典故，指出荒谬。
+ANNOUNCE_NODANGERSIESTA	杀气萦绕，岂能安憩？	509	危险时午睡。感知环境，理性放弃。
+ANNOUNCE_NONIGHTSIESTA	夜间乃修炼佳时，岂可虚度于小憩。	510	夜晚午睡。阐明时间更宜修炼。
+ANNOUNCE_NONIGHTSIESTA_CAVE	地穴阴气侵体，小憩反损精神。	511	洞穴夜晚午睡。指出环境危害。
+ANNOUNCE_NOHUNGERSIESTA	腹中空空，难以调息。	512	饥饿时午睡。说明生理影响。
+ANNOUNCE_NO_TRAP	虚惊一场，并无陷阱。	513	无陷阱（废案）。平静确认。
+ANNOUNCE_PECKED	扁毛畜生，安敢欺近！	514	被鸟啄。带有一丝恼怒的呵斥。
+ANNOUNCE_QUAKE	地动山摇，需稳守心神。	515	地震。提醒自己保持镇定。
+ANNOUNCE_RESEARCH	大道至理，需潜心参悟。	516	研究（废案）。表明态度。
+ANNOUNCE_SHELTER	此树可暂避风雨。	517	树下避雨。客观评价其用途。
+ANNOUNCE_THORNS	草木带刺，需小心些。	518	被植物刺伤。冷静提醒。
+ANNOUNCE_BURNT	真火无情，竟焚毁至此。	519	物品烧完。冷静陈述结果。
+ANNOUNCE_TORCH_OUT	火把燃尽，需换新枝。	520	火把熄灭。平静处理。
+ANNOUNCE_THURIBLE_OUT	香炉已冷，待我再续灵香。	521	香炉燃尽。准备补充。
+ANNOUNCE_FAN_OUT	扇中风灵之力已竭。	522	风扇停止。描述现象。
+ANNOUNCE_COMPASS_OUT	罗盘灵光散尽，需重新祭炼。	523	指南针失效。指出需修复。
+ANNOUNCE_TRAP_WENT_OFF	触动了机关，需多加小心。	524	触发陷阱。警惕而非愤怒。
+ANNOUNCE_UNIMPLEMENTED	时机未至，强求无益。	525	功能未实装（废案）。淡然处之。
+ANNOUNCE_WORMHOLE	空间裂隙，且探上一探。	526	跳虫洞。谨慎尝试。
+ANNOUNCE_TOWNPORTALTELEPORT	传送阵波动不稳，尚可一用。	527	使用传送核心。评价其性能。
+ANNOUNCE_CANFIX	\n此等破损，举手之劳。	528	可修复墙壁。轻描淡写。
+ANNOUNCE_ACCOMPLISHMENT	大道之上，又进一步。	529	完成成就（废案）。淡然感悟。
+ANNOUNCE_ACCOMPLISHMENT_DONE	神通初成，心有所得。	530	成就完成（废案）。内心满足。
+ANNOUNCE_INSUFFICIENTFERTILIZER	地力贫瘠，需以灵肥滋养。	531	肥力不足。指出问题与方案。
+ANNOUNCE_TOOL_SLIP	手滑了，此物竟脱手而出。	532	工具滑落。承认意外。
+ANNOUNCE_LIGHTNING_DAMAGE_AVOIDED	雷光掠身而过，幸未击中。	533	规避闪电。描述惊险一刻。
+ANNOUNCE_TOADESCAPING	那蟾蜍要遁走！	534	蟾蜍逃跑。紧急预警。
+ANNOUNCE_TOADESCAPED	可惜，让那妖物逃了。	535	蟾蜍逃走。略带遗憾。
+ANNOUNCE_DAMP	晨露沾衣，微感湿意。	536	轻微潮湿。轻微不适。
+ANNOUNCE_WET	衣衫尽湿，有碍观瞻。	537	潮湿。表达不满。
+ANNOUNCE_WETTER	浑身湿透，需运功驱寒。	538	很潮湿。考虑应对措施。
+ANNOUNCE_SOAKED	如坠冰窟，速速烘干法体！	539	湿透。急需处理。
+ANNOUNCE_WASHED_ASHORE	随波逐流，竟至此地。	540	被冲上岸。平静接受现状。
+ANNOUNCE_DESPAWN	神游太虚，去矣。	541	下线/消失。富有仙气的说法。
+ANNOUNCE_BECOMEGHOST	肉身已殒，暂以魂体存世。	542	变成鬼魂。冷静描述状态变化。
+ANNOUNCE_GHOSTDRAIN	魂体受阴风侵蚀，灵光黯淡。	543	鬼魂掉san。描述魂体受损。
+ANNOUNCE_PETRIFED_TREES	林木石化，此地曾有异变。	544	石化树。观察环境异象。
+ANNOUNCE_KLAUS_ENRAGE	此獠狂性大发，正可试我锋芒。	545	克劳斯暴怒。视为挑战机会。
+ANNOUNCE_KLAUS_UNCHAINED	封印已解，其本体方现。	546	克劳斯解锁。冷静观察阶段变化。
+ANNOUNCE_KLAUS_CALLFORHELP	呼朋引伴，不过是徒增伤亡。	547	克劳斯召唤帮手。蔑视其策略。
+ANNOUNCE_MOONALTAR_MINE.GLASS_MED	月华凝晶，光华内蕴。	550	开采玻璃中等进度。观察描述。
+ANNOUNCE_MOONALTAR_MINE.GLASS_LOW	晶石将出，再加把力。	551	开采玻璃低进度。鼓励性自语。
+ANNOUNCE_MOONALTAR_MINE.GLASS_REVEAL	月华之精，果然不凡。	552	玻璃开采完成。平静赞赏。
+ANNOUNCE_MOONALTAR_MINE.IDOL_MED	古物斑驳，气韵犹存。	553	开采雕像中等进度。感知其历史。
+ANNOUNCE_MOONALTAR_MINE.IDOL_LOW	封印渐消，真容将现。	554	开采雕像低进度。描述过程。
+ANNOUNCE_MOONALTAR_MINE.IDOL_REVEAL	上古遗珍，重见天日。	555	雕像开采完成。陈述事实。
+ANNOUNCE_MOONALTAR_MINE.SEED_MED	灵种生机勃勃，非同凡响。	556	开采种子中等进度。感知其灵性。
+ANNOUNCE_MOONALTAR_MINE.SEED_LOW	灵根即将破土。	557	开采种子低进度。预示结果。
+ANNOUNCE_MOONALTAR_MINE.SEED_REVEAL	此等仙种，正合我用。	558	种子开采完成。视为己用。
+ANNOUNCE_SPOOKED	心神微震，是何物扰我清静？	560	被惊吓。描述自身感受，而非直接发怒。
+ANNOUNCE_BRAVERY_POTION	心若冰清，何惧妖邪。	561	勇气药剂生效。描述内心状态。
+ANNOUNCE_MOONPOTION_FAILED	月华之力不足，未能成丹。	562	月酿失败。客观分析原因。
+ANNOUNCE_EATING_NOT_FEASTING	独食方能细品其中灵蕴。	563	独自进食非盛宴。解释个人习惯。
+ANNOUNCE_WINTERS_FEAST_BUFF	灵台清明，气血充盈，妙不可言。	564	冬季盛宴增益。描述增益效果。
+ANNOUNCE_IS_FEASTING	宴席之上，各安其位便好。	565	正在盛宴。保持距离感。
+ANNOUNCE_WINTERS_FEAST_BUFF_OVER	盛宴终有散时，灵力渐复平常。	566	盛宴增益结束。平静接受。
+ANNOUNCE_REVIVING_CORPSE	以我法力，为你重聚魂魄。	567	复活他人（熔炉）。陈述行为。
+ANNOUNCE_REVIVED_OTHER_CORPSE	道友，感觉如何？	568	成功复活他人（熔炉）。简短询问。
+ANNOUNCE_REVIVED_FROM_CORPSE	阴阳轮回，岂能困我？	569	自身被复活（熔炉）。展现超脱气概。
+ANNOUNCE_FLARE_SEEN	远处有信号升起，是其他修士？	570	看到信号弹。猜测来源。
+ANNOUNCE_MEGA_FLARE_SEEN	此光柱非同小可，恐有大事发生。	571	看到超级信号弹。重视并警惕。
+ANNOUNCE_OCEAN_SILHOUETTE_INCOMING	海面阴影逼近，是深海巨兽！	572	海洋黑影来袭。识别威胁。
+ANNOUNCE_ROYALTY[0]	礼不可废，权且如此。	630	向带着蜂王帽的队友鞠躬
+ANNOUNCE_ROYALTY[1]	见冠如见其主。	631	向带着蜂王帽的队友鞠躬
+ANNOUNCE_ROYALTY[2]	俗礼而已，不必挂心。	632	向带着蜂王帽的队友鞠躬
+ANNOUNCE_ATTACH_BUFF_ELECTRICATTACK	雷灵附体，诛邪辟易。	634	电击攻击增益。描述效果。
+ANNOUNCE_ATTACH_BUFF_ATTACK	战意升腾，锋芒毕露。	635	攻击力增益。描述状态。
+ANNOUNCE_ATTACH_BUFF_PLAYERABSORPTION	罡气护体，固若金汤。	636	防御增益。描述防护。
+ANNOUNCE_ATTACH_BUFF_WORKEFFECTIVENESS	灵台通透，诸事皆宜。	637	工作效率增益。描述心境。
+ANNOUNCE_ATTACH_BUFF_MOISTUREIMMUNITY	水汽不侵，片叶不沾。	638	防潮增益。描述效果。
+ANNOUNCE_ATTACH_BUFF_SLEEPRESISTANCE	神完气足，倦意全无。	639	防睡增益。描述精神饱满。
+ANNOUNCE_DETACH_BUFF_ELECTRICATTACK	雷灵之力，渐渐消散。	640	电击增益结束。平静描述。
+ANNOUNCE_DETACH_BUFF_ATTACK	锋芒内敛，归于平常。	641	攻击增益结束。状态回落。
+ANNOUNCE_DETACH_BUFF_PLAYERABSORPTION	护体罡气，已然散去。	642	防御增益结束。陈述事实。
+ANNOUNCE_DETACH_BUFF_WORKEFFECTIVENESS	灵效已过，需凭己力。	643	效率增益结束。回归常态。
+ANNOUNCE_DETACH_BUFF_MOISTUREIMMUNITY	避水之效，已然消失。	644	防潮增益结束。直接说明。
+ANNOUNCE_DETACH_BUFF_SLEEPRESISTANCE	嗯...略有倦意袭来。	645	防睡增益结束。描述生理反应。
+ANNOUNCE_OCEANFISHING_LINESNAP	线断了，此鱼气力不小。	646	鱼线断裂。分析原因。
+ANNOUNCE_OCEANFISHING_LINETOOLOOSE	线松了，需收紧些。	647	鱼线太松。指出问题。
+ANNOUNCE_OCEANFISHING_GOTAWAY	竟让它脱钩了，可惜。	648	鱼逃跑。略带遗憾。
+ANNOUNCE_OCEANFISHING_BADCAST	这一竿，落点有偏。	649	甩竿失误。承认技术问题。
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[0]	鱼群似有灵智，懂得避人。	652	暂无注释
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[1]	深海之下，必有巨物。	653	暂无注释
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[2]	今日鱼口不佳，莫非时辰不对？	654	暂无注释
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[3]	垂钓亦是修心，不急不躁。	655	暂无注释
+ANNOUNCE_WEIGHT	重{weight}斤...尚可。	657	暂无注释
+ANNOUNCE_WEIGHT_HEAVY	重{weight}斤！\n此物不凡，内蕴灵机。	658	暂无注释
+ANNOUNCE_WINCH_CLAW_MISS	爪落空了，水下暗流颇急。	659	暂无注释
+ANNOUNCE_WINCH_CLAW_NO_ITEM	空空如也，水下之物已被人取走？	660	暂无注释
+ANNOUNCE_WEAK_RAT	此鼠气血孱弱，难当大任。	687	暂无注释
+ANNOUNCE_CARRAT_START_RACE	去吧，莫要让我失望。	688	暂无注释
+ANNOUNCE_CARRAT_ERROR_WRONG_WAY[0]	方向有误，速速回头。	691	暂无注释
+ANNOUNCE_CARRAT_ERROR_WRONG_WAY[1]	南辕北辙，岂能抵达？	692	暂无注释
+ANNOUNCE_CARRAT_ERROR_FELL_ASLEEP	赛场之上，岂容酣睡？	694	暂无注释
+ANNOUNCE_CARRAT_ERROR_WALKING	如此慢行，与散步何异？	695	暂无注释
+ANNOUNCE_CARRAT_ERROR_STUNNED	晕头转向，不堪大用。	696	暂无注释
+ANNOUNCE_POCKETWATCH_PORTAL	乾坤挪移，方寸之间。	725	暂无注释
+ANNOUNCE_ARCHIVE_NEW_KNOWLEDGE	轮回之意？……与我之道，倒有几分契合。	730	暂无注释
+ANNOUNCE_ARCHIVE_OLD_KNOWLEDGE	此路已绝，非我之道。	731	暂无注释
+ANNOUNCE_ARCHIVE_NO_POWER	灵力尽失，废铁一块。	732	暂无注释
+ANNOUNCE_PLANT_RESEARCHED[0]	哼，草木枯荣，亦是天道。	735	暂无注释
+ANNOUNCE_PLANT_RANDOMSEED	且看这未知之种，能结何等因果。	737	暂无注释
+ANNOUNCE_FERTILIZER_RESEARCHED	以浊养清，倒是暗合阴阳之道。	738	暂无注释
+ANNOUNCE_FIRENETTLE_TOXIN[0]	嗯？竟是法则之火？	741	暂无注释
+ANNOUNCE_FIRENETTLE_TOXIN[1]	区区火毒，也敢噬主？	742	暂无注释
+ANNOUNCE_FIRENETTLE_TOXIN_DONE	这火毒法则，已被我参透。	744	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[0]	速速生长，莫要误我时辰。	747	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[1]	待你成熟，便是你价值所在。	748	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[2]	哼，能入我药鼎，是你的造化。	749	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[3]	灵气尚可，未辱没王某栽培。	750	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[4]	倒是比那些蠢货让人省心。	751	暂无注释
+ANNOUNCE_KITCOON_HIDEANDSEEK_START	纵使遁入虚空，王某也能将你们揪出。	753	暂无注释
+ANNOUNCE_KITCOON_HIDEANDSEEK_JOIN	也罢，便看看你们有何神通。	754	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[0]	区区幻形之术，也敢在王某面前卖弄！	757	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[1]	在王某神识之下，无所遁形。	758	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[2]	雕虫小技，也配称为隐匿之法？	759	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[3]	孽畜，还不速速现形！	760	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_ONE_MORE	还差一具……待本尊以神识锁之。	762	
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE	天罗地网，终难逃本尊掌心。	763	
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE_TEAM	此子……倒有几分机缘。	764	
+ANNOUNCE_KITCOON_HIDANDSEEK_TIME_ALMOST_UP	时辰将尽……莫非想遁入虚空？	765	
+ANNOUNCE_KITCOON_HIDANDSEEK_LOSEGAME	竟是规则之力相护……	766	
+ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR	妄想逃出本尊神识范围？	767	
+ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR_RETURN	既知逃无可逃，还算识相。	768	
+ANNOUNCE_KITCOON_FOUND_IN_THE_WILD	此地气息有异……	769	
+ANNOUNCE_TICOON_START_TRACKING	有灵物在指引方向……	770	
+ANNOUNCE_TICOON_NOTHING_TO_TRACK	连这点小事都办不好？	771	
+ANNOUNCE_TICOON_WAITING_FOR_LEADER	且观此兽有何能耐……	772	
+ANNOUNCE_TICOON_GET_LEADER_ATTENTION	此兽似有灵性……	773	
+ANNOUNCE_TICOON_NEAR_KITCOON	气息已锁定……	774	
+ANNOUNCE_TICOON_LOST_KITCOON	竟跟丢了……	775	
+ANNOUNCE_TICOON_ABANDONED	本尊亲自出手便是。	776	
+ANNOUNCE_TICOON_DEAD	临死前还想带本尊去何处……	777	
+ANNOUNCE_CALL_BEEF	孽畜，还不速来拜见本尊！	778	
+ANNOUNCE_CANTBUILDHERE_YOTB_POST	此地灵气紊乱，不宜展示灵兽。	779	
+ANNOUNCE_YOTB_LEARN_NEW_PATTERN	本尊道念中又添一道造化。	780	
+ANNOUNCE_EYEOFTERROR_ARRIVE	嗯？何方魔气降临此界？	781	
+ANNOUNCE_EYEOFTERROR_FLYBACK	算你知趣退去。	782	
+ANNOUNCE_EYEOFTERROR_FLYAWAY	纵使你逃到九幽黄泉，本尊也必斩之。	783	
+ANNOUNCE_CANT_ESCAPE_CURSE	区区诅咒，也配束缚本尊？	784	
+ANNOUNCE_MONKEY_CURSE_1	猴妖诅咒，也敢沾染本尊仙体？	785	
+ANNOUNCE_MONKEY_CURSE_CHANGE	竟敢篡改本尊容貌？	786	
+ANNOUNCE_MONKEY_CURSE_CHANGEBACK	区区妖术，终究难敌本尊道行。	787	
+ANNOUNCE_PIRATES_ARRIVE	不过是一群前来送死的蝼蚁。	788	
+ANNOUNCE_OFF_SCRIPT	天道无常，此等变数不足为虑。	790	
+ANNOUNCE_COZY_SLEEP	元神又精进了一分。	791	
+ANNOUNCE_TOOL_TOOWEAK	凡铁俗器，不配本尊使用。	792	
+ANNOUNCE_LUNAR_RIFT_MAX	月华异动……莫非有先天灵宝现世？	793	
+ANNOUNCE_SHADOW_RIFT_MAX	九幽魔物，正好拿来祭炼法宝。	794	
+ANNOUNCE_SCRAPBOOK_FULL	这等粗浅图谱，本尊早已参透。	795	
+ANNOUNCE_CHAIR_ON_FIRE	区区凡火……弹指可灭。	796	
+BATTLECRY.GENERIC	挡本尊者，死。	821	战斗
+BATTLECRY.PIG	区区猪妖，也敢放肆。	822	战斗 猪人
+BATTLECRY.PREY	你的内丹，本尊收了。	823	战斗 猎物？？大象？
+BATTLECRY.SPIDER	虫豸之辈，也配本尊出手？！	824	战斗 蜘蛛
+BATTLECRY.SPIDER_WARRIOR	三息之内，取你性命。	825	战斗 蜘蛛战士
+BATTLECRY.DEER	盲眼孽畜，自寻死路。	826	战斗 无眼鹿
+COMBAT_QUIT.GENERIC	今日且留你性命。	830	攻击目标被卡住，无法攻击
+COMBAT_QUIT.PIG	猪妖，下次必取你妖核。	831	退出战斗-猪人
+COMBAT_QUIT.PREY	暂留你内丹几日。	832	退出战斗 猎物？？大象？
+COMBAT_QUIT.SPIDER	杀你污手。	833	退出战斗 蜘蛛
+COMBAT_QUIT.SPIDER_WARRIOR	待本尊祭出噬魂幡再战。	834	退出战斗 蜘蛛战士
+DESCRIBE.MULTIPLAYER_PORTAL	此此界门蕴含空间法则……	838	物品名:"绚丽之门"
+DESCRIBE.MULTIPLAYER_PORTAL_MOONROCK	月华之力构筑的传送阵。	839	物品名:"天体传送门"
+DESCRIBE.MOONROCKIDOL	月岩塑形，内含太阴精华。	840	物品名:"月岩雕像" 制造描述:"重要人物。"
+DESCRIBE.CONSTRUCTION_PLANS	此物暗含阵法玄机……	841	物品名:未找到
+DESCRIBE.ANTLION.GENERIC	沙妖竟敢觊觎本尊宝物？	844	物品名:"蚁狮"->默认
+DESCRIBE.ANTLION.VERYHAPPY	识时务者为俊杰。	845	物品名:"蚁狮"
+DESCRIBE.ANTLION.UNHAPPY	孽畜，找死。	846	物品名:"蚁狮"
+DESCRIBE.ANTLIONTRINKET	区区玩物，蕴含土系法则。	848	物品名:"沙滩玩具"
+DESCRIBE.SANDSPIKE	沙凝成刃，雕虫小技。	849	物品名:"沙刺"
+DESCRIBE.SANDBLOCK	徒具其形，未得其神。	850	物品名:"沙堡"
+DESCRIBE.GLASSSPIKE	琉璃化刃，尚可一观。	851	物品名:"玻璃尖刺"
+DESCRIBE.GLASSBLOCK	赏你了。	852	物品名:"玻璃城堡"
+DESCRIBE.ABIGAIL_FLOWER.GENERIC	幽冥之花，也配近本尊法身？	855	物品名:"阿比盖尔之花"->默认 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LEVEL1	花中残魂，尚未成形。	856	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LEVEL2	花妖初显，阴气渐生。	857	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LEVEL3	怨灵现形，当以雷法镇之。	858	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LONG	此花禁制，尚需时日破解。	859	物品名:"阿比盖尔之花"->还需要很久 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.MEDIUM	阴气凝聚，已具灵性。	860	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.SOON	花中怨灵即将破封而出。	861	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.HAUNTED_POCKET	竟敢侵扰本尊储物空间？	862	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.HAUNTED_GROUND	待本尊收了这花中怨魂。	863	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.BALLOONS_EMPTY	凡俗之物，毫无灵性。	865	物品名:"一堆气球" 制造描述:"要是有更简单的方法该多好。"
+DESCRIBE.BALLOON	浮空之术，倒是有些门道。	866	物品名:"气球" 制造描述:"谁不喜欢气球呢？"
+DESCRIBE.BALLOONPARTY	欢喜咒法？雕虫小技。	867	物品名:"派对气球" 制造描述:"散播一点欢笑。"
+DESCRIBE.BALLOONSPEED.DEFLATED	灵气已散，废物一件。	870	物品名:"迅捷气球" 制造描述:"让你的脚步变得轻盈。"
+DESCRIBE.BALLOONSPEED.GENERIC	身法轻灵，可堪一用！	871	物品名:"迅捷气球"->默认 制造描述:"让你的脚步变得轻盈。"
+DESCRIBE.BALLOONVEST	区区凡水，也配威胁本尊？	873	物品名:"充气背心" 制造描述:"划船时带上这些艳丽的气球。"
+DESCRIBE.BALLOONHAT	此物...倒是适合赏赐门下弟子。	874	物品名:"气球帽" 制造描述:"开启对话的出色工具。"
+DESCRIBE.BERNIE_INACTIVE.BROKEN	傀儡已毁，灵性尽失。	877	物品名:"伯尼" 制造描述:"这个疯狂的世界总有你熟悉的人。"
+DESCRIBE.BERNIE_INACTIVE.GENERIC	焦黑玩物，似有残魂依附。	878	物品名:"伯尼"->默认 制造描述:"这个疯狂的世界总有你熟悉的人。"
+DESCRIBE.BERNIE_ACTIVE	此熊偶竟蕴含灵性？	880	物品名:"伯尼"
+DESCRIBE.BERNIE_BIG	妖物显形，当以法术镇之。	881	物品名:"伯尼。"
+DESCRIBE.BOOKSTATION.GENERIC	竟无一本修真功法？	884	物品名:"书架"->默认 制造描述:"所有图书均须遵循杜威十进制分类法整理。"
+DESCRIBE.BOOKSTATION.BURNT	定是有人觊觎本尊藏书。	885	物品名:"书架"->烧焦的 制造描述:"所有图书均须遵循杜威十进制分类法整理。"
+DESCRIBE.BOOK_BIRDS	凡鸟图谱，也配入王某法眼？	887	世界鸟类大全
+DESCRIBE.BOOK_TENTACLES	地底魔物？哼，若敢现世，斩了便是。	888	触手的召唤
+DESCRIBE.BOOK_GARDENING	草木小道，何足挂齿。	889	应用园艺学
+DESCRIBE.BOOK_SILVICULTURE	通天之法，岂是此书可载？	890	应用造林学
+DESCRIBE.BOOK_HORTICULTURE	粗浅之术，不值一哂。	891	园艺学简编版
+DESCRIBE.BOOK_SLEEP	惑心之术，也敢班门弄斧？	892	睡前故事
+DESCRIBE.BOOK_BRIMSTONE	焚天秘典？倒要看看有何玄机。	893	末日将至
+DESCRIBE.BOOK_FISH	水族精怪，听吾号令！	894	垂钓者生存指南
+DESCRIBE.BOOK_FIRE	三昧真火面前，此等控火术如同儿戏。	895	意念控火术详解
+DESCRIBE.BOOK_WEB	区区蛛妖，何须专研对策？一剑斩之！	896	克服蛛形纲恐惧症
+DESCRIBE.BOOK_TEMPERATURE	寒暑不侵，要此何用？	897	控温学
+DESCRIBE.BOOK_LIGHT	此光...或可炼为法宝。	898	永恒之光
+DESCRIBE.BOOK_RAIN	祈雨之术...勉强一观。	899	实用求雨仪式
+DESCRIBE.BOOK_MOON	月宫秘术...正合参悟！	900	月之魔典
+DESCRIBE.BOOK_BEES	蜂妖听令！为吾而战！	901	养蜂笔记
+DESCRIBE.BOOK_HORTICULTURE_UPGRADED	嗯...此中或有可取之处...	902	园艺学扩展版
+DESCRIBE.BOOK_RESEARCH_STATION	天书现世！	903	万物百科
+DESCRIBE.BOOK_LIGHT_UPGRADED	此光可照九幽！	904	永恒之光之复兴
+DESCRIBE.FIREPEN	此笔...竟封印着真火？	905	火焰笔
+DESCRIBE.PLAYER.GENERIC	道友，幸会。	908	
+DESCRIBE.PLAYER.ATTACKER	%s...你身上有杀气。	909	
+DESCRIBE.PLAYER.MURDERER	魔头，纳命来！	910	
+DESCRIBE.PLAYER.REVIVER	%s竟能逆转阴阳？此物不凡...	911	
+DESCRIBE.PLAYER.GHOST	%s道友，可需王某助你还魂？	912	
+DESCRIBE.PLAYER.FIRESTARTER	%s！安敢肆意纵火？！	913	
+DESCRIBE.WILSON.GENERIC	哼，一介凡夫，也敢窥探天机？	917	
+DESCRIBE.WILSON.ATTACKER	这身行头...倒是件不错的护身法宝	918	
+DESCRIBE.WILSON.MURDERER	科学狂人...终究堕入邪道	919	
+DESCRIBE.WILSON.REVIVER	%s，你竟敢篡改生死轮回？	920	
+DESCRIBE.WILSON.GHOST	待王某为你重聚魂魄...说说你的研究	921	
+DESCRIBE.WILSON.FIRESTARTER	凡火也配与三昧真火争辉？	922	
+DESCRIBE.WOLFGANG.GENERIC	体修莽夫，不足为惧	926	
+DESCRIBE.WOLFGANG.ATTACKER	蛮力尚可...可炼为护法傀儡	927	
+DESCRIBE.WOLFGANG.MURDERER	力士，可愿做王某麾下战奴？	928	
+DESCRIBE.WOLFGANG.REVIVER	%s的蛮力竟能撼动阴阳？	929	
+DESCRIBE.WOLFGANG.GHOST	体修魂魄竟如此强悍...有趣	930	
+DESCRIBE.WOLFGANG.FIRESTARTER	莽夫！安敢亵渎真火之道！	931	
+DESCRIBE.WAXWELL.GENERIC	哼！影修邪术...%s你究竟师承何人？！	935	
+DESCRIBE.WAXWELL.ATTACKER	你的影子...已被九幽魔气侵蚀！	936	
+DESCRIBE.WAXWELL.MURDERER	孽障！竟敢修炼噬魂影术？！	937	
+DESCRIBE.WAXWELL.REVIVER	%s...你对生死之道的领悟...倒是让王某意外	938	
+DESCRIBE.WAXWELL.GHOST	魂体状态的你...更显诡异...	939	
+DESCRIBE.WAXWELL.FIRESTARTER	%s！你的影子在吞噬火焰？！	940	
+DESCRIBE.WX78.GENERIC	哼！机关傀儡也敢妄称生灵？	944	
+DESCRIBE.WX78.ATTACKER	这具铁躯...倒是可炼为护山傀儡	945	
+DESCRIBE.WX78.MURDERER	孽障！待王某拆了你这堆废铁！	946	
+DESCRIBE.WX78.REVIVER	机关重启之术...有点意思...	947	
+DESCRIBE.WX78.GHOST	无魂之物也配化鬼？可笑！	948	
+DESCRIBE.WX78.FIRESTARTER	竟敢窃取天雷之力？找死！	949	
+DESCRIBE.WILLOW.GENERIC	玩火的小丫头，莫要引火烧身	953	
+DESCRIBE.WILLOW.ATTACKER	%s...你体内竟有火灵根？	954	
+DESCRIBE.WILLOW.MURDERER	你那玩偶...莫非是件火系法宝？	955	
+DESCRIBE.WILLOW.REVIVER	%s...你竟懂涅槃之术？	956	
+DESCRIBE.WILLOW.GHOST	让王某为你重燃命魂之火	957	
+DESCRIBE.WILLOW.FIRESTARTER	区区凡火，也敢逞威？	958	
+DESCRIBE.WENDY.GENERIC	哼！通灵之体...倒是少见	962	
+DESCRIBE.WENDY.ATTACKER	你那姐妹亡魂...竟能助你作战？	963	
+DESCRIBE.WENDY.MURDERER	双生魂体...倒是炼制分魂法器的好材料	964	
+DESCRIBE.WENDY.REVIVER	%s...你的通灵之术竟能沟通阴阳？	965	
+DESCRIBE.WENDY.GHOST	阴阳两界都困不住你这通灵之体？	966	
+DESCRIBE.WENDY.FIRESTARTER	这火焰中...竟夹杂着幽冥鬼气	967	
+DESCRIBE.WOODIE.GENERIC	区区伐木工，也敢在此界行走？	971	
+DESCRIBE.WOODIE.ATTACKER	%s！你身上有妖物附体的气息！	972	
+DESCRIBE.WOODIE.MURDERER	伐木狂魔...正好替王某收集炼制法宝的灵木	973	
+DESCRIBE.WOODIE.REVIVER	%s倒是救了几个有用之人...	974	
+DESCRIBE.WOODIE.GHOST	这魂魄竟带着如此精纯的木灵之气...	975	
+DESCRIBE.WOODIE.BEAVER	妖兽化形？倒是有些意思	976	
+DESCRIBE.WOODIE.BEAVERGHOST	连妖兽形态都如此不堪一击	977	
+DESCRIBE.WOODIE.MOOSE	鹿妖现形？！正好取你妖丹	978	
+DESCRIBE.WOODIE.MOOSEGHOST	区区鹿妖魂魄，连做器灵都不配	979	
+DESCRIBE.WOODIE.GOOSE	鹅精？也敢在王某面前放肆	980	
+DESCRIBE.WOODIE.GOOSEGHOST	飞禽之魂...勉强可炼入飞行法器	981	
+DESCRIBE.WOODIE.FIRESTARTER	%s！莫要坏了王某的千年灵木	982	
+DESCRIBE.WICKERBOTTOM.GENERIC	哼！凡间学者，也敢妄谈天道？	986	
+DESCRIBE.WICKERBOTTOM.ATTACKER	%s...你书中莫非记载了什么禁忌秘术？	987	
+DESCRIBE.WICKERBOTTOM.MURDERER	老学究...你可知杀人术也是大道一种？	988	
+DESCRIBE.WICKERBOTTOM.REVIVER	哼！倒是懂些起死回生的偏门术法	989	
+DESCRIBE.WICKERBOTTOM.GHOST	老书虫的魂魄...定知晓不少上古秘辛	990	
+DESCRIBE.WICKERBOTTOM.FIRESTARTER	%s！你读的什么邪书竟能引动天火？	991	
+DESCRIBE.WES.GENERIC	哼！装聋作哑之辈...	995	
+DESCRIBE.WES.ATTACKER	%s...你的沉默中暗藏杀机！	996	
+DESCRIBE.WES.MURDERER	装哑的刺客...倒是适合做暗子	997	
+DESCRIBE.WES.REVIVER	%s...待王某解开你的禁言咒	998	
+DESCRIBE.WES.GHOST	哑灵的怨气...倒是炼制阴魂法器的好材料	999	
+DESCRIBE.WES.FIRESTARTER	%s！你的沉默比火焰更令人不安！	1000	
+DESCRIBE.WEBBER.GENERIC	哼！半妖之躯，也敢在王某面前现身？	1004	
+DESCRIBE.WEBBER.ATTACKER	%s...你的蛛妖血脉开始躁动了？	1005	
+DESCRIBE.WEBBER.MURDERER	小妖怪...可愿做王某的御用灵宠？	1006	
+DESCRIBE.WEBBER.REVIVER	%s...你的报恩时候到了	1007	
+DESCRIBE.WEBBER.GHOST	半妖之魂...倒是罕见的炼器材料	1008	
+DESCRIBE.WEBBER.FIRESTARTER	%s！你的蛛丝莫非是火炼之物？	1009	
+DESCRIBE.WATHGRITHR.GENERIC	哼！蛮族武修，也敢自称战神？	1013	
+DESCRIBE.WATHGRITHR.ATTACKER	%s的武技...倒是有些门道	1014	
+DESCRIBE.WATHGRITHR.MURDERER	女武神！可愿做王某麾下战将？	1015	
+DESCRIBE.WATHGRITHR.REVIVER	%s...你的复活之术从何处习得？	1016	
+DESCRIBE.WATHGRITHR.GHOST	战魂不灭...正好炼为护法战傀！	1017	
+DESCRIBE.WATHGRITHR.FIRESTARTER	%s！你的战意竟能引动真火？	1018	
+DESCRIBE.WINONA.GENERIC	哼！凡间工匠，也敢在此卖弄？	1022	
+DESCRIBE.WINONA.ATTACKER	%s...你那工具倒是件不错的法器胚子	1023	
+DESCRIBE.WINONA.MURDERER	区区匠人，也敢对王某出手？	1024	
+DESCRIBE.WINONA.REVIVER	%s...你的修复之术竟能触及生死？	1025	
+DESCRIBE.WINONA.GHOST	匠人之魂...正好用来淬炼法宝	1026	
+DESCRIBE.WINONA.FIRESTARTER	%s！你的炉火也配称为真火？	1027	
+DESCRIBE.WORTOX.GENERIC	哼！域外心魔，也敢在此界游荡？	1031	
+DESCRIBE.WORTOX.ATTACKER	%s...你的魔气从何而来？	1032	
+DESCRIBE.WORTOX.MURDERER	小小魔头，也敢在王某面前放肆！	1033	
+DESCRIBE.WORTOX.REVIVER	%s...你的魔元竟能逆转生死？	1034	
+DESCRIBE.WORTOX.GHOST	魔魂不灭...正好炼入噬魂幡！	1035	
+DESCRIBE.WORTOX.FIRESTARTER	%s！你的地狱火也敢称焚天？	1036	
+DESCRIBE.WORMWOOD.GENERIC	哼！草木成精，也敢幻化人形？	1040	
+DESCRIBE.WORMWOOD.ATTACKER	%s...你的木灵之气竟带煞气？	1041	
+DESCRIBE.WORMWOOD.MURDERER	树妖！正好取你木心炼丹！	1042	
+DESCRIBE.WORMWOOD.REVIVER	%s...你的生机之力从何而来？	1043	
+DESCRIBE.WORMWOOD.GHOST	木灵之魂...正是炼制长生丹的主材！	1044	
+DESCRIBE.WORMWOOD.FIRESTARTER	%s！你就不怕王某的焚天烈焰？	1045	
+DESCRIBE.WARLY.GENERIC	哼！凡间庖厨，也敢在此界生火？	1049	
+DESCRIBE.WARLY.ATTACKER	%s...你的厨刀竟饮过修士之血？	1050	
+DESCRIBE.WARLY.MURDERER	待王某将你炼成一鼎血肉大药！	1051	
+DESCRIBE.WARLY.REVIVER	%s...你的药膳竟有还魂之效？	1052	
+DESCRIBE.WARLY.GHOST	厨修之魂...正好用来试炼新丹！	1053	
+DESCRIBE.WARLY.FIRESTARTER	%s！你的凡火也敢称灵灶？	1054	
+DESCRIBE.WURT.GENERIC	哼！水族小妖，也敢上岸行走？	1058	
+DESCRIBE.WURT.ATTACKER	%s...你的鳞片莫非淬过剧毒？	1059	
+DESCRIBE.WURT.MURDERER	水妖！正好取你妖丹炼制避水珠！	1060	
+DESCRIBE.WURT.REVIVER	%s...你的水族秘术竟能通幽？	1061	
+DESCRIBE.WURT.GHOST	鱼妖之魂...正好喂养王某的噬魂蛊！	1062	
+DESCRIBE.WURT.FIRESTARTER	%s！你的黏液能挡三昧真火？	1063	
+DESCRIBE.WALTER.GENERIC	哼！黄口小儿，也在此妄谈天道？	1067	
+DESCRIBE.WALTER.ATTACKER	%s...你的弹弓莫非是件暗器法宝？	1068	
+DESCRIBE.WALTER.MURDERER	小辈！你的故事里藏着多少杀孽？	1069	
+DESCRIBE.WALTER.REVIVER	%s...你的话术竟能唤回亡魂？	1070	
+DESCRIBE.WALTER.GHOST	童灵纯净...正好炼为卜算之灵！	1071	
+DESCRIBE.WALTER.FIRESTARTER	%s！你讲的什么引动天火的故事？	1072	
+DESCRIBE.WANDA.GENERIC	哼！竟敢窥探时间法则？	1076	
+DESCRIBE.WANDA.ATTACKER	%s...你的时器竟能窃取王某寿元？	1077	
+DESCRIBE.WANDA.MURDERER	时修！你可知扰乱因果要承受何等天劫？	1078	
+DESCRIBE.WANDA.REVIVER	%s...你竟能逆转时光复活亡魂？	1079	
+DESCRIBE.WANDA.GHOST	时之魂魄...正是炼制时空法器的至宝！	1080	
+DESCRIBE.WANDA.FIRESTARTER	%s！你引动的是时光之火？	1081	
+DESCRIBE.WONKEY.GENERIC	哼！中了妖咒的猴精，也敢放肆？	1085	
+DESCRIBE.WONKEY.ATTACKER	%s...你的猴爪竟带煞气？	1086	
+DESCRIBE.WONKEY.MURDERER	妖猴！正好取你妖丹炼制破障丹！	1087	
+DESCRIBE.WONKEY.REVIVER	%s...你的返魂术从何处习得？	1088	
+DESCRIBE.WONKEY.GHOST	这猴魂...为何有故人气息？	1089	
+DESCRIBE.WONKEY.FIRESTARTER	%s！你偷学了王某的御火术？	1090	
+DESCRIBE.GLOMMER.GENERIC	哼！月宫小妖，也敢在王某面前现形？	1097	物品名:"格罗姆"->默认
+DESCRIBE.GLOMMER.SLEEPING	月华入眠...倒是修炼的好时机	1098	物品名:"格罗姆"->睡着了
+DESCRIBE.GLOMMERFLOWER.GENERIC	月华凝聚...正好采来炼丹	1102	物品名:"格罗姆花"->默认
+DESCRIBE.GLOMMERFLOWER.DEAD	残存一丝月精...尚可一用	1103	物品名:"格罗姆花"->死了
+DESCRIBE.GLOMMERWINGS	何人敢伤月宫灵物？不知死活！	1105	物品名:"格罗姆翅膀"
+DESCRIBE.GLOMMERFUEL	月宫琼浆...虽臭却是炼药良材.	1106	物品名:"格罗姆的黏液"
+DESCRIBE.BELL	此铃...竟能沟通月华之力？	1107	物品名:"远古铃铛" 制造描述:"这可不是普通的铃铛。"
+DESCRIBE.STATUEGLOMMER.GENERIC	月宫图腾...暗藏玄机	1110	物品名:"格罗姆雕像"->默认
+DESCRIBE.STATUEGLOMMER.EMPTY	何人毁我月宫法阵？定不轻饶！	1111	物品名:"格罗姆雕像"
+DESCRIBE.LAVA_POND_ROCK	地火精石...正好炼制火系法宝！	1113	物品名:"岩石"
+DESCRIBE.WEBBERSKULL	半妖颅骨...可炼为追踪傀儡！	1114	物品名:"韦伯的头骨"
+DESCRIBE.WORMLIGHT	地脉灵果...蕴含精纯土灵气	1115	物品名:"发光浆果"
+DESCRIBE.WORMLIGHT_LESSER	灵力流失的灵果...勉强可作辅材	1116	物品名:"小发光浆果"
+DESCRIBE.WORM.PLANT	哼！地脉陷阱，也想困住王某？	1119	物品名:"洞穴蠕虫"
+DESCRIBE.WORM.DIRT	地妖藏形...待我逼它现形。	1120	物品名:"洞穴蠕虫"
+DESCRIBE.WORM.WORM	地龙妖兽！正好取你妖丹。	1121	物品名:"洞穴蠕虫"
+DESCRIBE.WORMLIGHT_PLANT	诱妖草...倒是布置陷阱的好材料。	1123	物品名:"神秘植物"
+DESCRIBE.MOLE.HELD	寻宝鼠...已无用处，可作药引。	1126	物品名:"鼹鼠"->拿在手里
+DESCRIBE.MOLE.UNDERGROUND	地行妖在寻矿...正好为我所用。	1127	物品名:"鼹鼠"
+DESCRIBE.MOLE.ABOVEGROUND	待王某收了这地行妖作寻宝灵宠。	1128	物品名:"鼹鼠"
+DESCRIBE.MOLEHILL	地妖洞府...待王某一探究竟！	1130	
+DESCRIBE.MOLEHAT	地妖秽气...但此物夜视之能尚可一用	1131	
+DESCRIBE.EEL	蛟龙幼体...食之大补！	1132	
+DESCRIBE.EEL_COOKED	龙肉飘香...可增修为	1133	
+DESCRIBE.UNAGI	食此可获一丝龙元否？	1134	
+DESCRIBE.EYETURRET	千目魔瞳？！何方妖物！	1135	
+DESCRIBE.EYETURRET_ITEM	休眠的魔瞳...暗藏凶煞之气	1136	
+DESCRIBE.MINOTAURHORN	上古魔角！可炼破阵法宝	1137	
+DESCRIBE.MINOTAURCHEST	福祸相依的秘宝箱...	1138	
+DESCRIBE.THULECITE_PIECES	碎落的星陨铁...可重铸法宝	1139	
+DESCRIBE.POND_ALGAE	水府青丝...勉强可入药	1140	
+DESCRIBE.GREENSTAFF	解离法杖...竟含空间法则	1141	
+DESCRIBE.GIFT	贡品？莫非有诈？	1142	
+DESCRIBE.GIFTWRAP	区区包装之术...也敢称神通？	1143	
+DESCRIBE.POTTEDFERN	盆中剑草...倒是别致	1144	
+DESCRIBE.SUCCULENT_POTTED	玉盆肉芝...可作观赏之用	1145	
+DESCRIBE.SUCCULENT_PLANT	地灵肉蓕...蕴含生机	1146	
+DESCRIBE.SUCCULENT_PICKED	此物或可入药炼丹	1147	
+DESCRIBE.SENTRYWARD	月宫天眼？！竟能窥探四方	1148	
+DESCRIBE.TOWNPORTAL.GENERIC	此乃...空间传送法阵？	1151	物品名:"懒人传送塔"->默认 制造描述:"用沙子的力量聚集你的朋友们。"
+DESCRIBE.TOWNPORTAL.ACTIVE	乾坤挪移大阵已成！	1152	物品名:"懒人传送塔"->激活了 制造描述:"用沙子的力量聚集你的朋友们。"
+DESCRIBE.TOWNPORTALTALISMAN.GENERIC	缩地成寸...蕴含空间法则	1156	物品名:"沙之石"->默认
+DESCRIBE.TOWNPORTALTALISMAN.ACTIVE	空间裂隙已开！可通万里之遥	1157	物品名:"沙之石"->激活了
+DESCRIBE.WETPAPER	待王某运功烘干...	1159	物品名:"纸张"
+DESCRIBE.WETPOUCH	破旧储物袋...或藏机缘	1160	物品名:"起皱的包裹"
+DESCRIBE.MOONROCK_PIECES	月宫碎玉...可炼护身法器	1161	物品名:"月亮石碎块"
+DESCRIBE.MOONBASE.GENERIC	月坛阵眼...暗合星象	1164	物品名:"月亮石"->默认
+DESCRIBE.MOONBASE.BROKEN	阵毁坛崩！何人所致？	1165	物品名:"月亮石"
+DESCRIBE.MOONBASE.STAFFED	待王某注入灵力激活...	1166	物品名:"月亮石"
+DESCRIBE.MOONBASE.WRONGSTAFF	非月华法杖不可驱动！	1167	物品名:"月亮石"->插错法杖
+DESCRIBE.MOONBASE.MOONSTAFF	月宫秘力涌现！大道可期	1168	物品名:"月亮石"->已经插了法杖的（月杖）
+DESCRIBE.MOONDIAL.GENERIC	月相之变，与王某何干。	1172	物品名:"月晷"->默认 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_NEW	朔月之夜，阴死之气最浓...	1173	物品名:"月晷"->新月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_WAX	月盈则亏，此乃天道。	1174	物品名:"月晷"->上弦月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_FULL	月满之夜，常生异象。	1175	物品名:"月晷"->满月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_WANE	月缺，亦如人生，总有残缺。	1176	物品名:"月晷"->下弦月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.CAVE	不见明月，唯有地脉阴寒。	1177	物品名:"月晷"->洞穴 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.GLASSED	哼，雕虫小技，也敢窥视王某！	1179	物品名:"月晷" 制造描述:"追踪月相。"
+DESCRIBE.THULECITE	此物...蕴含一丝奇异之力。	1181	物品名:"铥矿" 制造描述:"将小碎片合成一大块。"
+DESCRIBE.ARMORRUINS	此甲不凡，可作保命之用。	1182	物品名:"铥矿甲" 制造描述:"炫目并且能提供保护。"
+DESCRIBE.ARMORSKELETON	白骨成甲，死气缭绕。	1183	物品名:"骨头盔甲"
+DESCRIBE.SKELETONHAT	颅蕴幻境，惑人心神。	1184	物品名:"骨头头盔"
+DESCRIBE.RUINS_BAT	一件不错的杀伐之器。	1185	物品名:"铥矿棒" 制造描述:"尖钉让一切变得更好。"
+DESCRIBE.RUINSHAT	力场护体？倒也玄妙。	1186	物品名:"铥矿皇冠" 制造描述:"附有远古力场。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.CALM	魔息内敛，风暴前夕往往如此。	1189	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。" （充满警惕，不信表象）
+DESCRIBE.NIGHTMARE_TIMEPIECE.WARN	魔念渐起，需得提防。	1190	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。" （用“魔念”更符合修仙语境）
+DESCRIBE.NIGHTMARE_TIMEPIECE.WAXING	魔障滔天，此地不宜久留！	1191	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。" （判断形势，准备撤离或战斗）
+DESCRIBE.NIGHTMARE_TIMEPIECE.STEADY	魔气固化，似成领域...	1192	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。" （分析态势，用“领域”一词）
+DESCRIBE.NIGHTMARE_TIMEPIECE.WANING	魔潮将退，但不可松懈。	1193	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。" （即使好转也保持谨慎）
+DESCRIBE.NIGHTMARE_TIMEPIECE.DAWN	幻象将散，如同梦道轮回。	1194	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。" （上升到“梦道”“轮回”的感悟）
+DESCRIBE.NIGHTMARE_TIMEPIECE.NOMAGIC	绝灵之地？倒也罕见。	1195	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。" （用“绝灵之地”替代“无灵气”，语气带有一丝探究）
+DESCRIBE.BISHOP_NIGHTMARE	魔念侵蚀的傀儡，终将归于尘土。	1197	物品名:"损坏的发条主教" （看透本质，语气淡漠）
+DESCRIBE.ROOK_NIGHTMARE	被诅咒的战车，怨念不散。	1198	物品名:"损坏的发条战车" （感知到其中的怨念）
+DESCRIBE.KNIGHT_NIGHTMARE	残魂依附的铠甲，徒具其型。	1199	物品名:"损坏的发条骑士" （点明是残魂，而非本体）
+DESCRIBE.MINOTAUR	远古的守护者，其内丹或有大用。	1200	物品名:"远古守护者" （首先考虑其价值和可利用性）
+DESCRIBE.SPIDER_DROPPER	阴险妖物，擅袭天灵。	1201	物品名:"穴居悬蛛" （直接指出其危险性和攻击方式）
+DESCRIBE.NIGHTMARELIGHT	此灯竟能引动心魔...需谨慎对待。	1202	物品名:"梦魇灯座" （警惕，意识到其对心神的影响）
+DESCRIBE.NIGHTSTICK	蕴含一丝雷霆之力，可驱邪祟。	1203	物品名:"晨星锤" （理性分析其功效）
+DESCRIBE.GREENGEM	木属性灵气充沛，可作炼器之用。	1204	物品名:"绿宝石" （从修炼资源角度看待）
+DESCRIBE.MULTITOOL_AXE_PICKAXE	一器多用，省时省力。	1205	物品名:"多用斧镐" （实用主义的评价）
+DESCRIBE.ORANGESTAFF	瞬移之宝，乃逃生利器。	1206	物品名:"懒人魔杖" （看重其保命和战略价值）
+DESCRIBE.YELLOWAMULET	光耀护身，可破迷障。	1207	物品名:"魔光护符" （强调其破幻、护体的实用功能）
+DESCRIBE.GREENAMULET	蕴含一丝造化之理，能省材料。	1208	物品名:"建造护符" （用“造化之理”提升格调，但仍关注实用）
+DESCRIBE.SLURPERPELT	此兽皮竟能吞噬神识探查...	1209	物品名:"铥矿徽章"->啜食者皮 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.SLURPER	吸食生灵之气的精怪。	1210	物品名:"啜食者" （直接定义其危害）
+DESCRIBE.SLURPER_PELT	皮上残存着吞噬之力。	1211	物品名:"啜食者皮" （感知其特性）
+DESCRIBE.ARMORSLURPER	以妖物之皮炼制的辟谷甲。	1212	物品名:"饥饿腰带" （点明炼制来源和功能）
+DESCRIBE.ORANGEAMULET	隔空取物，算是不错的小神通。	1213	物品名:"懒人护符" （称之为“神通”，但评价克制）
+DESCRIBE.YELLOWSTAFF	召唤天外之火，威力尚可。	1214	物品名:"唤星者魔杖" （评价其威力，语气平淡）
+DESCRIBE.YELLOWGEM	内蕴纯阳之气。	1215	物品名:"黄宝石" （简短，点明能量属性）
+DESCRIBE.ORANGEGEM	火灵之力活跃。	1216	物品名:"橙宝石" （同上）
+DESCRIBE.OPALSTAFF	引动太阴之力，此杖不凡。	1217	物品名:"唤月者魔杖" （认可其力量层级）
+DESCRIBE.OPALPRECIOUSGEM	七彩流光，内含乾坤...此物绝非寻常！	1218	物品名:"彩虹宝石" （引起重视，察觉到其非凡）
+DESCRIBE.TELEBASE.VALID	空间阵法已成，可瞬息千里。	1221	物品名:"传送焦点"->有效 制造描述:"装上宝石试试。"
+DESCRIBE.TELEBASE.GEMS	阵法基石尚缺，需以灵石充能。	1222	物品名:"传送焦点"->需要宝石 制造描述:"装上宝石试试。"
+DESCRIBE.GEMSOCKET.VALID	阵眼已稳固，灵气流转通畅。	1226	物品名:"宝石底座"->有效
+DESCRIBE.GEMSOCKET.GEMS	阵眼空虚，需嵌入灵石方可激发。	1227	物品名:"宝石底座"->需要宝石
+DESCRIBE.STAFFLIGHT	强行拘束星核之力，稍有不慎便会反噬。	1229	物品名:"矮星"
+DESCRIBE.STAFFCOLDLIGHT	此光寒彻魂髓，非寻常极寒。	1230	物品名:"极光"
+DESCRIBE.ANCIENT_ALTAR	远古祭坛，其上道纹玄奥...	1231	物品名:"远古伪科学站"
+DESCRIBE.ANCIENT_ALTAR_BROKEN	祭坛已毁，道韵溃散，可惜。	1232	物品名:"损坏的远古伪仙力站"
+DESCRIBE.ANCIENT_STATUE	石像内似封有残灵，在哀鸣。	1233	物品名:"远古雕像"
+DESCRIBE.LICHEN	依附地脉阴气而生的苔藓。	1234	物品名:"洞穴苔藓"
+DESCRIBE.CUTLICHEN	离了地脉阴气，生机速逝。	1235	物品名:"苔藓"
+DESCRIBE.CAVE_BANANA	蕴有微弱地心火气的灵果。	1236	物品名:"香蕉"
+DESCRIBE.CAVE_BANANA_COOKED	火气更盛，易于吸收。	1237	物品名:"熟香蕉"
+DESCRIBE.CAVE_BANANA_TREE	竟能在地底灵脉上扎根结果，奇异。	1238	物品名:"洞穴香蕉树"
+DESCRIBE.ROCKY	甲壳坚若玄铁，力大无穷，小心应对。	1239	物品名:"石虾"
+DESCRIBE.COMPASS.GENERIC	方位不定...	1242	物品名:"指南针"->默认 制造描述:"指向北方。" （仪器未稳定时的状态描述）
+DESCRIBE.COMPASS.N	北方，属水，主杀伐。	1243	物品名:"指南针" 制造描述:"指向北方。" （融入五行观念，北方在修真文化中常与寒冷、肃杀相关）
+DESCRIBE.COMPASS.S	南方，属火，主生机。	1244	物品名:"指南针" 制造描述:"指向北方。" （南方象征炎热、生长）
+DESCRIBE.COMPASS.E	东方，属木，主生长。	1245	物品名:"指南针" 制造描述:"指向北方。" （东方象征日出、生机）
+DESCRIBE.COMPASS.W	西方，属金，主肃降。	1246	物品名:"指南针" 制造描述:"指向北方。" （西方象征日落、收敛）
+DESCRIBE.COMPASS.NE	东北方，寒湿之地。	1247	物品名:"指南针" 制造描述:"指向北方。" （结合方位特点的简洁描述）
+DESCRIBE.COMPASS.SE	东南方，暖湿交汇。	1248	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.NW	西北方，乾金之位。	1249	物品名:"指南针" 制造描述:"指向北方。" （引入八卦方位概念，“乾”位）
+DESCRIBE.COMPASS.SW	西南方，坤土之向。	1250	物品名:"指南针" 制造描述:"指向北方。" （“坤”位）
+DESCRIBE.HOUNDSTOOTH	犬齿锋锐，带有一丝污秽之气，可淬炼阴毒法器。	1252	物品名:"犬牙" （指出材料特性及潜在用途，语气冷静）
+DESCRIBE.ARMORSNURTLESHELL	此甲厚重，防御尚可，但过于笨拙。	1253	物品名:"蜗壳护甲" （实用主义评价，点明优缺点）
+DESCRIBE.BAT	地底妖蝠，嗜血扰神。	1254	物品名:"洞穴蝙蝠" （直接定义其妖物属性和危害）
+DESCRIBE.BATBAT	以妖蝠精魄炼制成兵，手段阴邪，然威力不俗。	1255	物品名:"蝙蝠棒" （看透炼制手法，评价趋于客观，承认其威力）
+DESCRIBE.BATWING	妖蝠之翼，阴气浓郁。	1256	物品名:"洞穴蝙蝠翅膀" （感知其能量属性）
+DESCRIBE.BATWING_COOKED	阴气稍减，聊胜于无。	1257	物品名:"熟蝙蝠翅膀" （评价其作为食物的价值很低）
+DESCRIBE.BATCAVE	妖气汇聚之所，必有蝠王蛰伏。	1258	物品名:"蝙蝠洞" （判断形势，推测存在更强个体）
+DESCRIBE.BEDROLL_FURRY	以灵兽皮毛制成，可助凝神静气。	1259	物品名:"毛皮铺盖" （点明材质和辅助修炼的功效）
+DESCRIBE.BUNNYMAN	形似兔，性却凶戾，非善类。	1260	物品名:"兔人" （观察其表里不一，做出判断）
+DESCRIBE.FLOWER_CAVE	集地底阴华而生，微光可照亮幽暗。	1261	物品名:"荧光花" （阐述其生成原理和实用价值）
+DESCRIBE.GUANO	妖蝠排泄之物，污秽不堪，却可肥地。	1262	物品名:"鸟粪" （厌恶其污秽，但理性认知其用途）
+DESCRIBE.LANTERN	一具不错的照明法器，需常注灵能。	1263	物品名:"提灯" （定义为法器，并指出需消耗能量）
+DESCRIBE.LIGHTBULB	地脉阴气凝结所成的光果，蕴含微弱灵力。	1264	物品名:"荧光果" （分析其成因和本质）
+DESCRIBE.MANRABBIT_TAIL	兔妖尾毛，柔软异常，可作符笔。	1265	物品名:"兔绒" （指出其可作为制符材料的特性）
+DESCRIBE.MUSHROOMHAT	菇伞竟能幻化形貌，遮掩气息，有些门道。	1266	物品名:"蘑菇帽" （认可其变幻神通的有效性）
+DESCRIBE.MUSHROOM_LIGHT2.ON	菌光流转，似有灵性。	1269	物品名:"菌伞灯"->开启 制造描述:"受到火山岩浆灯饰学问的激发。"
+DESCRIBE.MUSHROOM_LIGHT2.OFF	灵蕴内敛，光华不显。	1270	物品名:"菌伞灯"->关闭 制造描述:"受到火山岩浆灯饰学问的激发。"
+DESCRIBE.MUSHROOM_LIGHT2.BURNT	灵菌已死，精华尽散。	1271	物品名:"菌伞灯"->烧焦的 制造描述:"受到火山岩浆灯饰学问的激发。"
+DESCRIBE.MUSHROOM_LIGHT.ON	此菇竟能自行吐纳发光，奇妙。	1275	物品名:"蘑菇灯"->开启 制造描述:"任何蘑菇的完美添加物。"
+DESCRIBE.MUSHROOM_LIGHT.OFF	光华收敛，进入蛰伏。	1276	物品名:"蘑菇灯"->关闭 制造描述:"任何蘑菇的完美添加物。"
+DESCRIBE.MUSHROOM_LIGHT.BURNT	生机已断，化为焦炭。	1277	物品名:"蘑菇灯"->烧焦的 制造描述:"任何蘑菇的完美添加物。"
+DESCRIBE.SLEEPBOMB	内含迷魂烟瘴，可制敌于无形。	1279	物品名:"睡袋" 制造描述:"可以扔掉的袋子睡意沉沉。"
+DESCRIBE.MUSHROOMBOMB	将狂暴菌毒封于一处，掷出即爆，阴损。	1280	物品名:"炸弹蘑菇"
+DESCRIBE.SHROOM_SKIN	菌妖蜕下的皮囊，坚韧异常。	1281	物品名:"蘑菇皮"
+DESCRIBE.TOADSTOOL_CAP.EMPTY	毒穴已空，妖物离巢。	1284	物品名:"毒菌蟾蜍"
+DESCRIBE.TOADSTOOL_CAP.INGROUND	地底毒瘴翻涌，妖物即将破土。	1285	物品名:"毒菌蟾蜍"->在地里面
+DESCRIBE.TOADSTOOL_CAP.GENERIC	毒菌成精，化为此座，当诛。	1286	物品名:"毒菌蟾蜍"->默认
+DESCRIBE.TOADSTOOL.GENERIC	毒菌化形，修为不浅，需小心应对。	1290	物品名:"毒菌蟾蜍"->默认
+DESCRIBE.TOADSTOOL.RAGE	妖物狂怒，毒瘴滔天！	1291	物品名:"毒菌蟾蜍"->愤怒
+DESCRIBE.MUSHROOMSPROUT.GENERIC	菌王结冠，散播孢子，意在繁衍族群。	1295	物品名:"孢子帽"->默认
+DESCRIBE.MUSHROOMSPROUT.BURNT	冠冕焚毁，孢子尽灭，威胁已除。	1296	物品名:"孢子帽"->烧焦的
+DESCRIBE.MUSHTREE_TALL.GENERIC	此菌通体幽蓝，阴寒之气逼人。	1300	物品名:"蓝蘑菇树"->默认
+DESCRIBE.MUSHTREE_TALL.BLOOM	孢子四散，沾染者恐心神受蚀。	1301	物品名:"蓝蘑菇树"->蘑菇树繁殖？？
+DESCRIBE.MUSHTREE_MEDIUM.GENERIC	赤色菌树，隐有火灵躁动。	1305	物品名:"红蘑菇树"->默认
+DESCRIBE.MUSHTREE_MEDIUM.BLOOM	火孢飘洒，触之如灼。	1306	物品名:"红蘑菇树"->蘑菇树繁殖？？
+DESCRIBE.MUSHTREE_SMALL.GENERIC	绿菌蕴有生机，却也带毒。	1310	物品名:"绿蘑菇树"->默认
+DESCRIBE.MUSHTREE_SMALL.BLOOM	毒孢混于生机之中，更为隐秘。	1311	物品名:"绿蘑菇树"->蘑菇树繁殖？？
+DESCRIBE.MUSHTREE_TALL_WEBBED	菌树被妖蛛秽网缠绕，灵气污浊。	1313	物品名:"蛛网蓝蘑菇树"
+DESCRIBE.SPORE_TALL.GENERIC	蓝色孢子，寒毒蚀骨，避之则吉。	1316	物品名:"蓝色孢子"->默认
+DESCRIBE.SPORE_TALL.HELD	以灵力包裹，暂可隔绝其寒毒。	1317	物品名:"蓝色孢子"->拿在手里
+DESCRIBE.SPORE_MEDIUM.GENERIC	红色孢子，内含爆裂火气，不可轻触。	1321	物品名:"红色孢子"->默认
+DESCRIBE.SPORE_MEDIUM.HELD	火气被拘于方寸之间，需小心控御。	1322	物品名:"红色孢子"->拿在手里
+DESCRIBE.SPORE_SMALL.GENERIC	绿色孢子，看似生机盎然，实则暗藏木煞。	1326	物品名:"绿色孢子"->默认
+DESCRIBE.SPORE_SMALL.HELD	木煞之气已被禁锢，或可一用。	1327	物品名:"绿色孢子"->拿在手里
+DESCRIBE.RABBITHOUSE.GENERIC	兔妖巢穴，幻化胡萝卜形，拙劣掩饰。	1331	物品名:"兔屋"->默认 制造描述:"可容纳一只巨大的兔子及其所有物品。"
+DESCRIBE.RABBITHOUSE.BURNT	巢穴已焚，妖兔或已遁走。	1332	物品名:"兔屋"->烧焦的 制造描述:"可容纳一只巨大的兔子及其所有物品。"
+DESCRIBE.SLURTLE	此物甲壳坚硬，以矿物为食，习性奇特。	1334	物品名:"蛞蝓龟" （观察其习性和特性）
+DESCRIBE.SLURTLE_SHELLPIECES	甲壳碎片，质地坚硬，可作炼器辅材。	1335	物品名:"外壳碎片" （评估其材料价值）
+DESCRIBE.SLURTLEHAT	以妖物甲壳制成，防护尚可。	1336	物品名:"背壳头盔" （点明来源，实用评价）
+DESCRIBE.SLURTLEHOLE	矿穴深处，便是此物巢窠。	1337	物品名:"蛞蝓龟窝" （描述其栖息环境）
+DESCRIBE.SLURTLESLIME	此黏液滑腻，似有腐蚀之性。	1338	物品名:"蛞蝓龟黏液" （分析其物理特性）
+DESCRIBE.SNURTLE	缩入壳中？无趣。	1339	物品名:"蜗牛龟" （对防御行为表示不屑）
+DESCRIBE.SPIDER_HIDER	擅于伪装，伏于暗处，阴险。	1340	物品名:"洞穴蜘蛛" （点明其行为特点和危险性）
+DESCRIBE.SPIDER_SPITTER	竟能远喷毒液，需先行诛灭。	1341	物品名:"喷射蜘蛛" （指出战术威胁和应对优先级）
+DESCRIBE.SPIDERHOLE	蛛网密布，内藏杀机。	1342	物品名:"蛛网岩" （警示危险）
+DESCRIBE.SPIDERHOLE_ROCK	蛛秽缠石，妖气弥漫。	1343	物品名:"蛛网岩" （感知到妖气）
+DESCRIBE.STALAGMITE	寻常钟乳石，或含些许矿物。	1344	物品名:"石笋" （普通评价，略带资源考量）
+DESCRIBE.STALAGMITE_TALL	此石笋汇聚地脉灵气，已非凡品。	1345	物品名:"石笋" （感知到灵气，区别对待）
+DESCRIBE.TURF_CARPETFLOOR	兽毛织就，踏之松软，可聚些许暖意。	1346	物品名:"地毯地板" （描述材质、触感和微末功效）
+DESCRIBE.TURF_CHECKERFLOOR	石板拼砌，规整有余，灵气稀薄。	1347	物品名:"棋盘地板" （评价其秩序性，并指出灵气不足）
+DESCRIBE.TURF_DIRT	寻常泥土，生机匮乏。	1348	物品名:"泥土地皮" （感知其生机状态）
+DESCRIBE.TURF_FOREST	林木之气滋养之地。	1349	物品名:"森林地皮" （感知木属性灵气）
+DESCRIBE.TURF_GRASS	草木生机尚存。	1350	物品名:"长草地皮" （感知生机）
+DESCRIBE.TURF_MARSH	湿腐之地，阴气沉积。	1351	物品名:"沼泽地皮" （感知阴湿之气）
+DESCRIBE.TURF_METEOR	天外陨星冲击所成，气息迥异。	1352	物品名:"月球环形山地皮" （追溯成因，感知异常）
+DESCRIBE.TURF_PEBBLEBEACH	水汽充沛，金石之气混杂。	1353	物品名:"岩石海滩地皮" （感知环境气息）
+DESCRIBE.TURF_ROAD	人工开凿的路径，便于行走。	1354	物品名:"卵石路" （实用评价）
+DESCRIBE.TURF_ROCKY	顽石之地，灵气难存。	1355	物品名:"岩石地皮" （评价其灵气容纳性）
+DESCRIBE.TURF_SAVANNA	燥热平原，火土之气旺盛。	1356	物品名:"热带草原地皮" （感知气候相关的能量属性）
+DESCRIBE.TURF_WOODFLOOR	木质地板，寻常凡物。	1357	物品名:"木地板" （普通评价）
+DESCRIBE.TURF_CAVE	地穴阴寒，岩石沁骨。	1358	物品名:"洞穴地皮" （描述环境特性）
+DESCRIBE.TURF_FUNGUS	菌类丛生，阴湿之气浓郁。	1359	物品名:"真菌地皮" （感知菌类环境的气息）
+DESCRIBE.TURF_FUNGUS_MOON	菌类异变，气息诡谲不祥。	1360	物品名:"变异真菌地皮" （指出变异带来的不祥）
+DESCRIBE.TURF_ARCHIVE	石板铭刻远古纹路，道韵犹存。	1361	物品名:"远古石刻" （关注其历史价值和道韵）
+DESCRIBE.TURF_SINKHOLE	泥泞陷坑，污秽不堪。	1362	物品名:"黏滑地皮" （厌恶评价）
+DESCRIBE.TURF_UNDERROCK	乱石嶙峋，乃地脉不稳之象。	1363	物品名:"洞穴岩石地皮" （从地质角度解读）
+DESCRIBE.TURF_MUD	泥泞不堪，污秽陷足。	1364	物品名:"泥泞地皮"
+DESCRIBE.TURF_DECIDUOUS	落叶归根，轮回之气流转。	1365	物品名:"落叶林地皮"
+DESCRIBE.TURF_SANDY	沙地贫瘠，金气涣散。	1366	物品名:"沙地地皮"
+DESCRIBE.TURF_BADLANDS	荒芜之地，生机断绝。	1367	物品名:"劣质地皮"
+DESCRIBE.TURF_DESERTDIRT	大漠狂沙，燥烈异常。	1368	物品名:"沙漠地皮"
+DESCRIBE.TURF_FUNGUS_GREEN	绿菌蔓延，毒瘴暗生。	1369	物品名:"绿色真菌地皮"
+DESCRIBE.TURF_FUNGUS_RED	赤菌丛生，火煞躁动。	1370	物品名:"红色真菌地皮"
+DESCRIBE.TURF_DRAGONFLY	龙鳞铺地，水火不侵，倒是难得。	1371	物品名:"龙鳞地板"
+DESCRIBE.TURF_SHELLBEACH	贝冢遍地，水灵之气浓郁。	1372	物品名:"贝壳海滩地皮"
+DESCRIBE.TURF_RUINSBRICK	远古砖石，铭刻失落道纹。	1373	物品名:"远古地面"
+DESCRIBE.TURF_RUINSBRICK_GLOW	仿制古砖，徒具其形，神韵不足。	1374	物品名:"仿远古地面"
+DESCRIBE.TURF_RUINSTILES	远古瓷砖，流光内蕴。	1375	物品名:"远古瓷砖"
+DESCRIBE.TURF_RUINSTILES_GLOW	赝品瓷砖，光华浮于表面。	1376	物品名:"仿远古瓷砖"
+DESCRIBE.TURF_RUINSTRIM	远古砖雕，巧夺天工。	1377	物品名:"远古砖雕"
+DESCRIBE.TURF_RUINSTRIM_GLOW	仿古砖雕，匠气过重，失了古意。	1378	物品名:"仿远古砖雕"
+DESCRIBE.TURF_MONKEY_GROUND	沙地隐有异香，似与妖猴相关。	1379	物品名:"月亮码头海滩地皮"
+DESCRIBE.TURF_CARPETFLOOR2	绒毯更甚，几可凝神。	1380	物品名:"茂盛地毯"
+DESCRIBE.TURF_MOSAIC_GREY	灰石拼图，冷峻肃穆。	1381	物品名:"灰色马赛克地板"
+DESCRIBE.TURF_MOSAIC_RED	赤石镶嵌，隐现炎阳之力。	1382	物品名:"红色马赛克地板"
+DESCRIBE.TURF_MOSAIC_BLUE	蓝石铺就，似有寒泉之息。	1383	物品名:"蓝色马赛克地板"
+DESCRIBE.TURF_BEARD_RUG	以鬃毛织毯，煞气逼人，非祥瑞之物。	1384	物品名:"胡须地毯"
+DESCRIBE.POWCAKE	看似灵糕，实则毫无灵气，乃欺世之物。	1385	物品名:"芝士蛋糕"
+DESCRIBE.CAVE_ENTRANCE	封禁之术？待我以力破之。	1386	物品名:"被堵住的洞穴"
+DESCRIBE.CAVE_ENTRANCE_RUINS	此穴直通幽冥，煞气冲天。	1387	物品名:"被堵住的陷洞"
+DESCRIBE.CAVE_ENTRANCE_OPEN.GENERIC	地穴入口，阴气外泄。	1390	物品名:"洞穴"->默认
+DESCRIBE.CAVE_ENTRANCE_OPEN.OPEN	幽冥之地，且去一探。	1391	物品名:"洞穴"->打开
+DESCRIBE.CAVE_ENTRANCE_OPEN.FULL	通道不稳，容不得多人同时进入。	1392	物品名:"洞穴"->满了
+DESCRIBE.CAVE_EXIT.GENERIC	返回地面的通道。	1396	物品名:"楼梯"->默认
+DESCRIBE.CAVE_EXIT.OPEN	是该离开了。	1397	物品名:"楼梯"->打开
+DESCRIBE.CAVE_EXIT.FULL	前方阻塞，稍候再行。	1398	物品名:"楼梯"->满了
+DESCRIBE.MAXWELLPHONOGRAPH	此物发出靡靡之音，惑乱心神。	1400	single player  -- 物品名:"麦斯威尔的留声机"->单机 麦斯威尔留声机
+DESCRIBE.BOOMERANG	飞去来器，轨迹刁钻，可作奇兵。	1401	物品名:"回旋镖" 制造描述:"来自澳洲土著。"
+DESCRIBE.PIGGUARD	猪妖守卫，煞气颇重，修为不弱。	1402	物品名:"猪人守卫"
+DESCRIBE.ABIGAIL.LEVEL1[0]	一个弱小的缚地灵，不足为虑。	1407	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL1[1]	那朵花是其魂器？有点意思。	1408	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL2[0]	怨气在凝聚，这灵体在变强。	1412	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL2[1]	魂器与她的联系更深了。	1413	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL3[0]	完整的姐妹魂体？这种羁绊倒是罕见。	1417	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL3[1]	以执念化形，长存于世，可叹亦可悲。	1418	物品名:未找到 制造描述:未找到
+DESCRIBE.ADVENTURE_PORTAL	空间波动剧烈，此门背后吉凶难测。	1421	物品名:"麦斯威尔之门"->单机 麦斯威尔之门
+DESCRIBE.AMULET	竟能替死一次，此乃逆天之物，因果甚大。	1422	物品名:"重生护符" 制造描述:"逃离死神的魔爪。"
+DESCRIBE.ANIMAL_TRACK	兽踪残留的气息，可循迹追踪。	1423	物品名:"动物足迹"
+DESCRIBE.ARMORGRASS	草木编织，聊胜于无。	1424	物品名:"草甲" 制造描述:"提供少许防护。"
+DESCRIBE.ARMORMARBLE	玄石重铠，防御惊人，但行动不便。	1425	物品名:"大理石甲" 制造描述:"它很重，但能够保护你。"
+DESCRIBE.ARMORWOOD	木质灵甲，轻便坚韧，堪堪一用。	1426	物品名:"木甲" 制造描述:"为你抵御部分伤害。"
+DESCRIBE.ARMOR_SANITY	以心神损耗为代价换取防护，邪门。	1427	物品名:"暗夜甲" 制造描述:"保护你的躯体，但无法保护你的心智。"
+DESCRIBE.ASH.GENERIC	万物终将归于尘土。	1430	物品名:"灰烬"->默认
+DESCRIBE.ASH.REMAINS_GLOMMERFLOWER	灵花焚尽，芳魂已逝。	1431	物品名:"灰烬"->单机专用
+DESCRIBE.ASH.REMAINS_EYE_BONE	窥秘之骨，已化飞灰。	1432	物品名:"灰烬"->单机专用
+DESCRIBE.ASH.REMAINS_THINGIE	此物被非凡之火焚毁，痕迹诡异。	1433	物品名:"灰烬"->单机专用
+DESCRIBE.AXE	一柄寻常铁斧，用以伐木足矣。	1435	物品名:"斧头" 制造描述:"砍倒树木。"
+DESCRIBE.BABYBEEFALO.GENERIC	幼兽灵性未足，懵懂无知。	1438	物品名:"小皮弗娄牛"->默认
+DESCRIBE.BABYBEEFALO.SLEEPING	幼兽酣眠，不宜惊扰。	1439	物品名:"小皮弗娄牛"->睡着了
+DESCRIBE.BUNDLE	内含须弥芥子之妙，可纳物于方寸。	1441	物品名:"捆绑物资" （用修真概念解释空间压缩）
+DESCRIBE.BUNDLEWRAP	以此符箓封存物品，可保灵机不泄。	1442	物品名:"捆绑包装" （点明其封存灵气的功效）
+DESCRIBE.BACKPACK	寻常储物袋，空间尚可。	1443	物品名:"背包" （平淡评价）
+DESCRIBE.BACONEGGS	凡俗食物，仅能果腹。	1444	物品名:"培根煎蛋" （轻视世俗食物）
+DESCRIBE.BANDAGE	以灵蜜调和草药，略有疗伤之效。	1445	物品名:"蜂蜜药膏" （分析其成分和功效）
+DESCRIBE.BASALT	此石坚逾精铁，非人力可破。	1446	removed  -- 物品名:"玄武岩" （强调其硬度）
+DESCRIBE.BEARDHAIR	须发皆乃血气之余，此物却隐含灵能。	1447	物品名:"胡须" （诧异于其蕴含能量）
+DESCRIBE.BEARGER	此熊罴已成精怪，力大无穷，莫要轻易招惹。	1448	物品名:"熊獾" （评估其妖物属性和危险性）
+DESCRIBE.BEARGERVEST	以熊妖精皮所制，御寒之效非凡。	1449	物品名:"熊皮背心" （点明材质和卓越功效）
+DESCRIBE.ICEPACK	囊内自成寒冰结界，可保物品不腐。	1450	物品名:"保鲜背包" （用“寒冰结界”解释保鲜原理）
+DESCRIBE.BEARGER_FUR	妖熊皮毛，灵气充沛，是上好的炼器材料。	1451	物品名:"熊皮" （看重其材料价值）
+DESCRIBE.BEDROLL_STRAW	简陋草席，仅能遮风避露。	1452	物品名:"草席卷" （评价较低）
+DESCRIBE.BEEQUEEN	蜂群化妖，其主修为深不可测，当慎之。	1453	物品名:"蜂王" （判断其群体妖化，并高度警惕蜂后实力）
+DESCRIBE.BEEQUEENHIVE.GENERIC	蜂胶积聚，已成妖巢之基。	1456	物品名:"蜂蜜地块"->默认
+DESCRIBE.BEEQUEENHIVE.GROWING	蜂巢汲取地脉生机，正在壮大。	1457	物品名:"蜂蜜地块"->正在生长
+DESCRIBE.BEEQUEENHIVEGROWN	蜂妖王庭，煞气冲天，内蕴凶险。	1459	物品名:"巨大蜂窝"
+DESCRIBE.BEEGUARD	蜂妖亲卫，獠牙带毒，攻势凌厉。	1460	物品名:"嗡嗡蜜蜂"
+DESCRIBE.HIVEHAT	蜂后气息凝于冠冕，可号令蜂群？	1461	物品名:"蜂王冠"
+DESCRIBE.MINISIGN.GENERIC	简陋图示，记录凡俗信息。	1464	物品名:"小木牌"->默认
+DESCRIBE.MINISIGN.UNDRAWN	一块空白木牌，留待标记之用。	1465	物品名:"小木牌"->没有画画
+DESCRIBE.MINISIGN_ITEM	未雕琢的木料，尚需加工。	1467	物品名:"小木牌" 制造描述:"用羽毛笔在这些上面画画。"
+DESCRIBE.BEE.GENERIC	寻常工蜂，忙于采集花蜜。	1470	物品名:"蜜蜂"->默认
+DESCRIBE.BEE.HELD	蜂针含毒，需以灵力禁锢。	1471	物品名:"蜜蜂"->拿在手里
+DESCRIBE.BEEBOX.READY	蜂箱已满，蜜露尚可，取之用之。	1475	物品名:"蜂箱"->准备好的 满的
+DESCRIBE.BEEBOX.FULLHONEY	蜜已盈箱，当及时收取，以免浪费。	1476	物品名:"蜂箱"->蜂蜜满了
+DESCRIBE.BEEBOX.GENERIC	蜂箱运作如常，无需过多关注。	1477	物品名:"蜂箱"->默认
+DESCRIBE.BEEBOX.NOHONEY	箱内无蜜，需待时日。	1478	物品名:"蜂箱"->没有蜂蜜
+DESCRIBE.BEEBOX.SOMEHONEY	蜜量渐增，尚未可取。	1479	物品名:"蜂箱"->有一些蜂蜜
+DESCRIBE.BEEBOX.BURNT	蜂箱已毁，可惜了这些蜂群。	1480	物品名:"蜂箱"->烧焦的
+DESCRIBE.MUSHROOM_FARM.STUFFED	菌菇繁茂，生长已达极限。	1484	物品名:"蘑菇农场"->塞，满了？？
+DESCRIBE.MUSHROOM_FARM.LOTS	菌菇长势良好，收获颇丰。	1485	物品名:"蘑菇农场"->很多
+DESCRIBE.MUSHROOM_FARM.SOME	菌菇已有生长，但仍需时日。	1486	物品名:"蘑菇农场"->有一些
+DESCRIBE.MUSHROOM_FARM.EMPTY	此地空置，待种下菌种。	1487	物品名:"蘑菇农场"
+DESCRIBE.MUSHROOM_FARM.ROTTEN	原木腐朽，需更换新木以续菌菇生机。	1488	物品名:"蘑菇农场"->腐烂的--需要活木
+DESCRIBE.MUSHROOM_FARM.BURNT	蘑菇园遭焚，一切需从头再来。	1489	物品名:"蘑菇农场"->烧焦的
+DESCRIBE.MUSHROOM_FARM.SNOWCOVERED	天寒地冻，菌菇生长停滞。	1490	物品名:"蘑菇农场"->被雪覆盖
+DESCRIBE.BEEFALO.FOLLOWER	此牛竟愿跟随，倒也省去驯化功夫。	1494	物品名:"皮弗娄牛"->追随者
+DESCRIBE.BEEFALO.GENERIC	皮弗娄牛，群居生灵，力大可驭。	1495	物品名:"皮弗娄牛"->默认
+DESCRIBE.BEEFALO.NAKED	牛毛尽失，需待其重新生长。	1496	物品名:"皮弗娄牛"->牛毛被刮干净了
+DESCRIBE.BEEFALO.SLEEPING	牛已酣睡，此时不宜惊扰。	1497	物品名:"皮弗娄牛"->睡着了
+DESCRIBE.BEEFALO.DOMESTICATED	此牛已驯服，可堪一用。	1498	物品名:"皮弗娄牛"->驯化牛
+DESCRIBE.BEEFALO.ORNERY	此牛性情暴躁，需小心应对。	1499	物品名:"皮弗娄牛"->战斗牛
+DESCRIBE.BEEFALO.RIDER	此牛体魄强健，适于骑乘。	1500	物品名:"皮弗娄牛"->骑行牛
+DESCRIBE.BEEFALO.PUDGY	此牛过于肥硕，恐行动不便。	1501	物品名:"皮弗娄牛"->胖牛
+DESCRIBE.BEEFALO.MYPARTNER	此牛与我相伴日久，默契渐生。	1502	物品名:"皮弗娄牛"
+DESCRIBE.BEEFALOHAT	牛角帽，可避风寒，亦可混淆牛群感知。	1504	物品名:"牛角帽" （客观说明其功效）
+DESCRIBE.BEEFALOWOOL	牛毛厚实，可纺线织布，御寒之物。	1505	物品名:"牛毛" （平淡陈述其用途）
+DESCRIBE.BEEHAT	养蜂帽，可防蜂针刺面，便于收取蜂蜜。	1506	物品名:"养蜂帽" （实用主义解释）
+DESCRIBE.BEESWAX	蜂蜡，性稳，可防腐，亦可用于制作烛火。	1507	物品名:"蜂蜡" （分析其特性和多种用途）
+DESCRIBE.BEEHIVE	野生蜂巢，蜂蜜虽好，取之需防蜂群反击。	1508	物品名:"蜂窝" （冷静评估风险与收益）
+DESCRIBE.BEEMINE	将活蜂封入机关，触之即发，阴损的陷阱。	1509	物品名:"蜜蜂地雷" （点明其原理和阴险性质）
+DESCRIBE.BEEMINE_MAXWELL	此物机关精巧，非寻常蜂巢可比。	1510	removed  -- 物品名:"麦斯威尔的蚊子陷阱" （关注其工艺特殊性）
+DESCRIBE.BERRIES	野浆果，可暂缓饥渴。	1511	物品名:"浆果" （平淡描述其基本作用）
+DESCRIBE.BERRIES_COOKED	烤熟的浆果，更易入口，利于消化。	1512	物品名:"烤浆果" （说明加工后的好处）
+DESCRIBE.BERRIES_JUICY	浆果饱满多汁，解渴效果更佳。	1513	物品名:"多汁浆果" （指出其优势）
+DESCRIBE.BERRIES_JUICY_COOKED	烤制后汁液未失，风味尚可。	1514	物品名:"烤多汁浆果" （评价其口感）
+DESCRIBE.BERRYBUSH.BARREN	此地肥力已尽，需施肥方能再结果。	1517	物品名:"浆果丛"
+DESCRIBE.BERRYBUSH.WITHERED	炎热干旱，草木难存。	1518	物品名:"浆果丛"->枯萎了
+DESCRIBE.BERRYBUSH.GENERIC	浆果丛，可提供些许食物。	1519	物品名:"浆果丛"->默认
+DESCRIBE.BERRYBUSH.PICKED	浆果已采尽，需待其重新生长。	1520	物品名:"浆果丛"->被采完了
+DESCRIBE.BERRYBUSH.DISEASED	此丛染病，恐难结果。	1521	removed  -- 物品名:"浆果丛"->生病了
+DESCRIBE.BERRYBUSH.DISEASING	浆果丛似有病害迹象。	1522	removed  -- 物品名:"浆果丛"->正在生病？？
+DESCRIBE.BERRYBUSH.BURNING	浆果丛起火，恐将焚毁。	1523	物品名:"浆果丛"->正在燃烧
+DESCRIBE.BERRYBUSH_JUICY.BARREN	此丛结果过度，地力耗尽，需休养。	1527	物品名:"多汁浆果丛"
+DESCRIBE.BERRYBUSH_JUICY.WITHERED	无法抵御高温，已然枯萎。	1528	物品名:"多汁浆果丛"->枯萎了
+DESCRIBE.BERRYBUSH_JUICY.GENERIC	多汁浆果丛，果实更为饱满。	1529	物品名:"多汁浆果丛"->默认
+DESCRIBE.BERRYBUSH_JUICY.PICKED	果实已摘，静候下一轮生长。	1530	物品名:"多汁浆果丛"->被采完了
+DESCRIBE.BERRYBUSH_JUICY.DISEASED	病气侵蚀，生机渐失。	1531	removed  -- 物品名:"多汁浆果丛"->生病了
+DESCRIBE.BERRYBUSH_JUICY.DISEASING	此丛显现病态，需留意。	1532	removed  -- 物品名:"多汁浆果丛"->正在生病？？
+DESCRIBE.BERRYBUSH_JUICY.BURNING	浆果丛遭火焚，可惜。	1533	物品名:"多汁浆果丛"->正在燃烧
+DESCRIBE.BIGFOOT	哼，不过是个山野精怪，也配在王某面前现形？	1535	removed  -- 物品名:"大脚怪"->单机 大脚怪
+DESCRIBE.BIRDCAGE.GENERIC	鸟笼，可囚禁鸟类，便于获取其蛋。	1538	物品名:"鸟笼"->默认
+DESCRIBE.BIRDCAGE.OCCUPIED	笼中有鸟。	1539	物品名:"鸟笼"->被占领
+DESCRIBE.BIRDCAGE.SLEEPING	笼中鸟已安睡。	1540	物品名:"鸟笼"->睡着了
+DESCRIBE.BIRDCAGE.HUNGRY	笼中鸟似有饥态，需喂食。	1541	物品名:"鸟笼"->有点饿了
+DESCRIBE.BIRDCAGE.STARVING	此鸟濒临饿毙，需立即喂食。	1542	物品名:"鸟笼"->挨饿
+DESCRIBE.BIRDCAGE.DEAD	笼中鸟已死。	1543	物品名:"鸟笼"->死了
+DESCRIBE.BIRDCAGE.SKELETON	仅余骨架，此鸟早已亡故。	1544	物品名:"骷髅"
+DESCRIBE.BIRDTRAP	捕鸟陷阱，以丝线机关困缚飞禽。	1546	物品名:"捕鸟陷阱" （说明其工作原理）
+DESCRIBE.CAVE_BANANA_BURNT	洞穴香蕉已被焚毁。	1547	物品名:"烧焦的洞穴香蕉"
+DESCRIBE.BIRD_EGG	鸟蛋，可食，亦可孵化。	1548	物品名:"鸟蛋" （指出两种用途）
+DESCRIBE.BIRD_EGG_COOKED	熟鸟蛋，更易保存与食用。	1549	物品名:"熟鸟蛋" （说明加工后的优点）
+DESCRIBE.BISHOP	发条傀儡，行动有矩，攻其核心可破。	1550	物品名:"发条主教" （分析其机械本质和弱点）
+DESCRIBE.BLOWDART_FIRE	火焰吹箭，附有爆裂之火，杀伤可观。	1551	物品名:"火焰吹箭" （描述其属性和威力）
+DESCRIBE.BLOWDART_SLEEP	催眠吹箭，中者昏睡，可制敌而非杀敌。	1552	物品名:"催眠吹箭" （明确其战术效果）
+DESCRIBE.BLOWDART_PIPE	普通吹箭，射程有限，仅能扰敌。	1553	物品名:"吹箭" （评价其局限性）
+DESCRIBE.BLOWDART_YELLOW	雷电吹箭，迅疾刚猛，破邪有奇效。	1554	物品名:"雷电吹箭" （指出其速度和针对性的功效）
+DESCRIBE.BLUEAMULET	冰魄护符，散发寒气，可保尸体不腐，亦可伤敌。	1555	物品名:"寒冰护符" （说明其多重功效）
+DESCRIBE.BLUEGEM	蓝宝石，内蕴极寒灵气，是上佳的冰系材料。	1556	物品名:"蓝宝石" （点明其能量属性和材料价值）
+DESCRIBE.BLUEPRINT.COMMON	一张图纸，记录了某种器物的制法。	1559	物品名:"蓝图"
+DESCRIBE.BLUEPRINT.RARE	这张图纸记载的器物，似乎颇为不凡。	1560	物品名:"蓝图"->罕见的
+DESCRIBE.SKETCH	雕像的构造图，需在特定地点方能建造。	1562	物品名:"{item}草图"
+DESCRIBE.COOKINGRECIPECARD.GENERIC	一张烹饪配方卡。	1565	物品名:"{item}食谱卡"->默认
+DESCRIBE.BLUE_CAP	蓝蘑菇，性寒，生食可提振精神，但损生机。	1567	物品名:"采摘的蓝蘑菇"
+DESCRIBE.BLUE_CAP_COOKED	烤熟的蓝蘑菇，药性转为温和，可恢复理智。	1568	物品名:"熟蓝蘑菇"
+DESCRIBE.BLUE_MUSHROOM.GENERIC	蓝蘑菇，生于幽暗之地。	1571	物品名:"蓝蘑菇"->默认
+DESCRIBE.BLUE_MUSHROOM.INGROUND	蘑菇尚未长出地面。	1572	物品名:"蓝蘑菇"->在地里面
+DESCRIBE.BLUE_MUSHROOM.PICKED	蘑菇已被采摘，需待其重新生长。	1573	物品名:"蓝蘑菇"->被采完了
+DESCRIBE.BOARDS	加工过的木板，是建造的基础材料。	1575	物品名:"木板" 制造描述:"更平直的木头。"
+DESCRIBE.BONESHARD	骨头碎片，可用于炼制或制作某些物品。	1576	物品名:"骨头碎片"
+DESCRIBE.BONESTEW	骨肉炖汤，营养丰富，可恢复体力。	1577	物品名:"炖肉汤" （说明其功效）
+DESCRIBE.BUGNET	捕虫网，可捕捉飞行昆虫，而不伤其性命。	1578	物品名:"捕虫网" （说明其精准捕捉的特性）
+DESCRIBE.BUSHHAT	灌木帽，穿戴后可隐匿身形于草丛。	1579	物品名:"灌木丛帽" （说明其伪装功能）
+DESCRIBE.BUTTER	黄油，由蝴蝶翅膀精粹而成，是上佳的食材。	1580	物品名:"黄油" （点明其珍贵来源和用途）
+DESCRIBE.BUTTERFLY.GENERIC	蝴蝶，翅翼蕴含生机，可提炼精华。	1583	物品名:"蝴蝶"->默认
+DESCRIBE.BUTTERFLY.HELD	此蝶已受制，可取其翅或放生。	1584	物品名:"蝴蝶"->拿在手里
+DESCRIBE.BUTTERFLYMUFFIN	以蝴蝶翅粉入食，可稍补心神。	1586	物品名:"蝴蝶松饼"
+DESCRIBE.BUTTERFLYWINGS	蝶翼轻薄，是炼制某些药剂的材料。	1587	物品名:"蝴蝶翅膀"
+DESCRIBE.BUZZARD	秃鹫，食腐为生，性情贪婪，需提防其抢夺。	1588	物品名:"秃鹫"
+DESCRIBE.SHADOWDIGGER	暗影所化的挖掘者，行为诡异。	1589	物品名:"蝴蝶"
+DESCRIBE.SHADOWDANCER	暗影凝聚的舞者，形态不定，似有惑心之能。	1590	物品名:"暗影舞者"
+DESCRIBE.CACTUS.GENERIC	仙人掌，耐旱多刺，果实可食，但需小心处理。	1593	物品名:"仙人掌"->默认
+DESCRIBE.CACTUS.PICKED	仙人掌果实已被采摘，需待其重新生长。	1594	物品名:"仙人掌"->被采完了
+DESCRIBE.CACTUS_MEAT_COOKED	烤熟的仙人掌肉，清爽解渴。	1596	物品名:"熟仙人掌肉"
+DESCRIBE.CACTUS_MEAT	仙人掌肉，需剔除尖刺方可食用。	1597	物品名:"仙人掌肉"
+DESCRIBE.CACTUS_FLOWER	仙人掌花，于恶劣环境中绽放，生命顽强。	1598	物品名:"仙人掌花"
+DESCRIBE.COLDFIRE.EMBERS	寒焰将熄，需补充燃料。	1601	物品名:"吸热营火"->即将熄灭
+DESCRIBE.COLDFIRE.GENERIC	冷焰燃烧，散发寒意，可保存食物。	1602	物品名:"吸热营火"->默认 （说明其特性和实用功能）
+DESCRIBE.COLDFIRE.HIGH	寒焰过旺，消耗加剧，需加控制。	1603	物品名:"吸热营火"->高 （指出问题所在）
+DESCRIBE.COLDFIRE.LOW	寒焰减弱，需添燃料以维持。	1604	物品名:"吸热营火"->低？
+DESCRIBE.COLDFIRE.NORMAL	寒焰稳定，温度适宜。	1605	物品名:"吸热营火"->普通
+DESCRIBE.COLDFIRE.OUT	寒焰已彻底熄灭。	1606	物品名:"吸热营火"->出去？外面？
+DESCRIBE.CAMPFIRE.EMBERS	篝火余烬将灭，需添柴。	1610	物品名:"营火"->即将熄灭
+DESCRIBE.CAMPFIRE.GENERIC	篝火，提供光热，驱散黑暗与寒冷。	1611	物品名:"营火"->默认 （说明基本功能）
+DESCRIBE.CAMPFIRE.HIGH	火势过猛，过于浪费燃料，且有危险。	1612	物品名:"营火"->高 （分析弊端）
+DESCRIBE.CAMPFIRE.LOW	火焰变小，光热不足。	1613	物品名:"营火"->低？
+DESCRIBE.CAMPFIRE.NORMAL	篝火燃烧稳定。	1614	物品名:"营火"->普通
+DESCRIBE.CAMPFIRE.OUT	篝火已熄，仅余灰烬。	1615	物品名:"营火"->出去？外面？
+DESCRIBE.CANE	加速手杖，持之可提升脚力，便于赶路。	1617	物品名:"步行手杖" （直接说明其功效）
+DESCRIBE.CATCOON	浣猫，性情顽皮，偶尔会赠予物品。	1618	物品名:"浣猫" （描述其习性和互动可能）
+DESCRIBE.CATCOONDEN.GENERIC	浣猫栖身的树洞。	1621	物品名:"空心树桩"->默认
+DESCRIBE.CATCOONDEN.EMPTY	树洞已空，浣猫未归。	1622	物品名:"空心树桩"
+DESCRIBE.CATCOONHAT	浣猫皮帽，保暖效果尚可。	1624	物品名:"猫帽"
+DESCRIBE.COONTAIL	浣猫之尾，似是刚取下不久。	1625	物品名:"猫尾" （平淡描述）
+DESCRIBE.CARROT	胡萝卜，可生食，亦可烹饪。	1626	物品名:"胡萝卜"
+DESCRIBE.CARROT_COOKED	烤胡萝卜，味道更甜，易于消化。	1627	物品名:"烤胡萝卜" （说明加工后的好处）
+DESCRIBE.CARROT_PLANTED	生长中的胡萝卜。	1628	物品名:"胡萝卜" （生长状态）
+DESCRIBE.CARROT_SEEDS	胡萝卜种子，需种于农田。	1629	物品名:"胡萝卜种子" （说明种植条件）
+DESCRIBE.CARTOGRAPHYDESK.GENERIC	制图桌，可绘制并分享所探明的地形。	1632	物品名:"制图桌"->默认 （说明其核心功能）
+DESCRIBE.CARTOGRAPHYDESK.BURNING	制图桌起火，正在燃烧。	1633	物品名:"制图桌"->正在燃烧
+DESCRIBE.CARTOGRAPHYDESK.BURNT	制图桌已被焚毁。	1634	物品名:"制图桌"->烧焦的
+DESCRIBE.WATERMELON_SEEDS	西瓜种子，需种于温暖之地。	1636	物品名:"西瓜种子" （说明种植条件）
+DESCRIBE.CAVE_FERN	洞穴蕨类，适应幽暗环境而生。	1637	物品名:"蕨类植物" （描述其生长特性）
+DESCRIBE.CHARCOAL	木炭，燃烧持久，是良好的燃料。	1638	物品名:"木炭" （说明其作为燃料的优点）
+DESCRIBE.CHESSPIECE_PAWN	卒子雕像，棋盘上的基础棋子。	1639	物品名:"卒子雕塑" （平淡描述）
+DESCRIBE.CHESSPIECE_ROOK.GENERIC	战车雕像，造型稳重。	1642	物品名:"战车雕塑"->默认
+DESCRIBE.CHESSPIECE_ROOK.STRUGGLE	雕像内部似有能量异动。	1643	物品名:"战车雕塑"->三基佬棋子晃动 （观察能量变化）
+DESCRIBE.CHESSPIECE_KNIGHT.GENERIC	骑士雕像，雕琢精细。	1647	物品名:"骑士雕塑"->默认
+DESCRIBE.CHESSPIECE_KNIGHT.STRUGGLE	雕像似被某种力量牵引。	1648	物品名:"骑士雕塑"->三基佬棋子晃动 （分析外部力量影响）
+DESCRIBE.CHESSPIECE_BISHOP.GENERIC	主教雕像，形态庄重。	1652	物品名:"主教雕塑"->默认
+DESCRIBE.CHESSPIECE_BISHOP.STRUGGLE	雕像蕴含的能量开始活跃。	1653	物品名:"主教雕塑"->三基佬棋子晃动 （感知能量活跃）
+DESCRIBE.CHESSPIECE_MUSE	这尊雕像的形制古老，似有来历。	1655	物品名:"女王雕塑" （推测其历史）
+DESCRIBE.CHESSPIECE_FORMAL	国王雕像，颇具威仪。	1656	物品名:"国王雕塑" （描述其外观气质）
+DESCRIBE.CHESSPIECE_HORNUCOPIA	丰饶角雕像，象征富足。	1657	物品名:"丰饶角雕塑" （解释其象征意义）
+DESCRIBE.CHESSPIECE_PIPE	烟斗雕像，做工寻常。	1658	物品名:"泡泡烟斗雕塑" （平淡评价）
+DESCRIBE.CHESSPIECE_DEERCLOPS	独眼巨鹿雕像，散发着不祥的气息。	1659	物品名:"独眼巨鹿雕塑" （感知其不祥）
+DESCRIBE.CHESSPIECE_BEARGER	熊獾雕像，栩栩如生，威势迫人。	1660	物品名:"熊獾雕塑" （赞赏其工艺和气势）
+DESCRIBE.CHESSPIECE_MOOSEGOOSE[0]	麋鹿鹅雕像，形态奇特，兼具二者特征。	1663	物品名:"麋鹿鹅雕塑" 制造描述:未找到
+DESCRIBE.CHESSPIECE_DRAGONFLY	龙蝇雕像，其形态让我想起某种火系精怪。	1665	物品名:"龙蝇雕塑"
+DESCRIBE.CHESSPIECE_MINOTAUR	远古守护者雕像，记录着地底遗迹的守卫者。	1666	物品名:"远古守护者雕塑"
+DESCRIBE.CHESSPIECE_BUTTERFLY	月蛾雕像，翅翼纹路精巧。	1667	物品名:"月蛾雕塑"
+DESCRIBE.CHESSPIECE_ANCHOR	船锚雕像，沉重稳固，象征定力。	1668	物品名:"锚雕塑"
+DESCRIBE.CHESSPIECE_MOON	月亮雕像，试图捕捉太阴之形，野心不小。	1669	物品名:"“月亮” 雕塑"
+DESCRIBE.CHESSPIECE_CARRAT	胡萝卜鼠雕像，记录了一场竞速的结果。	1670	物品名:"胡萝卜鼠雕塑"
+DESCRIBE.CHESSPIECE_MALBATROSS	邪天翁雕像，展翅姿态带着不详。	1671	物品名:"邪天翁雕塑"
+DESCRIBE.CHESSPIECE_CRABKING	帝王蟹雕像，甲壳峥嵘，颇具威势。	1672	物品名:"帝王蟹雕塑"
+DESCRIBE.CHESSPIECE_TOADSTOOL	毒菌蟾蜍雕像，形态介于菌类与动物之间，颇为奇特。	1673	物品名:"毒菌蟾蜍雕塑"
+DESCRIBE.CHESSPIECE_STALKER	远古织影者雕像，散发着死亡与暗影的气息。	1674	物品名:"远古织影者雕塑"
+DESCRIBE.CHESSPIECE_KLAUS	克劳斯雕像，刻画了某种被封印的魔物。	1675	物品名:"克劳斯雕塑"
+DESCRIBE.CHESSPIECE_BEEQUEEN	蜂王雕像，统御蜂群的王者之姿。	1676	物品名:"蜂王雕塑"
+DESCRIBE.CHESSPIECE_ANTLION	蚁狮雕像，沙地中的潜伏者。	1677	物品名:"蚁狮雕塑"
+DESCRIBE.CHESSPIECE_BEEFALO	皮弗娄牛雕像，展现了这种生物的敦厚体态。	1678	物品名:"皮弗娄牛雕塑"
+DESCRIBE.CHESSPIECE_KITCOON	小浣猫雕像，形态稚拙可爱。	1679	物品名:"小浣猫雕塑"
+DESCRIBE.CHESSPIECE_CATCOON	浣猫雕像，栩栩如生。	1680	物品名:"浣猫雕塑"
+DESCRIBE.CHESSPIECE_MANRABBIT	兔人雕像，石材似乎不够坚固。	1681	物品名:"兔人雕塑"
+DESCRIBE.CHESSPIECE_GUARDIANPHASE3	天体英雄雕像，象征着一次艰难的胜利。	1682	物品名:"天体英雄雕塑"
+DESCRIBE.CHESSPIECE_EYEOFTERROR	恐怖之眼雕像，凝视之深感不适。	1683	物品名:"恐怖之眼雕塑"
+DESCRIBE.CHESSPIECE_TWINSOFTERROR	双子魔眼雕像，双重视线带来双倍的压力。	1684	物品名:"双子魔眼雕塑"
+DESCRIBE.CHESSPIECE_DAYWALKER	噩梦猪人雕像，煞气凝结，似有残念附着。	1685	物品名:"噩梦猪人雕像"
+DESCRIBE.CHESSPIECE_DEERCLOPS_MUTATED	晶体独眼巨鹿雕像，异化的身躯闪烁着不祥的光芒。	1686	物品名:"晶体独眼巨鹿雕塑"
+DESCRIBE.CHESSPIECE_WARG_MUTATED	附身座狼雕像，形态狰狞，野性十足。	1687	物品名:"附身座狼雕塑"
+DESCRIBE.CHESSPIECE_BEARGER_MUTATED	装甲熊獾雕像，厚重的甲壳下是狂暴的力量。	1688	物品名:"装甲熊獾雕塑"
+DESCRIBE.CHESSJUNK1	损坏的发条零件，或许能回收些材料。	1689	物品名:"损坏的发条装置"
+DESCRIBE.CHESSJUNK2	又一组发条残骸，无用之物。	1690	物品名:"损坏的发条装置"
+DESCRIBE.CHESSJUNK3	一堆破碎的发条装置，已无修复价值。	1691	物品名:"损坏的发条装置"
+DESCRIBE.CHESTER	这只眼骨生物似乎拥有储物之能，颇为奇特。	1692	物品名:"切斯特"
+DESCRIBE.CHESTER_EYEBONE.GENERIC	眼骨，与那只储物生物有着紧密联系。	1695	物品名:"眼骨"->默认 （点明其功能关联）
+DESCRIBE.CHESTER_EYEBONE.WAITING	眼骨暂时失去了活性，联系中断。	1696	物品名:"眼骨"->需要等待 （描述状态变化）
+DESCRIBE.COOKEDMANDRAKE	煮熟的曼德拉草，药性已变，可安全食用。	1698	物品名:"熟曼德拉草" （说明加工后的关键变化）
+DESCRIBE.COOKEDMEAT	熟肉，基本的食物来源。	1699	物品名:"熟肉"
+DESCRIBE.COOKEDMONSTERMEAT	熟怪物肉，毒性稍减，但仍需谨慎食用。	1700	物品名:"熟怪物肉" （指出其残留风险）
+DESCRIBE.COOKEDSMALLMEAT	小块熟肉，可快速补充体力。	1701	物品名:"熟小肉" （说明其便捷性）
+DESCRIBE.COOKPOT.COOKING_LONG	烹饪需要时间，耐心等待。	1704	物品名:"烹饪锅"->饭还需要很久
+DESCRIBE.COOKPOT.COOKING_SHORT	食物即将烹煮完成。	1705	物品名:"烹饪锅"->饭快做好了
+DESCRIBE.COOKPOT.DONE	烹饪完成，可以取用了。	1706	物品名:"烹饪锅"->完成了
+DESCRIBE.COOKPOT.EMPTY	一口空锅，等待放入食材。	1707	物品名:"烹饪锅"
+DESCRIBE.COOKPOT.BURNT	烹饪锅因过度加热而损毁。	1708	物品名:"烹饪锅"->烧焦的 （陈述事实）
+DESCRIBE.CORN	玉米，可作主食或加工。	1710	物品名:"玉米"
+DESCRIBE.CORN_COOKED	爆米花，是玉米受热后的产物。	1711	物品名:"爆米花" （说明其成因）
+DESCRIBE.CORN_SEEDS	玉米种子，需种于农田。	1712	物品名:"玉米种子"
+DESCRIBE.CANARY.GENERIC	金丝雀，羽色鲜亮，对毒气敏感。	1715	物品名:"金丝雀"->默认 （指出其特性）
+DESCRIBE.CANARY.HELD	手持金丝雀，需小心对待。	1716	物品名:"金丝雀"->拿在手里
+DESCRIBE.CANARY_POISONED	金丝雀已中毒，这是危险的信号。	1718	物品名:"金丝雀（中毒）" （警示危险）
+DESCRIBE.CRITTERLAB	岩石巢穴，似乎能孕育出奇特的小型生物。	1719	物品名:"岩石巢穴" （说明其功能）
+DESCRIBE.CRITTER_GLOMLING	格罗姆幼体，散发着温和的光芒。	1720	物品名:"小格罗姆"
+DESCRIBE.CRITTER_DRAGONLING	小龙蝇，虽小却已显露出火系特征。	1721	物品名:"小龙蝇" （观察其属性倾向）
+DESCRIBE.CRITTER_LAMB	钢羊幼崽，体表覆盖着特殊的黏液。	1722	物品名:"小钢羊" （描述其特征）
+DESCRIBE.CRITTER_PUPPY	座狼幼崽，已有猎食者的眼神。	1723	物品名:"小座狼" （判断其天性）
+DESCRIBE.CRITTER_KITTEN	浣猫幼崽，活泼好动。	1724	物品名:"浣猫崽"
+DESCRIBE.CRITTER_PERDLING	火鸡幼崽，成长迅速。	1725	物品名:"小火鸡"
+DESCRIBE.CRITTER_LUNARMOTHLING	月蛾幼体，在暗处会发出微光。	1726	物品名:"小蛾子" （说明其发光特性）
+DESCRIBE.CROW.GENERIC	乌鸦，叫声聒噪，常被视为不祥之兆。	1729	物品名:"乌鸦"->默认 （描述习性及文化象征）
+DESCRIBE.CROW.HELD	乌鸦在手中挣扎，羽翼扑腾。	1730	物品名:"乌鸦"->拿在手里 （客观描述状态）
+DESCRIBE.CUTGRASS	割下的草，是常用的编织和建造材料。	1732	物品名:"采下的草" （说明用途）
+DESCRIBE.CUTREEDS	芦苇杆，中空坚韧，可制作箭矢或乐器。	1733	物品名:"采下的芦苇" （指出其特性及用途）
+DESCRIBE.CUTSTONE	切割规整的石砖，是建筑的基石。	1734	物品名:"石砖" （说明其在建造中的重要性）
+DESCRIBE.DEADLYFEAST	此物蕴含剧毒，触之即死。	1735	unimplemented  -- 物品名:"致命盛宴" （直接点明其致命性）
+DESCRIBE.DEER.GENERIC	无眼鹿，虽无目却能感知周围，颇为奇特。	1738	物品名:"无眼鹿"->默认 （描述其特殊感知能力）
+DESCRIBE.DEER.ANTLER	无眼鹿的角似乎快要脱落了。	1739	物品名:"无眼鹿" （描述其状态）
+DESCRIBE.DEER_ANTLER	脱落的鹿角，质地坚硬，是良好的材料。	1741	物品名:"鹿角" （说明其材料价值）
+DESCRIBE.DEER_GEMMED	这头无眼鹿被宝石寄生，行为变得异常。	1742	物品名:"无眼鹿" （分析宝石的影响）
+DESCRIBE.DEERCLOPS	独眼巨鹿，寒冬的灾厄化身，力量惊人。	1743	物品名:"独眼巨鹿" （点明其传说背景和实力）
+DESCRIBE.DEERCLOPS_EYEBALL	巨鹿的眼球，仍残留着强大的冰寒之力。	1744	物品名:"独眼巨鹿眼球" （感知其残留能量）
+DESCRIBE.EYEBRELLAHAT	以巨鹿眼球制成的伞，能有效抵御雨雪。	1745	物品名:"眼球伞" （说明其奇特材质和实用功能）
+DESCRIBE.DEPLETED_GRASS.GENERIC	草已被割尽，需等待其重新生长。	1748	物品名:"草"->默认 （陈述事实）
+DESCRIBE.GOGGLESHAT	护目镜，可保护眼睛免受风沙强光刺激。	1750	物品名:"时髦的护目镜" （说明其防护功能）
+DESCRIBE.DESERTHAT	沙漠风镜，于沙暴环境中不可或缺。	1751	物品名:"沙漠护目镜" （强调其在特定环境下的重要性）
+DESCRIBE.ANTLIONHAT	蚁狮甲壳制成的头盔，似乎能影响大地。	1752	物品名:"刮地皮头盔" （推测其特殊能力）
+DESCRIBE.DEVTOOL	这件工具构造奇特，非此界寻常之物。	1753	物品名:"开发工具" （判断其来源异常）
+DESCRIBE.DEVTOOL_NODEV	一件看似无用的小工具。	1754	物品名:"（无功能开发工具）"
+DESCRIBE.DIRTPILE	这土堆似有翻动痕迹，下面可能埋有东西。	1755	物品名:"可疑的土堆" （根据迹象进行合理推测）
+DESCRIBE.DIVININGROD.COLD	探测杖毫无反应，目标尚远。	1758	singleplayer  -- 物品名:"探测杖"->信号弱
+DESCRIBE.DIVININGROD.GENERIC	探测杖，能感应并指引方向。	1759	singleplayer  -- 物品名:"探测杖"->默认
+DESCRIBE.DIVININGROD.HOT	探测杖反应剧烈，目标近在咫尺。	1760	singleplayer  -- 物品名:"探测杖"->信号强
+DESCRIBE.DIVININGROD.WARM	探测杖传来微弱感应，方向正确。	1761	singleplayer  -- 物品名:"探测杖"->信号中
+DESCRIBE.DIVININGROD.WARMER	探测杖感应强烈，已非常接近目标。	1762	singleplayer  -- 物品名:"探测杖"->信号很强
+DESCRIBE.DIVININGRODBASE.GENERIC	一个古老基座，似乎需要特定钥匙激活。	1766	singleplayer  -- 物品名:"探测杖底座"->默认
+DESCRIBE.DIVININGRODBASE.READY	基座已充能，等待插入钥匙启动。	1767	singleplayer  -- 物品名:"探测杖底座"->准备好的
+DESCRIBE.DIVININGRODBASE.UNLOCKED	基座机关已解锁，可以使用了。	1768	singleplayer  -- 物品名:"探测杖底座"->解锁了
+DESCRIBE.DIVININGRODSTART	那根法杖似乎是启动基座的关键。	1770	singleplayer  -- 物品名:"探测杖底座" （指代法杖本身）
+DESCRIBE.DRAGONFLY	龙蝇，掌控烈焰的强大生物。	1771	物品名:"龙蝇"
+DESCRIBE.ARMORDRAGONFLY	龙鳞甲，耐火性极佳，是应对火焰的绝佳防护。	1772	物品名:"鳞甲"
+DESCRIBE.DRAGON_SCALES	龙蝇鳞片，蕴含精纯火灵之力。	1773	物品名:"鳞片"
+DESCRIBE.DRAGONFLYCHEST	龙鳞宝箱，坚固且能防火，可安全储物。	1774	物品名:"龙鳞宝箱"
+DESCRIBE.DRAGONFLYFURNACE.HAMMERED	火炉结构受损，功能不稳定。	1777	物品名:"龙鳞火炉"->被锤了
+DESCRIBE.DRAGONFLYFURNACE.GENERIC	龙鳞火炉，散发着稳定的热力。	1778	no gems  -- 物品名:"龙鳞火炉"->默认 （无宝石）
+DESCRIBE.DRAGONFLYFURNACE.NORMAL	火炉核心被激活，热力有所提升。	1779	one gem  -- 物品名:"龙鳞火炉"->普通 （一宝石）
+DESCRIBE.DRAGONFLYFURNACE.HIGH	火炉核心全力运转，热浪汹涌。	1780	two gems  -- 物品名:"龙鳞火炉"->高 （两宝石）
+DESCRIBE.HUTCH	哈奇，一种奇特的水生生物，能储存物品。	1782	物品名:"哈奇" （说明其生物属性和功能）
+DESCRIBE.HUTCH_FISHBOWL.GENERIC	这个鱼缸是召唤哈奇的容器。	1785	物品名:"哈奇的鱼缸"->默认 （说明其功能）
+DESCRIBE.HUTCH_FISHBOWL.WAITING	鱼缸能量耗尽，哈奇暂时无法显现。	1786	物品名:"哈奇的鱼缸"->需要等待 （解释状态原因）
+DESCRIBE.LAVASPIT.HOT	龙蝇唾液，高温且具有粘性，十分危险。	1790	物品名:"龙蝇唾液"->高温状态
+DESCRIBE.LAVASPIT.COOL	龙蝇唾液已冷却凝固，威胁解除。	1791	物品名:"龙蝇唾液"->冷却状态
+DESCRIBE.LAVA_POND	岩浆池，极端高温，靠近会引火烧身。	1793	物品名:"岩浆池" （强调危险）
+DESCRIBE.LAVAE	岩浆虫，由龙蝇所产，周身环绕高温。	1794	物品名:"岩浆虫" （说明其来源和特性）
+DESCRIBE.LAVAE_COCOON	冷却的虫卵，岩浆虫在其中休眠。	1795	物品名:"冷冻虫卵" （描述状态）
+DESCRIBE.LAVAE_PET.STARVING	这只岩浆虫极度饥饿，急需喂食。	1798	物品名:"岩浆虫宠物"->饥饿
+DESCRIBE.LAVAE_PET.HUNGRY	岩浆虫似乎有些饿了。	1799	物品名:"岩浆虫宠物"->饥饿
+DESCRIBE.LAVAE_PET.CONTENT	岩浆虫目前状态满足。	1800	物品名:"岩浆虫宠物"->满足
+DESCRIBE.LAVAE_PET.GENERIC	一只被驯化的岩浆虫，能提供温暖。	1801	物品名:"岩浆虫宠物"->默认 （说明其作为宠物的用途）
+DESCRIBE.LAVAE_EGG.GENERIC	一枚岩浆虫卵，需要高温环境才能孵化。	1805	物品名:"岩浆虫卵"->默认 （说明孵化条件）
+DESCRIBE.LAVAE_EGG_CRACKED.COLD	温度过低，虫卵停止孵化。	1809	物品名:"岩浆虫卵"->低温
+DESCRIBE.LAVAE_EGG_CRACKED.COMFY	虫卵处于适宜的孵化温度，正在活跃变化。	1810	物品名:"岩浆虫卵"->舒适
+DESCRIBE.LAVAE_TOOTH	岩浆虫的牙齿，坚硬且带有余温。	1812	物品名:"岩浆虫尖牙" （描述材质和特性）
+DESCRIBE.DRAGONFRUIT	火龙果，外皮奇特，果肉清甜。	1813	物品名:"火龙果" （描述外观和味道）
+DESCRIBE.DRAGONFRUIT_COOKED	烤过的火龙果，风味更佳。	1814	物品名:"熟火龙果" （说明加工效果）
+DESCRIBE.DRAGONFRUIT_SEEDS	火龙果种子，需在温暖气候下种植。	1815	物品名:"火龙果种子" （说明种植条件）
+DESCRIBE.DRAGONPIE	火龙果派，是种能提供大量饱食度的食物。	1816	物品名:"火龙果派" （说明其作为食物的价值）
+DESCRIBE.DRUMSTICK	生鸟腿，需要烹饪后才能安全食用。	1817	物品名:"鸟腿" （说明需加工）
+DESCRIBE.DRUMSTICK_COOKED	烤鸟腿，是恢复体力的可靠食物。	1818	物品名:"炸鸟腿" （说明其功效）
+DESCRIBE.DUG_BERRYBUSH	连根挖起的浆果丛，可以移植到合适的地方。	1819	物品名:"浆果丛" （说明状态和用途）
+DESCRIBE.DUG_BERRYBUSH_JUICY	连根挖起的多汁浆果丛，等待移植。	1820	物品名:"多汁浆果丛"
+DESCRIBE.DUG_GRASS	连根挖起的草簇，可以重新种植。	1821	物品名:"草丛"
+DESCRIBE.DUG_MARSH_BUSH	挖出的尖刺灌木，需小心处理。	1822	物品名:"尖刺灌木" （提示危险性）
+DESCRIBE.DUG_SAPLING	挖出的小树苗，需要找地方种下。	1823	物品名:"树苗"
+DESCRIBE.DURIAN	榴莲，气味浓烈，但营养价值高。	1824	物品名:"榴莲" （客观描述其优缺点）
+DESCRIBE.DURIAN_COOKED	烤榴莲，气味依旧，但口感有所变化。	1825	物品名:"超臭榴莲" （描述加工后的变化）
+DESCRIBE.DURIAN_SEEDS	榴莲种子，可种植出榴莲树。	1826	物品名:"榴莲种子" （说明用途）
+DESCRIBE.EARMUFFSHAT	兔毛耳罩，能有效抵御寒冷。	1827	物品名:"兔耳罩" （说明功能和材质）
+DESCRIBE.EGGPLANT	茄子，一种常见的蔬菜。	1828	物品名:"茄子"
+DESCRIBE.EGGPLANT_COOKED	烤茄子，是道简单的菜肴。	1829	物品名:"烤茄子"
+DESCRIBE.EGGPLANT_SEEDS	茄子种子，用于种植茄子。	1830	物品名:"茄子种子"
+DESCRIBE.ENDTABLE.BURNT	茶几已被烧毁。	1833	物品名:"茶几"->烧焦的
+DESCRIBE.ENDTABLE.GENERIC	一张装饰用的茶几，插着花。	1834	物品名:"茶几"->默认
+DESCRIBE.ENDTABLE.EMPTY	空茶几，可以放置一些物品。	1835	物品名:"茶几"
+DESCRIBE.ENDTABLE.WILTED	茶几上的花已经枯萎了。	1836	物品名:"茶几"->枯萎的
+DESCRIBE.ENDTABLE.FRESHLIGHT	茶几上的荧光果提供着稳定的照明。	1837	物品名:"茶几"->有新鲜荧光果
+DESCRIBE.ENDTABLE.OLDLIGHT	茶几上的荧光果光芒即将熄灭。	1838	will be wilted soon  -- 物品名:"茶几"->荧光果快枯萎了
+DESCRIBE.DECIDUOUSTREE.BURNING	桦栗树正在燃烧。	1842	物品名:"桦栗树"->正在燃烧
+DESCRIBE.DECIDUOUSTREE.BURNT	桦栗树已被烧成焦炭。	1843	物品名:"桦栗树"->烧焦的
+DESCRIBE.DECIDUOUSTREE.CHOPPED	桦栗树已被砍倒。	1844	物品名:"桦栗树"->被砍了
+DESCRIBE.DECIDUOUSTREE.POISON	这棵桦栗树似乎被污染了，散发着不祥的气息。	1845	物品名:"桦栗树"->毒化的
+DESCRIBE.DECIDUOUSTREE.GENERIC	一棵健康的桦栗树，秋季会结果。	1846	物品名:"桦栗树"->默认 （补充其季节性特征）
+DESCRIBE.ACORN	桦栗果，可以种植，也可以烤食。	1848	物品名:"桦栗果" （说明用途）
+DESCRIBE.ACORN_SAPLING	一棵桦栗树苗，需要时间成长。	1849	物品名:"桦栗树树苗"
+DESCRIBE.ACORN_COOKED	烤熟的桦栗果，可以食用。	1850	物品名:"烤桦栗果"
+DESCRIBE.BIRCHNUTDRAKE	从桦栗果中诞生的树精，具有攻击性。	1851	物品名:"桦栗果精" （说明其来源和危险性）
+DESCRIBE.EVERGREEN.BURNING	常青树正在燃烧。	1854	物品名:"常青树"->正在燃烧
+DESCRIBE.EVERGREEN.BURNT	常青树已被烧毁。	1855	物品名:"常青树"->烧焦的
+DESCRIBE.EVERGREEN.CHOPPED	常青树已被砍伐。	1856	物品名:"常青树"->被砍了
+DESCRIBE.EVERGREEN.GENERIC	一棵常青树，可提供木材和松果。	1857	物品名:"常青树"->默认 （说明其资源产出）
+DESCRIBE.EVERGREEN_SPARSE.BURNING	这棵贫瘠的常青树正在燃烧。	1861	物品名:"粗壮常青树"->正在燃烧
+DESCRIBE.EVERGREEN_SPARSE.BURNT	这棵常青树已被烧毁。	1862	物品名:"粗壮常青树"->烧焦的
+DESCRIBE.EVERGREEN_SPARSE.CHOPPED	这棵常青树已被砍倒。	1863	物品名:"粗壮常青树"->被砍了
+DESCRIBE.EVERGREEN_SPARSE.GENERIC	一棵生长不良的常青树，不结果实。	1864	物品名:"粗壮常青树"->默认 （解释其“贫瘠”的表现）
+DESCRIBE.TWIGGYTREE.BURNING	多枝树正在燃烧。	1868	物品名:"多枝树"->正在燃烧
+DESCRIBE.TWIGGYTREE.BURNT	多枝树已被烧毁。	1869	物品名:"多枝树"->烧焦的
+DESCRIBE.TWIGGYTREE.CHOPPED	多枝树已被砍倒，主要获得树枝。	1870	物品名:"多枝树"->被砍了 （说明其主要产出）
+DESCRIBE.TWIGGYTREE.GENERIC	多枝树，主要产出树枝，木材较少。	1871	物品名:"多枝树"->默认 （说明其资源特点）
+DESCRIBE.TWIGGYTREE.DISEASED	这棵多枝树染病了。	1872	unimplemented  -- 物品名:"多枝树"->生病了
+DESCRIBE.TWIGGY_NUT_SAPLING	多枝树苗，生长缓慢但生命力顽强。	1874	物品名:"多枝树苗" （描述生长特性）
+DESCRIBE.TWIGGY_OLD	老化的多枝树，产出的树枝更为粗壮。	1875	物品名:"多枝树" （说明其资源特点）
+DESCRIBE.TWIGGY_NUT	多枝树的种子，可以种植。	1876	物品名:"多枝树种"
+DESCRIBE.EYEPLANT	眼球草，会主动攻击靠近的生物。	1877	物品名:"眼球草" （说明其行为）
+DESCRIBE.INSPECTSELF	检查自身的状态。	1878	物品名:"检查自己" （直接说明动作）
+DESCRIBE.FARMPLOT.GENERIC	一块开垦好的农田，可以种植作物。	1881	物品名:"农田"->默认
+DESCRIBE.FARMPLOT.GROWING	作物正在生长。	1882	物品名:"农田"->生长中
+DESCRIBE.FARMPLOT.NEEDSFERTILIZER	这块地需要施肥了。	1883	物品名:"农田"->需要肥料
+DESCRIBE.FARMPLOT.BURNT	农田被烧毁了。	1884	物品名:"农田"->烧焦的
+DESCRIBE.FEATHERHAT	羽毛帽，由各种鸟羽制成，颇具装饰性。	1886	物品名:"羽毛帽"
+DESCRIBE.FEATHER_CROW	乌鸦羽毛。	1887	物品名:"黑色羽毛"
+DESCRIBE.FEATHER_ROBIN	知更鸟的红色羽毛。	1888	物品名:"红色羽毛"
+DESCRIBE.FEATHER_ROBIN_WINTER	冬季知更鸟的蓝色羽毛。	1889	物品名:"蓝色羽毛"
+DESCRIBE.FEATHER_CANARY	金丝雀的黄色羽毛。	1890	物品名:"黄色羽毛"
+DESCRIBE.FEATHERPENCIL	羽毛笔，可以用来绘制地图标记。	1891	物品名:"羽毛笔" （说明其游戏内功能）
+DESCRIBE.COOKBOOK	烹饪指南，记录了各种食物的制作方法。	1892	物品名:"烹饪指南" （说明其内容）
+DESCRIBE.FEM_PUPPET	一个女性人偶，似乎被禁锢着。	1893	single player  -- 物品名:"女性人偶" （描述所见）
+DESCRIBE.FIREFLIES.GENERIC	萤火虫，在夜间聚集发光，可以捕捉。	1896	物品名:"萤火虫"->默认 （描述习性和用途）
+DESCRIBE.FIREFLIES.HELD	萤火虫在手中发出微弱的光芒。	1897	物品名:"萤火虫"->拿在手里 （描述状态）
+DESCRIBE.FIREHOUND	火猎犬，死亡时会爆出火焰，需小心应对。	1899	物品名:"红色猎犬" （说明其危险特性）
+DESCRIBE.FIREPIT.EMBERS	火坑的火即将熄灭。	1902	物品名:"火坑"->即将熄灭
+DESCRIBE.FIREPIT.GENERIC	石制火坑，比普通营火更安全。	1903	物品名:"火坑"->默认 （说明其优点）
+DESCRIBE.FIREPIT.HIGH	火坑火势很旺。	1904	物品名:"火坑"->高
+DESCRIBE.FIREPIT.LOW	火坑的火变小了。	1905	物品名:"火坑"->低？
+DESCRIBE.FIREPIT.NORMAL	火坑在稳定燃烧。	1906	物品名:"火坑"->普通
+DESCRIBE.FIREPIT.OUT	火坑已经熄灭，可以重新点燃。	1907	物品名:"火坑"->熄灭
+DESCRIBE.COLDFIREPIT.EMBERS	冷火坑的火即将熄灭。	1911	物品名:"吸热火坑"->即将熄灭
+DESCRIBE.COLDFIREPIT.GENERIC	冷火坑，发出寒光而非热量。	1912	物品名:"吸热火坑"->默认 （说明其核心特性）
+DESCRIBE.COLDFIREPIT.HIGH	冷火坑的火焰很猛烈。	1913	物品名:"吸热火坑"->高
+DESCRIBE.COLDFIREPIT.LOW	冷火坑的火焰减弱了。	1914	物品名:"吸热火坑"->低？
+DESCRIBE.COLDFIREPIT.NORMAL	冷火坑在稳定燃烧。	1915	物品名:"吸热火坑"->普通
+DESCRIBE.COLDFIREPIT.OUT	冷火坑已经熄灭。	1916	物品名:"吸热火坑"->熄灭
+DESCRIBE.FIRESTAFF	火焰法杖，能发射火球点燃目标。	1918	物品名:"火魔杖" （说明其攻击方式）
+DESCRIBE.FIRESUPPRESSOR.ON	雪球发射器正在运行，自动扑灭周围的火。	1921	物品名:"雪球发射器"->开启 （说明其工作状态和功能）
+DESCRIBE.FIRESUPPRESSOR.OFF	雪球发射器目前处于关闭状态。	1922	物品名:"雪球发射器"->关闭
+DESCRIBE.FIRESUPPRESSOR.LOWFUEL	雪球发射器的燃料不足了。	1923	物品名:"雪球发射器"->燃料不足
+DESCRIBE.FISH	鱼，可以烹饪食用。	1925	物品名:"鱼" （说明用途）
+DESCRIBE.FISHINGROD	钓竿，用来从水域中钓鱼。	1926	物品名:"钓竿" （说明功能）
+DESCRIBE.FISHSTICKS	炸鱼排，能有效恢复饥饿值。	1927	物品名:"炸鱼排" （说明功效）
+DESCRIBE.FISHTACOS	鱼肉塔可，是种不错的食物。	1928	物品名:"鱼肉玉米卷"
+DESCRIBE.FISH_COOKED	熟鱼，比生鱼更安全可口。	1929	物品名:"熟鱼" （说明加工后的优点）
+DESCRIBE.FLINT	燧石，是制作工具和武器的基本材料。	1930	物品名:"燧石" （说明其基础材料地位）
+DESCRIBE.FLOWER.GENERIC	一朵普通的花。	1933	物品名:"花"->默认
+DESCRIBE.FLOWER.ROSE	一朵玫瑰花。	1934	物品名:"花"->玫瑰
+DESCRIBE.FLOWER_WITHERED	这朵花枯萎了。	1936	物品名:"枯萎的花"
+DESCRIBE.FLOWERHAT	花环，戴在头上能小幅恢复理智。	1937	物品名:"花环" （说明其游戏机制效果）
+DESCRIBE.FLOWER_EVIL	恶魔花，靠近会侵蚀理智。	1938	物品名:"邪恶花" （说明其负面效果）
+DESCRIBE.FOLIAGE	蕨叶，可作烹饪填充物或喂食给某些生物。	1939	物品名:"蕨叶" （说明其用途）
+DESCRIBE.FOOTBALLHAT	橄榄球头盔，能提供不错的头部防护。	1940	物品名:"橄榄球头盔" （说明其功能）
+DESCRIBE.FOSSIL_PIECE	一块化石碎片，需要凑齐其他部分。	1941	物品名:"化石碎片" （说明其性质）
+DESCRIBE.FOSSIL_STALKER.GENERIC	这是一个不完整的骨架，还缺少一些骨头。	1944	物品名:"奇异的骨架"->默认 （说明现状）
+DESCRIBE.FOSSIL_STALKER.FUNNY	这个骨架拼得不太对劲。	1945	物品名:"奇异的骨架"->拼错
+DESCRIBE.FOSSIL_STALKER.COMPLETE	骨架已经完整拼合，似乎蕴含着某种力量。	1946	物品名:"奇异的骨架"->完成 （描述结果并暗示特殊）
+DESCRIBE.STALKER	暗影编织者，由骨头和暗影构成的强大生物。	1948	物品名:"复活的骨架" （描述其构成和强度）
+DESCRIBE.STALKER_ATRIUM	远古织影者，散发着令人不安的远古气息。	1949	物品名:"远古织影者" （强调其古老和威胁）
+DESCRIBE.STALKER_MINION	暗影爬行者，是织影者的仆从。	1950	物品名:"编织暗影" （说明其从属关系）
+DESCRIBE.THURIBLE	暗影香炉，它的光芒能安抚暗影生物。	1951	物品名:"暗影香炉" （说明其特殊功能）
+DESCRIBE.ATRIUM_OVERGROWTH	这些远古符文的意义难以解读。	1952	物品名:"长满藤蔓的远古方尖碑" （承认其难以理解）
+DESCRIBE.FROG.DEAD	青蛙死了。	1955	物品名:"青蛙"->死了
+DESCRIBE.FROG.GENERIC	青蛙，会主动攻击并偷取物品。	1956	物品名:"青蛙"->默认 （说明其行为特性）
+DESCRIBE.FROG.SLEEPING	一只正在睡觉的青蛙。	1957	物品名:"青蛙"->睡着了
+DESCRIBE.FROGGLEBUNWICH	蛙腿三明治，能提供不错的饱食度。	1959	物品名:"蛙腿三明治" （说明其作为食物的价值）
+DESCRIBE.FROGLEGS	生蛙腿，需要烹饪。	1960	物品名:"蛙腿"
+DESCRIBE.FROGLEGS_COOKED	熟蛙腿，可以安全食用。	1961	物品名:"熟蛙腿"
+DESCRIBE.FRUITMEDLEY	水果拼盘，由多种水果制成。	1962	物品名:"水果圣代"
+DESCRIBE.FURTUFT	一块毛簇，来自皮弗娄牛。	1963	物品名:"毛丛" （说明来源）
+DESCRIBE.GEARS	齿轮，是制作发条装置的核心零件。	1964	物品名:"齿轮" （说明其关键用途）
+DESCRIBE.GHOST	幽灵，没有实体，需要用特定方式安抚或驱散。	1965	物品名:"幽灵" （说明其特性和应对方法）
+DESCRIBE.GOLDENAXE	金斧头，比普通斧头更耐用。	1966	物品名:"黄金斧头" （说明其优点）
+DESCRIBE.GOLDENPICKAXE	金镐，耐久度更高。	1967	物品名:"黄金鹤嘴锄"
+DESCRIBE.GOLDENPITCHFORK	金叉，可以用来移植草皮和灌木。	1968	物品名:"黄金干草叉" （说明其特殊功能）
+DESCRIBE.GOLDENSHOVEL	金铲，挖掘次数更多。	1969	物品名:"黄金铲子"
+DESCRIBE.GOLDNUGGET	金块，是珍贵的制作材料。	1970	物品名:"金块"
+DESCRIBE.GRASS.BARREN	这簇草需要施肥才能再次生长。	1973	物品名:"草"->贫瘠
+DESCRIBE.GRASS.WITHERED	草因高温而枯萎了。	1974	物品名:"草"->枯萎了 （说明原因）
+DESCRIBE.GRASS.BURNING	草着火了。	1975	物品名:"草"->正在燃烧
+DESCRIBE.GRASS.GENERIC	一簇草，可以收割。	1976	物品名:"草"->默认
+DESCRIBE.GRASS.PICKED	草已被收割，需要时间重新生长。	1977	物品名:"草"->被采完了
+DESCRIBE.GRASS.DISEASED	这簇草生病了。	1978	unimplemented  -- 物品名:"草"->生病了
+DESCRIBE.GRASS.DISEASING	这簇草看起来不太健康。	1979	unimplemented  -- 物品名:"草"->正在生病
+DESCRIBE.GRASSGEKKO.GENERIC	草壁虎，会吃掉附近的草。	1983	物品名:"草壁虎"->默认 （说明其行为）
+DESCRIBE.GRASSGEKKO.DISEASED	这只草壁虎生病了。	1984	unimplemented  -- 物品名:"草壁虎"->生病了
+DESCRIBE.GREEN_CAP	绿蘑菇，生食会降低理智。	1986	物品名:"采摘的绿蘑菇" （说明负面效果）
+DESCRIBE.GREEN_CAP_COOKED	烤熟的绿蘑菇，食用可恢复理智。	1987	物品名:"熟绿蘑菇" （说明加工后的正面效果）
+DESCRIBE.GREEN_MUSHROOM.GENERIC	绿蘑菇，生长在洞穴或夜晚。	1990	物品名:"绿蘑菇"->默认 （说明生长环境）
+DESCRIBE.GREEN_MUSHROOM.INGROUND	绿蘑菇还没长出来。	1991	物品名:"绿蘑菇"->在地里面
+DESCRIBE.GREEN_MUSHROOM.PICKED	绿蘑菇已被采摘，需要时间再生。	1992	物品名:"绿蘑菇"->被采完了
+DESCRIBE.GUNPOWDER	火药，可用于制作爆炸物。	1994	物品名:"火药" （说明用途）
+DESCRIBE.HAMBAT	火腿棍，一种用肉制成的临时武器，会随时间腐烂。	1995	物品名:"火腿棒" （说明其特殊材质和缺点）
+DESCRIBE.HAMMER	锤子，用于拆解建筑和装置。	1996	物品名:"锤子" （说明功能）
+DESCRIBE.HEALINGSALVE	治疗药膏，能快速治愈伤口。	1997	物品名:"治疗药膏" （说明功效）
+DESCRIBE.HEATROCK.FROZEN	暖石现在很冰冷。	2000	物品名:"暖石"->冰冻
+DESCRIBE.HEATROCK.COLD	暖石是凉的。	2001	物品名:"暖石"->冷
+DESCRIBE.HEATROCK.GENERIC	暖石，会与环境温度保持一致。	2002	物品名:"暖石"->默认 （说明其工作原理）
+DESCRIBE.HEATROCK.WARM	暖石是温的。	2003	物品名:"暖石"->温暖
+DESCRIBE.HEATROCK.HOT	暖石现在很烫。	2004	物品名:"暖石"->热
+DESCRIBE.HOME	这里可以称为一个落脚点。	2006	物品名:"家" （中性描述）
+DESCRIBE.HOMESIGN.GENERIC	一个写有信息的木牌。	2009	物品名:"木牌"->默认
+DESCRIBE.HOMESIGN.UNWRITTEN	一个空白的木牌，可以写上信息。	2010	物品名:"木牌"->没有写字 （说明其可编辑性）
+DESCRIBE.HOMESIGN.BURNT	木牌被烧毁了。	2011	物品名:"木牌"->烧焦的
+DESCRIBE.ARROWSIGN_POST.GENERIC	一个指示方向的箭头路牌。	2015	物品名:"指路木牌"->默认
+DESCRIBE.ARROWSIGN_POST.UNWRITTEN	一个空白的箭头路牌。	2016	物品名:"指路木牌"->没有写字
+DESCRIBE.ARROWSIGN_POST.BURNT	箭头路牌被烧毁了。	2017	物品名:"指路木牌"->烧焦的
+DESCRIBE.ARROWSIGN_PANEL.GENERIC	一块指示方向的路牌。	2021	物品名:"指路木牌"->默认
+DESCRIBE.ARROWSIGN_PANEL.UNWRITTEN	一块空白的路牌，可以标注方向。	2022	物品名:"指路木牌"->没有写字
+DESCRIBE.ARROWSIGN_PANEL.BURNT	路牌被烧毁了。	2023	物品名:"指路木牌"->烧焦的
+DESCRIBE.HONEY	蜂蜜，是种多用途的甜味剂和食材。	2025	物品名:"蜂蜜" （说明其广泛用途）
+DESCRIBE.HONEYCOMB	蜂巢，里面可能还残留着蜂蜜。	2026	物品名:"蜜脾" （描述其内容）
+DESCRIBE.HONEYHAM	蜜汁火腿，能提供大量的饱食度。	2027	物品名:"蜜汁火腿" （说明其作为食物的价值）
+DESCRIBE.HONEYNUGGETS	蜂蜜 nuggets，是道不错的点心。	2028	物品名:"蜜汁卤肉"
+DESCRIBE.HORN	牛角，吹响它可以召唤皮弗娄牛。	2029	物品名:"牛角" （说明其特殊功能）
+DESCRIBE.HOUND	猎犬，会主动攻击，常成群出现。	2030	物品名:"猎犬" （说明其行为模式）
+DESCRIBE.HOUNDCORPSE.GENERIC	一只猎犬的尸体。	2033	物品名:"猎犬尸体"->默认
+DESCRIBE.HOUNDCORPSE.BURNING	猎犬的尸体在燃烧。	2034	物品名:"猎犬尸体"->正在燃烧
+DESCRIBE.HOUNDCORPSE.REVIVING	猎犬的尸体正在发生异变！	2035	物品名:"猎犬尸体"->复活中 （警示异常）
+DESCRIBE.HOUNDBONE	猎犬的骨头。	2037	物品名:"犬骨"
+DESCRIBE.HOUNDMOUND	猎犬的巢穴，会不断生出新的猎犬。	2038	物品名:"猎犬丘" （说明其功能特性）
+DESCRIBE.ICEBOX	冰箱，能有效延长食物的保鲜期。	2039	物品名:"冰箱" （说明其核心功能）
+DESCRIBE.ICEHAT	冰帽，佩戴时能缓慢降低体温。	2040	物品名:"冰帽" （说明其效果）
+DESCRIBE.ICEHOUND	冰猎犬，死亡时会释放寒气。	2041	物品名:"蓝色猎犬" （说明其特殊能力）
+DESCRIBE.INSANITYROCK.ACTIVE	这座方尖碑散发着扰乱心智的能量。	2044	物品名:"方尖碑"->激活了 （描述其影响）
+DESCRIBE.INSANITYROCK.INACTIVE	这座方尖碑目前是平静的。	2045	物品名:"方尖碑"->没有激活
+DESCRIBE.JAMMYPRESERVES	果酱，由水果制成，不易腐坏。	2047	物品名:"果酱" （说明原料和优点）
+DESCRIBE.KABOBS	肉串，便于携带和食用。	2048	物品名:"肉串" （说明其便利性）
+DESCRIBE.KILLERBEE.GENERIC	杀人蜂，攻击性极强。	2051	物品名:"杀人蜂"->默认
+DESCRIBE.KILLERBEE.HELD	手持杀人蜂，需格外小心。	2052	物品名:"杀人蜂"->拿在手里 （强调危险性）
+DESCRIBE.KNIGHT	发条骑士，一种机械构造体，攻击方式规律。	2054	物品名:"发条骑士"
+DESCRIBE.KOALEFANT_SUMMER	夏季考拉象，性情相对温和。	2055	物品名:"考拉象"
+DESCRIBE.KOALEFANT_WINTER	冬季考拉象，皮毛厚实以御寒。	2056	物品名:"考拉象"
+DESCRIBE.KOALEFANT_CARCASS	考拉象的尸体，可以获取大量肉和皮毛。	2057	物品名:"考拉象尸体"
+DESCRIBE.KRAMPUS	坎普斯，会偷取地上物品的怪物。	2058	物品名:"坎普斯"
+DESCRIBE.KRAMPUS_SACK	坎普斯的袋子，拥有巨大的储物空间。	2059	物品名:"坎普斯背包"
+DESCRIBE.LEIF	树精守卫，会攻击砍伐树木的人。	2060	物品名:"树精守卫"
+DESCRIBE.LEIF_SPARSE	枯木树精，同样会守护树林。	2061	物品名:"树精守卫"
+DESCRIBE.LIGHTER	薇洛的打火机，提供持久的火源。	2062	物品名:"薇洛的打火机" 制造描述:"火焰在雨中彻夜燃烧。"
+DESCRIBE.LIGHTNING_ROD.CHARGED	避雷针已充满电荷，闪闪发光。	2065	物品名:"避雷针" 制造描述:"防雷劈。"
+DESCRIBE.LIGHTNING_ROD.GENERIC	避雷针，能吸引闪电保护周围的建筑。	2066	物品名:"避雷针"->默认 制造描述:"防雷劈。"
+DESCRIBE.LIGHTNINGGOAT.GENERIC	伏特羊，一种能产生电荷的山羊。	2070	物品名:"伏特羊"->默认
+DESCRIBE.LIGHTNINGGOAT.CHARGED	伏特羊被闪电充能，变得更具攻击性。	2071	物品名:"伏特羊"
+DESCRIBE.LIGHTNINGGOATHORN	伏特羊角，是良好的导电材料。	2073	物品名:"伏特羊角"
+DESCRIBE.GOATMILK	带电的羊奶，饮用它可能会受到电击。	2074	物品名:"带电的羊奶"
+DESCRIBE.LITTLE_WALRUS	小海象，会跟随它的父亲。	2075	物品名:"小海象"
+DESCRIBE.LIVINGLOG	活木，蕴含生命能量的木头。	2076	物品名:"活木头" 制造描述:"投身制作，置身其中。"
+DESCRIBE.LOG.BURNING	木头在燃烧。	2079	物品名:"木头"->正在燃烧
+DESCRIBE.LOG.GENERIC	木头，基础的建筑和燃料材料。	2080	物品名:"木头"->默认
+DESCRIBE.LUCY	此斧竟生器灵，已非凡物。	2082	物品名:"露西斧" （点明“器灵”这一修仙概念）
+DESCRIBE.LUREPLANT	诱妖花，以幻饵惑心，吞食生灵。	2083	物品名:"食人花" （使用“妖”、“幻饵”、“惑心”等词）
+DESCRIBE.LUREPLANTBULB	此花妖种，可植于洞府之外以御外敌。	2084	物品名:"食人花种子" （融入“洞府”、“御外敌”的修真场景）
+DESCRIBE.MALE_PUPPET	此儡似有残魂依附，怨念不散。	2085	single player  -- 物品名:"男性人偶" （用“儡”、“残魂”、“怨念”描述）
+DESCRIBE.MANDRAKE_ACTIVE	曼德拉草精，其啼摄魂，速速封禁！	2086	物品名:"曼德拉草" （称其为“精”，技能为“摄魂啼”）
+DESCRIBE.MANDRAKE_PLANTED	地脉交汇处，竟生此通灵草精。	2087	物品名:"曼德拉草" （用“地脉”、“通灵”解释其生成）
+DESCRIBE.MANDRAKE	曼德拉草，蕴含极阴之气，可入药亦可炼魂。	2088	物品名:"曼德拉草" （说明其能量属性和炼丹/炼魂用途）
+DESCRIBE.MANDRAKESOUP	一碗魂汤，饮之堕入梦魇，百年难醒。	2089	物品名:"曼德拉草汤" （形容为“魂汤”，效果夸张为“百年难醒”）
+DESCRIBE.MANDRAKE_COOKED	草精经真火淬炼，药性已变，可炼定魂丹。	2090	物品名:"熟曼德拉草" （用“真火淬炼”、“定魂丹”等炼丹术语）
+DESCRIBE.MAPSCROLL	空白玉简，需以神识刻录山河地貌，方可与他人交感。	2091	物品名:"地图卷轴" （替换为“玉简”、“神识刻录”、“交感”）
+DESCRIBE.MARBLE	玄玉石，乃炼制防御法器的上佳材料。	2092	物品名:"大理石" （称为“玄玉石”，点明炼器用途）
+DESCRIBE.MARBLEBEAN	石中蕴灵，此种可生玄玉林，布阵最佳。	2093	物品名:"大理石豌豆" （“石中蕴灵”、“玄玉林”、“布阵”）
+DESCRIBE.MARBLEBEAN_SAPLING	玄玉树苗，灵气内敛，待其成林。	2094	物品名:"大理石芽" （称为“玄玉树苗”，描述灵气）
+DESCRIBE.MARBLESHRUB	玄玉灌木，金刚不坏，可挡灾劫。	2095	物品名:"大理石灌木" （“金刚不坏”、“挡灾劫”）
+DESCRIBE.MARBLEPILLAR	玄玉柱，上接清气，下镇地脉，可作山门之基。	2096	物品名:"大理石柱" （赋予风水、镇守、山门等宏大功能）
+DESCRIBE.MARBLETREE	玄玉神木，万载不朽，非仙剑不可伤其分毫。	2097	物品名:"大理石树" （升格为“神木”，强调其坚硬需“仙剑”才能伤）
+DESCRIBE.MARSH_BUSH.BURNT	毒棘已焚，煞气暂消。	2100	物品名:"尖刺灌木"->烧焦的 （“毒棘”、“煞气”）
+DESCRIBE.MARSH_BUSH.BURNING	阴火焚棘，噼啪作响。	2101	物品名:"尖刺灌木"->正在燃烧 （“阴火”）
+DESCRIBE.MARSH_BUSH.GENERIC	幽冥棘丛，暗藏毒刺，触之则损精元。	2102	物品名:"尖刺灌木"->默认 （“幽冥”、“损精元”）
+DESCRIBE.MARSH_BUSH.PICKED	哼，区区毒刺，也敢伤我道体！	2103	物品名:"尖刺灌木"->被采完了 （“道体”）
+DESCRIBE.BURNT_MARSH_BUSH	棘丛成灰，阴毒尽散。	2105	物品名:"烧焦的尖刺灌木"
+DESCRIBE.MARSH_PLANT	沼生凡草，阴气滋养，可作低阶毒媒。	2106	物品名:"沼泽植物" （“阴气滋养”、“毒媒”）
+DESCRIBE.MARSH_TREE.BURNING	阴木遇火，其焰幽蓝。	2109	物品名:"针刺树"->正在燃烧 （“阴木”、“幽蓝”）
+DESCRIBE.MARSH_TREE.BURNT	焦枯阴木，再无威胁。	2110	物品名:"针刺树"->烧焦的
+DESCRIBE.MARSH_TREE.CHOPPED	毒刺已除，此木可为我所用。	2111	物品名:"针刺树"->被砍了
+DESCRIBE.MARSH_TREE.GENERIC	刺骨毒木，盘踞污秽之地，吸纳死气而生。	2112	物品名:"针刺树"->默认 （“刺骨毒木”、“死气”）
+DESCRIBE.MAXWELL	此界镇守者？气息诡谲，似人非人。	2114	single player  -- 物品名:"麦斯威尔" （“此界镇守者”、“似人非人”）
+DESCRIBE.MAXWELLHEAD	一首级竟能存世，其上怨念与魔力交织。	2115	removed  -- 物品名:"麦斯威尔的头" （“怨念与魔力交织”）
+DESCRIBE.MAXWELLLIGHT	此灯以魂力为引，竟能辟易黑暗。	2116	single player  -- 物品名:"麦斯威尔灯" （“魂力为引”）
+DESCRIBE.MAXWELLLOCK	锁窍暗合九幽阵纹，非寻常钥匙可开。	2117	single player  -- 物品名:"梦魇锁" （“九幽阵纹”）
+DESCRIBE.MAXWELLTHRONE	魔气森然的王座，凡人岂可染指？	2118	single player  -- 物品名:"梦魇王座" （“魔气森然”）
+DESCRIBE.MEAT	血肉精华，可补气血，然杂质颇多。	2119	物品名:"肉" （“血肉精华”、“补气血”、“杂质”）
+DESCRIBE.MEATBALLS	肉糜成丸，虽易食，却失了锤炼气血之效。	2120	物品名:"肉丸" （“锤炼气血”）
+DESCRIBE.MEATRACK.DONE	肉干已成，气血内蕴，便于携带。	2123	物品名:"晾肉架"->完成了 （“气血内蕴”）
+DESCRIBE.MEATRACK.DRYING	风干淬炼，去芜存菁。	2124	物品名:"晾肉架"->正在风干 （“淬炼”、“去芜存菁”）
+DESCRIBE.MEATRACK.DRYINGINRAIN	天降甘霖，却扰我淬炼气血之功。	2125	物品名:"晾肉架"->雨天风干
+DESCRIBE.MEATRACK.GENERIC	以此架风干灵肉，可锁其精华。	2126	物品名:"晾肉架"->默认 （“灵肉”、“锁其精华”）
+DESCRIBE.MEATRACK.BURNT	真火失控，肉架尽毁，可惜了这些灵材。	2127	物品名:"晾肉架"->烧焦的 （“真火失控”、“灵材”）
+DESCRIBE.MEATRACK.DONE_NOTMEAT	风干灵植，药性更纯。	2128	物品名:"晾肉架" （“灵植”、“药性”）
+DESCRIBE.MEATRACK.DRYING_NOTMEAT	借风雷之力，淬炼草木精华。	2129	物品名:"晾肉架" （“风雷之力”、“草木精华”）
+DESCRIBE.MEATRACK.DRYINGINRAIN_NOTMEAT	雨露虽含生机，此刻却碍我淬药。	2130	物品名:"晾肉架"
+DESCRIBE.MEAT_DRIED	灵肉干，气血凝而不散，乃闭关辟谷之上品。	2132	物品名:"肉干"
+DESCRIBE.MERM	沼底鱼妖，灵智未开，只知凭本能袭扰过客。	2133	物品名:"鱼人"
+DESCRIBE.MERMHEAD.GENERIC	鱼妖首级，腥煞之气冲天，可布邪阵或炼毒。	2136	物品名:"鱼人头"->默认
+DESCRIBE.MERMHEAD.BURNT	鱼首成炭，煞气已泄，沦为无用秽物。	2137	物品名:"鱼人头"->烧焦的
+DESCRIBE.MERMHOUSE.GENERIC	鱼妖巢穴，以污秽水藻与朽木搭建，腥臭不堪。	2141	物品名:"漏雨的小屋"->默认
+DESCRIBE.MERMHOUSE.BURNT	妖巢焚毁，污秽暂清，然此地风水已遭败坏。	2142	物品名:"漏雨的小屋"->烧焦的
+DESCRIBE.MINERHAT	额前嵌光石，夜探矿脉如白昼。	2144	物品名:"矿工帽" （“光石”、“夜探矿脉”）
+DESCRIBE.MONKEY	洞中妖猴，狡黠善窃，扰人清修。	2145	物品名:"穴居猴" （“妖猴”、“狡黠善窃”、“扰人清修”）
+DESCRIBE.MONKEYBARREL	妖气萦绕的木桶，内藏猴精巢穴。	2146	物品名:"穴居猴桶" （“妖气萦绕”、“猴精巢穴”）
+DESCRIBE.MONSTERLASAGNA	秽物杂烩，魔气森然，食之恐污道基。	2147	物品名:"怪物千层饼" （“秽物”、“魔气森然”、“污道基”）
+DESCRIBE.FLOWERSALAD	百花清拌，蕴含一丝草木精粹，可清心明目。	2148	物品名:"花沙拉" （“草木精粹”、“清心明目”）
+DESCRIBE.ICECREAM	玄冰灵酪，甘甜沁腑，然寒性过重，不可多食。	2149	物品名:"冰淇淋" （“玄冰灵酪”、“寒性过重”）
+DESCRIBE.WATERMELONICLE	寒瓜注以玄冰之气，乃消暑辟火之小食。	2150	物品名:"西瓜冰棍" （“玄冰之气”、“消暑辟火”）
+DESCRIBE.TRAILMIX	百果灵籽混杂，可快速补充元气，利于长途跋涉。	2151	物品名:"什锦干果" （“灵籽”、“补充元气”）
+DESCRIBE.HOTCHILI	烈焰椒烹制的炖肉，食之如吞火，可暂驱寒毒。	2152	物品名:"辣椒炖肉" （“烈焰椒”、“吞火”、“驱寒毒”）
+DESCRIBE.GUACAMOLE	灵鳄梨所制酱料，口感奇特，略有滋补之效。	2153	物品名:"鳄梨酱" （“灵鳄梨”、“滋补之效”）
+DESCRIBE.MONSTERMEAT	魔兽血肉，蕴含狂暴戾气，凡人食之立毙。	2154	物品名:"怪物肉" （“魔兽血肉”、“狂暴戾气”）
+DESCRIBE.MONSTERMEAT_DRIED	戾气凝于干肉，虽经风干，凶险未减分毫。	2155	物品名:"怪物肉干" （“戾气凝于干肉”）
+DESCRIBE.MOOSE	麋鹿鹅，水系妖禽，性情暴烈，掌控寒冰之力。	2156	物品名:"麋鹿鹅" （“水系妖禽”、“掌控寒冰之力”）
+DESCRIBE.MOOSE_NESTING_GROUND	此乃麋鹿鹅妖巢，灵气异常，必有异宝或凶险。	2157	物品名:"麋鹿鹅巢穴" （“妖巢”、“灵气异常”）
+DESCRIBE.MOOSEEGG	妖禽之卵，冰气缭绕，非寻常之法可烹。	2158	物品名:"麋鹿鹅蛋" （“妖禽之卵”、“冰气缭绕”）
+DESCRIBE.MOSSLING	麋鹿鹅幼雏，羽翼未丰，然已显控冰之能。	2159	物品名:"麋鹿鹅幼崽" （“幼雏”、“控冰之能”）
+DESCRIBE.FEATHERFAN	以妖禽翎羽所制宝扇，轻轻一挥，可唤来清凉罡风。	2160	物品名:"羽毛扇" （“宝扇”、“清凉罡风”）
+DESCRIBE.MINIFAN	小巧风符器，奔走时可生微风，仅能解片刻之暑。	2161	物品名:"迷你风扇" （“风符器”、“解片刻之暑”）
+DESCRIBE.GOOSE_FEATHER	妖禽本命翎羽，内含精纯水灵之气。	2162	物品名:"麋鹿鹅羽毛" （“本命翎羽”、“水灵之气”）
+DESCRIBE.STAFF_TORNADO	唤风妖杖，威力巨大却难以驾驭，易遭反噬。	2163	物品名:"旋风法杖" （“唤风妖杖”、“反噬”）
+DESCRIBE.MOSQUITO.GENERIC	嗜血妖蚊，遁速极快，被其叮咬会损及元气。	2166	物品名:"蚊子"->默认 （“嗜血妖蚊”、“损及元气”）
+DESCRIBE.MOSQUITO.HELD	妖蚊在手，其腹鼓胀，吸食的正是生灵精血。	2167	物品名:"蚊子"->拿在手里 （“生灵精血”）
+DESCRIBE.MOSQUITOSACK	血囊之内，精血混杂妖气，是炼制邪门丹药的材料。	2169	物品名:"蚊子血囊" （“精血混杂妖气”、“邪门丹药”）
+DESCRIBE.MOUND.DUG	坟冢已开，阴气外泄，恐生不祥。	2172	物品名:"坟墓"->被挖了 （“阴气外泄”）
+DESCRIBE.MOUND.GENERIC	一座无名孤坟，煞气内敛，或葬有古修遗骸。	2173	物品名:"坟墓"->默认 （“煞气内敛”、“古修遗骸”）
+DESCRIBE.NIGHTLIGHT	此灯以梦魇为油，燃起诡谲紫焰，可震慑心魔。	2175	物品名:"暗夜灯" （“梦魇为油”、“震慑心魔”）
+DESCRIBE.NIGHTMAREFUEL	凝练的梦魇精华，是修炼邪功、炼制魔器的至阴之物。	2176	物品名:"噩梦燃料" （“至阴之物”）
+DESCRIBE.NIGHTSWORD	暗夜魔剑，剑出无声，专伤神魂，煞气极重。	2177	物品名:"暗夜剑" （“伤神魂”、“煞气极重”）
+DESCRIBE.NITRE	地脉硝石，可配火药，亦能用于炼制某些爆裂符箓。	2178	物品名:"硝石" （“地脉硝石”、“爆裂符箓”）
+DESCRIBE.ONEMANBAND	百音傀儡戏，乐声杂乱，闻之令人心神不宁。	2179	物品名:"独奏乐器" （“百音傀儡戏”、“心神不宁”）
+DESCRIBE.OASISLAKE.GENERIC	荒漠中的灵泉湖？水汽氤氲，似有幻阵守护。	2182	物品名:"绿洲湖"->默认 （“灵泉湖”、“幻阵守护”）
+DESCRIBE.OASISLAKE.EMPTY	湖床干涸，灵脉枯竭，只余死寂。	2183	物品名:"绿洲湖"->干涸 （“灵脉枯竭”）
+DESCRIBE.PANDORASCHEST	秘宝匣，开启时或得机缘，或遭诅咒，全凭气运。	2185	物品名:"华丽箱子" （“秘宝匣”、“机缘”、“诅咒”、“气运”）
+DESCRIBE.PANFLUTE	安魂仙音，箫声一起，可使百兽沉眠，妖灵止戈。	2186	物品名:"排箫" （“安魂仙音”、“妖灵止戈”）
+DESCRIBE.PAPYRUS	灵植所制的符纸，是书写基础符箓的载体。	2187	物品名:"莎草纸" （“符纸”、“书写符箓”）
+DESCRIBE.WAXPAPER	蜂蜡灵纸，可保药材灵性不失，常用于包裹丹丸。	2188	物品名:"蜡纸" （“蜂蜡灵纸”、“保药材灵性”）
+DESCRIBE.PENGUIN	极地寒妖，虽不能飞，却善驭冰遁水。	2189	物品名:"企鹅" （“极地寒妖”、“驭冰遁水”）
+DESCRIBE.PERD	盗药灵雀，专窃灵果，其肉蕴含草木精华。	2190	物品名:"火鸡" （“盗药灵雀”、“草木精华”）
+DESCRIBE.PEROGIES	灵面裹仙肴，食之可快速恢复元气，疗愈暗伤。	2191	物品名:"波兰水饺" （“灵面”、“仙肴”、“疗愈暗伤”）
+DESCRIBE.PETALS	百花灵气所凝，可制香囊，亦可作为低阶丹药的引子。	2192	物品名:"花瓣" （“百花灵气”、“丹药引子”）
+DESCRIBE.PETALS_EVIL	魔域妖花花瓣，煞气缠绕，是炼制毒蛊的材料。	2193	物品名:"邪恶花瓣" （“魔域妖花”、“毒蛊”）
+DESCRIBE.PHLEGM	寒蟾毒涎，奇粘无比，蕴含冰霜与麻痹之毒。	2194	物品名:"脓鼻涕" （“寒蟾毒涎”、“冰霜与麻痹之毒”）
+DESCRIBE.PICKAXE	开山镐，采掘灵石矿脉的必备工具。	2195	物品名:"鹤嘴锄" （“开山镐”、“灵石矿脉”）
+DESCRIBE.PIGGYBACK	猪妖皮炼制的行囊，容量巨大，但背负时会阻滞灵气运转。	2196	物品名:"猪皮包" （“猪妖皮”、“阻滞灵气运转”）
+DESCRIBE.PIGHEAD.GENERIC	祭坛猪首，怨念凝聚，似为某种邪祀法器。	2199	物品名:"猪头"->默认 （“祭坛猪首”、“怨念凝聚”、“邪祀法器”）
+DESCRIBE.PIGHEAD.BURNT	猪首法器已毁，其上怨念亦随之消散。	2200	物品名:"猪头"->烧焦的 （“法器已毁”、“怨念消散”）
+DESCRIBE.PIGHOUSE.FULL	猪妖居于屋内，气息平稳。	2204	物品名:"猪屋"->满了 （“猪妖”）
+DESCRIBE.PIGHOUSE.GENERIC	猪妖巢穴，以灵木搭建，结构粗陋却蕴含一丝妖力。	2205	物品名:"猪屋"->默认 （“猪妖巢穴”、“蕴含妖力”）
+DESCRIBE.PIGHOUSE.LIGHTSOUT	屋内妖气收敛，猪妖已歇息，勿要惊扰。	2206	物品名:"猪屋"->关灯了 （“妖气收敛”）
+DESCRIBE.PIGHOUSE.BURNT	猪妖巢穴被焚，只余残垣断壁。	2207	物品名:"猪屋"->烧焦的
+DESCRIBE.PIGKING	猪妖之王？气息浑浊，似被禁锢于此，靠贡品维系存在。	2209	物品名:"猪王" （“猪妖之王”、“气息浑浊”、“被禁锢”）
+DESCRIBE.PIGMAN.DEAD	猪人毙命，妖气散尽。	2212	物品名:"猪人"->死了
+DESCRIBE.PIGMAN.FOLLOWER	此猪人愿追随于我，或可利用其蛮力。	2213	物品名:"猪人"->追随者 （“利用其蛮力”）
+DESCRIBE.PIGMAN.GENERIC	半妖猪人，灵智初开，可交易，亦需提防其凶性。	2214	物品名:"猪人"->默认 （“半妖”、“灵智初开”、“交易”）
+DESCRIBE.PIGMAN.GUARD	猪人护卫，妖气外放，警惕性极高。	2215	物品名:"猪人"->警戒 （“妖气外放”）
+DESCRIBE.PIGMAN.WEREPIG	月煞入体，猪人狂化！凶性暴涨，速退！	2216	物品名:"猪人"->疯猪 （“月煞入体”、“狂化”）
+DESCRIBE.PIGSKIN	猪妖之皮，坚韧异常，可制甲胄。	2218	物品名:"猪皮" （“猪妖之皮”、“制甲胄”）
+DESCRIBE.PIGTENT	猪妖祭坛？血肉供奉，腥气扑鼻，定非善地。	2219	物品名:"猪人帐篷" （“祭坛”、“血肉供奉”）
+DESCRIBE.PIGTORCH	猪妖图腾火柱，火光中似有低语，扰人心神。	2220	物品名:"猪火炬" （“图腾火柱”、“低语扰心神”）
+DESCRIBE.PINECONE	松果内蕴乙木生机，可栽种亦可作为低阶火系符箓材料。	2221	物品名:"松果" （“乙木生机”、“火系符箓材料”）
+DESCRIBE.PINECONE_SAPLING	乙木灵苗，假以时日，可成聚灵之木。	2222	物品名:"常青树苗" （“乙木灵苗”、“聚灵之木”）
+DESCRIBE.LUMPY_SAPLING	此树苗灵气郁结，形态扭曲，恐生变异。	2223	物品名:"有疙瘩的树苗" （“灵气郁结”、“变异”）
+DESCRIBE.PITCHFORK	寻龙分金铲？可堪一用，然非正道。	2224	物品名:"干草叉" （“寻龙分金铲”、“非正道”）
+DESCRIBE.PLANTMEAT	妖植血肉，生机诡异，凡人不可妄食。	2225	物品名:"叶肉" （“妖植血肉”、“生机诡异”）
+DESCRIBE.PLANTMEAT_COOKED	经真火淬炼，妖植血肉戾气稍减，然终究非正途食粮。	2226	物品名:"熟叶肉" （“戾气稍减”、“非正途食粮”）
+DESCRIBE.PLANT_NORMAL.GENERIC	灵植长势旺盛，灵气盎然。	2229	物品名:"农作物"->默认 （“灵植”、“灵气盎然”）
+DESCRIBE.PLANT_NORMAL.GROWING	灵植正在汲取地脉灵气，缓慢生长。	2230	物品名:"农作物"->正在生长 （“汲取地脉灵气”）
+DESCRIBE.PLANT_NORMAL.READY	灵植已成熟，灵气内蕴，正是采摘之时。	2231	物品名:"农作物"->准备好的 满的 （“灵气内蕴”）
+DESCRIBE.PLANT_NORMAL.WITHERED	地火过旺，灵植被灼伤，生机断绝。	2232	物品名:"农作物"->枯萎了 （“地火过旺”、“灼伤”）
+DESCRIBE.POMEGRANATE	赤玉灵果，籽实饱满，有补气活血之效。	2234	物品名:"石榴" （“赤玉灵果”、“补气活血”）
+DESCRIBE.POMEGRANATE_COOKED	火炼赤玉果，温润滋补，更易吸收。	2235	物品名:"烤石榴" （“温润滋补”）
+DESCRIBE.POMEGRANATE_SEEDS	赤玉果种，需以灵土栽培。	2236	物品名:"石榴种子" （“灵土栽培”）
+DESCRIBE.POND	灵泉之眼？水汽氤氲，似有鱼龙潜藏。	2237	物品名:"池塘" （“灵泉之眼”、“鱼龙潜藏”）
+DESCRIBE.POOP	妖兽排泄之物，污秽却蕴含一丝未化灵气，可肥灵田。	2238	物品名:"粪肥" （“妖兽排泄”、“未化灵气”、“肥灵田”）
+DESCRIBE.FERTILIZER	特制灵肥，能加速灵植生长，滋养地力。	2239	物品名:"肥料" （“灵肥”、“滋养地力”）
+DESCRIBE.PUMPKIN	金纹灵瓜，蕴含丰沛土灵之气。	2240	物品名:"南瓜" （“金纹灵瓜”、“土灵之气”）
+DESCRIBE.PUMPKINCOOKIE	以灵瓜粉所制小点，香甜可口，可稍补元气。	2241	物品名:"南瓜饼干" （“灵瓜粉”、“补元气”）
+DESCRIBE.PUMPKIN_COOKED	烤灵瓜，土灵之气更为温和。	2242	物品名:"烤南瓜"
+DESCRIBE.PUMPKIN_LANTERN	以灵瓜雕琢的辟邪灯，烛光可驱散低阶邪祟。	2243	物品名:"南瓜灯" （“辟邪灯”、“驱散邪祟”）
+DESCRIBE.PUMPKIN_SEEDS	金纹瓜种，需广阔之地生长。	2244	物品名:"南瓜种子"
+DESCRIBE.PURPLEAMULET	梦魇护符，低语着上古魔文，佩戴者心智渐蚀。	2245	物品名:"梦魇护符" （“上古魔文”、“心智渐蚀”）
+DESCRIBE.PURPLEGEM	幽冥紫晶，蕴含虚空之力，是构筑传送阵法的核心。	2246	物品名:"紫宝石" （“幽冥紫晶”、“虚空之力”、“传送阵法”）
+DESCRIBE.RABBIT.GENERIC	月宫玉兔的后裔？灵性十足，擅寻灵植。	2249	物品名:"兔子"->默认 （“月宫玉兔后裔”、“擅寻灵植”）
+DESCRIBE.RABBIT.HELD	此兔灵性温和，抱之可宁心神。	2250	物品名:"兔子"->拿在手里 （“宁心神”）
+DESCRIBE.RABBITHOLE.GENERIC	狡兔三窟，此洞府灵气充裕，乃修炼宝地。	2254	物品名:"兔洞"->默认 （“洞府”、“修炼宝地”）
+DESCRIBE.RABBITHOLE.SPRING	春回大地，兔妖洞府生机勃发。	2255	物品名:"兔洞"->春天 （“兔妖洞府”）
+DESCRIBE.RAINOMETER.GENERIC	观天仪，可预判天象变化，水灵之气汇聚则指针偏转。	2259	物品名:"雨量计"->默认 （“观天仪”、“水灵之气”）
+DESCRIBE.RAINOMETER.BURNT	观天仪遭雷火焚毁，天机难测。	2260	物品名:"雨量计"->烧焦的 （“雷火焚毁”、“天机难测”）
+DESCRIBE.RAINCOAT	避水法衣，符文流转，风雨不侵。	2262	物品名:"雨衣" （“避水法衣”、“符文流转”）
+DESCRIBE.RAINHAT	斗雨笠，编织时掺入避水灵丝。	2263	物品名:"雨帽" （“斗雨笠”、“避水灵丝”）
+DESCRIBE.RATATOUILLE	百灵蔬烩，虽无肉腥，却别有一番清韵，可涤荡肠胃浊气。	2264	物品名:"蔬菜杂烩" （“百灵蔬烩”、“涤荡浊气”）
+DESCRIBE.RAZOR	净面灵刃，可断烦恼丝，亦能采集某些脆弱灵材。	2265	物品名:"剃刀" （“净面灵刃”、“断烦恼丝”）
+DESCRIBE.REDGEM	烈阳宝石，内蕴纯阳火精，是炼制火系法宝的绝佳材料。	2266	物品名:"红宝石" （“烈阳宝石”、“纯阳火精”）
+DESCRIBE.RED_CAP	赤焰毒菇，生食会引动心火，使人狂躁。	2267	物品名:"红蘑菇" （“赤焰毒菇”、“引动心火”）
+DESCRIBE.RED_CAP_COOKED	毒菇经真火炼化，转为大补之物，可壮气血。	2268	物品名:"熟红蘑菇" （“真火炼化”、“壮气血”）
+DESCRIBE.RED_MUSHROOM.GENERIC	赤焰菇，生于阳煞之地，蕴含火毒。	2271	物品名:"红蘑菇"->默认 （“赤焰菇”、“阳煞之地”、“火毒”）
+DESCRIBE.RED_MUSHROOM.INGROUND	赤焰菇潜藏地脉火脉之上，待煞气充盈时破土。	2272	物品名:"红蘑菇"->在地里面 （“地脉火脉”、“煞气充盈”）
+DESCRIBE.RED_MUSHROOM.PICKED	赤焰菇已被采摘，需待地火回流方能再生。	2273	物品名:"红蘑菇"->被采完了 （“地火回流”）
+DESCRIBE.REEDS.BURNING	芦苇遇火，瞬息成灰。	2277	物品名:"芦苇"->正在燃烧
+DESCRIBE.REEDS.GENERIC	水畔灵苇，是制作符纸的上佳材料。	2278	物品名:"芦苇"->默认 （“灵苇”、“制作符纸”）
+DESCRIBE.REEDS.PICKED	灵苇已收，待其重新汲取水灵之气生长。	2279	物品名:"芦苇"->被采完了 （“汲取水灵之气”）
+DESCRIBE.RELIC	上古修士遗物，岁月流逝，灵韵几近消散。	2281	物品名:"遗物" （“上古修士遗物”、“灵韵消散”）
+DESCRIBE.RUINS_RUBBLE	远古遗迹的碎片，其上道纹残缺，或可修复以窥天机。	2282	物品名:"损毁的废墟" （“远古遗迹”、“道纹残缺”、“窥天机”）
+DESCRIBE.RUBBLE	寻常碎石，或可铺路。	2283	物品名:"碎石"
+DESCRIBE.RESEARCHLAB.GENERIC	悟道石，触摸其上符文可启迪心智，解锁炼制法门。	2286	物品名:"科学机器"->默认 （“悟道石”、“启迪心智”、“炼制法门”）
+DESCRIBE.RESEARCHLAB.BURNT	悟道石被毁，道韵尽失。	2287	物品名:"科学机器"->烧焦的 （“道韵尽失”）
+DESCRIBE.RESEARCHLAB2.GENERIC	炼器鼎，内蕴乾坤，可推演更精妙的法宝图谱。	2291	物品名:"炼金引擎"->默认 （“炼器鼎”、“推演法宝图谱”）
+DESCRIBE.RESEARCHLAB2.BURNT	炼器鼎炸炉，毁于一旦。	2292	物品名:"炼金引擎"->烧焦的 （“炸炉”）
+DESCRIBE.RESEARCHLAB3.GENERIC	暗影祭坛，沟通九幽，驾驭影魅之力，然风险难测。	2296	物品名:"暗影操控器"->默认 （“暗影祭坛”、“九幽”、“影魅之力”）
+DESCRIBE.RESEARCHLAB3.BURNT	祭坛失控，反噬其主，终成废墟。	2297	物品名:"暗影操控器"->烧焦的 （“反噬其主”）
+DESCRIBE.RESEARCHLAB4.GENERIC	聚灵法阵，能汇聚天地灵气，增幅符箓威能。	2301	物品名:"灵子分解器"->默认 （“聚灵法阵”、“增幅符箓”）
+DESCRIBE.RESEARCHLAB4.BURNT	法阵核心过载，已然崩坏。	2302	物品名:"灵子分解器"->烧焦的 （“核心过载”）
+DESCRIBE.RESURRECTIONSTATUE.GENERIC	替死傀儡，以血肉为引，可挡一次死劫，然有伤天和。	2306	物品名:"肉块雕像"->默认 （“替死傀儡”、“挡死劫”、“有伤天和”）
+DESCRIBE.RESURRECTIONSTATUE.BURNT	傀儡已毁，劫数难逃。	2307	物品名:"肉块雕像"->烧焦的
+DESCRIBE.RESURRECTIONSTONE	回魂仙石，蕴含生死法则之力，乃逆天改命之宝。	2309	物品名:"试金石" （“回魂仙石”、“生死法则”、“逆天改命”）
+DESCRIBE.ROBIN.GENERIC	报春灵雀，其鸣可驱散冬日沉寂。	2312	物品名:"红雀"->默认 （“报春灵雀”）
+DESCRIBE.ROBIN.HELD	灵雀在手，能感到其体内微弱的生机流转。	2313	物品名:"红雀"->拿在手里 （“生机流转”）
+DESCRIBE.ROBIN_WINTER.GENERIC	雪精化雀，翎羽如冰晶，不惧严寒。	2317	物品名:"雪雀"->默认 （“雪精化雀”）
+DESCRIBE.ROBIN_WINTER.HELD	此雀通体冰寒，却无恶意。	2318	物品名:"雪雀"->拿在手里
+DESCRIBE.ROBOT_PUPPET	机关人儡，动作僵硬，似被无形丝线操控。	2320	single player  -- 物品名:"机器人傀儡" （“机关人儡”、“无形丝线操控”）
+DESCRIBE.ROCK_LIGHT.GENERIC	地火熔岩池，炽热异常，乃炼器的绝佳火源。	2323	removed  -- 物品名:"熔岩坑"->默认 （“地火熔岩池”、“炼器火源”）
+DESCRIBE.ROCK_LIGHT.OUT	地火暂熄，熔岩凝固，需待地脉能量重新汇聚。	2324	removed  -- 物品名:"熔岩坑"->熄灭 （“地脉能量重新汇聚”）
+DESCRIBE.ROCK_LIGHT.LOW	地火式微，熔浆渐凝，火源不稳。	2325	removed  -- 物品名:"熔岩坑"->减弱
+DESCRIBE.ROCK_LIGHT.NORMAL	地火稳定，热力充沛，正合淬炼之用。	2326	removed  -- 物品名:"熔岩坑"->正常
+DESCRIBE.CAVEIN_BOULDER.GENERIC	封路巨石，其上似有禁制残留，需以巧劲破之。	2330	物品名:"落石"->默认 （“禁制残留”、“巧劲破之”）
+DESCRIBE.CAVEIN_BOULDER.RAISED	巨石悬于穹顶，禁制完整，不可力敌。	2331	物品名:"落石"->悬空 （“禁制完整”）
+DESCRIBE.ROCK	玄铁矿石？不，只是凡石，内含杂质颇多。	2333	物品名:"岩石" （“玄铁矿石？”、“杂质颇多”）
+DESCRIBE.PETRIFIED_TREE	此木遭石化邪术，生机尽锁，万年不朽。	2334	物品名:"石化树" （“石化邪术”、“生机尽锁”）
+DESCRIBE.ROCK_PETRIFIED_TREE	石化妖木，纹理诡异，触之有阴寒之感。	2335	物品名:"石化树" （“妖木”、“阴寒之感”）
+DESCRIBE.ROCK_PETRIFIED_TREE_OLD	远古石化木，岁月气息浓郁。	2336	物品名:"远古石化树" （“岁月气息”）
+DESCRIBE.ROCK_ICE.GENERIC	玄冰矿脉，寒气刺骨，是炼制冰系法器的材料。	2339	物品名:"迷你冰川"->默认 （“玄冰矿脉”、“冰系法器材料”）
+DESCRIBE.ROCK_ICE.MELTED	玄冰消融，灵气散逸，已不堪大用。	2340	物品名:"迷你冰川"->融化了 （“灵气散逸”）
+DESCRIBE.ROCK_ICE_MELTED	一滩寒水，需极寒之地方能重凝为玄冰。	2342	物品名:"融化的迷你冰川” （“极寒之地重凝”）
+DESCRIBE.ICE	千年寒冰，可镇心魔，亦可保存灵物不腐。	2343	物品名:"冰” （“镇心魔”、“保存灵物”）
+DESCRIBE.ROCKS	碎石若干，可铺路，亦可投掷扰敌。	2344	物品名:"石头” （“投掷扰敌”）
+DESCRIBE.ROOK	发条石魔像，冲锋之势，有撼山之威。	2345	物品名:"发条战车” （“石魔像”、“撼山之威”）
+DESCRIBE.ROPE	百炼草绳，坚韧异常，可缚低阶妖兽。	2346	物品名:"绳子” （“百炼草绳”、“缚妖兽”）
+DESCRIBE.ROTTENEGG	腐卵，秽气滋生，可作毒媒，但风险甚大。	2347	物品名:"腐烂鸟蛋” （“秽气滋生”、“毒媒”）
+DESCRIBE.ROYAL_JELLY	蜂王灵浆，一滴可延年益寿，乃疗伤圣药。	2348	物品名:"蜂王浆” （“灵浆”、“延年益寿”、“疗伤圣药”）
+DESCRIBE.JELLYBEAN	七彩灵丹，虽为糖衣所裹，却蕴含精纯元气，可瞬复法力。	2349	物品名:"彩虹糖豆” （“七彩灵丹”、“瞬复法力”）
+DESCRIBE.SADDLE_BASIC	御兽鞍，刻有简易驯兽符文，可助骑乘。	2350	物品名:"鞍具” （“御兽鞍”、“驯兽符文”）
+DESCRIBE.SADDLE_RACE	追风宝鞍，镌刻疾风阵纹，能大幅提升灵兽脚力。	2351	物品名:"闪亮鞍具” （“追风宝鞍”、“疾风阵纹”）
+DESCRIBE.SADDLE_WAR	撼地战鞍，符文闪耀，可激发坐骑战意，冲锋陷阵。	2352	物品名:"战争鞍具” （“撼地战鞍”、“激发战意”）
+DESCRIBE.SADDLEHORN	解鞍角，轻轻一触便可卸下鞍具符文。	2353	物品名:"鞍角” （“解鞍角”、“卸下符文”）
+DESCRIBE.SALTLICK	聚灵盐砖，妖兽舔食可稳固其躁动妖气，便于驯养。	2354	物品名:"舔盐块” （“聚灵盐砖”、“稳固妖气”）
+DESCRIBE.BRUSH	通灵鬃刷，梳理灵兽毛发，可增亲昵，助其褪毛。	2355	物品名:"刷子” （“通灵鬃刷”、“增亲昵”、“助褪毛”）
+DESCRIBE.SANITYROCK.ACTIVE	此碑竟能扰乱心神？倒是件邪门法宝	2358	物品名:"方尖碑"->激活了
+DESCRIBE.SANITYROCK.INACTIVE	碑文黯淡，灵韵已失。	2359	物品名:"方尖碑"->没有激活
+DESCRIBE.SAPLING.BURNING	凡木遇真火，自取灭亡。	2363	
+DESCRIBE.SAPLING.WITHERED	连这点旱魃之气都承受不住，废物。	2364	
+DESCRIBE.SAPLING.GENERIC	劣根凡木，也妄想成精？	2365	
+DESCRIBE.SAPLING.PICKED	灵韵已失，与枯枝何异。	2366	
+DESCRIBE.SAPLING.DISEASED	病弱草木，也配污王某法眼？	2367	
+DESCRIBE.SAPLING.DISEASING	这秽气...倒是炼毒的好材料！	2368	
+DESCRIBE.SCARECROW.GENERIC	稻草傀儡？倒是比那些蠢材有用些。	2372	物品名:"友善的稻草人"->默认 制造描述:"模仿最新的秋季时尚。"
+DESCRIBE.SCARECROW.BURNING	烧吧，正好给王某炼点怨火。	2373	物品名:"友善的稻草人"->正在燃烧 制造描述:"模仿最新的秋季时尚。"
+DESCRIBE.SCARECROW.BURNT	连灰烬都比你有用。	2374	物品名:"友善的稻草人"->烧焦的 制造描述:"模仿最新的秋季时尚。"
+DESCRIBE.SCULPTINGTABLE.EMPTY	待王某雕个石儡看守洞府。	2378	物品名:"陶轮" 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTINGTABLE.BLOCK	顽石也敢抵抗王某法力？	2379	物品名:"陶轮"->锁住了 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTINGTABLE.SCULPTURE	哼，勉强可作洞府摆设	2380	物品名:"陶轮"->雕像做好了 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTINGTABLE.BURNT	烧过的石材正好炼制阵基	2381	物品名:"陶轮"->烧焦的 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTURE_KNIGHTHEAD	这石首...可炼为护法傀儡之首	2383	物品名:"可疑的大理石"
+DESCRIBE.SCULPTURE_KNIGHTBODY.COVERED	被封印的石像，灵气内敛	2386	
+DESCRIBE.SCULPTURE_KNIGHTBODY.UNCOVERED	何人胆敢破坏王某藏品？	2387	
+DESCRIBE.SCULPTURE_KNIGHTBODY.FINISHED	修复完成，正好看守山门	2388	
+DESCRIBE.SCULPTURE_KNIGHTBODY.READY	石中似有战魂苏醒	2389	
+DESCRIBE.SCULPTURE_BISHOPHEAD	这石首...莫非是哪路小仙的头颅？	2391	物品名:"可疑的大理石"
+DESCRIBE.SCULPTURE_BISHOPBODY.COVERED	新不新不重要，能炼器就行。	2394	物品名:"大理石雕像"->被盖住了-三基佬雕像可以敲大理石的时候
+DESCRIBE.SCULPTURE_BISHOPBODY.UNCOVERED	还缺最后一块...定是被贼人窃去！	2395	物品名:"大理石雕像"->没有被盖住-三基佬雕像被开采后
+DESCRIBE.SCULPTURE_BISHOPBODY.FINISHED	修复完了也不过是死物。	2396	物品名:"大理石雕像"->三基佬雕像修好了
+DESCRIBE.SCULPTURE_BISHOPBODY.READY	石中圣光涌动...要现形了...	2397	物品名:"大理石雕像"->准备好的 满的
+DESCRIBE.SCULPTURE_ROOKNOSE	这石料...似有星辰气息	2399	物品名:"可疑的大理石"
+DESCRIBE.SCULPTURE_ROOKBODY.COVERED	装神弄鬼的石雕。	2402	物品名:"大理石雕像"->被盖住了-三基佬雕像可以敲大理石的时候
+DESCRIBE.SCULPTURE_ROOKBODY.UNCOVERED	此物...或可炼为飞行法器	2403	物品名:"大理石雕像"->没有被盖住-三基佬雕像被开采后
+DESCRIBE.SCULPTURE_ROOKBODY.FINISHED	修补完成，给童儿当练功靶子	2404	物品名:"大理石雕像"->三基佬雕像修好了
+DESCRIBE.SCULPTURE_ROOKBODY.READY	石中巨兽要苏醒了！	2405	物品名:"大理石雕像"->准备好的 满的
+DESCRIBE.GARGOYLE_HOUND	石犬也敢龇牙？正好炼为看门傀儡	2407	
+DESCRIBE.GARGOYLE_WEREPIG	石猪雕工尚可，可惜灵性不足	2408	
+DESCRIBE.SEEDS	凡间草种，也配入我洞天？	2409	
+DESCRIBE.SEEDS_COOKED	烤熟的种子...连喂灵宠都不配	2410	
+DESCRIBE.SEWING_KIT	粗劣针线，也敢称修补之术？	2411	
+DESCRIBE.SEWING_TAPE	勉强可用来修补法衣	2412	
+DESCRIBE.SHOVEL	掘地三尺，正好找寻炼器材料	2413	
+DESCRIBE.SILK	蛛妖精丝？倒是炼制捆仙索的好材料	2414	
+DESCRIBE.SKELETON	连白骨成精的资质都没有	2415	
+DESCRIBE.SCORCHED_SKELETON	雷击枯骨...正好炼制阴雷符	2416	
+DESCRIBE.SKULLCHEST	这邪气...正合王某修炼魔功	2417	
+DESCRIBE.SMALLBIRD.GENERIC	灵雀幼雏，羽翼未丰，需小心看护。	2420	物品名:"小鸟"->默认 （"灵雀幼雏"）
+DESCRIBE.SMALLBIRD.HUNGRY	此雀饥鸣索食，灵性初显。	2421	物品名:"小鸟"->有点饿了 （"饥鸣索食"）
+DESCRIBE.SMALLBIRD.STARVING	幼雀饥火攻心，再不得食恐伤其根基。	2422	物品名:"小鸟"->挨饿 （"饥火攻心"、"伤其根基"）
+DESCRIBE.SMALLBIRD.SLEEPING	灵雀蛰眠，正在蓄养元气。	2423	物品名:"小鸟"->睡着了 （"蛰眠"、"蓄养元气"）
+DESCRIBE.SMALLMEAT	小块兽肉，蕴含微薄气血，可作饵食。	2425	物品名:"小肉" （"微薄气血"、"饵食"）
+DESCRIBE.SMALLMEAT_DRIED	风干肉条，便于携带，可喂食灵宠。	2426	物品名:"小风干肉" （"喂食灵宠"）
+DESCRIBE.SPAT	钢甲岩羊？此兽吞吐金石之气，甲壳坚不可摧。	2427	物品名:"钢羊" （"钢甲岩羊"、"吞吐金石之气"）
+DESCRIBE.SPEAR	凡铁长矛，锋刃尚可，对付寻常妖兽足矣。	2428	物品名:"长矛" （"凡铁"、"寻常妖兽"）
+DESCRIBE.SPEAR_WATHGRITHR	西方战神的黄金矛？其上附有破甲真言。	2429	物品名:"战斗长矛" （"破甲真言"）
+DESCRIBE.WATHGRITHRHAT	女武神战盔，据说能获得独角兽的祝福。	2430	物品名:"战斗头盔" （"女武神战盔"、"独角兽祝福"）
+DESCRIBE.SPIDER.DEAD	蜘蛛尸身，毒腺尚存，可入药。	2433	物品名:"蜘蛛"->死了 （"毒腺尚存，可入药"）
+DESCRIBE.SPIDER.GENERIC	地穴毒蛛，獠牙带煞，需小心其毒液。	2434	物品名:"蜘蛛"->默认 （"地穴毒蛛"、"獠牙带煞"）
+DESCRIBE.SPIDER.SLEEPING	毒蛛蛰伏，此时正是采集毒液的好时机。	2435	物品名:"蜘蛛"->睡着了 （"采集毒液"）
+DESCRIBE.SPIDERDEN	蛛魔巢穴，阴煞之气汇聚，内藏蛛卵无数。	2437	物品名:"蜘蛛巢" （"蛛魔巢穴"、"阴煞之气"）
+DESCRIBE.SPIDEREGGSACK	蛛卵囊，生机勃勃，若处置不当恐生祸端。	2438	物品名:"蜘蛛卵" （"蛛卵囊"、"生机勃勃"）
+DESCRIBE.SPIDERGLAND	蜘蛛毒囊，是炼制解毒丹或剧毒的重要材料。	2439	物品名:"蜘蛛腺" （"解毒丹"、"剧毒材料"）
+DESCRIBE.SPIDERHAT	以蛛魔精魄炼制的帽子，戴上后可令群蛛误认为同类。	2440	物品名:"蜘蛛帽" （"蛛魔精魄"、"误认为同类"）
+DESCRIBE.SPIDERQUEEN	蛛后降临！此妖已修炼成精，统御万千蛛子蛛孙。	2441	物品名:"蜘蛛女王" （"蛛后"、"修炼成精"）
+DESCRIBE.SPIDER_WARRIOR.DEAD	蛛将已毙，其毒囊尚可一用。	2444	物品名:"蜘蛛战士"->死了 （"蛛将"、"毒囊可用"）
+DESCRIBE.SPIDER_WARRIOR.GENERIC	蛛魔战将，甲壳坚硬，獠牙淬毒，需谨慎应对。	2445	物品名:"蜘蛛战士"->默认 （"蛛魔战将"、"谨慎应对"）
+DESCRIBE.SPIDER_WARRIOR.SLEEPING	蛛将蛰伏，气息内敛，此时不宜惊动。	2446	物品名:"蜘蛛战士"->睡着了 （"气息内敛"、"不宜惊动"）
+DESCRIBE.SPOILED_FOOD	食物灵气尽失，已生秽气，不可再食。	2448	物品名:"腐烂物" （"灵气尽失"、"生秽气"）
+DESCRIBE.STAGEHAND.AWAKE	戏台傀儡手？其上附有操控咒法，会阻碍前行。	2451	物品名:"舞台之手"->醒了 （"戏台傀儡手"、"操控咒法"）
+DESCRIBE.STAGEHAND.HIDING	傀儡手隐于台下，伺机而动。	2452	物品名:"舞台之手"->藏起来了 （"伺机而动"）
+DESCRIBE.STATUE_MARBLE.GENERIC	大理石雕像，雕工尚可，却无灵韵。	2456	物品名:"大理石雕像"->默认
+DESCRIBE.STATUE_MARBLE.TYPE1	持剑武士像，姿态威严，可作装饰。	2457	物品名:"大理石雕像"->类型1 （"持剑武士像"）
+DESCRIBE.STATUE_MARBLE.TYPE2	沉思学者像，或许能带来一丝宁静。	2458	物品名:"大理石雕像"->类型2 （"沉思学者像"）
+DESCRIBE.STATUE_MARBLE.TYPE3	禽鸟浴泉像，造型别致，富有生趣。	2459	bird bath type statue  -- 物品名:"大理石雕像"->类型3 （"禽鸟浴泉像"）
+DESCRIBE.STATUEHARP	无头竖琴雕像，造型诡异，似有未散执念。	2461	物品名:"竖琴雕像" （"未散执念"）
+DESCRIBE.STATUEMAXWELL	麦斯威尔的石像，雕琢得倒有几分神韵。	2462	物品名:"麦斯威尔雕像" （"几分神韵"）
+DESCRIBE.STEELWOOL	百炼钢绒，质地特殊，或可用于打磨法器。	2463	物品名:"钢丝绵" （"百炼钢绒"、"打磨法器"）
+DESCRIBE.STINGER	毒蜂尾针，尖锐无比，是制作暗器的好材料。	2464	物品名:"蜂刺" （"制作暗器"）
+DESCRIBE.STRAWHAT	辟暑草冠，编织时混入了清凉灵草。	2465	物品名:"草帽" （"辟暑草冠"、"清凉灵草"）
+DESCRIBE.STUFFEDEGGPLANT	灵茄镶宝（肉），虽是素食，却也滋味丰富。	2466	物品名:"酿茄子" （"灵茄镶宝"）
+DESCRIBE.SWEATERVEST	犬牙皮袄，保暖效果尚可，样式古朴。	2467	物品名:"犬牙背心" （"犬牙皮袄"）
+DESCRIBE.REFLECTIVEVEST	流光法衣，可折射部分炎阳之力。	2468	物品名:"清凉夏装" （"流光法衣"、"折射炎阳之力"）
+DESCRIBE.HAWAIIANSHIRT	夏炎彩衫，花纹艳丽，穿着它心情似乎会轻松些。	2469	物品名:"花衬衫" （"夏炎彩衫"）
+DESCRIBE.TAFFY	凝蜜太妃糖，过甜腻口，偶尔食之无妨。	2470	物品名:"太妃糖" （"凝蜜太妃糖"）
+DESCRIBE.TALLBIRD	长脚灵鹳，领地意识极强，其喙锋利可穿金石。	2471	物品名:"高脚鸟" （"长脚灵鹳"、"喙锋利"）
+DESCRIBE.TALLBIRDEGG	灵鹳蛋，蛋壳坚硬如铁，内蕴生命精华。	2472	物品名:"高脚鸟蛋" （"灵鹳蛋"、"生命精华"）
+DESCRIBE.TALLBIRDEGG_COOKED	煎灵鹳蛋，香气扑鼻，营养丰富。	2473	物品名:"煎高脚鸟蛋"
+DESCRIBE.TALLBIRDEGG_CRACKED.COLD	温度过低，灵鹳胚胎生机凝滞，孵化受阻。	2476	物品名:"高脚鸟蛋"->过冷 （"生机凝滞"）
+DESCRIBE.TALLBIRDEGG_CRACKED.GENERIC	灵鹳蛋内生机活跃，即将破壳。	2477	物品名:"孵化中的高脚鸟蛋"->默认 （"生机活跃"）
+DESCRIBE.TALLBIRDEGG_CRACKED.HOT	环境过热，蛋内水分流失，恐伤及雏鸟根基。	2478	物品名:"高脚鸟蛋"->过热 （"伤及根基"）
+DESCRIBE.TALLBIRDEGG_CRACKED.LONG	灵鹳孵化需汲取天地灵气，急不得。	2479	物品名:"孵化中的高脚鸟蛋"->还需很久 （"汲取天地灵气"）
+DESCRIBE.TALLBIRDEGG_CRACKED.SHORT	蛋壳灵光流转，破壳在即。	2480	物品名:"孵化中的高脚鸟蛋"->很快了 （"灵光流转"）
+DESCRIBE.TALLBIRDNEST.GENERIC	灵鹳巢，一枚蕴含生命精华的蛋静置其中。	2484	物品名:"高脚鸟巢"->默认 （"生命精华"）
+DESCRIBE.TALLBIRDNEST.PICKED	巢中已空，灵鹳蛋已被取走。	2485	物品名:"高脚鸟巢"->被采完了
+DESCRIBE.TEENBIRD.GENERIC	灵鹳幼雏，虽腿脚未长开，已显峥嵘。	2489	物品名:"小高脚鸟"->默认 （"灵鹳幼雏"、"显峥嵘"）
+DESCRIBE.TEENBIRD.HUNGRY	幼鹳饥鸣，需喂食以助其成长。	2490	物品名:"小高脚鸟"->有点饿了 （"需喂食助成长"）
+DESCRIBE.TEENBIRD.STARVING	幼鹳元气大伤，若再不得食恐有性命之虞。	2491	物品名:"小高脚鸟"->挨饿 （"元气大伤"、"性命之虞"）
+DESCRIBE.TEENBIRD.SLEEPING	幼鹳沉睡，正于梦中锤炼妖骨。	2492	物品名:"小高脚鸟"->睡着了 （"锤炼妖骨"）
+DESCRIBE.TELEPORTATO_BASE.ACTIVE	破界法阵已激活，空间通道稳定，可穿梭往来。	2496	single player  -- 物品名:"木制装置"->激活了 （"破界法阵"、"空间通道"）
+DESCRIBE.TELEPORTATO_BASE.GENERIC	一座古老的传送法阵基座，符文玄奥。	2497	single player  -- 物品名:"木制装置"->默认 （"传送法阵基座"、"符文玄奥"）
+DESCRIBE.TELEPORTATO_BASE.LOCKED	法阵核心残缺，需集齐所有部件方能运转。	2498	single player  -- 物品名:"木制装置"->锁住了 （"法阵核心残缺"）
+DESCRIBE.TELEPORTATO_BASE.PARTIAL	法阵部件已集齐大半，空间波动渐显。	2499	single player  -- 物品名:"木制装置"->部分完成 （"空间波动渐显"）
+DESCRIBE.TELEPORTATO_BOX	空间秘匣，内蕴须弥之力，是构筑法阵的关键。	2501	single player  -- 物品名:"盒状装置" （"空间秘匣"、"须弥之力"）
+DESCRIBE.TELEPORTATO_CRANK	阵法扳手，用以校准和启动空间坐标。	2502	single player  -- 物品名:"曲柄装置" （"阵法扳手"、"校准坐标"）
+DESCRIBE.TELEPORTATO_POTATO	浑天仪核心？此物竟能稳定空间乱流。	2503	single player  -- 物品名:"金属土豆状装置" （"浑天仪核心"、"稳定空间乱流"）
+DESCRIBE.TELEPORTATO_RING	定空环，能锚定传送终点，防止坠入虚空。	2504	single player  -- 物品名:"环状装置" （"定空环"、"锚定终点"）
+DESCRIBE.TELESTAFF	咫尺天涯杖，心念所至，身即可达，然耗神甚巨。	2505	物品名:"传送魔杖" （"咫尺天涯杖"、"耗神甚巨"）
+DESCRIBE.TENT.GENERIC	静心帐，于其中打坐可宁神静气，恢复神识。	2508	物品名:"帐篷"->默认 （"静心帐"、"宁神静气"、"恢复神识"）
+DESCRIBE.TENT.BURNT	帐毁心难静，需另寻他处调息。	2509	物品名:"帐篷"->烧焦的 （"帐毁心难静"）
+DESCRIBE.SIESTAHUT.GENERIC	清凉篷，可避暑热，助人凝神。	2513	物品名:"遮阳篷"->默认 （"清凉篷"、"避暑热"、"凝神"）
+DESCRIBE.SIESTAHUT.BURNT	篷顶焚毁，已难遮阳。	2514	物品名:"遮阳篷"->烧焦的
+DESCRIBE.TENTACLE	沼泽触手妖物，擅于潜伏突袭，需留意脚下。	2516	物品名:"触手" （"沼泽触手妖物"、"潜伏突袭"）
+DESCRIBE.TENTACLESPIKE	触手毒刺，蕴含麻痹剧毒，可淬于兵器之上。	2517	物品名:"触手尖刺" （"麻痹剧毒"、"淬于兵器"）
+DESCRIBE.TENTACLESPOTS	触手吸盘皮，质地柔韧，可炼制防水符箓。	2518	物品名:"触手皮" （"防水符箓"）
+DESCRIBE.TENTACLE_PILLAR	触手妖王？其本体深藏地下，难以根除。	2519	物品名:"大触手" （"触手妖王"、"难以根除"）
+DESCRIBE.TENTACLE_PILLAR_HOLE	妖王遁走留下的地穴，煞气弥漫。	2520	物品名:"硕大的泥坑" （"妖王遁走"、"煞气弥漫"）
+DESCRIBE.TENTACLE_PILLAR_ARM	触手妖王的子体，除之不尽，烦不胜烦。	2521	物品名:"小触手" （"子体"、"除之不尽"）
+DESCRIBE.TENTACLE_GARDEN	触手妖群栖之地，步步杀机。	2522	物品名:"触手花园" （"妖群栖之地"、"步步杀机"）
+DESCRIBE.TOPHAT	高顶礼帽，凡俗界象征身份的饰物。	2523	物品名:"高礼帽" （"象征身份"）
+DESCRIBE.TORCH	照明火把，火光摇曳，仅能驱散方寸黑暗。	2524	物品名:"火炬" （"仅能驱散方寸黑暗"）
+DESCRIBE.TRANSISTOR	蕴雷晶石，其内电流流转，是制作雷系符箓的良材。	2525	物品名:"电子元件" （"蕴雷晶石"、"雷系符箓"）
+DESCRIBE.TRAP	简易捕兽夹，对付寻常小兽尚可。	2526	物品名:"陷阱" （"简易捕兽夹"）
+DESCRIBE.TRAP_TEETH	利齿陷阱，触发时迅疾狠辣，可伤妖物筋骨。	2527	物品名:"犬牙陷阱" （"迅疾狠辣"、"伤妖物筋骨"）
+DESCRIBE.TRAP_TEETH_MAXWELL	麦斯威尔的利齿陷阱，机关更为精巧歹毒。	2528	single player  -- 物品名:"麦斯威尔的犬牙陷阱" （"精巧歹毒"）
+DESCRIBE.TREASURECHEST.GENERIC	储物箱，可存放些不甚重要的杂物。	2531	物品名:"箱子"->默认 （"储物箱"、"不甚重要"）
+DESCRIBE.TREASURECHEST.BURNT	箱体焚毁，内里物品恐难保全。	2532	物品名:"箱子"->烧焦的
+DESCRIBE.TREASURECHEST_TRAP	伪装的宝箱？其上附着迷惑心智的微弱禁制。	2534	物品名:"宝箱" （"迷惑心智的微弱禁制"）
+DESCRIBE.SACRED_CHEST.GENERIC	远古祭箱，需以特定祭品方能开启，换取馈赠。	2537	物品名:"远古宝箱"->默认 （"远古祭箱"、"特定祭品"）
+DESCRIBE.SACRED_CHEST.LOCKED	祭箱禁制森严，强攻恐非上策。	2538	物品名:"远古宝箱"->锁住了 （"禁制森严"）
+DESCRIBE.TREECLUMP	林木盘根错节，似有阵法遮掩路径。	2540	removed  -- 物品名:"树丛障碍"
+DESCRIBE.TRINKET_1	熔融的琉璃珠，内蕴一丝火灵，可作探宝之用。	2541	熔化的弹珠 （"火灵"、"探宝"）
+DESCRIBE.TRINKET_2	粗制的卡祖笛，吹奏之声刺耳，恐惊扰妖兽。	2542	假卡祖笛 （"惊扰妖兽"）
+DESCRIBE.TRINKET_3	难解的死结，其上似有微弱的诅咒气息。	2543	戈尔迪之结 （"诅咒气息"）
+DESCRIBE.TRINKET_4	地精木雕，雕工粗糙，或与某些精怪有所关联。	2544	地精爷爷 （"精怪关联"）
+DESCRIBE.TRINKET_5	粗糙的火箭模型，孩童玩物罢了。	2545	迷你火箭
+DESCRIBE.TRINKET_6	报废的灵纹导线，其上符文已失效。	2546	烂电线 （"灵纹导线"、"符文失效"）
+DESCRIBE.TRINKET_7	凡俗的戏法道具，无甚稀奇。	2547	杯子和球
+DESCRIBE.TRINKET_8	普通的橡胶塞，可密封某些药瓶。	2548	硬化橡胶塞 （"密封药瓶"）
+DESCRIBE.TRINKET_9	样式奇特的纽扣，或许是某种信物。	2549	不搭的纽扣 （"信物"）
+DESCRIBE.TRINKET_10	磨损的假牙，材质特殊，或可回收利用。	2550	二手假牙 （"回收利用"）
+DESCRIBE.TRINKET_11	机关人偶，构造精巧，似有驱动核心。	2551	机器人玩偶 （"机关人偶"、"驱动核心"）
+DESCRIBE.TRINKET_12	风干的触手标本，残留着微弱的妖气。	2552	干瘪的触手 （"妖气"）
+DESCRIBE.TRINKET_13	地精老妪木雕，与那地精老翁像似是一对。	2553	地精奶奶 （"一对"）
+DESCRIBE.TRINKET_14	有裂痕的茶杯，已不堪使用。	2554	漏水的茶杯
+DESCRIBE.TRINKET_15	白色玉石棋子，是某种棋局的一部分。	2555	白色主教 （"棋局一部分"）
+DESCRIBE.TRINKET_16	黑色玉石棋子，与白子对应。	2556	黑色主教 （"对应"）
+DESCRIBE.TRINKET_17	弯曲的银叉，或是某种仪式的法器。	2557	弯曲的叉子 （"仪式法器"）
+DESCRIBE.TRINKET_18	摇摆木马玩具，孩童的玩物。	2558	玩具木马
+DESCRIBE.TRINKET_19	失衡的陀螺，旋转时散发微弱的不详波动。	2559	失衡陀螺 （"不详波动"）
+DESCRIBE.TRINKET_20	竹制痒痒挠，凡物一件。	2560	痒痒挠
+DESCRIBE.TRINKET_21	损坏的搅拌法器，其内灵阵已破损。	2561	破搅拌器 （"搅拌法器"、"灵阵破损"）
+DESCRIBE.TRINKET_22	灵蚕丝线，可惜已磨损，灵力尽失。	2562	磨损的纱线 （"灵蚕丝线"、"灵力尽失"）
+DESCRIBE.TRINKET_23	寻常鞋拔，无甚特别。	2563	鞋拔子
+DESCRIBE.TRINKET_24	招财猫雕像，据说能带来些许财运。	2564	幸运猫扎尔 （"财运"）
+DESCRIBE.TRINKET_25	散发异味的装置，内藏腐毒之气。	2565	臭气制造器 （"腐毒之气"）
+DESCRIBE.TRINKET_26	沙土烧制的杯盏，工艺原始。	2566	土豆杯 （"工艺原始"）
+DESCRIBE.TRINKET_27	金属丝衣架，可悬挂衣物。	2567	钢丝衣架
+DESCRIBE.TRINKET_28	白色玉石战车棋子。	2568	白色战车
+DESCRIBE.TRINKET_29	黑色玉石战车棋子。	2569	黑色战车
+DESCRIBE.TRINKET_30	白色玉石骑士棋子。	2570	白色骑士
+DESCRIBE.TRINKET_31	黑色玉石骑士棋子。	2571	黑色骑士
+DESCRIBE.TRINKET_32	人造晶球，光华流转，可作装饰。	2572	立方氧化锆球 （"人造晶球"）
+DESCRIBE.TRINKET_33	蜘蛛形态的戒指，或与蛛妖有所感应。	2573	蜘蛛指环 （"与蛛妖感应"）
+DESCRIBE.TRINKET_34	干枯的猴爪，散发着不祥的诅咒气息。	2574	猴爪 （"诅咒气息"）
+DESCRIBE.TRINKET_35	空丹瓶，瓶壁残留着丹药的余香。	2575	空的长生不老药 （"丹瓶"、"丹药余香"）
+DESCRIBE.TRINKET_36	锋利的假獠牙，似是某种妖物的牙齿。	2576	人造尖牙 （"妖物牙齿"）
+DESCRIBE.TRINKET_37	一截断木，木质坚硬，可雕刻成符牌。	2577	断桩 （"雕刻符牌"）
+DESCRIBE.TRINKET_38	千里镜，能望得更远些。	2578	双筒望远镜 （"千里镜"）
+DESCRIBE.TRINKET_39	单只丝织手套，做工精细。	2579	单只手套 （"做工精细"）
+DESCRIBE.TRINKET_40	小巧的秤具，可称量药材。	2580	蜗牛秤 （"称量药材"）
+DESCRIBE.TRINKET_41	粘液罐，内盛不明胶质，气味刺鼻。	2581	黏液罐 （"不明胶质"）
+DESCRIBE.TRINKET_42	玩具蛇，形似某种毒蟒。	2582	玩具眼镜蛇
+DESCRIBE.TRINKET_43	鳄鱼形玩具，栩栩如生。	2583	鳄鱼玩具 （"栩栩如生"）
+DESCRIBE.TRINKET_44	破碎的琉璃瓶，瓶口仍有灵气残留。	2584	破碎的玻璃罐 （"灵气残留"）
+DESCRIBE.TRINKET_45	会发声的奇异匣子，其原理难以参透。	2585	奇怪的收音机 （"原理难参透"）
+DESCRIBE.TRINKET_46	损坏的鼓风法器，已无法产生气流。	2586	损坏的吹风机 （"鼓风法器"）
+DESCRIBE.LOST_TOY_1	一颗流光溢彩的琉璃珠，似是孩童遗失的玩物。	2587	遗失的玻璃球 （"孩童玩物"）
+DESCRIBE.LOST_TOY_2	一个简陋的卡祖笛，吹不出什么像样的音律。	2588	多愁善感的卡祖笛 （"简陋"）
+DESCRIBE.LOST_TOY_7	一个老旧的线轴陀螺，旋转时颇为平稳。	2589	珍视的抽线陀螺 （"老旧"、"平稳"）
+DESCRIBE.LOST_TOY_10	一颗乳牙，应是某个孩子换牙期脱落的。	2590	缺少的牙齿 （"换牙期脱落"）
+DESCRIBE.LOST_TOY_11	一个精巧的机器人玩具，关节尚可活动。	2591	珍贵的玩具机器人 （"精巧"、"关节活动"）
+DESCRIBE.LOST_TOY_14	一个带有裂痕的茶杯，曾被某人珍视。	2592	妈妈最爱的茶杯 （"曾被珍视"）
+DESCRIBE.LOST_TOY_18	一个手工制作的摇摆木马，漆色已斑驳。	2593	宝贵的玩具木马 （"手工制作"、"漆色斑驳"）
+DESCRIBE.LOST_TOY_19	一个做工尚可的陀螺，是常见的孩童玩具。	2594	最爱的陀螺 （"常见孩童玩具"）
+DESCRIBE.LOST_TOY_42	一条玩具蛇，形态逼真，足以吓唬胆小之人。	2595	装错的玩具眼镜蛇 （"形态逼真"）
+DESCRIBE.LOST_TOY_43	一个鳄鱼布偶，缝线处有些开线。	2596	宠爱的鳄鱼玩具 （"缝线开线"）
+DESCRIBE.HALLOWEENCANDY_1	糖渍苹果，甜脆可口。	2597	糖果苹果
+DESCRIBE.HALLOWEENCANDY_2	玉米软糖，有着独特的甜味。	2598	糖果玉米
+DESCRIBE.HALLOWEENCANDY_3	玉米硬糖，甜味较淡。	2599	不太甜的玉米
+DESCRIBE.HALLOWEENCANDY_4	蜘蛛形状的软糖，造型有趣。	2600	粘液蜘蛛 （"造型有趣"）
+DESCRIBE.HALLOWEENCANDY_5	浣猫形状的糖果，模样可爱。	2601	浣猫糖果 （"模样可爱"）
+DESCRIBE.HALLOWEENCANDY_6	葡萄干糖果，口感独特。	2602	"葡萄干"
+DESCRIBE.HALLOWEENCANDY_7	裹糖的葡萄干，甜中带酸。	2603	葡萄干
+DESCRIBE.HALLOWEENCANDY_8	幽灵形状的棒棒糖，是节日的应景零食。	2604	鬼魂棒棒糖 （"应景零食"）
+DESCRIBE.HALLOWEENCANDY_9	虫形软糖，口感Q弹。	2605	果冻虫 （"口感Q弹"）
+DESCRIBE.HALLOWEENCANDY_10	触手形状的棒棒糖，造型有些怪异。	2606	触手棒棒糖 （"造型怪异"）
+DESCRIBE.HALLOWEENCANDY_11	小猪造型的巧克力，味道香醇。	2607	巧克力猪 （"味道香醇"）
+DESCRIBE.HALLOWEENCANDY_12	糖果虱子，只是造型如此，并非真虫。	2608	糖果虱 （"并非真虫"）
+DESCRIBE.HALLOWEENCANDY_13	非常坚硬的糖果，需要含化很久。	2609	无敌硬糖 （"需要含化"）
+DESCRIBE.HALLOWEENCANDY_14	辣椒糖果，入口甜，后劲辣。	2610	熔岩椒 （"后劲辣"）
+DESCRIBE.CANDYBAG	一个专门用来装糖果的袋子。	2611	糖果袋
+DESCRIBE.HALLOWEEN_ORNAMENT_1	幽灵形状的节日装饰。	2612	幽灵装饰
+DESCRIBE.HALLOWEEN_ORNAMENT_2	蝙蝠形状的节日装饰。	2613	蝙蝠装饰
+DESCRIBE.HALLOWEEN_ORNAMENT_3	蜘蛛形状的节日装饰。	2614	蜘蛛装饰
+DESCRIBE.HALLOWEEN_ORNAMENT_4	触手形状的节日装饰。	2615	触手装饰
+DESCRIBE.HALLOWEEN_ORNAMENT_5	悬蛛形状的节日装饰。	2616	穴居悬蛛装饰
+DESCRIBE.HALLOWEEN_ORNAMENT_6	乌鸦形状的节日装饰。	2617	乌鸦装饰
+DESCRIBE.HALLOWEENPOTION_DRINKS_WEAK	效果微弱的万灵药水。	2618	弱效药水
+DESCRIBE.HALLOWEENPOTION_DRINKS_POTENT	效果强劲的万灵药水。	2619	强效药水
+DESCRIBE.HALLOWEENPOTION_BRAVERY	据说能给人带来勇气的药水。	2620	勇气药水 （"据说"）
+DESCRIBE.HALLOWEENPOTION_MOON	蕴含月华精华的药水，气息清冷。	2621	月亮精华液 （"月华精华"、"气息清冷"）
+DESCRIBE.HALLOWEENPOTION_FIRE_FX	饮用后周身会泛起火焰特效的药水。	2622	火焰药水 （"火焰特效"）
+DESCRIBE.MADSCIENCE_LAB	一个布满奇怪仪器的工作台，用于进行古怪的实验。	2623	疯狂科学实验室 （"古怪实验"）
+DESCRIBE.LIVINGTREE_ROOT	完全正常的树根，只是看起来有些诡异。	2624	完全正常的树根 （"看起来诡异"）
+DESCRIBE.LIVINGTREE_SAPLING	一株看起来完全正常的树苗。	2625	完全正常的树苗
+DESCRIBE.DRAGONHEADHAT	龙形戏服的头套部分，做工精致。	2626	幸运兽脑袋 （"戏服头套"）
+DESCRIBE.DRAGONBODYHAT	龙形戏服的身体部分。	2627	幸运兽躯体
+DESCRIBE.DRAGONTAILHAT	龙形戏服的尾巴部分。	2628	幸运兽尾巴
+DESCRIBE.PERDSHRINE.GENERIC	火鸡祭坛，供奉着象征丰收的灵禽。	2631	物品名:"火鸡神龛"->默认 （"火鸡祭坛"、"象征丰收"）
+DESCRIBE.PERDSHRINE.EMPTY	祭坛空置，可放置祭品以祈求好运。	2632	物品名:"火鸡神龛" （"放置祭品"、"祈求好运"）
+DESCRIBE.PERDSHRINE.BURNT	祭坛被焚毁，仪式无法进行。	2633	物品名:"火鸡神龛"->烧焦的
+DESCRIBE.REDLANTERN	喜庆的红灯笼，寓意吉祥，可照亮前路。	2635	物品名:"红灯笼" （"寓意吉祥"）
+DESCRIBE.LUCKY_GOLDNUGGET	一块被认为能带来好运的金块。	2636	物品名:"幸运黄金" （"带来好运"）
+DESCRIBE.FIRECRACKERS	节庆鞭炮，燃放时响声震天，可驱邪避祟。	2637	物品名:"红鞭炮" （"驱邪避祟"）
+DESCRIBE.PERDFAN	吉祥羽扇，扇动时据说能招来好运。	2638	物品名:"幸运扇" （"招来好运"）
+DESCRIBE.REDPOUCH	吉祥红包，内常装有小礼物或祝福语。	2639	物品名:"红包" （"小礼物"、"祝福语"）
+DESCRIBE.WARGSHRINE.GENERIC	座狼祭坛，供奉着狼形图腾。	2642	物品名:"座狼神龛"->默认 （"狼形图腾"）
+DESCRIBE.WARGSHRINE.EMPTY	祭坛空置，等待仪式。	2643	物品名:"座狼神龛"
+DESCRIBE.WARGSHRINE.BURNING	祭坛正在燃烧。	2644	for willow to override  -- 物品名:"座狼神龛"->正在燃烧
+DESCRIBE.WARGSHRINE.BURNT	祭坛已化为灰烬。	2645	物品名:"座狼神龛"->烧焦的
+DESCRIBE.CLAYWARG.GENERIC	陶土烧制的座狼雕像，被仪式赋予了活性。	2649	物品名:"黏土座狼"->默认 （"陶土烧制"、"赋予活性"）
+DESCRIBE.CLAYWARG.STATUE	一座做工精细的座狼陶俑。	2650	物品名:"黏土座狼"->雕像 （"做工精细"）
+DESCRIBE.CLAYHOUND.GENERIC	陶土猎犬，动作略显僵硬。	2654	物品名:"黏土猎犬"->默认 （"动作僵硬"）
+DESCRIBE.CLAYHOUND.STATUE	一座形态逼真的猎犬陶俑。	2655	物品名:"黏土猎犬"->雕像 （"形态逼真"）
+DESCRIBE.HOUNDWHISTLE	驯兽哨，吹响时可吸引附近的猎犬。	2657	物品名:"猎犬哨" （"驯兽哨"、"吸引猎犬"）
+DESCRIBE.CHESSPIECE_CLAYHOUND	陶土猎犬棋盘雕像。	2658	物品名:"猎犬雕塑"
+DESCRIBE.CHESSPIECE_CLAYWARG	陶土座狼棋盘雕像。	2659	物品名:"座狼雕塑"
+DESCRIBE.PIGSHRINE.GENERIC	猪人祭坛，供奉着象征富足的图腾。	2662	物品名:"猪神龛"->默认 （"猪人祭坛"、"象征富足"）
+DESCRIBE.PIGSHRINE.EMPTY	祭坛空置，可放置贡品以换取馈赠。	2663	物品名:"猪神龛" （"放置贡品"、"换取馈赠"）
+DESCRIBE.PIGSHRINE.BURNT	祭坛已被烧毁。	2664	物品名:"猪神龛"->烧焦的
+DESCRIBE.PIG_TOKEN	猪人信物，是与其进行交易的凭证。	2666	物品名:"金腰带" （"猪人信物"、"交易凭证"）
+DESCRIBE.PIG_COIN	猪人铸币，可在猪村流通使用。	2667	物品名:"猪鼻铸币" （"猪村流通"）
+DESCRIBE.YOTP_FOOD1	烤熟的肉块，是猪人喜爱的贡品。	2668	物品名:"贡品烤肉" （"猪人喜爱的贡品"）
+DESCRIBE.YOTP_FOOD2	内藏惊喜的泥馅饼，猪人对此颇有兴致。	2669	物品名:"八宝泥馅饼" （"内藏惊喜"）
+DESCRIBE.YOTP_FOOD3	串在棍子上的鱼头，是猪人的特色食物。	2670	物品名:"鱼头串" （"特色食物"）
+DESCRIBE.PIGELITE1	身着蓝袍的猪人卫士。	2671	BLUE  -- 物品名:"韦德" （"猪人卫士"）
+DESCRIBE.PIGELITE2	身着红袍的猪人卫士。	2672	RED  -- 物品名:"伊格内修斯"
+DESCRIBE.PIGELITE3	身着白袍的猪人卫士。	2673	WHITE  -- 物品名:"德米特里"
+DESCRIBE.PIGELITE4	身着绿袍的猪人卫士。	2674	GREEN  -- 物品名:"索耶"
+DESCRIBE.PIGELITEFIGHTER1	蓝袍猪人战士，手持利刃。	2675	BLUE  -- 物品名:"韦德" （"猪人战士"）
+DESCRIBE.PIGELITEFIGHTER2	红袍猪人战士，攻势凶猛。	2676	RED  -- 物品名:"伊格内修斯" （"攻势凶猛"）
+DESCRIBE.PIGELITEFIGHTER3	白袍猪人战士，眼神锐利。	2677	WHITE  -- 物品名:"德米特里" （"眼神锐利"）
+DESCRIBE.PIGELITEFIGHTER4	绿袍猪人战士，身法敏捷。	2678	GREEN  -- 物品名:"索耶" （"身法敏捷"）
+DESCRIBE.CARRAT_GHOSTRACER	半透明的幽灵胡萝卜鼠，速度奇快。	2679	物品名:"查理的胡萝卜鼠" （"幽灵胡萝卜鼠"、"速度奇快"）
+DESCRIBE.YOTC_CARRAT_RACE_START	胡萝卜鼠竞速的起点线。	2680	物品名:"起点" （"竞速起点"）
+DESCRIBE.YOTC_CARRAT_RACE_CHECKPOINT	竞速比赛的检查点。	2681	物品名:"检查点" （"比赛检查点"）
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.GENERIC	胡萝卜鼠竞速的终点线。	2684	物品名:"终点线"->默认 （"竞速终点"）
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.BURNT	终点线被烧毁了。	2685	物品名:"终点线"->烧焦的
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.I_WON	我的胡萝卜鼠赢得了比赛。	2686	物品名:"终点线"->我赢了
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON	{winner}的胡萝卜鼠率先冲过了终点。	2687	物品名:"终点线"->别人赢了 （"率先冲过终点"）
+DESCRIBE.YOTC_CARRAT_RACE_START_ITEM	一套用于设置竞速起点的组件。	2689	物品名:"起点套装" （"设置起点"）
+DESCRIBE.YOTC_CARRAT_RACE_CHECKPOINT_ITEM	一套用于设置竞速检查点的组件。	2690	物品名:"检查点套装" （"设置检查点"）
+DESCRIBE.YOTC_CARRAT_RACE_FINISH_ITEM	一套用于设置竞速终点的组件。	2691	物品名:"终点线套装" （"设置终点"）
+DESCRIBE.YOTC_SEEDPACKET	一包混合种子，可以种植出各种作物。	2692	物品名:"种子包" （"混合种子"）
+DESCRIBE.YOTC_SEEDPACKET_RARE	一包精选的优质种子，生长潜力更好。	2693	物品名:"高级种子包" （"优质种子"、"生长潜力"）
+DESCRIBE.MINIBOATLANTERN	小船灯笼，能为夜间航行提供照明。	2694	物品名:"漂浮灯笼" （"夜间航行照明"）
+DESCRIBE.YOTC_CARRATSHRINE.GENERIC	胡萝卜鼠祭坛，与这些小家伙的竞速活动有关。	2697	物品名:"胡萝卜鼠神龛"->默认 （"竞速活动有关"）
+DESCRIBE.YOTC_CARRATSHRINE.EMPTY	祭坛空置，似乎需要放置某种祭品。	2698	物品名:"胡萝卜鼠神龛" （"需要祭品"）
+DESCRIBE.YOTC_CARRATSHRINE.BURNT	祭坛已被烧毁。	2699	物品名:"胡萝卜鼠神龛"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION.GENERIC	用于训练胡萝卜鼠方向感的设施。	2703	物品名:"方向健身房"->默认 （"训练方向感"）
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION.RAT	一只胡萝卜鼠正在里面接受方向感训练。	2704	物品名:"方向健身房"->有老鼠
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION.BURNT	方向训练设施被烧毁了。	2705	物品名:"方向健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_SPEED.GENERIC	用于训练胡萝卜鼠速度的设施。	2709	物品名:"速度健身房"->默认 （"训练速度"）
+DESCRIBE.YOTC_CARRAT_GYM_SPEED.RAT	一只胡萝卜鼠正在里面进行速度训练。	2710	物品名:"速度健身房"->有老鼠
+DESCRIBE.YOTC_CARRAT_GYM_SPEED.BURNT	速度训练设施被烧毁了。	2711	物品名:"速度健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_REACTION.GENERIC	用于训练胡萝卜鼠反应能力的设施。	2715	物品名:"反应健身房"->默认 （"训练反应能力"）
+DESCRIBE.YOTC_CARRAT_GYM_REACTION.RAT	一只胡萝卜鼠正在里面进行反应训练。	2716	物品名:"反应健身房"->有老鼠
+DESCRIBE.YOTC_CARRAT_GYM_REACTION.BURNT	反应训练设施被烧毁了。	2717	物品名:"反应健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA.GENERIC	用于训练胡萝卜鼠耐力的设施。	2721	物品名:"耐力健身房"->默认 （"训练耐力"）
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA.RAT	一只胡萝卜鼠正在里面进行耐力训练。	2722	物品名:"耐力健身房"->有老鼠
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA.BURNT	耐力训练设施被烧毁了。	2723	物品名:"耐力健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION_ITEM	用于搭建方向训练设施的组件。	2725	物品名:"方向健身房套装" （"搭建方向训练设施"）
+DESCRIBE.YOTC_CARRAT_GYM_SPEED_ITEM	用于搭建速度训练设施的组件。	2726	物品名:"速度健身房套装" （"搭建速度训练设施"）
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA_ITEM	用于搭建耐力训练设施的组件。	2727	物品名:"耐力健身房套装" （"搭建耐力训练设施"）
+DESCRIBE.YOTC_CARRAT_GYM_REACTION_ITEM	用于搭建反应训练设施的组件。	2728	物品名:"反应健身房套装" （"搭建反应训练设施"）
+DESCRIBE.YOTC_CARRAT_SCALE_ITEM	用于搭建称量胡萝卜鼠体重装置的组件。	2729	物品名:"胡萝卜鼠秤套装" （"称量体重装置"）
+DESCRIBE.YOTC_CARRAT_SCALE.GENERIC	一个用来称量胡萝卜鼠体重的秤。	2732	物品名:"胡萝卜鼠秤"->默认 （"称量体重"）
+DESCRIBE.YOTC_CARRAT_SCALE.CARRAT	正在称量一只胡萝卜鼠的体重。	2733	物品名:"胡萝卜鼠秤"->有老鼠
+DESCRIBE.YOTC_CARRAT_SCALE.CARRAT_GOOD	这只胡萝卜鼠的体型非常理想。	2734	物品名:"胡萝卜鼠秤"->老鼠状态好 （"体型理想"）
+DESCRIBE.YOTC_CARRAT_SCALE.BURNT	秤被烧毁了。	2735	物品名:"胡萝卜鼠秤"->烧焦的
+DESCRIBE.YOTB_BEEFALOSHRINE.GENERIC	皮弗娄牛祭坛，与牛只的选美比赛相关。	2739	物品名:"皮弗娄牛神龛"->默认 （"选美比赛相关"）
+DESCRIBE.YOTB_BEEFALOSHRINE.EMPTY	祭坛空置，似乎需要放置某种祭品来启动仪式。	2740	物品名:"皮弗娄牛神龛" （"启动仪式"）
+DESCRIBE.YOTB_BEEFALOSHRINE.BURNT	祭坛已被烧毁。	2741	物品名:"皮弗娄牛神龛"->烧焦的
+DESCRIBE.BEEFALO_GROOMER.GENERIC	皮弗娄牛美容站，可以打理牛只的毛发。	2745	物品名:"皮弗娄牛美妆台"->默认 （"美容站"、"打理毛发"）
+DESCRIBE.BEEFALO_GROOMER.OCCUPIED	一只皮弗娄牛正在接受美容。	2746	物品名:"皮弗娄牛美妆台"->被占领 （"接受美容"）
+DESCRIBE.BEEFALO_GROOMER.BURNT	美容站被烧毁了。	2747	物品名:"皮弗娄牛美妆台"->烧焦的
+DESCRIBE.BEEFALO_GROOMER_ITEM	一套用于搭建皮弗娄牛美容站的组件。	2749	物品名:"美妆台套装" （"搭建美容站"）
+DESCRIBE.YOTR_RABBITSHRINE.GENERIC	兔人祭坛，与它们的节庆活动有关。	2752	物品名:"兔人神龛"->默认 （"节庆活动有关"）
+DESCRIBE.YOTR_RABBITSHRINE.EMPTY	祭坛空置，等待供奉。	2753	物品名:"兔人神龛"
+DESCRIBE.YOTR_RABBITSHRINE.BURNT	祭坛已被烧毁。	2754	物品名:"兔人神龛"->烧焦的
+DESCRIBE.NIGHTCAPHAT	一顶舒适的睡帽，有助于安眠。	2756	物品名:"睡帽" （"有助于安眠"）
+DESCRIBE.YOTR_FOOD1	胡萝卜造型的蛋糕，是兔人喜爱的食物。	2757	物品名:"兔子卷" （"兔人喜爱的食物"）
+DESCRIBE.YOTR_FOOD2	一种甜味的糕饼，带有独特的馅料。	2758	物品名:"月饼" （"独特馅料"）
+DESCRIBE.YOTR_FOOD3	晶莹剔透的果冻甜点，口感清爽。	2759	物品名:"月冻" （"口感清爽"）
+DESCRIBE.YOTR_FOOD4	串起来的泡芙球，是节庆小吃。	2760	物品名:"泡芙串" （"节庆小吃"）
+DESCRIBE.YOTR_TOKEN	挑战手套，用于向兔人发起枕头大战的邀请。	2761	物品名:"挑战手套" （"发起枕头大战邀请"）
+DESCRIBE.COZY_BUNNYMAN	一只看起来很惬意的兔人。	2762	物品名:"舒适的兔人"
+DESCRIBE.HANDPILLOW_BEEFALOWOOL	皮弗娄牛毛填充的手枕，颇为柔软。	2763	物品名:"皮弗娄牛毛枕头" （"颇为柔软"）
+DESCRIBE.HANDPILLOW_KELP	海带填充的手枕，有些潮湿。	2764	物品名:"海带枕头" （"有些潮湿"）
+DESCRIBE.HANDPILLOW_PETALS	花瓣填充的手枕，散发着淡淡花香。	2765	物品名:"花朵枕头" （"淡淡花香"）
+DESCRIBE.HANDPILLOW_STEELWOOL	钢丝绵填充的手枕，质地坚硬。	2766	物品名:"钢丝绵枕头" （"质地坚硬"）
+DESCRIBE.BODYPILLOW_BEEFALOWOOL	皮弗娄牛毛制成的抱枕，保暖性好。	2767	物品名:"皮弗娄牛枕头盔甲" （"保暖性好"）
+DESCRIBE.BODYPILLOW_KELP	海带制成的抱枕，触感清凉。	2768	物品名:"海带枕头盔甲" （"触感清凉"）
+DESCRIBE.BODYPILLOW_PETALS	花瓣制成的抱枕，外观雅致。	2769	物品名:"花朵枕头盔甲" （"外观雅致"）
+DESCRIBE.BODYPILLOW_STEELWOOL	钢丝绵制成的抱枕，防御性较强。	2770	物品名:"钢丝绵枕头盔甲" （"防御性较强"）
+DESCRIBE.BISHOP_CHARGE_HIT	被主教的能量光束击中了。	2771	物品名:"被主教攻击" （"能量光束击中"）
+DESCRIBE.TRUNKVEST_SUMMER	透气背心，适合在炎热天气穿着。	2772	物品名:"透气背心" （"适合炎热天气"）
+DESCRIBE.TRUNKVEST_WINTER	厚实背心，能有效抵御寒冷。	2773	物品名:"松软背心" （"抵御寒冷"）
+DESCRIBE.TRUNK_COOKED	烤熟的象鼻，是一种食材。	2774	物品名:"象鼻排"
+DESCRIBE.TRUNK_SUMMER	夏季象鼻，质地较轻薄。	2775	物品名:"象鼻" （"质地较轻薄"）
+DESCRIBE.TRUNK_WINTER	冬季象鼻，更为肥厚。	2776	物品名:"冬象鼻" （"更为肥厚"）
+DESCRIBE.TUMBLEWEED	风滚草，滚动时可能裹挟着一些物品。	2777	物品名:"风滚草" （"裹挟物品"）
+DESCRIBE.TURKEYDINNER	烤火鸡大餐，是节日的传统食物。	2778	物品名:"火鸡正餐" （"传统食物"）
+DESCRIBE.TWIGS	一捆树枝，是常用的基础材料。	2779	物品名:"树枝" （"基础材料"）
+DESCRIBE.UMBRELLA	雨伞，可以遮挡雨水。	2780	物品名:"雨伞" （"遮挡雨水"）
+DESCRIBE.GRASS_UMBRELLA	草编雨伞，轻便但不太耐用。	2781	物品名:"花伞" （"轻便但不太耐用"）
+DESCRIBE.UNIMPLEMENTED	一件尚未完成的物品，功能未知。	2782	物品名:"未完成的物品" （"功能未知"）
+DESCRIBE.WAFFLES	华夫饼，网格状的外形使其更容易蘸取酱汁。	2783	物品名:"华夫饼" （"容易蘸取酱汁"）
+DESCRIBE.WALL_HAY.GENERIC	草墙，防御力非常有限。	2786	物品名:"草墙"->默认 （"防御力有限"）
+DESCRIBE.WALL_HAY.BURNT	草墙被烧毁了。	2787	物品名:"草墙"->烧焦的
+DESCRIBE.WALL_HAY_ITEM	一捆用于建造草墙的干草。	2789	物品名:"草墙" （"建造草墙的干草"）
+DESCRIBE.WALL_STONE	石墙，结构坚固，能提供可靠的防护。	2790	物品名:"石墙" （"结构坚固"、"可靠防护"）
+DESCRIBE.WALL_STONE_ITEM	一堆用于建造石墙的石料。	2791	物品名:"石墙" （"建造石墙的石料"）
+DESCRIBE.WALL_RUINS	远古石墙，材质特殊，异常坚固。	2792	物品名:"铥墙" （"材质特殊"、"异常坚固"）
+DESCRIBE.WALL_RUINS_ITEM	一块远古石墙的构件，非常沉重。	2793	物品名:"铥墙" （"远古石墙构件"）
+DESCRIBE.WALL_WOOD.GENERIC	木墙，带有尖刺，能造成一些伤害。	2796	物品名:"木墙"->默认 （"带有尖刺"、"造成伤害"）
+DESCRIBE.WALL_WOOD.BURNT	木墙被烧毁了。	2797	物品名:"木墙"->烧焦的
+DESCRIBE.WALL_WOOD_ITEM	一捆用于建造木墙的木桩。	2799	物品名:"木墙" （"建造木墙的木桩"）
+DESCRIBE.WALL_MOONROCK	月岩墙，散发着微弱的月光能量。	2800	物品名:"月岩墙" （"月光能量"）
+DESCRIBE.WALL_MOONROCK_ITEM	一块蕴含月华之力的月岩墙块。	2801	物品名:"月岩墙" （"月华之力"）
+DESCRIBE.WALL_DREADSTONE	绝望石墙，散发着不祥的气息。	2802	物品名:"绝望石墙" （"不祥的气息"）
+DESCRIBE.WALL_DREADSTONE_ITEM	一块充满负面能量的绝望石墙块。	2803	物品名:"绝望石墙" （"负面能量"）
+DESCRIBE.FENCE	木栅栏，可以圈定一片区域。	2804	物品名:"木栅栏" （"圈定区域"）
+DESCRIBE.FENCE_ITEM	一段木栅栏的组件。	2805	物品名:"木栅栏" （"栅栏组件"）
+DESCRIBE.FENCE_GATE	栅栏门，可以开关通行。	2806	物品名:"木门" （"开关通行"）
+DESCRIBE.FENCE_GATE_ITEM	一扇可以安装在栅栏上的门。	2807	物品名:"木门" （"安装在栅栏上的门"）
+DESCRIBE.WALRUS	海象，会主动攻击靠近其领地的人。	2808	物品名:"海象" （"主动攻击"）
+DESCRIBE.WALRUSHAT	海象毛皮制成的帽子，保暖效果不错。	2809	物品名:"贝雷帽" （"保暖效果不错"）
+DESCRIBE.WALRUS_CAMP.EMPTY	一个空的海象营地。	2812	物品名:"海象营地"->空
+DESCRIBE.WALRUS_CAMP.GENERIC	海象家族的营地。	2813	物品名:"海象营地"->默认 （"海象家族营地"）
+DESCRIBE.WALRUS_TUSK	海象的长牙，质地坚硬。	2815	物品名:"海象牙" （"质地坚硬"）
+DESCRIBE.WARDROBE.GENERIC	衣柜，可以用来更换衣物和装扮。	2818	物品名:"衣柜"->默认 （"更换衣物和装扮"）
+DESCRIBE.WARDROBE.BURNING	衣柜起火了。	2819	物品名:"衣柜"->正在燃烧
+DESCRIBE.WARDROBE.BURNT	衣柜被烧毁了。	2820	物品名:"衣柜"->烧焦的
+DESCRIBE.WARG	座狼，一种凶猛的大型犬科动物，常成群出没。	2822	物品名:"座狼" （"凶猛"、"成群出没"）
+DESCRIBE.WARGLET	年轻的座狼，虽未长成，但已显凶性。	2823	物品名:"青年座狼" （"年轻"、"显凶性"）
+DESCRIBE.WASPHIVE	杀人蜂的巢穴，靠近会遭到蜂群攻击。	2824	物品名:"杀人蜂蜂窝" （"蜂群攻击"）
+DESCRIBE.WATERBALLOON	水球，投掷后可泼洒液体，常用于灭火或娱乐。	2825	物品名:"水球" （"泼洒液体"、"灭火或娱乐"）
+DESCRIBE.WATERMELON	西瓜，多汁解渴的夏季水果。	2826	物品名:"西瓜" （"多汁解渴"）
+DESCRIBE.WATERMELON_COOKED	烤西瓜，风味独特，但汁水较少。	2827	物品名:"烤西瓜" （"风味独特"）
+DESCRIBE.WATERMELONHAT	西瓜皮帽子，戴起来有清凉感，但容易弄脏。	2828	物品名:"西瓜帽" （"清凉感"、"容易弄脏"）
+DESCRIBE.WAXWELLJOURNAL.GENERIC	一本记载着暗影知识的古老书籍。	2831	物品名:"暗影秘典"->默认 （"暗影知识"、"古老书籍"）
+DESCRIBE.WETGOOP	一锅烹饪失败、糊状的食物。	2834	物品名:"潮湿黏糊" （"烹饪失败"）
+DESCRIBE.WHIP	鞭子，抽打时能发出响亮的声音，可用于驯兽。	2835	物品名:"三尾猫鞭" （"响亮声音"、"驯兽"）
+DESCRIBE.WINTERHAT	保暖冬帽，能有效防止头部热量流失。	2836	物品名:"冬帽" （"防止热量流失"）
+DESCRIBE.WINTEROMETER.GENERIC	温度计，可以显示当前环境的温度。	2839	物品名:"温度测量仪"->默认 （"显示温度"）
+DESCRIBE.WINTEROMETER.BURNT	温度计被烧毁了。	2840	物品名:"温度测量仪"->烧焦的
+DESCRIBE.WINTER_TREE.BURNT	节日树被烧毁了。	2844	物品名:"冬季盛宴树"->烧焦的
+DESCRIBE.WINTER_TREE.BURNING	节日树正在燃烧。	2845	物品名:"冬季盛宴树"->正在燃烧
+DESCRIBE.WINTER_TREE.CANDECORATE	一棵可以装饰的节日树。	2846	物品名:"冬季盛宴树"->可装饰 （"可以装饰"）
+DESCRIBE.WINTER_TREE.YOUNG	一棵还未长大的小节日树。	2847	物品名:"冬季盛宴树"->幼树 （"还未长大"）
+DESCRIBE.WINTER_TREESTAND.GENERIC	一个专门用于种植和装饰节日树的盆。	2851	物品名:"盛宴树盆"->默认 （"种植和装饰节日树"）
+DESCRIBE.WINTER_TREESTAND.BURNT	树盆被烧毁了。	2852	物品名:"盛宴树盆"->烧焦的
+DESCRIBE.WINTER_ORNAMENT	一个用于装饰节日树的小饰品。	2854	普通装饰
+DESCRIBE.WINTER_ORNAMENTLIGHT	一个可以发光的节日树装饰灯。	2855	圣诞灯 （"发光装饰灯"）
+DESCRIBE.WINTER_ORNAMENTBOSS	一个做工格外精致的节日树装饰品。	2856	华丽的装饰 （"做工精致"）
+DESCRIBE.WINTER_ORNAMENTFORGE	一个带有熔炉主题的节日树装饰。	2857	熔炉装饰 （"熔炉主题"）
+DESCRIBE.WINTER_ORNAMENTGORGE	一个以丰盛宴席为主题的节日树装饰。	2858	暴食装饰 （"丰盛宴席主题"）
+DESCRIBE.WINTER_FOOD1	姜饼人，是节日的传统点心。	2859	小姜饼 （"传统点心"）
+DESCRIBE.WINTER_FOOD2	糖霜曲奇，形状可爱，味道香甜。	2860	糖曲奇饼 （"形状可爱"、"味道香甜"）
+DESCRIBE.WINTER_FOOD3	拐杖糖，红白条纹相间，是节日的象征之一。	2861	拐杖糖 （"节日象征"）
+DESCRIBE.WINTER_FOOD4	水果蛋糕，用料扎实，可以保存很久。	2862	永远的水果蛋糕 （"保存很久"）
+DESCRIBE.WINTER_FOOD5	巧克力树根蛋糕，造型逼真，是节日的甜点。	2863	巧克力原木蛋糕 （"造型逼真"）
+DESCRIBE.WINTER_FOOD6	葡萄干布丁，口感丰富，是节庆大餐的一部分。	2864	李子布丁 （"口感丰富"）
+DESCRIBE.WINTER_FOOD7	苹果酒，一种清爽的节日饮品。	2865	苹果酒 （"清爽饮品"）
+DESCRIBE.WINTER_FOOD8	热可可，在寒冷天气里能带来温暖。	2866	热可可 （"带来温暖"）
+DESCRIBE.WINTER_FOOD9	蛋奶酒，一种口感浓郁的节日特饮。	2867	美味的蛋酒 （"口感浓郁"）
+DESCRIBE.WINTERSFEASTOVEN.GENERIC	节日烤炉，专门用于烹制节庆大餐。	2870	物品名:"砖砌烤炉"->默认 （"烹制节庆大餐"）
+DESCRIBE.WINTERSFEASTOVEN.COOKING	烤炉正在工作中，食物正在烹制。	2871	物品名:"砖砌烤炉"->烹饪中
+DESCRIBE.WINTERSFEASTOVEN.ALMOST_DONE_COOKING	食物快要烹制完成了。	2872	物品名:"砖砌烤炉"->快完成了
+DESCRIBE.WINTERSFEASTOVEN.DISH_READY	菜肴已经烹制完成，可以取用了。	2873	物品名:"砖砌烤炉"->完成了
+DESCRIBE.BERRYSAUCE	浆果制成的酱料，酸甜可口。	2875	快乐浆果酱 （"酸甜可口"）
+DESCRIBE.BIBINGKA	一种柔软的米糕，是节日的传统食物。	2876	比宾卡米糕 （"传统食物"）
+DESCRIBE.CABBAGESALAD	卷心菜沙拉，口感清爽。	2877	卷心菜沙拉 （"口感清爽"）
+DESCRIBE.FESTIVEFISH	精心烹制的节庆鱼肴，造型美观。	2878	节庆鱼料理 （"造型美观"）
+DESCRIBE.GRAVY	浓郁的肉汁，常用来搭配肉类主食。	2879	好肉汁 （"搭配肉类"）
+DESCRIBE.LATKES	土豆煎饼，外酥里嫩。	2880	土豆饼 （"外酥里嫩"）
+DESCRIBE.LUTEFISK	碱渍鱼，是某些地区的传统节日菜肴。	2881	苏打鱼 （"传统节日菜肴"）
+DESCRIBE.MULLEDDRINK	加入了香料的温热饮品，能驱散寒意。	2882	香料潘趣酒 （"驱散寒意"）
+DESCRIBE.PANETTONE	意大利圣诞面包，果干丰富。	2883	托尼甜面包 （"果干丰富"）
+DESCRIBE.PAVLOVA	蛋白糖霜蛋糕，口感轻盈。	2884	巴甫洛娃蛋糕 （"口感轻盈"）
+DESCRIBE.PICKLEDHERRING	腌渍鲱鱼，风味独特。	2885	腌鲱鱼 （"风味独特"）
+DESCRIBE.POLISHCOOKIE	波兰传统饼干，通常装饰精美。	2886	波兰饼干 （"装饰精美"）
+DESCRIBE.PUMPKINPIE	南瓜派，香甜软糯。	2887	南瓜派 （"香甜软糯"）
+DESCRIBE.ROASTTURKEY	烤火鸡，是节庆大餐的主菜。	2888	烤火鸡 （"节庆主菜"）
+DESCRIBE.STUFFING	火鸡填料，由面包和香料混合而成。	2889	烤火鸡面包馅 （"面包和香料混合"）
+DESCRIBE.SWEETPOTATO	焗烤红薯，味道甘甜。	2890	红薯焗饭 （"味道甘甜"）
+DESCRIBE.TAMALES	墨西哥玉米粉蒸肉，用玉米叶包裹。	2891	塔马利 （"玉米叶包裹"）
+DESCRIBE.TOURTIERE	法式肉馅饼，馅料扎实。	2892	饕餮馅饼 （"馅料扎实"）
+DESCRIBE.TABLE_WINTERS_FEAST.GENERIC	一张为冬季盛宴准备的餐桌。	2895	冬季盛宴餐桌(默认)
+DESCRIBE.TABLE_WINTERS_FEAST.HAS_FOOD	餐桌上摆放着节庆食物。	2896	冬季盛宴餐桌(有食物)
+DESCRIBE.TABLE_WINTERS_FEAST.WRONG_TYPE	现在不是摆放这种食物的时节。	2897	冬季盛宴餐桌(错误类型)
+DESCRIBE.TABLE_WINTERS_FEAST.BURNT	餐桌被烧毁了。	2898	冬季盛宴餐桌(烧毁)
+DESCRIBE.GINGERBREADWARG	姜饼制成的座狼造型点心。	2901	姜饼座狼
+DESCRIBE.GINGERBREADHOUSE	用姜饼搭建的可食用小屋。	2902	姜饼屋
+DESCRIBE.GINGERBREADPIG	姜饼制成的小猪造型点心。	2903	姜饼猪
+DESCRIBE.CRUMBS	吃东西时掉落的碎屑。	2904	饼干屑
+DESCRIBE.WINTERSFEASTFUEL	一种能增添节日气氛的特殊燃料。	2905	节日欢愉
+DESCRIBE.KLAUS	克劳斯，一只强大的冬季boss，携带着礼物袋。	2907	克劳斯 （"冬季boss"、"携带礼物袋"）
+DESCRIBE.KLAUS_SACK	克劳斯的礼物袋，击败他后才能打开。	2908	克劳斯的袋子 （"击败后打开"）
+DESCRIBE.KLAUSSACKKEY	开启克劳斯礼物袋所需的鹿角钥匙。	2909	麋鹿茸钥匙 （"开启袋子所需"）
+DESCRIBE.WORMHOLE.GENERIC	一个不稳定的空间虫洞，通向未知地点。	2913	虫洞(默认) （"不稳定"、"通向未知"）
+DESCRIBE.WORMHOLE.OPEN	虫洞已经激活，可以通行了。	2914	虫洞(打开)
+DESCRIBE.WORMHOLE_LIMITED	一个状态不佳、不太可靠的虫洞。	2916	生病的虫洞 （"状态不佳"、"不太可靠"）
+DESCRIBE.ACCOMPLISHMENT_SHRINE	一个记录着各种成就的纪念碑。	2918	奖杯 （"记录成就"）
+DESCRIBE.LIVINGTREE	一棵看起来完全正常的树，只是有些诡异。	2919	完全正常的树 （"看起来正常但诡异"）
+DESCRIBE.ICESTAFF	冰霜法杖，能发射冰冻射线。	2920	冰魔杖 （"发射冰冻射线"）
+DESCRIBE.REVIVER	告密的心，使用它可以复活倒下的队友。	2921	告密的心 （"复活队友"）
+DESCRIBE.SHADOWHEART	暗影之心，蕴含着强大的暗影能量。	2922	暗影心房 （"蕴含暗影能量"）
+DESCRIBE.ATRIUM_RUBBLE.LINE_1	壁画描绘了远古文明的仪式场景。	2925	物品名:"远古壁画"->第一行 （"仪式场景"）
+DESCRIBE.ATRIUM_RUBBLE.LINE_2	石板因年代久远而出现了裂痕。	2926	物品名:"远古壁画"->第二行 （"年代久远"）
+DESCRIBE.ATRIUM_RUBBLE.LINE_3	壁画上似乎刻画着某种被崇拜的存在。	2927	物品名:"远古壁画"->第三行 （"被崇拜的存在"）
+DESCRIBE.ATRIUM_RUBBLE.LINE_4	这些符号的含义难以解读。	2928	物品名:"远古壁画"->第四行 （"含义难解"）
+DESCRIBE.ATRIUM_RUBBLE.LINE_5	古老的壁画，记录着失落的历史。	2929	物品名:"远古壁画"->第五行 （"失落的历史"）
+DESCRIBE.ATRIUM_STATUE	一尊造型奇特的远古雕像，散发着神秘气息。	2931	物品名:"远古雕像" （"神秘气息"）
+DESCRIBE.ATRIUM_LIGHT.ON	远古灯柱被点亮，发出幽蓝的光芒。	2934	物品名:"远古灯柱"->开启 （"幽蓝的光芒"）
+DESCRIBE.ATRIUM_LIGHT.OFF	远古灯柱目前处于熄灭状态。	2935	物品名:"远古灯柱"->关闭
+DESCRIBE.ATRIUM_GATE.ON	远古大门已经开启，空间通道稳定。	2939	物品名:"远古大门"->开启 （"空间通道稳定"）
+DESCRIBE.ATRIUM_GATE.OFF	远古大门紧闭着。	2940	物品名:"远古大门"->关闭
+DESCRIBE.ATRIUM_GATE.CHARGING	大门正在积聚开启所需的能量。	2941	物品名:"远古大门"->充能中 （"积聚能量"）
+DESCRIBE.ATRIUM_GATE.DESTABILIZING	空间通道变得不稳定，即将关闭。	2942	物品名:"远古大门"->不稳定 （"即将关闭"）
+DESCRIBE.ATRIUM_GATE.COOLDOWN	大门能量耗尽，暂时无法使用。	2943	物品名:"远古大门"->冷却中 （"能量耗尽"）
+DESCRIBE.ATRIUM_KEY	一把造型古老的钥匙，似乎是开启某处大门的关键。	2945	物品名:"远古钥匙" （"开启大门的关键"）
+DESCRIBE.LIFEINJECTOR	强心剂，可以临时提升生命力的上限。	2946	物品名:"强心针" （"提升生命力上限"）
+DESCRIBE.SKELETON_PLAYER.MALE	一具男性冒险者的遗骸。	2949	物品名:"骷髅"->男性 （"冒险者遗骸"）
+DESCRIBE.SKELETON_PLAYER.FEMALE	一具女性冒险者的遗骸。	2950	物品名:"骷髅"->女性
+DESCRIBE.SKELETON_PLAYER.ROBOT	一具机械构造体的残骸。	2951	物品名:"骷髅"->机器人 （"机械构造体残骸"）
+DESCRIBE.SKELETON_PLAYER.DEFAULT	一具无名者的白骨。	2952	物品名:"骷髅"->默认 （"无名者白骨"）
+DESCRIBE.HUMANMEAT	人形生物的肉，食用它是不被允许的。	2954	人肉 （"不被允许"）
+DESCRIBE.HUMANMEAT_COOKED	煮熟的人形生物的肉。	2955	熟人肉
+DESCRIBE.HUMANMEAT_DRIED	风干的人形生物的肉。	2956	人肉干
+DESCRIBE.ROCK_MOON	一块来自月球的岩石，质地特殊。	2957	月球岩石 （"月球岩石"、"质地特殊"）
+DESCRIBE.MOONROCKNUGGET	一块月球岩石的碎片。	2958	月岩碎片
+DESCRIBE.MOONROCKCRATER	一块带有天然孔洞的月球岩石。	2959	带孔月岩 （"天然孔洞"）
+DESCRIBE.MOONROCKSEED	一个散发着微光的球体，似乎与月亮有关。	2960	天体宝球 （"与月亮有关"）
+DESCRIBE.REDMOONEYE	红色月眼，能标记出它所见的位置。	2961	红色月眼 （"标记位置"）
+DESCRIBE.PURPLEMOONEYE	紫色月眼，功能与红色月眼类似。	2962	紫色月眼 （"功能类似"）
+DESCRIBE.GREENMOONEYE	绿色月眼，同样用于标记位置。	2963	绿色月眼
+DESCRIBE.ORANGEMOONEYE	橙色月眼，是一种位置标记器。	2964	橘色月眼
+DESCRIBE.YELLOWMOONEYE	黄色月眼，用于标记地点。	2965	黄色月眼
+DESCRIBE.BLUEMOONEYE	蓝色月眼，能在地图上标记位置。	2966	蓝色月眼
+DESCRIBE.BOARRIOR	猪人勇士，身穿熔岩铠甲，非常强大。	2967	大熔炉猪战士 （"熔岩铠甲"、"非常强大"）
+DESCRIBE.BOARON	战猪，冲锋时势不可挡。	2968	战猪 （"势不可挡"）
+DESCRIBE.PEGHOOK	蝎子，尾部的钩刺含有剧毒。	2969	蝎子 （"含有剧毒"）
+DESCRIBE.TRAILS	野猪战士，双臂力量惊人。	2970	野猪猩 （"力量惊人"）
+DESCRIBE.TURTILLUS	甲壳龟，背上的尖刺是它的武器。	2971	坦克龟 （"尖刺武器"）
+DESCRIBE.SNAPPER	鳄鱼指挥官，能号令其他鳄鱼。	2972	鳄鱼指挥官 （"号令鳄鱼"）
+DESCRIBE.RHINODRILL	钻角犀牛，它的角能钻开地面。	2973	后扣帽犀牛兄弟 （"钻开地面"）
+DESCRIBE.BEETLETAUR	地狱独眼巨猪，散发着硫磺的气息。	2974	地狱独眼巨猪 （"硫磺气息"）
+DESCRIBE.LAVAARENA_PORTAL.ON	熔岩竞技场的传送门已经开启。	2977	物品名:"熔岩竞技场传送门"->开启
+DESCRIBE.LAVAARENA_PORTAL.GENERIC	通往熔岩竞技场的传送门。	2978	物品名:"熔岩竞技场传送门"->默认
+DESCRIBE.HEALINGSTAFF	治疗法杖，能释放治愈能量。	2980	生命魔杖 （"释放治愈能量"）
+DESCRIBE.FIREBALLSTAFF	火球法杖，能召唤陨石攻击敌人。	2981	地狱魔杖 （"召唤陨石"）
+DESCRIBE.HAMMER_MJOLNIR	雷神之锤，攻击时能释放闪电。	2982	锻锤 （"释放闪电"）
+DESCRIBE.SPEAR_GUNGNIR	永恒之枪，投掷后会自动返回手中。	2983	尖齿矛 （"自动返回"）
+DESCRIBE.BLOWDART_LAVA	岩浆吹箭，能造成持续的燃烧伤害。	2984	吹箭 （"持续燃烧伤害"）
+DESCRIBE.BLOWDART_LAVA2	强化熔岩吹箭，威力更为强大。	2985	熔化吹箭 （"威力更强大"）
+DESCRIBE.WEBBER_SPIDER_MINION	韦伯的蜘蛛仆从，会协助他战斗。	2986	蜘蛛宝宝 （"蜘蛛仆从"、"协助战斗"）
+DESCRIBE.BOOK_FOSSIL	化石书，阅读后能将敌人暂时石化。	2987	石化之书 （"暂时石化"）
+DESCRIBE.SPEAR_LANCE	骑枪，适合在坐骑上使用，进行冲锋攻击。	2988	螺旋矛 （"适合冲锋"）
+DESCRIBE.BOOK_ELEMENTAL	元素书，能召唤元素生物助战。	2989	召唤之书 （"召唤元素生物"）
+DESCRIBE.QUAGMIRE_ALTAR.GENERIC	暴食祭坛，用于供奉特定的祭品。	2992	物品名:"暴食祭坛"->默认 （"供奉祭品"）
+DESCRIBE.QUAGMIRE_ALTAR.FULL	祭坛正在处理供奉，暂时无法使用。	2993	物品名:"暴食祭坛"->满了 （"处理供奉"）
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.GENERIC	糖木树，可以采集树液。	2997	物品名:"糖木树"->默认 （"采集树液"）
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.STUMP	糖木树被砍伐后留下的树桩。	2998	物品名:"糖木树"->树桩
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.TAPPED_EMPTY	糖木树的树液已被采集一空。	2999	物品名:"糖木树"->空了
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.TAPPED_READY	糖木树已产出可供采集的树液。	3000	物品名:"糖木树"->好了
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.TAPPED_BUGS	糖木树上爬满了蚂蚁，影响了树液采集。	3001	物品名:"糖木树"->有蚂蚁 （"影响采集"）
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.WOUNDED	这棵糖木树生病了，需要治疗。	3002	物品名:"糖木树"->生病了 （"需要治疗"）
+DESCRIBE.QUAGMIRE_SPOTSPICE_SHRUB.GENERIC	一株可以收获香料的斑点灌木。	3006	物品名:"斑点香料灌木"->默认 （"收获香料"）
+DESCRIBE.QUAGMIRE_SPOTSPICE_SHRUB.PICKED	灌木的香料已被采摘，需要时间重新生长。	3007	物品名:"斑点香料灌木"->被采完了 （"重新生长"）
+DESCRIBE.QUAGMIRE_SALT_RACK.READY	盐架上的盐已经结晶完成，可以收集了。	3011	物品名:"盐架"->准备好的 （"结晶完成"）
+DESCRIBE.QUAGMIRE_SALT_RACK.GENERIC	盐架正在通过蒸发海水来制盐。	3012	物品名:"盐架"->默认 （"蒸发海水制盐"）
+DESCRIBE.QUAGMIRE_SAFE.GENERIC	一个坚固的保险箱，需要钥匙才能打开。	3016	物品名:"保险箱"->默认 （"需要钥匙"）
+DESCRIBE.QUAGMIRE_SAFE.LOCKED	保险箱被锁住了。	3017	物品名:"保险箱"->锁住了
+DESCRIBE.QUAGMIRE_MUSHROOMSTUMP.GENERIC	一个蘑菇桩，可以定期采集蘑菇。	3021	物品名:"蘑菇桩"->默认 （"采集蘑菇"）
+DESCRIBE.QUAGMIRE_MUSHROOMSTUMP.PICKED	蘑菇已被采完，等待下一轮生长。	3022	物品名:"蘑菇桩"->被采完了 （"等待生长"）
+DESCRIBE.QUAGMIRE_RUBBLE_HOUSE[0]	一座已成废墟的房屋。	3026	物品名:"残破的房子" 1
+DESCRIBE.QUAGMIRE_RUBBLE_HOUSE[1]	又一座破败的建筑。	3027	物品名:"残破的房子" 2
+DESCRIBE.QUAGMIRE_RUBBLE_HOUSE[2]	这个村庄似乎遭遇了某种灾难。	3028	物品名:"残破的房子" 3 （"遭遇灾难"）
+DESCRIBE.QUAGMIRE_SWAMPIGELDER.GENERIC	沼泽猪长老，负责管理猪人村庄的事务。	3032	物品名:"沼泽猪长老"->默认 （"管理事务"）
+DESCRIBE.QUAGMIRE_SWAMPIGELDER.SLEEPING	沼泽猪长老正在休息。	3033	物品名:"沼泽猪长老"->睡着了
+DESCRIBE.QUAGMIRE_FOOD.GENERIC	一份准备用于献祭的食物。	3037	物品名:"食物" （"用于献祭"）
+DESCRIBE.QUAGMIRE_FOOD.MISMATCH	这份食物不符合当前的献祭要求。	3038	物品名:"食物"->不匹配 （"不符合要求"）
+DESCRIBE.QUAGMIRE_FOOD.MATCH	这份食物完全符合献祭的要求。	3039	物品名:"食物"->匹配 （"符合要求"）
+DESCRIBE.QUAGMIRE_FOOD.MATCH_BUT_SNACK	这份食物虽然符合要求，但分量太小吃起来像零食。	3040	物品名:"食物"->匹配但太小 （"分量太小"）
+DESCRIBE.QUAGMIRE_PARK_GATE.GENERIC	一扇公园大门。	3044	物品名:"公园大门"->默认
+DESCRIBE.QUAGMIRE_PARK_GATE.LOCKED	公园大门被锁住了。	3045	物品名:"公园大门"->锁住了
+DESCRIBE.QUAGMIRE_PIGEON.DEAD	一只死去的鸽子。	3049	物品名:"鸽子"->死了
+DESCRIBE.QUAGMIRE_PIGEON.GENERIC	一只鸽子，可以捕捉作为食物。	3050	物品名:"鸽子"->默认 （"作为食物"）
+DESCRIBE.QUAGMIRE_PIGEON.SLEEPING	一只正在睡觉的鸽子。	3051	物品名:"鸽子"->睡着了
+DESCRIBE.WINONA_CATAPULT.GENERIC	薇诺娜的投石机，能自动攻击范围内的敌人。	3055	物品名:"薇诺娜的投石机"->默认 （"自动攻击"）
+DESCRIBE.WINONA_CATAPULT.OFF	投石机目前处于关闭状态。	3056	物品名:"薇诺娜的投石机"->关闭
+DESCRIBE.WINONA_CATAPULT.BURNING	投石机起火了。	3057	物品名:"薇诺娜的投石机"->正在燃烧
+DESCRIBE.WINONA_CATAPULT.BURNT	投石机被烧毁了。	3058	物品名:"薇诺娜的投石机"->烧焦的
+DESCRIBE.WINONA_SPOTLIGHT.GENERIC	薇诺娜的聚光灯，能照亮一片区域。	3062	物品名:"薇诺娜的聚光灯"->默认 （"照亮区域"）
+DESCRIBE.WINONA_SPOTLIGHT.OFF	聚光灯目前处于关闭状态。	3063	物品名:"薇诺娜的聚光灯"->关闭
+DESCRIBE.WINONA_SPOTLIGHT.BURNING	聚光灯起火了。	3064	物品名:"薇诺娜的聚光灯"->正在燃烧
+DESCRIBE.WINONA_SPOTLIGHT.BURNT	聚光灯被烧毁了。	3065	物品名:"薇诺娜的聚光灯"->烧焦的
+DESCRIBE.WINONA_BATTERY_LOW.GENERIC	薇诺娜的发电机，能为她的设备供电。	3069	物品名:"薇诺娜的发电机"->默认 （"为设备供电"）
+DESCRIBE.WINONA_BATTERY_LOW.LOWPOWER	发电机的电力输出不足。	3070	物品名:"薇诺娜的发电机"->电力低 （"电力不足"）
+DESCRIBE.WINONA_BATTERY_LOW.OFF	发电机目前没有运行。	3071	物品名:"薇诺娜的发电机"->关闭 （"没有运行"）
+DESCRIBE.WINONA_BATTERY_LOW.BURNING	发电机起火了。	3072	物品名:"薇诺娜的发电机"->正在燃烧
+DESCRIBE.WINONA_BATTERY_LOW.BURNT	发电机被烧毁了。	3073	物品名:"薇诺娜的发电机"->烧焦的
+DESCRIBE.WINONA_BATTERY_HIGH.GENERIC	薇诺娜的宝石发电机，能以宝石为燃料提供更强电力。	3077	物品名:"薇诺娜的宝石发电机"->默认 （"宝石燃料"、"更强电力"）
+DESCRIBE.WINONA_BATTERY_HIGH.LOWPOWER	宝石发电机的燃料（宝石）即将耗尽。	3078	物品名:"薇诺娜的宝石发电机"->电力低 （"燃料将尽"）
+DESCRIBE.WINONA_BATTERY_HIGH.OFF	宝石发电机目前处于关闭状态。	3079	物品名:"薇诺娜的宝石发电机"->关闭
+DESCRIBE.WINONA_BATTERY_HIGH.BURNING	宝石发电机起火了。	3080	物品名:"薇诺娜的宝石发电机"->正在燃烧
+DESCRIBE.WINONA_BATTERY_HIGH.BURNT	宝石发电机被烧毁了。	3081	物品名:"薇诺娜的宝石发电机"->烧焦的
+DESCRIBE.COMPOSTWRAP	肥料包，可以恢复植物的健康。	3083	物品名:"肥料包" （"恢复植物健康"）
+DESCRIBE.ARMOR_BRAMBLE	荆棘甲，能对近战攻击者造成反伤。	3084	物品名:"荆棘外壳" （"造成反伤"）
+DESCRIBE.TRAP_BRAMBLE	荆棘陷阱，能困住踩中的生物并造成伤害。	3085	物品名:"荆棘陷阱" （"困住并伤害"）
+DESCRIBE.BOATFRAGMENT03	一块船体的碎片。	3086	船碎片03
+DESCRIBE.BOATFRAGMENT04	又一块船体的碎片。	3087	船碎片04
+DESCRIBE.BOATFRAGMENT05	一块较大的船体碎片。	3088	船碎片05
+DESCRIBE.BOAT_LEAK	船体出现了一个漏洞，需要修补。	3089	漏洞 （"需要修补"）
+DESCRIBE.MAST	船的桅杆，用于悬挂船帆。	3090	桅杆 （"悬挂船帆"）
+DESCRIBE.SEASTACK	海中的石柱，航行时需小心避让。	3091	海蚀柱 （"需小心避让"）
+DESCRIBE.FISHINGNET	一张渔网，可用于捕捞鱼类。	3092	渔网 （"捕捞鱼类"）
+DESCRIBE.ANTCHOVIES	一种外形奇特的小鱼。	3093	蚁头凤尾鱼 （"外形奇特"）
+DESCRIBE.STEERINGWHEEL	船舵，用于控制船的航行方向。	3094	方向舵 （"控制航行方向"）
+DESCRIBE.ANCHOR	船锚，抛下后可以使船停泊。	3095	锚 （"使船停泊"）
+DESCRIBE.BOATPATCH	船体修补工具，可以修复船上的漏洞。	3096	船补丁 （"修复漏洞"）
+DESCRIBE.DRIFTWOOD_TREE.BURNING	浮木树正在燃烧。	3099	物品名:"浮木树"->正在燃烧
+DESCRIBE.DRIFTWOOD_TREE.BURNT	浮木树已被烧毁。	3100	物品名:"浮木树"->烧焦的
+DESCRIBE.DRIFTWOOD_TREE.CHOPPED	浮木树已被砍倒。	3101	物品名:"浮木树"->被砍了
+DESCRIBE.DRIFTWOOD_TREE.GENERIC	一棵生长在海边的浮木树。	3102	物品名:"浮木树"->默认 （"生长在海边"）
+DESCRIBE.DRIFTWOOD_LOG	一段浮木，质地较轻，可用于建造或作为燃料。	3104	物品名:"浮木" （"用于建造或燃料"）
+DESCRIBE.MOON_TREE.BURNING	月树正在燃烧。	3107	物品名:"月树"->正在燃烧
+DESCRIBE.MOON_TREE.BURNT	月树已被烧毁。	3108	物品名:"月树"->烧焦的
+DESCRIBE.MOON_TREE.CHOPPED	月树已被砍伐。	3109	物品名:"月树"->被砍了
+DESCRIBE.MOON_TREE.GENERIC	一棵散发着微光的月树，与月亮有着奇特的联系。	3110	物品名:"月树"->默认 （"散发微光"、"与月亮联系"）
+DESCRIBE.MOON_TREE_BLOSSOM	月树的花朵，散发着柔和的光芒。	3112	物品名:"月树花" （"散发柔和光芒"）
+DESCRIBE.MOONBUTTERFLY.GENERIC	月蛾，翅膀上有着月亮般的纹路。	3115	物品名:"月蛾"->默认 （"月亮纹路"）
+DESCRIBE.MOONBUTTERFLY.HELD	手中握着一只月蛾。	3116	物品名:"月蛾"->拿在手里
+DESCRIBE.MOONBUTTERFLYWINGS	月蛾的翅膀，薄如蝉翼，泛着微光。	3118	物品名:"月蛾翅膀" （"薄如蝉翼，泛着微光"）
+DESCRIBE.MOONBUTTERFLY_SAPLING	月树苗，似乎是由月蛾转化而来。	3119	物品名:"月树苗" （"由月蛾转化"）
+DESCRIBE.ROCK_AVOCADO_FRUIT	石果，外壳坚硬如石。	3120	物品名:"石果" （"外壳坚硬"）
+DESCRIBE.ROCK_AVOCADO_FRUIT_RIPE	成熟的石果，外壳已经软化。	3121	物品名:"成熟石果" （"外壳软化"）
+DESCRIBE.ROCK_AVOCADO_FRUIT_RIPE_COOKED	煮熟的石果，可以食用了。	3122	物品名:"熟石果" （"可以食用"）
+DESCRIBE.ROCK_AVOCADO_FRUIT_SPROUT	石果发芽了，可以种植。	3123	物品名:"发芽的石果" （"可以种植"）
+DESCRIBE.ROCK_AVOCADO_BUSH.BARREN	这棵石果灌木暂时无法结果了。	3126	石果灌木丛(枯萎) （"暂时无法结果"）
+DESCRIBE.ROCK_AVOCADO_BUSH.WITHERED	石果灌木因高温而枯萎了。	3127	石果灌木丛(枯萎) （"高温枯萎"）
+DESCRIBE.ROCK_AVOCADO_BUSH.GENERIC	一棵石果灌木，结着外壳坚硬的果实。	3128	石果灌木丛(默认) （"外壳坚硬的果实"）
+DESCRIBE.ROCK_AVOCADO_BUSH.PICKED	石果已被采摘，等待下次结果。	3129	石果灌木丛(被采完) （"等待下次结果"）
+DESCRIBE.ROCK_AVOCADO_BUSH.DISEASED	这棵石果灌木生病了。	3130	石果灌木丛(生病)
+DESCRIBE.ROCK_AVOCADO_BUSH.DISEASING	石果灌木看起来不太健康。	3131	石果灌木丛(正在生病) （"不太健康"）
+DESCRIBE.ROCK_AVOCADO_BUSH.BURNING	石果灌木起火了。	3132	石果灌木丛(燃烧中)
+DESCRIBE.DEAD_SEA_BONES	一些海洋生物的化石。	3134	物品名:"海骨" （"海洋生物化石"）
+DESCRIBE.HOTSPRING.GENERIC	一个天然的温泉，水温舒适。	3137	物品名:"温泉"->默认 （"水温舒适"）
+DESCRIBE.HOTSPRING.BOMBED	温泉被某种东西炸过，暂时无法使用。	3138	物品名:"温泉"->被炸 （"暂时无法使用"）
+DESCRIBE.HOTSPRING.GLASS	温泉的水凝固成了玻璃状。	3139	物品名:"温泉"->玻璃化 （"凝固成玻璃"）
+DESCRIBE.HOTSPRING.EMPTY	温泉已经干涸了。	3140	物品名:"温泉"->空了
+DESCRIBE.MOONGLASS	一块锋利的月曜玻璃碎片。	3142	物品名:"月亮碎片" （"月曜玻璃碎片"）
+DESCRIBE.MOONGLASS_CHARGED	一块充能后的月曜玻璃，能量不稳定。	3143	物品名:"注能月亮碎片" （"能量不稳定"）
+DESCRIBE.MOONGLASS_ROCK	一块巨大的月曜玻璃矿石。	3144	物品名:"月光玻璃" （"月曜玻璃矿石"）
+DESCRIBE.BATHBOMB	沐浴球，放入温泉中会产生特殊效果。	3145	物品名:"沐浴球" （"产生特殊效果"）
+DESCRIBE.TRAP_STARFISH.GENERIC	一个伪装成海星的陷阱。	3148	物品名:"海星陷阱"->默认 （"伪装陷阱"）
+DESCRIBE.TRAP_STARFISH.CLOSED	海星陷阱闭合了，抓住了东西。	3149	物品名:"海星陷阱"->闭合 （"抓住了东西"）
+DESCRIBE.DUG_TRAP_STARFISH	一个被挖出来的海星陷阱。	3151	物品名:"海星陷阱" （"被挖出来"）
+DESCRIBE.SPIDER_MOON.GENERIC	一种生活在月岛上的破碎蜘蛛。	3154	物品名:"破碎蜘蛛"->默认 （"月岛生物"）
+DESCRIBE.SPIDER_MOON.SLEEPING	破碎蜘蛛正在休息。	3155	物品名:"破碎蜘蛛"->睡着了
+DESCRIBE.SPIDER_MOON.DEAD	破碎蜘蛛死了。	3156	物品名:"破碎蜘蛛"->死了
+DESCRIBE.MOONSPIDERDEN	破碎蜘蛛的巢穴，由月曜玻璃构成。	3158	物品名:"破碎蜘蛛洞" （"月曜玻璃构成"）
+DESCRIBE.FRUITDRAGON.GENERIC	未成熟的沙拉蝾螈，颜色青绿。	3161	物品名:"沙拉蝾螈"->默认 （"未成熟"、"颜色青绿"）
+DESCRIBE.FRUITDRAGON.RIPE	成熟的沙拉蝾螈，散发着果香。	3162	物品名:"沙拉蝾螈"->成熟 （"散发果香"）
+DESCRIBE.FRUITDRAGON.SLEEPING	沙拉蝾螈睡着了。	3163	物品名:"沙拉蝾螈"->睡着了
+DESCRIBE.PUFFIN.GENERIC	一只海鹦鹉，生活在沿海地区。	3167	物品名:"海鹦鹉"->默认 （"生活在沿海"）
+DESCRIBE.PUFFIN.HELD	手中抓着一只海鹦鹉。	3168	物品名:"海鹦鹉"->拿在手里
+DESCRIBE.PUFFIN.SLEEPING	一只正在睡觉的海鹦鹉。	3169	物品名:"海鹦鹉"->睡着了
+DESCRIBE.MOONGLASSAXE	月曜玻璃斧，非常锋利但也很易碎。	3171	物品名:"月光玻璃斧" （"锋利但易碎"）
+DESCRIBE.GLASSCUTTER	玻璃刀，专门用于切割玻璃类材料。	3172	物品名:"玻璃刀" （"切割玻璃材料"）
+DESCRIBE.ICEBERG.GENERIC	一座小型的冰山。	3175	unimplemented  -- 物品名:"迷你冰山"->默认
+DESCRIBE.ICEBERG.MELTED	冰山已经完全融化了。	3176	unimplemented  -- 物品名:"迷你冰山"->融化了
+DESCRIBE.ICEBERG_MELTED	一滩融化的冰水。	3178	unimplemented  -- 物品名:"融化的迷你冰山"
+DESCRIBE.MINIFLARE	信号弹，发射后能发出亮光，用于标记位置或求救。	3179	物品名:"信号弹" （"标记位置或求救"）
+DESCRIBE.MEGAFLARE	强光信号弹，能照亮更大范围，但也会吸引注意。	3180	物品名:"敌对信号弹" （"照亮大范围"、"吸引注意"）
+DESCRIBE.MOON_FISSURE.GENERIC	一道不稳定的天体裂隙，能量在其中涌动。	3183	物品名:"天体裂隙"->默认 （"能量涌动"）
+DESCRIBE.MOON_FISSURE.NOLIGHT	天体裂隙暂时平静了下来。	3184	物品名:"天体裂隙"->无光 （"暂时平静"）
+DESCRIBE.MOON_ALTAR.MOON_ALTAR_WIP	天体祭坛尚未建造完成。	3188	物品名:"组装一半的祭坛" （"尚未完成"）
+DESCRIBE.MOON_ALTAR.GENERIC	一座古老的天体祭坛，似乎与月亮有着深层的联系。	3189	物品名:"天体祭坛"->默认 （"与月亮深层联系"）
+DESCRIBE.MOON_ALTAR_IDOL	一个天体祭坛的雕像部件。	3191	天体祭坛雕像 （"雕像部件"）
+DESCRIBE.MOON_ALTAR_GLASS	一个天体祭坛的玻璃底座部件。	3192	天体祭坛底座 （"底座部件"）
+DESCRIBE.MOON_ALTAR_SEED	一个天体祭坛的核心球体部件。	3193	天体祭坛宝球 （"核心球体部件"）
+DESCRIBE.MOON_ALTAR_ROCK_IDOL	一块嵌有雕像碎片的奇特岩石。	3194	吸引人的结构(雕像) （"嵌有雕像碎片"）
+DESCRIBE.MOON_ALTAR_ROCK_GLASS	一块嵌有玻璃碎片的奇特岩石。	3195	吸引人的结构(底座) （"嵌有玻璃碎片"）
+DESCRIBE.MOON_ALTAR_ROCK_SEED	一块嵌有球体碎片的奇特岩石。	3196	吸引人的结构(宝球) （"嵌有球体碎片"）
+DESCRIBE.MOON_ALTAR_CROWN	一个尚未激活的天体贡品。	3197	未激活天体贡品 （"尚未激活"）
+DESCRIBE.MOON_ALTAR_COSMIC	一个已激活的天体贡品，散发着宇宙能量。	3198	天体贡品 （"散发宇宙能量"）
+DESCRIBE.MOON_ALTAR_ASTRAL	一座完整的天体圣殿，是祭坛的最终形态。	3199	天体圣殿 （"最终形态"）
+DESCRIBE.MOON_ALTAR_ICON	天体圣殿的象征物。	3200	天体圣殿象征
+DESCRIBE.MOON_ALTAR_WARD	天体圣殿的守护部件，需要与其他部件组合。	3201	天体圣殿卫戍 （"守护部件"、"需要组合"）
+DESCRIBE.SEAFARING_PROTOTYPER.GENERIC	航海科技站，用于解锁船只相关的制造配方。	3204	物品名:"航海科技站"->默认 （"解锁船只配方"）
+DESCRIBE.SEAFARING_PROTOTYPER.BURNT	航海科技站被烧毁了。	3205	物品名:"航海科技站"->烧焦的
+DESCRIBE.BOAT_ITEM	一套用于建造木船的组件。	3207	物品名:"船套装" （"建造木船"）
+DESCRIBE.BOAT_GRASS_ITEM	一套用于建造草筏的组件。	3208	物品名:"草筏套装" （"建造草筏"）
+DESCRIBE.STEERINGWHEEL_ITEM	一套用于安装船舵的组件。	3209	物品名:"方向舵套装" （"安装船舵"）
+DESCRIBE.ANCHOR_ITEM	一套用于安装船锚的组件。	3210	物品名:"锚套装" （"安装船锚"）
+DESCRIBE.MAST_ITEM	一套用于安装桅杆和船帆的组件。	3211	物品名:"桅杆套装" （"安装桅杆和船帆"）
+DESCRIBE.MUTATEDHOUND.DEAD	恐怖猎犬死了。	3214	物品名:"恐怖猎犬"->死了
+DESCRIBE.MUTATEDHOUND.GENERIC	恐怖猎犬，一种被月岛能量扭曲的变异生物。	3215	物品名:"恐怖猎犬"->默认 （"月岛能量扭曲"）
+DESCRIBE.MUTATEDHOUND.SLEEPING	恐怖猎犬正在睡觉。	3216	物品名:"恐怖猎犬"->睡着了
+DESCRIBE.MUTATED_PENGUIN.DEAD	月岩企鹅死了。	3220	物品名:"月岩企鸥"->死了
+DESCRIBE.MUTATED_PENGUIN.GENERIC	月岩企鹅，一种生活在月岛的奇特企鹅。	3221	物品名:"月岩企鸥"->默认 （"月岛奇特企鹅"）
+DESCRIBE.MUTATED_PENGUIN.SLEEPING	月岩企鹅正在睡觉。	3222	物品名:"月岩企鸥"->睡着了
+DESCRIBE.CARRAT.DEAD	胡萝卜鼠死了。	3226	物品名:"胡萝卜鼠"->死了
+DESCRIBE.CARRAT.GENERIC	胡萝卜鼠，一种外形像胡萝卜的小动物。	3227	物品名:"胡萝卜鼠"->默认 （"外形像胡萝卜"）
+DESCRIBE.CARRAT.HELD	手中抓着一只胡萝卜鼠。	3228	物品名:"胡萝卜鼠"->拿在手里
+DESCRIBE.CARRAT.SLEEPING	胡萝卜鼠正在睡觉。	3229	物品名:"胡萝卜鼠"->睡着了
+DESCRIBE.BULLKELP_PLANT.GENERIC	一株公牛海带，生长在海中。	3233	物品名:"公牛海带"->默认 （"生长在海中"）
+DESCRIBE.BULLKELP_PLANT.PICKED	公牛海带已被采摘。	3234	物品名:"公牛海带"->被采完了
+DESCRIBE.BULLKELP_ROOT	公牛海带的根部。	3236	公牛海带茎 （"海带根部"）
+DESCRIBE.KELPHAT	海带制成的帽子，有一定的防水性。	3237	海花环 （"海带制成"、"防水性"）
+DESCRIBE.KELP	一片新鲜的海带叶。	3238	海带叶
+DESCRIBE.KELP_COOKED	煮熟的海带叶。	3239	熟海带叶
+DESCRIBE.KELP_DRIED	晒干的海带叶，易于保存。	3240	干海带叶 （"易于保存"）
+DESCRIBE.GESTALT	一个由纯粹能量构成的虚影。	3241	虚影 （"纯粹能量构成"）
+DESCRIBE.GESTALT_GUARD	一个更大型、更具攻击性的能量虚影。	3242	大虚影 （"更具攻击性"）
+DESCRIBE.COOKIECUTTER	饼干切割机，一种会攻击船只的小型海洋生物。	3243	饼干切割机 （"攻击船只"）
+DESCRIBE.COOKIECUTTERSHELL	饼干切割机的外壳。	3244	饼干切割机壳
+DESCRIBE.COOKIECUTTERHAT	用饼干切割机外壳制成的帽子，能提供一些防护。	3245	饼干切割机帽子 （"提供防护"）
+DESCRIBE.SALTSTACK.GENERIC	盐堆？待王某探究其成因！	3248	对普通盐堆的好奇
+DESCRIBE.SALTSTACK.MINED_OUT	挖空的废物！	3249	盐堆被挖空后的不屑
+DESCRIBE.SALTSTACK.GROWING	这盐堆...竟会自行生长？	3250	观察到盐堆再生时的惊讶
+DESCRIBE.SALTROCK	海盐结晶？正好炼丹！	3252	盐晶，联想到炼丹用途
+DESCRIBE.SALTBOX	这盐盒...可保食物不腐！	3253	盐盒，认可其保鲜功能
+DESCRIBE.TACKLESTATION	钓具？王某徒手便可捉鱼！	3254	对钓具站表示不屑，自信徒手捕鱼
+DESCRIBE.TACKLESKETCH	何人胆敢乱画？	3255	对粗糙的钓具设计图表示不满
+DESCRIBE.MALBATROSS	邪天翁？待王某斩了这妖禽！	3256	将邪天翁视为妖物，欲斩杀
+DESCRIBE.MALBATROSS_FEATHER	妖禽羽毛？可炼飞行符！	3257	计划用羽毛制作飞行相关道具
+DESCRIBE.MALBATROSS_BEAK	妖喙？蕴含奇异法力！	3258	感知到鸟喙蕴含法力
+DESCRIBE.MAST_MALBATROSS_ITEM	妖禽风帆？勉强一试！	3259	对用邪天翁材料制作风帆持保留态度
+DESCRIBE.MAST_MALBATROSS	妖帆？不如王某御风而行！	3260	认为风帆不如自身御风能力
+DESCRIBE.MALBATROSS_FEATHERED_WEAVE	妖羽织布？倒有些门道...	3261	对羽毛织物略表认可
+DESCRIBE.GNARWAIL.GENERIC	区区海兽也敢在王某面前嬉戏？	3264	对一角鲸的蔑视
+DESCRIBE.GNARWAIL.BROKENHORN	断角海兽？废物一个！	3265	对断角一角鲸的嘲讽
+DESCRIBE.GNARWAIL.FOLLOWER	这海兽...倒会讨好王某！	3266	对追随自己的一角鲸感到些许意外
+DESCRIBE.GNARWAIL.BROKENHORN_FOLLOWER	断角还跟着？自取其辱！	3267	对断角追随者表示鄙夷
+DESCRIBE.GNARWAIL_HORN	海兽角？可炼分水刺！	3269	一角鲸的角，想到可炼制水中兵器
+DESCRIBE.WALKINGPLANK	木板？连造艘像样的船都不够！	3270	对简陋木板的鄙视
+DESCRIBE.WALKINGPLANK_GRASS	草板？连碧云童儿都嫌弃！	3271	对草制木板更加不屑
+DESCRIBE.OAR	破桨一支，费力不讨好！	3272	普通船桨，认为效率低下
+DESCRIBE.OAR_DRIFTWOOD	浮木桨？勉强可划！	3273	浮木船桨，略微认可
+DESCRIBE.OCEANFISHINGROD	钓竿？王某徒手便可捉鱼！	3274	海钓竿，坚持徒手捕鱼的能力
+DESCRIBE.OCEANFISHINGBOBBER_NONE	鱼钩？王某徒手便可捉鱼！	3275	空鱼钩，再次强调徒手能力
+DESCRIBE.OCEANFISHINGBOBBER_BALL	木球浮标？凡人才需此物！	3276	木球浮标，认为凡人用品
+DESCRIBE.OCEANFISHINGBOBBER_OVAL	硬物浮标？也妄想困住鱼精！	3277	硬物浮标，质疑其效果
+DESCRIBE.OCEANFISHINGBOBBER_CROW	黑羽浮标？连碧云童儿都嫌弃！	3278	乌鸦羽毛浮标，极度鄙视
+DESCRIBE.OCEANFISHINGBOBBER_ROBIN	红羽浮标？小心引来鲱鱼精！	3279	知更鸟羽毛浮标，警告可能引来妖物
+DESCRIBE.OCEANFISHINGBOBBER_ROBIN_WINTER	雪鸟浮标？华而不实！	3280	雪鸟羽毛浮标，认为徒有外表
+DESCRIBE.OCEANFISHINGBOBBER_CANARY	黄羽浮标？可笑的小把戏！	3281	金丝雀羽毛浮标，视为儿戏
+DESCRIBE.OCEANFISHINGBOBBER_GOOSE	鹅羽浮标？浪费材料！	3282	鹅羽毛浮标，认为材料浪费
+DESCRIBE.OCEANFISHINGBOBBER_MALBATROSS	邪天翁羽？勉强可入王某法眼！	3283	邪天翁羽毛浮标，略微认可
+DESCRIBE.OCEANFISHINGLURE_SPINNER_RED	日出亮片？骗骗凡鱼罢了！	3284	红色旋转亮片，认为只能骗普通鱼
+DESCRIBE.OCEANFISHINGLURE_SPINNER_GREEN	黄昏亮片？不入流的把戏！	3285	绿色旋转亮片，视为低劣技巧
+DESCRIBE.OCEANFISHINGLURE_SPINNER_BLUE	夜间亮片？王某夜可视物！	3286	蓝色旋转亮片，强调自身夜视能力
+DESCRIBE.OCEANFISHINGLURE_SPOON_RED	日出假饵？连小鱼都骗不过！	3287	红色匙型假饵，认为效果差
+DESCRIBE.OCEANFISHINGLURE_SPOON_GREEN	黄昏假饵？废物一个！	3288	绿色匙型假饵，直接骂废物
+DESCRIBE.OCEANFISHINGLURE_SPOON_BLUE	夜间假饵？王某何需此物！	3289	蓝色匙型假饵，表示不需要
+DESCRIBE.OCEANFISHINGLURE_HERMIT_RAIN	雨饵？弄湿法体实属不敬！	3290	雨天专用饵，担心弄湿法体
+DESCRIBE.OCEANFISHINGLURE_HERMIT_SNOW	雪饵？鱼儿岂会中计！	3291	雪天专用饵，怀疑效果
+DESCRIBE.OCEANFISHINGLURE_HERMIT_DROWSY	麻饵？污了王某法手！	3292	麻醉鱼饵，嫌脏
+DESCRIBE.OCEANFISHINGLURE_HERMIT_HEAVY	重饵？连条龙都钓不起来！	3293	重型鱼饵，夸张表达其无能
+DESCRIBE.OCEANFISH_SMALL_1	一阶妖鱼，也敢在我面前游弋？	3294	小孔雀鱼
+DESCRIBE.OCEANFISH_SMALL_2	墨鱼？其墨可制符箓。	3295	针鼻喷墨鱼
+DESCRIBE.OCEANFISH_SMALL_3	未开灵智的小妖。	3296	小饵鱼
+DESCRIBE.OCEANFISH_SMALL_4	鱼苗？连塞牙缝都不够。	3297	三文鱼苗
+DESCRIBE.OCEANFISH_SMALL_5	爆裂属性的妖鱼？有点意思。	3298	爆米花鱼
+DESCRIBE.OCEANFISH_SMALL_6	伪装之术，拙劣不堪。	3299	落叶比目鱼
+DESCRIBE.OCEANFISH_SMALL_7	花开鱼身，可作炼丹辅料。	3300	花朵金枪鱼
+DESCRIBE.OCEANFISH_SMALL_8	火属性妖鱼，正好炼化。	3301	炽热太阳鱼
+DESCRIBE.OCEANFISH_SMALL_9	毒涎妖鱼，污秽之物。	3302	口水鱼
+DESCRIBE.OCEANFISH_MEDIUM_1	泥潭妖鱼，腥臭难闻。	3303	泥鱼
+DESCRIBE.OCEANFISH_MEDIUM_2	斑纹妖鱼，中看不中用。	3304	斑鱼
+DESCRIBE.OCEANFISH_MEDIUM_3	虚张声势的废物。	3305	浮夸狮子鱼
+DESCRIBE.OCEANFISH_MEDIUM_4	厄运妖鱼，避之为妙。	3306	黑鲶鱼
+DESCRIBE.OCEANFISH_MEDIUM_5	凡俗之物，不堪大用。	3307	玉米鳕鱼
+DESCRIBE.OCEANFISH_MEDIUM_6	锦鲤？倒是有些灵气。	3308	花锦鲤
+DESCRIBE.OCEANFISH_MEDIUM_7	金鳞妖鱼，或许有些用处。	3309	金锦鲤
+DESCRIBE.OCEANFISH_MEDIUM_8	冰属性妖鱼，可炼寒系法宝。	3310	冰鲷鱼
+DESCRIBE.OCEANFISH_MEDIUM_9	甜腻之物，凡人所好。	3311	甜味鱼
+DESCRIBE.PONDFISH	淡水小妖，也敢窥视修真之道？	3312	淡水鱼
+DESCRIBE.PONDEEL	电鳗？其电力可淬炼法宝。	3313	活鳗鱼
+DESCRIBE.FISHMEAT	生鱼肉，连妖兽都不屑一顾。	3314	生鱼肉
+DESCRIBE.FISHMEAT_COOKED	烤鱼？勉强果腹。	3315	鱼排
+DESCRIBE.FISHMEAT_SMALL	鱼渣一堆。	3316	小鱼块
+DESCRIBE.FISHMEAT_SMALL_COOKED	熟鱼屑，聊胜于无。	3317	熟小鱼块
+DESCRIBE.SPOILED_FISH	腐鱼？腥臭难当。	3318	变质的鱼
+DESCRIBE.FISH_BOX	此罐似有保鲜禁制？	3319	锡鱼罐
+DESCRIBE.POCKET_SCALE	秤？我神识一扫便知轻重。	3320	弹簧秤
+DESCRIBE.TACKLECONTAINER	钓具匣？可笑，我王林何需此物。	3321	钓具箱
+DESCRIBE.SUPERTACKLECONTAINER	超级钓具匣？浪费时间。	3322	超级钓具箱
+DESCRIBE.TROPHYSCALE_FISH.GENERIC	区区凡鱼，也配称量？	3325	鱼类计重器默认状态
+DESCRIBE.TROPHYSCALE_FISH.HAS_ITEM	重{weight}斤，渔者{owner}。	3326	有物品时（简洁版）
+DESCRIBE.TROPHYSCALE_FISH.HAS_ITEM_HEAVY	重{weight}斤，渔者{owner}，尚可。	3327	有重物时（略带认可）
+DESCRIBE.TROPHYSCALE_FISH.BURNING	何人施法？	3328	燃烧时（警觉）
+DESCRIBE.TROPHYSCALE_FISH.BURNT	可惜了这妖鱼材料...	3329	烧焦后（惋惜材料）
+DESCRIBE.TROPHYSCALE_FISH.OWNER	{owner}所获，重{weight}斤。	3330	自己放置时（平淡陈述）
+DESCRIBE.TROPHYSCALE_FISH.OWNER_HEAVY	{owner}所获，重{weight}斤，不错。	3331	自己放置重物时（略微满意）
+DESCRIBE.OCEANFISHABLEFLOTSAM	海底残骸，或藏机缘。	3333	海洋残骸（修真者视角）
+DESCRIBE.CALIFORNIAROLL	凡间食物，勉强果腹。	3334	加州卷
+DESCRIBE.SEAFOODGUMBO	海鲜杂烩，聊胜于无。	3335	海鲜浓汤
+DESCRIBE.SURFNTURF	肉食尚可，灵气稀薄。	3336	海鲜牛排（评价灵气含量）
+DESCRIBE.WOBSTER_SHELLER	虾妖？可取甲炼器。	3337	龙虾（视作妖兽材料）
+DESCRIBE.WOBSTER_DEN	妖物巢穴，小心为妙。	3338	龙虾窝
+DESCRIBE.WOBSTER_SHELLER_DEAD	死虾材料，可制低阶丹药。	3339	死龙虾
+DESCRIBE.WOBSTER_SHELLER_DEAD_COOKED	熟虾，稍具灵气。	3340	美味的龙虾
+DESCRIBE.LOBSTERBISQUE	虾汤，勉强算药膳。	3341	龙虾汤
+DESCRIBE.LOBSTERDINNER	虾餐，尚可入口。	3342	龙虾正餐
+DESCRIBE.WOBSTER_MOONGLASS	月华虾妖？倒是罕见。	3343	月光龙虾（重视特殊属性）
+DESCRIBE.MOONGLASS_WOBSTER_DEN	月华凝聚的妖巢...	3344	月光玻璃窝（察觉特殊）
+DESCRIBE.TRIDENT	三叉戟？似是水系法宝。	3345	刺耳三叉戟（从法宝角度评价）
+DESCRIBE.WINCH.GGENERIC	此物可代我打捞海底之物。	3348	夹夹绞盘默认状态
+DESCRIBE.WINCH.GRETRIEVING_ITEM	正在打捞...	3349	打捞中
+DESCRIBE.WINCH.GHOLDING_ITEM	且看捞到了何物。	3350	持有物品时
+DESCRIBE.HERMITHOUSE.GENERIC	不过是个荒废的洞府。	3354	隐士之家默认状态
+DESCRIBE.HERMITHOUSE.BUILTUP	稍加修缮，可作临时洞府。	3355	修缮后
+DESCRIBE.SHELL_CLUSTER	这些海贝蕴含水灵气。	3357	物品名:"贝壳堆"
+DESCRIBE.SINGINGSHELL_OCTAVE3.GENERIC	贝壳发出低沉道音...	3360	物品名:"低音贝壳钟"->默认
+DESCRIBE.SINGINGSHELL_OCTAVE4.GENERIC	中音贝壳，似含韵律。	3364	物品名:"中音贝壳钟"->默认
+DESCRIBE.SINGINGSHELL_OCTAVE5.GENERIC	高音刺耳，扰人清修。	3368	物品名:"高音贝壳钟"->默认
+DESCRIBE.CHUM	鱼饵而已，不值一提。	3370	物品名:"鱼食" 制造描述:"鱼儿的美食。"
+DESCRIBE.SUNKENCHEST.GENERIC	海底沉箱，或有机缘。	3373	物品名:"沉底宝箱"->默认
+DESCRIBE.SUNKENCHEST.LOCKED	此箱有禁制守护。	3374	物品名:"沉底宝箱"->锁住了
+DESCRIBE.HERMIT_BUNDLE	这些杂物...勉强收下。	3376	物品名:"一包谢意"
+DESCRIBE.HERMIT_BUNDLE_SHELLS	贝壳材料，可制低阶法器。	3377	物品名:"贝壳钟包" 制造描述:"她卖的贝壳。"
+DESCRIBE.RESKIN_TOOL	此扫帚似有清洁禁制。	3378	物品名:"清洁扫把" 制造描述:"把装潢的东西清扫的干干净净。"
+DESCRIBE.MOON_FISSURE_PLUGGED	月华裂隙被封印了。	3379	物品名:"堵住的裂隙"
+DESCRIBE.WOBYBIG[0]	此兽体型不小...	3382	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WOBYBIG[1]	妖兽？小心为上。	3383	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WOBYSMALL[0]	小兽倒有几分灵性。	3387	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WOBYSMALL[1]	可作看守洞府的灵宠。	3388	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WALTERHAT	凡俗玩物，毫无灵气。	3390	松树先锋队帽子
+DESCRIBE.SLINGSHOT	弹弓？倒是件奇门法宝。	3391	可靠的弹弓
+DESCRIBE.SLINGSHOTAMMO_ROCK	普通石子，不堪大用。	3392	鹅卵石
+DESCRIBE.SLINGSHOTAMMO_MARBLE	玉石弹丸，尚可一用。	3393	大理石弹
+DESCRIBE.SLINGSHOTAMMO_THULECITE	诅咒弹丸？小心反噬。	3394	诅咒弹药
+DESCRIBE.SLINGSHOTAMMO_GOLD	金弹奢侈，华而不实。	3395	黄金弹药
+DESCRIBE.SLINGSHOTAMMO_SLOW	迟缓弹丸，可制敌速度。	3396	减速弹药
+DESCRIBE.SLINGSHOTAMMO_FREEZE	寒冰弹丸，蕴含冰系法则。	3397	冰冻弹药
+DESCRIBE.SLINGSHOTAMMO_POOP	污秽之物，有损道心。	3398	便便弹
+DESCRIBE.PORTABLETENT	打坐修行，何需帐篷。	3399	宿营帐篷
+DESCRIBE.PORTABLETENT_ITEM	遮风避雨之物，凡人所用。	3400	帐篷卷
+DESCRIBE.BATTLESONG_DURABILITY	此音律可加固法宝。	3401	武器化的颤音
+DESCRIBE.BATTLESONG_HEALTHGAIN	疗伤音律？效果有限。	3402	心碎歌谣
+DESCRIBE.BATTLESONG_SANITYGAIN	清心音律，可稳心神。	3403	醍醐灌顶华彩
+DESCRIBE.BATTLESONG_SANITYAURA	战意音律，略有助益。	3404	英勇美声颂
+DESCRIBE.BATTLESONG_FIRERESISTANCE	御火音律，还算实用。	3405	防火假声
+DESCRIBE.BATTLESONG_INSTANT_TAUNT	挑衅音律，低劣手段。	3406	粗鲁插曲
+DESCRIBE.BATTLESONG_INSTANT_PANIC	乱神音律，邪门歪道。	3407	惊心独白
+DESCRIBE.MUTATOR_WARRIOR	此物似能改变妖兽形态？	3408	战士变身涂鸦
+DESCRIBE.MUTATOR_DROPPER	蛛毒变异物，危险。	3409	悬蛛变身涂鸦
+DESCRIBE.MUTATOR_HIDER	洞穴变异物，谨慎使用。	3410	洞穴变身涂鸦
+DESCRIBE.MUTATOR_SPITTER	毒液变异物，阴损。	3411	喷吐变身涂鸦
+DESCRIBE.MUTATOR_MOON	月华变异物，或有用处。	3412	破碎变身涂鸦
+DESCRIBE.MUTATOR_HEALER	疗伤变异物，效果存疑。	3413	护士变身涂鸦
+DESCRIBE.SPIDER_WHISTLE	御虫哨？控制妖兽的法器。	3414	韦伯口哨
+DESCRIBE.SPIDERDEN_BEDAZZLER	蛛巢装饰，无聊之举。	3415	蛛巢装饰套装
+DESCRIBE.SPIDER_HEALER	疗伤蜘蛛？倒是罕见。	3416	护士蜘蛛
+DESCRIBE.SPIDER_REPELLENT	驱虫香，凡人用品。	3417	驱赶盒子
+DESCRIBE.SPIDER_HEALER_ITEM	蜘蛛分泌物，可入药。	3418	治疗黏团
+DESCRIBE.GHOSTLYELIXIR_SLOWREGEN	缓慢回生灵药，低阶。	3419	亡者补药
+DESCRIBE.GHOSTLYELIXIR_FASTREGEN	快速疗伤药，尚可。	3420	灵魂万灵药
+DESCRIBE.GHOSTLYELIXIR_SHIELD	护体灵药，保命之用。	3421	不屈药剂
+DESCRIBE.GHOSTLYELIXIR_ATTACK	增攻灵药，战斗必备。	3422	夜影万金油
+DESCRIBE.GHOSTLYELIXIR_SPEED	提速灵药，逃遁有用。	3423	强健精油
+DESCRIBE.GHOSTLYELIXIR_RETALIATION	反伤灵药，以牙还牙。	3424	蒸馏复仇
+DESCRIBE.SISTURN.GENERIC	这骨灰坛...还缺些阴魂滋养。	3427	物品名:"姐妹骨灰罐"->默认 制造描述:"让你疲倦的灵魂休息的地方。"
+DESCRIBE.SISTURN.SOME_FLOWERS	阴气不足，还需更多魂力...	3428	物品名:"姐妹骨灰罐" 制造描述:"让你疲倦的灵魂休息的地方。"
+DESCRIBE.SISTURN.LOTS_OF_FLOWERS	阴气凝聚，可作养魂之地。	3429	物品名:"姐妹骨灰罐" 制造描述:"让你疲倦的灵魂休息的地方。"
+DESCRIBE.PORTABLECOOKPOT_ITEM.GENERIC	便携丹炉，可炼简单丹药。	3434	便携烹饪锅默认
+DESCRIBE.PORTABLECOOKPOT_ITEM.DONE	丹药已成。	3435	完成烹饪
+DESCRIBE.PORTABLECOOKPOT_ITEM.COOKING_LONG	火候未到，还需耐心。	3436	烹饪时间长
+DESCRIBE.PORTABLECOOKPOT_ITEM.COOKING_SHORT	即将成丹。	3437	烹饪时间短
+DESCRIBE.PORTABLECOOKPOT_ITEM.EMPTY	丹炉空空如也。	3438	空锅状态
+DESCRIBE.PORTABLEBLENDER_ITEM	研磨法器，可碎药成粉。	3440	物品名:"便携研磨器" 制造描述:"把原料研磨成粉状调味品。"
+DESCRIBE.PORTABLESPICER_ITEM.GENERIC	调味法器，可增药效。	3443	物品名:"便携香料站"->默认 制造描述:"调味让饭菜更可口。"
+DESCRIBE.PORTABLESPICER_ITEM.DONE	药散已成。	3444	物品名:"便携香料站"->完成了 制造描述:"调味让饭菜更可口。"
+DESCRIBE.SPICEPACK	此袋可保食材新鲜，尚可一用。	3446	厨师袋
+DESCRIBE.SPICE_GARLIC	蒜粉，可破邪祟。	3447	蒜粉
+DESCRIBE.SPICE_SUGAR	糖晶，凡人所好。	3448	蜂蜜水晶
+DESCRIBE.SPICE_CHILI	辣椒粉，火属性材料。	3449	辣椒面
+DESCRIBE.SPICE_SALT	盐粉，调味之用。	3450	调味盐
+DESCRIBE.MONSTERTARTARE	妖兽肉生食？谨慎为妙。	3451	怪物鞑靼
+DESCRIBE.FRESHTRUITCREPES	灵果薄饼，尚可入口。	3452	鲜果可丽饼
+DESCRIBE.FROGFISHBOWL	鱼蛙杂烩，味道独特。	3453	蓝带鱼排
+DESCRIBE.POTATOTORNADO	土豆旋丝，凡间小吃。	3454	花式回旋块茎
+DESCRIBE.DRAGONCHILISALAD	龙椒沙拉，火辣异常。	3455	辣龙椒沙拉
+DESCRIBE.GLOWBERRYMOUSSE	发光浆果慕斯，蕴含光灵气。	3456	发光浆果慕斯
+DESCRIBE.VOLTGOATJELLY	雷羊肉冻，蕴含雷电之力。	3457	伏特羊肉冻
+DESCRIBE.NIGHTMAREPIE	梦魇馅饼，小心幻境反噬。	3458	恐怖国王饼
+DESCRIBE.BONESOUP	骨汤，可补钙质。	3459	骨头汤
+DESCRIBE.MASHEDPOTATOES	土豆泥，凡人之食。	3460	奶油土豆泥
+DESCRIBE.POTATOSOUFFLE	土豆舒芙蕾，做工精细。	3461	蓬松土豆蛋奶酥
+DESCRIBE.MOQUECA	海鲜炖菜，海味十足。	3462	海鲜杂烩
+DESCRIBE.GAZPACHO	冷汤，清爽解暑。	3463	芦笋冷汤
+DESCRIBE.ASPARAGUSSOUP	芦笋汤，清淡养生。	3464	芦笋汤
+DESCRIBE.VEGSTINGER	蔬菜鸡尾酒，味道奇特。	3465	蔬菜鸡尾酒
+DESCRIBE.BANANAPOP	香蕉冰棍，消暑小食。	3466	香蕉冻
+DESCRIBE.CEVICHE	酸橘汁腌鱼，异域风味。	3467	酸橘汁腌鱼
+DESCRIBE.SALSA	莎莎酱，辛辣开胃。	3468	生鲜萨尔萨酱
+DESCRIBE.PEPPERPOPPER	辣椒爆弹，火辣刺激。	3469	爆炒填馅辣椒
+DESCRIBE.TURNIP	萝卜，普通蔬菜。	3470	大萝卜
+DESCRIBE.TURNIP_COOKED	烤萝卜，味道尚可。	3471	烤大萝卜
+DESCRIBE.TURNIP_SEEDS	萝卜种子。	3472	圆形种子
+DESCRIBE.GARLIC	大蒜，可驱虫辟邪。	3473	大蒜
+DESCRIBE.GARLIC_COOKED	烤大蒜，香气更浓。	3474	烤大蒜
+DESCRIBE.GARLIC_SEEDS	大蒜种子。	3475	种子荚
+DESCRIBE.ONION	洋葱，辛辣刺眼。	3476	洋葱
+DESCRIBE.ONION_COOKED	烤洋葱，甜味显现。	3477	烤洋葱
+DESCRIBE.ONION_SEEDS	洋葱种子。	3478	尖形种子
+DESCRIBE.POTATO	土豆，饱腹之物。	3479	土豆
+DESCRIBE.POTATO_COOKED	烤土豆，香气扑鼻。	3480	烤土豆
+DESCRIBE.POTATO_SEEDS	土豆种子。	3481	毛茸茸的种子
+DESCRIBE.TOMATO	番茄，酸甜可口。	3482	番茄
+DESCRIBE.TOMATO_COOKED	烤番茄，风味更佳。	3483	烤番茄
+DESCRIBE.TOMATO_SEEDS	番茄种子。	3484	带刺的种子
+DESCRIBE.ASPARAGUS	芦笋，清爽蔬菜。	3485	芦笋
+DESCRIBE.ASPARAGUS_COOKED	烤芦笋，脆嫩可口。	3486	烤芦笋
+DESCRIBE.ASPARAGUS_SEEDS	芦笋种子。	3487	筒状种子
+DESCRIBE.PEPPER	辣椒，火辣调味。	3488	辣椒
+DESCRIBE.PEPPER_COOKED	烤辣椒，辣度更甚。	3489	烤辣椒
+DESCRIBE.PEPPER_SEEDS	辣椒种子。	3490	块状种子
+DESCRIBE.WEREITEM_BEAVER	海狸雕像，似有妖气。	3491	俗气海狸像
+DESCRIBE.WEREITEM_GOOSE	鹅雕像，造型奇特。	3492	俗气鹅像
+DESCRIBE.WEREITEM_MOOSE	麋鹿雕像，蕴含野性。	3493	俗气鹿像
+DESCRIBE.MERMHAT	鱼人伪装，可避水族。	3494	聪明的伪装
+DESCRIBE.MERMTHRONE.GENERIC	鱼人王座？可笑。	3497	物品名:"皇家地毯"->默认
+DESCRIBE.MERMTHRONE.BURNT	烧焦的王座，徒留残骸。	3498	物品名:"皇家地毯"->烧焦的
+DESCRIBE.MERMTHRONE_CONSTRUCTION.GENERIC	鱼人建朝？痴心妄想。	3502	物品名:"皇家手工套装"->默认 制造描述:"建立一个新的鱼人王朝。"
+DESCRIBE.MERMTHRONE_CONSTRUCTION.BURNT	化为灰烬，正合我意。	3503	物品名:"皇家手工套装"->烧焦的 制造描述:"建立一个新的鱼人王朝。"
+DESCRIBE.MERMHOUSE_CRAFTED.GENERIC	鱼人屋舍，简陋不堪。	3507	物品名:"鱼人工艺屋"->默认 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMHOUSE_CRAFTED.BURNT	烧毁殆尽，省我出手。	3508	物品名:"鱼人工艺屋"->烧焦的 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMWATCHTOWER_REGULAR	鱼人哨塔，与我何干。	3510	物品名:"鱼人工艺屋" 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMWATCHTOWER_NOKING	无主哨塔，或可利用。	3511	物品名:"鱼人工艺屋" 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMKING	鱼人王？傀儡罢了。	3512	鱼人之王
+DESCRIBE.MERMGUARD	鱼人守卫，不堪一击。	3513	忠诚鱼人守卫
+DESCRIBE.MERM_PRINCE	鱼人争位，无聊闹剧。	3514	过程中的皇室
+DESCRIBE.SQUID	鱿鱼？可作海鲜食材。	3515	鱿鱼
+DESCRIBE.GHOSTFLOWER	幽灵花？蕴含阴灵气。	3516	哀悼荣耀
+DESCRIBE.SMALLGHOST	小幽灵？无害之物。	3517	小惊吓
+DESCRIBE.CRABKING.GENERIC	蟹王？体型倒是不小。	3520	物品名:"帝王蟹"->默认
+DESCRIBE.CRABKING.INERT	沉睡蟹王，小心为妙。	3521	物品名:"帝王蟹"
+DESCRIBE.CRABKING_CLAW	蟹钳？可作材料。	3523	巨钳
+DESCRIBE.MESSAGEBOTTLE	瓶中信？或有机密。	3524	瓶中信
+DESCRIBE.MESSAGEBOTTLEEMPTY	空瓶？可装丹药。	3525	空瓶子
+DESCRIBE.MEATRACK_HERMIT.DONE	肉已风干，可长期保存。	3528	完成风干
+DESCRIBE.MEATRACK_HERMIT.DRYING	正在风干，需耐心等待。	3529	风干中
+DESCRIBE.MEATRACK_HERMIT.DRYINGINRAIN	雨天潮湿，风干缓慢。	3530	雨中风干
+DESCRIBE.MEATRACK_HERMIT.GENERIC	晾肉架？可保存食物。	3531	默认状态
+DESCRIBE.MEATRACK_HERMIT.BURNT	架子烧毁，前功尽弃。	3532	烧焦状态
+DESCRIBE.MEATRACK_HERMIT.DONE_NOTMEAT	物品已干，保存完成。	3533	非肉类风干完成
+DESCRIBE.MEATRACK_HERMIT.DRYING_NOTMEAT	物品正在风干。	3534	非肉类风干中
+DESCRIBE.MEATRACK_HERMIT.DRYINGINRAIN_NOTMEAT	雨天影响风干效率。	3535	非肉类雨中风干
+DESCRIBE.BEEBOX_HERMIT.READY	蜂蜜已满，可取之用。	3539	蜂箱蜂蜜已满
+DESCRIBE.BEEBOX_HERMIT.FULLHONEY	蜜满蜂箱，收获之时。	3540	蜂蜜满了
+DESCRIBE.BEEBOX_HERMIT.GENERIC	蜂箱？且看能产何蜜。	3541	默认状态
+DESCRIBE.BEEBOX_HERMIT.NOHONEY	箱中无蜜，还需等待。	3542	没有蜂蜜
+DESCRIBE.BEEBOX_HERMIT.SOMEHONEY	已有少许蜂蜜，尚未满箱。	3543	有一些蜂蜜
+DESCRIBE.BEEBOX_HERMIT.BURNT	蜂箱被焚，可惜。	3544	烧焦状态
+DESCRIBE.HERMITCRAB	寄居蟹？倒是懂得藏身之道。	3546	寄居蟹隐士
+DESCRIBE.HERMIT_PEARL	珍珠？蕴含水灵气。	3547	珍珠的珍珠
+DESCRIBE.HERMIT_CRACKED_PEARL	珍珠开裂，灵气外泄。	3548	开裂珍珠
+DESCRIBE.WATERPLANT	海草？普通水生植物。	3549	海草
+DESCRIBE.WATERPLANT_BOMB	爆裂海草？小心为上。	3550	种壳
+DESCRIBE.WATERPLANT_BABY	海草幼苗，尚未成熟。	3551	海芽
+DESCRIBE.WATERPLANT_PLANTER	海草种植处？	3552	海芽插穗
+DESCRIBE.SHARK	鲨鱼？海中猛兽。	3553	岩石大白鲨
+DESCRIBE.MASTUPGRADE_LAMP_ITEM	船灯？照明之用。	3554	甲板照明灯
+DESCRIBE.MASTUPGRADE_LIGHTNINGROD_ITEM	避雷针？防雷击必备。	3555	避雷导线
+DESCRIBE.WATERPUMP	水泵？取水工具。	3556	消防泵
+DESCRIBE.BARNACLE	藤壶？海中附生物。	3557	藤壶
+DESCRIBE.BARNACLE_COOKED	熟藤壶，可食用。	3558	熟藤壶
+DESCRIBE.BARNACLEPITA	藤壶饼，异域风味。	3559	藤壶皮塔饼
+DESCRIBE.BARNACLESUSHI	藤壶寿司，海鲜小吃。	3560	藤壶握寿司
+DESCRIBE.BARNACLINGUINE	藤壶意面，味道独特。	3561	藤壶中细面
+DESCRIBE.BARNACLESTUFFEDFISHHEAD	酿鱼头，烹饪精细。	3562	酿鱼头
+DESCRIBE.LEAFLOAF	叶肉糕？素食点心。	3563	叶肉糕
+DESCRIBE.LEAFYMEATBURGER	素肉汉堡？仿荤素食。	3564	素食堡
+DESCRIBE.LEAFYMEATSOUFFLE	素肉舒芙蕾，做工讲究。	3565	果冻沙拉
+DESCRIBE.MEATYSALAD	肉沙拉？荤素搭配。	3566	牛肉绿叶菜
+DESCRIBE.MOLEBAT	鼹鼠蝙蝠？奇特生物。	3567	裸鼹蝠
+DESCRIBE.MOLEBATHILL	蝙蝠丘穴？小心有兽。	3568	裸鼹蝠丘
+DESCRIBE.BATNOSE	蝙蝠鼻？奇特材料。	3569	裸露鼻孔
+DESCRIBE.BATNOSE_COOKED	烤蝙蝠鼻？味道怪异。	3570	炭烤鼻孔
+DESCRIBE.BATNOSEHAT	蝙蝠鼻帽？防寒之用。	3571	牛奶帽
+DESCRIBE.MUSHGNOME	蘑菇地精？会移动的菌类。	3572	蘑菇地精
+DESCRIBE.SPORE_MOON	月亮孢子？小心感染。	3573	月亮孢子
+DESCRIBE.MOON_CAP	月亮蘑菇？未知品种。	3574	月亮蘑菇
+DESCRIBE.MOON_CAP_COOKED	熟月亮蘑菇？谨慎食用。	3575	熟月亮蘑菇
+DESCRIBE.MUSHTREE_MOON	月亮蘑菇树？散发微光。	3576	月亮蘑菇树
+DESCRIBE.LIGHTFLIER	发光飞虫？可作光源。	3577	球状光虫
+DESCRIBE.GROTTO_POOL_BIG	大型水晶池？灵气充裕。	3578	玻璃绿洲
+DESCRIBE.GROTTO_POOL_SMALL	小型水晶池？也有灵气。	3579	小玻璃绿洲
+DESCRIBE.DUSTMOTH	尘蛾？喜食灰尘。	3580	尘蛾
+DESCRIBE.DUSTMOTHDEN	尘蛾巢穴？异常整洁。	3581	整洁洞穴
+DESCRIBE.ARCHIVE_LOCKBOX	上古宝箱？如何开启。	3582	蒸馏的知识
+DESCRIBE.ARCHIVE_CENTIPEDE	远古蜈蚣？守护者。	3583	远古哨兵蜈蚣
+DESCRIBE.ARCHIVE_CENTIPEDE_HUSK	蜈蚣空壳？已无价值。	3584	哨兵蜈蚣壳
+DESCRIBE.ARCHIVE_COOKPOT.COOKING_LONG	此鼎炼化需时，耐心等待。	3587	远古窑烹饪时间长
+DESCRIBE.ARCHIVE_COOKPOT.COOKING_SHORT	即将功成。	3588	远古窑烹饪时间短
+DESCRIBE.ARCHIVE_COOKPOT.DONE	炼制完成。	3589	远古窑完成
+DESCRIBE.ARCHIVE_COOKPOT.EMPTY	古鼎空空，待我使用。	3590	远古窑空置
+DESCRIBE.ARCHIVE_COOKPOT.BURNT	鼎炉损毁，可惜。	3591	远古窑烧焦
+DESCRIBE.ARCHIVE_MOON_STATUE	月亮雕像？蕴含月华之力。	3593	物品名:"远古月亮雕像"
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_1	上古符文，晦涩难懂。	3596	第一行符文
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_2	符文深奥，需细细参悟。	3597	第二行符文
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_3	此等符文，非比寻常。	3598	第三行符文
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_4	符文玄妙，暗藏天机。	3599	第四行符文
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_5	上古文字，难以解读。	3600	第五行符文
+DESCRIBE.ARCHIVE_RESONATOR.GENERIC	星象仪？可探测方位。	3604	物品名:"星象探测仪"->默认
+DESCRIBE.ARCHIVE_RESONATOR.IDLE	星象仪已定位。	3605	物品名:"星象探测仪"
+DESCRIBE.ARCHIVE_RESONATOR_ITEM	探测仪器，或有用处。	3607	物品名:"星象探测仪" 制造描述:"它会出土什么秘密呢？"
+DESCRIBE.ARCHIVE_LOCKBOX_DISPENCER.POWEROFF	此器需能量启动。	3610	物品名:"知识饮水机"
+DESCRIBE.ARCHIVE_LOCKBOX_DISPENCER.GENERIC	奇特装置。	3611	物品名:"知识饮水机"->默认
+DESCRIBE.ARCHIVE_SECURITY_DESK.POWEROFF	哨所失能，暂无威胁。	3615	物品名:"远古哨所"
+DESCRIBE.ARCHIVE_SECURITY_DESK.GENERIC	远古哨所？小心为上。	3616	物品名:"远古哨所"->默认
+DESCRIBE.ARCHIVE_SECURITY_PULSE	警戒脉冲？避开为妙。	3618	物品名:"远古哨所"
+DESCRIBE.ARCHIVE_SWITCH.VALID	基座完好，可放置物品。	3621	物品名:"华丽基座"->有效
+DESCRIBE.ARCHIVE_SWITCH.GEMS	基座需宝石激活。	3622	物品名:"华丽基座"->需要宝石
+DESCRIBE.ARCHIVE_PORTAL.POWEROFF	传送门能量尽失。	3626	物品名:"封印的传送门"
+DESCRIBE.ARCHIVE_PORTAL.GENERIC	远古传送门？不知通往何处。	3627	物品名:"封印的传送门"->默认
+DESCRIBE.WALL_STONE_2	石墙？普通防御工事。	3629	档案馆石墙
+DESCRIBE.WALL_RUINS_2	远古石墙？材质特殊。	3630	档案馆铥墙
+DESCRIBE.REFINED_DUST	精炼尘土？用途不明。	3631	尘土块
+DESCRIBE.DUSTMERINGUE	尘沫甜点？味道奇特。	3632	琥珀美食
+DESCRIBE.SHROOMCAKE	蘑菇蛋糕？谨慎食用。	3633	蘑菇蛋糕
+DESCRIBE.NIGHTMAREGROWTH	梦魇增生？小心幻境。	3634	梦魇城墙
+DESCRIBE.TURFCRAFTINGSTATION	草皮制作台？改变地形之用。	3635	土地夯实器
+DESCRIBE.MOON_ALTAR_LINK	月亮祭坛连接？能量流动。	3636	神秘能量
+DESCRIBE.COMPOSTINGBIN.GENERIC	堆肥桶？制造肥料。	3639	堆肥桶默认
+DESCRIBE.COMPOSTINGBIN.WET	堆肥过湿，需调整。	3640	过湿状态
+DESCRIBE.COMPOSTINGBIN.DRY	堆肥过干，需加水。	3641	过干状态
+DESCRIBE.COMPOSTINGBIN.BALANCED	堆肥状态良好。	3642	平衡状态
+DESCRIBE.COMPOSTINGBIN.BURNT	堆肥桶烧毁。	3643	烧焦状态
+DESCRIBE.COMPOST	堆肥？可滋养土壤。	3645	物品名:"堆肥"
+DESCRIBE.SOIL_AMENDER.GENERIC	土壤改良剂？促进生长。	3648	物品名:"催长剂起子"->默认 制造描述:"海里来的瓶装养分。"
+DESCRIBE.SOIL_AMENDER.STALE	改良剂效果减弱。	3649	物品名:"催长剂起子"->过期了 制造描述:"海里来的瓶装养分。"
+DESCRIBE.SOIL_AMENDER.SPOILED	改良剂已变质。	3650	物品名:"催长剂起子"->腐烂了 制造描述:"海里来的瓶装养分。"
+DESCRIBE.SOIL_AMENDER_FERMENTED	发酵改良剂？效果更强。	3652	物品名:"超级催长剂"
+DESCRIBE.WATERINGCAN.GENERIC	浇水壶？灌溉用具。	3655	物品名:"空浇水壶"->默认 制造描述:"让植物保持快乐和水分。"
+DESCRIBE.WATERINGCAN.EMPTY	水壶已空，需加水。	3656	物品名:"空浇水壶" 制造描述:"让植物保持快乐和水分。"
+DESCRIBE.PREMIUMWATERINGCAN.GENERIC	高级浇水壶？效率更高。	3660	物品名:"空鸟嘴壶"->默认 制造描述:"灌溉方面的创新。"
+DESCRIBE.PREMIUMWATERINGCAN.EMPTY	壶中无水，无法使用。	3661	物品名:"空鸟嘴壶" 制造描述:"灌溉方面的创新。"
+DESCRIBE.FARM_PLOW	耕地机？农耕用具。	3663	耕地机
+DESCRIBE.FARM_PLOW_ITEM	便携耕地机？便于携带。	3664	耕地机(物品)
+DESCRIBE.FARM_HOE	锄头？翻土工具。	3665	园艺锄
+DESCRIBE.GOLDEN_FARM_HOE	金锄？奢侈农具。	3666	黄金园艺锄
+DESCRIBE.NUTRIENTSGOGGLESHAT	营养护目帽？观察土壤之用。	3667	高级耕作先驱帽
+DESCRIBE.PLANTREGISTRYHAT	植物登记帽？识别作物。	3668	耕作先驱帽
+DESCRIBE.FARM_SOIL_DEBRIS	农田杂物？需要清理。	3669	农田杂物
+DESCRIBE.FIRENETTLES	火荨麻？小心灼伤。	3670	火荨麻叶
+DESCRIBE.FORGETMELOTS	勿忘我花？观赏植物。	3671	必忘我
+DESCRIBE.SWEETTEA	甜茶？解渴饮品。	3672	舒缓茶
+DESCRIBE.TILLWEED	犁地草？田间杂草。	3673	犁地草
+DESCRIBE.TILLWEEDSALVE	草膏？疗伤药物。	3674	犁地草膏
+DESCRIBE.WEED_IVY	常春藤？攀附植物。	3675	刺针旋花
+DESCRIBE.IVY_SNARE	藤蔓陷阱？小心缠绕。	3676	缠绕根须
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.GENERIC	农产品秤？称量作物之用。	3679	农产品秤默认
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.GHAS_ITEM	重{weight}斤，收获第{day}天。	3680	有物品时
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.GHAS_ITEM_HEAVY	重{weight}斤，收获第{day}天，长得不小。	3681	有重物时
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.GHAS_ITEM_LIGHT	重量过轻，价值不大。	3682	有轻物时
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.GBURNING	秤台起火，速速扑灭。	3683	燃烧时
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.GBURNT	秤台烧毁，无法使用。	3684	烧焦后
+DESCRIBE.CARROT_OVERSIZED	巨型胡萝卜？长得异常。	3686	巨型胡萝卜
+DESCRIBE.CORN_OVERSIZED	巨型玉米？个头惊人。	3687	巨型玉米
+DESCRIBE.PUMPKIN_OVERSIZED	巨型南瓜？可作容器。	3688	巨型南瓜
+DESCRIBE.EGGPLANT_OVERSIZED	巨型茄子？紫色品种。	3689	巨型茄子
+DESCRIBE.DURIAN_OVERSIZED	巨型榴莲？气味浓烈。	3690	巨型榴莲
+DESCRIBE.POMEGRANATE_OVERSIZED	巨型石榴？籽粒饱满。	3691	巨型石榴
+DESCRIBE.DRAGONFRUIT_OVERSIZED	巨型火龙果？外形奇特。	3692	巨型火龙果
+DESCRIBE.WATERMELON_OVERSIZED	巨型西瓜？水分充足。	3693	巨型西瓜
+DESCRIBE.TOMATO_OVERSIZED	巨型番茄？红色饱满。	3694	巨型番茄
+DESCRIBE.POTATO_OVERSIZED	巨型土豆？淀粉丰富。	3695	巨型土豆
+DESCRIBE.ASPARAGUS_OVERSIZED	巨型芦笋？清脆可口。	3696	巨型芦笋
+DESCRIBE.ONION_OVERSIZED	巨型洋葱？辛辣刺眼。	3697	巨型洋葱
+DESCRIBE.GARLIC_OVERSIZED	巨型大蒜？驱虫效果好。	3698	巨型大蒜
+DESCRIBE.PEPPER_OVERSIZED	巨型辣椒？辣度更强。	3699	巨型辣椒
+DESCRIBE.VEGGIE_OVERSIZED_ROTTEN	腐烂巨型蔬菜？已无价值。	3700	腐烂巨型蔬菜
+DESCRIBE.FARM_PLANT.GENERIC	普通作物。	3703	一般状态
+DESCRIBE.FARM_PLANT.SEED	种子刚播下。	3704	种子阶段
+DESCRIBE.FARM_PLANT.GROWING	作物生长中。	3705	生长中
+DESCRIBE.FARM_PLANT.FULL	作物已成熟。	3706	成熟状态
+DESCRIBE.FARM_PLANT.ROTTEN	作物已腐烂。	3707	腐烂状态
+DESCRIBE.FARM_PLANT.FULL_OVERSIZED	长出巨型作物。	3708	巨型成熟
+DESCRIBE.FARM_PLANT.ROTTEN_OVERSIZED	巨型作物腐烂。	3709	巨型腐烂
+DESCRIBE.FARM_PLANT.FULL_WEED	杂草丛生。	3710	杂草状态
+DESCRIBE.FARM_PLANT.BURNING	作物起火。	3711	燃烧状态
+DESCRIBE.FRUITFLY	果蝇？扰人清静。	3713	果蝇
+DESCRIBE.LORDFRUITFLY	果蝇王？体型较大。	3714	果蝇王
+DESCRIBE.FRIENDLYFRUITFLY	友善果蝇？有助于作物。	3715	友好果蝇
+DESCRIBE.FRUITFLYFRUIT	果蝇果实？可吸引果蝇。	3716	友好果蝇果
+DESCRIBE.SEEDPOUCH	种子袋？便于储存种子。	3717	种子袋
+DESCRIBE.CARNIVAL_HOST	乌鸦主持人？节庆司仪。	3718	良羽鸦
+DESCRIBE.CARNIVAL_CROWKID	小乌鸦？节庆助手。	3719	小乌鸦
+DESCRIBE.CARNIVAL_GAMETOKEN	游戏代币？参与活动之用。	3720	鸦年华代币
+DESCRIBE.CARNIVAL_PRIZETICKET.GENERIC	奖票？兑换奖品。	3723	物品名:"奖票"->默认
+DESCRIBE.CARNIVAL_PRIZETICKET.GENERIC_SMALLSTACK	一叠奖票。	3724	物品名:"奖票"
+DESCRIBE.CARNIVAL_PRIZETICKET.GENERIC_LARGESTACK	大量奖票。	3725	物品名:"奖票"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_NEST	乌鸦巢穴？喂食游戏。	3727	物品名:"饥饿乌鸦"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_STATION.GENERIC	喂食游戏？需准备食物。	3730	物品名:"鸟鸟吃虫虫"->默认
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_STATION.PLAYING	正在喂食乌鸦。	3731	物品名:"鸟鸟吃虫虫"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_KIT	喂食游戏套装？搭建用。	3733	物品名:"鸟鸟吃虫虫套装" 制造描述:"小鸟吃虫。"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_FOOD	幼虫？乌鸦食物。	3734	物品名:"蛴螬"
+DESCRIBE.CARNIVALGAME_MEMORY_KIT	记忆游戏套装？考验记性。	3735	物品名:"篮中蛋套装" 制造描述:"在你的蛋孵化前数清楚数量。"
+DESCRIBE.CARNIVALGAME_MEMORY_STATION.GENERIC	记忆游戏？需集中精神。	3738	物品名:"篮中蛋"->默认
+DESCRIBE.CARNIVALGAME_MEMORY_STATION.PLAYING	正在记忆蛋的位置。	3739	物品名:"篮中蛋"
+DESCRIBE.CARNIVALGAME_MEMORY_CARD.GENERIC	蛋篮？游戏道具。	3743	物品名:"蛋篮"->默认
+DESCRIBE.CARNIVALGAME_MEMORY_CARD.PLAYING	是这个蛋篮吗？	3744	物品名:"蛋篮"
+DESCRIBE.CARNIVALGAME_HERDING_KIT	赶蛋游戏套装？控制蛋的移动。	3746	物品名:"追蛋套装" 制造描述:"追回失控的蛋。"
+DESCRIBE.CARNIVALGAME_HERDING_STATION.GENERIC	赶蛋游戏？需敏捷身手。	3749	物品名:"追蛋"->默认
+DESCRIBE.CARNIVALGAME_HERDING_STATION.PLAYING	正在追赶逃跑的蛋。	3750	物品名:"追蛋"
+DESCRIBE.CARNIVALGAME_HERDING_CHICK	小乌鸦？需要引导。	3752	物品名:"追蛋"
+DESCRIBE.CARNIVALGAME_SHOOTING_KIT	射击游戏套装？练习瞄准。	3753	物品名:"保卫鸟巢套装" 制造描述:"防止害虫进入巢穴。"
+DESCRIBE.CARNIVALGAME_SHOOTING_STATION.GENERIC	试炼箭阵？待我破之。	3756	保卫鸟巢默认
+DESCRIBE.CARNIVALGAME_SHOOTING_STATION.PLAYING	看我一箭破虚妄！	3757	游戏中
+DESCRIBE.CARNIVALGAME_SHOOTING_TARGET.GENERIC	试炼靶心...	3761	射击靶默认
+DESCRIBE.CARNIVALGAME_SHOOTING_TARGET.PLAYING	此靶暗合九宫方位。	3762	游戏中
+DESCRIBE.CARNIVALGAME_SHOOTING_BUTTON.GENERIC	机关枢纽...	3766	按钮默认
+DESCRIBE.CARNIVALGAME_SHOOTING_BUTTON.PLAYING	阵眼显形，破！	3767	游戏中
+DESCRIBE.CARNIVALGAME_WHEELSPIN_KIT	轮盘机缘阵...	3769	物品名:"布谷鸟转盘套装" 制造描述:"旋转然后胜利。"
+DESCRIBE.CARNIVALGAME_WHEELSPIN_STATION.GENERIC	机缘轮盘？测我气运。	3772	布谷鸟转盘默认
+DESCRIBE.CARNIVALGAME_WHEELSPIN_STATION.PLAYING	轮转生死，窥探天机！	3773	游戏中
+DESCRIBE.CARNIVALGAME_PUCKDROP_KIT	落子问心局..	3775	物品名:"鸟房落球套装" 制造描述:"把球安全地弹到它的窝里。"
+DESCRIBE.CARNIVALGAME_PUCKDROP_STATION.GENERIC	问心棋局？考验道心。	3778	鸟房落球默认
+DESCRIBE.CARNIVALGAME_PUCKDROP_STATION.PLAYING	落子无悔，道心坚定！	3779	游戏中
+DESCRIBE.CARNIVAL_PRIZEBOOTH_KIT	机缘兑换阵...	3781	物品名:"奖品摊位套装" 制造描述:"看看有什么奖品。"
+DESCRIBE.CARNIVAL_PRIZEBOOTH.GENERIC	功德兑换？以物易物。	3784	物品名:"奖品摊位"->默认
+DESCRIBE.CARNIVALCANNON_KIT	礼炮法器...	3786	物品名:"奖品摊位"
+DESCRIBE.CARNIVALCANNON.GENERIC	庆典礼炮？可发祥瑞。	3789	礼花炮默认
+DESCRIBE.CARNIVALCANNON.COOLDOWN	法器充能中...	3790	冷却状态
+DESCRIBE.CARNIVAL_PLAZA_KIT	仙缘法坛基座...	3792	物品名:"鸦年华树苗" 制造描述:"鸦年华不可或缺的中间物件。"
+DESCRIBE.CARNIVAL_PLAZA.GENERIC	法坛初成，灵气稀薄。	3795	鸦年华树默认
+DESCRIBE.CARNIVAL_PLAZA.LEVEL_2	法坛升级，灵气渐浓。	3796	二级广场
+DESCRIBE.CARNIVAL_PLAZA.LEVEL_3	法坛圆满，可聚天地元气！	3797	三级广场
+DESCRIBE.CARNIVALDECOR_EGGRIDE_KIT	灵卵流转阵基...	3799	鸦年华树
+DESCRIBE.CARNIVALDECOR_EGGRIDE	灵卵周天运转，暗合阴阳之道。	3800	鸦年华树
+DESCRIBE.CARNIVALDECOR_LAMP_KIT	幻梦琉璃灯构件...	3801	盛夏夜灯套装
+DESCRIBE.CARNIVALDECOR_LAMP	此灯汲取梦境之力，化作流光溢彩。	3802	盛夏夜灯
+DESCRIBE.CARNIVALDECOR_PLANT_KIT	芥子乾坤树苗...	3803	微型树套装
+DESCRIBE.CARNIVALDECOR_PLANT	一叶一世界，此树内蕴乾坤。	3804	微型树
+DESCRIBE.CARNIVALDECOR_BANNER_KIT	流光摄魂幡材料...	3805	光线捕捉器套装
+DESCRIBE.CARNIVALDECOR_BANNER	此幡可摄天地精光，化为己用。	3806	光线捕捉器
+DESCRIBE.CARNIVALDECOR_FIGURE.RARE	稀世灵偶，内蕴道韵！	3809	稀有雕像
+DESCRIBE.CARNIVALDECOR_FIGURE.UNCOMMON	上品灵偶，灵气充盈。	3810	不常见雕像
+DESCRIBE.CARNIVALDECOR_FIGURE.GENERIC	普通灵偶，聊胜于无。	3811	普通雕像
+DESCRIBE.CARNIVALDECOR_FIGURE_KIT	青玉秘匣，或藏机缘。	3813	绿色神秘盒子
+DESCRIBE.CARNIVALDECOR_FIGURE_KIT_SEASON2	金阙宝匣，必非凡品。	3814	金色神秘盒子
+DESCRIBE.CARNIVAL_BALL	赤炎灵珠，内蕴真火。	3815	发光红球
+DESCRIBE.CARNIVAL_SEEDPACKET	灵鸦食饵，可诱仙禽。	3816	种子包
+DESCRIBE.CARNIVALFOOD_CORNTEA	玉粟灵汤，饮之清心。	3817	玉米泥
+DESCRIBE.CARNIVAL_VEST_A	霓虹羽衣，光华流转。	3818	叽叽喳喳围巾
+DESCRIBE.CARNIVAL_VEST_B	青冥斗篷，隐迹藏形。	3819	叽叽喳喳斗篷
+DESCRIBE.CARNIVAL_VEST_C	流云披肩，轻若无物。	3820	叽叽喳喳小披肩
+DESCRIBE.YOTB_SEWINGMACHINE	天工织机，巧夺天工。	3821	缝纫机
+DESCRIBE.YOTB_SEWINGMACHINE_ITEM	织天机散件，待我组装。	3822	缝纫机套装
+DESCRIBE.YOTB_STAGE	论道法坛，群贤毕至。	3823	裁判席
+DESCRIBE.YOTB_POST	灵兽演武场，可展神通。	3824	皮弗娄牛舞台
+DESCRIBE.YOTB_STAGE_ITEM	法坛基座，需精心搭建。	3825	裁判席
+DESCRIBE.YOTB_POST_ITEM	演武阵基，当稳固根基。	3826	皮弗娄牛舞台
+DESCRIBE.YOTB_PATTERN_FRAGMENT_1	幽冥战甲残图，可炼阴兵。	3827	恐怖款式碎片
+DESCRIBE.YOTB_PATTERN_FRAGMENT_2	天宫仙铠碎片，华美非常。	3828	正式款式碎片
+DESCRIBE.YOTB_PATTERN_FRAGMENT_3	喜庆祥瑞图样，寓意吉祥。	3829	喜庆款式碎片
+DESCRIBE.YOTB_BEEFALO_DOLL_WAR.GENERIC	战偶傀儡，杀气不足。	3832	战士皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_WAR.YOTB	战意傀儡，尚缺灵性。	3833	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_DOLL.GENERIC	布偶傀儡，难成大器。	3837	娃娃皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_DOLL.YOTB	布偶之形，徒具其表。	3838	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_FESTIVE.GENERIC	喜庆傀儡，华而不实。	3842	喜庆皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_FESTIVE.YOTB	庆典傀儡，热闹有余。	3843	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_NATURE.GENERIC	草木傀儡，生机微弱。	3847	花朵皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_NATURE.YOTB	自然傀儡，灵气尚可。	3848	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_ROBOT.GENERIC	铁甲傀儡，机关之术。	3852	铁甲皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_ROBOT.YOTB	机关傀儡，不知裁判如何评判。	3853	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_ICE.GENERIC	寒冰傀儡，寒气逼人。	3857	寒霜皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_ICE.YOTB	冰系傀儡，寒意凛然。	3858	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_FORMAL.GENERIC	正装傀儡，拘泥形式。	3862	正式皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_FORMAL.YOTB	礼仪傀儡，过于刻板。	3863	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_VICTORIAN.GENERIC	西洋傀儡，异域风情。	3867	维多利亚皮弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_VICTORIAN.YOTB	异域傀儡，风格独特。	3868	比赛时
+DESCRIBE.YOTB_BEEFALO_DOLL_BEAST.GENERIC	野兽傀儡，野性未驯。	3872	幸运兽弗娄牛玩偶默认
+DESCRIBE.YOTB_BEEFALO_DOLL_BEAST.YOTB	凶兽傀儡，气势尚可。	3873	比赛时
+DESCRIBE.WAR_BLUEPRINT	战甲图谱，杀气凛然。	3875	战士礼服款式
+DESCRIBE.DOLL_BLUEPRINT	布偶图谱，过于柔弱。	3876	娃娃礼服款式
+DESCRIBE.FESTIVE_BLUEPRINT	庆典图谱，华美有余。	3877	节日盛装款式
+DESCRIBE.ROBOT_BLUEPRINT	机关图谱，巧夺天工。	3878	铁甲礼服款式
+DESCRIBE.NATURE_BLUEPRINT	自然图谱，生机盎然。	3879	花朵礼服款式
+DESCRIBE.FORMAL_BLUEPRINT	正装图谱，拘谨刻板。	3880	正式礼服款式
+DESCRIBE.VICTORIAN_BLUEPRINT	西洋图谱，异域风情。	3881	维多利亚礼服款式
+DESCRIBE.ICE_BLUEPRINT	寒冰图谱，冷冽逼人。	3882	寒霜礼服款式
+DESCRIBE.BEAST_BLUEPRINT	凶兽图谱，野性难驯。	3883	幸运兽礼服款式
+DESCRIBE.BEEF_BELL	御兽铃，可通灵兽心意。	3884	皮弗娄牛铃
+DESCRIBE.KITCOONDEN.GENERIC	浣猫巢穴，妖气弥漫。	3887	小浣猫托儿所默认
+DESCRIBE.KITCOONDEN.BURNT	巢穴焚毁，妖物四散。	3888	烧焦状态
+DESCRIBE.KITCOONDEN.PLAYING_HIDEANDSEEK	小妖躲藏，待我寻之。	3889	捉迷藏中
+DESCRIBE.KITCOONDEN.PLAYING_HIDEANDSEEK_TIME_ALMOST_UP	时限将至，速速现身。	3890	时间将尽
+DESCRIBE.KITCOONDEN_KIT	浣猫巢穴构件，需精心搭建。	3892	物品名:"小浣猫托儿所套装" 制造描述:"各种条纹浣猫的家园。"
+DESCRIBE.TICOON.PGENERIC	虎纹灵猫，颇具灵性。	3895	大虎默认
+DESCRIBE.TICOON.PABANDONED	灵猫离去，独自寻宝。	3896	被抛弃
+DESCRIBE.TICOON.PSUCCESS	寻得宝物，功成身退。	3897	成功寻宝
+DESCRIBE.TICOON.PLOST_TRACK	线索中断，前功尽弃。	3898	丢失踪迹
+DESCRIBE.TICOON.PNEARBY	妖气临近，宝物不远。	3899	附近有目标
+DESCRIBE.TICOON.PTRACKING	灵猫引路，随之前行。	3900	追踪中
+DESCRIBE.TICOON.PTRACKING_NOT_MINE	此猫有主，不为我用。	3901	追踪他人目标
+DESCRIBE.TICOON.PNOTHING_TO_TRACK	四下无宝，空手而归。	3902	无目标可追踪
+DESCRIBE.TICOON.PTARGET_TOO_FAR_AWAY	距离过远，难以企及。	3903	目标太远
+DESCRIBE.YOT_CATCOONSHRINE.GENERIC	浣猫祭坛，供奉何物？	3907	浣猫神龛默认
+DESCRIBE.YOT_CATCOONSHRINE.EMPTY	需奉上祭品，方显诚意。	3908	空置状态
+DESCRIBE.YOT_CATCOONSHRINE.BURNT	祭坛焚毁，灵气尽失。	3909	烧焦状态
+DESCRIBE.KITCOON_FOREST	林间灵猫，身手敏捷。	3911	森林小浣猫
+DESCRIBE.KITCOON_SAVANNA	草原灵猫，目光锐利。	3912	草原小浣猫
+DESCRIBE.KITCOON_MARSH	沼泽灵猫，善于隐匿。	3913	沼泽小浣猫
+DESCRIBE.KITCOON_DECIDUOUS	落叶灵猫，与环境相融。	3914	落叶林小浣猫
+DESCRIBE.KITCOON_GRASS	草野灵猫，行动迅捷。	3915	草地小浣猫
+DESCRIBE.KITCOON_ROCKY	岩石灵猫，攀爬高手。	3916	岩石小浣猫
+DESCRIBE.KITCOON_DESERT	沙漠灵猫，耐旱耐热。	3917	沙漠小浣猫
+DESCRIBE.KITCOON_MOON	月华灵猫，灵气充盈。	3918	月岛小浣猫
+DESCRIBE.KITCOON_YOT	赛会灵猫，机灵可爱。	3919	鸦年华小浣猫
+DESCRIBE.ALTERGUARDIAN_PHASE1.GENERIC	星陨石妖，也敢挡我去路！	3922	天体英雄默认
+DESCRIBE.ALTERGUARDIAN_PHASE1.DEAD	星核破碎，灵气四散。	3923	死亡状态
+DESCRIBE.ALTERGUARDIAN_PHASE2.GENERIC	妖物化形，气势更盛。	3927	第二形态默认
+DESCRIBE.ALTERGUARDIAN_PHASE2.DEAD	不过尔尔。	3928	死亡状态
+DESCRIBE.ALTERGUARDIAN_PHASE2SPIKE	月华尖刺，暗藏杀机。	3930	月光玻璃尖刺
+DESCRIBE.ALTERGUARDIAN_PHASE3	星妖狂怒，正合我意。	3931	第三形态
+DESCRIBE.ALTERGUARDIAN_PHASE3TRAP	迷魂阵法，扰人心神。	3932	启迪陷阱
+DESCRIBE.ALTERGUARDIAN_PHASE3DEADORB	星核残骸，尚存余温。	3933	天体英雄残骸
+DESCRIBE.ALTERGUARDIAN_PHASE3DEAD	星妖伏诛，天地清明。	3934	被击败的天体英雄
+DESCRIBE.ALTERGUARDIANHAT	星辉冠冕，可聚星辰之力。	3935	启迪之冠
+DESCRIBE.ALTERGUARDIANHATSHARD	星冠碎片，光华流转。	3936	启迪碎片
+DESCRIBE.MOONSTORM_GLASS.GENERIC	月华琉璃，非比寻常。	3939	充能玻璃石默认
+DESCRIBE.MOONSTORM_GLASS.INFUSED	星辰之力，充盈其中。	3940	充能状态
+DESCRIBE.MOONSTORM_STATIC	星辰雷煞，威力惊人。	3942	能量静电
+DESCRIBE.MOONSTORM_STATIC_ITEM	禁锢雷煞，可为我用。	3943	约束静电
+DESCRIBE.MOONSTORM_SPARK	月魄流萤，灵气逼人。	3944	月熠
+DESCRIBE.BIRD_MUTANT	月蚀乌鸦，形态诡异。	3945	月盲乌鸦
+DESCRIBE.BIRD_MUTANT_SPITTER	变异怪鸟，凶性毕露。	3946	奇形鸟
+DESCRIBE.WAGSTAFF_NPC	老道修士，或可相助。	3947	颗粒状传输
+DESCRIBE.WAGSTAFF_NPC_MUTATIONS	我辈修士，何惧劳顿。	3948	变异状态
+DESCRIBE.WAGSTAFF_NPC_WAGPUNK	此人遁去，不知所踪。	3949	充能玻璃石状态
+DESCRIBE.ALTERGUARDIAN_CONTAINED	此器正在炼化星妖元神。	3950	月亮精华提取器
+DESCRIBE.WAGSTAFF_TOOL_1	正是所需法器。	3951	网状缓冲器
+DESCRIBE.WAGSTAFF_TOOL_2	天机玄妙，不可轻言。	3952	装置除垢器
+DESCRIBE.WAGSTAFF_TOOL_3	趁手法宝，得心应手。	3953	垫圈开槽器
+DESCRIBE.WAGSTAFF_TOOL_4	神物感应，必有大用。	3954	概念刷洗器
+DESCRIBE.WAGSTAFF_TOOL_5	法宝妙用，我已洞悉。	3955	校准观察机
+DESCRIBE.MOONSTORM_GOGGLESHAT	星象护目，可窥天机。	3956	星象护目镜
+DESCRIBE.MOON_DEVICE.GENERIC	月华虹吸大阵，果然玄妙。	3959	月亮虹吸器默认
+DESCRIBE.MOON_DEVICE.CONSTRUCTION1	阵法初成，灵气渐聚。	3960	建造阶段1
+DESCRIBE.MOON_DEVICE.CONSTRUCTION2	阵基稳固，只待启动。	3961	建造阶段2
+DESCRIBE.POCKETWATCH_HEAL.GENERIC	返老还童钟，可逆转光阴。	3965	不老表默认
+DESCRIBE.POCKETWATCH_HEAL.RECHARGING	灵气未满，尚需温养。	3966	充能中
+DESCRIBE.POCKETWATCH_REVIVE.GENERIC	续命时晷，可起死回生。	3970	第二次机会表默认
+DESCRIBE.POCKETWATCH_REVIVE.RECHARGING	阴阳未调，生机未复。	3971	充能中
+DESCRIBE.POCKETWATCH_WARP.GENERIC	时空倒流仪，玄奥非常。	3975	倒走表默认
+DESCRIBE.POCKETWATCH_WARP.RECHARGING	逆转乾坤，需蓄力良久。	3976	充能中
+DESCRIBE.POCKETWATCH_RECALL.GENERIC	溯源表，可追本溯源。	3980	溯源表默认
+DESCRIBE.POCKETWATCH_RECALL.RECHARGING	贯通古今，耗费心神。	3981	充能中
+DESCRIBE.POCKETWATCH_PORTAL.GENERIC	时空裂隙仪，可穿梭位面。	3988	裂缝表默认
+DESCRIBE.POCKETWATCH_PORTAL.RECHARGING	撕裂虚空，需积蓄力量。	3989	充能中
+DESCRIBE.POCKETWATCH_WEAPON.GENERIC	时辰丧钟，敲响必见血光。	3996	物品名:"警钟"->默认 制造描述:"这只钟敲的就是你。"
+DESCRIBE.POCKETWATCH_PARTS	时间碎片，蕴含时空法则。	3999	时间碎片
+DESCRIBE.POCKETWATCH_DISMANTLER	时轮拆解器，专破时空禁制。	4000	钟表匠工具
+DESCRIBE.POCKETWATCH_PORTAL_ENTRANCE.GENERIC	时空裂缝，通往未知之境。	4003	时间裂缝默认
+DESCRIBE.POCKETWATCH_PORTAL_ENTRANCE.DIFFERENTSHARD	位面通道，可跨越世界。	4004	不同碎片
+DESCRIBE.POCKETWATCH_PORTAL_EXIT	时空隧道出口，重返现世。	4006	时间裂缝出口
+DESCRIBE.WATERTREE_PILLAR	擎天水木，支撑天地。	4007	大树干
+DESCRIBE.OCEANTREE	海中奇树，别有洞天。	4008	疙瘩树
+DESCRIBE.OCEANTREENUT	树果之中，暗藏生机。	4009	疙瘩树果
+DESCRIBE.WATERTREE_ROOT	古树灵根，深扎海底。	4010	大树根
+DESCRIBE.OCEANTREE_PILLAR	海中玉柱，虽逊原木，亦显雄奇。	4011	高出平均值的树干
+DESCRIBE.OCEANVINE	青蛟藤蔓，缠绕如龙。	4012	苔藓藤条
+DESCRIBE.FIG	无花之果，暗结灵实。	4013	无花果
+DESCRIBE.FIG_COOKED	炙烤灵果，香气四溢。	4014	熟无花果
+DESCRIBE.SPIDER_WATER	水黾妖物，踏波而行。	4015	海黾
+DESCRIBE.MUTATOR_WATER	水黾变异丹，可化形为妖。	4016	海黾变身涂鸦
+DESCRIBE.OCEANVINE_COCOON	藤蔓茧房，内藏玄机。	4017	海黾巢穴
+DESCRIBE.OCEANVINE_COCOON_BURNT	焦黑残茧，灵气尽失。	4018	烧焦的巢穴
+DESCRIBE.GRASSGATOR	草鳄灵兽，似有灵性。	4019	草鳄鱼
+DESCRIBE.TREEGROWTHSOLUTION	古树灵浆，可促生长。	4020	树果酱
+DESCRIBE.FIGATONI	灵果面条，别有风味。	4021	无花果意面
+DESCRIBE.FIGKABAB	灵果烤串，简便可口。	4022	无花果烤串
+DESCRIBE.KOALEFIG_TRUNK	象鼻酿果，滋味独特。	4023	无花果酿象鼻
+DESCRIBE.FROGNEWTON	灵果蛙腿，腥气尽除。	4024	无花果蛙腿三明治
+DESCRIBE.TERRARIUM.GENERIC	盒中世界，令人神往。	4027	盒中泰拉默认
+DESCRIBE.TERRARIUM.CRIMSON	血光笼罩，凶兆显现。	4028	血红状态
+DESCRIBE.TERRARIUM.ENABLED	盒中封印，即将开启。	4029	激活状态
+DESCRIBE.TERRARIUM.WAITING_FOR_DARK	静待夜幕，方显真容。	4030	等待黑暗
+DESCRIBE.TERRARIUM.COOLDOWN	灵气未复，需待时日。	4031	冷却中
+DESCRIBE.TERRARIUM.SPAWN_DISABLED	盒中世界，归于沉寂。	4032	生成禁用
+DESCRIBE.MIGHTY_GYM.GENERIC	炼体法坛，可锻筋骨。	4036	物品名:"强大健身房"->默认 制造描述:"拿出力量来吧。"
+DESCRIBE.MIGHTY_GYM.BURNT	法坛焚毁，前功尽弃。	4037	物品名:"强大健身房"->烧焦的 制造描述:"拿出力量来吧。"
+DESCRIBE.DUMBBELL	凡铁哑铃，轻若无物。	4039	哑铃
+DESCRIBE.DUMBBELL_GOLDEN	金精哑铃，可锻体魄。	4040	黄金哑铃
+DESCRIBE.DUMBBELL_MARBLE	玄石哑铃，重若千钧。	4041	大理石哑铃
+DESCRIBE.DUMBBELL_GEM	灵玉哑铃，蕴含天地之力。	4042	宝石哑铃
+DESCRIBE.POTATOSACK	灵根袋，可储土系灵物。	4043	土豆袋
+DESCRIBE.DUMBBELL_HEAT	暖阳哑铃，可活血通络。	4044	热铃
+DESCRIBE.DUMBBELL_REDGEM	火玉哑铃，灼热逼人。	4045	火铃
+DESCRIBE.DUMBBELL_BLUEGEM	冰晶哑铃，寒气凛冽。	4046	冰铃
+DESCRIBE.TERRARIUMCHEST.GENERIC	显眼宝箱，或藏凶险。	4049	显眼箱子默认
+DESCRIBE.TERRARIUMCHEST.BURNT	宝箱焚毁，凶险尽除。	4050	烧焦状态
+DESCRIBE.TERRARIUMCHEST.SHIMMER	此箱灵气异常，非同寻常。	4051	闪烁状态
+DESCRIBE.EYEMASKHAT	眼罩面具，可遮天机。	4053	眼面具
+DESCRIBE.EYEOFTERROR	恐怖魔眼，邪气凛然。	4054	恐怖之眼
+DESCRIBE.EYEOFTERROR_MINI	窥视小妖，扰人清静。	4055	可疑窥视者
+DESCRIBE.EYEOFTERROR_MINI_GROUNDED	魔眼之卵，即将孵化。	4056	恐怖之蛋
+DESCRIBE.FROZENBANANADAIQUIRI	冰镇灵蕉，清凉解暑。	4057	冰香蕉冻唇蜜
+DESCRIBE.BUNNYSTEW	灵兔炖汤，滋补养身。	4058	炖兔子
+DESCRIBE.MILKYWHITES	乳白灵液，功效未知。	4059	乳白物
+DESCRIBE.CRITTER_EYEOFTERROR	驯服魔眼，或可一用。	4060	友好窥视者
+DESCRIBE.SHIELDOFTERROR	魔眼盾牌，可御邪祟。	4061	恐怖盾牌
+DESCRIBE.TWINOFTERROR1	激光魔眼，是敌是友？	4062	激光眼
+DESCRIBE.TWINOFTERROR2	魔焰之眼，凶威赫赫。	4063	魔焰眼
+DESCRIBE.COTL_TRINKET	红眼冠饰，似有来历。	4064	红眼冠
+DESCRIBE.TURF_COTL_GOLD	金砖铺地，过于奢靡。	4065	黄金地板
+DESCRIBE.TURF_COTL_BRICK	青砖铺路，稳固踏实。	4066	砖地板
+DESCRIBE.COTL_TABERNACLE_LEVEL1.LIT	香火微明，可安神魂。	4069	低微咩咩雕像点亮
+DESCRIBE.COTL_TABERNACLE_LEVEL1.GENERIC	需奉香火，方显灵验。	4070	低微咩咩雕像默认
+DESCRIBE.COTL_TABERNACLE_LEVEL2.LIT	灵光渐盛，可助修行。	4074	有所改进咩咩雕像点亮
+DESCRIBE.COTL_TABERNACLE_LEVEL2.GENERIC	香火未燃，灵气不显。	4075	有所改进咩咩雕像默认
+DESCRIBE.COTL_TABERNACLE_LEVEL3.LIT	光华万丈，令人顿悟。	4079	完美无瑕咩咩雕像点亮
+DESCRIBE.COTL_TABERNACLE_LEVEL3.GENERIC	待燃香火，方现真容。	4080	完美无瑕咩咩雕像默认
+DESCRIBE.CATTOY_MOUSE	机关鼠玩，可戏灵猫。	4082	发条鼠玩具
+DESCRIBE.KITCOON_NAMETAG	灵猫项圈，需赐名号。	4083	小浣猫项圈
+DESCRIBE.KITCOONDECOR1.GENERIC	假凤傀儡，可娱灵猫。	4086	火鸡不倒翁默认
+DESCRIBE.KITCOONDECOR1.BURNT	傀儡焚毁，徒留残骸。	4087	烧焦状态
+DESCRIBE.KITCOONDECOR2.GENERIC	逗猫灵鱼，扰人心神。	4091	逗猫小鱼默认
+DESCRIBE.KITCOONDECOR2.BURNT	灵鱼焦黑，再无用处。	4092	烧焦状态
+DESCRIBE.KITCOONDECOR1_KIT	假凤机关组件，待我组装。	4094	火鸡不倒翁套装
+DESCRIBE.KITCOONDECOR2_KIT	灵鱼机关部件，易如反掌。	4095	逗猫小鱼套装
+DESCRIBE.WX78MODULE_MAXHEALTH	护体法阵，可增气血。	4096	强化电路
+DESCRIBE.WX78MODULE_MAXSANITY1	清心法印，稳守灵台。	4097	处理器电路
+DESCRIBE.WX78MODULE_MAXSANITY	定魂法阵，万邪不侵。	4098	超级处理器电路
+DESCRIBE.WX78MODULE_MOVESPEED	神行符箓，步若流星。	4099	加速电路
+DESCRIBE.WX78MODULE_MOVESPEED2	缩地成寸，瞬息千里。	4100	超级加速电路
+DESCRIBE.WX78MODULE_HEAT	炎阳真火，焚尽八荒。	4101	热能电路
+DESCRIBE.WX78MODULE_NIGHTVISION	夜明法眼，洞彻幽冥。	4102	光电电路
+DESCRIBE.WX78MODULE_COLD	玄冰寒气，冻结虚空。	4103	制冷电路
+DESCRIBE.WX78MODULE_TASER	天雷法咒，诛邪灭魔。	4104	电气化电路
+DESCRIBE.WX78MODULE_LIGHT	大光明咒，普照大千。	4105	照明电路
+DESCRIBE.WX78MODULE_MAXHUNGER1	辟谷法门，可减食粮。	4106	胃增益电路
+DESCRIBE.WX78MODULE_MAXHUNGER	吞天噬地，不食五谷。	4107	超级胃增益电路
+DESCRIBE.WX78MODULE_MUSIC	清心仙乐，调和阴阳。	4108	合唱盒电路
+DESCRIBE.WX78MODULE_BEE	蜂群法咒，扰敌心神。	4109	豆增压电路
+DESCRIBE.WX78MODULE_MAXHEALTH2	不灭金身，万劫不磨。	4110	超级强化电路
+DESCRIBE.WX78_SCANNER.GENERIC	机关傀儡，竟有分神之能？	4113	生物扫描分析仪默认
+DESCRIBE.WX78_SCANNER.HUNTING	锁定目标，速速擒拿。	4114	狩猎状态
+DESCRIBE.WX78_SCANNER.SCANNING	探查万物，解析天机。	4115	扫描状态
+DESCRIBE.WX78_SCANNER_ITEM	此等法器，可会通灵？	4117	生物扫描分析仪物品
+DESCRIBE.WX78_SCANNER_SUCCEEDED	急于邀功，可笑至极。	4118	扫描成功
+DESCRIBE.WX78_MODULEREMOVER	抽魂法器，玄妙非常。	4119	电路提取器
+DESCRIBE.SCANDATA	内藏天机，需细参悟。	4120	生物数据
+DESCRIBE.JUSTEGGS	灵禽蛋膳，尚需火候。	4121	普通煎蛋
+DESCRIBE.VEGGIEOMLET	灵蔬蛋羹，晨修佳品。	4122	早餐锅
+DESCRIBE.TALLEGGS	高鸟灵蛋，别有风味。	4123	苏格兰高鸟蛋
+DESCRIBE.BEEFALOFEED	灵兽饲料，非我所需。	4124	蒸树枝
+DESCRIBE.BEEFALOTREAT	灵兽零嘴，不合口味。	4125	皮弗娄牛零食
+DESCRIBE.BOAT_ROTATOR	定海神舵，掌控方向。	4126	转向舵
+DESCRIBE.BOAT_ROTATOR_KIT	神舵组件，待我组装。	4127	转向舵套装
+DESCRIBE.BOAT_BUMPER_KELP	海带护阵，聊作防御。	4128	海带保险杠
+DESCRIBE.BOAT_BUMPER_KELP_KIT	海带护阵材料，需精心布置。	4129	海带保险杠套装
+DESCRIBE.BOAT_BUMPER_SHELL	贝甲护船，坚不可摧。	4130	贝壳保险杠
+DESCRIBE.BOAT_BUMPER_SHELL_KIT	贝甲法阵材料，需细心炼制。	4131	贝壳保险杠套装
+DESCRIBE.BOAT_CANNON.GENERIC	震海神炮，需填弹药。	4134	大炮默认
+DESCRIBE.BOAT_CANNON.AMMOLOADED	弹药就位，随时可发。	4135	装弹完成
+DESCRIBE.BOAT_CANNON.NOAMMO	弹药已尽，需速补充。	4136	无弹药
+DESCRIBE.BOAT_CANNON_KIT	神炮组件，他日必成利器。	4138	物品名:"大炮套装" 制造描述:"它能把你的竞争对手从水面轰走。"
+DESCRIBE.CANNONBALL_ROCK_ITEM	震海神雷，威力无穷。	4139	物品名:"炮弹" 制造描述:"它肯定会引起轰动。"
+DESCRIBE.OCEAN_TRAWLER.GENERIC	天罗地网，可捕海妖。	4142	海洋拖网捕鱼器默认
+DESCRIBE.OCEAN_TRAWLER.LOWERED	布网已毕，静待收获。	4143	下网状态
+DESCRIBE.OCEAN_TRAWLER.CAUGHT	网中有获，可起网矣。	4144	捕获状态
+DESCRIBE.OCEAN_TRAWLER.ESCAPED	猎物脱网，功亏一篑。	4145	逃脱状态
+DESCRIBE.OCEAN_TRAWLER.FIXED	法网修复，可再用之。	4146	修复完成
+DESCRIBE.OCEAN_TRAWLER_KIT	天罗地网阵基，需布于灵气汇聚之处。	4148	物品名:"海洋拖网捕鱼器套装" 制造描述:"海里有的是鱼。"
+DESCRIBE.BOAT_MAGNET.GENERIC	引航罗盘，可指方位。	4151	物品名:"自动航行仪"->默认
+DESCRIBE.BOAT_MAGNET.ACTIVATED	罗盘起效，指引航向。	4152	物品名:"自动航行仪"
+DESCRIBE.BOAT_MAGNET_KIT	磁航法器组件，可自寻灵脉。	4154	物品名:"自动航行仪套装" 制造描述:"你的个性并不是唯一具有磁性的东西。"
+DESCRIBE.BOAT_MAGNET_BEACON.GENERIC	磁航灯塔，吸引万铁。	4157	物品名:"自动航行灯塔"->默认 制造描述:"能把附近可能存在的任何滑稽的超大磁铁吸过来。"
+DESCRIBE.BOAT_MAGNET_BEACON.ACTIVATED	灯塔放光，指引归途。	4158	物品名:"自动航行灯塔" 制造描述:"能把附近可能存在的任何滑稽的超大磁铁吸过来。"
+DESCRIBE.DOCK_KIT	筑港阵基，一应俱全。	4160	物品名:"码头套装" 制造描述:"准备好你的码头审查。"
+DESCRIBE.DOCK_WOODPOSTS_ITEM	码头灵桩，稳固根基。	4161	物品名:"码头桩" 制造描述:"没有什么能比事后添加一些柱子更能说明“结构稳定”了。"
+DESCRIBE.MONKEYHUT.GENERIC	灵猴巢穴，喧闹不堪。	4164	物品名:"猴子小屋"->默认
+DESCRIBE.MONKEYHUT.BURNT	猴窝焚毁，清净许多。	4165	物品名:"猴子小屋"->烧焦的
+DESCRIBE.POWDER_MONKEY	火药灵猴，顽劣不堪。	4167	火药猴
+DESCRIBE.PRIME_MATE	猴群大副，头戴华冠。	4168	大副
+DESCRIBE.LIGHTCRAB	发光灵蟹，夜明如灯。	4169	发光蟹
+DESCRIBE.CUTLESS	木制短剑，聊胜于无。	4170	木头短剑
+DESCRIBE.CURSED_MONKEY_TOKEN	诅咒猴符，暗藏凶险。	4171	诅咒饰品
+DESCRIBE.OAR_MONKEY	持桨战猴，可笑可叹。	4172	战桨
+DESCRIBE.BANANABUSH	香蕉灵丛，果实累累。	4173	香蕉丛
+DESCRIBE.DUG_BANANABUSH	灵根离土，生机渐失。	4174	挖出的香蕉丛
+DESCRIBE.PALMCONETREE	异种灵木，似松非松。	4175	棕榈松果树
+DESCRIBE.PALMCONE_SEED	灵木种子，蕴含生机。	4176	棕榈松果树芽
+DESCRIBE.PALMCONE_SAPLING	灵木幼苗，需勤照料。	4177	棕榈松果树苗
+DESCRIBE.PALMCONE_SCALE	灵木鳞片，坚如铁甲。	4178	棕榈松果树鳞片
+DESCRIBE.MONKEYTAIL	猴尾灵草，可入丹药。	4179	猴尾草
+DESCRIBE.DUG_MONKEYTAIL	灵草离土，药性渐失。	4180	挖出的猴尾草
+DESCRIBE.MONKEY_MEDIUMHAT	粗制猴冠，毫无灵性。	4181	船长的三角帽
+DESCRIBE.MONKEY_SMALLHAT	简陋头巾，不值一提。	4182	海盗头巾
+DESCRIBE.POLLY_ROGERSHAT	灵鸟羽冠，可通鸟语。	4183	波莉·罗杰的帽子
+DESCRIBE.POLLY_ROGERS	通灵鹦鹉，能言善辩。	4184	波莉·罗杰
+DESCRIBE.MONKEYISLAND_PORTAL	单向传送门，有去无回。	4185	非自然传送门
+DESCRIBE.MONKEYISLAND_PORTAL_DEBRIS	残破机关，似曾相识。	4186	损坏的机器
+DESCRIBE.MONKEYQUEEN	猴群女王，统御一方。	4187	月亮码头女王
+DESCRIBE.MONKEYPILLAR	猴族图腾，供奉先祖。	4188	猴子柱
+DESCRIBE.PIRATE_FLAG_POLE	海盗旗杆，彰显凶威。	4189	月亮码头海盗旗
+DESCRIBE.BLACKFLAG	黑旗飘扬，凶猴盘踞。	4190	黑旗
+DESCRIBE.PIRATE_STASH	海盗藏宝，或有机缘。	4191	海盗藏宝处
+DESCRIBE.STASH_MAP	藏宝地图，指引方向。	4192	海盗地图
+DESCRIBE.BANANAJUICE	香蕉灵液，可补元气。	4193	香蕉奶昔
+DESCRIBE.FENCE_ROTATOR	栅栏转向，重整阵势。	4194	栅栏击剑
+DESCRIBE.CHARLIE_STAGE_POST	幻境舞台，暗藏杀机。	4195	舞台
+DESCRIBE.CHARLIE_LECTURN	戏文剧本，操纵人心。	4196	剧本
+DESCRIBE.CHARLIE_HECKLER	饶舌妖鸟，扰乱心神。	4197	嘲鸫
+DESCRIBE.PLAYBILL_THE_DOLL	傀儡戏文，何人执笔？	4198	附魔玩偶舞台剧
+DESCRIBE.STATUEHARP_HEDGESPAWNER	荆棘雕像，生生不息。	4199	荆棘密布的雕像
+DESCRIBE.HEDGEHOUND	蔷薇狼兽，凶悍异常。	4200	蔷薇狼
+DESCRIBE.HEDGEHOUND_BUSH	荆棘丛生，暗藏杀机。	4201	蔷薇
+DESCRIBE.MASK_DOLLHAT	人偶面具，诡异非常。	4202	玩偶面具
+DESCRIBE.MASK_DOLLBROKENHAT	破损人偶面具，灵气外泄。	4203	开裂玩偶面具
+DESCRIBE.MASK_DOLLREPAIREDHAT	修补人偶面具，勉强可用。	4204	破碎玩偶面具
+DESCRIBE.MASK_BLACKSMITHHAT	铁匠面具，匠气十足。	4205	铁匠面具
+DESCRIBE.MASK_MIRRORHAT	镜面面具，反射虚妄。	4206	镜子面具
+DESCRIBE.MASK_QUEENHAT	女王面具，威仪凛然。	4207	女王面具
+DESCRIBE.MASK_KINGHAT	国王面具，霸气外露。	4208	国王面具
+DESCRIBE.MASK_TREEHAT	古树面具，生机勃勃。	4209	树木面具
+DESCRIBE.MASK_FOOLHAT	愚者面具，大智若愚。	4210	小丑面具
+DESCRIBE.COSTUME_DOLL_BODY	人偶戏服，可扮傀儡。	4211	玩偶服
+DESCRIBE.COSTUME_QUEEN_BODY	女王戏服，威仪万千。	4212	女王服
+DESCRIBE.COSTUME_KING_BODY	国王戏服，霸气凛然。	4213	国王服
+DESCRIBE.COSTUME_BLACKSMITH_BODY	铁匠戏服，匠魂附体。	4214	铁匠服
+DESCRIBE.COSTUME_MIRROR_BODY	镜面戏服，虚实难辨。	4215	镜子服
+DESCRIBE.COSTUME_TREE_BODY	古树戏服，生机盎然。	4216	树木服
+DESCRIBE.COSTUME_FOOL_BODY	愚者戏服，暗藏玄机。	4217	小丑服
+DESCRIBE.STAGEUSHER.STANDING	区区傀儡，也敢拦路？	4220	多刺舞台之手站立
+DESCRIBE.STAGEUSHER.SITTING	此地煞气弥漫，需谨慎行事。	4221	多刺舞台之手坐下
+DESCRIBE.SEWING_MANNEQUIN.GENERIC	衣架傀儡，毫无灵性。	4225	假人默认
+DESCRIBE.SEWING_MANNEQUIN.BURNT	傀儡焚毁，化为灰烬。	4226	假人烧焦
+DESCRIBE.MAGICIAN_CHEST	魔术宝箱，暗藏玄机。	4228	魔术师箱子
+DESCRIBE.TOPHAT_MAGICIAN	魔术高帽，似有法力。	4229	魔术师高礼帽
+DESCRIBE.YOTR_FIGHTRING_KIT	枕头战阵，孩童把戏。	4230	枕头大战坑套装
+DESCRIBE.YOTR_FIGHTRING_BELL.GENERIC	战阵金钟，静待敲响。	4233	枕头大战钟默认
+DESCRIBE.YOTR_FIGHTRING_BELL.PLAYING	钟声震耳，扰人清静。	4234	枕头大战钟敲响
+DESCRIBE.YOTR_DECOR_1.GENERAL	玉兔灯盏，灵气充盈。	4238	矮兔灯一般
+DESCRIBE.YOTR_DECOR_1.OUT	灯盏熄灭，灵气消散。	4239	矮兔灯熄灭
+DESCRIBE.YOTR_DECOR_2.GENERAL	高兔明灯，光华流转。	4243	高兔灯一般
+DESCRIBE.YOTR_DECOR_2.OUT	明灯失辉，暗淡无光。	4244	高兔灯熄灭
+DESCRIBE.HAREBALL	兔妖毛球，可作法器材料。	4246	兔毛球
+DESCRIBE.YOTR_DECOR_1_ITEM	玉兔灯组件，需妥善安置。	4247	矮兔灯物品
+DESCRIBE.YOTR_DECOR_2_ITEM	高兔灯部件，当择地而置。	4248	高兔灯物品
+DESCRIBE.DREADSTONE	幽冥玄石，可吸光华。	4249	绝望石
+DESCRIBE.HORRORFUEL	怨煞精华，炼器上品。	4250	纯粹恐惧
+DESCRIBE.DAYWALKER.GENERIC	昼行妖物，凶煞逼人。	4253	噩梦猪人默认
+DESCRIBE.DAYWALKER.IMPRISONED	妖物被困，犹自挣扎。	4254	噩梦猪人被囚
+DESCRIBE.DAYWALKER_PILLAR.GENERIC	石柱之中，煞气暗藏。	4258	开裂的柱子默认
+DESCRIBE.DAYWALKER_PILLAR.EXPOSED	玄铁现世，幽冥显形。	4259	开裂的柱子暴露
+DESCRIBE.ARMORDREADSTONE	幽冥玄甲，轻如鸿毛，坚如磐石。	4261	绝望石盔甲
+DESCRIBE.DREADSTONEHAT	此盔可护元神，避邪祟。	4262	绝望石头盔
+DESCRIBE.LUNARRIFT_PORTAL	月华裂隙，近在咫尺却难入。	4263	裂隙
+DESCRIBE.LUNARRIFT_CRYSTAL	太阴精华，凝结成晶。	4264	开裂的柱子
+DESCRIBE.LUNARTHRALL_PLANT	月华妖植，也敢猖狂。	4265	致命亮茄
+DESCRIBE.LUNARTHRALL_PLANT_VINE_END	妖植藤蔓，凶相毕露。	4266	钻地藤蔓
+DESCRIBE.LUNAR_GRAZER	月华灵兽，自裂隙出。	4267	牧者
+DESCRIBE.PUREBRILLIANCE	月华精粹，稀世珍宝。	4268	纯粹辉煌
+DESCRIBE.LUNARPLANT_HUSK	月华甲壳，可炼法宝。	4269	亮茄外壳
+DESCRIBE.LUNAR_FORGE	太阴炼器炉，玄妙非常。	4270	辉煌铁匠铺
+DESCRIBE.LUNAR_FORGE_KIT	太阴炉组件，需精心组装。	4271	辉煌铁匠铺套装
+DESCRIBE.LUNARPLANT_KIT	月华战甲修补材料。	4272	亮茄修补套件
+DESCRIBE.ARMOR_LUNARPLANT	月华战甲，光华流转。	4273	亮茄盔甲
+DESCRIBE.LUNARPLANTHAT	月魄头盔，可御灾劫。	4274	亮茄头盔
+DESCRIBE.BOMB_LUNARPLANT	太阴雷珠，威力惊人。	4275	亮茄炸弹
+DESCRIBE.STAFF_LUNARPLANT	月桂枝法杖，御敌千里。	4276	亮茄魔杖
+DESCRIBE.SWORD_LUNARPLANT	皓月剑锋，斩妖除魔。	4277	亮茄剑
+DESCRIBE.PICKAXE_LUNARPLANT	太阴碎岩杵，开山裂石。	4278	亮茄粉碎者
+DESCRIBE.SHOVEL_LUNARPLANT	月华锄铲，翻土如云。	4279	亮茄锄铲
+DESCRIBE.BROKEN_FORGEDITEM	法器损毁，尚可修复。	4280	开裂的柱子
+DESCRIBE.PUNCHINGBAG	练功沙包，可试拳脚。	4281	拳击袋
+DESCRIBE.SHADOWRIFT_PORTAL	幽冥裂隙，阴气森森。	4282	裂隙
+DESCRIBE.SHADOW_FORGE	九幽炼器炉，可铸魔兵。	4283	暗影术基座
+DESCRIBE.SHADOW_FORGE_KIT	幽冥炉组件，需谨慎处理。	4284	暗影术基座套装
+DESCRIBE.FUSED_SHADELING	融合暗影，凶煞异常。	4285	熔合暗影
+DESCRIBE.FUSED_SHADELING_BOMB	幽冥爆裂，毁天灭地。	4286	绝望螨
+DESCRIBE.VOIDCLOTH	虚空玄丝，幽冥织就。	4287	暗影碎布
+DESCRIBE.VOIDCLOTH_KIT	虚空织补材料。	4288	虚空修补套件
+DESCRIBE.VOIDCLOTHHAT	虚空风帽，可蔽天机。	4289	虚空风帽
+DESCRIBE.ARMOR_VOIDCLOTH	虚空法袍，防御惊人。	4290	虚空长袍
+DESCRIBE.VOIDCLOTH_UMBRELLA	幽冥伞，可挡酸雨。	4291	暗影伞
+DESCRIBE.VOIDCLOTH_SCYTHE	虚空镰刀，收割生灵。	4292	暗影收割者
+DESCRIBE.SHADOWTHRALL_HANDS	暗影魔爪，凶戾非常。	4293	墨荒
+DESCRIBE.SHADOWTHRALL_HORNS	暗影魔角，煞气逼人。	4294	墨荒
+DESCRIBE.SHADOWTHRALL_WINGS	暗影魔翼，徒具其形。	4295	墨荒
+DESCRIBE.CHARLIE_NPC	此女身上，似有玄机。	4296	查理
+DESCRIBE.CHARLIE_HAND	幽冥鬼手，所求必凶。	4297	召唤之手
+DESCRIBE.NITRE_FORMATION	九幽硝石，可炼阴雷。	4298	硝石堆
+DESCRIBE.DREADSTONE_STACK	幽冥玄石，自深渊来。	4299	绝望石矿苗
+DESCRIBE.SCRAPBOOK_PAGE	凡修妄录，不足为凭。	4300	丢失的图鉴页面
+DESCRIBE.LEIF_IDOL	树精雕像，多此一举。	4301	树精守卫雕像
+DESCRIBE.WOODCARVEDHAT	木雕帽，工艺尚可。	4302	硬木帽
+DESCRIBE.WALKING_STICK	蟠龙杖，踏遍幽冥。	4303	木手杖
+DESCRIBE.IPECACSYRUP	污秽糖浆，不堪入口。	4304	泻根糖浆
+DESCRIBE.BOMB_LUNARPLANT_WORMWOOD	太阴雷珠，自行崩裂。	4305	开裂的柱子（未使用）
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.DEAD	精魄已散，徒留躯壳。	4308	胡萝卜鼠死亡
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.GENERIC	区区胡萝卜也敢成精？	4309	胡萝卜鼠一般
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.HELD	近观更显丑陋。	4310	手持状态
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.SLEEPING	沉睡时倒有几分可爱。	4311	睡眠状态
+DESCRIBE.WORMWOOD_MUTANTPROXY_LIGHTFLIER	袖中藏光，倒也有趣。	4313	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_FRUITDRAGON.GENERIC	灵果化龙，尚未成熟。	4316	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_FRUITDRAGON.RIPE	时机已至，当可采摘。	4317	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_FRUITDRAGON.SLEEPING	蛰伏休憩中。	4318	物品名:未找到
+DESCRIBE.SUPPORT_PILLAR_SCAFFOLD	天机不可泄露。	4320	支柱脚手架
+DESCRIBE.SUPPORT_PILLAR	待我抽空处置。	4321	支柱
+DESCRIBE.SUPPORT_PILLAR_COMPLETE	此柱可镇一方气运。	4322	加固支柱
+DESCRIBE.SUPPORT_PILLAR_BROKEN	昔日巍峨，今成废墟。	4323	支柱瓦砾
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE_SCAFFOLD	幽冥之力，隐而未发。	4324	绝望石支柱脚手架
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE	九幽玄柱，亟待处置。	4325	绝望石支柱
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE_COMPLETE	煞气冲天，威势骇人。	4326	强化绝望石支柱
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE_BROKEN	九幽玄柱，竟也崩塌...	4327	绝望石支柱瓦砾
+DESCRIBE.WOLFGANG_WHISTLE	凡俗哨音，扰人清修。	4328	训练哨
+DESCRIBE.MUTATEDDEERCLOPS	晶体巨兽，眼中藏玄。	4329	晶体独眼巨鹿
+DESCRIBE.MUTATEDWARG	妖瞳座狼，凶光毕露。	4330	附身座狼
+DESCRIBE.MUTATEDBEARGER	异变熊獾，恐生事端。	4331	装甲熊獾
+DESCRIBE.LUNARFROG	月华妖蛙，莫与对视。	4332	明眼青蛙
+DESCRIBE.DEERCLOPSCORPSE.GENERIC	此獠当真伏诛了？	4335	独眼巨鹿尸体一般
+DESCRIBE.DEERCLOPSCORPSE.BURNING	焚尸灭迹，方为上策。	4336	燃烧中
+DESCRIBE.DEERCLOPSCORPSE.REVIVING	竟是幻蜃之术！	4337	复活中
+DESCRIBE.WARGCORPSE.GENERIC	为何我仍感心神不宁？	4341	座狼尸体一般
+DESCRIBE.WARGCORPSE.BURNING	业火焚身，合该如此。	4342	燃烧中
+DESCRIBE.WARGCORPSE.REVIVING	此乃何方妖术？	4343	复活中
+DESCRIBE.BEARGERCORPSE.GENERIC	臭不可闻的腌臜之物。	4347	熊獾尸体一般
+DESCRIBE.BEARGERCORPSE.BURNING	险些着了道。	4348	燃烧中
+DESCRIBE.BEARGERCORPSE.REVIVING	这是哪位道友的手笔？	4349	复活中
+DESCRIBE.BEARGERFUR_SACK	竟还残留着那孽畜的妖气...	4351	极地熊獾桶
+DESCRIBE.HOUNDSTOOTH_BLOWPIPE	以妖齿为器，当真粗鄙。	4352	嚎弹炮
+DESCRIBE.DEERCLOPSEYEBALL_SENTRYWARD.GENERIC	冰魄之眼，洞察秋毫。	4355	启用状态
+DESCRIBE.DEERCLOPSEYEBALL_SENTRYWARD.NOEYEBALL	巨兽之眼，已失其主。	4356	禁用状态
+DESCRIBE.DEERCLOPSEYEBALL_SENTRYWARD_KIT	冰眼法器，可镇心魔。	4358	物品名:"冰眼结晶器套装" 制造描述:"用冻伤来治疗一下晒伤。"
+DESCRIBE.SECURITY_PULSE_CAGE	空荡囚笼，似有玄机。	4359	物品名:"火花柜"
+DESCRIBE.SECURITY_PULSE_CAGE_FULL	困魔法器，囚禁灵能。	4360	物品名:"火花柜"
+DESCRIBE.CARPENTRY_STATION.GENERIC	木工坊，可制凡间家具。	4363	物品名:"锯马"->默认 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.CARPENTRY_STATION.BURNT	木坊焚毁，不堪再用。	4364	物品名:"锯马"->烧焦的 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.GENERIC	凡间木工坊，可制寻常家具。	4367	物品名:"锯马"->默认 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.HAS_ITEM	材料已备，可施工艺。	4368	物品名:"锯马" 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.BURNT	遭火焚毁，已无用处。	4369	物品名:"锯马"->烧焦的 制造描述:"别瞎蹦跶了，做点家具吧。"
+WOOD_CHAIR.GENERIC	木椅凡品，勉强可坐。	4373	物品名:"木椅"->默认 制造描述:"一把可以坐的木椅。"
+WOOD_CHAIR.OCCUPIED	已有他人就坐。	4374	物品名:"木椅"->被占领 制造描述:"一把可以坐的木椅。"
+WOOD_CHAIR.BURNT	焦木残椅，已无用处。	4375	物品名:"木椅"->烧焦的 制造描述:"一把可以坐的木椅。"
+DECOR_CENTERPIECE	桌案摆件，装饰之用。	4377	物品名:"艺术？" 制造描述:"彰显您卓越品味的餐桌摆件。"
+DECOR_LAMP	桌灯一盏，照明而已。	4378	物品名:"餐桌灯" 制造描述:"一盏舒适的小灯。"
+DECOR_FLOWERVASE.GENERIC	花瓶雅致，可插灵花。	4381	餐桌花瓶默认
+DECOR_FLOWERVASE.EMPTY	空瓶待花，静候佳卉。	4382	空置
+DECOR_FLOWERVASE.WILTED	花残叶败，需换新枝。	4383	枯萎
+DECOR_FLOWERVASE.FRESHLIGHT	灵花初绽，光华流转。	4384	新鲜发光
+DECOR_FLOWERVASE.OLDLIGHT	光华渐暗，需换新蕊。	4385	陈旧发光
+DECOR_PICTUREFRAME.GENERIC	画框精美，可裱丹青。	4389	物品名:"空画框"->默认 制造描述:"将你最爱的物品图装裱起来。 "
+DECOR_PICTUREFRAME.UNDRAWN	素白画框，待绘佳作。	4390	物品名:"空画框"->没有画画 制造描述:"将你最爱的物品图装裱起来。 "
+DECOR_PORTRAITFRAME	凡俗画像，难登大雅之堂。	4392	愉快画像
+PHONOGRAPH	凡间乐器，不足为奇。	4393	留声机
+RECORD	音律载体，可存妙音。	4394	唱片
+RECORD_CREEPYFOREST	幽森之音，煞气逼人。	4395	惊悚森林
+RECORD_DANGER	凶险之音，不宜多听。	4396	危险
+RECORD_DAWN	破晓之音，生机盎然。	4397	黎明
+RECORD_DRSTYLE	异域音律，别有风味。	4398	D.R.风格
+RECORD_DUSK	黄昏之音，暮气沉沉。	4399	黄昏
+RECORD_EFS	玄妙音律，非比寻常。	4400	E.F.S.
+RECORD_END	终曲之音，余韵悠长。	4401	终曲
+RECORD_MAIN	主旋律音，气势恢宏。	4402	主旋律
+RECORD_WORKTOBEDONE	未成之曲，尚待完善。	4403	待完成之作
+ARCHIVE_ORCHESTRINA_MAIN	远古音律，暗藏玄机。	4404	远古小合奏机
+WAGPUNKHAT	齿轮头冠，引动真元。	4405	W.A.R.B.I.S.头戴齿轮
+ARMORWAGPUNK	机械战甲，似非凡品。	4406	W.A.R.B.I.S.盔甲
+WAGSTAFF_MACHINERY	废弃机关，或可再利用。	4407	被丢弃的垃圾
+WAGPUNK_BITS	机械残件，尚需雕琢。	4408	废铁
+WAGPUNKBITS_KIT	自动修机，巧夺天工。	4409	自动修理机
+WAGSTAFF_MUTATIONS_NOTE	变异笔记，玄妙非常。	4410	研究笔记
+DESCRIBE_GENERIC	此物...似有玄机。	4412	检查物品描述的缺省值
+DESCRIBE_TOODARK	幽冥无光，难辨虚实。	4413	天太黑
+DESCRIBE_SMOLDERING	此物即将引动三昧真火。	4414	冒烟
+DESCRIBE_PLANTHAPPY	此灵植生机盎然，道韵流转。	4415	植物快乐
+DESCRIBE_PLANTVERYSTRESSED	此灵植恐遭心魔侵扰，道基不稳。	4416	植物极度紧张
+DESCRIBE_PLANTSTRESSED	此物灵气紊乱，恐生异变。	4417	植物紧张
+DESCRIBE_PLANTSTRESSORKILLJOYS	杂草丛生，当以剑气除之...	4418	植物压力源：滑稽物
+DESCRIBE_PLANTSTRESSORFAMILY	孤阴不生，独阳不长。	4419	植物压力源：家族
+DESCRIBE_PLANTSTRESSOROVERCROWDING	灵植过密，灵气难聚。	4420	植物压力源：过度拥挤
+DESCRIBE_PLANTSTRESSORSEASON	天时不济，灵韵受阻。	4421	植物压力源：季节
+DESCRIBE_PLANTSTRESSORMOISTURE	真水不足，恐伤灵根。	4422	植物压力源：湿度
+DESCRIBE_PLANTSTRESSORNUTRIENTS	灵土贫瘠，难养仙葩。	4423	植物压力源：营养
+DESCRIBE_PLANTSTRESSORHAPPINESS	此物似通灵性，需以道音点化。	4424	植物压力源：幸福度
+EAT_FOOD.TALLBIRDEGG_CRACKED	凡鸟之卵，勉强果腹。	4427	吃孵化的高脚鸟蛋
+EAT_FOOD.WINTERSFEASTFUEL	节庆灵食，蕴含祥瑞。	4428	暂无注释

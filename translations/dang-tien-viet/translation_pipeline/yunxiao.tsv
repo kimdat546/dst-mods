@@ -1,0 +1,2970 @@
+path	original	line	comment
+ACTIONFAIL.APPRAISE.NOTNOW	请别打扰我。	7	暂无注释
+ACTIONFAIL.REPAIR.WRONGPIECE	哪里出现了问题。	11	化石骨架拼接错误
+ACTIONFAIL.BUILD.MOUNTED	放不下了。	15	建造失败（骑乘状态）
+ACTIONFAIL.BUILD.HASPET	我已经有一只了。	16	建造失败（已经有一个宠物了）
+ACTIONFAIL.BUILD.TICOON	我的眼里没有其他东西。	17	暂无注释
+ACTIONFAIL.SHAVE.AWAKEBEEFALO	等它睡着了我再来。	21	给醒着的牛刮毛
+ACTIONFAIL.SHAVE.GENERIC	它生气了。	22	刮牛毛失败
+ACTIONFAIL.SHAVE.NOBITS	我已经无从下手了。	23	给没毛的牛刮毛
+ACTIONFAIL.SHAVE.SOMEONEELSESBEEFALO	我应该安抚安抚它。	25	暂无注释
+ACTIONFAIL.STORE.GENERIC	装不下了。	29	存放东西失败
+ACTIONFAIL.STORE.NOTALLOWED	这东西不能装进那里。	30	存放东西--不被允许
+ACTIONFAIL.STORE.INUSE	我还是等等吧。	31	别人正在用箱子
+ACTIONFAIL.STORE.NOTMASTERCHEF	我做不到。	32	暂无注释
+ACTIONFAIL.CONSTRUCT.INUSE	或许我应该再等等。	36	建筑正在使用
+ACTIONFAIL.CONSTRUCT.NOTALLOWED	发生了什么。	37	建筑不允许使用
+ACTIONFAIL.CONSTRUCT.EMPTY	我应该再去收集一些宝贝来。	38	建筑空了
+ACTIONFAIL.CONSTRUCT.MISMATCH	到底是哪里出现了问题呢？	39	升级套件错误（目前用不到）
+ACTIONFAIL.CONSTRUCT.NOTREADY	我待会儿再来看看。	40	暂无注释
+ACTIONFAIL.RUMMAGE.GENERIC	我不能那么做。	44	打开箱子失败
+ACTIONFAIL.RUMMAGE.INUSE	可以让我参观参观吗。	45	打开箱子 正在使用
+ACTIONFAIL.RUMMAGE.NOTMASTERCHEF	我不需要做这些。	46	暂无注释
+ACTIONFAIL.UNLOCK.WRONGKEY	我做不到。	50	暂无注释
+ACTIONFAIL.USEKLAUSSACKKEY.WRONGKEY	那不对。	54	使用克劳斯钥匙
+ACTIONFAIL.USEKLAUSSACKKEY.KLAUS	我有点忙。	55	克劳斯
+ACTIONFAIL.ACTIVATE.LOCKED_GATE	大门锁上了。	59	远古钥匙
+ACTIONFAIL.ACTIVATE.HOSTBUSY	他现在好像有点忙。	60	暂无注释
+ACTIONFAIL.ACTIVATE.CARNIVAL_HOST_HERE	他就在附近。	61	暂无注释
+ACTIONFAIL.ACTIVATE.NOCARNIVAL	看起来都飞走了。	62	暂无注释
+ACTIONFAIL.ACTIVATE.EMPTY_CATCOONDEN	我还以为里面会有好多宝贝。	63	暂无注释
+ACTIONFAIL.ACTIVATE.KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDERS	应该不会这么容易。	64	暂无注释
+ACTIONFAIL.ACTIVATE.KITCOON_HIDEANDSEEK_NOT_ENOUGH_HIDING_SPOTS	周围没有很多地方可供它们藏身。	65	暂无注释
+ACTIONFAIL.ACTIVATE.KITCOON_HIDEANDSEEK_ONE_GAME_PER_DAY	今天就到此为止。	66	暂无注释
+ACTIONFAIL.ACTIVATE.MANNEQUIN_EQUIPSWAPFAILED	他应该穿不上。	67	暂无注释
+ACTIONFAIL.ACTIVATE.PILLOWFIGHT_NO_HANDPILLOW	我需要战斗。	68	暂无注释
+ACTIONFAIL.OPEN_CRAFTING.PROFESSIONALCHEF	我要精进一下我的烹饪技术。	72	暂无注释
+ACTIONFAIL.OPEN_CRAFTING.SHADOWMAGIC	那可不是行。	73	暂无注释
+ACTIONFAIL.COOK.GENERIC	我现在做不到。	77	做饭失败
+ACTIONFAIL.COOK.INUSE	我需要再等等。	78	做饭失败-别人在用锅
+ACTIONFAIL.COOK.TOOFAR	太远了。	79	做饭失败-太远
+ACTIONFAIL.START_CARRAT_RACE.NO_RACERS	我漏掉了什么。	83	暂无注释
+ACTIONFAIL.DISMANTLE.COOKING	煮着东西，不能如此。	87	暂无注释
+ACTIONFAIL.DISMANTLE.INUSE	该轮到我了。	88	暂无注释
+ACTIONFAIL.DISMANTLE.NOTEMPTY	我得先把里面的东西弄走。	89	暂无注释
+ACTIONFAIL.FISH_OCEAN.TOODEEP	不是海钓竿，不适合深海海钓。	93	暂无注释
+ACTIONFAIL.OCEAN_FISHING_POND.WRONGGEAR	这根钓竿不适合在池塘钓鱼。	97	暂无注释
+ACTIONFAIL.GIVE.GENERIC	拿着我给你的。	101	给予失败
+ACTIONFAIL.GIVE.DEAD	我先留着这个。	102	给予 -目标死亡
+ACTIONFAIL.GIVE.SLEEPING	我就不要去打扰他了。	103	给予--目标睡觉
+ACTIONFAIL.GIVE.BUSY	我再试试。	104	给予--目标正忙
+ACTIONFAIL.GIVE.ABIGAILHEART	我想我可能帮不了她。	105	给阿比盖尔 救赎之心
+ACTIONFAIL.GIVE.GHOSTHEART	或许我该想想别的办法。	106	给鬼魂 救赎之心
+ACTIONFAIL.GIVE.NOTGEM	我不懂这些。	107	给的不是宝石
+ACTIONFAIL.GIVE.WRONGGEM	这个宝石在这里不起作用。	108	给错了宝石
+ACTIONFAIL.GIVE.NOTSTAFF	它的形状有些不对。	109	给月石祭坛的物品不是法杖
+ACTIONFAIL.GIVE.MUSHROOMFARM_NEEDSSHROOM	一颗蘑菇可能会有更多的用处。	110	蘑菇农场需要蘑菇
+ACTIONFAIL.GIVE.MUSHROOMFARM_NEEDSLOG	一块活木头可能会有更多的用处。	111	蘑菇农场需要活木
+ACTIONFAIL.GIVE.MUSHROOMFARM_NOMOONALLOWED	这些蘑菇好像不能被种下去。	112	暂无注释
+ACTIONFAIL.GIVE.SLOTFULL	我需要再放些什么上去。	113	已经放了材料后，再给雕像桌子再给一个材料
+ACTIONFAIL.GIVE.FOODFULL	这儿已经有一顿饭了。	114	没调用
+ACTIONFAIL.GIVE.NOTDISH	它肯定不想吃那个。	115	没调用
+ACTIONFAIL.GIVE.DUPLICATE	我已然知晓了。	116	给雕像桌子已经学习过的图纸
+ACTIONFAIL.GIVE.NOTSCULPTABLE	不能把那东西变成雕像。	117	给陶艺圆盘的东西不对
+ACTIONFAIL.GIVE.NOTATRIUMKEY	它的形状有些不对。	118	中庭钥匙不对
+ACTIONFAIL.GIVE.CANTSHADOWREVIVE	它不会复活。	119	中庭仍在CD
+ACTIONFAIL.GIVE.WRONGSHADOWFORM	组装不对。	120	没调用
+ACTIONFAIL.GIVE.NOMOON	我需要看到月亮才行。	121	洞穴里建造月石科技
+ACTIONFAIL.GIVE.PIGKINGGAME_MESSY	我得先清理一下。	122	猪王旁边有建筑，不能开始抢元宝
+ACTIONFAIL.GIVE.PIGKINGGAME_DANGER	现在这样太危险了。	123	危险，不能开始抢元宝
+ACTIONFAIL.GIVE.PIGKINGGAME_TOOLATE	现在已经太晚了。	124	不是白天，不能开始抢元宝
+ACTIONFAIL.GIVE.CARNIVALGAME_INVALID_ITEM	我需要去买代币。	125	暂无注释
+ACTIONFAIL.GIVE.CARNIVALGAME_ALREADY_PLAYING	已经有游戏在进行中了。	126	暂无注释
+ACTIONFAIL.GIVE.SPIDERNOHAT	我的口袋不能同时装下它们	127	暂无注释
+ACTIONFAIL.GIVE.TERRARIUM_REFUSE	我用其它东西试试……	128	暂无注释
+ACTIONFAIL.GIVE.TERRARIUM_COOLDOWN	树没长回来之前应该给不了东西。	129	暂无注释
+ACTIONFAIL.GIVE.NOTAMONKEY	或许我知道他在说什么。	130	暂无注释
+ACTIONFAIL.GIVE.QUEENBUSY	她好像在忙。	131	暂无注释
+ACTIONFAIL.GIVETOPLAYER.FULL	你的口袋太满了。	135	给玩家一个东西 -但是背包满了
+ACTIONFAIL.GIVETOPLAYER.DEAD	我先留着这个。	136	给死亡的玩家一个东西
+ACTIONFAIL.GIVETOPLAYER.SLEEPING	日上三竿了，快醒醒。	137	给睡觉的玩家一个东西
+ACTIONFAIL.GIVETOPLAYER.BUSY	我有东西给你。	138	给忙碌的玩家一个东西
+ACTIONFAIL.GIVEALLTOPLAYER.FULL	你的口袋太满了。	142	给人一组东西 但是背包满了
+ACTIONFAIL.GIVEALLTOPLAYER.DEAD	我先留着这个。	143	给于死去的玩家一组物品
+ACTIONFAIL.GIVEALLTOPLAYER.SLEEPING	日上三竿了，快醒醒。	144	给于正在睡觉的玩家一组物品
+ACTIONFAIL.GIVEALLTOPLAYER.BUSY	我有东西给你。	145	给于正在忙碌的玩家一组物品
+ACTIONFAIL.WRITE.GENERIC	我觉得它现在这样挺好。	149	鞋子失败
+ACTIONFAIL.WRITE.INUSE	让我瞧瞧。	150	写字 正在使用中
+ACTIONFAIL.DRAW.NOIMAGE	我不喜欢画画。	154	画图缺乏图像
+ACTIONFAIL.CHANGEIN.GENERIC	我现在不想换。	158	换装失败 
+ACTIONFAIL.CHANGEIN.BURNING	现在太危险了。	159	换装失败-着火了
+ACTIONFAIL.CHANGEIN.INUSE	让我也来打扮打扮。	160	衣橱有人占用
+ACTIONFAIL.CHANGEIN.NOTENOUGHHAIR	皮毛不够用来装扮。	161	暂无注释
+ACTIONFAIL.CHANGEIN.NOOCCUPANT	得在上面栓点东西。	162	暂无注释
+ACTIONFAIL.ATTUNE.NOHEALTH	或许我应该治疗下自己。	166	制造肉雕像血量不足
+ACTIONFAIL.MOUNT.TARGETINCOMBAT	我还是离它远些吧。	170	骑乘，牛正在战斗
+ACTIONFAIL.MOUNT.INUSE	有人抢先骑上去了。	171	骑乘（牛被占据）
+ACTIONFAIL.MOUNT.SLEEPING	不要再睡啦。	172	暂无注释
+ACTIONFAIL.SADDLE.TARGETINCOMBAT	我还是离它远些。	176	给战斗状态的牛上鞍
+ACTIONFAIL.TEACH.KNOWN	我已经知道那个了。	180	学习已经知道的蓝图
+ACTIONFAIL.TEACH.CANTLEARN	我看不懂这个。	181	学习无法学习的蓝图
+ACTIONFAIL.TEACH.WRONGWORLD	这地图在这用不了。	182	学习另外一个世界的地图
+ACTIONFAIL.TEACH.MESSAGEBOTTLEMANAGER_NOT_FOUND	光线太暗，我什么都看不到。	183	Likely trying to read messagebottle treasure map in caves  --暂无注释
+ACTIONFAIL.TEACH.STASH_MAP_NOT_FOUND	那帮家伙准是忘记画了。	184	Likely trying to read stash map  in world without stash                    --暂无注释
+ACTIONFAIL.WRAPBUNDLE.EMPTY	收拾行李的好宝贝。	188	打包纸是空的
+ACTIONFAIL.PICKUP.RESTRICTION	用不了。	192	熔炉模式下捡起错误的武器
+ACTIONFAIL.PICKUP.INUSE	该等轮到我。	193	捡起已经打开的容器
+ACTIONFAIL.PICKUP.NOTMINE_YOTC[0]	我的萝卜鼠跑到哪里去了。	197	暂无注释
+ACTIONFAIL.PICKUP.NOTMINE_YOTC[1]	淘气的家伙。	198	暂无注释
+ACTIONFAIL.PICKUP.FULL_OF_CURSES	我才不要碰。	201	暂无注释
+ACTIONFAIL.SLAUGHTER.TOOFAR	它逃走了。	205	屠杀？？ 因为太远而失败
+ACTIONFAIL.REPLATE.MISMATCH	它需要另一种碟子。	209	暴食-换盘子换错了 比如用碗换碟子
+ACTIONFAIL.REPLATE.SAMEDISH	我只需要用一个碟子。	210	暴食-换盘子已经换了
+ACTIONFAIL.SAIL.REPAIR	它不需要修理。	214	暂无注释
+ACTIONFAIL.ROW_FAIL.BAD_TIMING0	太快了。	218	暂无注释
+ACTIONFAIL.ROW_FAIL.BAD_TIMING1	时机不对。	219	暂无注释
+ACTIONFAIL.ROW_FAIL.BAD_TIMING2	别再犯了。	220	暂无注释
+ACTIONFAIL.LOWER_SAIL_FAIL[0]	哎呦。	224	暂无注释
+ACTIONFAIL.LOWER_SAIL_FAIL[1]	根本慢不下来。	225	暂无注释
+ACTIONFAIL.LOWER_SAIL_FAIL[2]	这也能失败。	226	暂无注释
+ACTIONFAIL.BATHBOMB.GLASSED	不行，表面都变琉璃了。	230	暂无注释
+ACTIONFAIL.BATHBOMB.ALREADY_BOMBED	别浪费沐浴球。	231	暂无注释
+ACTIONFAIL.GIVE_TACKLESKETCH.DUPLICATE	不对，不对。	235	暂无注释
+ACTIONFAIL.COMPARE_WEIGHABLE.FISH_TOO_SMALL	这家伙太小了。	239	暂无注释
+ACTIONFAIL.COMPARE_WEIGHABLE.OVERSIZEDVEGGIES_TOO_SMALL	还不够沉。	240	暂无注释
+ACTIONFAIL.PLANTREGISTRY_RESEARCH_FAIL.GENERIC	不剩什么需要学的了。	258	暂无注释
+ACTIONFAIL.PLANTREGISTRY_RESEARCH_FAIL.FERTILIZER	我不想知道太多细节。	259	暂无注释
+ACTIONFAIL.FILL_OCEAN.UNSUITABLE_FOR_PLANTS	好像不喜欢咸水。	263	暂无注释
+ACTIONFAIL.POUR_WATER.OUT_OF_WATER	糟糕，没水了。	267	暂无注释
+ACTIONFAIL.POUR_WATER_GROUNDTILE.OUT_OF_WATER	我的浇水壶干了。	271	暂无注释
+ACTIONFAIL.READ.GENERIC	还有其他事在等着。	275	
+ACTIONFAIL.READ.NOBIRDS	鸟不喜欢这种天气。	276	
+ACTIONFAIL.READ.NOWATERNEARBY	鱼类只能在水体附近被召唤出来。	277	
+ACTIONFAIL.READ.TOOMANYBIRDS	地上鸟太多了，魔法没那么有效。	278	
+ACTIONFAIL.READ.WAYTOOMANYBIRDS	现在天上一只鸟都没有了。	279	
+ACTIONFAIL.READ.NOFIRES	所幸没有需要扑灭的明火。	280	
+ACTIONFAIL.READ.NOSILVICULTURE	没有可聚焦的树栖主体。	281	
+ACTIONFAIL.READ.NOHORTICULTURE	没有能种的庄稼。	282	
+ACTIONFAIL.READ.NOTENTACLEGROUND	触手无法突破这里的地表。	283	
+ACTIONFAIL.READ.NOSLEEPTARGETS	我没看到谁需要睡前故事。	284	
+ACTIONFAIL.READ.TOOMANYBEES	那样就太多蜜蜂了	285	
+ACTIONFAIL.READ.NOMOONINCAVES	这个地下位置影响不到月亮。	286	
+ACTIONFAIL.READ.ALREADYFULLMOON	那样做恐怕太多余了。	287	
+ACTIONFAIL.USEITEMON.BEEF_BELL_INVALID_TARGET	我不可能做到。	291	暂无注释
+ACTIONFAIL.USEITEMON.BEEF_BELL_ALREADY_USED	这头皮弗娄牛已经属于别人了。	292	暂无注释
+ACTIONFAIL.USEITEMON.BEEF_BELL_HAS_BEEF_ALREADY	我不需要整个牛群。	293	暂无注释
+ACTIONFAIL.HITCHUP.NEEDBEEF	有铃铛就能和坐骑亲近了。	297	暂无注释
+ACTIONFAIL.HITCHUP.NEEDBEEF_CLOSER	我的坐骑伙计离太远了。	298	暂无注释
+ACTIONFAIL.HITCHUP.BEEF_HITCHED	我的坐骑已经拴好了。	299	暂无注释
+ACTIONFAIL.HITCHUP.INMOOD	我的坐骑看起来太好动了。	300	暂无注释
+ACTIONFAIL.MARK.ALREADY_MARKED	我已经选好了。	304	暂无注释
+ACTIONFAIL.MARK.NOT_PARTICIPANT	我没有选手参赛。	305	暂无注释
+ACTIONFAIL.YOTB_STARTCONTEST.DOESNTWORK	这里不能让我发挥。	309	暂无注释
+ACTIONFAIL.YOTB_STARTCONTEST.ALREADYACTIVE	他可能忙着比别的比赛呢。	310	暂无注释
+ACTIONFAIL.YOTB_UNLOCKSKIN.ALREADYKNOWN	这个我已经掌握了。	314	暂无注释
+ACTIONFAIL.CARNIVALGAME_FEED.TOO_LATE	我得快一点。	318	暂无注释
+ACTIONFAIL.HERD_FOLLOWERS.WEBBERONLY	虽然它们不听我的，但是可能会听别人的。	322	暂无注释
+ACTIONFAIL.HARVEST.DOER_ISNT_MODULE_OWNER	它似乎没有兴趣。	371	暂无注释
+ANNOUNCE_CANNOT_BUILD.NO_INGREDIENTS	我似乎缺少一些重要物品。	384	暂无注释
+ANNOUNCE_CANNOT_BUILD.NO_TECH	我似乎并不能驾驭它。	385	暂无注释
+ANNOUNCE_CANNOT_BUILD.NO_STATION	我现在制作不了。	386	暂无注释
+ACTIONFAIL_GENERIC	我做不到。	388	动作失败
+ANNOUNCE_BOAT_LEAK	水越来越多了。	389	暂无注释
+ANNOUNCE_BOAT_SINK	我虽然不会被淹死。	390	暂无注释
+ANNOUNCE_DIG_DISEASE_WARNING	它看起来已经好多了。	391	removed  --挖起生病的植物
+ANNOUNCE_PICK_DISEASE_WARNING	嗯啊，本来就是那味道吗？	392	removed  --（植物生病）
+ANNOUNCE_ADVENTUREFAIL	我必须再试一次。	393	没调用（废案）
+ANNOUNCE_MOUNT_LOWHEALTH	这头小牛受伤了。	394	牛血量过低
+ANNOUNCE_BEES	蜜蜂。	413	戴养蜂帽被蜜蜂蛰
+ANNOUNCE_BOOMERANG	噢。我应该尽量接住它。	414	回旋镖
+ANNOUNCE_CHARLIE	快出来，我可不怕你。	415	查理即将攻击
+ANNOUNCE_CHARLIE_ATTACK	想打倒我没那么容易。	416	被查理攻击
+ANNOUNCE_COLD	好冷。	418	过冷
+ANNOUNCE_HOT	哪里能凉快凉快。	419	过热
+ANNOUNCE_CRAFTING_FAIL	缺少一些东西。	420	没调用
+ANNOUNCE_DEERCLOPS	妖兽暴动了。	421	boss来袭
+ANNOUNCE_CAVEIN	土地在搞什么。	422	要地震了？？？
+ANNOUNCE_ANTLION_SINKHOLE[0]	地面在晃动。	425	蚁狮地震
+ANNOUNCE_ANTLION_SINKHOLE[1]	地震。	426	蚁狮地震
+ANNOUNCE_ANTLION_SINKHOLE[2]	或许我应该去降服这个家伙。	427	蚁狮地震
+ANNOUNCE_ANTLION_TRIBUTE[0]	给你，给你。	431	向蚁狮致敬
+ANNOUNCE_ANTLION_TRIBUTE[1]	吃吧，吃吧。	432	给蚁狮上供
+ANNOUNCE_ANTLION_TRIBUTE[2]	吃吧，吃吧..	433	给蚁狮上供
+ANNOUNCE_SACREDCHEST_YES	太棒了。	435	远古宝箱物品正确给出蓝图
+ANNOUNCE_SACREDCHEST_NO	它不喜欢那个。	436	远古宝箱
+ANNOUNCE_DUSK	天空被染成了橙红色。	437	进入黄昏
+ANNOUNCE_EAT.GENERIC	美味。	442	吃东西
+ANNOUNCE_EAT.PAINFUL	糟糕的口感。	443	吃怪物肉
+ANNOUNCE_EAT.SPOILED	好难吃。	444	吃腐烂食物
+ANNOUNCE_EAT.STALE	我要吃新鲜的。	445	吃黄色食物
+ANNOUNCE_EAT.INVALID	这个不适合我。	446	拒吃
+ANNOUNCE_EAT.YUCKY	我并不想吃这个。	447	吃红色食物
+ANNOUNCE_ENCUMBERED[0]	气喘吁吁...	462	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[1]	太费力了...	463	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[2]	这对我来说不是难事....	464	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[3]	我扛起...整个天...	465	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[4]	这个对我来说或许太重了。	466	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[5]	日复一日，年复一年。	467	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[6]	哼...。	468	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[7]	气喘...吁吁...	469	搬运雕像、可疑的大理石
+ANNOUNCE_ENCUMBERED[8]	法力无穷。	470	搬运雕像、可疑的大理石
+ANNOUNCE_ATRIUM_DESTABILIZING[0]	我该走了。	474	中庭击杀boss后即将刷新
+ANNOUNCE_ATRIUM_DESTABILIZING[1]	那是什么？ 	475	中庭震动
+ANNOUNCE_ATRIUM_DESTABILIZING[2]	这里不安全。	476	中庭击杀boss后即将刷新
+ANNOUNCE_RUINS_RESET	那些奇怪的家伙们又回来了。	478	地下重置
+ANNOUNCE_SNARED	尖锐的骨头。	479	远古嘤嘤怪的骨笼
+ANNOUNCE_SNARED_IVY	反击。	480	暂无注释
+ANNOUNCE_REPELLED	它有保护。	481	嘤嘤怪保护状态
+ANNOUNCE_ENTER_DARK	伸手不见五指。	482	进入黑暗
+ANNOUNCE_ENTER_LIGHT	我又可以看到东西了。	483	进入光源
+ANNOUNCE_FREEDOM	我自由了。我终于自由了。	484	没调用（废案）
+ANNOUNCE_HIGHRESEARCH	我本来就很聪明	485	没调用（废案）
+ANNOUNCE_HOUNDS	听到了吗？	486	猎犬将至
+ANNOUNCE_WORMS	感觉到了吗？	487	蠕虫袭击
+ANNOUNCE_HUNGRY	我饿了。	488	饥饿
+ANNOUNCE_HUNT_BEAST_NEARBY	我感觉到附近出现了大家伙。	489	即将找到野兽
+ANNOUNCE_HUNT_LOST_TRAIL	足迹到这里就没了。	490	猎物（大象脚印丢失）
+ANNOUNCE_HUNT_LOST_TRAIL_SPRING	这种湿土留不下脚印。	491	大猎物丢失踪迹
+ANNOUNCE_HUNT_START_FORK	这个踪迹看起来有危险。	492	暂无注释
+ANNOUNCE_HUNT_SUCCESSFUL_FORK	我才不会害怕那些家伙。	493	暂无注释
+ANNOUNCE_HUNT_WRONG_FORK	有东西在觊觎我。	494	暂无注释
+ANNOUNCE_HUNT_AVOID_FORK	这个踪迹看起来安全些了。	495	暂无注释
+ANNOUNCE_INV_FULL	装不下了。	496	身上的物品满了
+ANNOUNCE_KNOCKEDOUT	奇怪，我怎么昏昏沉沉的。	497	被催眠
+ANNOUNCE_LOWRESEARCH	我没从那儿学到什么。	498	没调用（废案）
+ANNOUNCE_MOSQUITOS	啊。滚开。	499	没调用
+ANNOUNCE_NOWARDROBEONFIRE	这和跟我没有关系。	500	橱柜着火
+ANNOUNCE_NODANGERGIFT	有东西在四周。	501	周围有危险的情况下打开礼物
+ANNOUNCE_NOMOUNTEDGIFT	我应该先从它的身上下去。	502	骑牛的时候打开礼物
+ANNOUNCE_NODANGERSLEEP	我感觉周围可能存在某种危险。	503	危险，不能睡觉
+ANNOUNCE_NODAYSLEEP	光线太亮了。	504	白天睡帐篷
+ANNOUNCE_NODAYSLEEP_CAVE	我不累。	505	洞穴里白天睡帐篷
+ANNOUNCE_NOHUNGERSLEEP	好想去吃一顿大餐。	506	饿了无法睡觉
+ANNOUNCE_NOSLEEPONFIRE	我的帐篷着火了，怎么办？	507	营帐着火无法睡觉
+ANNOUNCE_NODANGERSIESTA	现在太危险了。	509	危险，不能午睡
+ANNOUNCE_NONIGHTSIESTA	晚上该睡觉，而不是午休。	510	夜晚睡凉棚
+ANNOUNCE_NONIGHTSIESTA_CAVE	这不是我睡觉的地方。	511	在洞穴里夜晚睡凉棚
+ANNOUNCE_NOHUNGERSIESTA	我太饿了，没法午休。	512	饱度不足无法午睡
+ANNOUNCE_NO_TRAP	挺简单的。	513	没有陷阱？？？没调用
+ANNOUNCE_PECKED	噢。停下。	514	被小高鸟啄
+ANNOUNCE_QUAKE	听起来不妙。	515	地震
+ANNOUNCE_RESEARCH	我还要勤加修炼才是。	516	没调用
+ANNOUNCE_SHELTER	大树，多谢你替我遮风挡雨。	517	下雨天躲树下
+ANNOUNCE_THORNS	噢。	518	玫瑰、仙人掌、荆棘扎手
+ANNOUNCE_BURNT	呀。好烫。	519	烧完了
+ANNOUNCE_TORCH_OUT	火灭了。	520	火把用完了
+ANNOUNCE_THURIBLE_OUT	它消耗殆尽了。	521	香炉燃尽
+ANNOUNCE_FAN_OUT	我的小玩意儿坏了。	522	小风车停了
+ANNOUNCE_COMPASS_OUT	这个罗盘不能用了。	523	指南针用完了
+ANNOUNCE_TRAP_WENT_OFF	哎呀。	524	触发陷阱（例如冬季陷阱）
+ANNOUNCE_UNIMPLEMENTED	噢。这应该还没准备好。	525	没调用
+ANNOUNCE_WORMHOLE	让我进去探查一番。	526	跳虫洞
+ANNOUNCE_TOWNPORTALTELEPORT	我不确定。	527	豪华传送
+ANNOUNCE_CANFIX	\n泥瓦匠的活儿我也行。	528	墙壁可以修理
+ANNOUNCE_ACCOMPLISHMENT	我觉得好有成就感。	529	没调用
+ANNOUNCE_ACCOMPLISHMENT_DONE	如果我的朋友现在能看到就好了...	530	没调用
+ANNOUNCE_INSUFFICIENTFERTILIZER	你还饿吗？	531	土地肥力不足
+ANNOUNCE_TOOL_SLIP	太滑手了。	532	工具滑出
+ANNOUNCE_LIGHTNING_DAMAGE_AVOIDED	躲过了闪电。	533	规避闪电
+ANNOUNCE_TOADESCAPING	蛤蟆精跑了。	534	蟾蜍正在逃跑
+ANNOUNCE_TOADESCAPED	癞蛤蟆逃走了。	535	蟾蜍逃走了
+ANNOUNCE_DAMP	哦，水。	536	潮湿（1级）
+ANNOUNCE_WET	我不想被水打湿。	537	潮湿（2级）
+ANNOUNCE_WETTER	漫漫水路。	538	潮湿（3级）
+ANNOUNCE_SOAKED	我湿透了。	539	潮湿（4级）
+ANNOUNCE_WASHED_ASHORE	弄湿了。	540	暂无注释
+ANNOUNCE_DESPAWN	我能看见光。	541	下线
+ANNOUNCE_BECOMEGHOST	嗷嗷嗷嗷嗷。。	542	变成鬼魂
+ANNOUNCE_GHOSTDRAIN	有人想害我。	543	队友死亡掉san
+ANNOUNCE_PETRIFED_TREES	我刚刚听到树在尖叫吗？	544	石化树
+ANNOUNCE_KLAUS_ENRAGE	现在没有办法打败它了。	545	克劳斯被激怒（杀死了鹿）
+ANNOUNCE_KLAUS_UNCHAINED	它的锁链松开了。	546	克劳斯-未上锁的  猜测是死亡准备变身？
+ANNOUNCE_KLAUS_CALLFORHELP	它在求救。	547	克劳斯召唤小偷
+ANNOUNCE_MOONALTAR_MINE.GLASS_MED	里面有东西。	550	暂无注释
+ANNOUNCE_MOONALTAR_MINE.GLASS_LOW	快挖出来了。	551	暂无注释
+ANNOUNCE_MOONALTAR_MINE.GLASS_REVEAL	你自由了。	552	暂无注释
+ANNOUNCE_MOONALTAR_MINE.IDOL_MED	里面有东西。	553	暂无注释
+ANNOUNCE_MOONALTAR_MINE.IDOL_LOW	快挖出来了。	554	暂无注释
+ANNOUNCE_MOONALTAR_MINE.IDOL_REVEAL	你自由了。	555	暂无注释
+ANNOUNCE_MOONALTAR_MINE.SEED_MED	里面有东西。	556	暂无注释
+ANNOUNCE_MOONALTAR_MINE.SEED_LOW	快挖出来了。	557	暂无注释
+ANNOUNCE_MOONALTAR_MINE.SEED_REVEAL	你自由了。	558	暂无注释
+ANNOUNCE_SPOOKED	你看到了吗？	560	被吓到
+ANNOUNCE_BRAVERY_POTION	那些树看上去没那么可怕了。	561	勇气药剂
+ANNOUNCE_MOONPOTION_FAILED	可能没泡够时间……	562	暂无注释
+ANNOUNCE_EATING_NOT_FEASTING	我应该跟其他人分享的。	563	暂无注释
+ANNOUNCE_WINTERS_FEAST_BUFF	满满的节日精神。	564	暂无注释
+ANNOUNCE_IS_FEASTING	冬季盛宴快乐。	565	暂无注释
+ANNOUNCE_WINTERS_FEAST_BUFF_OVER	节过的真快……	566	暂无注释
+ANNOUNCE_REVIVING_CORPSE	让我帮帮你。	567	没调用（熔炉）
+ANNOUNCE_REVIVED_OTHER_CORPSE	焕然一新。	568	没调用（熔炉）
+ANNOUNCE_REVIVED_FROM_CORPSE	好多了。	569	没调用（熔炉）
+ANNOUNCE_FLARE_SEEN	是谁发出的信号？	570	暂无注释
+ANNOUNCE_MEGA_FLARE_SEEN	那个闪光会带来麻烦。	571	暂无注释
+ANNOUNCE_OCEAN_SILHOUETTE_INCOMING	不好。	572	暂无注释
+ANNOUNCE_ROYALTY[0]	朋友。	630	向带着蜂王帽的队友鞠躬
+ANNOUNCE_ROYALTY[1]	伙伴。	631	向带着蜂王帽的队友鞠躬
+ANNOUNCE_ROYALTY[2]	我的朋友。	632	向带着蜂王帽的队友鞠躬
+ANNOUNCE_ATTACH_BUFF_ELECTRICATTACK	我身披闪电。	634	暂无注释
+ANNOUNCE_ATTACH_BUFF_ATTACK	动手打。	635	暂无注释
+ANNOUNCE_ATTACH_BUFF_PLAYERABSORPTION	我现在感觉安全多了。	636	暂无注释
+ANNOUNCE_ATTACH_BUFF_WORKEFFECTIVENESS	仙力提高。	637	暂无注释
+ANNOUNCE_ATTACH_BUFF_MOISTUREIMMUNITY	干的太潦草了。	638	暂无注释
+ANNOUNCE_ATTACH_BUFF_SLEEPRESISTANCE	顿时觉得神清气爽了。	639	暂无注释
+ANNOUNCE_DETACH_BUFF_ELECTRICATTACK	没有雷电的作用了。	640	暂无注释
+ANNOUNCE_DETACH_BUFF_ATTACK	肌肉紧实的感觉消失了。	641	暂无注释
+ANNOUNCE_DETACH_BUFF_PLAYERABSORPTION	是还不错。	642	暂无注释
+ANNOUNCE_DETACH_BUFF_WORKEFFECTIVENESS	明日复明日...	643	暂无注释
+ANNOUNCE_DETACH_BUFF_MOISTUREIMMUNITY	生命之源。	644	暂无注释
+ANNOUNCE_DETACH_BUFF_SLEEPRESISTANCE	我……（哈欠）再也……不累了……	645	暂无注释
+ANNOUNCE_OCEANFISHING_LINESNAP	跑什么我又不会真的吃了你。	646	暂无注释
+ANNOUNCE_OCEANFISHING_LINETOOLOOSE	收线也许管用。	647	暂无注释
+ANNOUNCE_OCEANFISHING_GOTAWAY	此鱼可成大事。	648	暂无注释
+ANNOUNCE_OCEANFISHING_BADCAST	甩竿有待提高……	649	暂无注释
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[0]	鱼呢？	652	暂无注释
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[1]	也许该换个鱼多的地方钓。	653	暂无注释
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[2]	我还以为海里到处都是鱼呢。	654	暂无注释
+ANNOUNCE_OCEANFISHING_IDLE_QUOTE[3]	我现在明明可以做更有趣的事情……	655	暂无注释
+ANNOUNCE_WEIGHT	重量：{weight}	657	暂无注释
+ANNOUNCE_WEIGHT_HEAVY	重量: {weight}\n我是重量级的钓手。	658	暂无注释
+ANNOUNCE_WINCH_CLAW_MISS	好像没对准。	659	暂无注释
+ANNOUNCE_WINCH_CLAW_NO_ITEM	得。两手空空。	660	暂无注释
+ANNOUNCE_WEAK_RAT	这只胡萝卜鼠不在训练的状态。	687	暂无注释
+ANNOUNCE_CARRAT_START_RACE	实验——，比赛开始。	688	暂无注释
+ANNOUNCE_CARRAT_ERROR_WRONG_WAY[0]	不，不。方向错了。	691	暂无注释
+ANNOUNCE_CARRAT_ERROR_WRONG_WAY[1]	掉头，你什么眼神啊。	692	暂无注释
+ANNOUNCE_CARRAT_ERROR_FELL_ASLEEP	你敢给我睡。起来，我们要赢比赛。	694	暂无注释
+ANNOUNCE_CARRAT_ERROR_WALKING	不要用走，跑。	695	暂无注释
+ANNOUNCE_CARRAT_ERROR_STUNNED	站起来。冲，冲。	696	暂无注释
+ANNOUNCE_POCKETWATCH_PORTAL	没有人告诉我缩地成寸之后会发生什么……	725	暂无注释
+ANNOUNCE_ARCHIVE_NEW_KNOWLEDGE	我学到了一些东西。	730	暂无注释
+ANNOUNCE_ARCHIVE_OLD_KNOWLEDGE	我早就知道了。	731	暂无注释
+ANNOUNCE_ARCHIVE_NO_POWER	得给它提供点法力。	732	暂无注释
+ANNOUNCE_PLANT_RESEARCHED[0]	我长了见识。	735	暂无注释
+ANNOUNCE_PLANT_RANDOMSEED	不知道会长成什么。	737	暂无注释
+ANNOUNCE_FERTILIZER_RESEARCHED	我从未想过这些。	738	暂无注释
+ANNOUNCE_FIRENETTLE_TOXIN[0]	烈日高照。	741	暂无注释
+ANNOUNCE_FIRENETTLE_TOXIN[1]	炽热的灼烧。	742	暂无注释
+ANNOUNCE_FIRENETTLE_TOXIN_DONE	用脑子记下东西。	744	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[0]	生长吧。	747	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[1]	我一直想要一株这样的。	748	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[2]	我来给你帮忙了。	749	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[3]	你真是一株好植物啊。	750	暂无注释
+ANNOUNCE_TALK_TO_PLANTS[4]	你真是一个好的聆听者。	751	暂无注释
+ANNOUNCE_KITCOON_HIDEANDSEEK_START	不管你有没有藏好，我都要开始找。	753	暂无注释
+ANNOUNCE_KITCOON_HIDEANDSEEK_JOIN	它们在玩捉迷藏呢。	754	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[0]	找到你了。	757	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[1]	你在这。	758	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[2]	我就知道你会藏在那。	759	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND[3]	能看见你。	760	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_ONE_MORE	所以最后一个藏在哪里呢？	762	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE	我找到最后一个了。	763	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_FOUND_LAST_ONE_TEAM	{name}找到了最后一个。	764	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_TIME_ALMOST_UP	那些小家伙们估计不耐烦了……	765	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_LOSEGAME	看来它们不想玩了……	766	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR	它们大概不会躲在这么远的地方，对吧？	767	暂无注释
+ANNOUNCE_KITCOON_HIDANDSEEK_TOOFAR_RETURN	小猫们应该就在附近。	768	暂无注释
+ANNOUNCE_KITCOON_FOUND_IN_THE_WILD	我就说刚刚看到了那边有什么东西在藏着。	769	暂无注释
+ANNOUNCE_TICOON_START_TRACKING	他捕捉到了气味。	770	暂无注释
+ANNOUNCE_TICOON_NOTHING_TO_TRACK	看来他什么都没找到。	771	暂无注释
+ANNOUNCE_TICOON_WAITING_FOR_LEADER	我应该跟着他。	772	暂无注释
+ANNOUNCE_TICOON_GET_LEADER_ATTENTION	他很想让我跟着。	773	暂无注释
+ANNOUNCE_TICOON_NEAR_KITCOON	他一定是发现了什么。	774	暂无注释
+ANNOUNCE_TICOON_LOST_KITCOON	看来别人找到了他要找的东西。	775	暂无注释
+ANNOUNCE_TICOON_ABANDONED	我会自己找到那些小家伙的。	776	暂无注释
+ANNOUNCE_TICOON_DEAD	可怜的家伙……他原本想把我带到哪里呢？	777	暂无注释
+ANNOUNCE_CALL_BEEF	你给我过来。	778	暂无注释
+ANNOUNCE_CANTBUILDHERE_YOTB_POST	放在这里裁判是看不到我的皮弗娄牛的。	779	暂无注释
+ANNOUNCE_YOTB_LEARN_NEW_PATTERN	我脑子里有很多的想法。	780	暂无注释
+ANNOUNCE_EYEOFTERROR_ARRIVE	那是什么？	781	暂无注释
+ANNOUNCE_EYEOFTERROR_FLYBACK	终于好了。	782	暂无注释
+ANNOUNCE_EYEOFTERROR_FLYAWAY	回来，我跟你没完。	783	暂无注释
+ANNOUNCE_CANT_ESCAPE_CURSE	当然不会那么轻松。	784	暂无注释
+ANNOUNCE_MONKEY_CURSE_1	开始有一种猴子的感觉了……	785	暂无注释
+ANNOUNCE_MONKEY_CURSE_CHANGE	呀。我的头发怎么还变了？	786	暂无注释
+ANNOUNCE_MONKEY_CURSE_CHANGEBACK	总算从解脱了。	787	暂无注释
+ANNOUNCE_PIRATES_ARRIVE	那个号子声只意味着一件事...	788	暂无注释
+ANNOUNCE_OFF_SCRIPT	我感觉没见过这句。	790	暂无注释
+ANNOUNCE_COZY_SLEEP	我感觉神清气爽。	791	暂无注释
+ANNOUNCE_TOOL_TOOWEAK	我需要一把更结实的工具。	792	暂无注释
+ANNOUNCE_LUNAR_RIFT_MAX	那道闪光。	793	暂无注释
+ANNOUNCE_SHADOW_RIFT_MAX	有些阴险的家伙即将到来。	794	暂无注释
+ANNOUNCE_SCRAPBOOK_FULL	这些我都有了。	795	暂无注释
+ANNOUNCE_CHAIR_ON_FIRE	没事儿。	796	暂无注释
+BATTLECRY.GENERIC	我绝不退缩。	821	战斗
+BATTLECRY.PIG	你该沉眠至此。	822	战斗 猪人
+BATTLECRY.PREY	你休想越过我。	823	战斗 猎物？？大象？
+BATTLECRY.SPIDER	受死吧，小蜘蛛。	824	战斗 蜘蛛
+BATTLECRY.SPIDER_WARRIOR	见识下我的厉害。	825	战斗 蜘蛛战士
+BATTLECRY.DEER	你们这群胆小鬼。	826	战斗 无眼鹿
+COMBAT_QUIT.GENERIC	这下子你可逃不掉啦。	830	攻击目标被卡住，无法攻击
+COMBAT_QUIT.PIG	不堪一击。	831	退出战斗-猪人
+COMBAT_QUIT.PREY	乌合之众。	832	退出战斗 猎物？？大象？
+COMBAT_QUIT.SPIDER	我暂且放过你。	833	退出战斗 蜘蛛
+COMBAT_QUIT.SPIDER_WARRIOR	还想打败我。	834	退出战斗 蜘蛛战士
+DESCRIBE.MULTIPLAYER_PORTAL	门的另一端通往哪里？	838	物品名:"绚丽之门"
+DESCRIBE.MULTIPLAYER_PORTAL_MOONROCK	新的世界?	839	物品名:"天体传送门"
+DESCRIBE.MOONROCKIDOL	我需要好好捯饬捯饬。	840	物品名:"月岩雕像" 制造描述:"重要人物。"
+DESCRIBE.CONSTRUCTION_PLANS	什么东西。	841	物品名:未找到
+DESCRIBE.ANTLION.GENERIC	我身上有它想要的东西。	844	物品名:"蚁狮"->默认
+DESCRIBE.ANTLION.VERYHAPPY	看起来跟我关系不错。	845	物品名:"蚁狮"
+DESCRIBE.ANTLION.UNHAPPY	看起来很生气。	846	物品名:"蚁狮"
+DESCRIBE.ANTLIONTRINKET	看起来很有创意。	848	物品名:"沙滩玩具"
+DESCRIBE.SANDSPIKE	沙子做的刺。	849	物品名:"沙刺"
+DESCRIBE.SANDBLOCK	真是坚持不懈。	850	物品名:"沙堡"
+DESCRIBE.GLASSSPIKE	看起来很危险。	851	物品名:"玻璃尖刺"
+DESCRIBE.GLASSBLOCK	送给你。	852	物品名:"玻璃城堡"
+DESCRIBE.ABIGAIL_FLOWER.GENERIC	这朵花看起来并不适合我。	855	物品名:"阿比盖尔之花"->默认 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LEVEL1	你想一个人待着吗？	856	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LEVEL2	原来是花仙子。	857	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LEVEL3	精神真足啊。	858	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.LONG	看到你我就难过。	859	物品名:"阿比盖尔之花"->还需要很久 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.MEDIUM	这让我毛骨悚然。	860	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.SOON	那朵花有情况。	861	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.HAUNTED_POCKET	什么情况,	862	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.ABIGAIL_FLOWER.HAUNTED_GROUND	我倒要看看这花内的魂魄。	863	物品名:"阿比盖尔之花" 制造描述:"一个神奇的纪念品。"
+DESCRIBE.BALLOONS_EMPTY	看起来没什么用。	865	物品名:"一堆气球" 制造描述:"要是有更简单的方法该多好。"
+DESCRIBE.BALLOON	他们怎么漂浮的？	866	物品名:"气球" 制造描述:"谁不喜欢气球呢？"
+DESCRIBE.BALLOONPARTY	他怎么放进去的？	867	物品名:"派对气球" 制造描述:"散播一点欢笑。"
+DESCRIBE.BALLOONSPEED.DEFLATED	所有都一样。	870	物品名:"迅捷气球" 制造描述:"让你的脚步变得轻盈。"
+DESCRIBE.BALLOONSPEED.GENERIC	身体变得轻盈了起来。	871	物品名:"迅捷气球"->默认 制造描述:"让你的脚步变得轻盈。"
+DESCRIBE.BALLOONVEST	能让我安心划船了。	873	物品名:"充气背心" 制造描述:"划船时带上这些艳丽的气球。"
+DESCRIBE.BALLOONHAT	我想把它分享给朋友们。	874	物品名:"气球帽" 制造描述:"开启对话的出色工具。"
+DESCRIBE.BERNIE_INACTIVE.BROKEN	这只小熊有点脏了。	877	物品名:"伯尼" 制造描述:"这个疯狂的世界总有你熟悉的人。"
+DESCRIBE.BERNIE_INACTIVE.GENERIC	它全烧焦了。	878	物品名:"伯尼"->默认 制造描述:"这个疯狂的世界总有你熟悉的人。"
+DESCRIBE.BERNIE_ACTIVE	这小熊活过来了。	880	物品名:"伯尼"
+DESCRIBE.BERNIE_BIG	不要惹恼。	881	物品名:"伯尼。"
+DESCRIBE.BOOKSTATION.GENERIC	没有修仙的密卷吗？	884	物品名:"书架"->默认 制造描述:"所有图书均须遵循杜威十进制分类法整理。"
+DESCRIBE.BOOKSTATION.BURNT	看来是没用了。	885	物品名:"书架"->烧焦的 制造描述:"所有图书均须遵循杜威十进制分类法整理。"
+DESCRIBE.BOOK_BIRDS	一本书。	887	物品名:"世界鸟类大全" 制造描述:"涵盖1000个物种：习性、栖息地及叫声。"
+DESCRIBE.BOOK_TENTACLES	有人会被拖着去读这本书。	888	物品名:"触手的召唤" 制造描述:"让我们来了解一下地下的朋友们。"
+DESCRIBE.BOOK_GARDENING	读了半天没看出玄机。	889	物品名:"应用园艺学" 制造描述:"讲述培育和照料植物的相关知识。"
+DESCRIBE.BOOK_SILVICULTURE	我还是坚持自己的道路吧。	890	物品名:"应用造林学" 制造描述:"分支管理的指引。"
+DESCRIBE.BOOK_HORTICULTURE	读了半天没看出玄机。	891	物品名:"园艺学简编版" 制造描述:"讲述培育和照料植物的相关知识。"
+DESCRIBE.BOOK_SLEEP	不太明白。	892	物品名:"睡前故事" 制造描述:"送你入梦的睡前故事。"
+DESCRIBE.BOOK_BRIMSTONE	这本书或许会带来在灾害。	893	物品名:"末日将至。" 制造描述:"世界将在火焰和灾难中终结。"
+DESCRIBE.BOOK_FISH	好多小鱼们都聚集了过来。	894	物品名:"垂钓者生存指南" 制造描述:"让捕鱼变得简单。"
+DESCRIBE.BOOK_FIRE	并没有心情。	895	物品名:"意念控火术详解" 制造描述:"使用这些简单的技巧来化解任何火爆的场面。"
+DESCRIBE.BOOK_WEB	小小蜘蛛我不怕。	896	物品名:"克服蛛形纲恐惧症" 制造描述:"要在对方的网络里行走过一里路才能算真正了解一个人。"
+DESCRIBE.BOOK_TEMPERATURE	我喜欢夏天。	897	物品名:"控温学" 制造描述:"通过这些简单的步骤完全控制你的个人气候。"
+DESCRIBE.BOOK_LIGHT	这股能量驱散了黑暗。	898	物品名:"永恒之光" 制造描述:"阅读后能启迪出智慧的光芒。"
+DESCRIBE.BOOK_RAIN	下雨天会打湿。	899	物品名:"实用求雨仪式" 制造描述:"留着防备雨天，你来决定哪天是雨天。"
+DESCRIBE.BOOK_MOON	这本书蕴含了刺骨的冰凉。	900	物品名:"月之魔典" 制造描述:"召唤月亮的力量。"
+DESCRIBE.BOOK_BEES	哈哈，我的帮手来了。	901	物品名:"养蜂笔记" 制造描述:"学习养蜂的基本知识。"
+DESCRIBE.BOOK_HORTICULTURE_UPGRADED	我瞧瞧怎么种。	902	物品名:"园艺学扩展版" 制造描述:"专家分析如何进行高级农作物护理。"
+DESCRIBE.BOOK_RESEARCH_STATION	好书，好书。	903	物品名:"万物百科" 制造描述:"万事万物从A到Z的完整指南。"
+DESCRIBE.BOOK_LIGHT_UPGRADED	光芒万丈。	904	物品名:"永恒之光之复兴" 制造描述:"全本比之前的简本散发出更闪耀的光芒。"
+DESCRIBE.FIREPEN	它的主人一定很强大。	905	物品名:"火焰笔" 制造描述:"小小的笔身中潜藏着暴躁的火焰。"
+DESCRIBE.PLAYER.GENERIC	你好，%s。	908	物品名:未找到
+DESCRIBE.PLAYER.ATTACKER	%s 看着很善变...	909	物品名:未找到
+DESCRIBE.PLAYER.MURDERER	有一种危险的感觉。	910	物品名:未找到
+DESCRIBE.PLAYER.REVIVER	%s，这个可是一个不得了的法宝。	911	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.PLAYER.GHOST	%s 或许他需要我的帮助。	912	物品名:"幽灵"
+DESCRIBE.PLAYER.FIRESTARTER	烧掉这个并不有趣，%s。	913	物品名:未找到
+DESCRIBE.WILSON.GENERIC	你从何而来，为何会出现在这荒野中？	917	物品名:"威尔逊"->默认
+DESCRIBE.WILSON.ATTACKER	蕴含魔力的盔甲？	918	物品名:"威尔逊"
+DESCRIBE.WILSON.MURDERER	你好我的朋友，%s。	919	物品名:"威尔逊"
+DESCRIBE.WILSON.REVIVER	%s你已经迷失在这片世界了。	920	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WILSON.GHOST	不该如此。	921	物品名:"幽灵"
+DESCRIBE.WILSON.FIRESTARTER	科技和仙力碰撞，%s。	922	物品名:"威尔逊"
+DESCRIBE.WOLFGANG.GENERIC	一名出色的体修，你很强大，%s。	926	物品名:"沃尔夫冈"->默认
+DESCRIBE.WOLFGANG.ATTACKER	力量是你的代名词...	927	物品名:"沃尔夫冈"
+DESCRIBE.WOLFGANG.MURDERER	一起合作吧，沃尔夫冈。	928	物品名:"沃尔夫冈"
+DESCRIBE.WOLFGANG.REVIVER	%s你的朋友们需要你。	929	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WOLFGANG.GHOST	他的肉体已经消散。	930	物品名:"幽灵"
+DESCRIBE.WOLFGANG.FIRESTARTER	小小力士，%s。	931	物品名:"沃尔夫冈"
+DESCRIBE.WAXWELL.GENERIC	你的仙法令我感到不安，%s。	935	物品名:"麦斯威尔"->默认
+DESCRIBE.WAXWELL.ATTACKER	你的影子和这个世界一样癫狂。	936	物品名:"麦斯威尔"
+DESCRIBE.WAXWELL.MURDERER	你的气息令我感到厌恶。	937	物品名:"麦斯威尔"
+DESCRIBE.WAXWELL.REVIVER	或许从你身上我能探寻到这个世界的秘密。	938	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WAXWELL.GHOST	灵魂形态的你藏着什么秘密，%s。	939	物品名:"幽灵"
+DESCRIBE.WAXWELL.FIRESTARTER	%s影子里藏着什么。	940	物品名:"麦斯威尔"
+DESCRIBE.WX78.GENERIC	钢铁之躯，%s。	944	物品名:"WX-78"->默认
+DESCRIBE.WX78.ATTACKER	%s，钢铁之躯好酷啊。	945	物品名:"WX-78"
+DESCRIBE.WX78.MURDERER	%s。或许我应该帮你除除锈。	946	物品名:"WX-78"
+DESCRIBE.WX78.REVIVER	启动修复程序，机器人，准备重生。	947	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WX78.GHOST	可怜的家伙，虽然你没有灵魂。	948	物品名:"幽灵"
+DESCRIBE.WX78.FIRESTARTER	%s。闪电充能？	949	物品名:"WX-78"
+DESCRIBE.WILLOW.GENERIC	不可思议，%s。	953	物品名:"薇洛"->默认
+DESCRIBE.WILLOW.ATTACKER	%s火焰的孩子。	954	物品名:"薇洛"
+DESCRIBE.WILLOW.MURDERER	你的小熊可真可爱啊。	955	物品名:"薇洛"
+DESCRIBE.WILLOW.REVIVER	%s，睡了这么久，该醒醒了。	956	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WILLOW.GHOST	%s，我会带你走出这黑暗的困境。	957	物品名:"幽灵"
+DESCRIBE.WILLOW.FIRESTARTER	再来？	958	物品名:"薇洛"
+DESCRIBE.WENDY.GENERIC	你好，%s。	962	物品名:"温蒂"->默认
+DESCRIBE.WENDY.ATTACKER	%s它的灵魂和你很像？	963	物品名:"温蒂"
+DESCRIBE.WENDY.MURDERER	它在保护着你。	964	物品名:"温蒂"
+DESCRIBE.WENDY.REVIVER	%s我们可以做朋友。	965	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WENDY.GHOST	你并不孤单。	966	物品名:"幽灵"
+DESCRIBE.WENDY.FIRESTARTER	我知道你的事情，%s。	967	物品名:"温蒂"
+DESCRIBE.WOODIE.GENERIC	麻烦你了，%s先生。	971	物品名:"伍迪"->默认
+DESCRIBE.WOODIE.ATTACKER	%s砍柴的时候注意树精...	972	物品名:"伍迪"
+DESCRIBE.WOODIE.MURDERER	来把斧子，砍起来。	973	物品名:"伍迪"
+DESCRIBE.WOODIE.REVIVER	%s救下了大家的朋友。	974	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WOODIE.GHOST	%s，或许我应该帮帮他？	975	物品名:"幽灵"
+DESCRIBE.WOODIE.BEAVER	%s在疯狂的砍树，根本停不下来。	976	物品名:"伍迪"
+DESCRIBE.WOODIE.BEAVERGHOST	%s，如果我不复活你，你就不能砍树了	977	物品名:"伍迪"
+DESCRIBE.WOODIE.MOOSE	这是一头鹿。	978	物品名:"伍迪"
+DESCRIBE.WOODIE.MOOSEGHOST	那一定很不舒服吧。	979	物品名:"伍迪"
+DESCRIBE.WOODIE.GOOSE	瞧瞧这东西。	980	物品名:"伍迪"
+DESCRIBE.WOODIE.GOOSEGHOST	以后要注意了。	981	物品名:"伍迪"
+DESCRIBE.WOODIE.FIRESTARTER	%s，别把自己烧了。	982	物品名:"伍迪"
+DESCRIBE.WICKERBOTTOM.GENERIC	你好，%s。	986	物品名:"薇克巴顿"->默认
+DESCRIBE.WICKERBOTTOM.ATTACKER	这个世界正在接受你。	987	物品名:"薇克巴顿"
+DESCRIBE.WICKERBOTTOM.MURDERER	我可以向您请教吗。	988	物品名:"薇克巴顿"
+DESCRIBE.WICKERBOTTOM.REVIVER	你不该陨落至此。	989	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WICKERBOTTOM.GHOST	她之前一定是个知识渊博的人？	990	物品名:"幽灵"
+DESCRIBE.WICKERBOTTOM.FIRESTARTER	我相信你很有理由才点火。	991	物品名:"薇克巴顿"
+DESCRIBE.WES.GENERIC	你好，%s。	995	物品名:"韦斯"->默认
+DESCRIBE.WES.ATTACKER	%s你为什么不说话...	996	物品名:"韦斯"
+DESCRIBE.WES.MURDERER	我能帮到你吗？	997	物品名:"韦斯"
+DESCRIBE.WES.REVIVER	%s别害怕，我会带你回家的。	998	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WES.GHOST	他似乎受到了诅咒	999	物品名:"幽灵"
+DESCRIBE.WES.FIRESTARTER	等等。	1000	物品名:"韦斯"
+DESCRIBE.WEBBER.GENERIC	你好，%s。	1004	物品名:"韦伯"->默认
+DESCRIBE.WEBBER.ATTACKER	一只化形的蜘蛛精。	1005	物品名:"韦伯"
+DESCRIBE.WEBBER.MURDERER	以后我们一起探险吧。	1006	物品名:"韦伯"
+DESCRIBE.WEBBER.REVIVER	%s复活你可不容易啊，要好好报答我。	1007	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WEBBER.GHOST	%s小家伙们需要它。	1008	物品名:"幽灵"
+DESCRIBE.WEBBER.FIRESTARTER	我很喜欢这个毛茸茸的小东西。	1009	物品名:"韦伯"
+DESCRIBE.WATHGRITHR.GENERIC	你好，%s。	1013	物品名:"薇格弗德"->默认
+DESCRIBE.WATHGRITHR.ATTACKER	你的战斗技巧令人钦佩。	1014	物品名:"薇格弗德"
+DESCRIBE.WATHGRITHR.MURDERER	%s你我的使命还未完成。	1015	物品名:"薇格弗德"
+DESCRIBE.WATHGRITHR.REVIVER	勇敢的女武神，回来吧。	1016	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WATHGRITHR.GHOST	我听闻过你的英勇事迹，%s。	1017	物品名:"幽灵"
+DESCRIBE.WATHGRITHR.FIRESTARTER	%s做的不错。	1018	物品名:"薇格弗德"
+DESCRIBE.WINONA.GENERIC	你好，%s。	1022	物品名:"薇诺娜"->默认
+DESCRIBE.WINONA.ATTACKER	%s看起来干劲十足.	1023	物品名:"薇诺娜"
+DESCRIBE.WINONA.MURDERER	到此为止了，%s。	1024	物品名:"薇诺娜"
+DESCRIBE.WINONA.REVIVER	我还需要你，%s。	1025	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WINONA.GHOST	复活还是得我来。	1026	物品名:"幽灵"
+DESCRIBE.WINONA.FIRESTARTER	有东西烧起来了。	1027	物品名:"薇诺娜"
+DESCRIBE.WORTOX.GENERIC	你好，%s。	1031	物品名:"沃拓克斯"->默认
+DESCRIBE.WORTOX.ATTACKER	你和那群家伙是一伙儿的吗？	1032	物品名:"沃拓克斯"
+DESCRIBE.WORTOX.MURDERER	小牛角怪物。	1033	物品名:"沃拓克斯"
+DESCRIBE.WORTOX.REVIVER	多谢你的援助之爪%s。	1034	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WORTOX.GHOST	它一点都不可怕。	1035	物品名:"幽灵"
+DESCRIBE.WORTOX.FIRESTARTER	%s正在变成一个生存的负担。	1036	物品名:"沃拓克斯"
+DESCRIBE.WORMWOOD.GENERIC	你好，%s。	1040	物品名:"沃姆伍德"->默认
+DESCRIBE.WORMWOOD.ATTACKER	%s今天似乎比平时更多刺。	1041	物品名:"沃姆伍德"
+DESCRIBE.WORMWOOD.MURDERER	准备被除草吧，%s。	1042	物品名:"沃姆伍德"
+DESCRIBE.WORMWOOD.REVIVER	我让你枯木逢春%s。	1043	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WORMWOOD.GHOST	树也会死吗？	1044	物品名:"幽灵"
+DESCRIBE.WORMWOOD.FIRESTARTER	我以为你讨厌火，%s.	1045	物品名:"沃姆伍德"
+DESCRIBE.WARLY.GENERIC	你好，%s。	1049	物品名:"沃利"->默认
+DESCRIBE.WARLY.ATTACKER	你身上的厨师气息可真浓郁啊。	1050	物品名:"沃利"
+DESCRIBE.WARLY.MURDERER	真希望你能变出一顿丰盛的晚餐。	1051	物品名:"沃利"
+DESCRIBE.WARLY.REVIVER	开饭啦。	1052	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WARLY.GHOST	你的烹饪技巧可不要失传了。	1053	物品名:"幽灵"
+DESCRIBE.WARLY.FIRESTARTER	他会把这个地方都烧了。	1054	物品名:"沃利"
+DESCRIBE.WURT.GENERIC	你好，%s。	1058	物品名:"沃特"->默认
+DESCRIBE.WURT.ATTACKER	%s今天特别可爱的样子……	1059	物品名:"沃特"
+DESCRIBE.WURT.MURDERER	你又出去闯祸了。	1060	物品名:"沃特"
+DESCRIBE.WURT.REVIVER	我要谢谢你，%s。	1061	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WURT.GHOST	%s奇奇怪怪。	1062	物品名:"幽灵"
+DESCRIBE.WURT.FIRESTARTER	我不是说了别玩火吗？	1063	物品名:"沃特"
+DESCRIBE.WALTER.GENERIC	你好，%s。	1067	物品名:"沃尔特"->默认
+DESCRIBE.WALTER.ATTACKER	你又出去闯祸了？	1068	物品名:"沃尔特"
+DESCRIBE.WALTER.MURDERER	你的故事用完了吗，%s？	1069	物品名:"沃尔特"
+DESCRIBE.WALTER.REVIVER	%s我在此将你召回。	1070	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WALTER.GHOST	别害怕，有我在呢。	1071	物品名:"幽灵"
+DESCRIBE.WALTER.FIRESTARTER	那个看起来可不像是营火，%s。	1072	物品名:"沃尔特"
+DESCRIBE.WANDA.GENERIC	你好，%s。	1076	物品名:"旺达"->默认
+DESCRIBE.WANDA.ATTACKER	你身上的钟表好特别啊，%s。	1077	物品名:"旺达"
+DESCRIBE.WANDA.MURDERER	你是不是能操纵时间。	1078	物品名:"旺达"
+DESCRIBE.WANDA.REVIVER	快回来吧，这个世界需要你。	1079	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WANDA.GHOST	现在不是沮丧的时候。	1080	物品名:"幽灵"
+DESCRIBE.WANDA.FIRESTARTER	让我猜猜，这与魂魄有关？	1081	物品名:"旺达"
+DESCRIBE.WONKEY.GENERIC	一只被诅咒的猴子。	1085	物品名:"芜猴"->默认
+DESCRIBE.WONKEY.ATTACKER	猴子先生吃香蕉吗。	1086	物品名:"芜猴"
+DESCRIBE.WONKEY.MURDERER	我也想拥有一根和猴子先生一样的尾巴。	1087	物品名:"芜猴"
+DESCRIBE.WONKEY.REVIVER	你这家伙又偷懒，快起来干活儿。	1088	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.WONKEY.GHOST	他的灵魂好像有些熟悉。	1089	物品名:"幽灵"
+DESCRIBE.WONKEY.FIRESTARTER	你居然这么做了？	1090	物品名:"芜猴"
+DESCRIBE.GLOMMER.GENERIC	调皮的小家伙。	1097	物品名:"格罗姆"->默认
+DESCRIBE.GLOMMER.SLEEPING	友好的小家伙。	1098	物品名:"格罗姆"->睡着了
+DESCRIBE.GLOMMERFLOWER.GENERIC	花瓣微微发亮。	1102	物品名:"格罗姆花"->默认
+DESCRIBE.GLOMMERFLOWER.DEAD	花瓣枯萎，微微发亮。	1103	物品名:"格罗姆花"->死了
+DESCRIBE.GLOMMERWINGS	谁把小可爱的翅膀摘掉了。	1105	物品名:"格罗姆翅膀"
+DESCRIBE.GLOMMERFUEL	恶臭无比。	1106	物品名:"格罗姆的黏液"
+DESCRIBE.BELL	叮呤呤。	1107	物品名:"远古铃铛" 制造描述:"这可不是普通的铃铛。"
+DESCRIBE.STATUEGLOMMER.GENERIC	我不确定那是什么东西。	1110	物品名:"格罗姆雕像"->默认
+DESCRIBE.STATUEGLOMMER.EMPTY	谁打碎的真淘气。	1111	物品名:"格罗姆雕像"
+DESCRIBE.LAVA_POND_ROCK	我需要它。	1113	物品名:"岩石"
+DESCRIBE.WEBBERSKULL	可怜的小家伙。	1114	物品名:"韦伯的头骨"
+DESCRIBE.WORMLIGHT	看起来很好吃。	1115	物品名:"发光浆果"
+DESCRIBE.WORMLIGHT_LESSER	有点皱巴巴的。	1116	物品名:"小发光浆果"
+DESCRIBE.WORM.PLANT	我觉得挺安全。	1119	物品名:"洞穴蠕虫"
+DESCRIBE.WORM.DIRT	看起来就像一堆土。	1120	物品名:"洞穴蠕虫"
+DESCRIBE.WORM.WORM	它是一只妖兽。	1121	物品名:"洞穴蠕虫"
+DESCRIBE.WORMLIGHT_PLANT	我觉得挺安全。	1123	物品名:"神秘植物"
+DESCRIBE.MOLE.HELD	没什么可挖的了。	1126	物品名:"鼹鼠"->拿在手里
+DESCRIBE.MOLE.UNDERGROUND	下面有个正在寻找矿物的家伙。	1127	物品名:"鼹鼠"
+DESCRIBE.MOLE.ABOVEGROUND	我想敲昏那只鼹鼠...	1128	物品名:"鼹鼠"
+DESCRIBE.MOLEHILL	多么美好舒适的地洞啊。	1130	物品名:"鼹鼠丘"
+DESCRIBE.MOLEHAT	散发着讨厌的恶臭，但体验还不错。	1131	物品名:"鼹鼠帽" 制造描述:"为穿戴者提供夜视能力。"
+DESCRIBE.EEL	这能做一道好菜。	1132	物品名:"鳗鱼"
+DESCRIBE.EEL_COOKED	闻起来还不错。	1133	物品名:"熟鳗鱼"
+DESCRIBE.UNAGI	希望这不会让人变为鱼。	1134	物品名:"鳗鱼料理"
+DESCRIBE.EYETURRET	希望它不会看向我。	1135	物品名:"眼睛炮塔"
+DESCRIBE.EYETURRET_ITEM	我想它在睡觉。	1136	物品名:"眼睛炮塔" 制造描述:"要远离讨厌的东西，就得杀了它们。"
+DESCRIBE.MINOTAURHORN	哇哦。 	1137	物品名:"守护者之角"
+DESCRIBE.MINOTAURCHEST	里面可能有更大的好东西。也可能是可怕的东西。	1138	物品名:"大号华丽箱子"
+DESCRIBE.THULECITE_PIECES	更小块的铥矿。	1139	物品名:"铥矿碎片"
+DESCRIBE.POND_ALGAE	池塘边的水藻。	1140	物品名:"水藻"
+DESCRIBE.GREENSTAFF	这东西迟早派得上用场。	1141	物品名:"拆解魔杖" 制造描述:"干净而有效的摧毁。"
+DESCRIBE.GIFT	那是给我的吗？	1142	物品名:"礼物"
+DESCRIBE.GIFTWRAP	小菜一碟。	1143	物品名:"礼物包装" 制造描述:"把东西打包起来，好看又可爱。"
+DESCRIBE.POTTEDFERN	盆里的蕨类植物。	1144	物品名:"蕨类盆栽" 制造描述:"做个花盆，里面栽上蕨类植物。"
+DESCRIBE.SUCCULENT_POTTED	盆里的多肉植物。	1145	物品名:"多肉盆栽" 制造描述:"塞进陶盆的漂亮多肉植物。"
+DESCRIBE.SUCCULENT_PLANT	那里有芦荟。	1146	物品名:"多肉植物"
+DESCRIBE.SUCCULENT_PICKED	我能吃那个。	1147	物品名:"多肉植物"
+DESCRIBE.SENTRYWARD	十分玄妙的东西。	1148	物品名:"月眼守卫" 制造描述:"绘图者最有价值的武器。"
+DESCRIBE.TOWNPORTAL.GENERIC	这个法宝控制着沙子。	1151	物品名:"懒人传送塔"->默认 制造描述:"用沙子的力量聚集你的朋友们。"
+DESCRIBE.TOWNPORTAL.ACTIVE	准备好了。	1152	物品名:"懒人传送塔"->激活了 制造描述:"用沙子的力量聚集你的朋友们。"
+DESCRIBE.TOWNPORTALTALISMAN.GENERIC	它可以带我去任何地方。	1156	物品名:"沙之石"->默认
+DESCRIBE.TOWNPORTALTALISMAN.ACTIVE	神奇的法阵启动了。	1157	物品名:"沙之石"->激活了
+DESCRIBE.WETPAPER	我希望它快点干。	1159	物品名:"纸张"
+DESCRIBE.WETPOUCH	这个包裹只能勉强绑在一起。	1160	物品名:"起皱的包裹"
+DESCRIBE.MOONROCK_PIECES	我应该能打碎它。	1161	物品名:"月亮石碎块"
+DESCRIBE.MOONBASE.GENERIC	中间有个洞，好像可以扔东西进去。	1164	物品名:"月亮石"->默认
+DESCRIBE.MOONBASE.BROKEN	都搞砸了。	1165	物品名:"月亮石"
+DESCRIBE.MOONBASE.STAFFED	然后呢？	1166	物品名:"月亮石"
+DESCRIBE.MOONBASE.WRONGSTAFF	不对，不对。	1167	物品名:"月亮石"->插错法杖
+DESCRIBE.MOONBASE.MOONSTAFF	玄妙的东西。	1168	物品名:"月亮石"->已经插了法杖的（月杖）
+DESCRIBE.MOONDIAL.GENERIC	我能看到月亮上的那只蠢兔子。	1172	物品名:"月晷"->默认 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_NEW	是新月。	1173	物品名:"月晷"->新月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_WAX	月亮慢慢在变圆。	1174	物品名:"月晷"->上弦月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_FULL	是满月。	1175	物品名:"月晷"->满月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.NIGHT_WANE	月亮正在变小。	1176	物品名:"月晷"->下弦月 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.CAVE	这下面没有月亮。	1177	物品名:"月晷"->洞穴 制造描述:"追踪月相。"
+DESCRIBE.MOONDIAL.GLASSED	好像有人在盯着我。	1179	物品名:"月晷" 制造描述:"追踪月相。"
+DESCRIBE.THULECITE	我想知道这是哪来的？	1181	物品名:"铥矿" 制造描述:"将小碎片合成一大块。"
+DESCRIBE.ARMORRUINS	它轻得古怪。	1182	物品名:"铥矿甲" 制造描述:"炫目并且能提供保护。"
+DESCRIBE.ARMORSKELETON	铮铮白骨	1183	物品名:"骨头盔甲"
+DESCRIBE.SKELETONHAT	我头好晕。	1184	物品名:"骨头头盔"
+DESCRIBE.RUINS_BAT	份量相当重。	1185	物品名:"铥矿棒" 制造描述:"尖钉让一切变得更好。"
+DESCRIBE.RUINSHAT	让我变得更加强大？	1186	物品名:"铥矿皇冠" 制造描述:"附有远古力场。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.CALM	一切都好了。	1189	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.WARN	感觉到里面好像有法力流动。	1190	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.WAXING	变得越来越密集了。	1191	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.STEADY	好像保持稳定了。	1192	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.WANING	感觉灵力正在逐渐减弱。	1193	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.DAWN	噩梦就要结束了。	1194	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.NIGHTMARE_TIMEPIECE.NOMAGIC	这里没有反应。	1195	物品名:"铥矿徽章" 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.BISHOP_NIGHTMARE	它在分崩离析。	1197	物品名:"损坏的发条主教"
+DESCRIBE.ROOK_NIGHTMARE	真可怕。	1198	物品名:"损坏的发条战车"
+DESCRIBE.KNIGHT_NIGHTMARE	残破的身躯。	1199	物品名:"损坏的发条骑士"
+DESCRIBE.MINOTAUR	远古遗迹的守护者。	1200	物品名:"远古守护者"
+DESCRIBE.SPIDER_DROPPER	别向上看。	1201	物品名:"穴居悬蛛"
+DESCRIBE.NIGHTMARELIGHT	我想知道这个东西有什么用。	1202	物品名:"梦魇灯座"
+DESCRIBE.NIGHTSTICK	它带着雷电。	1203	物品名:"晨星锤" 制造描述:"用于夜间战斗的晨光。"
+DESCRIBE.GREENGEM	绿色的，闪耀着光。	1204	物品名:"绿宝石"
+DESCRIBE.MULTITOOL_AXE_PICKAXE	挺聪明的。	1205	物品名:"多用斧镐" 制造描述:"加倍实用。"
+DESCRIBE.ORANGESTAFF	这比走路好。	1206	物品名:"懒人魔杖" 制造描述:"适合那些不喜欢走路的人。"
+DESCRIBE.YELLOWAMULET	温暖。	1207	物品名:"魔光护符" 制造描述:"从天堂汲取力量。"
+DESCRIBE.GREENAMULET	我也需要一个这个。	1208	物品名:"建造护符" 制造描述:"用更少的材料合成物品。"
+DESCRIBE.SLURPERPELT	死了的样子也没什么不同。	1209	物品名:"铥矿徽章"->啜食者皮 制造描述:"跟踪周围魔力水平的流动。"
+DESCRIBE.SLURPER	它看起来并不可爱。	1210	物品名:"啜食者"
+DESCRIBE.SLURPER_PELT	死了的样子也没什么不同。	1211	物品名:"啜食者皮"
+DESCRIBE.ARMORSLURPER	把裤带勒紧就不饿了。	1212	物品名:"饥饿腰带" 制造描述:"保持肚子不饿。"
+DESCRIBE.ORANGEAMULET	帮我拾取一些东西。	1213	物品名:"懒人护符" 制造描述:"适合那些不喜欢捡东西的人。"
+DESCRIBE.YELLOWSTAFF	一颗炽热的星星。	1214	物品名:"唤星者魔杖" 制造描述:"召唤一个小星星。"
+DESCRIBE.YELLOWGEM	这个宝石是黄色的。	1215	物品名:"黄宝石"
+DESCRIBE.ORANGEGEM	一颗橙宝石。	1216	物品名:"橙宝石"
+DESCRIBE.OPALSTAFF	像夜空中璀璨的晨星。	1217	物品名:"唤月者魔杖"
+DESCRIBE.OPALPRECIOUSGEM	这个宝石看起来很特别。	1218	物品名:"彩虹宝石"
+DESCRIBE.TELEBASE.VALID	它准备好了。	1221	物品名:"传送焦点"->有效 制造描述:"装上宝石试试。"
+DESCRIBE.TELEBASE.GEMS	它需要更多紫宝石。	1222	物品名:"传送焦点"->需要宝石 制造描述:"装上宝石试试。"
+DESCRIBE.GEMSOCKET.VALID	看起来准备好了。	1226	物品名:"宝石底座"->有效
+DESCRIBE.GEMSOCKET.GEMS	它需要一颗宝石。	1227	物品名:"宝石底座"->需要宝石
+DESCRIBE.STAFFLIGHT	那似乎非常危险。	1229	物品名:"矮星"
+DESCRIBE.STAFFCOLDLIGHT	看起来刺眼。	1230	物品名:"极光"
+DESCRIBE.ANCIENT_ALTAR	古老而神秘的建筑。	1231	物品名:"远古伪科学站"
+DESCRIBE.ANCIENT_ALTAR_BROKEN	这个好像破损了。	1232	物品名:"损坏的远古伪仙力站"
+DESCRIBE.ANCIENT_STATUE	它好像在与世界格格不入地震动。	1233	物品名:"远古雕像"
+DESCRIBE.LICHEN	这些植物可以在这种环境下生长。	1234	物品名:"洞穴苔藓"
+DESCRIBE.CUTLICHEN	保存不了多久。	1235	物品名:"苔藓"
+DESCRIBE.CAVE_BANANA	不错的食物。	1236	物品名:"香蕉"
+DESCRIBE.CAVE_BANANA_COOKED	好吃。	1237	物品名:"熟香蕉"
+DESCRIBE.CAVE_BANANA_TREE	这个地方居然有香蕉。	1238	物品名:"洞穴香蕉树"
+DESCRIBE.ROCKY	它的钳子不一般。	1239	物品名:"石虾"
+DESCRIBE.COMPASS.GENERIC	我面朝哪个方向？	1242	物品名:"指南针"->默认 制造描述:"指向北方。"
+DESCRIBE.COMPASS.N	北。	1243	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.S	南。	1244	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.E	东。	1245	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.W	西。	1246	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.NE	东北。	1247	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.SE	东南。	1248	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.NW	西北。	1249	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.COMPASS.SW	西南。	1250	物品名:"指南针" 制造描述:"指向北方。"
+DESCRIBE.HOUNDSTOOTH	或许可以用来制作成武器。	1252	物品名:"犬牙"
+DESCRIBE.ARMORSNURTLESHELL	我可以藏在里面。	1253	物品名:"蜗壳护甲"
+DESCRIBE.BAT	啊。真恶心。	1254	物品名:"洞穴蝙蝠"
+DESCRIBE.BATBAT	它看起来并不锋利。	1255	物品名:"蝙蝠棒" 制造描述:"所有科技都如此...耗费精神。"
+DESCRIBE.BATWING	那些东西即使死了都很讨厌。	1256	物品名:"洞穴蝙蝠翅膀"
+DESCRIBE.BATWING_COOKED	至少它不会再活过来了。	1257	物品名:"熟蝙蝠翅膀"
+DESCRIBE.BATCAVE	我可不想吵醒它们。	1258	物品名:"蝙蝠洞"
+DESCRIBE.BEDROLL_FURRY	真是又暖和又舒服。	1259	物品名:"毛皮铺盖" 制造描述:"舒适地一觉睡到天亮。"
+DESCRIBE.BUNNYMAN	兔子。	1260	物品名:"兔人"
+DESCRIBE.FLOWER_CAVE	是某种灵力让它发光。	1261	物品名:"荧光花"
+DESCRIBE.GUANO	污秽之物。	1262	物品名:"鸟粪"
+DESCRIBE.LANTERN	发出亮光的东西。	1263	物品名:"提灯" 制造描述:"可加燃料、明亮、便携。"
+DESCRIBE.LIGHTBULB	灵力攒动。	1264	物品名:"荧光果"
+DESCRIBE.MANRABBIT_TAIL	毛茸茸的。	1265	物品名:"兔绒"
+DESCRIBE.MUSHROOMHAT	让人看起来像一个有趣的家伙。	1266	物品名:"蘑菇帽"
+DESCRIBE.MUSHROOM_LIGHT2.ON	灵力流动。	1269	物品名:"菌伞灯"->开启 制造描述:"受到火山岩浆灯饰学问的激发。"
+DESCRIBE.MUSHROOM_LIGHT2.OFF	好像灵力被抽离。	1270	物品名:"菌伞灯"->关闭 制造描述:"受到火山岩浆灯饰学问的激发。"
+DESCRIBE.MUSHROOM_LIGHT2.BURNT	我没有让它发霉。	1271	物品名:"菌伞灯"->烧焦的 制造描述:"受到火山岩浆灯饰学问的激发。"
+DESCRIBE.MUSHROOM_LIGHT.ON	灵力把它点亮了。	1275	物品名:"蘑菇灯"->开启 制造描述:"任何蘑菇的完美添加物。"
+DESCRIBE.MUSHROOM_LIGHT.OFF	它是一个充满灵力的蘑菇。	1276	物品名:"蘑菇灯"->关闭 制造描述:"任何蘑菇的完美添加物。"
+DESCRIBE.MUSHROOM_LIGHT.BURNT	完全烧焦。	1277	物品名:"蘑菇灯"->烧焦的 制造描述:"任何蘑菇的完美添加物。"
+DESCRIBE.SLEEPBOMB	一扔就让我犯困。	1279	物品名:"睡袋" 制造描述:"可以扔掉的袋子睡意沉沉。"
+DESCRIBE.MUSHROOMBOMB	一个危险的东西出现了。	1280	物品名:"炸弹蘑菇"
+DESCRIBE.SHROOM_SKIN	一种妖物的皮。	1281	物品名:"蘑菇皮"
+DESCRIBE.TOADSTOOL_CAP.EMPTY	只是地上的一个洞。	1284	物品名:"毒菌蟾蜍"
+DESCRIBE.TOADSTOOL_CAP.INGROUND	有东西伸出来了。	1285	物品名:"毒菌蟾蜍"->在地里面
+DESCRIBE.TOADSTOOL_CAP.GENERIC	让我砍掉它。	1286	物品名:"毒菌蟾蜍"->默认
+DESCRIBE.TOADSTOOL.GENERIC	汇聚着病毒的根源。	1290	物品名:"毒菌蟾蜍"->默认
+DESCRIBE.TOADSTOOL.RAGE	它好像生气了。	1291	物品名:"毒菌蟾蜍"->愤怒
+DESCRIBE.MUSHROOMSPROUT.GENERIC	有点意思。	1295	物品名:"孢子帽"->默认
+DESCRIBE.MUSHROOMSPROUT.BURNT	不合适。	1296	物品名:"孢子帽"->烧焦的
+DESCRIBE.MUSHTREE_TALL.GENERIC	那个蘑菇长得太大了。	1300	物品名:"蓝蘑菇树"->默认
+DESCRIBE.MUSHTREE_TALL.BLOOM	从远处看不出来，它很臭。	1301	物品名:"蓝蘑菇树"->蘑菇树繁殖？？
+DESCRIBE.MUSHTREE_MEDIUM.GENERIC	红色的植物，火焰的颜色。	1305	物品名:"红蘑菇树"->默认
+DESCRIBE.MUSHTREE_MEDIUM.BLOOM	这个让我有点反感。	1306	物品名:"红蘑菇树"->蘑菇树繁殖？？
+DESCRIBE.MUSHTREE_SMALL.GENERIC	植物的颜色。	1310	物品名:"绿蘑菇树"->默认
+DESCRIBE.MUSHTREE_SMALL.BLOOM	繁殖出的植物。	1311	物品名:"绿蘑菇树"->蘑菇树繁殖？？
+DESCRIBE.MUSHTREE_TALL_WEBBED	需要打扫打扫了。	1313	物品名:"蛛网蓝蘑菇树"
+DESCRIBE.SPORE_TALL.GENERIC	它四处飘荡。	1316	物品名:"蓝色孢子"->默认
+DESCRIBE.SPORE_TALL.HELD	我需要感受灵力的流动。	1317	物品名:"蓝色孢子"->拿在手里
+DESCRIBE.SPORE_MEDIUM.GENERIC	在这世上还有牵挂。	1321	物品名:"红色孢子"->默认
+DESCRIBE.SPORE_MEDIUM.HELD	我需要感受灵力的流动。	1322	物品名:"红色孢子"->拿在手里
+DESCRIBE.SPORE_SMALL.GENERIC	植物的颜色。	1326	物品名:"绿色孢子"->默认
+DESCRIBE.SPORE_SMALL.HELD	我需要感受灵力的流动。	1327	物品名:"绿色孢子"->拿在手里
+DESCRIBE.RABBITHOUSE.GENERIC	那不是真的胡萝卜。	1331	物品名:"兔屋"->默认 制造描述:"可容纳一只巨大的兔子及其所有物品。"
+DESCRIBE.RABBITHOUSE.BURNT	那不是真的烤胡萝卜。	1332	物品名:"兔屋"->烧焦的 制造描述:"可容纳一只巨大的兔子及其所有物品。"
+DESCRIBE.SLURTLE	他有一个会移动的家	1334	物品名:"蛞蝓龟"
+DESCRIBE.SLURTLE_SHELLPIECES	一些碎壳。	1335	物品名:"外壳碎片"
+DESCRIBE.SLURTLEHAT	我可以藏在里面。	1336	物品名:"背壳头盔"
+DESCRIBE.SLURTLEHOLE	有什么住在这里吗。	1337	物品名:"蛞蝓龟窝"
+DESCRIBE.SLURTLESLIME	不想触碰。	1338	物品名:"蛞蝓龟黏液"
+DESCRIBE.SNURTLE	走开。	1339	物品名:"蜗牛龟"
+DESCRIBE.SPIDER_HIDER	它看起来很像岩石。	1340	物品名:"洞穴蜘蛛"
+DESCRIBE.SPIDER_SPITTER	我讨厌它。	1341	物品名:"喷射蜘蛛"
+DESCRIBE.SPIDERHOLE	它外面布满了蛛网。	1342	物品名:"蛛网岩"
+DESCRIBE.SPIDERHOLE_ROCK	它外面布满了蛛网。	1343	物品名:"兔屋" 制造描述:"可容纳一只巨大的兔子及其所有物品。"
+DESCRIBE.STALAGMITE	我看它像是石头而已。	1344	物品名:"石笋"
+DESCRIBE.STALAGMITE_TALL	能感受到一些灵力在内部...	1345	物品名:"石笋"
+DESCRIBE.TURF_CARPETFLOOR	柔软的地毯。	1346	物品名:"地毯地板" 制造描述:"超级柔软。闻着就像皮弗娄牛。"
+DESCRIBE.TURF_CHECKERFLOOR	它看起来并不华丽。	1347	物品名:"棋盘地板" 制造描述:"精心制作成棋盘状的大理石地砖。"
+DESCRIBE.TURF_DIRT	一块地皮。	1348	物品名:"泥土地皮"
+DESCRIBE.TURF_FOREST	一块地皮。	1349	物品名:"森林地皮" 制造描述:"一块森林地皮。"
+DESCRIBE.TURF_GRASS	一块地皮。	1350	物品名:"长草地皮" 制造描述:"一片草地。"
+DESCRIBE.TURF_MARSH	一块地皮。	1351	物品名:"沼泽地皮" 制造描述:"沼泽在哪，家就在哪。"
+DESCRIBE.TURF_METEOR	一块月球地面。	1352	物品名:"月球环形山地皮" 制造描述:"月球表面的月坑。"
+DESCRIBE.TURF_PEBBLEBEACH	一块海滩。	1353	物品名:"岩石海滩地皮" 制造描述:"一块鹅卵石海滩地皮。"
+DESCRIBE.TURF_ROAD	草草铺砌的石头。	1354	物品名:"卵石路" 制造描述:"修建你自己的道路，通往任何地方。"
+DESCRIBE.TURF_ROCKY	一块地皮。	1355	物品名:"岩石地皮" 制造描述:"一块石头地皮。"
+DESCRIBE.TURF_SAVANNA	一块地皮。	1356	物品名:"热带草原地皮" 制造描述:"一块热带草原地皮。"
+DESCRIBE.TURF_WOODFLOOR	这些是木地板。	1357	物品名:"木地板" 制造描述:"优质复合地板。"
+DESCRIBE.TURF_CAVE	又一种地皮类型。	1358	物品名:"鸟粪地皮" 制造描述:"洞穴地面冰冷的岩石。"
+DESCRIBE.TURF_FUNGUS	又一种地皮类型。	1359	物品名:"真菌地皮" 制造描述:"一块长满了真菌的洞穴地皮。"
+DESCRIBE.TURF_FUNGUS_MOON	又一种地皮类型。	1360	物品名:"变异真菌地皮" 制造描述:"一块长满了变异真菌的洞穴地皮。"
+DESCRIBE.TURF_ARCHIVE	又一种地皮类型。	1361	物品名:"远古石刻" 制造描述:"解封档案馆中的远古石器。"
+DESCRIBE.TURF_SINKHOLE	又一种地皮类型。	1362	物品名:"黏滑地皮" 制造描述:"一块潮湿、沾满泥巴的草地地皮。"
+DESCRIBE.TURF_UNDERROCK	又一种地皮类型。	1363	物品名:"洞穴岩石地皮" 制造描述:"一块乱石嶙峋的洞穴地皮。"
+DESCRIBE.TURF_MUD	又一种地皮类型。	1364	物品名:"泥泞地皮" 制造描述:"一块泥地地皮。"
+DESCRIBE.TURF_DECIDUOUS	又一种地皮类型。	1365	物品名:"落叶林地皮" 制造描述:"一块落叶林地皮。"
+DESCRIBE.TURF_SANDY	又一种地皮类型。	1366	物品名:"兔屋" 制造描述:"可容纳一只巨大的兔子及其所有物品。"
+DESCRIBE.TURF_BADLANDS	又一种地皮类型。	1367	物品名:"兔屋" 制造描述:"可容纳一只巨大的兔子及其所有物品。"
+DESCRIBE.TURF_DESERTDIRT	一块地皮。	1368	物品名:"沙漠地皮" 制造描述:"一片干燥的沙子。"
+DESCRIBE.TURF_FUNGUS_GREEN	一块地皮。	1369	物品名:"真菌地皮" 制造描述:"一块爬满绿菌的洞穴地皮。"
+DESCRIBE.TURF_FUNGUS_RED	一块地皮。	1370	物品名:"真菌地皮" 制造描述:"一块爬满红菌的洞穴地皮。"
+DESCRIBE.TURF_DRAGONFLY	你想证明它能防火吗？	1371	物品名:"龙鳞地板" 制造描述:"消除火灾蔓延速度。"
+DESCRIBE.TURF_SHELLBEACH	一块海滩。	1372	物品名:"贝壳海滩地皮" 制造描述:"一块贝壳海岸。"
+DESCRIBE.TURF_RUINSBRICK	又一种地皮类型。	1373	物品名:"远古地面" 制造描述:"远古石制地面，装饰的魔法技艺早已失传。"
+DESCRIBE.TURF_RUINSBRICK_GLOW	又一种地皮类型。	1374	物品名:"仿远古地面" 制造描述:"远古石制地面的复刻。"
+DESCRIBE.TURF_RUINSTILES	又一种地皮类型。	1375	物品名:"远古瓷砖" 制造描述:"瓷砖地面，装饰的魔法技艺早已失传。"
+DESCRIBE.TURF_RUINSTILES_GLOW	又一种地皮类型。	1376	物品名:"仿远古瓷砖" 制造描述:"远古瓷砖地面的复刻。"
+DESCRIBE.TURF_RUINSTRIM	又一种地皮类型。	1377	物品名:"远古砖雕" 制造描述:"砖石地面，装饰的魔法技艺早已失传。"
+DESCRIBE.TURF_RUINSTRIM_GLOW	又一种地皮类型。	1378	物品名:"仿远古砖雕" 制造描述:"远古砖石地面的复刻。"
+DESCRIBE.TURF_MONKEY_GROUND	一片沙地。	1379	物品名:"月亮码头海滩地皮" 制造描述:"一片沙地，散发着淡淡的香蕉香。"
+DESCRIBE.TURF_CARPETFLOOR2	它出奇地柔软。	1380	物品名:"茂盛地毯" 制造描述:"超级超级软。"
+DESCRIBE.TURF_MOSAIC_GREY	又一种地皮类型。	1381	物品名:"灰色马赛克地板" 制造描述:"优雅的碎石。灰色。"
+DESCRIBE.TURF_MOSAIC_RED	又一种地皮类型。	1382	物品名:"红色马赛克地板" 制造描述:"优雅的碎石。红色。"
+DESCRIBE.TURF_MOSAIC_BLUE	又一种地皮类型。	1383	物品名:"蓝色马赛克地板" 制造描述:"优雅的碎石。蓝色。"
+DESCRIBE.TURF_BEARD_RUG	又一种地皮类型。	1384	物品名:"胡须地毯" 制造描述:"有些人就是喜欢行为艺术。"
+DESCRIBE.POWCAKE	看起来不够好吃。	1385	物品名:"芝士蛋糕"
+DESCRIBE.CAVE_ENTRANCE	我在要把这个挖开。	1386	物品名:"被堵住的洞穴"
+DESCRIBE.CAVE_ENTRANCE_RUINS	通向地府。	1387	物品名:"被堵住的陷洞"->单机 洞二入口
+DESCRIBE.CAVE_ENTRANCE_OPEN.GENERIC	上面发生了什么。	1390	物品名:"洞穴"->默认
+DESCRIBE.CAVE_ENTRANCE_OPEN.OPEN	在那下面肯定能发现各种各样的东西。	1391	物品名:"洞穴"->打开
+DESCRIBE.CAVE_ENTRANCE_OPEN.FULL	快些让我进去。	1392	物品名:"洞穴"->满了
+DESCRIBE.CAVE_EXIT.GENERIC	我想这些楼梯可以上去。	1396	物品名:"楼梯"->默认
+DESCRIBE.CAVE_EXIT.OPEN	我暂时不想再探索了。	1397	物品名:"楼梯"->打开
+DESCRIBE.CAVE_EXIT.FULL	快些让我上去。	1398	物品名:"楼梯"->满了
+DESCRIBE.MAXWELLPHONOGRAPH	声音原来是从那来的。	1400	single player  -- 物品名:"麦斯威尔的留声机"->单机 麦斯威尔留声机
+DESCRIBE.BOOMERANG	可以回到身边的法宝。	1401	物品名:"回旋镖" 制造描述:"来自澳洲土著。"
+DESCRIBE.PIGGUARD	猪人先生。	1402	物品名:"猪人守卫"
+DESCRIBE.ABIGAIL.LEVEL1[0]	噢，她有一个可爱的小蝴蝶结。	1407	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL1[1]	噢，她有一个可爱的小蝴蝶结。	1408	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL2[0]	噢，她有一个可爱的小蝴蝶结。	1412	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL2[1]	噢，她有一个可爱的小蝴蝶结。	1413	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL3[0]	噢，她有一个可爱的小蝴蝶结。	1417	物品名:未找到 制造描述:未找到
+DESCRIBE.ABIGAIL.LEVEL3[1]	噢，她有一个可爱的小蝴蝶结。	1418	物品名:未找到 制造描述:未找到
+DESCRIBE.ADVENTURE_PORTAL	我不太明白这有什么作用。	1421	物品名:"麦斯威尔之门"->单机 麦斯威尔之门
+DESCRIBE.AMULET	戴着它我感觉很安全。	1422	物品名:"重生护符" 制造描述:"逃离死神的魔爪。"
+DESCRIBE.ANIMAL_TRACK	食物留下的踪迹。我指的是...一只动物。	1423	物品名:"动物足迹"
+DESCRIBE.ARMORGRASS	勉强能用。	1424	物品名:"草甲" 制造描述:"提供少许防护。"
+DESCRIBE.ARMORMARBLE	那看起来真的很沉。	1425	物品名:"大理石甲" 制造描述:"它很重，但能够保护你。"
+DESCRIBE.ARMORWOOD	那是一件非常合适的衣服。	1426	物品名:"木甲" 制造描述:"为你抵御部分伤害。"
+DESCRIBE.ARMOR_SANITY	穿着我虽然安全了，但心里确不踏实。	1427	物品名:"暗夜甲" 制造描述:"保护你的躯体，但无法保护你的心智。"
+DESCRIBE.ASH.GENERIC	火烧完之后剩下的一切。	1430	物品名:"灰烬"->默认
+DESCRIBE.ASH.REMAINS_GLOMMERFLOWER	被火焰吞噬了。	1431	物品名:"灰烬"->单机专用
+DESCRIBE.ASH.REMAINS_EYE_BONE	被火焰吞噬了。	1432	物品名:"灰烬"->单机专用
+DESCRIBE.ASH.REMAINS_THINGIE	我很讨厌火。	1433	物品名:"灰烬"->单机专用
+DESCRIBE.AXE	可靠的斧头。	1435	物品名:"斧头" 制造描述:"砍倒树木。"
+DESCRIBE.BABYBEEFALO.GENERIC	还不错。	1438	物品名:"小皮弗娄牛"->默认
+DESCRIBE.BABYBEEFALO.SLEEPING	做个好梦。	1439	物品名:"小皮弗娄牛"->睡着了
+DESCRIBE.BUNDLE	我们的宝贝都在那里面。	1441	物品名:"捆绑物资"
+DESCRIBE.BUNDLEWRAP	把东西打包起来可以拿更多。	1442	物品名:"捆绑包装" 制造描述:"打包东西的必要工具。"
+DESCRIBE.BACKPACK	你可以在那里面装进许多东西。	1443	物品名:"背包" 制造描述:"携带更多物品。"
+DESCRIBE.BACONEGGS	看起来不错的食物。	1444	物品名:"培根煎蛋"
+DESCRIBE.BANDAGE	蜂蜜能治疗伤口。	1445	物品名:"蜂蜜药膏" 制造描述:"愈合小伤口。"
+DESCRIBE.BASALT	敲不碎。	1446	removed  -- 物品名:"玄武岩"
+DESCRIBE.BEARDHAIR	一些毛发。	1447	物品名:"胡须"
+DESCRIBE.BEARGER	嘿，大毛家伙，是想和我一起玩吗。	1448	物品名:"熊獾"
+DESCRIBE.BEARGERVEST	还挺适合我。	1449	物品名:"熊皮背心" 制造描述:"像熊一样的背心。"
+DESCRIBE.ICEPACK	毛皮使包内可以保温。	1450	物品名:"保鲜背包" 制造描述:"保持新鲜感。"
+DESCRIBE.BEARGER_FUR	一块厚毛皮。	1451	物品名:"熊皮" 制造描述:"毛皮再生。"
+DESCRIBE.BEDROLL_STRAW	看起来挺舒适。	1452	物品名:"草席卷" 制造描述:"一觉睡到天亮。"
+DESCRIBE.BEEQUEEN	让那蜂刺离我远点。	1453	物品名:"蜂王"
+DESCRIBE.BEEQUEENHIVE.GENERIC	太黏了，没法走下去了。	1456	物品名:"蜂蜜地块"->默认
+DESCRIBE.BEEQUEENHIVE.GROWING	那东西以前在那里吗？	1457	物品名:"蜂蜜地块"->正在生长
+DESCRIBE.BEEQUEENHIVEGROWN	一种巨大妖物正沉寂着。	1459	物品名:"巨大蜂窝"
+DESCRIBE.BEEGUARD	它在守护。	1460	物品名:"嗡嗡蜜蜂"
+DESCRIBE.HIVEHAT	让我带上试试。	1461	物品名:"蜂王冠"
+DESCRIBE.MINISIGN.GENERIC	我可以画得比那好。	1464	物品名:"小木牌"->默认
+DESCRIBE.MINISIGN.UNDRAWN	我们应该在那上面画些东西。	1465	物品名:"小木牌"->没有画画
+DESCRIBE.MINISIGN_ITEM	像这样没有太多用处。应该把它放下。	1467	物品名:"小木牌" 制造描述:"用羽毛笔在这些上面画画。"
+DESCRIBE.BEE.GENERIC	嗡嗡嗡。	1470	物品名:"蜜蜂"->默认
+DESCRIBE.BEE.HELD	当心。	1471	物品名:"蜜蜂"->拿在手里
+DESCRIBE.BEEBOX.READY	它里面装满了蜂蜜。	1475	物品名:"蜂箱"->准备好的 满的 制造描述:"贮存你自己的蜜蜂。"
+DESCRIBE.BEEBOX.FULLHONEY	它里面装满了蜂蜜。	1476	物品名:"蜂箱"->蜂蜜满了 制造描述:"贮存你自己的蜜蜂。"
+DESCRIBE.BEEBOX.GENERIC	蜜蜂。	1477	物品名:"蜂箱"->默认 制造描述:"贮存你自己的蜜蜂。"
+DESCRIBE.BEEBOX.NOHONEY	它是空的。	1478	物品名:"蜂箱"->没有蜂蜜 制造描述:"贮存你自己的蜜蜂。"
+DESCRIBE.BEEBOX.SOMEHONEY	需要等一会。	1479	物品名:"蜂箱"->有一些蜂蜜 制造描述:"贮存你自己的蜜蜂。"
+DESCRIBE.BEEBOX.BURNT	怎么被烧掉的？。	1480	物品名:"蜂箱"->烧焦的 制造描述:"贮存你自己的蜜蜂。"
+DESCRIBE.MUSHROOM_FARM.STUFFED	那真是许许多多的蘑菇。	1484	物品名:"蘑菇农场"->塞，满了？？ 制造描述:"种蘑菇。"
+DESCRIBE.MUSHROOM_FARM.LOTS	长满了蘑菇。	1485	物品名:"蘑菇农场"->很多 制造描述:"种蘑菇。"
+DESCRIBE.MUSHROOM_FARM.SOME	现在它应该继续生长。	1486	物品名:"蘑菇农场"->有一些 制造描述:"种蘑菇。"
+DESCRIBE.MUSHROOM_FARM.EMPTY	我要种点蘑菇。	1487	物品名:"蘑菇农场" 制造描述:"种蘑菇。"
+DESCRIBE.MUSHROOM_FARM.ROTTEN	塞块活木就可以继续用了。	1488	物品名:"蘑菇农场"->腐烂的--需要活木 制造描述:"种蘑菇。"
+DESCRIBE.MUSHROOM_FARM.BURNT	谁烧了我的蘑菇。	1489	物品名:"蘑菇农场"->烧焦的 制造描述:"种蘑菇。"
+DESCRIBE.MUSHROOM_FARM.SNOWCOVERED	冬天可长不出蘑菇。	1490	物品名:"蘑菇农场"->被雪覆盖 制造描述:"种蘑菇。"
+DESCRIBE.BEEFALO.FOLLOWER	小牛跟着我。	1494	物品名:"皮弗娄牛"->追随者
+DESCRIBE.BEEFALO.GENERIC	是皮弗娄牛。	1495	物品名:"皮弗娄牛"->默认
+DESCRIBE.BEEFALO.NAKED	他很伤心。	1496	物品名:"皮弗娄牛"->牛毛被刮干净了
+DESCRIBE.BEEFALO.SLEEPING	这些家伙睡得真死。	1497	物品名:"皮弗娄牛"->睡着了
+DESCRIBE.BEEFALO.DOMESTICATED	这个没其他的那么难闻。	1498	物品名:"皮弗娄牛"->驯化牛
+DESCRIBE.BEEFALO.ORNERY	它看起来非常生气。	1499	物品名:"皮弗娄牛"->战斗牛
+DESCRIBE.BEEFALO.RIDER	这家伙看起来挺好骑的。	1500	物品名:"皮弗娄牛"->骑行牛
+DESCRIBE.BEEFALO.PUDGY	嗯，它可能吃太多东西了。	1501	物品名:"皮弗娄牛"->胖牛
+DESCRIBE.BEEFALO.MYPARTNER	嘿，可爱的牛牛，在这吃草呢。	1502	物品名:"皮弗娄牛"
+DESCRIBE.BEEFALOHAT	还挺暖和。	1504	物品名:"牛角帽" 制造描述:"成为牛群中的一员。连气味也变得一样。"
+DESCRIBE.BEEFALOWOOL	看起来毛糙糙的。	1505	物品名:"牛毛"
+DESCRIBE.BEEHAT	防止我被叮咬。	1506	物品名:"养蜂帽" 制造描述:"防止被愤怒的蜜蜂蜇伤。"
+DESCRIBE.BEESWAX	蜂蜡可以防止腐烂。	1507	物品名:"蜂蜡" 制造描述:"一种有用的防腐蜂蜡。"
+DESCRIBE.BEEHIVE	蜜蜂嗡嗡忙不停。	1508	物品名:"蜂窝"
+DESCRIBE.BEEMINE	它晃动时就会嗡嗡叫。	1509	物品名:"蜜蜂地雷" 制造描述:"变成武器的蜜蜂。会出什么问题？"
+DESCRIBE.BEEMINE_MAXWELL	被装在地雷里的狂暴妖物。	1510	removed  -- 物品名:"麦斯威尔的蚊子陷阱"->单机 麦斯威尔的蚊子陷阱
+DESCRIBE.BERRIES	平凡的食物。	1511	物品名:"浆果"
+DESCRIBE.BERRIES_COOKED	不烧我也能吃。	1512	物品名:"烤浆果"
+DESCRIBE.BERRIES_JUICY	味道普通。	1513	物品名:"多汁浆果"
+DESCRIBE.BERRIES_JUICY_COOKED	最好在变质前吃掉。	1514	物品名:"烤多汁浆果"
+DESCRIBE.BERRYBUSH.BARREN	我需要施肥。	1517	物品名:"浆果丛"
+DESCRIBE.BERRYBUSH.WITHERED	这么热的天气什么也生长不了。	1518	物品名:"浆果丛"->枯萎了
+DESCRIBE.BERRYBUSH.GENERIC	我觉得这些应该能吃。	1519	物品名:"浆果丛"->默认
+DESCRIBE.BERRYBUSH.PICKED	或许它们会再长出来？	1520	物品名:"浆果丛"->被采完了
+DESCRIBE.BERRYBUSH.DISEASED	看上去病的很重。	1521	removed  -- 物品名:"浆果丛"->生病了
+DESCRIBE.BERRYBUSH.DISEASING	有些地方不对劲。	1522	removed  -- 物品名:"浆果丛"->正在生病？？
+DESCRIBE.BERRYBUSH.BURNING	快灭火。	1523	物品名:"浆果丛"->正在燃烧
+DESCRIBE.BERRYBUSH_JUICY.BARREN	不会有浆果。	1527	物品名:"多汁浆果丛"
+DESCRIBE.BERRYBUSH_JUICY.WITHERED	枯萎了。	1528	物品名:"多汁浆果丛"->枯萎了
+DESCRIBE.BERRYBUSH_JUICY.GENERIC	我来摘果子了。	1529	物品名:"多汁浆果丛"->默认
+DESCRIBE.BERRYBUSH_JUICY.PICKED	努力生长。	1530	物品名:"多汁浆果丛"->被采完了
+DESCRIBE.BERRYBUSH_JUICY.DISEASED	它看上去很不舒服。	1531	removed  -- 物品名:"多汁浆果丛"->生病了
+DESCRIBE.BERRYBUSH_JUICY.DISEASING	呃...有些地方不对劲。	1532	removed  -- 物品名:"多汁浆果丛"->正在生病？？
+DESCRIBE.BERRYBUSH_JUICY.BURNING	快灭火。	1533	物品名:"多汁浆果丛"->正在燃烧
+DESCRIBE.BIGFOOT	那真是大脚。	1535	removed  -- 物品名:"大脚怪"->单机 大脚怪
+DESCRIBE.BIRDCAGE.GENERIC	现在只需要一只鸟。	1538	物品名:"鸟笼"->默认 制造描述:"为你的鸟类朋友提供一个幸福的家。"
+DESCRIBE.BIRDCAGE.OCCUPIED	里面有一只鸟。	1539	物品名:"鸟笼"->被占领 制造描述:"为你的鸟类朋友提供一个幸福的家。"
+DESCRIBE.BIRDCAGE.SLEEPING	他睡着了。	1540	物品名:"鸟笼"->睡着了 制造描述:"为你的鸟类朋友提供一个幸福的家。"
+DESCRIBE.BIRDCAGE.HUNGRY	它看起来有点饿。	1541	物品名:"鸟笼"->有点饿了 制造描述:"为你的鸟类朋友提供一个幸福的家。"
+DESCRIBE.BIRDCAGE.STARVING	好久都没人喂食了吧？	1542	物品名:"鸟笼"->挨饿 制造描述:"为你的鸟类朋友提供一个幸福的家。"
+DESCRIBE.BIRDCAGE.DEAD	也许它只是在休息？	1543	物品名:"鸟笼"->死了 制造描述:"为你的鸟类朋友提供一个幸福的家。"
+DESCRIBE.BIRDCAGE.SKELETON	魂魄都已经散了。	1544	物品名:"骷髅"
+DESCRIBE.BIRDTRAP	蛛网带来的。	1546	物品名:"捕鸟陷阱" 制造描述:"捕捉会飞的动物。"
+DESCRIBE.CAVE_BANANA_BURNT	被烧毁了。	1547	物品名:"鸟笼"->烧焦的洞穴香蕉树 制造描述:"为你的鸟类朋友提供一个幸福的家。"
+DESCRIBE.BIRD_EGG	一颗鸟蛋。	1548	物品名:"鸟蛋"
+DESCRIBE.BIRD_EGG_COOKED	真好吃。	1549	物品名:"熟鸟蛋"
+DESCRIBE.BISHOP	退后。	1550	物品名:"发条主教"
+DESCRIBE.BLOWDART_FIRE	这东西有点危险。	1551	物品名:"火焰吹箭" 制造描述:"向你的敌人喷火。"
+DESCRIBE.BLOWDART_SLEEP	可以让人昏昏沉沉。	1552	物品名:"催眠吹箭" 制造描述:"催眠你的敌人。"
+DESCRIBE.BLOWDART_PIPE	可以好好练习。	1553	物品名:"吹箭" 制造描述:"向你的敌人喷射利齿。"
+DESCRIBE.BLOWDART_YELLOW	另一种掌控雷电的方法。	1554	物品名:"雷电吹箭" 制造描述:"朝你的敌人放闪电。"
+DESCRIBE.BLUEAMULET	很舒适的温度。	1555	物品名:"寒冰护符" 制造描述:"多么冰冷酷炫的护符。"
+DESCRIBE.BLUEGEM	它散发着冰冷的法力。	1556	物品名:"蓝宝石"
+DESCRIBE.BLUEPRINT.COMMON	另一种世界的本源。	1559	物品名:"蓝图"
+DESCRIBE.BLUEPRINT.RARE	让我看看。	1560	物品名:"蓝图"->罕见的
+DESCRIBE.SKETCH	一张雕像的图片。要找个地方才能做出来。	1562	物品名:"{item}草图"
+DESCRIBE.COOKINGRECIPECARD.GENERIC	一些食谱。	1565	物品名:"{item}食谱卡"->默认
+DESCRIBE.BLUE_CAP	它很古怪，还黏黏的。	1567	物品名:"采摘的蓝蘑菇"
+DESCRIBE.BLUE_CAP_COOKED	这回不一样了……	1568	物品名:"熟蓝蘑菇"
+DESCRIBE.BLUE_MUSHROOM.GENERIC	是蘑菇。	1571	物品名:"蓝蘑菇"->默认
+DESCRIBE.BLUE_MUSHROOM.INGROUND	它在睡觉。	1572	物品名:"蓝蘑菇"->在地里面
+DESCRIBE.BLUE_MUSHROOM.PICKED	不知道它会不会长回来？	1573	物品名:"蓝蘑菇"->被采完了
+DESCRIBE.BOARDS	木板。	1575	物品名:"木板" 制造描述:"更平直的木头。"
+DESCRIBE.BONESHARD	一小片骨头。	1576	物品名:"骨头碎片"
+DESCRIBE.BONESTEW	饱腹的炖菜。	1577	物品名:"炖肉汤"
+DESCRIBE.BUGNET	抓虫子用的。	1578	物品名:"捕虫网" 制造描述:"抓虫子用的。"
+DESCRIBE.BUSHHAT	看着有点扎人。	1579	物品名:"灌木丛帽" 制造描述:"很好的伪装。"
+DESCRIBE.BUTTER	一种比较精致的调味品。	1580	物品名:"黄油"
+DESCRIBE.BUTTERFLY.GENERIC	蝴蝶飞走了。	1583	物品名:"蝴蝶"->默认
+DESCRIBE.BUTTERFLY.HELD	总算抓到你了。	1584	物品名:"蝴蝶"->拿在手里
+DESCRIBE.BUTTERFLYMUFFIN	即兴发挥了一下。	1586	物品名:"蝴蝶松饼"
+DESCRIBE.BUTTERFLYWINGS	只是条毛虫。	1587	物品名:"蝴蝶翅膀"
+DESCRIBE.BUZZARD	你的造型还挺酷，是来给我表演空中杂技的吗。	1588	物品名:"秃鹫"
+DESCRIBE.SHADOWDIGGER	哦，挺好的。现在不止他一个了。	1589	物品名:"蝴蝶"
+DESCRIBE.SHADOWDANCER	有些东西你看到后就想赶紧忘掉……	1590	物品名:"暗影舞者"
+DESCRIBE.CACTUS.GENERIC	虽然有刺，但很美味。	1593	物品名:"仙人掌"->默认
+DESCRIBE.CACTUS.PICKED	干瘪了，但还是很多刺。	1594	物品名:"仙人掌"->被采完了
+DESCRIBE.CACTUS_MEAT_COOKED	来自沙漠的烤水果。	1596	物品名:"熟仙人掌肉"
+DESCRIBE.CACTUS_MEAT	需要把上面的刺弄掉。	1597	物品名:"仙人掌肉"
+DESCRIBE.CACTUS_FLOWER	开出的挺不错的花。	1598	物品名:"仙人掌花"
+DESCRIBE.COLDFIRE.EMBERS	得给那火加油了，或者就要灭了。	1601	物品名:"吸热营火"->即将熄灭 制造描述:"这火是越烤越冷的冰火。"
+DESCRIBE.COLDFIRE.GENERIC	肯定能驱走黑暗。	1602	物品名:"吸热营火"->默认 制造描述:"这火是越烤越冷的冰火。"
+DESCRIBE.COLDFIRE.HIGH	火要失控了。	1603	物品名:"吸热营火"->高 制造描述:"这火是越烤越冷的冰火。"
+DESCRIBE.COLDFIRE.LOW	火变得有点小了。	1604	物品名:"吸热营火"->低？ 制造描述:"这火是越烤越冷的冰火。"
+DESCRIBE.COLDFIRE.NORMAL	真舒服。	1605	物品名:"吸热营火"->普通 制造描述:"这火是越烤越冷的冰火。"
+DESCRIBE.COLDFIRE.OUT	火灭了。	1606	物品名:"吸热营火"->出去？外面？ 制造描述:"这火是越烤越冷的冰火。"
+DESCRIBE.CAMPFIRE.EMBERS	得加柴了，不然火就要灭了。	1610	物品名:"营火"->即将熄灭 制造描述:"燃烧时发出光亮。"
+DESCRIBE.CAMPFIRE.GENERIC	肯定能驱走黑暗。	1611	物品名:"营火"->默认 制造描述:"燃烧时发出光亮。"
+DESCRIBE.CAMPFIRE.HIGH	火要失控了。	1612	物品名:"营火"->高 制造描述:"燃烧时发出光亮。"
+DESCRIBE.CAMPFIRE.LOW	火变得有点小了。	1613	物品名:"营火"->低？ 制造描述:"燃烧时发出光亮。"
+DESCRIBE.CAMPFIRE.NORMAL	真舒服。	1614	物品名:"营火"->普通 制造描述:"燃烧时发出光亮。"
+DESCRIBE.CAMPFIRE.OUT	火灭了。	1615	物品名:"营火"->出去？外面？ 制造描述:"燃烧时发出光亮。"
+DESCRIBE.CANE	像羽毛一样，走路都要飞起来了。	1617	物品名:"步行手杖" 制造描述:"泰然自若地快步走。"
+DESCRIBE.CATCOON	顽皮的小东西。	1618	物品名:"浣猫"
+DESCRIBE.CATCOONDEN.GENERIC	树桩里的窝。	1621	物品名:"空心树桩"->默认
+DESCRIBE.CATCOONDEN.EMPTY	它的主人没命了。	1622	物品名:"空心树桩"
+DESCRIBE.CATCOONHAT	还挺暖和。	1624	物品名:"猫帽" 制造描述:"适合那些重视温暖甚于朋友的人。"
+DESCRIBE.COONTAIL	我觉得它还在摆动。	1625	物品名:"猫尾"
+DESCRIBE.CARROT	可以和兔子交朋友。	1626	物品名:"胡萝卜"
+DESCRIBE.CARROT_COOKED	软塌塌的。	1627	物品名:"烤胡萝卜"
+DESCRIBE.CARROT_PLANTED	过于普通的食物。	1628	物品名:"胡萝卜"
+DESCRIBE.CARROT_SEEDS	这是一颗种子。	1629	物品名:"椭圆形种子"
+DESCRIBE.CARTOGRAPHYDESK.GENERIC	现在我可以让大家看到游历过的地方了。	1632	物品名:"制图桌"->默认 制造描述:"准确地告诉别人你去过哪里。"
+DESCRIBE.CARTOGRAPHYDESK.BURNING	那件事到此为止。	1633	物品名:"制图桌"->正在燃烧 制造描述:"准确地告诉别人你去过哪里。"
+DESCRIBE.CARTOGRAPHYDESK.BURNT	现在就只有灰烬了。	1634	物品名:"制图桌"->烧焦的 制造描述:"准确地告诉别人你去过哪里。"
+DESCRIBE.WATERMELON_SEEDS	这是一颗种子。	1636	物品名:"方形种子"
+DESCRIBE.CAVE_FERN	它是一种植物。	1637	物品名:"蕨类植物"
+DESCRIBE.CHARCOAL	闻起来像烧焦的木头。	1638	物品名:"木炭"
+DESCRIBE.CHESSPIECE_PAWN	我有同感。	1639	物品名:"卒子雕塑"
+DESCRIBE.CHESSPIECE_ROOK.GENERIC	它比看上去的更重。	1642	物品名:"战车雕塑"->默认
+DESCRIBE.CHESSPIECE_ROOK.STRUGGLE	它们自己在动。	1643	物品名:"战车雕塑"->三基佬棋子晃动
+DESCRIBE.CHESSPIECE_KNIGHT.GENERIC	它是匹马。	1647	物品名:"骑士雕塑"->默认
+DESCRIBE.CHESSPIECE_KNIGHT.STRUGGLE	它们自己在动。	1648	物品名:"骑士雕塑"->三基佬棋子晃动
+DESCRIBE.CHESSPIECE_BISHOP.GENERIC	是个雕像。	1652	物品名:"主教雕塑"->默认
+DESCRIBE.CHESSPIECE_BISHOP.STRUGGLE	它们自己在动。	1653	物品名:"主教雕塑"->三基佬棋子晃动
+DESCRIBE.CHESSPIECE_MUSE	嗯...没有见过的雕塑。	1655	物品名:"女王雕塑"
+DESCRIBE.CHESSPIECE_FORMAL	对我来说不太能理解。	1656	物品名:"国王雕塑"
+DESCRIBE.CHESSPIECE_HORNUCOPIA	仅仅看着它就让我有些饿了。	1657	物品名:"丰饶角雕塑"
+DESCRIBE.CHESSPIECE_PIPE	不太能理解的雕塑。	1658	物品名:"泡泡烟斗雕塑"
+DESCRIBE.CHESSPIECE_DEERCLOPS	感觉它的目光在跟着你。	1659	物品名:"独眼巨鹿雕塑"
+DESCRIBE.CHESSPIECE_BEARGER	靠近后它大得多了。	1660	物品名:"熊獾雕塑"
+DESCRIBE.CHESSPIECE_MOOSEGOOSE[0]	非常精妙。	1663	物品名:"麋鹿鹅雕塑" 制造描述:未找到
+DESCRIBE.CHESSPIECE_DRAGONFLY	啊，这让我想起一些事情。	1665	物品名:"龙蝇雕塑"
+DESCRIBE.CHESSPIECE_MINOTAUR	现在轮到你被吓得一动不动了。	1666	物品名:"远古守护者雕塑"
+DESCRIBE.CHESSPIECE_BUTTERFLY	看着挺美的，对吧？	1667	物品名:"月蛾雕塑"
+DESCRIBE.CHESSPIECE_ANCHOR	果然和看上去一样沉。	1668	物品名:"锚雕塑"
+DESCRIBE.CHESSPIECE_MOON	谁把月亮弄来了。	1669	物品名:"“月亮” 雕塑"
+DESCRIBE.CHESSPIECE_CARRAT	有人胜出了。	1670	物品名:"胡萝卜鼠雕塑"
+DESCRIBE.CHESSPIECE_MALBATROSS	这是一只什么鸟类。	1671	物品名:"邪天翁雕塑"
+DESCRIBE.CHESSPIECE_CRABKING	小山一样。	1672	物品名:"帝王蟹雕塑"
+DESCRIBE.CHESSPIECE_TOADSTOOL	蛤蟆树，树蛤蟆？	1673	物品名:"毒菌蟾蜍雕塑"
+DESCRIBE.CHESSPIECE_STALKER	它看起来并不友善。	1674	物品名:"远古织影者雕塑"
+DESCRIBE.CHESSPIECE_KLAUS	我能召唤出这个吗？	1675	物品名:"克劳斯雕塑"
+DESCRIBE.CHESSPIECE_BEEQUEEN	蜂王雕像。	1676	物品名:"蜂王雕塑"
+DESCRIBE.CHESSPIECE_ANTLION	狮子还是蚂蚁。	1677	物品名:"蚁狮雕塑"
+DESCRIBE.CHESSPIECE_BEEFALO	这座雕塑很奇特。	1678	物品名:"皮弗娄牛雕塑"
+DESCRIBE.CHESSPIECE_KITCOON	这些就很容易找到。	1679	物品名:"小浣猫雕塑"
+DESCRIBE.CHESSPIECE_CATCOON	很合适。	1680	物品名:"浣猫雕塑"
+DESCRIBE.CHESSPIECE_MANRABBIT	怕石头擦破皮。	1681	物品名:"兔人雕塑"
+DESCRIBE.CHESSPIECE_GUARDIANPHASE3	胜利的象征。	1682	物品名:"天体英雄雕塑"
+DESCRIBE.CHESSPIECE_EYEOFTERROR	它冷冰冰地盯着我。	1683	物品名:"恐怖之眼雕塑"
+DESCRIBE.CHESSPIECE_TWINSOFTERROR	我感觉有些不舒服。	1684	物品名:"双子魔眼雕塑"
+DESCRIBE.CHESSPIECE_DAYWALKER	一个有着奇怪感觉的雕塑。	1685	物品名:"噩梦猪人雕像"
+DESCRIBE.CHESSPIECE_DEERCLOPS_MUTATED	这座雕塑看起来有点刺眼。	1686	物品名:"晶体独眼巨鹿雕塑"
+DESCRIBE.CHESSPIECE_WARG_MUTATED	其实挺适合作为我的坐骑的。	1687	物品名:"附身座狼雕塑"
+DESCRIBE.CHESSPIECE_BEARGER_MUTATED	它看起来很暴躁。	1688	物品名:"装甲熊獾雕塑"
+DESCRIBE.CHESSJUNK1	一堆破铜烂铁。	1689	物品名:"损坏的发条装置"
+DESCRIBE.CHESSJUNK2	另一堆破铜烂铁。	1690	物品名:"损坏的发条装置"
+DESCRIBE.CHESSJUNK3	更多的破铜烂铁。	1691	物品名:"损坏的发条装置"
+DESCRIBE.CHESTER	他将是我的灵宠。	1692	物品名:"切斯特"
+DESCRIBE.CHESTER_EYEBONE.GENERIC	它在看着我。	1695	物品名:"眼骨"->默认
+DESCRIBE.CHESTER_EYEBONE.WAITING	它睡着了。	1696	物品名:"眼骨"->需要等待
+DESCRIBE.COOKEDMANDRAKE	可怜的小家伙。	1698	物品名:"熟曼德拉草"
+DESCRIBE.COOKEDMEAT	熟透了。	1699	物品名:"熟肉"
+DESCRIBE.COOKEDMONSTERMEAT	只比生吃的时候好吃一点点。	1700	物品名:"熟怪物肉"
+DESCRIBE.COOKEDSMALLMEAT	一口咬下。	1701	物品名:"熟小肉"
+DESCRIBE.COOKPOT.COOKING_LONG	这还需要一点时间。	1704	物品名:"烹饪锅"->饭还需要很久 制造描述:"制作更好的食物。"
+DESCRIBE.COOKPOT.COOKING_SHORT	就快好了。	1705	物品名:"烹饪锅"->饭快做好了 制造描述:"制作更好的食物。"
+DESCRIBE.COOKPOT.DONE	嗯。可以吃了。	1706	物品名:"烹饪锅"->完成了 制造描述:"制作更好的食物。"
+DESCRIBE.COOKPOT.EMPTY	看着都觉得饿。	1707	物品名:"烹饪锅" 制造描述:"制作更好的食物。"
+DESCRIBE.COOKPOT.BURNT	锅给烧没了。	1708	物品名:"烹饪锅"->烧焦的 制造描述:"制作更好的食物。"
+DESCRIBE.CORN	一种甜腻的食物。	1710	物品名:"玉米"
+DESCRIBE.CORN_COOKED	不同的尝试。	1711	物品名:"爆米花"
+DESCRIBE.CORN_SEEDS	这是一颗种子。	1712	物品名:"簇状种子"
+DESCRIBE.CANARY.GENERIC	一只漂亮的鸟儿。	1715	物品名:"金丝雀"->默认
+DESCRIBE.CANARY.HELD	这鸟应该用好点的笼子养。	1716	物品名:"金丝雀"->拿在手里
+DESCRIBE.CANARY_POISONED	它显然中毒了。	1718	物品名:"金丝雀（中毒）"
+DESCRIBE.CRITTERLAB	那里面有什么东西吗？	1719	物品名:"岩石巢穴"
+DESCRIBE.CRITTER_GLOMLING	有趣的生物。	1720	物品名:"小格罗姆"
+DESCRIBE.CRITTER_DRAGONLING	丑萌的生物。	1721	物品名:"小龙蝇"
+DESCRIBE.CRITTER_LAMB	有一种粘液的生物。	1722	物品名:"小钢羊"
+DESCRIBE.CRITTER_PUPPY	我觉得这个小家伙很适合看家护院	1723	物品名:"小座狼"
+DESCRIBE.CRITTER_KITTEN	我挺喜欢这小家伙的。	1724	物品名:"浣猫崽"
+DESCRIBE.CRITTER_PERDLING	看起来也是美味的。	1725	物品名:"小火鸡"
+DESCRIBE.CRITTER_LUNARMOTHLING	能照亮一些地方。	1726	物品名:"小蛾子"
+DESCRIBE.CROW.GENERIC	代表着不好的寓意。	1729	物品名:"乌鸦"->默认
+DESCRIBE.CROW.HELD	它在那里不太快乐。	1730	物品名:"乌鸦"->拿在手里
+DESCRIBE.CUTGRASS	可来做其他东西。	1732	物品名:"采下的草"
+DESCRIBE.CUTREEDS	可以用来消遣。	1733	物品名:"采下的芦苇"
+DESCRIBE.CUTSTONE	光滑的顽石。	1734	物品名:"石砖" 制造描述:"切成正方形的石头。"
+DESCRIBE.DEADLYFEAST	大餐。	1735	unimplemented  -- 物品名:"致命盛宴"->致命盛宴 单机
+DESCRIBE.DEER.GENERIC	它是不是盯着我？	1738	物品名:"无眼鹿"->默认
+DESCRIBE.DEER.ANTLER	多么吸引人的一个鹿角啊。	1739	物品名:"无眼鹿"
+DESCRIBE.DEER_ANTLER	掉下来正常吗？	1741	物品名:"鹿角"
+DESCRIBE.DEER_GEMMED	它似乎不太一样。	1742	物品名:"无眼鹿"
+DESCRIBE.DEERCLOPS	它体型真大。	1743	物品名:"独眼巨鹿"
+DESCRIBE.DEERCLOPS_EYEBALL	这真的很恶心。	1744	物品名:"独眼巨鹿眼球"
+DESCRIBE.EYEBRELLAHAT	我不怕淋湿了。	1745	物品名:"眼球伞" 制造描述:"面向天空的眼球让你保持干燥。"
+DESCRIBE.DEPLETED_GRASS.GENERIC	一丛草。	1748	物品名:"草"->默认
+DESCRIBE.GOGGLESHAT	这个东西可真时髦。	1750	物品名:"时髦的护目镜" 制造描述:"你可以瞪大眼睛看装饰性护目镜。"
+DESCRIBE.DESERTHAT	可以护住我的眼睛。	1751	物品名:"沙漠护目镜" 制造描述:"从你的眼睛里把沙子揉出来。"
+DESCRIBE.ANTLIONHAT	这是一项破土而出的玄妙发明。	1752	物品名:"刮地皮头盔" 制造描述:"旧地不去，新地不来。"
+DESCRIBE.DEVTOOL	闻起来挺奇怪的。	1753	物品名:"开发工具"
+DESCRIBE.DEVTOOL_NODEV	我能挥动它。	1754	物品名:"草"
+DESCRIBE.DIRTPILE	这是一堆土...还是？	1755	物品名:"可疑的土堆"
+DESCRIBE.DIVININGROD.COLD	我不会受到影响。	1758	singleplayer  -- 物品名:"冻伤"->冷了
+DESCRIBE.DIVININGROD.GENERIC	它可以进行一些引导。	1759	singleplayer  -- 物品名:"探测杖"->默认 制造描述:"肯定有方法可以离开这里..."
+DESCRIBE.DIVININGROD.HOT	疯了。	1760	singleplayer  -- 物品名:"中暑"->热了
+DESCRIBE.DIVININGROD.WARM	这个方向没错。	1761	singleplayer  -- 物品名:"探测杖"->温暖 制造描述:"肯定有方法可以离开这里..."
+DESCRIBE.DIVININGROD.WARMER	肯定很接近了。	1762	singleplayer  -- 物品名:"探测杖" 制造描述:"肯定有方法可以离开这里..."
+DESCRIBE.DIVININGRODBASE.GENERIC	我想知道它有什么用。	1766	singleplayer  -- 物品名:"探测杖底座"->默认
+DESCRIBE.DIVININGRODBASE.READY	看起来它需要一把大钥匙。	1767	singleplayer  -- 物品名:"探测杖底座"->准备好的 满的
+DESCRIBE.DIVININGRODBASE.UNLOCKED	现在可以工作了。	1768	singleplayer  -- 物品名:"探测杖底座"->解锁了
+DESCRIBE.DIVININGRODSTART	那根杖子看起来很有用。	1770	singleplayer  -- 物品名:"探测杖底座"->单机探测杖底座
+DESCRIBE.DRAGONFLY	它还算是昆虫吗。	1771	物品名:"龙蝇"
+DESCRIBE.ARMORDRAGONFLY	炎热的盔甲。	1772	物品名:"鳞甲" 制造描述:"脾气火爆的盔甲。"
+DESCRIBE.DRAGON_SCALES	还是热的。	1773	物品名:"鳞片"
+DESCRIBE.DRAGONFLYCHEST	不怕火烧了。	1774	物品名:"龙鳞宝箱" 制造描述:"一种结实且防火的容器。"
+DESCRIBE.DRAGONFLYFURNACE.HAMMERED	看起来不太对啊。	1777	物品名:"龙鳞火炉"->被锤了 制造描述:"给自己建造一个苍蝇暖炉。"
+DESCRIBE.DRAGONFLYFURNACE.GENERIC	变得很炎热了。	1778	no gems  -- 物品名:"龙鳞火炉"->默认 制造描述:"给自己建造一个苍蝇暖炉。"
+DESCRIBE.DRAGONFLYFURNACE.NORMAL	它是在朝我眨眼吗？	1779	one gem  -- 物品名:"龙鳞火炉"->普通 制造描述:"给自己建造一个苍蝇暖炉。"
+DESCRIBE.DRAGONFLYFURNACE.HIGH	炎热。	1780	two gems  -- 物品名:"龙鳞火炉"->高 制造描述:"给自己建造一个苍蝇暖炉。"
+DESCRIBE.HUTCH	好奇怪的生物。	1782	物品名:"哈奇"
+DESCRIBE.HUTCH_FISHBOWL.GENERIC	我一直想要拥有一件这样的东西。	1785	物品名:"星空"->默认
+DESCRIBE.HUTCH_FISHBOWL.WAITING	他死了？	1786	物品名:"星空"->需要等待
+DESCRIBE.LAVASPIT.HOT	好烫。	1790	物品名:"中暑"->热了
+DESCRIBE.LAVASPIT.COOL	大苍蝇的唾液。	1791	物品名:"龙蝇唾液"
+DESCRIBE.LAVA_POND	滚烫。	1793	物品名:"岩浆池"
+DESCRIBE.LAVAE	太烫了，没办法。	1794	物品名:"岩浆虫"
+DESCRIBE.LAVAE_COCOON	平静下来。	1795	物品名:"冷冻虫卵"
+DESCRIBE.LAVAE_PET.STARVING	可怜的小家伙一定很饿。	1798	物品名:"超级可爱岩浆虫"->挨饿
+DESCRIBE.LAVAE_PET.HUNGRY	我听到它饥肠辘辘了。	1799	物品名:"超级可爱岩浆虫"->有点饿了
+DESCRIBE.LAVAE_PET.CONTENT	它似乎很快乐。	1800	物品名:"超级可爱岩浆虫"->内容？？？、
+DESCRIBE.LAVAE_PET.GENERIC	有趣的生物。	1801	物品名:"超级可爱岩浆虫"->默认
+DESCRIBE.LAVAE_EGG.GENERIC	里面传来微弱的暖意。	1805	物品名:"岩浆虫卵"->默认
+DESCRIBE.LAVAE_EGG_CRACKED.COLD	我觉得蛋不够热。	1809	物品名:"冻伤"->冷了
+DESCRIBE.LAVAE_EGG_CRACKED.COMFY	我从未想过会见到一只高兴的蛋。	1810	物品名:"岩浆虫卵"->舒服的
+DESCRIBE.LAVAE_TOOTH	一颗牙。	1812	物品名:"岩浆虫尖牙"
+DESCRIBE.DRAGONFRUIT	好奇怪的水果。	1813	物品名:"火龙果"
+DESCRIBE.DRAGONFRUIT_COOKED	这水果还是很怪。	1814	物品名:"熟火龙果"
+DESCRIBE.DRAGONFRUIT_SEEDS	这是一颗种子。	1815	物品名:"球茎状种子"
+DESCRIBE.DRAGONPIE	那个火龙果非常耐饱。	1816	物品名:"火龙果派"
+DESCRIBE.DRUMSTICK	准备好狼吞虎咽了。	1817	物品名:"鸟腿"
+DESCRIBE.DRUMSTICK_COOKED	狼吞虎咽还更好。	1818	物品名:"炸鸟腿"
+DESCRIBE.DUG_BERRYBUSH	现在可以把它带到任何地方了。	1819	物品名:"浆果丛"
+DESCRIBE.DUG_BERRYBUSH_JUICY	这树可移植到家附近。	1820	物品名:"多汁浆果丛"
+DESCRIBE.DUG_GRASS	如今在哪里都可以种这玩意儿。	1821	物品名:"草丛"
+DESCRIBE.DUG_MARSH_BUSH	这需要种。	1822	物品名:"尖刺灌木"
+DESCRIBE.DUG_SAPLING	这需要种。	1823	物品名:"树苗"
+DESCRIBE.DURIAN	怪味。	1824	物品名:"榴莲"
+DESCRIBE.DURIAN_COOKED	现在它闻起来更臭了。	1825	物品名:"超臭榴莲"
+DESCRIBE.DURIAN_SEEDS	这是一颗种子。	1826	物品名:"脆籽荚"
+DESCRIBE.EARMUFFSHAT	毛茸茸的。	1827	物品名:"兔耳罩" 制造描述:"毛茸茸的保暖物品。"
+DESCRIBE.EGGPLANT	它看起来不像一颗蛋。	1828	物品名:"茄子"
+DESCRIBE.EGGPLANT_COOKED	现在的它更不像蛋了。	1829	物品名:"烤茄子"
+DESCRIBE.EGGPLANT_SEEDS	这是一颗种子。	1830	物品名:"漩涡种子"
+DESCRIBE.ENDTABLE.BURNT	烧焦的花瓶。	1833	物品名:"茶几"->烧焦的 制造描述:"一张装饰桌。"
+DESCRIBE.ENDTABLE.GENERIC	花瓶里的一朵花。	1834	物品名:"茶几"->默认 制造描述:"一张装饰桌。"
+DESCRIBE.ENDTABLE.EMPTY	我应该把一些东西放进那里。	1835	物品名:"茶几" 制造描述:"一张装饰桌。"
+DESCRIBE.ENDTABLE.WILTED	看起来不太新鲜。	1836	物品名:"茶几"->枯萎的 制造描述:"一张装饰桌。"
+DESCRIBE.ENDTABLE.FRESHLIGHT	有一点亮光真是好。	1837	物品名:"茶几"->茶几-新的发光的 制造描述:"一张装饰桌。"
+DESCRIBE.ENDTABLE.OLDLIGHT	我没忘记拿吧？	1838	will be wilted soon, light radius will be very small at this point  -- 物品名:"茶几"->茶几-旧的发光的 制造描述:"一张装饰桌。"
+DESCRIBE.DECIDUOUSTREE.BURNING	真是浪费木材。	1842	物品名:"桦栗树"->正在燃烧
+DESCRIBE.DECIDUOUSTREE.BURNT	我觉得可以阻止这种事情发生的。	1843	物品名:"桦栗树"->烧焦的
+DESCRIBE.DECIDUOUSTREE.CHOPPED	接招吧。	1844	物品名:"桦栗树"->被砍了
+DESCRIBE.DECIDUOUSTREE.POISON	看来惹火了它。	1845	物品名:"桦栗树"->毒化的
+DESCRIBE.DECIDUOUSTREE.GENERIC	满是叶子。	1846	物品名:"桦栗树"->默认
+DESCRIBE.ACORN	里边绝对有东西。	1848	物品名:"桦栗果"
+DESCRIBE.ACORN_SAPLING	它很快将长成一棵树。	1849	物品名:"桦栗树树苗"
+DESCRIBE.ACORN_COOKED	烤得很不错。	1850	物品名:"烤桦栗果"
+DESCRIBE.BIRCHNUTDRAKE	有些癫狂的小树妖。	1851	物品名:"桦栗果精"
+DESCRIBE.EVERGREEN.BURNING	真是浪费木头。	1854	物品名:"常青树"->正在燃烧
+DESCRIBE.EVERGREEN.BURNT	我觉得本可以阻止这种事情发生的。	1855	物品名:"常青树"->烧焦的
+DESCRIBE.EVERGREEN.CHOPPED	接招吧。	1856	物品名:"常青树"->被砍了
+DESCRIBE.EVERGREEN.GENERIC	满是松针。	1857	物品名:"常青树"->默认
+DESCRIBE.EVERGREEN_SPARSE.BURNING	真是浪费木头。	1861	物品名:"粗壮常青树"->正在燃烧
+DESCRIBE.EVERGREEN_SPARSE.BURNT	我觉得本可以阻止这种事情发生的。	1862	物品名:"粗壮常青树"->烧焦的
+DESCRIBE.EVERGREEN_SPARSE.CHOPPED	接招吧。	1863	物品名:"粗壮常青树"->被砍了
+DESCRIBE.EVERGREEN_SPARSE.GENERIC	这棵悲催的树没有果子。	1864	物品名:"粗壮常青树"->默认
+DESCRIBE.TWIGGYTREE.BURNING	真是浪费木头。	1868	物品名:"多枝树"->正在燃烧
+DESCRIBE.TWIGGYTREE.BURNT	我觉得可以阻止这种事情发生的。	1869	物品名:"多枝树"->烧焦的
+DESCRIBE.TWIGGYTREE.CHOPPED	接招吧。	1870	物品名:"多枝树"->被砍了
+DESCRIBE.TWIGGYTREE.GENERIC	满是树枝。	1871	物品名:"多枝树"->默认
+DESCRIBE.TWIGGYTREE.DISEASED	它看起来很糟糕。比平常还严重。	1872	unimplemented  -- 物品名:"多枝树"->生病了
+DESCRIBE.TWIGGY_NUT_SAPLING	它生长不需要啥。	1874	物品名:"多枝树苗"
+DESCRIBE.TWIGGY_OLD	那棵树看起来很弱。	1875	物品名:"多枝树"
+DESCRIBE.TWIGGY_NUT	一棵平凡的多枝树。	1876	物品名:"多枝树种"->多枝树果
+DESCRIBE.EYEPLANT	我觉得有人在盯着。	1877	物品名:"眼球草"
+DESCRIBE.INSPECTSELF	我没缺胳膊少腿吧？	1878	物品名:"多枝树"->检查自己
+DESCRIBE.FARMPLOT.GENERIC	我应该试着种一些庄稼。	1881	物品名:未找到
+DESCRIBE.FARMPLOT.GROWING	长啊。	1882	物品名:未找到
+DESCRIBE.FARMPLOT.NEEDSFERTILIZER	应该需要施肥。	1883	物品名:未找到
+DESCRIBE.FARMPLOT.BURNT	灰烬中长不出庄稼。	1884	物品名:未找到
+DESCRIBE.FEATHERHAT	变成鸟。	1886	物品名:"羽毛帽" 制造描述:"头上的装饰。"
+DESCRIBE.FEATHER_CROW	黑鸟的羽毛。	1887	物品名:"黑色羽毛"
+DESCRIBE.FEATHER_ROBIN	红雀的羽毛。	1888	物品名:"红色羽毛"
+DESCRIBE.FEATHER_ROBIN_WINTER	雪雀的羽毛。	1889	物品名:"蓝色羽毛"
+DESCRIBE.FEATHER_CANARY	金丝雀的羽毛。	1890	物品名:"黄色羽毛"
+DESCRIBE.FEATHERPENCIL	有根羽毛写字都简单了。	1891	物品名:"羽毛笔" 制造描述:"是的，羽毛是必须的。"
+DESCRIBE.COOKBOOK	我可以学学。	1892	物品名:"烹饪指南" 制造描述:"查看你收集的食谱。"
+DESCRIBE.FEM_PUPPET	被困住了。	1893	single player  -- 物品名:未找到
+DESCRIBE.FIREFLIES.GENERIC	让我抓住它们。	1896	物品名:"萤火虫"->默认
+DESCRIBE.FIREFLIES.HELD	它们让我的口袋发光。	1897	物品名:"萤火虫"->拿在手里
+DESCRIBE.FIREHOUND	红色毛发的猎犬。	1899	物品名:"红色猎犬"
+DESCRIBE.FIREPIT.EMBERS	在火熄灭之前我得加点燃料。	1902	物品名:"火坑"->即将熄灭 制造描述:"一种更安全、更高效的营火。"
+DESCRIBE.FIREPIT.GENERIC	肯定能驱走黑暗。	1903	物品名:"火坑"->默认 制造描述:"一种更安全、更高效的营火。"
+DESCRIBE.FIREPIT.HIGH	好在火被围起来了。	1904	物品名:"火坑"->高 制造描述:"一种更安全、更高效的营火。"
+DESCRIBE.FIREPIT.LOW	火变得有点小了。	1905	物品名:"火坑"->低？ 制造描述:"一种更安全、更高效的营火。"
+DESCRIBE.FIREPIT.NORMAL	真舒服。	1906	物品名:"火坑"->普通 制造描述:"一种更安全、更高效的营火。"
+DESCRIBE.FIREPIT.OUT	我能让它再烧起来。	1907	物品名:"火坑"->出去？外面？ 制造描述:"一种更安全、更高效的营火。"
+DESCRIBE.COLDFIREPIT.EMBERS	在火熄灭之前我得加点燃料。	1911	物品名:"吸热火坑"->即将熄灭 制造描述:"燃烧效率更高，但仍然越烤越冷。"
+DESCRIBE.COLDFIREPIT.GENERIC	肯定能驱走黑暗。	1912	物品名:"吸热火坑"->默认 制造描述:"燃烧效率更高，但仍然越烤越冷。"
+DESCRIBE.COLDFIREPIT.HIGH	好在火被围起来了。	1913	物品名:"吸热火坑"->高 制造描述:"燃烧效率更高，但仍然越烤越冷。"
+DESCRIBE.COLDFIREPIT.LOW	火变得有点小了。	1914	物品名:"吸热火坑"->低？ 制造描述:"燃烧效率更高，但仍然越烤越冷。"
+DESCRIBE.COLDFIREPIT.NORMAL	真舒服。	1915	物品名:"吸热火坑"->普通 制造描述:"燃烧效率更高，但仍然越烤越冷。"
+DESCRIBE.COLDFIREPIT.OUT	至少我能让它再烧起来。	1916	物品名:"吸热火坑"->出去？外面？ 制造描述:"燃烧效率更高，但仍然越烤越冷。"
+DESCRIBE.FIRESTAFF	我不想点着这一界。	1918	物品名:"火魔杖" 制造描述:"利用火焰的力量。"
+DESCRIBE.FIRESUPPRESSOR.ON	开始灭火。	1921	物品名:"雪球发射器"->开启 制造描述:"拯救植物，扑灭火焰，可添加燃料。"
+DESCRIBE.FIRESUPPRESSOR.OFF	一切都平息了。	1922	物品名:"雪球发射器"->关闭 制造描述:"拯救植物，扑灭火焰，可添加燃料。"
+DESCRIBE.FIRESUPPRESSOR.LOWFUEL	燃料有点不足了。	1923	物品名:"雪球发射器"->燃料不足 制造描述:"拯救植物，扑灭火焰，可添加燃料。"
+DESCRIBE.FISH	我一般不吃鱼。	1925	物品名:"鱼"
+DESCRIBE.FISHINGROD	钩子、鱼线和棍子。	1926	物品名:"淡水钓竿" 制造描述:"去钓鱼。为了鱼。"
+DESCRIBE.FISHSTICKS	这可以填饱肚子。	1927	物品名:"炸鱼排"
+DESCRIBE.FISHTACOS	不错。	1928	物品名:"鱼肉玉米卷"
+DESCRIBE.FISH_COOKED	烤得恰到好处。	1929	物品名:"熟鱼"
+DESCRIBE.FLINT	非常尖的石头。	1930	物品名:"燧石"
+DESCRIBE.FLOWER.GENERIC	还挺漂亮。	1933	物品名:"花"->默认
+DESCRIBE.FLOWER.ROSE	衬托衬托我。	1934	物品名:"花"->玫瑰
+DESCRIBE.FLOWER_WITHERED	我觉得它还没晒够太阳呢。	1936	物品名:"枯萎的花"
+DESCRIBE.FLOWERHAT	闻起来还不错。	1937	物品名:"花环" 制造描述:"放松神经的东西。"
+DESCRIBE.FLOWER_EVIL	来者不善。	1938	物品名:"邪恶花"
+DESCRIBE.FOLIAGE	一些植物。	1939	物品名:"蕨叶"
+DESCRIBE.FOOTBALLHAT	我可以试试看。	1940	物品名:"橄榄球头盔" 制造描述:"保护你的脑壳。"
+DESCRIBE.FOSSIL_PIECE	奇怪的骨头。我们应该把它们一起放回去。	1941	物品名:"化石碎片"
+DESCRIBE.FOSSIL_STALKER.GENERIC	还有些碎片没找到。	1944	物品名:"奇异的骨架"->默认
+DESCRIBE.FOSSIL_STALKER.FUNNY	这有点不对。	1945	物品名:"奇异的骨架"->趣味？？
+DESCRIBE.FOSSIL_STALKER.COMPLETE	它活着吗？	1946	物品名:"奇异的骨架"->准备好了
+DESCRIBE.STALKER	骨架和什么融合在一起。	1948	物品名:"复活的骨架"
+DESCRIBE.STALKER_ATRIUM	为什么它必须这么大呢？	1949	物品名:"远古织影者"
+DESCRIBE.STALKER_MINION	爬行的小骷髅。	1950	物品名:"编织暗影"
+DESCRIBE.THURIBLE	看起来并不能帮我照亮。	1951	物品名:"暗影香炉"
+DESCRIBE.ATRIUM_OVERGROWTH	这些我一个都不认得。	1952	物品名:"远古方尖碑"
+DESCRIBE.FROG.DEAD	他死了。	1955	物品名:"青蛙"->死了
+DESCRIBE.FROG.GENERIC	看起来不好惹。	1956	物品名:"青蛙"->默认
+DESCRIBE.FROG.SLEEPING	它就是个强盗。	1957	物品名:"青蛙"->睡着了
+DESCRIBE.FROGGLEBUNWICH	看起来很好吃。	1959	物品名:"蛙腿三明治"
+DESCRIBE.FROGLEGS	我曾听说它是一道美味。	1960	物品名:"蛙腿"
+DESCRIBE.FROGLEGS_COOKED	味道还不错。	1961	物品名:"熟蛙腿"
+DESCRIBE.FRUITMEDLEY	果香扑鼻。	1962	物品名:"水果圣代"
+DESCRIBE.FURTUFT	黑白毛皮。	1963	物品名:"毛丛"
+DESCRIBE.GEARS	出自巧手之人。	1964	物品名:"齿轮"
+DESCRIBE.GHOST	魂魄。	1965	物品名:"幽灵"
+DESCRIBE.GOLDENAXE	挺花哨的一把斧头。	1966	物品名:"黄金斧头" 制造描述:"砍树也要有格调。"
+DESCRIBE.GOLDENPICKAXE	金子做的？	1967	物品名:"黄金鹤嘴锄" 制造描述:"像大Boss一样砸碎岩石。"
+DESCRIBE.GOLDENPITCHFORK	一把还算趁手的叉子。	1968	物品名:"黄金干草叉" 制造描述:"重新布置整个世界。"
+DESCRIBE.GOLDENSHOVEL	我等不及试试看了。	1969	物品名:"黄金铲子" 制造描述:"挖掘作用相同，但使用寿命更长。"
+DESCRIBE.GOLDNUGGET	闪闪发光。	1970	物品名:"金块"
+DESCRIBE.GRASS.BARREN	它需要肥料。	1973	物品名:"草"
+DESCRIBE.GRASS.WITHERED	天气这么热，它不会长回来。	1974	物品名:"草"->枯萎了
+DESCRIBE.GRASS.BURNING	烧得好快。	1975	物品名:"草"->正在燃烧
+DESCRIBE.GRASS.GENERIC	是一丛草。	1976	物品名:"草"->默认
+DESCRIBE.GRASS.PICKED	它在长得最好的时候被采走了。	1977	物品名:"草"->被采完了
+DESCRIBE.GRASS.DISEASED	它看上去很不舒服。	1978	unimplemented  -- 物品名:"草"->生病了
+DESCRIBE.GRASS.DISEASING	有些地方不对劲。	1979	unimplemented  -- 物品名:"草"->正在生病？？
+DESCRIBE.GRASSGEKKO.GENERIC	希望他不要把这里整的乱糟糟的。	1983	物品名:"草壁虎"->默认
+DESCRIBE.GRASSGEKKO.DISEASED	它看上去真的很不舒服。	1984	unimplemented  -- 物品名:"草壁虎"->生病了
+DESCRIBE.GREEN_CAP	它看起来很正常。	1986	物品名:"采摘的绿蘑菇"
+DESCRIBE.GREEN_CAP_COOKED	不同了...	1987	物品名:"熟绿蘑菇"
+DESCRIBE.GREEN_MUSHROOM.GENERIC	是蘑菇。	1990	物品名:"绿蘑菇"->默认
+DESCRIBE.GREEN_MUSHROOM.INGROUND	在睡觉。	1991	物品名:"绿蘑菇"->在地里面
+DESCRIBE.GREEN_MUSHROOM.PICKED	不知道它会不会长回来？	1992	物品名:"绿蘑菇"->被采完了
+DESCRIBE.GUNPOWDER	有何用处。	1994	物品名:"火药" 制造描述:"一把火药。"
+DESCRIBE.HAMBAT	这有啥用。	1995	物品名:"火腿棒" 制造描述:"舍不得火腿套不着狼。"
+DESCRIBE.HAMMER	用锤子敲点东西。	1996	物品名:"锤子" 制造描述:"敲碎各种东西。"
+DESCRIBE.HEALINGSALVE	能起作用。	1997	物品名:"治疗药膏" 制造描述:"对割伤和擦伤进行消毒杀菌。"
+DESCRIBE.HEATROCK.FROZEN	它比冰还冷。	2000	物品名:"暖石"->冰冻 制造描述:"储存热能供旅行途中使用。"
+DESCRIBE.HEATROCK.COLD	一块冰凉的石头。	2001	物品名:"冻伤"->冷了
+DESCRIBE.HEATROCK.GENERIC	我可以控制它的温度。	2002	物品名:"暖石"->默认 制造描述:"储存热能供旅行途中使用。"
+DESCRIBE.HEATROCK.WARM	虽然是块石头，但却还算热乎。	2003	物品名:"暖石"->温暖 制造描述:"储存热能供旅行途中使用。"
+DESCRIBE.HEATROCK.HOT	太热了。	2004	物品名:"中暑"->热了
+DESCRIBE.HOME	我会好好照顾你的，小暖石。	2006	物品名:"暖石"->没调用 制造描述:"储存热能供旅行途中使用。"
+DESCRIBE.HOMESIGN.GENERIC	上面写着“你在这里”。	2009	物品名:"木牌"->默认 制造描述:"在世界中留下你的标记。"
+DESCRIBE.HOMESIGN.UNWRITTEN	这块牌子现在是空白的。	2010	物品名:"木牌"->没有写字 制造描述:"在世界中留下你的标记。"
+DESCRIBE.HOMESIGN.BURNT	可别玩火。	2011	物品名:"木牌"->烧焦的 制造描述:"在世界中留下你的标记。"
+DESCRIBE.ARROWSIGN_POST.GENERIC	它说“那个方向”。	2015	物品名:"指路木牌"->默认 制造描述:"对这个世界指指点点。或许只是打下手势。"
+DESCRIBE.ARROWSIGN_POST.UNWRITTEN	这块牌子现在是空白的。	2016	物品名:"指路木牌"->没有写字 制造描述:"对这个世界指指点点。或许只是打下手势。"
+DESCRIBE.ARROWSIGN_POST.BURNT	“不要玩火。”	2017	物品名:"指路木牌"->烧焦的 制造描述:"对这个世界指指点点。或许只是打下手势。"
+DESCRIBE.ARROWSIGN_PANEL.GENERIC	它说“那个方向”。	2021	物品名:"指路木牌"->默认
+DESCRIBE.ARROWSIGN_PANEL.UNWRITTEN	这块牌子现在是空白的。	2022	物品名:"指路木牌"->没有写字
+DESCRIBE.ARROWSIGN_PANEL.BURNT	“不要玩火。”	2023	物品名:"指路木牌"->烧焦的
+DESCRIBE.HONEY	看起来很好吃。	2025	物品名:"蜂蜜"
+DESCRIBE.HONEYCOMB	蜜蜂曾住在这里。	2026	物品名:"蜜脾"
+DESCRIBE.HONEYHAM	香甜可口。	2027	物品名:"蜜汁火腿"
+DESCRIBE.HONEYNUGGETS	味道像还不错。	2028	物品名:"蜜汁卤肉"
+DESCRIBE.HORN	这附近有人养了牛。	2029	物品名:"牛角"
+DESCRIBE.HOUND	你啥都不是，你只是条狗。	2030	物品名:"猎犬"
+DESCRIBE.HOUNDCORPSE.GENERIC	在靠近我，我就不客气了。	2033	物品名:"猎犬"->默认
+DESCRIBE.HOUNDCORPSE.BURNING	我讨厌狗。	2034	物品名:"猎犬"->正在燃烧
+DESCRIBE.HOUNDCORPSE.REVIVING	靠我不好好教训你。	2035	物品名:"猎犬"
+DESCRIBE.HOUNDBONE	吓人。	2037	物品名:"犬骨"
+DESCRIBE.HOUNDMOUND	不要打扰他们。	2038	物品名:"猎犬丘"
+DESCRIBE.ICEBOX	我掌控了冰寒。	2039	物品名:"冰箱" 制造描述:"延缓食物变质。"
+DESCRIBE.ICEHAT	保持冷静。	2040	物品名:"冰帽" 制造描述:"用仙力技术合成的冰帽。"
+DESCRIBE.ICEHOUND	每个季节都有吗？	2041	物品名:"蓝色猎犬"
+DESCRIBE.INSANITYROCK.ACTIVE	我头晕晕的。	2044	物品名:"方尖碑"->激活了
+DESCRIBE.INSANITYROCK.INACTIVE	这块碑…	2045	物品名:"方尖碑"->没有激活
+DESCRIBE.JAMMYPRESERVES	或许该做个罐子。	2047	物品名:"果酱"
+DESCRIBE.KABOBS	这样吃肉更方便。	2048	物品名:"肉串"
+DESCRIBE.KILLERBEE.GENERIC	这小东西咬人很疼。	2051	物品名:"杀人蜂"->默认
+DESCRIBE.KILLERBEE.HELD	这东西好像很危险。	2052	物品名:"杀人蜂"->拿在手里
+DESCRIBE.KNIGHT	看。	2054	物品名:"发条骑士"
+DESCRIBE.KOALEFANT_SUMMER	好大一只。	2055	物品名:"考拉象"
+DESCRIBE.KOALEFANT_WINTER	它看起来挺暖和。	2056	物品名:"考拉象"
+DESCRIBE.KOALEFANT_CARCASS	他死了。	2057	物品名:"考拉象尸体"
+DESCRIBE.KRAMPUS	滚开，理我的东西远点。	2058	物品名:"坎普斯"
+DESCRIBE.KRAMPUS_SACK	以后的冒险就靠它了。	2059	物品名:"坎普斯背包"
+DESCRIBE.LEIF	他还挺高的。	2060	物品名:"树精守卫"
+DESCRIBE.LEIF_SPARSE	他还挺高的。	2061	物品名:"树精守卫"
+DESCRIBE.LIGHTER	我不想离太近。	2062	物品名:"薇洛的打火机" 制造描述:"火焰在雨中彻夜燃烧。"
+DESCRIBE.LIGHTNING_ROD.CHARGED	真神奇，你是怎么把闪电西走的呢。	2065	物品名:"避雷针" 制造描述:"防雷劈。"
+DESCRIBE.LIGHTNING_ROD.GENERIC	带来闪电吧。	2066	物品名:"避雷针"->默认 制造描述:"防雷劈。"
+DESCRIBE.LIGHTNINGGOAT.GENERIC	咩。	2070	物品名:"伏特羊"->默认
+DESCRIBE.LIGHTNINGGOAT.CHARGED	我不认为它喜欢被雷劈。	2071	物品名:"伏特羊"
+DESCRIBE.LIGHTNINGGOATHORN	它身上的电流真神奇。	2073	物品名:"伏特羊角"
+DESCRIBE.GOATMILK	美味，还滋滋作响。	2074	物品名:"带电的羊奶"
+DESCRIBE.LITTLE_WALRUS	等他长大了，就不这么可爱了。	2075	物品名:"小海象"
+DESCRIBE.LIVINGLOG	它看着有点着急。	2076	物品名:"活木头" 制造描述:"投身制作，置身其中。"
+DESCRIBE.LOG.BURNING	好烫的木头。	2079	物品名:"木头"->正在燃烧
+DESCRIBE.LOG.GENERIC	又大又重的木头。	2080	物品名:"木头"->默认
+DESCRIBE.LUCY	这斧子比我之前用过的那把还漂亮。	2082	物品名:"露西斧"
+DESCRIBE.LUREPLANT	看着有些危险。	2083	物品名:"食人花"
+DESCRIBE.LUREPLANTBULB	现在我可以开办自己的肉农场了。	2084	物品名:"食人花种子"
+DESCRIBE.MALE_PUPPET	他被困住了。	2085	single player  -- 物品名:"木头"
+DESCRIBE.MANDRAKE_ACTIVE	切断它。	2086	物品名:"曼德拉草"
+DESCRIBE.MANDRAKE_PLANTED	我听说过一些奇怪传言。	2087	物品名:"曼德拉草"
+DESCRIBE.MANDRAKE	曼德拉草根长的像人参一样。	2088	物品名:"曼德拉草"
+DESCRIBE.MANDRAKESOUP	唔，它再也不会醒来了。	2089	物品名:"曼德拉草汤"
+DESCRIBE.MANDRAKE_COOKED	它看起来没有那么奇怪了。	2090	物品名:"木头"
+DESCRIBE.MAPSCROLL	一张空白的地图。看起来没什么用。	2091	物品名:"地图卷轴" 制造描述:"向别人展示你看到什么。"
+DESCRIBE.MARBLE	坚硬。	2092	物品名:"大理石"
+DESCRIBE.MARBLEBEAN	一颗神奇的种子。	2093	物品名:"大理石豌豆" 制造描述:"种植一片大理石森林。"
+DESCRIBE.MARBLEBEAN_SAPLING	看起来刻了点什么。	2094	物品名:"大理石芽"
+DESCRIBE.MARBLESHRUB	好像有点道理。	2095	物品名:"大理石灌木"
+DESCRIBE.MARBLEPILLAR	我想我能用得上它。	2096	物品名:"大理石柱"
+DESCRIBE.MARBLETREE	我想斧子可砍不倒它。	2097	物品名:"大理石树"
+DESCRIBE.MARSH_BUSH.BURNT	少了一片需要担心的荆棘。	2100	物品名:"尖刺灌木"->烧焦的
+DESCRIBE.MARSH_BUSH.BURNING	烧得好快。	2101	物品名:"尖刺灌木"->正在燃烧
+DESCRIBE.MARSH_BUSH.GENERIC	它看起来很多刺。	2102	物品名:"尖刺灌木"->默认
+DESCRIBE.MARSH_BUSH.PICKED	哎哟。	2103	物品名:"尖刺灌木"->被采完了
+DESCRIBE.BURNT_MARSH_BUSH	被烧得精光。	2105	物品名:"尖刺灌木"
+DESCRIBE.MARSH_PLANT	这是一株植物。	2106	物品名:"植物"
+DESCRIBE.MARSH_TREE.BURNING	火。	2109	物品名:"针刺树"->正在燃烧
+DESCRIBE.MARSH_TREE.BURNT	现在它是一棵被烧焦了的树。	2110	物品名:"针刺树"->烧焦的
+DESCRIBE.MARSH_TREE.CHOPPED	现在没那么多刺了。	2111	物品名:"针刺树"->被砍了
+DESCRIBE.MARSH_TREE.GENERIC	那些尖刺看起来很锋利。	2112	物品名:"针刺树"->默认
+DESCRIBE.MAXWELL	我并不在意。	2114	single player  -- 物品名:"麦斯威尔"->单机 麦斯威尔
+DESCRIBE.MAXWELLHEAD	我可以看到奇怪的东西。	2115	removed  -- 物品名:"麦斯威尔的头"->单机 麦斯威尔的头
+DESCRIBE.MAXWELLLIGHT	我想知道这事怎么亮的。	2116	single player  -- 物品名:"麦斯威尔灯"->单机 麦斯威尔的灯
+DESCRIBE.MAXWELLLOCK	看起来就像一个钥匙孔。	2117	single player  -- 物品名:"梦魇锁"->单机 麦斯威尔的噩梦锁
+DESCRIBE.MAXWELLTHRONE	那个看起来不太舒适。	2118	single player  -- 物品名:"梦魇王座"->单机 麦斯威尔的噩梦王座
+DESCRIBE.MEAT	虽然有点腥味，但还凑合。	2119	物品名:"肉"
+DESCRIBE.MEATBALLS	它只是一大块肉而已。	2120	物品名:"肉丸"
+DESCRIBE.MEATRACK.DONE	肉干可以吃了。	2123	物品名:"晾肉架"->完成了 制造描述:"晾肉的架子。"
+DESCRIBE.MEATRACK.DRYING	风干需要一些时间。	2124	物品名:"晾肉架"->正在风干 制造描述:"晾肉的架子。"
+DESCRIBE.MEATRACK.DRYINGINRAIN	雨天晾干肉需要更长时间。	2125	物品名:"晾肉架"->雨天风干 制造描述:"晾肉的架子。"
+DESCRIBE.MEATRACK.GENERIC	我该晾干一些肉。	2126	物品名:"晾肉架"->默认 制造描述:"晾肉的架子。"
+DESCRIBE.MEATRACK.BURNT	晾肉架烧掉了。	2127	物品名:"晾肉架"->烧焦的 制造描述:"晾肉的架子。"
+DESCRIBE.MEATRACK.DONE_NOTMEAT	几个小棍儿就可以晾肉	2128	物品名:"晾肉架" 制造描述:"晾肉的架子。"
+DESCRIBE.MEATRACK.DRYING_NOTMEAT	风干肉更好吃。	2129	物品名:"晾肉架" 制造描述:"晾肉的架子。"
+DESCRIBE.MEATRACK.DRYINGINRAIN_NOTMEAT	晾肉的时候最好不要下雨。	2130	物品名:"晾肉架" 制造描述:"晾肉的架子。"
+DESCRIBE.MEAT_DRIED	这肉够干的了。	2132	物品名:"肉干"
+DESCRIBE.MERM	鱼腥味。	2133	物品名:"鱼人"
+DESCRIBE.MERMHEAD.GENERIC	整天都会闻到。	2136	物品名:"鱼人头"->默认
+DESCRIBE.MERMHEAD.BURNT	烧过的鱼肉感觉不太美味的样子。	2137	物品名:"鱼人头"->烧焦的
+DESCRIBE.MERMHOUSE.GENERIC	谁会住在这种地方？	2141	物品名:"漏雨的小屋"->默认
+DESCRIBE.MERMHOUSE.BURNT	现在没地住了。	2142	物品名:"漏雨的小屋"->烧焦的
+DESCRIBE.MINERHAT	什么都能看到了。	2144	物品名:"矿工帽" 制造描述:"用你脑袋上的灯照亮夜晚。"
+DESCRIBE.MONKEY	好奇的小家伙。	2145	物品名:"穴居猴"
+DESCRIBE.MONKEYBARREL	那东西刚刚是不是动了？	2146	物品名:"穴居猴桶"
+DESCRIBE.MONSTERLASAGNA	这是对我的冒犯。	2147	物品名:"怪物千层饼"
+DESCRIBE.FLOWERSALAD	一碗绿子。	2148	物品名:"花沙拉"
+DESCRIBE.ICECREAM	我可以尝尝这个。	2149	物品名:"冰淇淋"
+DESCRIBE.WATERMELONICLE	冷冻西瓜。	2150	物品名:"西瓜冰棍"
+DESCRIBE.TRAILMIX	健康、天然的小点心。	2151	物品名:"什锦干果"
+DESCRIBE.HOTCHILI	辣到喷火。	2152	物品名:"辣椒炖肉"
+DESCRIBE.GUACAMOLE	看着会喜欢的菜。	2153	物品名:"鳄梨酱"
+DESCRIBE.MONSTERMEAT	呃，我不该吃那个。	2154	物品名:"怪物肉"
+DESCRIBE.MONSTERMEAT_DRIED	气味古怪的肉干。	2155	物品名:"怪物肉干"
+DESCRIBE.MOOSE	我不清楚那东西是什么。	2156	物品名:"漏雨的小屋"
+DESCRIBE.MOOSE_NESTING_GROUND	什么在里面。	2157	物品名:"漏雨的小屋"
+DESCRIBE.MOOSEEGG	屋漏偏逢连夜雨。	2158	物品名:"漏雨的小屋"
+DESCRIBE.MOSSLING	毛茸茸的小鸭子。	2159	物品名:"麋鹿鹅幼崽"
+DESCRIBE.FEATHERFAN	降温用的。	2160	物品名:"羽毛扇" 制造描述:"超柔软、超大的扇子。"
+DESCRIBE.MINIFAN	风从后面吹来。	2161	物品名:"旋转的风扇" 制造描述:"你得跑起来，才能带来风。"
+DESCRIBE.GOOSE_FEATHER	毛茸茸的。	2162	物品名:"麋鹿鹅羽毛"
+DESCRIBE.STAFF_TORNADO	感觉会有点危险。	2163	物品名:"天气风向标" 制造描述:"把你的敌人吹走。"
+DESCRIBE.MOSQUITO.GENERIC	讨厌的小虫子。	2166	物品名:"蚊子"->默认
+DESCRIBE.MOSQUITO.HELD	那是我的血吗？	2167	物品名:"蚊子"->拿在手里
+DESCRIBE.MOSQUITOSACK	这也许是别人的血...	2169	物品名:"蚊子血囊"
+DESCRIBE.MOUND.DUG	或许，这是他应得的。	2172	物品名:"坟墓"->被挖了
+DESCRIBE.MOUND.GENERIC	我敢打赌那下面有各种各样的好东西。	2173	物品名:"坟墓"->默认
+DESCRIBE.NIGHTLIGHT	有点古怪的感觉。	2175	物品名:"暗夜灯" 制造描述:"用你的噩梦点亮夜晚。"
+DESCRIBE.NIGHTMAREFUEL	这东西太古怪了。	2176	物品名:"噩梦燃料" 制造描述:"傻子和疯子使用的邪恶残渣。"
+DESCRIBE.NIGHTSWORD	似乎有些锋利。	2177	物品名:"暗夜剑" 制造描述:"造成噩梦般的伤害。"
+DESCRIBE.NITRE	我觉得我需要多准备些。	2178	物品名:"硝石"
+DESCRIBE.ONEMANBAND	我应该加个皮弗娄牛铃铛。	2179	物品名:"独奏乐器" 制造描述:"疯子音乐家也有粉丝。"
+DESCRIBE.OASISLAKE.GENERIC	这是海市蜃楼吗？	2182	物品名:"湖泊"->默认
+DESCRIBE.OASISLAKE.EMPTY	干的像一块骨头。	2183	物品名:"湖泊"
+DESCRIBE.PANDORASCHEST	里面可能有很好的东西。也可能是不好的东西。	2185	物品名:"华丽箱子"
+DESCRIBE.PANFLUTE	快帮我安抚那些怪物吧。	2186	物品名:"排箫" 制造描述:"抚慰凶猛野兽的音乐。"
+DESCRIBE.PAPYRUS	一些纸。	2187	物品名:"莎草纸" 制造描述:"用于书写。"
+DESCRIBE.WAXPAPER	一些蜡纸。	2188	物品名:"蜡纸" 制造描述:"用于打包东西。"
+DESCRIBE.PENGUIN	它为什么不会飞啊。	2189	物品名:"企鸥"
+DESCRIBE.PERD	那是我的。离我的浆果远点。	2190	物品名:"火鸡"
+DESCRIBE.PEROGIES	这些东西味道相当不错。	2191	物品名:"波兰水饺"
+DESCRIBE.PETALS	这下知道谁才是老大了。	2192	物品名:"花瓣"
+DESCRIBE.PETALS_EVIL	我不想拿这些。	2193	物品名:"深色花瓣"
+DESCRIBE.PHLEGM	有点恶心。	2194	物品名:"脓鼻涕"
+DESCRIBE.PICKAXE	似乎有点用处。	2195	物品名:"鹤嘴锄" 制造描述:"凿碎岩石。"
+DESCRIBE.PIGGYBACK	他很好，但可能不适合我。	2196	物品名:"猪皮包" 制造描述:"能装许多东西，但会减慢你的速度。"
+DESCRIBE.PIGHEAD.GENERIC	哦不，这个看起来很恐怖。	2199	物品名:"猪头"->默认
+DESCRIBE.PIGHEAD.BURNT	他好像被烤熟了。	2200	物品名:"猪头"->烧焦的
+DESCRIBE.PIGHOUSE.FULL	猪人，在家吗。	2204	物品名:"猪屋"->满了 制造描述:"可以住一只猪。"
+DESCRIBE.PIGHOUSE.GENERIC	我也能拥有自己的家吗。	2205	物品名:"猪屋"->默认 制造描述:"可以住一只猪。"
+DESCRIBE.PIGHOUSE.LIGHTSOUT	出来。我知道你在家。	2206	物品名:"猪屋"->关灯了 制造描述:"可以住一只猪。"
+DESCRIBE.PIGHOUSE.BURNT	到底是谁干的。	2207	物品名:"猪屋"->烧焦的 制造描述:"可以住一只猪。"
+DESCRIBE.PIGKING	我觉得他应该起来运动运动。	2209	物品名:"猪王"
+DESCRIBE.PIGMAN.DEAD	应该找人通知它的家人。	2212	物品名:"猪人"->死了
+DESCRIBE.PIGMAN.FOLLOWER	你是我的随从之一。	2213	物品名:"猪人"->追随者
+DESCRIBE.PIGMAN.GENERIC	他们有点蠢。	2214	物品名:"猪人"->默认
+DESCRIBE.PIGMAN.GUARD	看起来很严肃。	2215	物品名:"猪人"->警戒
+DESCRIBE.PIGMAN.WEREPIG	猪人似乎失去了理智。。	2216	物品名:"猪人"->疯猪
+DESCRIBE.PIGSKIN	上面还带着尾巴。	2218	物品名:"猪皮"
+DESCRIBE.PIGTENT	闻起来像猪肉。	2219	物品名:"猪人"
+DESCRIBE.PIGTORCH	看上去挺惬意。	2220	物品名:"猪火炬"
+DESCRIBE.PINECONE	我可以听见里面有一棵小树，努力想长出来。	2221	物品名:"松果"
+DESCRIBE.PINECONE_SAPLING	它很快将长成一棵大树。	2222	物品名:"常青树苗"
+DESCRIBE.LUMPY_SAPLING	这棵树是怎么长的？	2223	物品名:"有疙瘩的树苗"
+DESCRIBE.PITCHFORK	我要用它来挖出好多好多宝贝。	2224	物品名:"干草叉" 制造描述:"铲地用具。"
+DESCRIBE.PLANTMEAT	看着不咋样。	2225	物品名:"叶肉"
+DESCRIBE.PLANTMEAT_COOKED	至少它现在是热的。	2226	物品名:"熟叶肉"
+DESCRIBE.PLANT_NORMAL.GENERIC	枝繁叶茂。	2229	物品名:"农作物"->默认
+DESCRIBE.PLANT_NORMAL.GROWING	唉，长得可真慢。	2230	物品名:"农作物"->正在生长
+DESCRIBE.PLANT_NORMAL.READY	嗯。可以采摘了。	2231	物品名:"农作物"->准备好的 满的
+DESCRIBE.PLANT_NORMAL.WITHERED	它是热死的。	2232	物品名:"农作物"->枯萎了
+DESCRIBE.POMEGRANATE	应该很美味。	2234	物品名:"石榴"
+DESCRIBE.POMEGRANATE_COOKED	看起来不错。	2235	物品名:"切片熟石榴"
+DESCRIBE.POMEGRANATE_SEEDS	这是一颗种子。	2236	物品名:"风刮来的种子"
+DESCRIBE.POND	我瞧瞧。	2237	物品名:"池塘"
+DESCRIBE.POOP	我可不太想做这活计。	2238	物品名:"粪肥"
+DESCRIBE.FERTILIZER	一桶粪。	2239	物品名:"便便桶" 制造描述:"少拉点在手上，多拉点在庄稼上。"
+DESCRIBE.PUMPKIN	它比我的头还大。	2240	物品名:"南瓜"
+DESCRIBE.PUMPKINCOOKIE	漂亮的南瓜饼。	2241	物品名:"南瓜饼干"
+DESCRIBE.PUMPKIN_COOKED	它为什么没变成馅饼？	2242	物品名:"烤南瓜"
+DESCRIBE.PUMPKIN_LANTERN	真可怕。	2243	物品名:"南瓜灯" 制造描述:"长着鬼脸的照明用具。"
+DESCRIBE.PUMPKIN_SEEDS	这是一颗种子。	2244	物品名:"尖种子"
+DESCRIBE.PURPLEAMULET	它在向我说着什么。	2245	物品名:"梦魇护符" 制造描述:"引起精神错乱。"
+DESCRIBE.PURPLEGEM	它包含三界的奥秘。	2246	物品名:"紫宝石" 制造描述:"结合你们的颜色。"
+DESCRIBE.RABBIT.GENERIC	他在找胡萝卜。	2249	物品名:"兔子"->默认
+DESCRIBE.RABBIT.HELD	你喜欢我吗？	2250	物品名:"兔子"->拿在手里
+DESCRIBE.RABBITHOLE.GENERIC	里面有几只兔子。	2254	物品名:"兔洞"->默认
+DESCRIBE.RABBITHOLE.SPRING	狡兔三窟啊。	2255	物品名:"兔洞"->春天 or 潮湿
+DESCRIBE.RAINOMETER.GENERIC	它能测出是否有雨。	2259	物品名:"雨量计"->默认 制造描述:"观测降雨机率。"
+DESCRIBE.RAINOMETER.BURNT	测量部分化成一缕青烟了。	2260	物品名:"雨量计"->烧焦的 制造描述:"观测降雨机率。"
+DESCRIBE.RAINCOAT	穿上它我就不怕风吹雨打。	2262	物品名:"雨衣" 制造描述:"让你保持干燥的防水外套。"
+DESCRIBE.RAINHAT	我其实不太想湿漉漉的。	2263	物品名:"雨帽" 制造描述:"手感柔软，防雨必备。"
+DESCRIBE.RATATOUILLE	我可以试试。	2264	物品名:"蔬菜杂烩"
+DESCRIBE.RAZOR	有些用处。	2265	物品名:"剃刀" 制造描述:"剃掉你脏脏的山羊胡子。"
+DESCRIBE.REDGEM	它闪着红色的光。	2266	物品名:"红宝石"
+DESCRIBE.RED_CAP	闻起来怪怪的。	2267	物品名:"采摘的红蘑菇"
+DESCRIBE.RED_CAP_COOKED	现在跟生蘑菇不同了...	2268	物品名:"熟红蘑菇"
+DESCRIBE.RED_MUSHROOM.GENERIC	是蘑菇。	2271	物品名:"红蘑菇"->默认
+DESCRIBE.RED_MUSHROOM.INGROUND	它在睡觉。	2272	物品名:"红蘑菇"->在地里面
+DESCRIBE.RED_MUSHROOM.PICKED	不知道它会不会长回来？	2273	物品名:"红蘑菇"->被采完了
+DESCRIBE.REEDS.BURNING	烧的真旺。	2277	物品名:"芦苇"->正在燃烧
+DESCRIBE.REEDS.GENERIC	一簇芦苇。	2278	物品名:"芦苇"->默认
+DESCRIBE.REEDS.PICKED	所有有用的芦苇都已采摘下来。	2279	物品名:"芦苇"->被采完了
+DESCRIBE.RELIC	远古家具？	2281	物品名:"遗物"
+DESCRIBE.RUINS_RUBBLE	这个可以修复。	2282	物品名:"损毁的废墟"
+DESCRIBE.RUBBLE	只是些碎石块。	2283	物品名:"碎石"
+DESCRIBE.RESEARCHLAB.GENERIC	我可以做点什么。	2286	物品名:"科学机器"->默认 制造描述:"解锁新的合成配方。"
+DESCRIBE.RESEARCHLAB.BURNT	现在什么都做不了了。	2287	物品名:"科学机器"->烧焦的 制造描述:"解锁新的合成配方。"
+DESCRIBE.RESEARCHLAB2.GENERIC	我可以从这里学到很多有用的技能。	2291	物品名:"炼金引擎"->默认 制造描述:"解锁更多合成配方。"
+DESCRIBE.RESEARCHLAB2.BURNT	旧的不去新的不来。	2292	物品名:"炼金引擎"->烧焦的 制造描述:"解锁更多合成配方。"
+DESCRIBE.RESEARCHLAB3.GENERIC	我做了什么？	2296	物品名:"暗影操控器"->默认 制造描述:"法力无边"
+DESCRIBE.RESEARCHLAB3.BURNT	不管它原来是什么，现在已经烧掉了。	2297	物品名:"暗影操控器"->烧焦的 制造描述:"崩坏的仙法"
+DESCRIBE.RESEARCHLAB4.GENERIC	谁会起个这样的名字？	2301	物品名:"灵子分解器"->默认 制造描述:"增强高礼帽的魔力。"
+DESCRIBE.RESEARCHLAB4.BURNT	烧焦了...	2302	物品名:"灵子分解器"->烧焦的 制造描述:"增强高礼帽的魔力。"
+DESCRIBE.RESURRECTIONSTATUE.GENERIC	真的有用吗。	2306	物品名:"肉块雕像"->默认 制造描述:"以肉的力量让你重生。"
+DESCRIBE.RESURRECTIONSTATUE.BURNT	再也没用了。	2307	物品名:"肉块雕像"->烧焦的 制造描述:"以肉的力量让你重生。"
+DESCRIBE.RESURRECTIONSTONE	里面蕴含了返魂的法力。	2309	物品名:"试金石"
+DESCRIBE.ROBIN.GENERIC	那是否意味着冬季已经结束了？	2312	物品名:"红雀"->默认
+DESCRIBE.ROBIN.HELD	他喜欢我的口袋。	2313	物品名:"红雀"->拿在手里
+DESCRIBE.ROBIN_WINTER.GENERIC	寒荒之地的生命。	2317	物品名:"雪雀"->默认
+DESCRIBE.ROBIN_WINTER.HELD	柔软。	2318	物品名:"雪雀"->拿在手里
+DESCRIBE.ROBOT_PUPPET	被困住了。	2320	single player  -- 物品名:"雪雀"
+DESCRIBE.ROCK_LIGHT.GENERIC	裹了石皮的熔岩坑。	2323	removed  -- 物品名:"熔岩坑"->默认
+DESCRIBE.ROCK_LIGHT.OUT	看起来很易碎。	2324	removed  -- 物品名:"熔岩坑"->出去？外面？
+DESCRIBE.ROCK_LIGHT.LOW	那块熔岩正在裹上石皮。	2325	removed  -- 物品名:"熔岩坑"->低？
+DESCRIBE.ROCK_LIGHT.NORMAL	真舒服。	2326	removed  -- 物品名:"熔岩坑"->普通
+DESCRIBE.CAVEIN_BOULDER.GENERIC	可以举起这个。	2330	物品名:"岩石"->默认
+DESCRIBE.CAVEIN_BOULDER.RAISED	太远了够不着。	2331	物品名:"岩石"->提高了？
+DESCRIBE.ROCK	身上里可装不下它。	2333	物品名:"岩石"
+DESCRIBE.PETRIFIED_TREE	看来它被吓僵住了。	2334	物品名:"岩石"
+DESCRIBE.ROCK_PETRIFIED_TREE	看起来有些可怕。	2335	物品名:"石化树"
+DESCRIBE.ROCK_PETRIFIED_TREE_OLD	看起来有些可怕。	2336	物品名:"岩石"
+DESCRIBE.ROCK_ICE.GENERIC	很凉快。	2339	物品名:"迷你冰川"->默认
+DESCRIBE.ROCK_ICE.MELTED	在它再次冰冻之前，没什么用处。	2340	物品名:"迷你冰川"->融化了
+DESCRIBE.ROCK_ICE_MELTED	在它再次冰冻之前，没什么用处。	2342	物品名:"融化的迷你冰川"
+DESCRIBE.ICE	很凉快。	2343	物品名:"冰"
+DESCRIBE.ROCKS	可以用这些做点东西出来。	2344	物品名:"石头"
+DESCRIBE.ROOK	钢铁犀牛。	2345	物品名:"发条战车"
+DESCRIBE.ROPE	一种短绳。	2346	物品名:"绳子" 制造描述:"紧密编成的草绳，非常有用。"
+DESCRIBE.ROTTENEGG	臭死了。	2347	物品名:"腐烂鸟蛋"
+DESCRIBE.ROYAL_JELLY	好东西。	2348	物品名:"蜂王浆"
+DESCRIBE.JELLYBEAN	看起来不错。	2349	物品名:"彩虹糖豆"
+DESCRIBE.SADDLE_BASIC	有了它就可以骑一些东西了。	2350	物品名:"鞍具" 制造描述:"你坐在动物身上。仅仅是理论上。"
+DESCRIBE.SADDLE_RACE	这鞍具看着挺不错。	2351	物品名:"闪亮鞍具" 制造描述:"抵消掉完成目标所花费的时间。或许。"
+DESCRIBE.SADDLE_WAR	感觉更趁手一些。	2352	物品名:"战争鞍具" 制造描述:"战场首领的王位。"
+DESCRIBE.SADDLEHORN	这能够卸下鞍具。	2353	物品名:"鞍角" 制造描述:"把鞍具撬开。"
+DESCRIBE.SALTLICK	要舔多久才能舔完？	2354	物品名:"舔盐块" 制造描述:"好好喂养你家的牲畜。"
+DESCRIBE.BRUSH	我觉得我可以和它们做朋友。	2355	物品名:"刷子" 制造描述:"减缓皮弗娄牛毛发的生长速度。"
+DESCRIBE.SANITYROCK.ACTIVE	那石头看起来真疯狂。	2358	物品名:"方尖碑"->激活了
+DESCRIBE.SANITYROCK.INACTIVE	它的其余部分去哪儿了？	2359	物品名:"方尖碑"->没有激活
+DESCRIBE.SAPLING.BURNING	烧得好快。	2363	物品名:"树苗"->正在燃烧
+DESCRIBE.SAPLING.WITHERED	如果能给它降降温，也许它能好起来。	2364	物品名:"树苗"->枯萎了
+DESCRIBE.SAPLING.GENERIC	茁壮成长。	2365	物品名:"树苗"->默认
+DESCRIBE.SAPLING.PICKED	光秃秃的了。	2366	物品名:"树苗"->被采完了
+DESCRIBE.SAPLING.DISEASED	它看上去很不舒服。	2367	removed  -- 物品名:"树苗"->生病了
+DESCRIBE.SAPLING.DISEASING	呃...有些地方不对劲。	2368	removed  -- 物品名:"树苗"->正在生病？？
+DESCRIBE.SCARECROW.GENERIC	稻草人可以驱离乌鸦了。	2372	物品名:"友善的稻草人"->默认 制造描述:"模仿最新的秋季时尚。"
+DESCRIBE.SCARECROW.BURNING	稻草人可以吃乌鸦？	2373	物品名:"友善的稻草人"->正在燃烧 制造描述:"模仿最新的秋季时尚。"
+DESCRIBE.SCARECROW.BURNT	稻草人被烧焦了。	2374	物品名:"友善的稻草人"->烧焦的 制造描述:"模仿最新的秋季时尚。"
+DESCRIBE.SCULPTINGTABLE.EMPTY	我可以用这东西来做个石雕。	2378	物品名:"陶轮" 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTINGTABLE.BLOCK	准备雕刻。	2379	物品名:"陶轮"->锁住了 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTINGTABLE.SCULPTURE	一个杰作。	2380	物品名:"陶轮"->雕像做好了 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTINGTABLE.BURNT	完全烧焦。	2381	物品名:"陶轮"->烧焦的 制造描述:"大理石在你手里将像黏土一样。"
+DESCRIBE.SCULPTURE_KNIGHTHEAD	其余部分在哪里？	2383	物品名:"可疑的大理石"
+DESCRIBE.SCULPTURE_KNIGHTBODY.COVERED	是一个古怪的雕像。	2386	物品名:"大理石雕像"->被盖住了-三基佬雕像可以敲大理石的时候
+DESCRIBE.SCULPTURE_KNIGHTBODY.UNCOVERED	是谁摧毁了它。	2387	物品名:"大理石雕像"->没有被盖住-三基佬雕像被开采后
+DESCRIBE.SCULPTURE_KNIGHTBODY.FINISHED	终于又弄到一起了。	2388	物品名:"大理石雕像"->三基佬雕像修好了
+DESCRIBE.SCULPTURE_KNIGHTBODY.READY	里面有东西在动。	2389	物品名:"大理石雕像"->准备好的 满的
+DESCRIBE.SCULPTURE_BISHOPHEAD	那是一颗头吗？	2391	物品名:"可疑的大理石"
+DESCRIBE.SCULPTURE_BISHOPBODY.COVERED	感觉挺新。	2394	物品名:"大理石雕像"->被盖住了-三基佬雕像可以敲大理石的时候
+DESCRIBE.SCULPTURE_BISHOPBODY.UNCOVERED	有一个大的碎片没找到。	2395	物品名:"大理石雕像"->没有被盖住-三基佬雕像被开采后
+DESCRIBE.SCULPTURE_BISHOPBODY.FINISHED	然后呢？	2396	物品名:"大理石雕像"->三基佬雕像修好了
+DESCRIBE.SCULPTURE_BISHOPBODY.READY	里面有东西在动。	2397	物品名:"大理石雕像"->准备好的 满的
+DESCRIBE.SCULPTURE_ROOKNOSE	这是哪儿来的？	2399	物品名:"可疑的大理石"
+DESCRIBE.SCULPTURE_ROOKBODY.COVERED	一种大理石雕像。	2402	物品名:"大理石雕像"->被盖住了-三基佬雕像可以敲大理石的时候
+DESCRIBE.SCULPTURE_ROOKBODY.UNCOVERED	这个有用吗。	2403	物品名:"大理石雕像"->没有被盖住-三基佬雕像被开采后
+DESCRIBE.SCULPTURE_ROOKBODY.FINISHED	所有都修补好了。	2404	物品名:"大理石雕像"->三基佬雕像修好了
+DESCRIBE.SCULPTURE_ROOKBODY.READY	里面有东西在动。	2405	物品名:"大理石雕像"->准备好的 满的
+DESCRIBE.GARGOYLE_HOUND	我不喜欢它的眼神。	2407	物品名:"可疑的月岩"
+DESCRIBE.GARGOYLE_WEREPIG	它看起来栩栩如生。	2408	物品名:"可疑的月岩"
+DESCRIBE.SEEDS	每一颗种子都有些用处。	2409	物品名:"种子"
+DESCRIBE.SEEDS_COOKED	烤种子也能让我勉强裹腹。	2410	物品名:"烤种子"
+DESCRIBE.SEWING_KIT	修补衣服还得让师傅来。	2411	物品名:"针线包" 制造描述:"缝补受损的衣物。"
+DESCRIBE.SEWING_TAPE	修补得不错。	2412	物品名:"可靠的胶布" 制造描述:"缝补受损的衣物。"
+DESCRIBE.SHOVEL	地下隐藏着很多东西。	2413	物品名:"铲子" 制造描述:"挖掘各种各样的东西。"
+DESCRIBE.SILK	我可以用它来制作华丽的服饰。	2414	物品名:"蜘蛛丝"
+DESCRIBE.SKELETON	看起来有一段时间了。	2415	物品名:"骷髅"
+DESCRIBE.SCORCHED_SKELETON	真可怕。	2416	物品名:"易碎骷髅"
+DESCRIBE.SKULLCHEST	它看起来很邪恶。	2417	removed  -- 物品名:"骷髅箱"
+DESCRIBE.SMALLBIRD.GENERIC	好小的一只鸟。	2420	物品名:"小鸟"->默认
+DESCRIBE.SMALLBIRD.HUNGRY	它看起来饿了。	2421	物品名:"小鸟"->有点饿了
+DESCRIBE.SMALLBIRD.STARVING	它一定很饿。	2422	物品名:"小鸟"->挨饿
+DESCRIBE.SMALLBIRD.SLEEPING	它都不偷偷睁眼看一下。	2423	物品名:"小鸟"->睡着了
+DESCRIBE.SMALLMEAT	一小块肉。	2425	物品名:"小肉"
+DESCRIBE.SMALLMEAT_DRIED	一小块肉干。	2426	物品名:"小风干肉"
+DESCRIBE.SPAT	简直不忍直视。	2427	物品名:"钢羊"
+DESCRIBE.SPEAR	太轻了。	2428	物品名:"长矛" 制造描述:"使用尖的那一端。"
+DESCRIBE.SPEAR_WATHGRITHR	不趁手。	2429	物品名:"战斗长矛" 制造描述:"黄金使它更锋利。"
+DESCRIBE.WATHGRITHRHAT	那顶帽子好奇特。	2430	物品名:"战斗头盔" 制造描述:"独角兽是你的保护神。"
+DESCRIBE.SPIDER.DEAD	恶心。	2433	物品名:"蜘蛛"->死了
+DESCRIBE.SPIDER.GENERIC	我讨厌蜘蛛。	2434	物品名:"蜘蛛"->默认
+DESCRIBE.SPIDER.SLEEPING	是非之地，不宜久留。	2435	物品名:"蜘蛛"->睡着了
+DESCRIBE.SPIDERDEN	真黏。	2437	物品名:"蜘蛛巢"
+DESCRIBE.SPIDEREGGSACK	我希望这些不会孵化。。	2438	物品名:"蜘蛛卵" 制造描述:"跟你的朋友寻求点帮助。"
+DESCRIBE.SPIDERGLAND	它是蜘蛛的一部分。	2439	物品名:"蜘蛛腺"
+DESCRIBE.SPIDERHAT	我希望把蜘蛛的黏液都弄掉了。	2440	物品名:"蜘蛛帽" 制造描述:"蜘蛛们会喊你\"妈妈\"。"
+DESCRIBE.SPIDERQUEEN	不要来招惹我。	2441	物品名:"蜘蛛女王"
+DESCRIBE.SPIDER_WARRIOR.DEAD	终于摆脱了。	2444	物品名:"蜘蛛战士"->死了
+DESCRIBE.SPIDER_WARRIOR.GENERIC	小小蜘蛛，我可不怕。	2445	物品名:"蜘蛛战士"->默认
+DESCRIBE.SPIDER_WARRIOR.SLEEPING	我应当保持距离。	2446	物品名:"蜘蛛战士"->睡着了
+DESCRIBE.SPOILED_FOOD	那是长满毛毛的腐烂食物。	2448	物品名:"腐烂物"
+DESCRIBE.STAGEHAND.AWAKE	总之不要伸出你的手。	2451	物品名:"舞台之手"->醒了
+DESCRIBE.STAGEHAND.HIDING	这里有些古怪。	2452	物品名:"舞台之手"->藏起来了
+DESCRIBE.STATUE_MARBLE.GENERIC	雕像。	2456	物品名:"大理石雕像"->默认
+DESCRIBE.STATUE_MARBLE.TYPE1	不要失去心智。	2457	物品名:"大理石雕像"->类型1
+DESCRIBE.STATUE_MARBLE.TYPE2	雕像般的。	2458	物品名:"大理石雕像"->类型2
+DESCRIBE.STATUE_MARBLE.TYPE3	或许我应该找人帮帮忙。	2459	bird bath type statue  -- 物品名:"大理石雕像"
+DESCRIBE.STATUEHARP	他的头怎么了？	2461	物品名:"竖琴雕像"
+DESCRIBE.STATUEMAXWELL	他本人还要矮一点。	2462	物品名:"麦斯威尔雕像"
+DESCRIBE.STEELWOOL	这玩意儿能干嘛。	2463	物品名:"钢丝绵"
+DESCRIBE.STINGER	看起来很尖。	2464	物品名:"蜂刺"
+DESCRIBE.STRAWHAT	这个帽子能让我凉爽一些。	2465	物品名:"草帽" 制造描述:"帮助你保持清凉干爽。"
+DESCRIBE.STUFFEDEGGPLANT	真的塞满了。	2466	物品名:"酿茄子"
+DESCRIBE.SWEATERVEST	这件背心还凑合。	2467	物品名:"犬牙背心" 制造描述:"粗糙，但挺时尚。"
+DESCRIBE.REFLECTIVEVEST	状态满满。	2468	物品名:"清凉夏装" 制造描述:"穿上这件时尚的背心，让你神清气爽。"
+DESCRIBE.HAWAIIANSHIRT	好看，好看。	2469	物品名:"花衬衫" 制造描述:"适合夏日穿着，或在周五便装日穿着。"
+DESCRIBE.TAFFY	这是什么点心。	2470	物品名:"太妃糖"
+DESCRIBE.TALLBIRD	好高的一只鸟。	2471	物品名:"高脚鸟"
+DESCRIBE.TALLBIRDEGG	它会孵化吗？	2472	物品名:"高脚鸟蛋"
+DESCRIBE.TALLBIRDEGG_COOKED	美味。	2473	物品名:"煎高脚鸟蛋"
+DESCRIBE.TALLBIRDEGG_CRACKED.COLD	我在哆嗦？	2476	物品名:"冻伤"->冷了
+DESCRIBE.TALLBIRDEGG_CRACKED.GENERIC	看起来它正在孵化。	2477	物品名:"孵化中的高脚鸟蛋"->默认
+DESCRIBE.TALLBIRDEGG_CRACKED.HOT	蛋也会出汗吗？	2478	物品名:"中暑"->热了
+DESCRIBE.TALLBIRDEGG_CRACKED.LONG	我感觉这需要一些时间...	2479	物品名:"孵化中的高脚鸟蛋"->还需要很久
+DESCRIBE.TALLBIRDEGG_CRACKED.SHORT	它现在随时要孵出来了。	2480	物品名:"孵化中的高脚鸟蛋"->很快了
+DESCRIBE.TALLBIRDNEST.GENERIC	那真是个不一般的蛋。	2484	物品名:"高脚鸟巢"->默认
+DESCRIBE.TALLBIRDNEST.PICKED	巢是空的。	2485	物品名:"高脚鸟巢"->被采完了
+DESCRIBE.TEENBIRD.GENERIC	不是很高的鸟。	2489	物品名:"小高脚鸟"->默认
+DESCRIBE.TEENBIRD.HUNGRY	我应该棒棒这个小家伙。	2490	物品名:"小高脚鸟"->有点饿了
+DESCRIBE.TEENBIRD.STARVING	它目露凶光。	2491	物品名:"小高脚鸟"->挨饿
+DESCRIBE.TEENBIRD.SLEEPING	它在眯眼休息。	2492	物品名:"小高脚鸟"->睡着了
+DESCRIBE.TELEPORTATO_BASE.ACTIVE	有了这个，我肯定可以施展纵地数了。	2496	single player  -- 物品名:"木制装置"->激活了
+DESCRIBE.TELEPORTATO_BASE.GENERIC	这似乎通向另一界。	2497	single player  -- 物品名:"木制装置"->默认
+DESCRIBE.TELEPORTATO_BASE.LOCKED	还少了些什么东西。	2498	single player  -- 物品名:"木制装置"->锁住了
+DESCRIBE.TELEPORTATO_BASE.PARTIAL	很快，就要大功告成。	2499	single player  -- 物品名:"木制装置"->已经有部分了
+DESCRIBE.TELEPORTATO_BOX	这可能改变整个世界。	2501	single player  -- 物品名:"盒状装置"
+DESCRIBE.TELEPORTATO_CRANK	似乎可以应付一些危险。	2502	single player  -- 物品名:"曲柄装置"
+DESCRIBE.TELEPORTATO_POTATO	没见过的古怪玩意儿...	2503	single player  -- 物品名:"金属土豆状装置"
+DESCRIBE.TELEPORTATO_RING	一个小圆环。	2504	single player  -- 物品名:"环状装置"
+DESCRIBE.TELESTAFF	这个可以让我去哪里？	2505	物品名:"传送魔杖" 制造描述:"穿越空间的法杖。时间要另外收费。"
+DESCRIBE.TENT.GENERIC	我也需要好好睡一觉。	2508	物品名:"帐篷"->默认 制造描述:"回复理智值，但要花费时间并导致饥饿。"
+DESCRIBE.TENT.BURNT	不剩什么睡觉的东西了。	2509	物品名:"帐篷"->烧焦的 制造描述:"回复理智值，但要花费时间并导致饥饿。"
+DESCRIBE.SIESTAHUT.GENERIC	避暑休息的好地方。	2513	物品名:"遮阳篷"->默认 制造描述:"躲避烈日，回复理智值。"
+DESCRIBE.SIESTAHUT.BURNT	它现在遮不了多少阳了。	2514	物品名:"遮阳篷"->烧焦的 制造描述:"躲避烈日，回复理智值。"
+DESCRIBE.TENTACLE	那个看起来很危险。	2516	物品名:"触手"
+DESCRIBE.TENTACLESPIKE	它又尖又黏。	2517	物品名:"触手尖刺"
+DESCRIBE.TENTACLESPOTS	我没见过这妖物。	2518	物品名:"触手皮"
+DESCRIBE.TENTACLE_PILLAR	黏滑的触手。	2519	物品名:"大触手"
+DESCRIBE.TENTACLE_PILLAR_HOLE	让我探究一番。	2520	物品名:"硕大的泥坑"
+DESCRIBE.TENTACLE_PILLAR_ARM	滑溜溜的小触手。	2521	物品名:"小触手"
+DESCRIBE.TENTACLE_GARDEN	又一种黏滑的触手。	2522	物品名:"大触手"
+DESCRIBE.TOPHAT	奇怪的头冠。	2523	物品名:"高礼帽" 制造描述:"最经典的帽子款式。"
+DESCRIBE.TORCH	驱赶一些黑暗。	2524	物品名:"火炬" 制造描述:"可携带的光源。"
+DESCRIBE.TRANSISTOR	呼呼作响。	2525	物品名:"电子元件" 制造描述:"仙力至上。滋滋滋。"
+DESCRIBE.TRAP	我也能做这种细致的活儿。	2526	物品名:"陷阱" 制造描述:"捕捉小型生物。"
+DESCRIBE.TRAP_TEETH	真是糟糕的意外。	2527	物品名:"犬牙陷阱" 制造描述:"弹出来并咬伤任何踩到它的东西。"
+DESCRIBE.TRAP_TEETH_MAXWELL	我可不想踩在那上面。	2528	single player  -- 物品名:"麦斯威尔的犬牙陷阱" 制造描述:"弹出来并咬伤任何踩到它的东西。"
+DESCRIBE.TREASURECHEST.GENERIC	一个工具箱。	2531	物品名:"箱子"->默认 制造描述:"一种结实的容器。"
+DESCRIBE.TREASURECHEST.BURNT	那个箱子被烧了一截。	2532	物品名:"箱子"->烧焦的 制造描述:"一种结实的容器。"
+DESCRIBE.TREASURECHEST_TRAP	真方便。	2534	物品名:"宝箱"
+DESCRIBE.SACRED_CHEST.GENERIC	我听到它说想要什么东西。	2537	物品名:"远古宝箱"->默认
+DESCRIBE.SACRED_CHEST.LOCKED	似乎打不开。	2538	物品名:"远古宝箱"->锁住了
+DESCRIBE.TREECLUMP	是不是有人想把我困在这里。	2540	removed  -- 物品名:"远古宝箱"
+DESCRIBE.TRINKET_1	融化了。	2541	Melted Marbles  -- 物品名:"熔化的弹珠"
+DESCRIBE.TRINKET_2	这是根笛子？	2542	Fake Kazoo  -- 物品名:"假卡祖笛"
+DESCRIBE.TRINKET_3	那是个死结。	2543	Gord's Knot  -- 物品名:"戈尔迪之结"
+DESCRIBE.TRINKET_4	它是土地爷爷吗。	2544	Gnome  -- 物品名:"地精爷爷"
+DESCRIBE.TRINKET_5	它太小了。	2545	Toy Rocketship  -- 物品名:"迷你火箭"
+DESCRIBE.TRINKET_6	它们已经没用了。	2546	Frazzled Wires  -- 物品名:"烂电线"
+DESCRIBE.TRINKET_7	享乐和游戏。	2547	Ball and Cup  -- 物品名:"杯子和球"
+DESCRIBE.TRINKET_8	塞子。	2548	Rubber Bung  -- 物品名:"硬化橡胶塞"
+DESCRIBE.TRINKET_9	我没见过这玩意儿。	2549	Mismatched Buttons  -- 物品名:"不搭的纽扣"
+DESCRIBE.TRINKET_10	这能替代尖牙吗？	2550	Dentures  -- 物品名:"二手假牙"
+DESCRIBE.TRINKET_11	这个丑东西还挺可爱的。	2551	Lying Robot  -- 物品名:"机器人玩偶"
+DESCRIBE.TRINKET_12	这是章鱼精的。	2552	Dessicated Tentacle  -- 物品名:"干瘪的触手"
+DESCRIBE.TRINKET_13	一定是土地婆婆。	2553	Gnomette  -- 物品名:"地精奶奶"
+DESCRIBE.TRINKET_14	现在要是能喝点茶，该多好...	2554	Leaky Teacup  -- 物品名:"漏水的茶杯"
+DESCRIBE.TRINKET_15	...麦斯威尔又落下了他的行头。	2555	Pawn  -- 物品名:"白色主教"
+DESCRIBE.TRINKET_16	...麦斯威尔又落下了他的行头。	2556	Pawn  -- 物品名:"黑色主教"
+DESCRIBE.TRINKET_17	这不是我爱用的东西。	2557	Bent Spork  -- 物品名:"弯曲的叉子"
+DESCRIBE.TRINKET_18	我想知道它在隐藏什么？	2558	Trojan Horse  -- 物品名:"玩具木马"
+DESCRIBE.TRINKET_19	不是很顺利。	2559	Unbalanced Top  -- 物品名:"失衡陀螺"
+DESCRIBE.TRINKET_20	我想我并不需要它。	2560	Backscratcher  -- 物品名:"痒痒挠"
+DESCRIBE.TRINKET_21	这个东西整个都变形了。	2561	Egg Beater  -- 物品名:"破搅拌器"
+DESCRIBE.TRINKET_22	这个绳子似乎有些坚硬。	2562	Frayed Yarn  -- 物品名:"磨损的纱线"
+DESCRIBE.TRINKET_23	我可以自己穿靴。	2563	Shoehorn  -- 物品名:"鞋拔子"
+DESCRIBE.TRINKET_24	我想应该有只猫在哪儿。	2564	Lucky Cat Jar  -- 物品名:"幸运猫扎尔"
+DESCRIBE.TRINKET_25	闻起来有点不新鲜。	2565	Air Unfreshener  -- 物品名:"臭气制造器"
+DESCRIBE.TRINKET_26	绵密起沙。	2566	Potato Cup  -- 物品名:"土豆杯"
+DESCRIBE.TRINKET_27	这玩意儿似乎可以用来挂东西。	2567	Coat Hanger  -- 物品名:"钢丝衣架"
+DESCRIBE.TRINKET_28	简直就是阴谋。	2568	Rook  -- 物品名:"白色战车"
+DESCRIBE.TRINKET_29	简直就是阴谋。	2569	Rook  -- 物品名:"黑色战车"
+DESCRIBE.TRINKET_30	怎么到处乱丢呢。	2570	Knight  -- 物品名:"白色骑士"
+DESCRIBE.TRINKET_31	怎么到处乱丢呢。	2571	Knight  -- 物品名:"黑色骑士"
+DESCRIBE.TRINKET_32	我认识喜欢这个的人。	2572	Cubic Zirconia Ball  -- 物品名:"立方氧化锆球"
+DESCRIBE.TRINKET_33	希望不会引来蜘蛛。	2573	Spider Ring  -- 物品名:"蜘蛛指环"
+DESCRIBE.TRINKET_34	我并不喜欢和猴子打交道。	2574	Monkey Paw  -- 物品名:"猴爪"
+DESCRIBE.TRINKET_35	可惜他已经没用了。	2575	Empty Elixir  -- 物品名:"空的长生不老药"
+DESCRIBE.TRINKET_36	在吃完所有的甜食后我可能会需要这些玩意儿。	2576	Faux fangs  -- 物品名:"人造尖牙"
+DESCRIBE.TRINKET_37	我也能做到。	2577	Broken Stake  -- 物品名:"断桩"
+DESCRIBE.TRINKET_38	这玩意儿有啥用处。	2578	Binoculars Griftlands trinket  -- 物品名:"双筒望远镜"
+DESCRIBE.TRINKET_39	我想知道另一只在哪里？	2579	Lone Glove Griftlands trinket  -- 物品名:"单只手套"
+DESCRIBE.TRINKET_40	拿着它让我觉得在赶集。	2580	Snail Scale Griftlands trinket  -- 物品名:"蜗牛秤"
+DESCRIBE.TRINKET_41	摸起来有点温热。	2581	Goop Canister Hot Lava trinket  -- 物品名:"黏液罐"
+DESCRIBE.TRINKET_42	似乎是什么有趣玩意儿。	2582	Toy Cobra Hot Lava trinket  -- 物品名:"玩具眼镜蛇"
+DESCRIBE.TRINKET_43	它不太擅长跳。	2583	Crocodile Toy Hot Lava trinket  -- 物品名:"鳄鱼玩具"
+DESCRIBE.TRINKET_44	破碎的琉璃水晶杯。	2584	Broken Terrarium ONI trinket  -- 物品名:"破碎的玻璃罐"
+DESCRIBE.TRINKET_45	回音的法器。	2585	Odd Radio ONI trinket  -- 物品名:"奇怪的收音机"
+DESCRIBE.TRINKET_46	风婆婆的法器？	2586	Hairdryer ONI trinket  -- 物品名:"损坏的吹风机"
+DESCRIBE.LOST_TOY_1	古怪的小玩意儿。	2587	物品名:"遗失的玻璃球"
+DESCRIBE.LOST_TOY_2	古怪的小玩意儿。	2588	物品名:"多愁善感的卡祖笛"
+DESCRIBE.LOST_TOY_7	古怪的小玩意儿。	2589	物品名:"珍视的抽线陀螺"
+DESCRIBE.LOST_TOY_10	古怪的小玩意儿。	2590	物品名:"缺少的牙齿"
+DESCRIBE.LOST_TOY_11	古怪的小玩意儿。	2591	物品名:"珍贵的玩具机器人"
+DESCRIBE.LOST_TOY_14	古怪的小玩意儿。	2592	物品名:"妈妈最爱的茶杯"
+DESCRIBE.LOST_TOY_18	古怪的小玩意儿。	2593	物品名:"宝贵的玩具木马"
+DESCRIBE.LOST_TOY_19	古怪的小玩意儿。	2594	物品名:"最爱的陀螺"
+DESCRIBE.LOST_TOY_42	古怪的小玩意儿。	2595	物品名:"装错的玩具眼镜蛇"
+DESCRIBE.LOST_TOY_43	古怪的小玩意儿。	2596	物品名:"宠爱的鳄鱼玩具"
+DESCRIBE.HALLOWEENCANDY_1	似乎会让我的牙齿有些小毛病。	2597	物品名:"糖果苹果"
+DESCRIBE.HALLOWEENCANDY_2	可以试试？	2598	物品名:"糖果玉米"
+DESCRIBE.HALLOWEENCANDY_3	是…玉米。	2599	物品名:"不太甜的玉米"
+DESCRIBE.HALLOWEENCANDY_4	它们一路蠕动下来。	2600	物品名:"粘液蜘蛛"
+DESCRIBE.HALLOWEENCANDY_5	我也可以常常这玩意儿。	2601	物品名:"浣猫糖果"
+DESCRIBE.HALLOWEENCANDY_6	我可不常会吃那些玩意儿。	2602	物品名:"\"葡萄干\""
+DESCRIBE.HALLOWEENCANDY_7	可以尝尝。	2603	物品名:"葡萄干"
+DESCRIBE.HALLOWEENCANDY_8	可以尝试尝试。	2604	物品名:"鬼魂棒棒糖"
+DESCRIBE.HALLOWEENCANDY_9	粘牙。	2605	物品名:"果冻虫"
+DESCRIBE.HALLOWEENCANDY_10	看起来可不好吃。	2606	物品名:"触手棒棒糖"
+DESCRIBE.HALLOWEENCANDY_11	味道还算不错。	2607	物品名:"巧克力猪"
+DESCRIBE.HALLOWEENCANDY_12	那块糖刚动了一下吗？	2608	ONI meal lice candy  -- 物品名:"糖果虱"
+DESCRIBE.HALLOWEENCANDY_13	哎呀，我可怜的下巴。	2609	Griftlands themed candy  -- 物品名:"无敌硬糖"
+DESCRIBE.HALLOWEENCANDY_14	我吃不想吃辣。	2610	Hot Lava pepper candy  -- 物品名:"熔岩椒"
+DESCRIBE.CANDYBAG	它是某种美味的小小的甜点。	2611	物品名:"糖果袋" 制造描述:"只带万圣夜好吃的东西。"
+DESCRIBE.HALLOWEEN_ORNAMENT_1	一个可以挂在树上的装饰。	2612	物品名:"幽灵装饰"
+DESCRIBE.HALLOWEEN_ORNAMENT_2	古怪的装饰。	2613	物品名:"蝙蝠装饰"
+DESCRIBE.HALLOWEEN_ORNAMENT_3	这块木头看起来很适合挂起来。	2614	物品名:"蜘蛛装饰"
+DESCRIBE.HALLOWEEN_ORNAMENT_4	有些逼真。	2615	物品名:"触手装饰"
+DESCRIBE.HALLOWEEN_ORNAMENT_5	八只手的装饰。	2616	物品名:"穴居悬蛛装饰"
+DESCRIBE.HALLOWEEN_ORNAMENT_6	树的装饰。	2617	物品名:"乌鸦装饰"
+DESCRIBE.HALLOWEENPOTION_DRINKS_WEAK	原以为会更丰富呢。	2618	物品名:"远古宝箱"
+DESCRIBE.HALLOWEENPOTION_DRINKS_POTENT	法力药水。	2619	物品名:"远古宝箱"
+DESCRIBE.HALLOWEENPOTION_BRAVERY	需要一丁点儿勇气。	2620	物品名:"远古宝箱"
+DESCRIBE.HALLOWEENPOTION_MOON	注入了变异的法力。	2621	物品名:"月亮精华液"
+DESCRIBE.HALLOWEENPOTION_FIRE_FX	烈火结晶。	2622	物品名:"远古宝箱"
+DESCRIBE.MADSCIENCE_LAB	能否涨点修为。	2623	物品名:"疯狂仙力家实验室" 制造描述:"疯狂实验无极限。唯独神智有极限。"
+DESCRIBE.LIVINGTREE_ROOT	我要把它彻底根除。	2624	物品名:"完全正常的树根"
+DESCRIBE.LIVINGTREE_SAPLING	它会长得稍微大一些。	2625	物品名:"完全正常的树苗"
+DESCRIBE.DRAGONHEADHAT	所以谁要在前面？	2626	物品名:"幸运兽脑袋" 制造描述:"野兽装束的前端。"
+DESCRIBE.DRAGONBODYHAT	中间的部分让我有点犹豫。	2627	物品名:"幸运兽躯体" 制造描述:"野兽装束的中间部分。"
+DESCRIBE.DRAGONTAILHAT	神龙摆尾的古怪帽子。	2628	物品名:"幸运兽尾巴" 制造描述:"野兽装束的尾端。"
+DESCRIBE.PERDSHRINE.GENERIC	感觉它想要什么东西。	2631	物品名:"火鸡神龛"->默认 制造描述:"供奉庄严之火鸡。"
+DESCRIBE.PERDSHRINE.EMPTY	我要在那里种些东西。	2632	物品名:"火鸡神龛" 制造描述:"供奉庄严之火鸡。"
+DESCRIBE.PERDSHRINE.BURNT	完全没用了。	2633	物品名:"火鸡神龛"->烧焦的 制造描述:"供奉庄严之火鸡。"
+DESCRIBE.REDLANTERN	这个灯笼感觉比其他灯笼特别。	2635	物品名:"红灯笼" 制造描述:"照亮你的路的幸运灯笼。"
+DESCRIBE.LUCKY_GOLDNUGGET	多么幸运的发现。	2636	物品名:"幸运黄金"
+DESCRIBE.FIRECRACKERS	哈哈，年兽你完啦。	2637	物品名:"红鞭炮" 制造描述:"用爆炸来庆祝。"
+DESCRIBE.PERDFAN	非常大。	2638	物品名:"幸运扇" 制造描述:"额外的运气，超级多。"
+DESCRIBE.REDPOUCH	里面有什么东西吗？	2639	物品名:"红包"
+DESCRIBE.WARGSHRINE.GENERIC	我得做点好玩的东西。	2642	物品名:"座狼神龛"->默认 制造描述:"供奉陶土之座狼。"
+DESCRIBE.WARGSHRINE.EMPTY	我需要在里面放支火把。	2643	物品名:"座狼神龛" 制造描述:"供奉陶土之座狼。"
+DESCRIBE.WARGSHRINE.BURNING	我得做点好玩的东西。	2644	for willow to override  -- 物品名:"座狼神龛"->正在燃烧 制造描述:"供奉陶土之座狼。"
+DESCRIBE.WARGSHRINE.BURNT	它烧毁了。	2645	物品名:"座狼神龛"->烧焦的 制造描述:"供奉陶土之座狼。"
+DESCRIBE.CLAYWARG.GENERIC	黏土妖怪。	2649	物品名:"黏土座狼"->默认
+DESCRIBE.CLAYWARG.STATUE	它刚刚是不是动了？	2650	物品名:"黏土座狼"->雕像
+DESCRIBE.CLAYHOUND.GENERIC	它脱离束缚了。	2654	物品名:"黏土猎犬"->默认
+DESCRIBE.CLAYHOUND.STATUE	它看起来好逼真。	2655	物品名:"黏土猎犬"->雕像
+DESCRIBE.HOUNDWHISTLE	这个能阻挡狗子的脚步。	2657	物品名:"幸运哨子" 制造描述:"对野猎犬吹哨。"
+DESCRIBE.CHESSPIECE_CLAYHOUND	反正栓着了，我才不担心呢。	2658	物品名:"猎犬雕塑"
+DESCRIBE.CHESSPIECE_CLAYWARG	我可不怕这玩意儿。	2659	物品名:"座狼雕塑"
+DESCRIBE.PIGSHRINE.GENERIC	有更多东西要做。	2662	物品名:"猪神龛"->默认 制造描述:"供奉富饶之猪人。"
+DESCRIBE.PIGSHRINE.EMPTY	它想要肉。	2663	物品名:"猪神龛" 制造描述:"供奉富饶之猪人。"
+DESCRIBE.PIGSHRINE.BURNT	烧焦了。	2664	物品名:"猪神龛"->烧焦的 制造描述:"供奉富饶之猪人。"
+DESCRIBE.PIG_TOKEN	这个看起来很重要。	2666	物品名:"金腰带"
+DESCRIBE.PIG_COIN	有些用处。	2667	物品名:"猪鼻铸币"
+DESCRIBE.YOTP_FOOD1	一场适合我的宴会。	2668	物品名:"贡品烤肉" 制造描述:"向猪王敬肉。"
+DESCRIBE.YOTP_FOOD2	只有野兽才会喜欢的食物。	2669	物品名:"八宝泥馅饼" 制造描述:"那里隐藏着什么？"
+DESCRIBE.YOTP_FOOD3	没什么精致的。	2670	物品名:"鱼头串" 制造描述:"棍子上的荣华富贵。"
+DESCRIBE.PIGELITE1	看什么呢？	2671	BLUE  -- 物品名:"韦德"
+DESCRIBE.PIGELITE2	讨打。	2672	RED  -- 物品名:"伊格内修斯"
+DESCRIBE.PIGELITE3	你眼里有泥。	2673	WHITE  -- 物品名:"德米特里"
+DESCRIBE.PIGELITE4	难道你不想打其他人吗？	2674	GREEN  -- 物品名:"索耶"
+DESCRIBE.PIGELITEFIGHTER1	看什么看？	2675	BLUE  -- 物品名:"韦德"
+DESCRIBE.PIGELITEFIGHTER2	讨打。	2676	RED  -- 物品名:"伊格内修斯"
+DESCRIBE.PIGELITEFIGHTER3	你眼里有泥。	2677	WHITE  -- 物品名:"德米特里"
+DESCRIBE.PIGELITEFIGHTER4	难道你不想打其他人吗？	2678	GREEN  -- 物品名:"索耶"
+DESCRIBE.CARRAT_GHOSTRACER	真令人不安啊。	2679	物品名:"查理的胡萝卜鼠"
+DESCRIBE.YOTC_CARRAT_RACE_START	不错的起点。	2680	物品名:"起点" 制造描述:"冲向比赛。"
+DESCRIBE.YOTC_CARRAT_RACE_CHECKPOINT	关键的一点。	2681	物品名:"检查点" 制造描述:"通往光荣之路上的一站。"
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.GENERIC	与其说是终点……	2684	物品名:"终点线"->默认 制造描述:"你走投无路了。"
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.BURNT	一把火烧的干干净净。	2685	物品名:"终点线"->烧焦的 制造描述:"你走投无路了。"
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.I_WON	哈哈。胜出了。	2686	物品名:"终点线" 制造描述:"你走投无路了。"
+DESCRIBE.YOTC_CARRAT_RACE_FINISH.SOMEONE_ELSE_WON	哎……恭喜了。	2687	物品名:"终点线" 制造描述:"你走投无路了。"
+DESCRIBE.YOTC_CARRAT_RACE_START_ITEM	好吧，算是个开始。	2689	物品名:"起点套装" 制造描述:"冲向比赛。"
+DESCRIBE.YOTC_CARRAT_RACE_CHECKPOINT_ITEM	总会抵达终点。	2690	物品名:"检查点套装" 制造描述:"通往光荣之路上的一站。"
+DESCRIBE.YOTC_CARRAT_RACE_FINISH_ITEM	大限将至。	2691	物品名:"终点线套装" 制造描述:"你走投无路了。"
+DESCRIBE.YOTC_SEEDPACKET	看起来挺丰富的。	2692	物品名:"种子包" 制造描述:"一包普通的混合种子。"
+DESCRIBE.YOTC_SEEDPACKET_RARE	哟，还是稀罕货啊。	2693	物品名:"高级种子包" 制造描述:"一包高质量的种子。"
+DESCRIBE.MINIBOATLANTERN	真亮。	2694	物品名:"漂浮灯笼" 制造描述:"闪着暖暖的光亮。"
+DESCRIBE.YOTC_CARRATSHRINE.GENERIC	做什么呢……	2697	物品名:"胡萝卜鼠神龛"->默认 制造描述:"供奉灵巧之胡萝卜鼠。"
+DESCRIBE.YOTC_CARRATSHRINE.EMPTY	嗯……胡萝卜鼠喜欢吃什么呢？	2698	物品名:"胡萝卜鼠神龛" 制造描述:"供奉灵巧之胡萝卜鼠。"
+DESCRIBE.YOTC_CARRATSHRINE.BURNT	烤胡萝卜的气味。	2699	物品名:"胡萝卜鼠神龛"->烧焦的 制造描述:"供奉灵巧之胡萝卜鼠。"
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION.GENERIC	指明方向。	2703	物品名:"方向健身房"->默认
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION.RAT	你可以试试。	2704	物品名:"方向健身房"
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION.BURNT	我的训练计划灰飞烟灭。	2705	物品名:"方向健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_SPEED.GENERIC	我需要提高胡萝卜鼠的速度。	2709	物品名:"速度健身房"->默认
+DESCRIBE.YOTC_CARRAT_GYM_SPEED.RAT	快点……快点。	2710	物品名:"速度健身房"
+DESCRIBE.YOTC_CARRAT_GYM_SPEED.BURNT	我可能放太多燃料了。	2711	物品名:"速度健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_REACTION.GENERIC	我们来训练胡萝卜鼠的反应速度。	2715	物品名:"反应健身房"->默认
+DESCRIBE.YOTC_CARRAT_GYM_REACTION.RAT	试试反应。	2716	物品名:"反应健身房"
+DESCRIBE.YOTC_CARRAT_GYM_REACTION.BURNT	付出了不少的代价。	2717	物品名:"反应健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA.GENERIC	变得更加强壮了。	2721	物品名:"耐力健身房"->默认
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA.RAT	这只胡萝卜鼠……将无人能挡。。	2722	物品名:"耐力健身房"
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA.BURNT	谁都阻挡不了进步。但这个会推迟它……	2723	物品名:"耐力健身房"->烧焦的
+DESCRIBE.YOTC_CARRAT_GYM_DIRECTION_ITEM	我也该练练了。	2725	物品名:"方向健身房套装" 制造描述:"提高你的胡萝卜鼠的方向感。"
+DESCRIBE.YOTC_CARRAT_GYM_SPEED_ITEM	我最好把这个组装起来。	2726	物品名:"速度健身房套装" 制造描述:"增加你的胡萝卜鼠的速度。"
+DESCRIBE.YOTC_CARRAT_GYM_STAMINA_ITEM	这个会改善胡萝卜鼠的耐力	2727	物品名:"耐力健身房套装" 制造描述:"增强你的胡萝卜鼠的耐力。"
+DESCRIBE.YOTC_CARRAT_GYM_REACTION_ITEM	这个应该能显著提高胡萝卜鼠的反应时间。	2728	物品名:"反应健身房套装" 制造描述:"加快你的胡萝卜鼠的反应时间。"
+DESCRIBE.YOTC_CARRAT_SCALE_ITEM	可以秤我的胡萝卜鼠。	2729	物品名:"胡萝卜鼠秤套装" 制造描述:"看看你的胡萝卜鼠的情况。"
+DESCRIBE.YOTC_CARRAT_SCALE.GENERIC	希望天道眷顾我。	2732	物品名:"胡萝卜鼠秤"->默认
+DESCRIBE.YOTC_CARRAT_SCALE.CARRAT	它终究只是一个有知觉的蔬菜。	2733	物品名:"胡萝卜鼠" 制造描述:"灵巧机敏，富含胡萝卜素。"
+DESCRIBE.YOTC_CARRAT_SCALE.CARRAT_GOOD	胡萝卜鼠熟到可以赛跑了。	2734	物品名:"胡萝卜鼠秤"
+DESCRIBE.YOTC_CARRAT_SCALE.BURNT	真是一团糟	2735	物品名:"胡萝卜鼠秤"->烧焦的
+DESCRIBE.YOTB_BEEFALOSHRINE.GENERIC	做什么呢……	2739	物品名:"皮弗娄牛神龛"->默认 制造描述:"供奉坚毅之皮弗娄牛。"
+DESCRIBE.YOTB_BEEFALOSHRINE.EMPTY	嗯……牛是什么做的呢？	2740	物品名:"皮弗娄牛神龛" 制造描述:"供奉坚毅之皮弗娄牛。"
+DESCRIBE.YOTB_BEEFALOSHRINE.BURNT	闻起来是烤肉的味道。	2741	物品名:"皮弗娄牛神龛"->烧焦的 制造描述:"供奉坚毅之皮弗娄牛。"
+DESCRIBE.BEEFALO_GROOMER.GENERIC	没有牛儿让我打扮一番。	2745	物品名:"皮弗娄牛美妆台"->默认 制造描述:"美牛原型机。"
+DESCRIBE.BEEFALO_GROOMER.OCCUPIED	让我们来美化一下这头牛儿。	2746	物品名:"皮弗娄牛美妆台"->被占领 制造描述:"美牛原型机。"
+DESCRIBE.BEEFALO_GROOMER.BURNT	我用最火的风格打扮了这头牛儿。	2747	物品名:"皮弗娄牛美妆台"->烧焦的 制造描述:"美牛原型机。"
+DESCRIBE.BEEFALO_GROOMER_ITEM	我还是换个地方把它装起来吧。	2749	物品名:"美妆台套装" 制造描述:"美牛原型机。"
+DESCRIBE.YOTR_RABBITSHRINE.GENERIC	做什么呢……	2752	物品名:"兔人神龛"->默认 制造描述:"供奉舒适之兔人。"
+DESCRIBE.YOTR_RABBITSHRINE.EMPTY	那只兔子看起来饿了。	2753	物品名:"兔人神龛" 制造描述:"供奉舒适之兔人。"
+DESCRIBE.YOTR_RABBITSHRINE.BURNT	闻起来像素食烧烤。	2754	物品名:"兔人神龛"->烧焦的 制造描述:"供奉舒适之兔人。"
+DESCRIBE.NIGHTCAPHAT	我可以试试这个。	2756	物品名:"睡帽" 制造描述:"为你打瞌睡的脑袋准备的帽子。"
+DESCRIBE.YOTR_FOOD1	它是用胡萝卜做的。	2757	物品名:"兔子卷" 制造描述:"制造这个蛋糕的过程中没有兔子受到伤害。"
+DESCRIBE.YOTR_FOOD2	好喜欢甜甜的食物。	2758	物品名:"月饼" 制造描述:"“蓝色”风味。"
+DESCRIBE.YOTR_FOOD3	摇晃的甜点。	2759	物品名:"月冻" 制造描述:"这甜点美的让人不忍心咬一口。"
+DESCRIBE.YOTR_FOOD4	还不错。	2760	物品名:"泡芙串" 制造描述:"蓬松有嚼劲的球。"
+DESCRIBE.YOTR_TOKEN	这个东西我可不能给错人。	2761	物品名:"挑战手套" 制造描述:"告诉兔人你想在枕头大战里试试手。"
+DESCRIBE.COZY_BUNNYMAN	他们看着很舒服的样子。	2762	物品名:"舒适的兔人"
+DESCRIBE.HANDPILLOW_BEEFALOWOOL	要是它闻起来不像皮弗娄牛就好了。	2763	物品名:"皮弗娄牛毛枕头" 制造描述:"打出一记带牛毛的重击。"
+DESCRIBE.HANDPILLOW_KELP	我不喜欢这么潮。	2764	物品名:"海带枕头" 制造描述:"没有人喜欢盖着湿毯子睡。别以为湿枕头能好到哪去。"
+DESCRIBE.HANDPILLOW_PETALS	起码比其他的枕头好闻。	2765	物品名:"花朵枕头" 制造描述:"枕头里装满了花的力量。"
+DESCRIBE.HANDPILLOW_STEELWOOL	谁会睡在这上面？	2766	物品名:"钢丝绵枕头" 制造描述:"专为枕头大战的严肃参赛者准备。"
+DESCRIBE.BODYPILLOW_BEEFALOWOOL	要是它闻起来那么怪异就好了。	2767	物品名:"皮弗娄牛枕头盔甲" 制造描述:"加强你的枕头防卫。"
+DESCRIBE.BODYPILLOW_KELP	我不喜欢这么潮。	2768	物品名:"海带枕头盔甲" 制造描述:"一套湿漉漉的枕头盔甲。"
+DESCRIBE.BODYPILLOW_PETALS	起码比有的枕头好闻。	2769	物品名:"花朵枕头盔甲" 制造描述:"它提供了最低限度的保护，脱下它后你身上会有玫瑰花的香味。"
+DESCRIBE.BODYPILLOW_STEELWOOL	谁会睡在这上面？	2770	物品名:"钢丝绵枕头盔甲" 制造描述:"一个可穿戴的枕头，既有效又令人不快。"
+DESCRIBE.BISHOP_CHARGE_HIT	噢。	2771	物品名:"兔人神龛"->被主教攻击 制造描述:"供奉舒适之兔人。"
+DESCRIBE.TRUNKVEST_SUMMER	凉快。	2772	物品名:"透气背心" 制造描述:"暖和，但算不上非常暖和。"
+DESCRIBE.TRUNKVEST_WINTER	不错。	2773	物品名:"松软背心" 制造描述:"足以抵御冬季暴雪的保暖背心。"
+DESCRIBE.TRUNK_COOKED	不知怎么回事比以前更像鼻子了。	2774	物品名:"象鼻排"
+DESCRIBE.TRUNK_SUMMER	一根轻快的象鼻。	2775	物品名:"象鼻"
+DESCRIBE.TRUNK_WINTER	一根肥厚多毛的象鼻。	2776	物品名:"冬象鼻"
+DESCRIBE.TUMBLEWEED	谁知道那个风滚草里裹着什么。	2777	物品名:"风滚草"
+DESCRIBE.TURKEYDINNER	啧~	2778	物品名:"火鸡正餐"
+DESCRIBE.TWIGS	一堆小树枝。	2779	物品名:"树枝"
+DESCRIBE.UMBRELLA	衣服这就不会湿了。	2780	物品名:"雨伞" 制造描述:"遮阳挡雨。"
+DESCRIBE.GRASS_UMBRELLA	这个油伞好看，但不顶用。	2781	物品名:"花伞" 制造描述:"漂亮轻便的保护伞。"
+DESCRIBE.UNIMPLEMENTED	看起来还没有完工。可能有危险。	2782	物品名:"兔人神龛" 制造描述:"供奉舒适之兔人。"
+DESCRIBE.WAFFLES	它看起来分量超足。	2783	物品名:"华夫饼"
+DESCRIBE.WALL_HAY.GENERIC	呃。我想只能将就着用了。	2786	物品名:"草墙"->默认
+DESCRIBE.WALL_HAY.BURNT	完全没用了。	2787	物品名:"草墙"->烧焦的
+DESCRIBE.WALL_HAY_ITEM	这不像是个好主意。	2789	物品名:"草墙" 制造描述:"草墙墙体。不太结实。"
+DESCRIBE.WALL_STONE	不错的墙。	2790	物品名:"石墙"
+DESCRIBE.WALL_STONE_ITEM	它们让我有安全感。	2791	物品名:"石墙" 制造描述:"石墙墙体。"
+DESCRIBE.WALL_RUINS	一段古老的墙。	2792	物品名:"铥墙"
+DESCRIBE.WALL_RUINS_ITEM	一段坚固的历史。	2793	物品名:"铥墙" 制造描述:"这些墙可以承受相当多的打击。"
+DESCRIBE.WALL_WOOD.GENERIC	尖的。	2796	物品名:"木墙"->默认
+DESCRIBE.WALL_WOOD.BURNT	烧焦了。	2797	物品名:"木墙"->烧焦的
+DESCRIBE.WALL_WOOD_ITEM	木桩。	2799	物品名:"木墙" 制造描述:"木墙墙体。"
+DESCRIBE.WALL_MOONROCK	空灵而光滑。	2800	物品名:"月岩墙"
+DESCRIBE.WALL_MOONROCK_ITEM	非常轻盈，但出人意料地坚硬。	2801	物品名:"月岩墙" 制造描述:"月球疯子之墙。"
+DESCRIBE.WALL_DREADSTONE	这种感觉真的安全？	2802	物品名:"绝望石墙"
+DESCRIBE.WALL_DREADSTONE_ITEM	会出什么问题？	2803	物品名:"绝望石墙" 制造描述:"将自己包围在最可怕的装饰之中。"
+DESCRIBE.FENCE	不过是个木头栅栏。	2804	物品名:"木栅栏"
+DESCRIBE.FENCE_ITEM	有了它就能造出一个美丽牢固的栅栏。	2805	物品名:"木栅栏" 制造描述:"木栅栏部分。"
+DESCRIBE.FENCE_GATE	有人在家吗？	2806	物品名:"木门"
+DESCRIBE.FENCE_GATE_ITEM	有了它就能造出一个牢固的大门。	2807	物品名:"木门" 制造描述:"木栅栏的门。"
+DESCRIBE.WALRUS	一个奇特的妖兽。	2808	物品名:"海象"
+DESCRIBE.WALRUSHAT	上面盖了一层海象毛。	2809	物品名:"贝雷帽"
+DESCRIBE.WALRUS_CAMP.EMPTY	看起来有人在这里扎营。	2812	物品名:"海象营地"
+DESCRIBE.WALRUS_CAMP.GENERIC	看起来里面温暖而舒适。	2813	物品名:"海象营地"->默认
+DESCRIBE.WALRUS_TUSK	它最终肯定能派上用场。	2815	物品名:"海象牙"
+DESCRIBE.WARDROBE.GENERIC	可以更换衣服。	2818	物品名:"衣柜"->默认 制造描述:"随心变换面容。"
+DESCRIBE.WARDROBE.BURNING	烧得好快。	2819	物品名:"衣柜"->正在燃烧 制造描述:"随心变换面容。"
+DESCRIBE.WARDROBE.BURNT	毫无风格可言。	2820	物品名:"衣柜"->烧焦的 制造描述:"随心变换面容。"
+DESCRIBE.WARG	你好像不太好对付啊，大狗。	2822	物品名:"座狼"
+DESCRIBE.WARGLET	又要回到那些个日子了……	2823	物品名:"青年座狼"
+DESCRIBE.WASPHIVE	我看那些蜜蜂都发疯了。	2824	物品名:"杀人蜂蜂窝"
+DESCRIBE.WATERBALLOON	储存水的好主意。	2825	物品名:"水球" 制造描述:"球体灭火。"
+DESCRIBE.WATERMELON	带几个回去。	2826	物品名:"西瓜"
+DESCRIBE.WATERMELON_COOKED	多汁的瓜果。	2827	物品名:"烤西瓜"
+DESCRIBE.WATERMELONHAT	让果汁流下。	2828	物品名:"西瓜帽" 制造描述:"提神醒脑，但感觉黏黏的。"
+DESCRIBE.WAXWELLJOURNAL.GENERIC	真可怕。	2831	物品名:"暗影秘典"->默认 制造描述:"这将让你大吃一惊。"
+DESCRIBE.WETGOOP	它尝起来没什么味道。	2834	物品名:"潮湿黏糊"
+DESCRIBE.WHIP	这辫子有些厉害。	2835	物品名:"三尾猫鞭" 制造描述:"提出有建设性的反馈意见。"
+DESCRIBE.WINTERHAT	冬天来的时候，我就戴上它。	2836	物品名:"冬帽" 制造描述:"保持脑袋温暖。"
+DESCRIBE.WINTEROMETER.GENERIC	有些用处的玩意儿。	2839	物品名:"温度测量仪"->默认 制造描述:"测量环境气温。"
+DESCRIBE.WINTEROMETER.BURNT	再也不能测量了。	2840	物品名:"温度测量仪"->烧焦的 制造描述:"测量环境气温。"
+DESCRIBE.WINTER_TREE.BURNT	节日气氛受了影响。	2844	物品名:"冬季盛宴树"->烧焦的
+DESCRIBE.WINTER_TREE.BURNING	我认为那是个错误。	2845	物品名:"冬季盛宴树"->正在燃烧
+DESCRIBE.WINTER_TREE.CANDECORATE	瑞雪降祥瑞。	2846	物品名:"冬季盛宴树"->烛台？？？
+DESCRIBE.WINTER_TREE.YOUNG	马上就要过节了。	2847	物品名:"冬季盛宴树"->还年轻
+DESCRIBE.WINTER_TREESTAND.GENERIC	我需要一颗松果。	2851	物品名:"盛宴树盆"->默认 制造描述:"种植并装饰一棵冬季盛宴树。"
+DESCRIBE.WINTER_TREESTAND.BURNT	节日气氛受了影响。	2852	物品名:"盛宴树盆"->烧焦的 制造描述:"种植并装饰一棵冬季盛宴树。"
+DESCRIBE.WINTER_ORNAMENT	不错的小玩意儿。	2854	物品名:"圣诞小玩意"
+DESCRIBE.WINTER_ORNAMENTLIGHT	我喜欢亮晶晶好看的东西。	2855	物品名:"圣诞灯"
+DESCRIBE.WINTER_ORNAMENTBOSS	这一个尤其令人印象深刻。	2856	物品名:"华丽的装饰"
+DESCRIBE.WINTER_ORNAMENTFORGE	我应该把它悬火上烤。	2857	物品名:"熔炉装饰"
+DESCRIBE.WINTER_ORNAMENTGORGE	不知道为什么，这让我觉得很饿。	2858	物品名:"暴食装饰"
+DESCRIBE.WINTER_FOOD1	女娲做了个什么？	2859	gingerbread cookie  -- 物品名:"小姜饼"
+DESCRIBE.WINTER_FOOD2	我要吃四十个。为了法力。	2860	sugar cookie  -- 物品名:"糖曲奇饼"
+DESCRIBE.WINTER_FOOD3	中元节期间的牙疼马上就要发生了。	2861	candy cane  -- 物品名:"拐杖糖"
+DESCRIBE.WINTER_FOOD4	这口感，有点不对。	2862	fruitcake  -- 物品名:"永远的水果蛋糕"
+DESCRIBE.WINTER_FOOD5	能有一次吃浆果以外的东西真是好。	2863	yule log cake  -- 物品名:"巧克力原木蛋糕"
+DESCRIBE.WINTER_FOOD6	直接放进嘴里。	2864	plum pudding  -- 物品名:"李子布丁"
+DESCRIBE.WINTER_FOOD7	充满了美味汁液的空心苹果。	2865	apple cider  -- 物品名:"苹果酒"
+DESCRIBE.WINTER_FOOD8	黑乎乎，甜甜的？	2866	hot cocoa  -- 物品名:"热可可"
+DESCRIBE.WINTER_FOOD9	琼浆玉液也不过如此了吧？	2867	eggnog  -- 物品名:"美味的蛋酒"
+DESCRIBE.WINTERSFEASTOVEN.GENERIC	喜庆的炉子，用来做火烤的食物。	2870	物品名:"砖砌烤炉"->默认 制造描述:"燃起了喜庆的火焰。"
+DESCRIBE.WINTERSFEASTOVEN.COOKING	好用又好看。	2871	物品名:"砖砌烤炉" 制造描述:"燃起了喜庆的火焰。"
+DESCRIBE.WINTERSFEASTOVEN.ALMOST_DONE_COOKING	马上就垒好了。	2872	物品名:"砖砌烤炉" 制造描述:"燃起了喜庆的火焰。"
+DESCRIBE.WINTERSFEASTOVEN.DISH_READY	马上就垒好了。	2873	物品名:"砖砌烤炉" 制造描述:"燃起了喜庆的火焰。"
+DESCRIBE.BERRYSAUCE	浆果果酱。	2875	物品名:"快乐浆果酱"
+DESCRIBE.BIBINGKA	像海绵一样软。	2876	物品名:"比宾卡米糕"
+DESCRIBE.CABBAGEROLLS	荤素搭配。	2877	物品名:"白菜卷"
+DESCRIBE.FESTIVEFISH	品尝品尝时令海鲜。	2878	物品名:"节庆鱼料理"
+DESCRIBE.GRAVY	全是肉汁。	2879	物品名:"好肉汁"
+DESCRIBE.LATKES	我能吃好多个。	2880	物品名:"土豆饼"
+DESCRIBE.LUTEFISK	味道还成。	2881	物品名:"苏打鱼"
+DESCRIBE.MULLEDDRINK	这杯酒劲很足。	2882	物品名:"香料潘趣酒"
+DESCRIBE.PANETTONE	这个食物还算是应景。	2883	物品名:"托尼甜面包"
+DESCRIBE.PAVLOVA	我可以试着尝尝了。	2884	物品名:"巴甫洛娃蛋糕"
+DESCRIBE.PICKLEDHERRING	无可挑剔的美味。	2885	物品名:"腌鲱鱼"
+DESCRIBE.POLISHCOOKIE	我要吃个精光。	2886	物品名:"波兰饼干"
+DESCRIBE.PUMPKINPIE	我要全部吃掉。	2887	物品名:"南瓜派"
+DESCRIBE.ROASTTURKEY	肥美多汁的鸡腿，为我做的。	2888	物品名:"烤火鸡"
+DESCRIBE.STUFFING	都是好料。	2889	物品名:"烤火鸡面包馅"
+DESCRIBE.SWEETPOTATO	不错的食物。	2890	物品名:"红薯焗饭"
+DESCRIBE.TAMALES	我要再多吃一些。	2891	物品名:"塔马利"
+DESCRIBE.TOURTIERE	尽情品尝。	2892	物品名:"饕餮馅饼"
+DESCRIBE.TABLE_WINTERS_FEAST.GENERIC	节庆餐桌。	2895	物品名:"冬季盛宴餐桌"->默认 制造描述:"一起来享用冬季盛宴吧。"
+DESCRIBE.TABLE_WINTERS_FEAST.HAS_FOOD	吃饭时间到了。	2896	物品名:"冬季盛宴餐桌" 制造描述:"一起来享用冬季盛宴吧。"
+DESCRIBE.TABLE_WINTERS_FEAST.WRONG_TYPE	不是吃这个的季节。	2897	物品名:"冬季盛宴餐桌" 制造描述:"一起来享用冬季盛宴吧。"
+DESCRIBE.TABLE_WINTERS_FEAST.BURNT	谁会做这种事？	2898	物品名:"冬季盛宴餐桌"->烧焦的 制造描述:"一起来享用冬季盛宴吧。"
+DESCRIBE.GINGERBREADWARG	让我尝尝。	2900	物品名:"姜饼座狼"
+DESCRIBE.GINGERBREADHOUSE	管吃管住。	2901	物品名:"姜饼猪屋"
+DESCRIBE.GINGERBREADPIG	我最好跟着他。	2902	物品名:"姜饼猪"
+DESCRIBE.CRUMBS	走一路掉一路。	2903	物品名:"饼干屑"
+DESCRIBE.WINTERSFEASTFUEL	冬季精神。	2904	物品名:"节日欢愉"
+DESCRIBE.KLAUS	那究竟是什么东西。	2905	物品名:"克劳斯"
+DESCRIBE.KLAUS_SACK	我应该打开那东西。	2906	物品名:"赃物袋"
+DESCRIBE.KLAUSSACKKEY	对一个鹿角来说这真是太花俏了。	2907	物品名:"麋鹿茸"
+DESCRIBE.WORMHOLE.GENERIC	看看能到哪儿。	2910	物品名:"虫洞"->默认
+DESCRIBE.WORMHOLE.OPEN	有什么在催促我跳进去。	2911	物品名:"虫洞"->打开
+DESCRIBE.WORMHOLE_LIMITED	啊，那玩意看着不太对啊。	2913	物品名:"生病的虫洞"->一次性虫洞 单机
+DESCRIBE.ACCOMPLISHMENT_SHRINE	让这一界都知道我的所作所为。	2914	single player  -- 物品名:"奖杯" 制造描述:"证明你作为一个人的价值。"
+DESCRIBE.LIVINGTREE	它在观察我吗？	2915	物品名:"完全正常的树"
+DESCRIBE.ICESTAFF	摸上去冷冰冰的。	2916	物品名:"冰魔杖" 制造描述:"把敌人冰冻在原地。"
+DESCRIBE.REVIVER	魂魄复活了。	2917	物品名:"告密的心" 制造描述:"鬼魂朋友复活了，好可怕。"
+DESCRIBE.SHADOWHEART	蕴藏着莫大的法力。	2918	物品名:"暗影心房"
+DESCRIBE.ATRIUM_RUBBLE.LINE_1	描绘了一个古老的文明。	2921	物品名:"远古壁画"->第一行
+DESCRIBE.ATRIUM_RUBBLE.LINE_2	这块石板已经无法识别了。	2922	物品名:"远古壁画"->第二行
+DESCRIBE.ATRIUM_RUBBLE.LINE_3	有东西悄悄逼近这。	2923	物品名:"远古壁画"->第三行
+DESCRIBE.ATRIUM_RUBBLE.LINE_4	万物表里截然不同。	2924	物品名:"远古壁画"->第四行
+DESCRIBE.ATRIUM_RUBBLE.LINE_5	一副很古老的壁画。	2925	物品名:"远古壁画"->第五行
+DESCRIBE.ATRIUM_STATUE	这看起来并不全是真的。	2927	物品名:"远古雕像"
+DESCRIBE.ATRIUM_LIGHT.ON	非常令人不安的光。	2930	物品名:"远古灯柱"->开启
+DESCRIBE.ATRIUM_LIGHT.OFF	它必须有法力来源。	2931	物品名:"远古灯柱"->关闭
+DESCRIBE.ATRIUM_GATE.ON	回到正常状态。	2935	物品名:"远古大门"->开启
+DESCRIBE.ATRIUM_GATE.OFF	依然完好无损。	2936	物品名:"远古大门"->关闭
+DESCRIBE.ATRIUM_GATE.CHARGING	它正在获得能法力。	2937	物品名:"远古大门"->充能中
+DESCRIBE.ATRIUM_GATE.DESTABILIZING	大门在晃动。	2938	物品名:"远古大门"->不稳定
+DESCRIBE.ATRIUM_GATE.COOLDOWN	它需要时间恢复。	2939	物品名:"远古大门"->冷却中
+DESCRIBE.ATRIUM_KEY	这把钥匙能开启特定的大门。	2941	物品名:"远古钥匙"
+DESCRIBE.LIFEINJECTOR	法力回溯。	2942	物品名:"强心针" 制造描述:"提高下你那日渐衰退的最大健康值吧。"
+DESCRIBE.SKELETON_PLAYER.MALE	不过是白骨骷髅。	2945	物品名:"骷髅"->男性
+DESCRIBE.SKELETON_PLAYER.FEMALE	不过是白骨骷髅。	2946	物品名:"骷髅"->女性
+DESCRIBE.SKELETON_PLAYER.ROBOT	不过是白骨骷髅。	2947	物品名:"骷髅"->机器人
+DESCRIBE.SKELETON_PLAYER.DEFAULT	不过是白骨骷髅。	2948	物品名:"物品栏物品"->默认
+DESCRIBE.HUMANMEAT	这个肉怎么怪怪的？	2950	物品名:"长猪"
+DESCRIBE.HUMANMEAT_COOKED	奇怪的肉被烤熟了。	2951	物品名:"熟长猪"
+DESCRIBE.HUMANMEAT_DRIED	奇怪的肉被风干了。	2952	物品名:"长猪肉干"
+DESCRIBE.ROCK_MOON	那块石头来自月亮。	2953	物品名:"岩石"
+DESCRIBE.MOONROCKNUGGET	那块石头来自月亮。	2954	物品名:"月岩"
+DESCRIBE.MOONROCKCRATER	我应该把什么东西粘在它里面。	2955	物品名:"带孔月岩" 制造描述:"用于划定地盘的岩石。"
+DESCRIBE.MOONROCKSEED	像一颗夜明珠。	2956	物品名:"天体宝球"
+DESCRIBE.REDMOONEYE	它能看很远的地方。	2957	物品名:"红色月眼"
+DESCRIBE.PURPLEMOONEYE	是个很好的标记用的玩意儿。	2958	物品名:"紫色月眼"
+DESCRIBE.GREENMOONEYE	那东西会密切关注这地方。	2959	物品名:"绿色月眼"
+DESCRIBE.ORANGEMOONEYE	有那东西帮忙观望，没有人会迷路。	2960	物品名:"橘色月眼"
+DESCRIBE.YELLOWMOONEYE	那应该给每个人指路。	2961	物品名:"黄色月眼"
+DESCRIBE.BLUEMOONEYE	留个心眼总是比较明智的。	2962	物品名:"蓝色月眼"
+DESCRIBE.BOARRIOR	你可真大。	2963	物品名:"大熔炉猪战士"->大熔炉猪战士
+DESCRIBE.BOARON	我可以应对他。	2964	物品名:"战猪"
+DESCRIBE.PEGHOOK	那家伙喷出来的东西有危险。	2965	物品名:"蝎子"
+DESCRIBE.TRAILS	他的胳膊真壮啊。	2966	物品名:"野猪猩"
+DESCRIBE.TURTILLUS	它的壳有尖刺。	2967	物品名:"坦克龟"
+DESCRIBE.SNAPPER	这家伙会咬人。	2968	物品名:"鳄鱼指挥官"
+DESCRIBE.RHINODRILL	他的鼻子很适合干这个活。	2969	物品名:"后扣帽犀牛兄弟"
+DESCRIBE.BEETLETAUR	我在这里都能闻到他的气味。	2970	物品名:"地狱独眼巨猪"
+DESCRIBE.LAVAARENA_PORTAL.ON	我要走了。	2973	物品名:"远古大门"->开启
+DESCRIBE.LAVAARENA_PORTAL.GENERIC	能过来，应该也能回去吧？	2974	物品名:"远古大门"->默认
+DESCRIBE.HEALINGSTAFF	释放再生的法力。	2976	物品名:"生命魔杖"
+DESCRIBE.FIREBALLSTAFF	召唤星星从天而降。	2977	物品名:"地狱魔杖"
+DESCRIBE.HAMMER_MJOLNIR	这把敲东西的锤子还不错。	2978	物品名:"锻锤"
+DESCRIBE.SPEAR_GUNGNIR	我可以用它回复一些法力。	2979	物品名:"尖齿矛"
+DESCRIBE.BLOWDART_LAVA	我可以使用这个。	2980	物品名:"吹箭"
+DESCRIBE.BLOWDART_LAVA2	试试看吧。	2981	物品名:"熔化吹箭"
+DESCRIBE.WEBBER_SPIDER_MINION	可以说他们是在为我战斗吧。	2982	物品名:"蜘蛛宝宝"
+DESCRIBE.BOOK_FOSSIL	这本书拥有很强大的力量。	2983	物品名:"石化之书"
+DESCRIBE.SPEAR_LANCE	它直击要害。	2984	物品名:"螺旋矛"
+DESCRIBE.BOOK_ELEMENTAL	我看不清这些字。	2985	物品名:"召唤之书"
+DESCRIBE.QUAGMIRE_ALTAR.GENERIC	我最好开始煮些祭品。	2988	物品名:"饕餮祭坛"->默认
+DESCRIBE.QUAGMIRE_ALTAR.FULL	它正在消化。	2989	物品名:"饕餮祭坛"->满了
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.GENERIC	它含有许多树液。	2993	物品名:"糖木树"->默认
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.STUMP	那棵树哪去了？	2994	物品名:"糖木树"->暴食模式糖木树只剩树桩了
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.TAPPED_EMPTY	树汁液。	2995	物品名:"糖木树"->暴食模式糖木树空了
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.TAPPED_READY	金黄色汁液。	2996	物品名:"糖木树"->暴食模式糖木树好了
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.TAPPED_BUGS	蚂蚁就是这样来的。	2997	物品名:"糖木树"->暴食模式糖木树上有蚂蚁
+DESCRIBE.QUAGMIRE_SUGARWOODTREE.WOUNDED	它看上去生病了。	2998	物品名:"糖木树"->暴食糖木树生病了
+DESCRIBE.QUAGMIRE_SPOTSPICE_SHRUB.GENERIC	它让我想起来那些带触手的妖物。	3002	物品名:"带斑点的小灌木"->默认
+DESCRIBE.QUAGMIRE_SPOTSPICE_SHRUB.PICKED	从那丛灌木中采集不到更多果实了。	3003	物品名:"带斑点的小灌木"->被采完了
+DESCRIBE.QUAGMIRE_SALT_RACK.READY	盐积聚在绳子上了。	3007	物品名:"盐架"->准备好的 满的
+DESCRIBE.QUAGMIRE_SALT_RACK.GENERIC	需要时间积累。	3008	物品名:"盐架"->默认
+DESCRIBE.QUAGMIRE_SAFE.GENERIC	这个箱子，用来保护一些玩意儿安全的。	3012	物品名:"保险箱"->默认
+DESCRIBE.QUAGMIRE_SAFE.LOCKED	没有钥匙就打不开。	3013	物品名:"保险箱"->锁住了
+DESCRIBE.QUAGMIRE_MUSHROOMSTUMP.GENERIC	那些是蘑菇吗？	3017	物品名:"蘑菇"->默认
+DESCRIBE.QUAGMIRE_MUSHROOMSTUMP.PICKED	应该不会长回来了。	3018	物品名:"蘑菇"->被采完了
+DESCRIBE.QUAGMIRE_RUBBLE_HOUSE[0]	空无一人。	3022	物品名:"残破的房子" 制造描述:未找到
+DESCRIBE.QUAGMIRE_RUBBLE_HOUSE[1]	这个村庄被摧毁了。	3023	物品名:"残破的房子" 制造描述:未找到
+DESCRIBE.QUAGMIRE_RUBBLE_HOUSE[2]	不知道他们惹怒了谁。	3024	物品名:"残破的房子" 制造描述:未找到
+DESCRIBE.QUAGMIRE_SWAMPIGELDER.GENERIC	我猜你是这里的老大？	3028	物品名:"沼泽猪长老"->默认
+DESCRIBE.QUAGMIRE_SWAMPIGELDER.SLEEPING	它睡着了，暂时睡着了。	3029	物品名:"沼泽猪长老"->睡着了
+DESCRIBE.QUAGMIRE_FOOD.GENERIC	我应该把它献祭在饕餮祭坛上。	3033	物品名:未找到
+DESCRIBE.QUAGMIRE_FOOD.MISMATCH	不是它想要的。	3034	物品名:未找到
+DESCRIBE.QUAGMIRE_FOOD.MATCH	这样会可能能安抚天上的。	3035	物品名:未找到
+DESCRIBE.QUAGMIRE_FOOD.MATCH_BUT_SNACK	这更像是小吃。	3036	物品名:未找到
+DESCRIBE.QUAGMIRE_PARK_GATE.GENERIC	没钥匙不行。	3040	物品名:"铁门"->默认
+DESCRIBE.QUAGMIRE_PARK_GATE.LOCKED	锁住了。	3041	物品名:"铁门"->锁住了
+DESCRIBE.QUAGMIRE_PIGEON.DEAD	死了。	3045	物品名:"鸽子"->死了 制造描述:"这是一只完整的活鸽。"
+DESCRIBE.QUAGMIRE_PIGEON.GENERIC	羽翼丰满。	3046	物品名:"鸽子"->默认 制造描述:"这是一只完整的活鸽。"
+DESCRIBE.QUAGMIRE_PIGEON.SLEEPING	暂时睡着了。	3047	物品名:"鸽子"->睡着了 制造描述:"这是一只完整的活鸽。"
+DESCRIBE.WINONA_CATAPULT.GENERIC	这下没人敢伤害她了。	3051	物品名:"薇诺娜的投石机"->默认 制造描述:"向敌人投掷大石块"
+DESCRIBE.WINONA_CATAPULT.OFF	需要雷电。	3052	物品名:"薇诺娜的投石机"->关闭 制造描述:"向敌人投掷大石块"
+DESCRIBE.WINONA_CATAPULT.BURNING	熊熊烈火。	3053	物品名:"薇诺娜的投石机"->正在燃烧 制造描述:"向敌人投掷大石块"
+DESCRIBE.WINONA_CATAPULT.BURNT	法力也没能拯救它。	3054	物品名:"薇诺娜的投石机"->烧焦的 制造描述:"向敌人投掷大石块"
+DESCRIBE.WINONA_SPOTLIGHT.GENERIC	好棒的主意。	3058	物品名:"薇诺娜的聚光灯"->默认 制造描述:"白天夜里都发光"
+DESCRIBE.WINONA_SPOTLIGHT.OFF	需要雷电。	3059	物品名:"薇诺娜的聚光灯"->关闭 制造描述:"白天夜里都发光"
+DESCRIBE.WINONA_SPOTLIGHT.BURNING	熊熊烈火。	3060	物品名:"薇诺娜的聚光灯"->正在燃烧 制造描述:"白天夜里都发光"
+DESCRIBE.WINONA_SPOTLIGHT.BURNT	法力也没能拯救它。	3061	物品名:"薇诺娜的聚光灯"->烧焦的 制造描述:"白天夜里都发光"
+DESCRIBE.WINONA_BATTERY_LOW.GENERIC	看起来很厉害。	3065	物品名:"薇诺娜的发电机"->默认 制造描述:"要确保电力供应充足"
+DESCRIBE.WINONA_BATTERY_LOW.LOWPOWER	电量正在下降。	3066	物品名:"薇诺娜的发电机"->没电了 制造描述:"要确保电力供应充足"
+DESCRIBE.WINONA_BATTERY_LOW.OFF	要是薇诺娜忙，我也能让它运作起来。	3067	物品名:"薇诺娜的发电机"->关闭 制造描述:"要确保电力供应充足"
+DESCRIBE.WINONA_BATTERY_LOW.BURNING	熊熊烈火。	3068	物品名:"薇诺娜的发电机"->正在燃烧 制造描述:"要确保电力供应充足"
+DESCRIBE.WINONA_BATTERY_LOW.BURNT	薇诺娜也没能拯救它。	3069	物品名:"薇诺娜的发电机"->烧焦的 制造描述:"要确保电力供应充足"
+DESCRIBE.WINONA_BATTERY_HIGH.GENERIC	想不到这个。	3073	物品名:"薇诺娜的宝石发电机"->默认 制造描述:"这玩意烧宝石，所以肯定不会差。"
+DESCRIBE.WINONA_BATTERY_HIGH.LOWPOWER	马上就没电了。	3074	物品名:"薇诺娜的宝石发电机"->没电了 制造描述:"这玩意烧宝石，所以肯定不会差。"
+DESCRIBE.WINONA_BATTERY_HIGH.OFF	雷公电母也想不到这个。	3075	物品名:"薇诺娜的宝石发电机"->关闭 制造描述:"这玩意烧宝石，所以肯定不会差。"
+DESCRIBE.WINONA_BATTERY_HIGH.BURNING	熊熊烈火。	3076	物品名:"薇诺娜的宝石发电机"->正在燃烧 制造描述:"这玩意烧宝石，所以肯定不会差。"
+DESCRIBE.WINONA_BATTERY_HIGH.BURNT	薇诺娜也没能拯救它。	3077	物品名:"薇诺娜的宝石发电机"->烧焦的 制造描述:"这玩意烧宝石，所以肯定不会差。"
+DESCRIBE.COMPOSTWRAP	沃姆伍德曾想让我尝一口。	3079	物品名:"肥料包" 制造描述:"“草本”的疗法。"
+DESCRIBE.ARMOR_BRAMBLE	防守是最好的进攻。	3080	物品名:"荆棘外壳" 制造描述:"让大自然告诉你什么叫“滚开”。"
+DESCRIBE.TRAP_BRAMBLE	谁要是踩上去肯定会被戳到。	3081	物品名:"荆棘陷阱" 制造描述:"中招机会平等的扰人陷阱。"
+DESCRIBE.BOATFRAGMENT03	就剩下了这一点。	3082	物品名:"船碎片"
+DESCRIBE.BOATFRAGMENT04	就剩下了这一点。	3083	物品名:"船碎片"
+DESCRIBE.BOATFRAGMENT05	就剩下了这一点。	3084	物品名:"船碎片"
+DESCRIBE.BOAT_LEAK	要补漏，不然会沉。	3085	物品名:"漏洞"
+DESCRIBE.MAST	且慢。桅杆。	3086	物品名:"桅杆" 制造描述:"乘风破浪会有时。"
+DESCRIBE.SEASTACK	这是一块石头。	3087	物品名:"海蚀柱"
+DESCRIBE.FISHINGNET	就是一张网。	3088	unimplemented  -- 物品名:"渔网" 制造描述:"就是一张网。"
+DESCRIBE.ANTCHOVIES	啊,我能丢回去吗？	3089	unimplemented  -- 物品名:"蚁头凤尾鱼"
+DESCRIBE.STEERINGWHEEL	乘风破浪。	3090	物品名:"方向舵" 制造描述:"航海必备道具。"
+DESCRIBE.ANCHOR	我可不想让小船飘走。	3091	物品名:"锚" 制造描述:"船用刹车"
+DESCRIBE.BOATPATCH	以防不测。	3092	物品名:"船补丁" 制造描述:"打补丁永远不晚。"
+DESCRIBE.DRIFTWOOD_TREE.BURNING	浮木在燃烧。	3095	物品名:"浮木"->正在燃烧
+DESCRIBE.DRIFTWOOD_TREE.BURNT	看起来没什么用了。	3096	物品名:"浮木"->烧焦的
+DESCRIBE.DRIFTWOOD_TREE.CHOPPED	可能还有东西值得挖一挖。	3097	物品名:"浮木"->被砍了
+DESCRIBE.DRIFTWOOD_TREE.GENERIC	被冲到岸上的一颗枯树。	3098	物品名:"浮木"->默认
+DESCRIBE.DRIFTWOOD_LOG	能浮在水上。	3100	物品名:"浮木桩"
+DESCRIBE.MOON_TREE.BURNING	树在燃烧。	3103	物品名:"月树"->正在燃烧
+DESCRIBE.MOON_TREE.BURNT	树烧尽了。	3104	物品名:"月树"->烧焦的
+DESCRIBE.MOON_TREE.CHOPPED	好粗的一颗树。	3105	物品名:"月树"->被砍了
+DESCRIBE.MOON_TREE.GENERIC	没曾想月亮上还长树。	3106	物品名:"月树"->默认
+DESCRIBE.MOON_TREE_BLOSSOM	从月亮树上掉下来的。	3108	物品名:"月树花"
+DESCRIBE.MOONBUTTERFLY.GENERIC	这是一只月光蝴蝶。	3111	物品名:"月蛾"->默认
+DESCRIBE.MOONBUTTERFLY.HELD	这下抓到你了。	3112	物品名:"月蛾"->拿在手里
+DESCRIBE.MOONBUTTERFLYWINGS	美丽的蝴蝶翅膀。	3114	物品名:"月蛾翅膀"
+DESCRIBE.MOONBUTTERFLY_SAPLING	蛾子变树？	3115	物品名:"月树苗"
+DESCRIBE.ROCK_AVOCADO_FRUIT	我可是铜头铁脑。	3116	物品名:"石果"
+DESCRIBE.ROCK_AVOCADO_FRUIT_RIPE	没煮熟的核果可不能吃。	3117	物品名:"成熟石果"
+DESCRIBE.ROCK_AVOCADO_FRUIT_RIPE_COOKED	够软了，应该味道不错。	3118	物品名:"熟石果"
+DESCRIBE.ROCK_AVOCADO_FRUIT_SPROUT	它正在生长。	3119	物品名:"发芽的石果"
+DESCRIBE.ROCK_AVOCADO_BUSH.BARREN	它结果的日子结束了。	3122	物品名:"石果灌木丛"
+DESCRIBE.ROCK_AVOCADO_BUSH.WITHERED	被热坏了。	3123	物品名:"石果灌木丛"->枯萎了
+DESCRIBE.ROCK_AVOCADO_BUSH.GENERIC	是月亮上来的灌木。	3124	物品名:"石果灌木丛"->默认
+DESCRIBE.ROCK_AVOCADO_BUSH.PICKED	得过些时间才能结出果实。	3125	物品名:"石果灌木丛"->被采完了
+DESCRIBE.ROCK_AVOCADO_BUSH.DISEASED	看上去病的很重。	3126	unimplemented  -- 物品名:"石果灌木丛"->生病了
+DESCRIBE.ROCK_AVOCADO_BUSH.DISEASING	有些地方不对劲。	3127	unimplemented  -- 物品名:"石果灌木丛"->正在生病？？
+DESCRIBE.ROCK_AVOCADO_BUSH.BURNING	它在燃烧。	3128	物品名:"石果灌木丛"->正在燃烧
+DESCRIBE.DEAD_SEA_BONES	上了岸，结果落得如此下场。	3130	物品名:"海骨"
+DESCRIBE.HOTSPRING.GENERIC	能泡下这身疲倦的身子该多好。	3133	物品名:"温泉"->默认
+DESCRIBE.HOTSPRING.BOMBED	很舒服的澡堂子。	3134	物品名:"温泉"
+DESCRIBE.HOTSPRING.GLASS	水在月光下凝结成琉璃，这就是法力。	3135	物品名:"温泉"
+DESCRIBE.HOTSPRING.EMPTY	那我就等等它再变满吧。	3136	物品名:"温泉"
+DESCRIBE.MOONGLASS	它非常锋利。	3138	物品名:"月亮碎片"
+DESCRIBE.MOONGLASS_CHARGED	我应该在它法力耗尽前为它找到用途。	3139	物品名:"注能月亮碎片"
+DESCRIBE.MOONGLASS_ROCK	我都能看到自己的倒影。	3140	物品名:"月光玻璃"
+DESCRIBE.BATHBOMB	这东西好烫。	3141	物品名:"沐浴球" 制造描述:"春天里来百花香？这点子把地都炸碎了"
+DESCRIBE.TRAP_STARFISH.GENERIC	一只小海星。	3144	物品名:"海星"->默认
+DESCRIBE.TRAP_STARFISH.CLOSED	它差点吞了我。	3145	物品名:"海星"
+DESCRIBE.DUG_TRAP_STARFISH	它再也骗不了人了。	3147	物品名:"海星陷阱"
+DESCRIBE.SPIDER_MOON.GENERIC	月亮让它产生了变异。	3150	物品名:"破碎蜘蛛"->默认
+DESCRIBE.SPIDER_MOON.SLEEPING	终于不动了。	3151	物品名:"破碎蜘蛛"->睡着了
+DESCRIBE.SPIDER_MOON.DEAD	真的死了吧？	3152	物品名:"破碎蜘蛛"->死了
+DESCRIBE.MOONSPIDERDEN	那可不是寻常的蜘蛛巢。	3154	物品名:"破碎蜘蛛洞"
+DESCRIBE.FRUITDRAGON.GENERIC	挺可爱的，不过还没熟。	3157	物品名:"沙拉蝾螈"->默认
+DESCRIBE.FRUITDRAGON.RIPE	现在应该熟了。	3158	物品名:"沙拉蝾螈"
+DESCRIBE.FRUITDRAGON.SLEEPING	在打盹呢。	3159	物品名:"沙拉蝾螈"->睡着了
+DESCRIBE.PUFFIN.GENERIC	一只可爱的小小妖兽。	3163	物品名:"海鹦鹉"->默认
+DESCRIBE.PUFFIN.HELD	抓到一只，吹嘘一下也不为过。	3164	物品名:"海鹦鹉"->拿在手里
+DESCRIBE.PUFFIN.SLEEPING	呼呼的安睡。	3165	物品名:"海鹦鹉"->睡着了
+DESCRIBE.MOONGLASSAXE	我把它做的非常好用。	3167	物品名:"月光玻璃斧" 制造描述:"脆弱而有效。"
+DESCRIBE.GLASSCUTTER	这是自然的产物。	3168	物品名:"玻璃刀" 制造描述:"尖端武器。"
+DESCRIBE.ICEBERG.GENERIC	一定要避开那东西。	3171	unimplemented  -- 物品名:"迷你冰山"->默认
+DESCRIBE.ICEBERG.MELTED	完全融化了。	3172	unimplemented  -- 物品名:"迷你冰山"->融化了
+DESCRIBE.ICEBERG_MELTED	完全融化了。	3174	unimplemented  -- 物品名:"融化的迷你冰山"
+DESCRIBE.MINIFLARE	我可以点一发。	3175	物品名:"信号弹" 制造描述:"为你信任的朋友照亮前路。"
+DESCRIBE.MEGAFLARE	它会让一切存在都知道我在这里。	3176	物品名:"敌对信号弹" 制造描述:"为你的敌人点亮一束光。"
+DESCRIBE.MOON_FISSURE.GENERIC	平静和恐惧同时在我的脑中回响。	3179	物品名:"天体裂隙"->默认
+DESCRIBE.MOON_FISSURE.NOLIGHT	这个地方的裂隙越来越明显。	3180	物品名:"天体裂隙"
+DESCRIBE.MOON_ALTAR.MOON_ALTAR_WIP	完成它。	3184	物品名:"组装一半的祭坛"
+DESCRIBE.MOON_ALTAR.GENERIC	你说什么？	3185	物品名:"天体祭坛"->默认
+DESCRIBE.MOON_ALTAR_IDOL	我有种强烈的感觉想把它搬走。	3187	物品名:"天体祭坛雕像"
+DESCRIBE.MOON_ALTAR_GLASS	它不想待在地上。	3188	物品名:"天体祭坛底座"
+DESCRIBE.MOON_ALTAR_SEED	它想让我给它一个家。	3189	物品名:"天体祭坛宝球"
+DESCRIBE.MOON_ALTAR_ROCK_IDOL	里面有东西。	3190	物品名:"吸引人的结构"
+DESCRIBE.MOON_ALTAR_ROCK_GLASS	里面有东西。	3191	物品名:"吸引人的结构"
+DESCRIBE.MOON_ALTAR_ROCK_SEED	里面有东西。	3192	物品名:"吸引人的结构"
+DESCRIBE.MOON_ALTAR_CROWN	我钓上来的，现在去找个裂隙吧。	3193	物品名:"未激活天体贡品"
+DESCRIBE.MOON_ALTAR_COSMIC	感觉它在等什么事情发生。	3194	物品名:"天体贡品"
+DESCRIBE.MOON_ALTAR_ASTRAL	它似乎是一个更大规矩的一部分。	3195	物品名:"天体圣殿"
+DESCRIBE.MOON_ALTAR_ICON	我知道把你放哪了。	3196	物品名:"天体圣殿象征"
+DESCRIBE.MOON_ALTAR_WARD	它需要和其他的那些放在一起。	3197	物品名:"天体圣殿卫戍"
+DESCRIBE.SEAFARING_PROTOTYPER.GENERIC	是不是该谢谢我了。	3200	物品名:"智囊团"->默认 制造描述:"海上科技。"
+DESCRIBE.SEAFARING_PROTOTYPER.BURNT	是谁干的。	3201	物品名:"智囊团"->烧焦的 制造描述:"海上仙力。"
+DESCRIBE.BOAT_ITEM	不把自己打湿就可以在水里行走了。	3203	物品名:"船套装" 制造描述:"让大海成为你的领地。"
+DESCRIBE.BOAT_GRASS_ITEM	这是一条不太结实的船。	3204	物品名:"草筏套装" 制造描述:"享受周末出游的乐趣吧。"
+DESCRIBE.STEERINGWHEEL_ITEM	它能做成方向舵。	3205	物品名:"方向舵套装" 制造描述:"航海必备道具。"
+DESCRIBE.ANCHOR_ITEM	现在我能造出锚了。	3206	物品名:"锚套装" 制造描述:"船用刹车"
+DESCRIBE.MAST_ITEM	现在我能造出桅杆了。	3207	物品名:"桅杆套装" 制造描述:"乘风破浪会有时。"
+DESCRIBE.MUTATEDHOUND.DEAD	现在我可以轻松地呼吸放心了。	3210	物品名:"恐怖猎犬"->死了
+DESCRIBE.MUTATEDHOUND.GENERIC	这小狗子长得真丑。	3211	物品名:"恐怖猎犬"->默认
+DESCRIBE.MUTATEDHOUND.SLEEPING	受死。	3212	物品名:"恐怖猎犬"->睡着了
+DESCRIBE.MUTATED_PENGUIN.DEAD	它走到了尽头。	3216	物品名:"月岩企鸥"->死了
+DESCRIBE.MUTATED_PENGUIN.GENERIC	那东西真麻烦。	3217	物品名:"月岩企鸥"->默认
+DESCRIBE.MUTATED_PENGUIN.SLEEPING	它在睡觉。	3218	物品名:"月岩企鸥"->睡着了
+DESCRIBE.CARRAT.DEAD	它走到了尽头。	3222	物品名:"胡萝卜鼠"->死了 制造描述:"灵巧机敏，富含胡萝卜素。"
+DESCRIBE.CARRAT.GENERIC	这小妖物怎么还长腿了？	3223	物品名:"胡萝卜鼠"->默认 制造描述:"灵巧机敏，富含胡萝卜素。"
+DESCRIBE.CARRAT.HELD	近看真是丑。	3224	物品名:"胡萝卜鼠"->拿在手里 制造描述:"灵巧机敏，富含胡萝卜素。"
+DESCRIBE.CARRAT.SLEEPING	有点可爱了。	3225	物品名:"胡萝卜鼠"->睡着了 制造描述:"灵巧机敏，富含胡萝卜素。"
+DESCRIBE.BULLKELP_PLANT.GENERIC	不错。	3229	物品名:"公牛海带"->默认
+DESCRIBE.BULLKELP_PLANT.PICKED	饿的时候用它裹腹也不错。	3230	物品名:"公牛海带"->被采完了
+DESCRIBE.BULLKELP_ROOT	可以种在深海里。	3232	物品名:"公牛海带茎"
+DESCRIBE.KELPHAT	得先难受一下。	3233	物品名:"海花环" 制造描述:"让人神经焦虑的东西。"
+DESCRIBE.KELP	把我的口袋全弄湿了，好恶心。	3234	物品名:"海带叶"
+DESCRIBE.KELP_COOKED	熟了以后有点稀，黏黏的。	3235	物品名:"熟海带叶"
+DESCRIBE.KELP_DRIED	把海带晾干可以存放好久。	3236	物品名:"干海带叶"
+DESCRIBE.GESTALT	虚影……	3237	物品名:"虚影"
+DESCRIBE.GESTALT_GUARD	虚影……	3238	物品名:"大虚影"
+DESCRIBE.COOKIECUTTER	我不喜欢它盯着船看的眼神……	3239	物品名:"饼干切割机"
+DESCRIBE.COOKIECUTTERSHELL	曾经尖牙利齿，如今只剩空壳。	3240	物品名:"饼干切割机壳"
+DESCRIBE.COOKIECUTTERHAT	至少不会打湿我。	3241	物品名:"饼干切割机帽子" 制造描述:"穿着必须犀利。"
+DESCRIBE.SALTSTACK.GENERIC	是怎么形成的？	3244	物品名:"盐堆"->默认
+DESCRIBE.SALTSTACK.MINED_OUT	挖过了……全挖过了。	3245	物品名:"盐堆"
+DESCRIBE.SALTSTACK.GROWING	我猜它自己就是会长成这样。	3246	物品名:"盐堆"->正在生长
+DESCRIBE.SALTROCK	海里的言。	3248	物品名:"盐晶"
+DESCRIBE.SALTBOX	防止食物变臭的灵药。	3249	物品名:"盐盒" 制造描述:"用盐来储存食物。"
+DESCRIBE.TACKLESTATION	是时候解决海钓的问题了。	3250	物品名:"钓具容器" 制造描述:"传统的用饵钓鱼。"
+DESCRIBE.TACKLESKETCH	这是谁画的。	3251	物品名:"{item}广告"
+DESCRIBE.MALBATROSS	它的羽毛黯淡无光。	3252	物品名:"邪天翁"
+DESCRIBE.MALBATROSS_FEATHER	翱翔在天空中的妖兽。	3253	物品名:"邪天翁羽毛"
+DESCRIBE.MALBATROSS_BEAK	蕴含妖兽的法力。	3254	物品名:"邪天翁喙"
+DESCRIBE.MAST_MALBATROSS_ITEM	试试看吧。	3255	物品名:"飞翼风帆套装" 制造描述:"像海鸟一样航向深蓝。"
+DESCRIBE.MAST_MALBATROSS	展翅远航。	3256	物品名:"飞翼风帆" 制造描述:"像海鸟一样航向深蓝。"
+DESCRIBE.MALBATROSS_FEATHERED_WEAVE	我在织羽毛帆。	3257	物品名:"羽毛帆布" 制造描述:"精美的羽毛布料。"
+DESCRIBE.GNARWAIL.GENERIC	一直顽皮的大鱼。	3260	物品名:"一角鲸"->默认
+DESCRIBE.GNARWAIL.BROKENHORN	你的鼻子没了。	3261	物品名:"一角鲸"
+DESCRIBE.GNARWAIL.FOLLOWER	挺好的。	3262	物品名:"一角鲸"->追随者
+DESCRIBE.GNARWAIL.BROKENHORN_FOLLOWER	这就是你到处伸鼻子的下场。	3263	物品名:"一角鲸"
+DESCRIBE.GNARWAIL_HORN	奇妙。	3265	物品名:"一角鲸的角"
+DESCRIBE.WALKINGPLANK	我能造一艘大船吗？	3266	物品名:"木板"
+DESCRIBE.WALKINGPLANK_GRASS	我能造一艘大船吗？	3267	物品名:"木板"
+DESCRIBE.OAR	手动加速。	3268	物品名:"桨" 制造描述:"划，划，划小船。"
+DESCRIBE.OAR_DRIFTWOOD	手动加速船只。	3269	物品名:"浮木桨" 制造描述:"小桨要用浮木造？"
+DESCRIBE.OCEANFISHINGROD	钓条鱼玩玩儿。	3270	物品名:"海钓竿" 制造描述:"像职业选手一样钓鱼吧。"
+DESCRIBE.OCEANFISHINGBOBBER_NONE	可以用浮标提高准度。	3271	物品名:"鱼钩"
+DESCRIBE.OCEANFISHINGBOBBER_BALL	鱼群会喜欢这个球的。	3272	物品名:"木球浮标" 制造描述:"经典设计，初学者和职业钓手两相宜。"
+DESCRIBE.OCEANFISHINGBOBBER_OVAL	那些鱼这次休想逃出我的手掌心。	3273	物品名:"硬物浮标" 制造描述:"在经典浮标的基础上融入了时尚设计。"
+DESCRIBE.OCEANFISHINGBOBBER_CROW	我有时也不咋吃鱼。	3274	物品名:"黑羽浮标" 制造描述:"深受职业钓手的喜爱。"
+DESCRIBE.OCEANFISHINGBOBBER_ROBIN	希望别引来红鲱鱼。	3275	物品名:"红羽浮标" 制造描述:"深受职业钓手的喜爱。"
+DESCRIBE.OCEANFISHINGBOBBER_ROBIN_WINTER	雪鸟的羽毛十分高冷。	3276	物品名:"蔚蓝羽浮标" 制造描述:"深受职业钓手的喜爱。"
+DESCRIBE.OCEANFISHINGBOBBER_CANARY	快来跟我的小伙伴问好。	3277	物品名:"黄羽浮标" 制造描述:"深受职业钓手的喜爱。"
+DESCRIBE.OCEANFISHINGBOBBER_GOOSE	用鹅毛钓鱼。	3278	物品名:"鹅羽浮标" 制造描述:"高级羽绒浮标。"
+DESCRIBE.OCEANFISHINGBOBBER_MALBATROSS	这么漂亮的羽毛，见过没。	3279	物品名:"邪天翁羽浮标" 制造描述:"高级巨鸟浮标。"
+DESCRIBE.OCEANFISHINGLURE_SPINNER_RED	也许有鱼会上当。	3280	物品名:"日出旋转亮片" 制造描述:"早起的鱼儿有虫吃。"
+DESCRIBE.OCEANFISHINGLURE_SPINNER_GREEN	也许有鱼会上当。	3281	物品名:"黄昏旋转亮片" 制造描述:"低光照环境里效果最好。"
+DESCRIBE.OCEANFISHINGLURE_SPINNER_BLUE	也许有鱼会上当。	3282	物品名:"夜间旋转亮片" 制造描述:"适用于夜间垂钓。"
+DESCRIBE.OCEANFISHINGLURE_SPOON_RED	也许有小鱼会上当。	3283	物品名:"日出匙型假饵" 制造描述:"早起的鱼儿有虫吃。"
+DESCRIBE.OCEANFISHINGLURE_SPOON_GREEN	也许有小鱼会上当。	3284	物品名:"黄昏匙型假饵" 制造描述:"在夕阳中继续垂钓。"
+DESCRIBE.OCEANFISHINGLURE_SPOON_BLUE	也许有小鱼会上当。	3285	物品名:"夜间匙型假饵" 制造描述:"适用于夜间垂钓。"
+DESCRIBE.OCEANFISHINGLURE_HERMIT_RAIN	把自己弄湿能帮助我像鱼一样思考……	3286	物品名:"雨天鱼饵" 制造描述:"留着雨天用。"
+DESCRIBE.OCEANFISHINGLURE_HERMIT_SNOW	鱼儿都不会知道是谁下的手。	3287	物品名:"雪天鱼饵" 制造描述:"雪天适合用它钓鱼。"
+DESCRIBE.OCEANFISHINGLURE_HERMIT_DROWSY	这个东西酥酥麻麻的。	3288	物品名:"麻醉鱼饵" 制造描述:"把鱼闷住就抓住了一半。"
+DESCRIBE.OCEANFISHINGLURE_HERMIT_HEAVY	感觉有些沉重。	3289	物品名:"重量级鱼饵" 制造描述:"钓一条大鱼。"
+DESCRIBE.OCEANFISH_SMALL_1	看起来是个小家伙。	3290	物品名:"小孔雀鱼"
+DESCRIBE.OCEANFISH_SMALL_2	多喷点墨汁，我要练习书法。	3291	物品名:"针鼻喷墨鱼"
+DESCRIBE.OCEANFISH_SMALL_3	还没长开。	3292	物品名:"小饵鱼"
+DESCRIBE.OCEANFISH_SMALL_4	还没长大。	3293	物品名:"三文鱼苗"
+DESCRIBE.OCEANFISH_SMALL_5	我等不及一口吞了它。	3294	物品名:"爆米花鱼"
+DESCRIBE.OCEANFISH_SMALL_6	树叶是它的伪装。	3295	物品名:"落叶比目鱼"
+DESCRIBE.OCEANFISH_SMALL_7	总算给我抓到开花的鱼了。	3296	物品名:"花朵金枪鱼"
+DESCRIBE.OCEANFISH_SMALL_8	烫得很呢。	3297	物品名:"炽热太阳鱼"
+DESCRIBE.OCEANFISH_SMALL_9	只是随便说说，不过我应该能让你派上用场……	3298	物品名:"口水鱼"
+DESCRIBE.OCEANFISH_MEDIUM_1	看着丑，全是泥巴。	3299	物品名:"泥鱼"
+DESCRIBE.OCEANFISH_MEDIUM_2	花大力气钓的。	3300	物品名:"斑鱼"
+DESCRIBE.OCEANFISH_MEDIUM_3	我钓鱼的技术可不是盖的。	3301	物品名:"浮夸狮子鱼"
+DESCRIBE.OCEANFISH_MEDIUM_4	不知道这个会不会带来霉运。	3302	物品名:"黑鲶鱼"
+DESCRIBE.OCEANFISH_MEDIUM_5	这条鱼看着有些俗气。	3303	物品名:"玉米鳕鱼"
+DESCRIBE.OCEANFISH_MEDIUM_6	好一条大肥鱼。	3304	物品名:"花锦鲤"
+DESCRIBE.OCEANFISH_MEDIUM_7	好一条大肥鱼。	3305	物品名:"金锦鲤"
+DESCRIBE.OCEANFISH_MEDIUM_8	冰鲷鱼。	3306	物品名:"冰鲷鱼"
+DESCRIBE.OCEANFISH_MEDIUM_9	成功的钓鱼之旅。	3307	物品名:"甜味鱼"
+DESCRIBE.PONDFISH	陆地上的鱼。	3308	物品名:"淡水鱼"
+DESCRIBE.PONDEEL	这能做一道好菜。	3309	物品名:"活鳗鱼"
+DESCRIBE.FISHMEAT	一块鱼肉。	3310	物品名:"生鱼肉"
+DESCRIBE.FISHMEAT_COOKED	烤得恰到好处。	3311	物品名:"鱼排"
+DESCRIBE.FISHMEAT_SMALL	一点点鱼肉。	3312	物品名:"小鱼块"
+DESCRIBE.FISHMEAT_SMALL_COOKED	一点点熟鱼肉。	3313	物品名:"熟小鱼块"
+DESCRIBE.SPOILED_FISH	我不太想知道那种气味是怎么来的。	3314	物品名:"变质的鱼"
+DESCRIBE.FISH_BOX	这里面能住鱼吗？	3315	物品名:"锡鱼罐" 制造描述:"保持鱼与网捕之日一样新鲜。"
+DESCRIBE.POCKET_SCALE	可以给鱼儿称体重。	3316	物品名:"弹簧秤" 制造描述:"随时称鱼的重量。"
+DESCRIBE.TACKLECONTAINER	这玩意儿钩住了我的注意力。	3317	物品名:"钓具箱" 制造描述:"整齐收纳你的钓具。"
+DESCRIBE.SUPERTACKLECONTAINER	我费了九牛二虎之力才弄到手的。	3318	物品名:"超级钓具箱" 制造描述:"更多收纳钓具的空间？我上钩了。"
+DESCRIBE.TROPHYSCALE_FISH.GENERIC	我今天大丰收。	3321	物品名:"鱼类计重器"->默认 制造描述:"炫耀你的斩获。"
+DESCRIBE.TROPHYSCALE_FISH.HAS_ITEM	重量: {weight}\n捕获人: {owner}	3322	物品名:"鱼类计重器" 制造描述:"炫耀你的斩获。"
+DESCRIBE.TROPHYSCALE_FISH.HAS_ITEM_HEAVY	重量: {weight}\n捕获人: {owner}\n所获颇丰。	3323	物品名:"鱼类计重器" 制造描述:"炫耀你的斩获。"
+DESCRIBE.TROPHYSCALE_FISH.BURNING	火……全烧起来了。	3324	物品名:"鱼类计重器"->正在燃烧 制造描述:"炫耀你的斩获。"
+DESCRIBE.TROPHYSCALE_FISH.BURNT	我的成果全都给烧没了。	3325	物品名:"鱼类计重器"->烧焦的 制造描述:"炫耀你的斩获。"
+DESCRIBE.TROPHYSCALE_FISH.OWNER	完全没有炫耀的意思，大家就随便看看……\n重量: {weight}\n捕获人: {owner}	3326	物品名:"鱼类计重器" 制造描述:"炫耀你的斩获。"
+DESCRIBE.TROPHYSCALE_FISH.OWNER_HEAVY	重量: {weight}\n捕获人: {owner}\n还真抓了条大肥鱼。	3327	物品名:"鱼类计重器" 制造描述:"炫耀你的斩获。"
+DESCRIBE.OCEANFISHABLEFLOTSAM	长了些泥巴的草。	3329	物品名:"海洋残骸"
+DESCRIBE.CALIFORNIAROLL	让我尝尝。	3330	物品名:"加州卷"
+DESCRIBE.SEAFOODGUMBO	一大碗海鲜浓汤。	3331	物品名:"海鲜浓汤"
+DESCRIBE.SURFNTURF	太完美了。	3332	物品名:"海鲜牛排"
+DESCRIBE.WOBSTER_SHELLER	好一只调皮的龙虾。	3333	物品名:"龙虾"
+DESCRIBE.WOBSTER_DEN	一块石头，里面有龙虾。	3334	物品名:"龙虾窝"
+DESCRIBE.WOBSTER_SHELLER_DEAD	这烹饪出来应该挺不错的。	3335	物品名:"死龙虾"
+DESCRIBE.WOBSTER_SHELLER_DEAD_COOKED	我等不及要吃了你。	3336	物品名:"美味的龙虾"
+DESCRIBE.LOBSTERBISQUE	可以再加点盐。	3337	物品名:"龙虾汤"
+DESCRIBE.LOBSTERDINNER	想不到如此美味？	3338	物品名:"龙虾正餐"
+DESCRIBE.WOBSTER_MOONGLASS	好一只调皮的月光龙虾。	3339	物品名:"月光龙虾"
+DESCRIBE.MOONGLASS_WOBSTER_DEN	一块月光琉璃，里面有月光龙虾。	3340	物品名:"月光玻璃窝"
+DESCRIBE.TRIDENT	等着被击飞吧。	3341	物品名:"刺耳三叉戟" 制造描述:"在汹涌波涛中引领潮流吧。"
+DESCRIBE.WINCH.GENERIC	这个在必要时能派上用场。	3344	物品名:"夹夹绞盘"->默认 制造描述:"让它帮你捞起重的东西吧。"
+DESCRIBE.WINCH.RETRIEVING_ITEM	重活就交给它干吧。	3345	物品名:"夹夹绞盘" 制造描述:"让它帮你捞起重的东西吧。"
+DESCRIBE.WINCH.HOLDING_ITEM	看看这里是什么东西？	3346	物品名:"夹夹绞盘" 制造描述:"让它帮你捞起重的东西吧。"
+DESCRIBE.HERMITHOUSE.GENERIC	这是一座空壳房子。	3350	物品名:"隐士之家"->默认
+DESCRIBE.HERMITHOUSE.BUILTUP	它只需要一点点的关心。	3351	物品名:"隐士之家"
+DESCRIBE.SHELL_CLUSTER	我打赌里面有不少漂亮贝壳。	3353	物品名:"贝壳堆"
+DESCRIBE.SINGINGSHELL_OCTAVE3.GENERIC	调有点低。	3356	物品名:"低音贝壳钟"->默认
+DESCRIBE.SINGINGSHELL_OCTAVE4.GENERIC	这就是大海的声音吗？	3360	物品名:"中音贝壳钟"->默认
+DESCRIBE.SINGINGSHELL_OCTAVE5.GENERIC	它可以发出高音。	3364	物品名:"高音贝壳钟"->默认
+DESCRIBE.CHUM	鱼儿的美味佳肴。	3366	物品名:"鱼食" 制造描述:"鱼儿的美食。"
+DESCRIBE.SUNKENCHEST.GENERIC	真正的宝物是我在寻宝过程中的那些事情。	3369	物品名:"沉底宝箱"->默认
+DESCRIBE.SUNKENCHEST.LOCKED	贝壳闭上了。	3370	物品名:"沉底宝箱"->锁住了
+DESCRIBE.HERMIT_BUNDLE	这些东西她有的是。	3372	物品名:"一包谢意"
+DESCRIBE.HERMIT_BUNDLE_SHELLS	她确实是卖海贝壳的。	3373	物品名:"贝壳钟包" 制造描述:"她卖的贝壳。"
+DESCRIBE.RESKIN_TOOL	我不喜欢这些粉尘。	3374	物品名:"清洁扫把" 制造描述:"把装潢的东西清扫的干干净净。"
+DESCRIBE.MOON_FISSURE_PLUGGED	把漏的地方都堵上。	3375	物品名:"堵住的裂隙"
+DESCRIBE.WOBYBIG[0]	给它好吃的骨头？	3378	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WOBYBIG[1]	给它好吃的骨头？	3379	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WOBYSMALL[0]	厉害。	3383	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WOBYSMALL[1]	厉害。	3384	物品名:"沃比" 制造描述:未找到
+DESCRIBE.WALTERHAT	小孩子的东西。	3386	物品名:"松树先锋队帽子" 制造描述:"形式和功能高于时尚。"
+DESCRIBE.SLINGSHOT	所有琉璃的噩梦。	3387	物品名:"可靠的弹弓" 制造描述:"不带它千万别去冒险。"
+DESCRIBE.SLINGSHOTAMMO_ROCK	小巧的武器。	3388	物品名:"鹅卵石" 制造描述:"简单，低效。"
+DESCRIBE.SLINGSHOTAMMO_MARBLE	小巧的武器。	3389	物品名:"大理石弹" 制造描述:"可别把它们弄丢了。"
+DESCRIBE.SLINGSHOTAMMO_THULECITE	小巧的武器。	3390	物品名:"诅咒弹药" 制造描述:"会出什么问题？"
+DESCRIBE.SLINGSHOTAMMO_GOLD	小巧的武器。	3391	物品名:"黄金弹药" 制造描述:"因为高级，所以有效。"
+DESCRIBE.SLINGSHOTAMMO_SLOW	小巧的武器。	3392	物品名:"减速弹药" 制造描述:"什么是“物理定律”？"
+DESCRIBE.SLINGSHOTAMMO_FREEZE	小巧的武器。	3393	物品名:"冰冻弹药" 制造描述:"把敌人冰冻在原地。"
+DESCRIBE.SLINGSHOTAMMO_POOP	粑粑做的武器。	3394	物品名:"便便弹" 制造描述:"恶心，但是能让敌人分心。"
+DESCRIBE.PORTABLETENT	我感觉已经几辈子没睡过好觉了。	3395	物品名:"宿营帐篷" 制造描述:"便捷的保护设备，让你免受风吹雨打。"
+DESCRIBE.PORTABLETENT_ITEM	有了帐篷可不要膨胀。	3396	物品名:"帐篷卷" 制造描述:"便捷的保护设备，让你免受风吹雨打。"
+DESCRIBE.BATTLESONG_DURABILITY	看剧让我坐立不安。	3397	物品名:"武器化的颤音" 制造描述:"让武器有更多的时间成为焦点。"
+DESCRIBE.BATTLESONG_HEALTHGAIN	看剧让我坐立不安。	3398	物品名:"心碎歌谣" 制造描述:"一首偷心的颂歌。"
+DESCRIBE.BATTLESONG_SANITYGAIN	看剧让我坐立不安。	3399	物品名:"醍醐灌顶华彩" 制造描述:"用歌声慰藉你的心灵。"
+DESCRIBE.BATTLESONG_SANITYAURA	看戏让我坐立不安。	3400	物品名:"英勇美声颂" 制造描述:"无所畏惧。"
+DESCRIBE.BATTLESONG_FIRERESISTANCE	我有一次看戏前不小心把衣服烧出个洞。	3401	物品名:"防火假声" 制造描述:"抵御火辣的戏评人。"
+DESCRIBE.BATTLESONG_INSTANT_TAUNT	我不喜欢这些东西。	3402	物品名:"粗鲁插曲" 制造描述:"用言语扔一个番茄。"
+DESCRIBE.BATTLESONG_INSTANT_PANIC	我不喜欢这些东西。	3403	物品名:"惊心独白" 制造描述:"如此出色的表演，就问你怕不怕。"
+DESCRIBE.MUTATOR_WARRIOR	哦，哇，这看起来嗯……很好吃，韦伯。	3404	物品名:"战士变身涂鸦" 制造描述:"做最可爱的小保镖。"
+DESCRIBE.MUTATOR_DROPPER	呃，我……刚吃过饭。你拿去给你的蜘蛛朋友好吗？	3405	物品名:"悬蛛变身涂鸦" 制造描述:"味道也许会让你惊喜。"
+DESCRIBE.MUTATOR_HIDER	哦，哇，这看起来嗯……很好吃，韦伯。	3406	物品名:"洞穴变身涂鸦" 制造描述:"外酥里嫩。"
+DESCRIBE.MUTATOR_SPITTER	呃，我……刚吃过饭。你拿去给你的蜘蛛朋友好吗？	3407	物品名:"喷吐变身涂鸦" 制造描述:"喷薄而出的蜘蛛形象。"
+DESCRIBE.MUTATOR_MOON	哦，哇，这看起来嗯……很好吃，韦伯。	3408	物品名:"破碎变身涂鸦" 制造描述:"吃到它的人会快乐到月球去。"
+DESCRIBE.MUTATOR_HEALER	呃，我……刚吃过饭。你拿去给你的蜘蛛朋友好吗？	3409	物品名:"护士变身涂鸦" 制造描述:"特别多的谷物，所以必须是健康的。"
+DESCRIBE.SPIDER_WHISTLE	我可不想引来任何蜘蛛。	3410	物品名:"韦伯口哨" 制造描述:"呼叫可怕的爬行动物朋友吧。"
+DESCRIBE.SPIDERDEN_BEDAZZLER	看起来某人的手艺提高了不少啊。	3411	物品名:"蛛巢装饰套装" 制造描述:"一个好的家能培育出好的性格。"
+DESCRIBE.SPIDER_HEALER	哦，太好了。现在蜘蛛可以自愈了。	3412	物品名:"护士蜘蛛"
+DESCRIBE.SPIDER_REPELLENT	如果我也能用就好了。	3413	物品名:"驱赶盒子" 制造描述:"让你的朋友知道你需要一些空间。"
+DESCRIBE.SPIDER_HEALER_ITEM	要是看到蜘蛛，我一定会把它送给它们。。	3414	物品名:"治疗黏团" 制造描述:"恶心，黏糊糊的，但对你有好处。"
+DESCRIBE.GHOSTLYELIXIR_SLOWREGEN	嗯，对。这就是仙家法术。	3415	物品名:"亡者补药" 制造描述:"时间会抚平所有伤口。"
+DESCRIBE.GHOSTLYELIXIR_FASTREGEN	嗯，对。这就是仙家法术。	3416	物品名:"灵魂万灵药" 制造描述:"治疗重伤的强力药剂。"
+DESCRIBE.GHOSTLYELIXIR_SHIELD	嗯，对。这就是仙家法术。	3417	物品名:"不屈药剂" 制造描述:"保护你的姐妹不受伤害。"
+DESCRIBE.GHOSTLYELIXIR_ATTACK	嗯，对。这就是仙家法术。	3418	物品名:"夜影万金油" 制造描述:"召唤黑暗的力量。"
+DESCRIBE.GHOSTLYELIXIR_SPEED	嗯，对。这就是仙家法术。	3419	物品名:"强健精油" 制造描述:"给你的灵魂来一剂强心针。"
+DESCRIBE.GHOSTLYELIXIR_RETALIATION	嗯，对。这就是仙家法术。	3420	物品名:"蒸馏复仇" 制造描述:"对敌人以牙还牙。"
+DESCRIBE.SISTURN.GENERIC	弄点花会显得更有生机。	3423	物品名:"姐妹骨灰罐"->默认 制造描述:"让你疲倦的灵魂休息的地方。"
+DESCRIBE.SISTURN.SOME_FLOWERS	多拿些花来应该就可以了。	3424	物品名:"姐妹骨灰罐" 制造描述:"让你疲倦的灵魂休息的地方。"
+DESCRIBE.SISTURN.LOTS_OF_FLOWERS	好美的花束。	3425	物品名:"姐妹骨灰罐" 制造描述:"让你疲倦的灵魂休息的地方。"
+DESCRIBE.PORTABLECOOKPOT_ITEM.GENERIC	这才是烹饪。	3430	物品名:"便携烹饪锅"->默认 制造描述:"随时随地为美食家服务。"
+DESCRIBE.PORTABLECOOKPOT_ITEM.DONE	行，做完饭了。	3431	物品名:"便携烹饪锅"->完成了 制造描述:"随时随地为美食家服务。"
+DESCRIBE.PORTABLECOOKPOT_ITEM.COOKING_LONG	这顿饭需要一点时间了。	3432	物品名:"便携烹饪锅"->饭还需要很久 制造描述:"随时随地为美食家服务。"
+DESCRIBE.PORTABLECOOKPOT_ITEM.COOKING_SHORT	马上就能好。	3433	物品名:"便携烹饪锅"->饭快做好了 制造描述:"随时随地为美食家服务。"
+DESCRIBE.PORTABLECOOKPOT_ITEM.EMPTY	我打赌里面什么都没有。	3434	物品名:"便携烹饪锅" 制造描述:"随时随地为美食家服务。"
+DESCRIBE.PORTABLEBLENDER_ITEM	把所有食物混合起来。	3436	物品名:"便携研磨器" 制造描述:"把原料研磨成粉状调味品。"
+DESCRIBE.PORTABLESPICER_ITEM.GENERIC	它可以给食物增添风味。	3439	物品名:"便携香料站"->默认 制造描述:"调味让饭菜更可口。"
+DESCRIBE.PORTABLESPICER_ITEM.DONE	应该能让饭菜更可口。	3440	物品名:"便携香料站"->完成了 制造描述:"调味让饭菜更可口。"
+DESCRIBE.SPICEPACK	把食物放进这个袋子。	3442	物品名:"厨师袋" 制造描述:"使你的食物保持新鲜。"
+DESCRIBE.SPICE_GARLIC	威力强大的粉末。	3443	物品名:"蒜粉" 制造描述:"用口臭防守是最好的进攻。"
+DESCRIBE.SPICE_SUGAR	甜。真甜。	3444	物品名:"蜂蜜水晶" 制造描述:"令人心平气和的甜美。"
+DESCRIBE.SPICE_CHILI	一壶火焰。	3445	物品名:"辣椒面" 制造描述:"刺激十足的粉末。"
+DESCRIBE.SPICE_SALT	这调味的东西其实不赖。	3446	物品名:"调味盐" 制造描述:"为你的饭菜加点咸味。"
+DESCRIBE.MONSTERTARTARE	这儿一定还有别的什么能吃的。	3447	物品名:"怪物鞑靼"
+DESCRIBE.FRESHFRUITCREPES	甜水果。营养的早餐的一部分。	3448	物品名:"鲜果可丽饼"
+DESCRIBE.FROGFISHBOWL	这是鱼里面塞了什么？	3449	物品名:"蓝带鱼排"
+DESCRIBE.POTATOTORNADO	没成熟的土豆。	3450	物品名:"花式回旋块茎"
+DESCRIBE.DRAGONCHILISALAD	希望能承受住辛辣的程度。	3451	物品名:"辣龙椒沙拉"
+DESCRIBE.GLOWBERRYMOUSSE	沃利烧的一手好菜。	3452	物品名:"发光浆果慕斯"
+DESCRIBE.VOLTGOATJELLY	惊人的美味。	3453	物品名:"伏特羊肉冻"
+DESCRIBE.NIGHTMAREPIE	有点吓人啊。	3454	物品名:"恐怖国王饼"
+DESCRIBE.BONESOUP	沃利骨子里是名好厨子。	3455	物品名:"骨头汤"
+DESCRIBE.MASHEDPOTATOES	我听说做饭就是把东西都放进去。	3456	物品名:"奶油土豆泥"
+DESCRIBE.POTATOSOUFFLE	我都忘记了可口的饭菜是什么味道。	3457	物品名:"蓬松土豆蛋奶酥"
+DESCRIBE.MOQUECA	多么美味的海鲜大餐啊。	3458	物品名:"海鲜杂烩"
+DESCRIBE.GAZPACHO	怎么这么好吃？	3459	物品名:"芦笋冷汤"
+DESCRIBE.ASPARAGUSSOUP	闻起来很好吃。	3460	物品名:"芦笋汤"
+DESCRIBE.VEGSTINGER	这是什么汤？	3461	物品名:"蔬菜鸡尾酒"
+DESCRIBE.BANANAPOP	香甜软糯，冰冰凉凉。	3462	物品名:"香蕉冻"
+DESCRIBE.CEVICHE	能弄一只大点的碗吗？这只看起来有点小。	3463	物品名:"酸橘汁腌鱼"
+DESCRIBE.SALSA	真...辣...。	3464	物品名:"生鲜萨尔萨酱"
+DESCRIBE.PEPPERPOPPER	这么一大口。	3465	物品名:"爆炒填馅辣椒"
+DESCRIBE.TURNIP	是个生萝卜。	3466	物品名:"大萝卜"
+DESCRIBE.TURNIP_COOKED	自己动手丰衣足食。	3467	物品名:"烤大萝卜"
+DESCRIBE.TURNIP_SEEDS	一把古怪的种子。	3468	物品名:"圆形种子"
+DESCRIBE.GARLIC	不是很喜欢。	3469	物品名:"大蒜"
+DESCRIBE.GARLIC_COOKED	完美的焦黄。	3470	物品名:"烤大蒜"
+DESCRIBE.GARLIC_SEEDS	一把古怪的种子。	3471	物品名:"种子荚"
+DESCRIBE.ONION	看起来很脆。	3472	物品名:"洋葱"
+DESCRIBE.ONION_COOKED	味道不太好闻。	3473	物品名:"烤洋葱"
+DESCRIBE.ONION_SEEDS	一把古怪的种子。	3474	物品名:"尖形种子"
+DESCRIBE.POTATO	埋在地下的苹果。	3475	物品名:"土豆"
+DESCRIBE.POTATO_COOKED	吃起来口感不错。	3476	物品名:"烤土豆"
+DESCRIBE.POTATO_SEEDS	一把古怪的种子。	3477	物品名:"毛茸茸的种子"
+DESCRIBE.TOMATO	红色的。	3478	物品名:"番茄"
+DESCRIBE.TOMATO_COOKED	懂的话做饭就非常简单了。	3479	物品名:"烤番茄"
+DESCRIBE.TOMATO_SEEDS	一把古怪的种子。	3480	物品名:"带刺的种子"
+DESCRIBE.ASPARAGUS	一种蔬菜。	3481	物品名:"芦笋"
+DESCRIBE.ASPARAGUS_COOKED	这对我有好处。	3482	物品名:"烤芦笋"
+DESCRIBE.ASPARAGUS_SEEDS	就是些种子。	3483	物品名:"筒状种子"
+DESCRIBE.PEPPER	好一个辣椒。	3484	物品名:"辣椒"
+DESCRIBE.PEPPER_COOKED	本来就是辣的。	3485	物品名:"烤辣椒"
+DESCRIBE.PEPPER_SEEDS	一把种子。	3486	物品名:"块状种子"
+DESCRIBE.WEREITEM_BEAVER	它让我浑身起鸡皮疙瘩。	3487	物品名:"俗气海狸像" 制造描述:"唤醒海狸人的诅咒"
+DESCRIBE.WEREITEM_GOOSE	它让我浑身起鸡皮疙瘩。	3488	物品名:"俗气鹅像" 制造描述:"唤醒鹅人的诅咒"
+DESCRIBE.WEREITEM_MOOSE	一头受诅咒的鹿。	3489	物品名:"俗气鹿像" 制造描述:"唤醒鹿人的诅咒"
+DESCRIBE.MERMHAT	我可以试试。	3490	物品名:"聪明的伪装" 制造描述:"鱼人化你的朋友。"
+DESCRIBE.MERMTHRONE.GENERIC	一张漂亮的地毯。	3493	物品名:"皇家地毯"->默认
+DESCRIBE.MERMTHRONE.BURNT	一股鱼腥味。	3494	物品名:"皇家地毯"->烧焦的
+DESCRIBE.MERMTHRONE_CONSTRUCTION.GENERIC	鱼人族的未来。	3498	物品名:"皇家手工套装"->默认 制造描述:"建立一个新的鱼人王朝。"
+DESCRIBE.MERMTHRONE_CONSTRUCTION.BURNT	永远都不会这道它原来是什么了。	3499	物品名:"皇家手工套装"->烧焦的 制造描述:"建立一个新的鱼人王朝。"
+DESCRIBE.MERMHOUSE_CRAFTED.GENERIC	样子还挺可爱的。	3503	物品名:"鱼人工艺屋"->默认 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMHOUSE_CRAFTED.BURNT	小鱼人无家可归了。	3504	物品名:"鱼人工艺屋"->烧焦的 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMWATCHTOWER_REGULAR	我帮帮鱼人族。	3506	物品名:"鱼人工艺屋" 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMWATCHTOWER_NOKING	我帮帮鱼人族。	3507	物品名:"鱼人工艺屋" 制造描述:"适合鱼人的家。"
+DESCRIBE.MERMKING	傀儡罢了。	3508	物品名:"鱼人之王"
+DESCRIBE.MERMGUARD	在他们周围感觉受到了护卫……	3509	物品名:"忠诚鱼人守卫"
+DESCRIBE.MERM_PRINCE	他们遵循先到先得的规矩。	3510	物品名:"过程中的皇室"
+DESCRIBE.SQUID	我有预感会派上用场。	3511	物品名:"鱿鱼"
+DESCRIBE.GHOSTFLOWER	死人的东西。	3512	物品名:"哀悼荣耀"
+DESCRIBE.SMALLGHOST	嗷，你是不是个小可爱啊？	3513	物品名:"小惊吓"
+DESCRIBE.CRABKING.GENERIC	哼。它在这影响到我了。	3516	物品名:"帝王蟹"->默认
+DESCRIBE.CRABKING.INERT	让你瞧瞧我的实力。	3517	物品名:"帝王蟹"
+DESCRIBE.CRABKING_CLAW	警惕蟹爪。	3519	物品名:"巨钳"
+DESCRIBE.MESSAGEBOTTLE	不知道是不是送给我的。	3520	物品名:"瓶中信"
+DESCRIBE.MESSAGEBOTTLEEMPTY	空无一物。	3521	物品名:"空瓶子"
+DESCRIBE.MEATRACK_HERMIT.DONE	肉干可以吃了。	3524	物品名:"晾肉架"->完成了
+DESCRIBE.MEATRACK_HERMIT.DRYING	肉风干需要一些时间。	3525	物品名:"晾肉架"->正在风干
+DESCRIBE.MEATRACK_HERMIT.DRYINGINRAIN	雨天晾干肉需要更长时间。	3526	物品名:"晾肉架"->雨天风干
+DESCRIBE.MEATRACK_HERMIT.GENERIC	肉晾在这里应该错不了。	3527	物品名:"晾肉架"->默认
+DESCRIBE.MEATRACK_HERMIT.BURNT	晾肉架烧掉了。	3528	物品名:"晾肉架"->烧焦的
+DESCRIBE.MEATRACK_HERMIT.DONE_NOTMEAT	可以把食物晾干，储存的更久。	3529	物品名:"晾肉架"
+DESCRIBE.MEATRACK_HERMIT.DRYING_NOTMEAT	风干似乎只能慢慢来。	3530	物品名:"晾肉架"
+DESCRIBE.MEATRACK_HERMIT.DRYINGINRAIN_NOTMEAT	雨啊，改天来。	3531	物品名:"晾肉架"
+DESCRIBE.BEEBOX_HERMIT.READY	它里面装满了蜂蜜。	3535	物品名:"蜂箱"->准备好的 满的
+DESCRIBE.BEEBOX_HERMIT.FULLHONEY	它里面装满了蜂蜜。	3536	物品名:"蜂箱"->蜂蜜满了
+DESCRIBE.BEEBOX_HERMIT.GENERIC	不知道里面有没有些许甜蜜。	3537	物品名:"蜂箱"->默认
+DESCRIBE.BEEBOX_HERMIT.NOHONEY	它是空的。	3538	物品名:"蜂箱"->没有蜂蜜
+DESCRIBE.BEEBOX_HERMIT.SOMEHONEY	需要等一会。	3539	物品名:"蜂箱"->有一些蜂蜜
+DESCRIBE.BEEBOX_HERMIT.BURNT	怎么被烧掉的？。	3540	物品名:"蜂箱"->烧焦的
+DESCRIBE.HERMITCRAB	一个人住多少会寂寞吧。	3542	物品名:"寄居蟹隐士"
+DESCRIBE.HERMIT_PEARL	我会照顾好它。	3543	物品名:"珍珠的珍珠"
+DESCRIBE.HERMIT_CRACKED_PEARL	我……没有照顾好它。	3544	物品名:"开裂珍珠"
+DESCRIBE.WATERPLANT	只要我们不拿它们的藤壶，它们就会跟我们做朋友。	3545	物品名:"海草"
+DESCRIBE.WATERPLANT_BOMB	是种子啊。	3546	物品名:"种壳"
+DESCRIBE.WATERPLANT_BABY	还在萌芽阶段。	3547	物品名:"海芽"
+DESCRIBE.WATERPLANT_PLANTER	它们在大海中的岩石上长的最好。	3548	物品名:"海芽插穗"
+DESCRIBE.SHARK	我可能需要一艘更大的船……	3549	物品名:"岩石大白鲨"
+DESCRIBE.MASTUPGRADE_LAMP_ITEM	我有的都是闪闪发光的好主意。	3550	物品名:"甲板照明灯" 制造描述:"桅杆照明附件。"
+DESCRIBE.MASTUPGRADE_LIGHTNINGROD_ITEM	我已经驾驭了陆上和海上的雷电。	3551	物品名:"避雷导线" 制造描述:"为你的桅杆带来过电般的刺激。"
+DESCRIBE.WATERPUMP	可以非常有效的灭火。	3552	物品名:"消防泵" 制造描述:"水水水，到处都是水。"
+DESCRIBE.BARNACLE	看着不像是指关节。	3553	物品名:"藤壶"
+DESCRIBE.BARNACLE_COOKED	我听说这是一道珍馐美味。	3554	物品名:"熟藤壶"
+DESCRIBE.BARNACLEPITA	你看不见它们是藤壶的时候，它们的味道会更好。	3555	物品名:"藤壶皮塔饼"
+DESCRIBE.BARNACLESUSHI	直接用手拿着吃。	3556	物品名:"藤壶握寿司"
+DESCRIBE.BARNACLINGUINE	把面递过来。	3557	物品名:"藤壶中细面"
+DESCRIBE.BARNACLESTUFFEDFISHHEAD	我真是饿得够呛，居然连它都会考虑……	3558	物品名:"酿鱼头"
+DESCRIBE.LEAFLOAF	神秘的肉。	3559	物品名:"叶肉糕"
+DESCRIBE.LEAFYMEATBURGER	我喜欢素食。	3560	物品名:"素食堡"
+DESCRIBE.LEAFYMEATSOUFFLE	这是什么食物？	3561	物品名:"果冻沙拉"
+DESCRIBE.MEATYSALAD	区区一堆杂草，居然这么顶饱。	3562	物品名:"牛肉绿叶菜"
+DESCRIBE.MOLEBAT	一只小蝙蝠。	3563	物品名:"裸鼹蝠"
+DESCRIBE.MOLEBATHILL	不知道那个老鼠窝里藏了什么。	3564	物品名:"裸鼹蝠丘"
+DESCRIBE.BATNOSE	有人知道这是谁的鼻子么？	3565	物品名:"裸露鼻孔"
+DESCRIBE.BATNOSE_COOKED	出来的时候，闻到的是鼻子的味道。	3566	物品名:"炭烤鼻孔"
+DESCRIBE.BATNOSEHAT	有了它喝奶都不用动手了。	3567	物品名:"牛奶帽"
+DESCRIBE.MUSHGNOME	它也许会周期性的发起攻击。	3568	物品名:"蘑菇地精"
+DESCRIBE.SPORE_MOON	我要尽量离这些孢子远一点。	3569	物品名:"月亮孢子"
+DESCRIBE.MOON_CAP	看起来不怎么好吃。	3570	物品名:"月亮蘑菇"
+DESCRIBE.MOON_CAP_COOKED	我为了法力也是豁出去了……	3571	物品名:"熟月亮蘑菇"
+DESCRIBE.MUSHTREE_MOON	这颗蘑菇树明显跟其他的有异。	3572	物品名:"月亮蘑菇树"
+DESCRIBE.LIGHTFLIER	真是奇怪，装在我的口袋里居然还能发光。	3573	物品名:"球状光虫"
+DESCRIBE.GROTTO_POOL_BIG	来自月亮的水让琉璃增长了。	3574	物品名:"玻璃绿洲"
+DESCRIBE.GROTTO_POOL_SMALL	来自月亮的水让琉璃增长了。	3575	物品名:"小玻璃绿洲"
+DESCRIBE.DUSTMOTH	真是些整齐的小家伙，不是吗？	3576	物品名:"尘蛾"
+DESCRIBE.DUSTMOTHDEN	它们在里面过得很舒服。	3577	物品名:"整洁洞穴"
+DESCRIBE.ARCHIVE_LOCKBOX	我怎么把知识取出来呢？	3578	物品名:"蒸馏的知识"
+DESCRIBE.ARCHIVE_CENTIPEDE	你休想阻止我进步。	3579	物品名:"远古哨兵蜈蚣"
+DESCRIBE.ARCHIVE_CENTIPEDE_HUSK	无用之物。	3580	物品名:"哨兵蜈蚣壳"
+DESCRIBE.ARCHIVE_COOKPOT.COOKING_LONG	这还需要一点时间。	3583	物品名:"远古窑"->饭还需要很久
+DESCRIBE.ARCHIVE_COOKPOT.COOKING_SHORT	就快好了。	3584	物品名:"远古窑"->饭快做好了
+DESCRIBE.ARCHIVE_COOKPOT.DONE	嗯。可以吃了。	3585	物品名:"远古窑"->完成了
+DESCRIBE.ARCHIVE_COOKPOT.EMPTY	把上面的灰尘先抖干净，怎么样？	3586	物品名:"远古窑"
+DESCRIBE.ARCHIVE_COOKPOT.BURNT	锅给烧没了。	3587	物品名:"远古窑"->烧焦的
+DESCRIBE.ARCHIVE_MOON_STATUE	这些宏伟的月亮雕像让我充满了诗意。	3589	物品名:"远古月亮雕像"
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_1	如此多的知识，我要是能看懂就好了。	3592	物品名:"远古月亮符文石"->第一行
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_2	这些标记看起来与其他废墟中的标记不同。	3593	物品名:"远古月亮符文石"->第二行
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_3	如此多的知识，我要是能看懂就好了。	3594	物品名:"远古月亮符文石"->第三行
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_4	这些标记看起来与其他废墟中的标记不同。	3595	物品名:"远古月亮符文石"->第四行
+DESCRIBE.ARCHIVE_RUNE_STATUE.LINE_5	如此多的知识，我要是能看懂就好了。	3596	物品名:"远古月亮符文石"->第五行
+DESCRIBE.ARCHIVE_RESONATOR.GENERIC	能用一个超级神器，谁还要用地图？	3600	物品名:"星象探测仪"->默认
+DESCRIBE.ARCHIVE_RESONATOR.IDLE	它似乎找到了值得被找到的东西。	3601	物品名:"星象探测仪"
+DESCRIBE.ARCHIVE_RESONATOR_ITEM	我建造了一个神器。	3603	物品名:"星象探测仪" 制造描述:"它会出土什么秘密呢？"
+DESCRIBE.ARCHIVE_LOCKBOX_DISPENCER.POWEROFF	要是有办法让它重新运作就好了……	3606	物品名:"知识饮水机"
+DESCRIBE.ARCHIVE_LOCKBOX_DISPENCER.GENERIC	我有一种强烈的冲动，想站在它的周围侃侃而谈。	3607	物品名:"知识饮水机"->默认
+DESCRIBE.ARCHIVE_SECURITY_DESK.POWEROFF	它已经失去了从前的作用。	3611	物品名:"远古哨所"
+DESCRIBE.ARCHIVE_SECURITY_DESK.GENERIC	它想靠近我。	3612	物品名:"远古哨所"->默认
+DESCRIBE.ARCHIVE_SECURITY_PULSE	你这是要上哪去？是个有意思的地方吗？	3614	物品名:"远古哨所"
+DESCRIBE.ARCHIVE_SWITCH.VALID	插上宝石就能用……，我敢肯定。	3617	物品名:"华丽基座"->有效
+DESCRIBE.ARCHIVE_SWITCH.GEMS	这个插槽是空的。	3618	物品名:"华丽基座"->需要宝石
+DESCRIBE.ARCHIVE_PORTAL.POWEROFF	一点反应都没。	3622	物品名:"封印的传送门"
+DESCRIBE.ARCHIVE_PORTAL.GENERIC	奇怪，它没反应。	3623	物品名:"封印的传送门"->默认
+DESCRIBE.WALL_STONE_2	不错的墙。	3625	物品名:"档案馆石墙"
+DESCRIBE.WALL_RUINS_2	一段古老的墙。	3626	物品名:"档案馆铥墙"
+DESCRIBE.REFINED_DUST	啊——嚏。	3627	物品名:"尘土块" 制造描述:"远古甜品的关键原料。"
+DESCRIBE.DUSTMERINGUE	这玩意谁会愿意吃？	3628	物品名:"琥珀美食"
+DESCRIBE.SHROOMCAKE	果然名副其实。	3629	物品名:"蘑菇蛋糕"
+DESCRIBE.NIGHTMAREGROWTH	我要小心这些黑色的城墙。	3630	物品名:"梦魇城墙"
+DESCRIBE.TURFCRAFTINGSTATION	夯地的活我可不干。	3631	物品名:"土地夯实器" 制造描述:"一点点的改变世界。"
+DESCRIBE.MOON_ALTAR_LINK	似乎在酝酿什么。	3632	物品名:"神秘能量"
+DESCRIBE.COMPOSTINGBIN.GENERIC	我真是有点受不了这个味道。	3635	物品名:"堆肥桶"->默认 制造描述:"能让土壤变得臭烘烘和肥沃。"
+DESCRIBE.COMPOSTINGBIN.WET	看起来太湿了。	3636	物品名:"堆肥桶" 制造描述:"能让土壤变得臭烘烘和肥沃。"
+DESCRIBE.COMPOSTINGBIN.DRY	嗯……太干了。	3637	物品名:"堆肥桶" 制造描述:"能让土壤变得臭烘烘和肥沃。"
+DESCRIBE.COMPOSTINGBIN.BALANCED	恰到好处。	3638	物品名:"堆肥桶" 制造描述:"能让土壤变得臭烘烘和肥沃。"
+DESCRIBE.COMPOSTINGBIN.BURNT	这东西烧了之后更臭了……	3639	物品名:"堆肥桶"->烧焦的 制造描述:"能让土壤变得臭烘烘和肥沃。"
+DESCRIBE.COMPOST	植物的食物，派不上别的用场。	3641	物品名:"堆肥"
+DESCRIBE.SOIL_AMENDER.GENERIC	这可不是拔苗助长。。	3644	物品名:"催长剂起子"->默认 制造描述:"海里来的瓶装养分。"
+DESCRIBE.SOIL_AMENDER.STALE	这可不是拔苗助长。	3645	物品名:"催长剂起子"->过期了 制造描述:"海里来的瓶装养分。"
+DESCRIBE.SOIL_AMENDER.SPOILED	那股令人作呕的味道说明它起作用了。	3646	物品名:"催长剂起子"->腐烂了 制造描述:"海里来的瓶装养分。"
+DESCRIBE.SOIL_AMENDER_FERMENTED	这能让植物快点长大。	3648	物品名:"超级催长剂"
+DESCRIBE.WATERINGCAN.GENERIC	我可以用这个给植物浇水。	3651	物品名:"空浇水壶"->默认 制造描述:"让植物保持快乐和水分。"
+DESCRIBE.WATERINGCAN.EMPTY	也许这附近有个池塘...	3652	物品名:"空浇水壶" 制造描述:"让植物保持快乐和水分。"
+DESCRIBE.PREMIUMWATERINGCAN.GENERIC	它使浇灌变得轻松....简单。	3656	物品名:"空鸟嘴壶"->默认 制造描述:"灌溉方面的创新。"
+DESCRIBE.PREMIUMWATERINGCAN.EMPTY	没有水就没用了。	3657	物品名:"空鸟嘴壶" 制造描述:"灌溉方面的创新。"
+DESCRIBE.FARM_PLOW	方便的耕种。	3659	物品名:"耕地机"
+DESCRIBE.FARM_PLOW_ITEM	我得先找个好的种地的园子才能使用它。	3660	物品名:"耕地机" 制造描述:"为你的植物犁一块地。"
+DESCRIBE.FARM_HOE	我得把地弄的让种子更舒服一些。	3661	物品名:"园艺锄" 制造描述:"翻耕，为撒播农作物做准备。"
+DESCRIBE.GOLDEN_FARM_HOE	我真的需要这么花哨的东西来搬土吗？	3662	物品名:"黄金园艺锄" 制造描述:"优雅地耕地。"
+DESCRIBE.NUTRIENTSGOGGLESHAT	它将帮助我看到所有藏在泥土里的仙力。	3663	物品名:"高级耕作先驱帽" 制造描述:"让你看到一个成功的花园。"
+DESCRIBE.PLANTREGISTRYHAT	要了解植物，就必须戴上植物。	3664	物品名:"耕作先驱帽" 制造描述:"让你的园艺专业知识得到增长。"
+DESCRIBE.FARM_SOIL_DEBRIS	它把我的园子弄得一团糟。	3665	物品名:"农田杂物"
+DESCRIBE.FIRENETTLES	如果你受不了热，就不要在花园里呆着。	3666	物品名:"火荨麻叶"
+DESCRIBE.FORGETMELOTS	嗯，不记得我想说什么了。	3667	物品名:"必忘我"
+DESCRIBE.SWEETTEA	喝杯茶好好歇歇。	3668	物品名:"舒缓茶"
+DESCRIBE.TILLWEED	我要铲除你。	3669	物品名:"犁地草"
+DESCRIBE.TILLWEEDSALVE	我的药草。	3670	物品名:"犁地草膏" 制造描述:"慢慢去处病痛。"
+DESCRIBE.WEED_IVY	嘿，你不是蔬菜。	3671	物品名:"刺针旋花"
+DESCRIBE.IVY_SNARE	真是没礼貌。	3672	物品名:"缠绕根须"
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.GENERIC	我可以测算出收获的薄厚。	3675	物品名:"农产品秤"->默认 制造描述:"称量你珍贵的水果和蔬菜。"
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.HAS_ITEM	重量: {weight}\n收获日: {day}\n不赖。	3676	物品名:"农产品秤" 制造描述:"称量你珍贵的水果和蔬菜。"
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.HAS_ITEM_HEAVY	重量: {weight}\n收获日: {day}\n谁能想到会长这么大？	3677	物品名:"农产品秤" 制造描述:"称量你珍贵的水果和蔬菜。"
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.HAS_ITEM_LIGHT	它太一般了，秤都懒得告诉我它的重量。	3678	物品名:"农产品秤" 制造描述:"称量你珍贵的水果和蔬菜。"
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.BURNING	这是烧什么菜啊？	3679	物品名:"农产品秤"->正在燃烧 制造描述:"称量你珍贵的水果和蔬菜。"
+DESCRIBE.TROPHYSCALE_OVERSIZEDVEGGIES.BURNT	我想这不是最好的烹饪方式。	3680	物品名:"农产品秤"->烧焦的 制造描述:"称量你珍贵的水果和蔬菜。"
+DESCRIBE.CARROT_OVERSIZED	一大堆的胡萝卜。	3682	物品名:"巨型胡萝卜"
+DESCRIBE.CORN_OVERSIZED	好大的玉米棒。	3683	物品名:"巨型玉米"
+DESCRIBE.PUMPKIN_OVERSIZED	好膨胀的南瓜啊。	3684	物品名:"巨型南瓜"
+DESCRIBE.EGGPLANT_OVERSIZED	真想不通它为什么叫茄子。	3685	物品名:"巨型茄子"
+DESCRIBE.DURIAN_OVERSIZED	我很确定它臭味更大。	3686	物品名:"巨型榴莲"
+DESCRIBE.POMEGRANATE_OVERSIZED	这可能是我见过的最大的石榴。	3687	物品名:"巨型石榴"
+DESCRIBE.DRAGONFRUIT_OVERSIZED	我还有点期待它会长出翅膀呢。	3688	物品名:"巨型火龙果"
+DESCRIBE.WATERMELON_OVERSIZED	又大又多汁的西瓜。	3689	物品名:"巨型西瓜"
+DESCRIBE.TOMATO_OVERSIZED	一颗惊人的西红柿。	3690	物品名:"巨型番茄"
+DESCRIBE.POTATO_OVERSIZED	这土豆真大。	3691	物品名:"巨型土豆"
+DESCRIBE.ASPARAGUS_OVERSIZED	我会吃一段时间的芦笋了……	3692	物品名:"巨型芦笋"
+DESCRIBE.ONION_OVERSIZED	它们这么快就长这么大了。不禁让我的眼眶都湿了。	3693	物品名:"巨型洋葱"
+DESCRIBE.GARLIC_OVERSIZED	巨大的大蒜。	3694	物品名:"巨型大蒜"
+DESCRIBE.PEPPER_OVERSIZED	一种大小相当不寻常的辣椒。	3695	物品名:"巨型辣椒"
+DESCRIBE.VEGGIE_OVERSIZED_ROTTEN	腐烂的霉运。	3696	物品名:"农产品秤" 制造描述:"称量你珍贵的水果和蔬菜。"
+DESCRIBE.FARM_PLANT.GENERIC	那是一株植物。	3699	物品名:未找到
+DESCRIBE.FARM_PLANT.SEED	现在等着就好了。	3700	物品名:未找到
+DESCRIBE.FARM_PLANT.GROWING	生长吧，美丽的值物，生长吧。	3701	物品名:未找到
+DESCRIBE.FARM_PLANT.FULL	是时候收获成熟的果实了。	3702	物品名:未找到
+DESCRIBE.FARM_PLANT.ROTTEN	可惜啊。要是在成熟的时候收割就好了。	3703	物品名:未找到
+DESCRIBE.FARM_PLANT.FULL_OVERSIZED	我产出了巨型农作物。	3704	物品名:未找到
+DESCRIBE.FARM_PLANT.ROTTEN_OVERSIZED	腐烂的霉运。	3705	物品名:未找到
+DESCRIBE.FARM_PLANT.FULL_WEED	我早就想到了有天我会把这个冒牌货斩草除根。	3706	物品名:未找到
+DESCRIBE.FARM_PLANT.BURNING	这对植物来说不是好事……	3707	物品名:未找到
+DESCRIBE.FRUITFLY	到别的地方嗡嗡去。	3709	物品名:"果蝇"
+DESCRIBE.LORDFRUITFLY	嘿，别再打扰植物了。	3710	物品名:"果蝇王"
+DESCRIBE.FRIENDLYFRUITFLY	有它在，花园似乎更开心了。	3711	物品名:"友好果蝇"
+DESCRIBE.FRUITFLYFRUIT	现在我是老大了。	3712	物品名:"友好果蝇果"
+DESCRIBE.SEEDPOUCH	我早就不想把种子装在口袋里了。	3713	物品名:"种子袋" 制造描述:"妥善保管好种子。"
+DESCRIBE.CARNIVAL_HOST	是个怪人。	3714	物品名:"良羽鸦"
+DESCRIBE.CARNIVAL_CROWKID	你好，小乌鸦。	3715	物品名:"小乌鸦"
+DESCRIBE.CARNIVAL_GAMETOKEN	一枚闪亮的金币。	3716	物品名:"鸦年华代币" 制造描述:"购买代币，玩游戏，赢取奖品。"
+DESCRIBE.CARNIVAL_PRIZETICKET.GENERIC	就是那张纸条。	3719	物品名:"奖票"->默认
+DESCRIBE.CARNIVAL_PRIZETICKET.GENERIC_SMALLSTACK	就是那些纸条。	3720	物品名:"奖票"
+DESCRIBE.CARNIVAL_PRIZETICKET.GENERIC_LARGESTACK	好多的纸条啊。	3721	物品名:"奖票"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_NEST	这是一扇小活门。	3723	物品名:"饥饿乌鸦"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_STATION.GENERIC	它要我给它一些闪亮的东西才让我玩。	3726	物品名:"鸟鸟吃虫虫"->默认
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_STATION.PLAYING	这个看起来有趣喔。	3727	物品名:"鸟鸟吃虫虫"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_KIT	多抓些虫子。	3729	物品名:"鸟鸟吃虫虫套装" 制造描述:"小鸟吃虫。"
+DESCRIBE.CARNIVALGAME_FEEDCHICKS_FOOD	我不需要先把它们嚼碎，对吧？	3730	物品名:"蛴螬"
+DESCRIBE.CARNIVALGAME_MEMORY_KIT	谁给我一些蛋。	3731	物品名:"篮中蛋套装" 制造描述:"在你的蛋孵化前数清楚数量。"
+DESCRIBE.CARNIVALGAME_MEMORY_STATION.GENERIC	它要我给它一些闪亮的东西才让我玩。	3734	物品名:"篮中蛋"->默认
+DESCRIBE.CARNIVALGAME_MEMORY_STATION.PLAYING	我是这方面的行家。	3735	物品名:"篮中蛋"
+DESCRIBE.CARNIVALGAME_MEMORY_CARD.GENERIC	这是一扇小活门。	3739	物品名:"蛋篮"->默认
+DESCRIBE.CARNIVALGAME_MEMORY_CARD.PLAYING	是它吗？	3740	物品名:"蛋篮"
+DESCRIBE.CARNIVALGAME_HERDING_KIT	这些蛋，跑的都很快。	3742	物品名:"追蛋套装" 制造描述:"追回失控的蛋。"
+DESCRIBE.CARNIVALGAME_HERDING_STATION.GENERIC	要给它一些闪亮的东西才让我玩。	3745	物品名:"追蛋"->默认
+DESCRIBE.CARNIVALGAME_HERDING_STATION.PLAYING	这些鸡蛋看起来想跑。	3746	物品名:"追蛋"
+DESCRIBE.CARNIVALGAME_HERDING_CHICK	回来这。	3748	物品名:"追蛋"
+DESCRIBE.CARNIVALGAME_SHOOTING_KIT	保护小鸟的窝。	3749	物品名:"保卫鸟巢套装" 制造描述:"防止害虫进入巢穴。"
+DESCRIBE.CARNIVALGAME_SHOOTING_STATION.GENERIC	要给它一些闪亮的东西才让我玩。	3752	物品名:"保卫鸟巢"->默认
+DESCRIBE.CARNIVALGAME_SHOOTING_STATION.PLAYING	我最擅长的就是玩乐。	3753	物品名:"保卫鸟巢"
+DESCRIBE.CARNIVALGAME_SHOOTING_TARGET.GENERIC	这是一扇小活门。	3757	物品名:"射击靶"->默认
+DESCRIBE.CARNIVALGAME_SHOOTING_TARGET.PLAYING	这个靶子让我心痒痒了。	3758	物品名:"射击靶"
+DESCRIBE.CARNIVALGAME_SHOOTING_BUTTON.GENERIC	粗糙的小玩意儿，看起来挺好玩的。	3762	物品名:"按钮"->默认
+DESCRIBE.CARNIVALGAME_SHOOTING_BUTTON.PLAYING	我要按下那个闪亮的。	3763	物品名:"按钮"
+DESCRIBE.CARNIVALGAME_WHEELSPIN_KIT	这还真是个快闪嘉年华。	3765	物品名:"布谷鸟转盘套装" 制造描述:"旋转然后胜利。"
+DESCRIBE.CARNIVALGAME_WHEELSPIN_STATION.GENERIC	粗糙的小玩意儿。	3768	物品名:"布谷鸟转盘"->默认
+DESCRIBE.CARNIVALGAME_WHEELSPIN_STATION.PLAYING	转，转起来。	3769	物品名:"布谷鸟转盘"
+DESCRIBE.CARNIVALGAME_PUCKDROP_KIT	粗糙的小玩意儿。	3771	物品名:"鸟房落球套装" 制造描述:"把球安全地弹到它的窝里。"
+DESCRIBE.CARNIVALGAME_PUCKDROP_STATION.GENERIC	粗糙的小玩意儿。	3774	物品名:"鸟房落球"->默认
+DESCRIBE.CARNIVALGAME_PUCKDROP_STATION.PLAYING	粗糙的小玩意儿。	3775	物品名:"鸟房落球"
+DESCRIBE.CARNIVAL_PRIZEBOOTH_KIT	这些东西都归我了。	3777	物品名:"奖品摊位套装" 制造描述:"看看有什么奖品。"
+DESCRIBE.CARNIVAL_PRIZEBOOTH.GENERIC	这些东西都归我啦。	3780	物品名:"奖品摊位"->默认
+DESCRIBE.CARNIVALCANNON_KIT	这些东西都归我了。	3782	物品名:"奖品摊位"
+DESCRIBE.CARNIVALCANNON.GENERIC	炸开。	3785	物品名:未找到
+DESCRIBE.CARNIVALCANNON.COOLDOWN	真厉害。	3786	物品名:未找到
+DESCRIBE.CARNIVAL_PLAZA_KIT	事实已经证明了鸟儿喜欢树。	3788	物品名:"鸦年华树苗" 制造描述:"鸦年华不可或缺的中间物件。"
+DESCRIBE.CARNIVAL_PLAZA.GENERIC	现在看没“过节”的样子，对不对？	3791	物品名:"鸦年华树"->默认
+DESCRIBE.CARNIVAL_PLAZA.LEVEL_2	一只小鸟告诉我，这里要多放点好看的东西。	3792	物品名:"鸦年华树"
+DESCRIBE.CARNIVAL_PLAZA.LEVEL_3	这是一棵庆祝之树。	3793	物品名:"鸦年华树"
+DESCRIBE.CARNIVALDECOR_EGGRIDE_KIT	希望奖品就只是这些。	3795	物品名:"鸦年华树"
+DESCRIBE.CARNIVALDECOR_EGGRIDE	我可以几个小时一直盯着它看。	3796	物品名:"鸦年华树"
+DESCRIBE.CARNIVALDECOR_LAMP_KIT	光剩下一点事情了。	3797	物品名:"盛夏夜灯套装" 制造描述:"夏夜的梦幻之光。"
+DESCRIBE.CARNIVALDECOR_LAMP	它的能量来自于奇思妙想。	3798	物品名:"盛夏夜灯"
+DESCRIBE.CARNIVALDECOR_PLANT_KIT	也许这是一棵黄杨？	3799	物品名:"微型树套装" 制造描述:"一小块鸦年华。"
+DESCRIBE.CARNIVALDECOR_PLANT	不是它小，就是我大。	3800	物品名:"微型树"
+DESCRIBE.CARNIVALDECOR_BANNER_KIT	我必须自己建造它？我早该料到的。	3801	物品名:"光线捕捉器套装" 制造描述:"枝头挂着闪光的小饰品。"
+DESCRIBE.CARNIVALDECOR_BANNER	这些闪亮的东西已经说明了一切。	3802	物品名:"光线捕捉器"
+DESCRIBE.CARNIVALDECOR_FIGURE.RARE	念念不忘，必有回响。	3805	物品名:未找到
+DESCRIBE.CARNIVALDECOR_FIGURE.UNCOMMON	这种结构不是很常见。	3806	物品名:未找到
+DESCRIBE.CARNIVALDECOR_FIGURE.GENERIC	我怎么弄到这么多的这些东西……	3807	物品名:未找到
+DESCRIBE.CARNIVALDECOR_FIGURE_KIT	我想把它打开。	3809	物品名:"绿色神秘盒子" 制造描述:"这个神秘的绿盒子里会有什么呢？"
+DESCRIBE.CARNIVALDECOR_FIGURE_KIT_SEASON2	我想把它打开。	3810	物品名:"金色神秘盒子" 制造描述:"这个神秘的金盒子里会有什么呢？"
+DESCRIBE.CARNIVAL_BALL	红红的小球。	3811	unimplemented  -- 物品名:"发光红球" 制造描述:"保证你有球必应。"
+DESCRIBE.CARNIVAL_SEEDPACKET	我觉得有点饿了。	3812	物品名:"种子包" 制造描述:"鸦年华最爱的香脆小吃。"
+DESCRIBE.CARNIVALFOOD_CORNTEA	这种汤本该这么松脆吗？	3813	物品名:"玉米泥" 制造描述:"出乎意料的清爽。"
+DESCRIBE.CARNIVAL_VEST_A	这让我看起来很有精神。	3814	物品名:"叽叽喳喳围巾" 制造描述:"用捡来的树叶做成的异想天开的围巾。"
+DESCRIBE.CARNIVAL_VEST_B	就像穿上了自己专属的树荫。	3815	物品名:"叽叽喳喳斗篷" 制造描述:"这东西确实值得称道。"
+DESCRIBE.CARNIVAL_VEST_C	希望这里头没虫子……	3816	物品名:"叽叽喳喳小披肩" 制造描述:"鸦年华游客的必备小披肩。"
+DESCRIBE.YOTB_SEWINGMACHINE	缝补能有多难。	3817	物品名:"缝纫机"
+DESCRIBE.YOTB_SEWINGMACHINE_ITEM	看来需要组装一下。	3818	物品名:"缝纫机套装" 制造描述:"做出完美的皮弗娄牛礼服吧。"
+DESCRIBE.YOTB_STAGE	奇怪啊，我没见到他登台和离开……	3819	物品名:"裁判席"
+DESCRIBE.YOTB_POST	这场比赛将会顺利进行。	3820	物品名:"皮弗娄牛舞台"
+DESCRIBE.YOTB_STAGE_ITEM	看起来要搭建一下才行。	3821	物品名:"裁判席" 制造描述:"邀请专家出席。"
+DESCRIBE.YOTB_POST_ITEM	我最好先装好它。	3822	物品名:"皮弗娄牛舞台" 制造描述:"让你的皮弗娄牛登上舞台中央。"
+DESCRIBE.YOTB_PATTERN_FRAGMENT_1	我打赌把这些拼在一起之后，一定能做出一件漂亮的牛鞍。	3823	物品名:"恐怖款式碎片" 制造描述:"来一点恐怖的灵感。"
+DESCRIBE.YOTB_PATTERN_FRAGMENT_2	我打赌把这些拼在一起之后，一定能做出一件漂亮的牛鞍。	3824	物品名:"正式款式碎片" 制造描述:"来一点正式的灵感。"
+DESCRIBE.YOTB_PATTERN_FRAGMENT_3	我打赌把这些拼在一起之后，一定能做出一件漂亮的牛鞍。	3825	物品名:"喜庆款式碎片" 制造描述:"来一点喜庆的灵感。"
+DESCRIBE.YOTB_BEEFALO_DOLL_WAR.GENERIC	哄小孩儿的东西。	3828	物品名:"战士皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_WAR.YOTB	哄小孩儿的东西。	3829	物品名:"战士皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_DOLL.GENERIC	哄小孩儿的东西。	3833	物品名:"娃娃皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_DOLL.YOTB	哄小孩儿的东西。	3834	物品名:"娃娃皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_FESTIVE.GENERIC	哄小孩儿的东西。	3838	物品名:"喜庆皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_FESTIVE.YOTB	哄小孩儿的东西。	3839	物品名:"喜庆皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_NATURE.GENERIC	哄小孩儿的东西。	3843	物品名:"花朵皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_NATURE.YOTB	哄小孩儿的东西。	3844	物品名:"花朵皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_ROBOT.GENERIC	哄小孩儿的东西。	3848	物品名:"铁甲皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_ROBOT.YOTB	不知道裁判会怎么说？	3849	物品名:"铁甲皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_ICE.GENERIC	哄小孩儿的东西。	3853	物品名:"寒霜皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_ICE.YOTB	哄小孩儿的东西。	3854	物品名:"寒霜皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_FORMAL.GENERIC	哄小孩儿的东西。	3858	物品名:"正式皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_FORMAL.YOTB	哄小孩儿的东西。	3859	物品名:"正式皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_VICTORIAN.GENERIC	哄小孩儿的东西。	3863	物品名:"维多利亚皮弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_VICTORIAN.YOTB	哄小孩儿的东西。	3864	物品名:"维多利亚皮弗娄牛玩偶"
+DESCRIBE.YOTB_BEEFALO_DOLL_BEAST.GENERIC	哄小孩儿的东西。	3868	物品名:"幸运兽弗娄牛玩偶"->默认
+DESCRIBE.YOTB_BEEFALO_DOLL_BEAST.YOTB	哄小孩儿的东西。	3869	物品名:"幸运兽弗娄牛玩偶"
+DESCRIBE.WAR_BLUEPRINT	多么威猛。	3871	物品名:"战士礼服款式"
+DESCRIBE.DOLL_BLUEPRINT	我的坐骑一定会可爱动人。	3872	物品名:"娃娃礼服款式"
+DESCRIBE.FESTIVE_BLUEPRINT	是时候来点节庆活动了。	3873	物品名:"节日盛装款式"
+DESCRIBE.ROBOT_BLUEPRINT	我看起来变得更加强大。	3874	物品名:"铁甲礼服款式"
+DESCRIBE.NATURE_BLUEPRINT	花朵真是百搭。	3875	物品名:"花朵礼服款式"
+DESCRIBE.FORMAL_BLUEPRINT	这个款式看起来太严肃了。	3876	物品名:"正式礼服款式"
+DESCRIBE.VICTORIAN_BLUEPRINT	我好像没穿过件类似的衣服。	3877	物品名:"维多利亚礼服款式"
+DESCRIBE.ICE_BLUEPRINT	我喜欢新鲜的野兽，不是冷冻的。	3878	物品名:"寒霜礼服款式"
+DESCRIBE.BEAST_BLUEPRINT	我觉得要走运了。	3879	物品名:"幸运兽礼服款式"
+DESCRIBE.BEEF_BELL	它会让野兽变得友好。我相信里面有什么法力。	3880	物品名:"皮弗娄牛铃" 制造描述:"与皮弗娄牛交朋友。"
+DESCRIBE.KITCOONDEN.GENERIC	个头够小才能藏在里面。	3883	物品名:"小浣猫托儿所"->默认
+DESCRIBE.KITCOONDEN.BURNT	不。	3884	物品名:"小浣猫托儿所"->烧焦的
+DESCRIBE.KITCOONDEN.PLAYING_HIDEANDSEEK	它们去了哪里呢……	3885	物品名:"小浣猫托儿所"
+DESCRIBE.KITCOONDEN.PLAYING_HIDEANDSEEK_TIME_ALMOST_UP	剩下的时间不多了。它们在哪？	3886	物品名:"小浣猫托儿所"
+DESCRIBE.KITCOONDEN_KIT	一套都在这了。	3888	物品名:"小浣猫托儿所套装" 制造描述:"各种条纹浣猫的家园。"
+DESCRIBE.TICOON.GENERIC	他看起来好像知道自己在做什么。	3891	物品名:"大虎"->默认
+DESCRIBE.TICOON.ABANDONED	我一定能靠自己找到它们。	3892	物品名:"大虎"
+DESCRIBE.TICOON.SUCCESS	嘿，他找到了一个。	3893	物品名:"大虎"
+DESCRIBE.TICOON.LOST_TRACK	有人先发现了它们。	3894	物品名:"大虎"
+DESCRIBE.TICOON.NEARBY	看起来附近有东西。	3895	物品名:"大虎"
+DESCRIBE.TICOON.TRACKING	我应该紧跟他的步伐。	3896	物品名:"大虎"
+DESCRIBE.TICOON.TRACKING_NOT_MINE	他在为别人引路。	3897	物品名:"大虎"
+DESCRIBE.TICOON.NOTHING_TO_TRACK	看起来没有什么可找的了。	3898	物品名:"大虎"
+DESCRIBE.TICOON.TARGET_TOO_FAR_AWAY	它们可能离得太远，他嗅不到味道。	3899	物品名:"大虎"
+DESCRIBE.YOT_CATCOONSHRINE.GENERIC	做什么呢……	3903	物品名:"浣猫神龛"->默认 制造描述:"供奉无踪之浣猫。"
+DESCRIBE.YOT_CATCOONSHRINE.EMPTY	也许它想弄根羽毛来玩玩……	3904	物品名:"浣猫神龛" 制造描述:"供奉无踪之浣猫。"
+DESCRIBE.YOT_CATCOONSHRINE.BURNT	闻起来像烧焦的毛皮。	3905	物品名:"浣猫神龛"->烧焦的 制造描述:"供奉无踪之浣猫。"
+DESCRIBE.KITCOON_FOREST	其实我不喜欢猫咪。	3907	物品名:"小浣猫"
+DESCRIBE.KITCOON_SAVANNA	其实我不喜欢猫咪。	3908	物品名:"小浣猫"
+DESCRIBE.KITCOON_MARSH	其实我不喜欢猫咪。	3909	物品名:"小浣猫"
+DESCRIBE.KITCOON_DECIDUOUS	其实我不喜欢猫咪。	3910	物品名:"小浣猫"
+DESCRIBE.KITCOON_GRASS	其实我不喜欢猫咪。	3911	物品名:"小浣猫"
+DESCRIBE.KITCOON_ROCKY	其实我不喜欢猫咪。	3912	物品名:"小浣猫"
+DESCRIBE.KITCOON_DESERT	其实我不喜欢猫咪。	3913	物品名:"小浣猫"
+DESCRIBE.KITCOON_MOON	其实我不喜欢猫咪。	3914	物品名:"小浣猫"
+DESCRIBE.KITCOON_YOT	其实我不喜欢猫咪。	3915	物品名:"小浣猫"
+DESCRIBE.ALTERGUARDIAN_PHASE1.GENERIC	我要敲碎这个巨大的石头怪。	3918	物品名:"天体英雄"->默认
+DESCRIBE.ALTERGUARDIAN_PHASE1.DEAD	好多奇怪的石头。	3919	物品名:"天体英雄"->死了
+DESCRIBE.ALTERGUARDIAN_PHASE2.GENERIC	它变得不一样了……	3923	物品名:"天体英雄"->默认
+DESCRIBE.ALTERGUARDIAN_PHASE2.DEAD	不过如此。	3924	物品名:"天体英雄"->死了
+DESCRIBE.ALTERGUARDIAN_PHASE2SPIKE	你已经表明了你的观点。	3926	物品名:"月光玻璃尖刺"
+DESCRIBE.ALTERGUARDIAN_PHASE3	它现在一定生气了。	3927	物品名:"天体英雄"
+DESCRIBE.ALTERGUARDIAN_PHASE3TRAP	我看了就犯困。	3928	物品名:"启迪陷阱"
+DESCRIBE.ALTERGUARDIAN_PHASE3DEADORB	它死了吗？	3929	物品名:"天体英雄"
+DESCRIBE.ALTERGUARDIAN_PHASE3DEAD	他不适合用来填海。	3930	物品名:"被击败的天体英雄"
+DESCRIBE.ALTERGUARDIANHAT	这个头冠品相不错……	3931	物品名:"启迪之冠"
+DESCRIBE.ALTERGUARDIANHATSHARD	如此光彩夺目。	3932	物品名:"启迪碎片"
+DESCRIBE.MOONSTORM_GLASS.GENERIC	像琉璃一样。	3935	物品名:"充能玻璃石"->默认
+DESCRIBE.MOONSTORM_GLASS.INFUSED	它焕发着地外能量。	3936	物品名:"充能玻璃石"
+DESCRIBE.MOONSTORM_STATIC	全新的发现，像过雷电一样刺激。	3938	物品名:"能量静电"
+DESCRIBE.MOONSTORM_STATIC_ITEM	它让我的头发产生疯狂的变化。	3939	物品名:"约束静电"
+DESCRIBE.MOONSTORM_SPARK	姑且叫它“月光熠熠。”	3940	物品名:"月熠"
+DESCRIBE.BIRD_MUTANT	它过于丑陋了。	3941	物品名:"月盲乌鸦"
+DESCRIBE.BIRD_MUTANT_SPITTER	我不喜欢它的眼神……	3942	物品名:"奇形鸟"
+DESCRIBE.WAGSTAFF_NPC	或许我应该帮帮他。	3943	物品名:"颗粒状传输"
+DESCRIBE.WAGSTAFF_NPC_MUTATIONS	我从不休息。	3944	物品名:"颗粒状传输"
+DESCRIBE.WAGSTAFF_NPC_WAGPUNK	他到底上哪去了……	3945	物品名:"充能玻璃石"
+DESCRIBE.ALTERGUARDIAN_CONTAINED	它正在耗尽那个怪物的能寿命。	3946	物品名:"月亮精华提取器"
+DESCRIBE.WAGSTAFF_TOOL_1	那正是我苦苦寻找的工具。	3947	物品名:"网状缓冲器"
+DESCRIBE.WAGSTAFF_TOOL_2	我当然知道是怎么回事。只是，诶……解释起来太复杂。	3948	物品名:"装置除垢器"
+DESCRIBE.WAGSTAFF_TOOL_3	这明显是一个十分有用的工具。	3949	物品名:"垫圈开槽器"
+DESCRIBE.WAGSTAFF_TOOL_4	本能告诉我，这就是我一直在寻找的工具。	3950	物品名:"概念刷洗器"
+DESCRIBE.WAGSTAFF_TOOL_5	我知道它能做什么。	3951	物品名:"校准观察机"
+DESCRIBE.MOONSTORM_GOGGLESHAT	对啊。月亮与土豆，我为什么没有早点想到呢？	3952	物品名:"星象护目镜" 制造描述:"利用土豆之眼来看清风暴。"
+DESCRIBE.MOON_DEVICE.GENERIC	它捕捉到月光了。当然，我一早就知道会这样。	3955	物品名:"月亮虹吸器"->默认
+DESCRIBE.MOON_DEVICE.CONSTRUCTION1	仙法才刚刚开始。	3956	物品名:"月亮虹吸器"
+DESCRIBE.MOON_DEVICE.CONSTRUCTION2	看起来不错。	3957	物品名:"月亮虹吸器"
+DESCRIBE.POCKETWATCH_HEAL.GENERIC	有一些用处。	3961	物品名:"不老表"->默认 制造描述:"你觉得自己是几岁，你就是几岁。"
+DESCRIBE.POCKETWATCH_HEAL.RECHARGING	有一些用处。	3962	物品名:"不老表" 制造描述:"你觉得自己是几岁，你就是几岁。"
+DESCRIBE.POCKETWATCH_REVIVE.GENERIC	有一些用处。	3966	物品名:"第二次机会表"->默认 制造描述:"挽回一个朋友的不幸结局。"
+DESCRIBE.POCKETWATCH_REVIVE.RECHARGING	有一些用处。	3967	物品名:"第二次机会表" 制造描述:"挽回一个朋友的不幸结局。"
+DESCRIBE.POCKETWATCH_WARP.GENERIC	不太能理解。	3971	物品名:"倒走表"->默认 制造描述:"重走你的最后几步。"
+DESCRIBE.POCKETWATCH_WARP.RECHARGING	它在做些什么。	3972	物品名:"倒走表" 制造描述:"重走你的最后几步。"
+DESCRIBE.POCKETWATCH_RECALL.GENERIC	我打赌里面一定有十分大的空间。	3976	物品名:"溯源表"->默认 制造描述:"返回到一个遥远的时间点。"
+DESCRIBE.POCKETWATCH_RECALL.RECHARGING	它在做“时间之类的东西”，这就是它的术语名。	3977	物品名:"溯源表" 制造描述:"返回到一个遥远的时间点。"
+DESCRIBE.POCKETWATCH_PORTAL.GENERIC	有一些用处。	3984	物品名:"裂缝表"->默认 制造描述:"和朋友一起穿越时间会更好。"
+DESCRIBE.POCKETWATCH_PORTAL.RECHARGING	有一些用处。	3985	物品名:"裂缝表" 制造描述:"和朋友一起穿越时间会更好。"
+DESCRIBE.POCKETWATCH_WEAPON.GENERIC	坏事发生只是时间问题。	3992	物品名:"警钟"->默认 制造描述:"这只钟敲的就是你。"
+DESCRIBE.POCKETWATCH_PARTS	时间如白驹过隙.......。	3995	物品名:"时间碎片" 制造描述:"计时必备零件。"
+DESCRIBE.POCKETWATCH_DISMANTLER	这东西不太好用。	3996	物品名:"钟表匠工具" 制造描述:"修补计时装置。"
+DESCRIBE.POCKETWATCH_PORTAL_ENTRANCE.GENERIC	向前走，去发现。	3999	物品名:"时间裂缝"->默认
+DESCRIBE.POCKETWATCH_PORTAL_ENTRANCE.DIFFERENTSHARD	向前走，去发现。	4000	物品名:"时间裂缝"
+DESCRIBE.POCKETWATCH_PORTAL_EXIT	好一个漫长的下降过程。	4002	物品名:"时间裂缝"
+DESCRIBE.WATERTREE_PILLAR	好大一棵树。	4003	物品名:"大树干"
+DESCRIBE.OCEANTREE	这些树应该是迷路了。	4004	物品名:"疙瘩树"
+DESCRIBE.OCEANTREENUT	里面有活着的东西。	4005	物品名:"疙瘩树果"
+DESCRIBE.WATERTREE_ROOT	大树的根。	4006	物品名:"大树根"
+DESCRIBE.OCEANTREE_PILLAR	虽然不如原来那个那么好，但还是挺不错的。	4007	物品名:"高出平均值的树干"
+DESCRIBE.OCEANVINE	它的名字是“藤条”。	4008	物品名:"苔藓藤条"
+DESCRIBE.FIG	我管它叫“不开花的果实”。	4009	物品名:"无花果"
+DESCRIBE.FIG_COOKED	它被烤熟了。	4010	物品名:"熟无花果"
+DESCRIBE.SPIDER_WATER	仙法能让它们能浮起来这回事？	4011	物品名:"海黾"
+DESCRIBE.MUTATOR_WATER	哦，哇，这看起来嗯……很好吃，韦伯。	4012	物品名:"海黾变身涂鸦" 制造描述:"光是看就让人流口水。"
+DESCRIBE.OCEANVINE_COCOON	我轻轻戳它一下会怎么样？	4013	物品名:"海黾巢穴"
+DESCRIBE.OCEANVINE_COCOON_BURNT	闻到了烧焦的味道。	4014	物品名:"海黾巢穴"
+DESCRIBE.GRASSGATOR	我觉得他喜欢我。	4015	物品名:"草鳄鱼"
+DESCRIBE.TREEGROWTHSOLUTION	嗯，树木的食粮。	4016	物品名:"树果酱" 制造描述:"鼓励树木到达新的高度。"
+DESCRIBE.FIGATONI	像面条。	4017	物品名:"无花果意面"
+DESCRIBE.FIGKABAB	用棍子穿起来烤更方便。	4018	物品名:"无花果烤串"
+DESCRIBE.KOALEFIG_TRUNK	这下好了，我有个塞得满满的鼻子了。	4019	物品名:"无花果酿象鼻"
+DESCRIBE.FROGNEWTON	无花果有效弥合了其他原料的味道。	4020	物品名:"无花果蛙腿三明治"
+DESCRIBE.TERRARIUM.GENERIC	看着它让我的头感觉很模糊。	4023	物品名:"盒中泰拉"->默认
+DESCRIBE.TERRARIUM.CRIMSON	我有种不好的预感……	4024	物品名:"盒中泰拉"
+DESCRIBE.TERRARIUM.ENABLED	这里面封印了什么吗？	4025	物品名:"盒中泰拉"
+DESCRIBE.TERRARIUM.WAITING_FOR_DARK	会是什么呢？不然睡一觉起来再看。	4026	物品名:"盒中泰拉"
+DESCRIBE.TERRARIUM.COOLDOWN	这之后需要等待一下。	4027	物品名:"盒中泰拉"->冷却中
+DESCRIBE.TERRARIUM.SPAWN_DISABLED	我应该不会再被窥视的目光所打扰了。	4028	物品名:"盒中泰拉"
+DESCRIBE.MIGHTY_GYM.GENERIC	让我上去耍耍……	4032	物品名:"强大健身房"->默认 制造描述:"拿出力量来吧。"
+DESCRIBE.MIGHTY_GYM.BURNT	谁把它烧了。	4033	物品名:"强大健身房"->烧焦的 制造描述:"拿出力量来吧。"
+DESCRIBE.DUMBBELL	这个重量对我来说不值一提。	4035	物品名:"哑铃" 制造描述:"练肌肉离不开棍棒和石头。"
+DESCRIBE.DUMBBELL_GOLDEN	精诚所至，金石为开。	4036	物品名:"黄金哑铃" 制造描述:"举重的黄金标准。"
+DESCRIBE.DUMBBELL_MARBLE	太重。	4037	物品名:"大理石哑铃" 制造描述:"获得有棱有角体格的捷径。"
+DESCRIBE.DUMBBELL_GEM	太重了。	4038	物品名:"宝石哑铃" 制造描述:"让你锻炼的方方面面都得到打磨。"
+DESCRIBE.POTATOSACK	不是装满了土豆形状的石头，就是石头形状的土豆。	4039	物品名:"土豆袋" 制造描述:"马铃薯的天然栖息地。"
+DESCRIBE.DUMBBELL_HEAT	用来热身还不错。	4040	物品名:"热铃" 制造描述:"进行终极热身。"
+DESCRIBE.DUMBBELL_REDGEM	我确实感受到身体在燃烧。	4041	物品名:"火铃" 制造描述:"感受燃烧。"
+DESCRIBE.DUMBBELL_BLUEGEM	冰冰的很舒服。	4042	物品名:"冰铃" 制造描述:"冰封妨碍锻炼的东西。"
+DESCRIBE.TERRARIUMCHEST.GENERIC	没有谁因为偷看盒子里的东西而出事吧？	4045	物品名:"显眼箱子"->默认
+DESCRIBE.TERRARIUMCHEST.BURNT	它不会再打扰任何人了。	4046	物品名:"显眼箱子"->烧焦的
+DESCRIBE.TERRARIUMCHEST.SHIMMER	那个看起来有点格格不入……	4047	物品名:"显眼箱子"
+DESCRIBE.EYEMASKHAT	不得不说，我独具慧眼。	4049	物品名:"眼面具"
+DESCRIBE.EYEOFTERROR	瞄准眼睛。	4050	物品名:"恐怖之眼"
+DESCRIBE.EYEOFTERROR_MINI	我开始觉得不自在了。	4051	物品名:"可疑窥视者"
+DESCRIBE.EYEOFTERROR_MINI_GROUNDED	我想它就要孵化了……	4052	物品名:"恐怖之蛋"
+DESCRIBE.FROZENBANANADAIQUIRI	冰沙绵密。	4053	物品名:"冰香蕉冻唇蜜"
+DESCRIBE.BUNNYSTEW	这家伙的运气到头了。	4054	物品名:"炖兔子"
+DESCRIBE.MILKYWHITES	……呃。	4055	物品名:"乳白物"
+DESCRIBE.CRITTER_EYEOFTERROR	多一双眼睛总是好事。呃……应该是一只眼睛。	4056	物品名:"友好窥视者"
+DESCRIBE.SHIELDOFTERROR	最好的防御就是下巴做成的盾牌。	4057	物品名:"恐怖盾牌"
+DESCRIBE.TWINOFTERROR1	是敌是友……	4058	物品名:"激光眼"
+DESCRIBE.TWINOFTERROR2	是敌是友……	4059	物品名:"魔焰眼"
+DESCRIBE.COTL_TRINKET	了不起的成就。	4060	物品名:"红眼冠"
+DESCRIBE.TURF_COTL_GOLD	看起来很贵。	4061	物品名:"黄金地板" 制造描述:"为新的黄金时代奠定基础。"
+DESCRIBE.TURF_COTL_BRICK	砖块是地板的组成部分。	4062	物品名:"砖地板" 制造描述:"单独的砖块聚集在一起用于更大的目的。"
+DESCRIBE.COTL_TABERNACLE_LEVEL1.LIT	舒缓的光。	4065	物品名:"低微咩咩雕像" 制造描述:"劣质的咩咩雕刻品。"
+DESCRIBE.COTL_TABERNACLE_LEVEL1.GENERIC	需要燃料。	4066	物品名:"低微咩咩雕像"->默认 制造描述:"劣质的咩咩雕刻品。"
+DESCRIBE.COTL_TABERNACLE_LEVEL2.LIT	鼓舞人心的雕塑。	4070	物品名:"有所改进咩咩雕像" 制造描述:"一座用来歌颂咩咩的精致雕像。"
+DESCRIBE.COTL_TABERNACLE_LEVEL2.GENERIC	需要燃料。	4071	物品名:"有所改进咩咩雕像"->默认 制造描述:"一座用来歌颂咩咩的精致雕像。"
+DESCRIBE.COTL_TABERNACLE_LEVEL3.LIT	我可以永远盯着它。	4075	物品名:"完美无瑕咩咩雕像" 制造描述:"一座纪念咩咩荣耀的耀眼纪念碑。"
+DESCRIBE.COTL_TABERNACLE_LEVEL3.GENERIC	需要燃料。	4076	物品名:"完美无瑕咩咩雕像"->默认 制造描述:"一座纪念咩咩荣耀的耀眼纪念碑。"
+DESCRIBE.CATTOY_MOUSE	给老鼠都安上轮子了。	4078	物品名:"发条鼠玩具" 制造描述:"开始一场猫鼠游戏。"
+DESCRIBE.KITCOON_NAMETAG	我应该想几个名字。	4079	物品名:"小浣猫项圈" 制造描述:"给可爱的小脸蛋起个名字。"
+DESCRIBE.KITCOONDECOR1.GENERIC	不是真鸟，但那些小家伙根本分不清。	4082	物品名:"火鸡不倒翁"->默认
+DESCRIBE.KITCOONDECOR1.BURNT	烧起来了。	4083	物品名:"火鸡不倒翁"->烧焦的
+DESCRIBE.KITCOONDECOR2.GENERIC	这些小家伙总是三心二意。我要干什么来着？	4087	物品名:"逗猫小鱼"->默认
+DESCRIBE.KITCOONDECOR2.BURNT	它给烧了。	4088	物品名:"逗猫小鱼"->烧焦的
+DESCRIBE.KITCOONDECOR1_KIT	看起来需要组装一下。	4090	物品名:"火鸡不倒翁套装" 制造描述:"属于猫科朋友的羽毛乐趣。"
+DESCRIBE.KITCOONDECOR2_KIT	看起来不是很难制作。	4091	物品名:"逗猫小鱼套装" 制造描述:"一场愉快的无用功。"
+DESCRIBE.WX78MODULE_MAXHEALTH	一个小玩意竟然装得下这么多的知识。	4092	物品名:"强化电路" 制造描述:"让你的机械身躯更加健壮。"
+DESCRIBE.WX78MODULE_MAXSANITY1	一个小玩意竟然装得下这么多的知识。	4093	物品名:"处理器电路" 制造描述:"一点额外的处理能力有助于缓解机械思维。"
+DESCRIBE.WX78MODULE_MAXSANITY	一个小玩意竟然装得下这么多的知识。	4094	物品名:"超级处理器电路" 制造描述:"处理能力的大幅提升将让齿轮高速转动。"
+DESCRIBE.WX78MODULE_MOVESPEED	一个小玩意竟然装得下这么多的知识。	4095	物品名:"加速电路" 制造描述:"匆忙设计的加速器。亟待改进。"
+DESCRIBE.WX78MODULE_MOVESPEED2	一个小玩意竟然装得下这么多的知识。	4096	物品名:"超级加速电路" 制造描述:"一个完美的加速器，将你的引擎提到最高档。"
+DESCRIBE.WX78MODULE_HEAT	一个小玩意竟然装得下这么多的知识。	4097	物品名:"热能电路" 制造描述:"要热起来了。"
+DESCRIBE.WX78MODULE_NIGHTVISION	一个小玩意竟然装得下这么多的知识。	4098	物品名:"光电电路" 制造描述:"将你的光学传感器调校为夜视效果。"
+DESCRIBE.WX78MODULE_COLD	一个小玩意竟然装得下这么多的知识。	4099	物品名:"制冷电路" 制造描述:"把你的底盘变成一个便携式冰柜。"
+DESCRIBE.WX78MODULE_TASER	一个小玩意竟然装得下这么多的知识。	4100	物品名:"电气化电路" 制造描述:"谁敢惹你就等着被电击吧。"
+DESCRIBE.WX78MODULE_LIGHT	一个小玩意竟然装得下这么多的知识。	4101	物品名:"照明电路" 制造描述:"用你的存在照亮一个房间。"
+DESCRIBE.WX78MODULE_MAXHUNGER1	一个小玩意竟然装得下这么多的知识。	4102	物品名:"胃增益电路" 制造描述:"增加一点燃料箱的容量。"
+DESCRIBE.WX78MODULE_MAXHUNGER	一个小玩意竟然装得下这么多的知识。	4103	物品名:"超级胃增益电路" 制造描述:"能满足哪怕是最贪食的机器人的胃口。"
+DESCRIBE.WX78MODULE_MUSIC	一个小玩意竟然装得下这么多的知识。	4104	物品名:"合唱盒电路" 制造描述:"每台机器都需要时不时地进行校准。"
+DESCRIBE.WX78MODULE_BEE	一个小玩意竟然装得下这么多的知识。	4105	物品名:"豆增压电路" 制造描述:"让你的大脑和身体都充满嗡嗡作响的潜能。"
+DESCRIBE.WX78MODULE_MAXHEALTH2	一个小玩意竟然装得下这么多的知识。	4106	物品名:"超级强化电路" 制造描述:"让你的机械身躯无比健壮。"
+DESCRIBE.WX78_SCANNER.GENERIC	WX-78真的把自己的一部分投入到了劳动中。	4109	物品名:"生物扫描分析仪"->默认
+DESCRIBE.WX78_SCANNER.HUNTING	抓住那个东西。	4110	物品名:"生物扫描分析仪"
+DESCRIBE.WX78_SCANNER.SCANNING	它似乎发现了什么。	4111	物品名:"生物扫描分析仪"
+DESCRIBE.WX78_SCANNER_ITEM	我想知道它是否会做梦。	4113	物品名:"生物扫描分析仪" 制造描述:"备份扫描永远不会有坏处。"
+DESCRIBE.WX78_SCANNER_SUCCEEDED	它有一种迫不及待向世人展示自己作品的急迫。	4114	物品名:"生物扫描分析仪"
+DESCRIBE.WX78_MODULEREMOVER	这显然非常复杂。	4115	物品名:"电路提取器" 制造描述:"成功的钳（前）提是努力。"
+DESCRIBE.SCANDATA	蕴含了某种传承。	4116	物品名:"生物数据"
+DESCRIBE.JUSTEGGS	可以再来点猪肉。	4117	物品名:"普通煎蛋"
+DESCRIBE.VEGGIEOMLET	早餐是一天中最重要的一餐。	4118	物品名:"早餐锅"
+DESCRIBE.TALLEGGS	早餐技术的突破。	4119	物品名:"苏格兰高鸟蛋"
+DESCRIBE.BEEFALOFEED	我不要，谢谢你。	4120	物品名:"蒸树枝"
+DESCRIBE.BEEFALOTREAT	就我的口味而言，不好。	4121	物品名:"皮弗娄牛零食"
+DESCRIBE.BOAT_ROTATOR	事情正朝着正确的方向发展。这个方向非左即右。	4122	物品名:"转向舵"
+DESCRIBE.BOAT_ROTATOR_KIT	我想要带它出去转转。	4123	物品名:"转向舵套装" 制造描述:"划，划，转动你的船。"
+DESCRIBE.BOAT_BUMPER_KELP	虽然不能解决小船的所有问题，但也起到了海带应有的作用。	4124	物品名:"海带保险杠"
+DESCRIBE.BOAT_BUMPER_KELP_KIT	一个即将到来的船用防御外壳。	4125	物品名:"海带保险杠套装" 制造描述:"用海带保护你的船。"
+DESCRIBE.BOAT_BUMPER_SHELL	能给小船提供一个小的防御外壳。	4126	物品名:"贝壳保险杠"
+DESCRIBE.BOAT_BUMPER_SHELL_KIT	一个即将到来的船用防御外壳。	4127	物品名:"贝壳保险杠套装" 制造描述:"用贝壳保护你的船。"
+DESCRIBE.BOAT_CANNON.GENERIC	我应该找东西装填进去。	4130	物品名:"大炮"->默认
+DESCRIBE.BOAT_CANNON.AMMOLOADED	大炮已经准备好开火了。	4131	物品名:"大炮"
+DESCRIBE.BOAT_CANNON.NOAMMO	我没忘记炮弹的事。	4132	物品名:"大炮"
+DESCRIBE.BOAT_CANNON_KIT	现在还不是大炮，不过将来会是。	4134	物品名:"大炮套装" 制造描述:"它能把你的竞争对手从水面轰走。"
+DESCRIBE.CANNONBALL_ROCK_ITEM	它能完美地装进炮膛里。	4135	物品名:"炮弹" 制造描述:"它肯定会引起轰动。"
+DESCRIBE.OCEAN_TRAWLER.GENERIC	高效渔业的必备。	4138	物品名:"海洋拖网捕鱼器"->默认
+DESCRIBE.OCEAN_TRAWLER.LOWERED	现在我得等等。	4139	物品名:"海洋拖网捕鱼器"
+DESCRIBE.OCEAN_TRAWLER.CAUGHT	抓到个东西。	4140	物品名:"海洋拖网捕鱼器"
+DESCRIBE.OCEAN_TRAWLER.ESCAPED	好像是抓到了，但又被它跑掉了……	4141	物品名:"海洋拖网捕鱼器"
+DESCRIBE.OCEAN_TRAWLER.FIXED	又可以抓鱼了。	4142	物品名:"海洋拖网捕鱼器"
+DESCRIBE.OCEAN_TRAWLER_KIT	我应该把它放在有很多鱼的地方。	4144	物品名:"海洋拖网捕鱼器套装" 制造描述:"海里有的是鱼。"
+DESCRIBE.BOAT_MAGNET.GENERIC	不错的东西。	4147	物品名:"自动航行仪"->默认
+DESCRIBE.BOAT_MAGNET.ACTIVATED	奏效了。。呃，我当然一早就知道它能行。	4148	物品名:"自动航行仪"
+DESCRIBE.BOAT_MAGNET_KIT	自动寻路。	4150	物品名:"自动航行仪套装" 制造描述:"你的个性并不是唯一具有磁性的东西。"
+DESCRIBE.BOAT_MAGNET_BEACON.GENERIC	附近只要有某种力量就会受到它的吸引。	4153	物品名:"自动航行灯塔"->默认 制造描述:"能把附近可能存在的任何滑稽的超大磁铁吸过来。"
+DESCRIBE.BOAT_MAGNET_BEACON.ACTIVATED	过来。	4154	物品名:"自动航行灯塔" 制造描述:"能把附近可能存在的任何滑稽的超大磁铁吸过来。"
+DESCRIBE.DOCK_KIT	这里有为小船建造一个码头所需的一切。	4156	物品名:"码头套装" 制造描述:"准备好你的码头审查。"
+DESCRIBE.DOCK_WOODPOSTS_ITEM	我就猜到码头缺了点东西。	4157	物品名:"码头桩" 制造描述:"没有什么能比事后添加一些柱子更能说明“结构稳定”了。"
+DESCRIBE.MONKEYHUT.GENERIC	是一群讨厌的家伙。	4160	物品名:"猴子小屋"->默认
+DESCRIBE.MONKEYHUT.BURNT	谁烧了它呢。	4161	物品名:"猴子小屋"->烧焦的
+DESCRIBE.POWDER_MONKEY	放肆。	4163	物品名:"火药猴"
+DESCRIBE.PRIME_MATE	一顶漂亮的帽子总能清楚地表明谁是老大。	4164	物品名:"大副"
+DESCRIBE.LIGHTCRAB	它是发光生物。	4165	物品名:"发光蟹"
+DESCRIBE.CUTLESS	虽然它切不了东西，但是它木刺多呀。	4166	物品名:"木头短剑"
+DESCRIBE.CURSED_MONKEY_TOKEN	好像是无害的。	4167	物品名:"诅咒饰品"
+DESCRIBE.OAR_MONKEY	拿起船桨去战斗。	4168	物品名:"战桨"
+DESCRIBE.BANANABUSH	那片灌木丛是香蕉。	4169	物品名:"香蕉丛"
+DESCRIBE.DUG_BANANABUSH	那片灌木丛是香蕉。	4170	物品名:"香蕉丛"
+DESCRIBE.PALMCONETREE	一颗长得像松树的棕榈树。	4171	物品名:"棕榈松果树"
+DESCRIBE.PALMCONE_SEED	树的开始。	4172	物品名:"棕榈松果树芽"
+DESCRIBE.PALMCONE_SAPLING	它的伟大梦想就是有一天能长成一棵树。	4173	物品名:"棕榈松果树苗"
+DESCRIBE.PALMCONE_SCALE	如果树有趾甲，大抵该是这样吧。	4174	物品名:"棕榈松果树鳞片"
+DESCRIBE.MONKEYTAIL	这东西不能吃。	4175	物品名:"猴尾草"
+DESCRIBE.DUG_MONKEYTAIL	这东西不能吃。	4176	物品名:"猴尾草"
+DESCRIBE.MONKEY_MEDIUMHAT	不中看的帽子。	4177	物品名:"船长的三角帽"
+DESCRIBE.MONKEY_SMALLHAT	有何用处。	4178	物品名:"海盗头巾"
+DESCRIBE.POLLY_ROGERSHAT	一只小鸟告诉我它会派上用场。	4179	物品名:"波莉·罗杰的帽子" 制造描述:"随帽子附送一只长羽毛的朋友。"
+DESCRIBE.POLLY_ROGERS	就是那只小鸟说的。	4180	物品名:"波莉·罗杰"
+DESCRIBE.MONKEYISLAND_PORTAL	没有东西可以进入，它会不断地吐出东西。	4181	物品名:"非自然传送门"
+DESCRIBE.MONKEYISLAND_PORTAL_DEBRIS	奇怪，这东西看起来怎么眼熟呢……	4182	物品名:"损坏的机器"
+DESCRIBE.MONKEYQUEEN	这片儿看起来是她说了算。	4183	物品名:"月亮码头女王"
+DESCRIBE.MONKEYPILLAR	猴子的图腾。	4184	物品名:"猴子柱"
+DESCRIBE.PIRATE_FLAG_POLE	喂。	4185	物品名:"月亮码头海盗旗" 制造描述:"挂起你自己的海盗旗来模仿猴子掠夺者吧。"
+DESCRIBE.BLACKFLAG	一群未开智的野猴子罢了。	4186	物品名:"黑旗"
+DESCRIBE.PIRATE_STASH	我喜欢这个装饰。	4187	物品名:"X"
+DESCRIBE.STASH_MAP	在生活中有一些方向是极好的。	4188	物品名:"海盗地图"
+DESCRIBE.BANANAJUICE	有点落草为寇的感觉了。	4189	物品名:"香蕉奶昔"
+DESCRIBE.FENCE_ROTATOR	注意。重新部署。	4190	物品名:"栅栏击剑" 制造描述:"一把用于栅栏和击剑的剑"
+DESCRIBE.CHARLIE_STAGE_POST	这是个陷阱。 感觉……话本都写好了。	4191	物品名:"舞台"
+DESCRIBE.CHARLIE_LECTURN	有人在表演吗？	4192	物品名:"剧本"
+DESCRIBE.CHARLIE_HECKLER	这是戏院养的八哥。	4193	物品名:"嘲鸫"
+DESCRIBE.PLAYBILL_THE_DOLL	“由谁撰写”	4194	物品名:"附魔玩偶\n舞台剧"
+DESCRIBE.STATUEHARP_HEDGESPAWNER	花长回来了，但头却没有。	4195	物品名:"荆棘密布的雕像"
+DESCRIBE.HEDGEHOUND	有埋伏。	4196	物品名:"蔷薇狼"
+DESCRIBE.HEDGEHOUND_BUSH	是个灌木丛。	4197	物品名:"蔷薇"
+DESCRIBE.MASK_DOLLHAT	这是一张玩偶面具。	4198	物品名:"玩偶面具"
+DESCRIBE.MASK_DOLLBROKENHAT	这是一张开裂的玩偶面具。	4199	物品名:"开裂玩偶面具"
+DESCRIBE.MASK_DOLLREPAIREDHAT	这是一张曾经的玩偶面具。	4200	物品名:"破碎玩偶面具"
+DESCRIBE.MASK_BLACKSMITHHAT	这是一张铁匠面具。	4201	物品名:"铁匠面具"
+DESCRIBE.MASK_MIRRORHAT	这是一张面具，但它看起来像一面镜子。	4202	物品名:"镜子面具"
+DESCRIBE.MASK_QUEENHAT	这是一张女王面具。	4203	物品名:"女王面具"
+DESCRIBE.MASK_KINGHAT	这是一张国王面具。	4204	物品名:"国王面具"
+DESCRIBE.MASK_TREEHAT	这是一张树的面具。	4205	物品名:"树木面具"
+DESCRIBE.MASK_FOOLHAT	这是一张小丑面具。	4206	物品名:"小丑面具"
+DESCRIBE.COSTUME_DOLL_BODY	这是玩偶的戏服。	4207	物品名:"玩偶服"
+DESCRIBE.COSTUME_QUEEN_BODY	这是女王的戏服。	4208	物品名:"女王服"
+DESCRIBE.COSTUME_KING_BODY	这是国王的戏服。	4209	物品名:"国王服"
+DESCRIBE.COSTUME_BLACKSMITH_BODY	这是铁匠的戏服。	4210	物品名:"铁匠服"
+DESCRIBE.COSTUME_MIRROR_BODY	这是一套戏服。	4211	物品名:"镜子服"
+DESCRIBE.COSTUME_TREE_BODY	这是树的戏服。	4212	物品名:"树木服"
+DESCRIBE.COSTUME_FOOL_BODY	这是小丑的戏服。	4213	物品名:"小丑服"
+DESCRIBE.STAGEUSHER.STANDING	总之不要伸出你的手，好吗？	4216	物品名:"多刺舞台之手"
+DESCRIBE.STAGEUSHER.SITTING	这里有些古怪，但我说不出所以然。	4217	物品名:"多刺舞台之手"
+DESCRIBE.SEWING_MANNEQUIN.GENERIC	即使打扮得漂漂亮亮，还是哪也去不了。	4221	物品名:"假人"->默认 制造描述:"测试所有最新可装备外观的模特。"
+DESCRIBE.SEWING_MANNEQUIN.BURNT	即使烧光了，还是哪也去不了。	4222	物品名:"假人"->烧焦的 制造描述:"测试所有最新可装备外观的模特。"
+DESCRIBE.MAGICIAN_CHEST	为什么我开始感到有点不安了……？	4224	物品名:"魔术师箱子" 制造描述:"将你的物品囚禁在一个暗影漩涡中。"
+DESCRIBE.TOPHAT_MAGICIAN	那顶帽子看起来很威严。	4225	物品名:"魔术师高礼帽" 制造描述:"百搭的黑魔法。"
+DESCRIBE.YOTR_FIGHTRING_KIT	它一定是为了什么而建造的。	4226	物品名:"枕头大战坑套装" 制造描述:"兔子的战斗擂台。"
+DESCRIBE.YOTR_FIGHTRING_BELL.GENERIC	暂时平静下来了。	4229	物品名:"枕头大战钟"->默认
+DESCRIBE.YOTR_FIGHTRING_BELL.PLAYING	我想我们今天都在这里学到了很多东西。	4230	物品名:"枕头大战钟"
+DESCRIBE.YOTR_DECOR_1.GENERAL	那只兔子真的可以点亮一个房间。	4234	物品名:"矮兔灯"
+DESCRIBE.YOTR_DECOR_1.OUT	这兔子什么都照不亮。	4235	物品名:"矮兔灯"->出去？外面？
+DESCRIBE.YOTR_DECOR_2.GENERAL	那只兔子真的可以点亮一个房间。	4239	物品名:"高兔灯"
+DESCRIBE.YOTR_DECOR_2.OUT	这兔子什么都照不亮。	4240	物品名:"高兔灯"->出去？外面？
+DESCRIBE.HAREBALL	到如今……比这更糟的东西我都吃过。	4242	物品名:"兔毛球"
+DESCRIBE.YOTR_DECOR_1_ITEM	我知道把它放在哪。	4243	物品名:"矮兔灯" 制造描述:"这盏可爱的灯能使任何洞穴变得舒适起来。"
+DESCRIBE.YOTR_DECOR_2_ITEM	我知道把它放在哪。	4244	物品名:"高兔灯" 制造描述:"一尊肚子里真正有火的兔子雕像。"
+DESCRIBE.DREADSTONE	它竟然反射暗影而非光线。	4245	物品名:"绝望石"
+DESCRIBE.HORRORFUEL	它让我脊椎发出了可怕的颤抖。	4246	物品名:"纯粹恐惧"
+DESCRIBE.DAYWALKER.GENERIC	释放他可能有些草率了。	4249	物品名:"噩梦猪人"->默认
+DESCRIBE.DAYWALKER.IMPRISONED	我有些为他惋惜。	4250	物品名:"噩梦猪人"
+DESCRIBE.DAYWALKER_PILLAR.GENERIC	大理石里有东西在闪烁。	4254	物品名:"开裂的柱子"->默认
+DESCRIBE.DAYWALKER_PILLAR.EXPOSED	坚不可摧的石柱。	4255	物品名:"开裂的柱子"
+DESCRIBE.ARMORDREADSTONE	轻便、结实，威武。	4257	物品名:"绝望石盔甲" 制造描述:"不要怕，黑暗会保护你。"
+DESCRIBE.DREADSTONEHAT	它能保护我无以伦比的大脑安然无恙。	4258	物品名:"绝望石头盔" 制造描述:"由至黑的石头做成的结实头盔。"
+DESCRIBE.LUNARRIFT_PORTAL	那么多灵力藏在里面……而我却无法触碰到它。	4259	物品名:"裂隙" 
+DESCRIBE.LUNARRIFT_CRYSTAL	发光体结晶。	4260	物品名:"开裂的柱子"
+DESCRIBE.LUNARTHRALL_PLANT	它似乎不太在乎生存空间。	4261	物品名:"致命亮茄"
+DESCRIBE.LUNARTHRALL_PLANT_VINE_END	它有着带刺的外观。	4262	物品名:"钻地藤蔓"
+DESCRIBE.LUNAR_GRAZER	它一定是通过那个奇怪的裂隙来的。	4263	物品名:"牧者"
+DESCRIBE.PUREBRILLIANCE	闪闪亮的。	4264	物品名:"纯粹辉煌"
+DESCRIBE.LUNARPLANT_HUSK	出奇的坚硬。我可以用得上。	4265	物品名:"亮茄外壳"
+DESCRIBE.LUNAR_FORGE	可以做出什么东西。	4266	物品名:"辉煌铁匠铺"
+DESCRIBE.LUNAR_FORGE_KIT	可以做出什么东西。	4267	物品名:"辉煌铁匠铺套装" 制造描述:"锻造异世界的物品。"
+DESCRIBE.LUNARPLANT_KIT	我要用这个修补亮茄盔甲	4268	物品名:"亮茄修补套件" 制造描述:"修复损坏的设备。"
+DESCRIBE.ARMOR_LUNARPLANT	这盔甲看起来很适合我了。	4269	物品名:"亮茄盔甲" 制造描述:"将自己包围在令人生畏的月叶中。"
+DESCRIBE.LUNARPLANTHAT	好像。	4270	物品名:"亮茄头盔" 制造描述:"用发着光的护具保护您宝贵的颅骨。"
+DESCRIBE.BOMB_LUNARPLANT	比火药更厉害。	4271	物品名:"亮茄炸弹" 制造描述:"用不稳定的月能取得爆炸性结果。"
+DESCRIBE.STAFF_LUNARPLANT	植物的力量。	4272	物品名:"亮茄魔杖" 制造描述:"扎根原地，从远处发起攻击。"
+DESCRIBE.SWORD_LUNARPLANT	闪闪发光，威力无穷。	4273	物品名:"亮茄剑" 制造描述:"月光宝剑。"
+DESCRIBE.PICKAXE_LUNARPLANT	打碎。	4274	物品名:"亮茄粉碎者" 制造描述:"随心所欲地挖掘和拆除吧。"
+DESCRIBE.SHOVEL_LUNARPLANT	转移泥土的潜力无限大。	4275	物品名:"亮茄锄铲" 制造描述:"铲子和园艺锄之间交叉授粉的突破性成果。"
+DESCRIBE.BROKEN_FORGEDITEM	它破损了，但是我可以把它修好。	4276	物品名:"开裂的柱子"
+DESCRIBE.PUNCHINGBAG	我正在变得强大。	4277	物品名:"拳击袋" 制造描述:"测试武器的强度。并从中获得乐趣。"
+DESCRIBE.SHADOWRIFT_PORTAL	那东西看起来像是会一直持续下去。	4278	物品名:"裂隙"
+DESCRIBE.SHADOW_FORGE	它会为哪些黑暗生物带来生命呢？	4279	物品名:"暗影术基座"
+DESCRIBE.SHADOW_FORGE_KIT	我好好研究一下这个看起来.....邪恶。	4280	物品名:"暗影术基座套装" 制造描述:"让恐惧为你所用。"
+DESCRIBE.FUSED_SHADELING	我还是更喜欢你小的时候，那时候你烦的是别人。	4281	物品名:"熔合暗影"
+DESCRIBE.FUSED_SHADELING_BOMB	轰轰烈烈。	4282	物品名:"绝望螨"
+DESCRIBE.VOIDCLOTH	那些暗影都是从同一块布上裁下来的。	4283	物品名:"暗影碎布"
+DESCRIBE.VOIDCLOTH_KIT	我对于在暗影中编织只有一些零星的了解。	4284	物品名:"虚空修补套件" 制造描述:"修复损坏的设备。"
+DESCRIBE.VOIDCLOTHHAT	黑暗的神秘感扑面而来。	4285	物品名:"虚空风帽" 制造描述:"没有光可以刺穿这个罩子里的黑暗。"
+DESCRIBE.ARMOR_VOIDCLOTH	哦，糟糕，前面撕开了一个口子。	4286	物品名:"虚空长袍" 制造描述:"一件阻隔光线的噩梦斗篷。"
+DESCRIBE.VOIDCLOTH_UMBRELLA	我不喜欢酸臭的雨。	4287	物品名:"暗影伞" 制造描述:"暗影提供的保护，不惧最严峻的降雨。"
+DESCRIBE.VOIDCLOTH_SCYTHE	趁手的工具。	4288	物品名:"暗影收割者" 制造描述:"从容地剔除植物群落。"
+DESCRIBE.SHADOWTHRALL_HANDS	把手拿开。	4289	物品名:"墨荒"
+DESCRIBE.SHADOWTHRALL_HORNS	它看起来渴望战斗。	4290	物品名:"墨荒"
+DESCRIBE.SHADOWTHRALL_WINGS	翅膀貌似仅仅是用来看的。	4291	物品名:"墨荒"
+DESCRIBE.CHARLIE_NPC	等等，那是……？	4292	物品名:"查理"
+DESCRIBE.CHARLIE_HAND	它想要某种可怕的东西。	4293	物品名:"召唤之手"
+DESCRIBE.NITRE_FORMATION	这绝对是某种石头。	4294	物品名:"硝石堆"
+DESCRIBE.DREADSTONE_STACK	它来自于那些裂隙深处...	4295	物品名:"绝望石矿苗"
+DESCRIBE.SCRAPBOOK_PAGE	看来有些人喜欢记录图鉴。	4296	物品名:"丢失的图鉴页面"
+DESCRIBE.LEIF_IDOL	把木头雕刻成树的样子似乎有点多余。	4297	物品名:"树精守卫雕像" 制造描述:"召唤树木的力量。"
+DESCRIBE.WOODCARVEDHAT	看起来像是经过精心雕刻的。	4298	物品名:"硬木帽" 制造描述:"你的脑袋会被保护得很好（敲敲木头防止乌鸦嘴）。"
+DESCRIBE.WALKING_STICK	这是一根非常好的棍子。	4299	物品名:"木手杖" 制造描述:"轻松穿越您最喜欢的自然小径。"
+DESCRIBE.IPECACSYRUP	我不太想吃这个。	4300	物品名:"泻根糖浆" 制造描述:"让你保持正常。"
+DESCRIBE.BOMB_LUNARPLANT_WORMWOOD	整根都裂开了。	4301	Unused  -- 物品名:"开裂的柱子"
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.DEAD	它走到了尽头。	4304	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.GENERIC	胡萝卜还长腿了？	4305	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.HELD	近看真是丑。	4306	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_CARRAT.SLEEPING	有点可爱了。	4307	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_LIGHTFLIER	真是奇怪，装在我的口袋里居然还能发光。	4309	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_FRUITDRAGON.GENERIC	挺可爱的，不过还没熟。	4312	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_FRUITDRAGON.RIPE	现在应该熟了。	4313	物品名:未找到
+DESCRIBE.WORMWOOD_MUTANTPROXY_FRUITDRAGON.SLEEPING	在打盹呢。	4314	物品名:未找到
+DESCRIBE.SUPPORT_PILLAR_SCAFFOLD	目前一切都处于保密状态。	4316	物品名:"支柱脚手架" 制造描述:"我们都需要一些支持。"
+DESCRIBE.SUPPORT_PILLAR	我得尽快抽出时间来解决这个问题。	4317	物品名:"支柱"
+DESCRIBE.SUPPORT_PILLAR_COMPLETE	它让我充满安全感。	4318	物品名:"加固支柱"
+DESCRIBE.SUPPORT_PILLAR_BROKEN	你曾经又高又壮。	4319	物品名:"支柱瓦砾"
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE_SCAFFOLD	目前一切都处于保密状态。	4320	物品名:"绝望石支柱脚手架" 制造描述:"黑暗的力量在压力下仍能保持良好的状态。"
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE	我得尽快抽出时间来解决这个问题。	4321	物品名:"绝望石支柱"
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE_COMPLETE	看起来强大得可怕。	4322	物品名:"强化绝望石支柱"
+DESCRIBE.SUPPORT_PILLAR_DREADSTONE_BROKEN	多么可怕啊。	4323	物品名:"绝望石支柱瓦砾"
+DESCRIBE.WOLFGANG_WHISTLE	聒噪的家伙……	4324	物品名:"训练哨" 制造描述:"释放你心底潜在的教练。"
+DESCRIBE.MUTATEDDEERCLOPS	它的眼睛里有一点东西。	4325	物品名:"晶体独眼巨鹿"
+DESCRIBE.MUTATEDWARG	瞧你那双闪光的大眼睛。	4326	物品名:"附身座狼"
+DESCRIBE.MUTATEDBEARGER	事情要变得毛骨悚然了……	4327	物品名:"装甲熊獾"
+DESCRIBE.LUNARFROG	别盯着看了。	4328	物品名:"明眼青蛙"
+DESCRIBE.DEERCLOPSCORPSE.GENERIC	结束了……吧？	4331	物品名:未找到
+DESCRIBE.DEERCLOPSCORPSE.BURNING	小心没大错。	4332	物品名:未找到
+DESCRIBE.DEERCLOPSCORPSE.REVIVING	这是蜃气所致。	4333	物品名:未找到
+DESCRIBE.WARGCORPSE.GENERIC	为什么我仍然感到不安？	4337	物品名:未找到
+DESCRIBE.WARGCORPSE.BURNING	一切都是最好的安排。	4338	物品名:未找到
+DESCRIBE.WARGCORPSE.REVIVING	这是什么东西？	4339	物品名:未找到
+DESCRIBE.BEARGERCORPSE.GENERIC	臭不可闻。	4343	物品名:未找到
+DESCRIBE.BEARGERCORPSE.BURNING	好险。	4344	物品名:未找到
+DESCRIBE.BEARGERCORPSE.REVIVING	这是哪位仙家的手段。	4345	物品名:未找到
+DESCRIBE.BEARGERFUR_SACK	上面还有它的毛。寒毛直竖啊。	4347	物品名:"极地熊獾桶" 制造描述:"便携式冰箱。酷。"
+DESCRIBE.HOUNDSTOOTH_BLOWPIPE	牙齿？那可不太卫生。	4348	物品名:"嚎弹炮" 制造描述:"那感觉就像远距离被咬一样。"
+DESCRIBE.DEERCLOPSEYEBALL_SENTRYWARD.GENERIC	这才叫冰冷的目光吧？	4351	Enabled.  -- 物品名:"冰眼结晶器"->默认
+DESCRIBE.DEERCLOPSEYEBALL_SENTRYWARD.NOEYEBALL	它的主人一定是个大家伙？	4352	Disabled.  -- 物品名:"冰眼结晶器"
+DESCRIBE.DEERCLOPSEYEBALL_SENTRYWARD_KIT	大家靠近这个，感觉神清气爽，太凉了。	4354	物品名:"冰眼结晶器套装" 制造描述:"用冻伤来治疗一下晒伤。"
+DESCRIBE.SECURITY_PULSE_CAGE	有趣。它是空的。	4355	物品名:"火花柜"
+DESCRIBE.SECURITY_PULSE_CAGE_FULL	这是哪位仙家的法器？	4356	物品名:"火花柜"
+DESCRIBE.CARPENTRY_STATION.GENERIC	它能造家具。	4359	物品名:"锯马"->默认 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.CARPENTRY_STATION.BURNT	它不能造家具了。	4360	物品名:"锯马"->烧焦的 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.GENERIC	它能造家具。	4363	物品名:"锯马"->默认 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.HAS_ITEM	未找到	4364	物品名:"锯马" 制造描述:"别瞎蹦跶了，做点家具吧。"
+DESCRIBE.BURNT	它不能造家具了。	4365	物品名:"锯马"->烧焦的 制造描述:"别瞎蹦跶了，做点家具吧。"
+WOOD_CHAIR.GENERIC	我想坐上去。	4369	物品名:"木椅"->默认 制造描述:"一把可以坐的木椅。"
+WOOD_CHAIR.OCCUPIED	别人在坐着。	4370	物品名:"木椅"->被占领 制造描述:"一把可以坐的木椅。"
+WOOD_CHAIR.BURNT	我可不想坐上去。	4371	物品名:"木椅"->烧焦的 制造描述:"一把可以坐的木椅。"
+DECOR_CENTERPIECE	太精密了。	4373	物品名:"艺术？" 制造描述:"彰显您卓越品味的餐桌摆件。"
+DECOR_LAMP	比发光石好用。	4374	物品名:"餐桌灯" 制造描述:"一盏舒适的小灯。"
+DECOR_FLOWERVASE.GENERIC	插花的漂亮花瓶。	4377	物品名:"餐桌花瓶"->默认 制造描述:"这是一个放置鲜切花的好地方。"
+DECOR_FLOWERVASE.EMPTY	没有花的漂亮花瓶。	4378	物品名:"餐桌花瓶" 制造描述:"这是一个放置鲜切花的好地方。"
+DECOR_FLOWERVASE.WILTED	看起来不太新鲜。	4379	物品名:"餐桌花瓶"->枯萎的 制造描述:"这是一个放置鲜切花的好地方。"
+DECOR_FLOWERVASE.FRESHLIGHT	有一点亮光真是好。	4380	物品名:"餐桌花瓶"->茶几-新的发光的 制造描述:"这是一个放置鲜切花的好地方。"
+DECOR_FLOWERVASE.OLDLIGHT	应该摘点鲜花装饰一下。	4381	物品名:"餐桌花瓶"->茶几-旧的发光的 制造描述:"这是一个放置鲜切花的好地方。"
+DECOR_PICTUREFRAME.GENERIC	真美啊。	4385	物品名:"空画框"->默认 制造描述:"将你最爱的物品图装裱起来。 "
+DECOR_PICTUREFRAME.UNDRAWN	我应该画点东西在里面。	4386	物品名:"空画框"->没有画画 制造描述:"将你最爱的物品图装裱起来。 "
+DECOR_PORTRAITFRAME	看上去不错。	4388	物品名:"愉快画像" 制造描述:"把你的朋友们放进框里，这很有趣。 "
+PHONOGRAPH	我以前见过那个。	4389	物品名:"留声机" 制造描述:"坐下来，放松一下，听一听你噩梦中的音乐。"
+RECORD	余音绕梁，不绝于耳。	4390	物品名:"唱片" 制造描述:"黑胶上的永恒经典。"
+RECORD_CREEPYFOREST	我要把这个放到看不到的地方。	4391	物品名:"惊悚森林"
+RECORD_DANGER	不是我最喜欢的。	4392	物品名:"空画框" 制造描述:"将你最爱的物品图装裱起来。 "
+RECORD_DAWN	这个是空的。	4393	物品名:"空画框" 制造描述:"将你最爱的物品图装裱起来。 "
+RECORD_DRSTYLE	和回音石差不多。	4394	物品名:"D.R.风格"
+RECORD_DUSK	这个是空的。	4395	物品名:"空画框" 制造描述:"将你最爱的物品图装裱起来。 "
+RECORD_EFS	不像是回音石。	4396	物品名:"E.F.S."
+RECORD_END	我是不是也能有张画像呢？	4397	物品名:"空画框" 制造描述:"将你最爱的物品图装裱起来。 "
+RECORD_MAIN	我是不是也能有张画像呢。	4398	物品名:"空画框" 制造描述:"将你最爱的物品图装裱起来。 "
+RECORD_WORKTOBEDONE	空白的画框。	4399	物品名:"空画框" 制造描述:"将你最爱的物品图装裱起来。 "
+ARCHIVE_ORCHESTRINA_MAIN	好像专门做成让人摸不着头脑的样子。	4400	物品名:"远古小合奏机"
+WAGPUNKHAT	我的身体在震动。	4401	物品名:"W.A.R.B.I.S.头戴齿轮" 制造描述:"看起来聪明，打起来也聪明。"
+ARMORWAGPUNK	这是仙宝阁的物品吗。	4402	物品名:"W.A.R.B.I.S.盔甲" 制造描述:"开足马力，全速前进。"
+WAGSTAFF_MACHINERY	在这堆垃圾中也许会有所发现。	4403	物品名:"被丢弃的垃圾"
+WAGPUNK_BITS	玉不琢，不成器。	4404	物品名:"废铁"
+WAGPUNKBITS_KIT	让他自己修	4405	物品名:"自动修理机" 制造描述:"你得心应手的W.A.R.B.I.S.维修工具。"
+WAGSTAFF_MUTATIONS_NOTE	引人入胜。引人深思。引人大脑变大。	4406	物品名:"研究笔记"
+DESCRIBE_GENERIC	这是某种...东西。	4408	检查物品描述的缺省值
+DESCRIBE_TOODARK	太黑了，什么也看不见。	4409	天太黑
+DESCRIBE_SMOLDERING	那东西快要着火了。	4410	冒烟
+DESCRIBE_PLANTHAPPY	多么快乐的植物啊。	4411	暂无注释
+DESCRIBE_PLANTVERYSTRESSED	这株植物似乎承受了很大的压力。	4412	暂无注释
+DESCRIBE_PLANTSTRESSED	它有点暴躁。	4413	暂无注释
+DESCRIBE_PLANTSTRESSORKILLJOYS	我可能要除一下草……	4414	暂无注释
+DESCRIBE_PLANTSTRESSORFAMILY	这株植物很孤独。	4415	暂无注释
+DESCRIBE_PLANTSTRESSOROVERCROWDING	植物太多，地方太小。	4416	暂无注释
+DESCRIBE_PLANTSTRESSORSEASON	这个季节对这株植物并不友好。	4417	暂无注释
+DESCRIBE_PLANTSTRESSORMOISTURE	看起来有点脱水。	4418	暂无注释
+DESCRIBE_PLANTSTRESSORNUTRIENTS	这颗可怜的植物需要营养。	4419	暂无注释
+DESCRIBE_PLANTSTRESSORHAPPINESS	它想找人好好聊聊。	4420	暂无注释
+EAT_FOOD.TALLBIRDEGG_CRACKED	嗯。	4423	吃孵化的高脚鸟蛋
+EAT_FOOD.WINTERSFEASTFUEL	它尝起来是节日的味道。	4424	暂无注释
