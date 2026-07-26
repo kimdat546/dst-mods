@@ -4,6 +4,20 @@ Nơi tập trung **tất cả mod Don't Starve Together (DST)** mình làm: mod 
 
 > Đọc file này để nắm nhanh mỗi mod là gì, đang ở đâu, làm bằng cách nào và upload ra sao. Chi tiết kỹ thuật nằm trong README/CLAUDE.md/docs của từng mod.
 
+## Git / GitHub
+
+**Monorepo:** <https://github.com/kimdat546/dst-mods> (public) — chứa toàn bộ 5 mod.
+Lịch sử 116 commit của `pham-nhan-tu-tien` và của `dang-tien-viet` được bảo toàn qua `git subtree`.
+
+**Repo riêng:** `_infra/dst-server-docker` KHÔNG gộp vào đây, vì nó dùng *branch làm cấu hình từng thế giới*
+(`dang-tien`, `myth-words`, `pntt-dev`, `speedrun`…). Gộp vào thì `git checkout dang-tien` sẽ đổi luôn code cả 5 mod.
+
+**Không version** (xem `.gitignore`): `_sources/` (mod của tác giả khác), `_archive/`,
+`translations/dst-tieng-viet/game_source/` (234MB source Klei — giải nén lại từ `scripts.zip`),
+các file dump debug.
+
+Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; công việc mới làm ở monorepo.
+
 ---
 
 ## Bản đồ thư mục
@@ -66,10 +80,24 @@ Dịch **toàn bộ game DST gốc** sang tiếng Việt. Bản trưởng thành
 - ⚠️ Bản upload cuối là **v2026.7** (xem `_archive/dst-viet-modv3-dupe`), nhưng git repo mới ở **v2026.5** — nội dung `.po` giống hệt, chỉ lệch số version.
 
 ### 2. Đăng Tiên VN — `translations/dang-tien-viet/`
-Dịch mod tu tiên tiếng Trung **【登仙】** (nguồn Workshop `3235319974`, đặt tại `_sources/dengxian-3235319974/`).
-- **Kỹ thuật:** mod gốc bị mã hóa ~95% (bytecode) → không sửa được source → hook runtime. `priority = -10000` để load **sau** mod gốc. 2 lớp: `TextWidget` hook + ghi đè `STRINGS.*` sau `AddSimPostInit`.
-- **Tiến độ:** Phase 1–5 xong (tên item, cảnh giới/pháp bảo/đan dược ~2000 dòng, thoại Vương Ma Tử 2951 dòng, STRINGS private, Tu Tiên Mật Quyển). **Còn:** thoại 8 nhân vật (Hàn Thiên Tôn, Long Thái Tử, Tinh Vệ, Tô Đát Kỷ, Ngộ Không, Lạc Thần, Vân Tiêu, Thi Cơ) — TSV đã trích sẵn trong `translation_pipeline/`.
-- **Git:** branch `main`, có thay đổi chưa commit (modinfo v1.0.0, thêm hook + logger MISSING).
+Dịch mod tu tiên tiếng Trung **【登仙】** (nguồn Workshop `3235319974`).
+
+- **Mức mã hóa mod gốc:** 569/584 file `.lua` bị mã hóa (97,4%) bằng định dạng riêng (không phải bytecode Lua chuẩn).
+  Nhưng **15 file đọc được chính là toàn bộ bề mặt dịch**: `scripts/main/strings.lua` + 10 file `speech_xd_*.lua`.
+  → Trích 100% text cần dịch bằng script tĩnh, không cần dump runtime.
+- **Kỹ thuật:** không sửa được file gốc → hook runtime. `priority = -10000` để load **sau** mod gốc.
+  2 lớp: hook `TextWidget/Text.SetString` (bắt lúc render) + ghi đè `STRINGS.*` sau `AddSimPostInit`.
+- **Độ phủ (đo 2026-07-26 với mod gốc v19.0):** `strings.lua` có 1022 chuỗi Hán, các phase phủ 1273 path,
+  **còn thiếu 109** — trong đó 69 là chuỗi mới của v19.0.
+- **⚠ Mod gốc đã lên v19.0** (bản trong `_sources` là v18.1): thêm nhân vật **陈平安 Trần Bình An**
+  (44 file anim, ~30 prefab, `speech_xd_chenpingan.lua` 5282 dòng — lớn nhất). Không chuỗi nào bị xóa
+  nên bản dịch cũ không hỏng, chỉ thiếu phần mới.
+- **Còn phải làm:** thoại **9 nhân vật** (~28.000 dòng Hán) — Trần Bình An, Hàn Thiên Tôn, Long Thái Tử,
+  Tinh Vệ, Tô Đát Kỷ, Ngộ Không, Lạc Thần, Vân Tiêu, Thi Cơ. TSV đã trích sẵn trong `translation_pipeline/`.
+- **Chữ nằm trong ảnh** (không dịch được bằng STRINGS): 40 trang Tu Tiên Mật Quyển `images/xd_info_*.tex`,
+  10 ảnh tên nhân vật `images/names_xd_*.tex`, và nhãn UI nướng trong atlas `images/xd_ui.tex`.
+  **Lưu ý quan trọng:** `xd_info_0.tex` là **khung sách RỖNG** — nên không cần vẽ lại 40 trang chữ,
+  chỉ cần ẩn ảnh trang rồi vẽ chữ Việt bằng Text widget đè lên khung có sẵn.
 
 ### 3. Myth Words VN — `translations/myth-words-viet/`
 Dịch mod "Myth Words" sang tiếng Việt. v1.2 (bản v1.0 cũ ở `_archive/myth-words-viet-v1.0`). Kỹ thuật giống Đăng Tiên (phase strings + textfix + fallback). Không có git.
