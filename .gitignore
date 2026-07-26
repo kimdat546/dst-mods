@@ -14,3 +14,6 @@ _infra/
 translations/dst-tieng-viet/game_source/
 settings.local.json là cấu hình riêng từng máy
 .claude/settings.local.json
+
+# Debug dump của browser automation
+.playwright-mcp/
