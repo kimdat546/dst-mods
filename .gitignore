@@ -1,0 +1,14 @@
+.DS_Store
+
+# ── Không phải mod của mình / không thuộc monorepo ──────────────────
+# _sources: mod gốc của tác giả khác (登仙 376MB, neverland, wiki PDF)
+# _archive: bản trùng & build cũ, sinh lại được
+# _infra:   dst-server-docker — repo riêng, dùng branch làm cấu hình world
+_sources/
+_archive/
+_infra/
+
+# ── Source game gốc của Klei (giải nén từ scripts.zip) ──────────────
+# Nặng 234MB + là code có bản quyền của Klei → không đẩy lên repo public.
+# Sinh lại: giải nén .../Don't Starve Together/data/databundles/scripts.zip
+translations/dst-tieng-viet/game_source/
