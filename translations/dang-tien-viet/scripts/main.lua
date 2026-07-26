@@ -99,6 +99,18 @@ local function diag_tick(name)
     end
 end
 
+-- =========================================================================
+-- Các hook widget chỉ có ý nghĩa ở phía CLIENT (nơi có render).
+-- Dedicated server chạy nullrenderer: không có widget, mà `TextWidget` cũng
+-- không tồn tại → đụng vào là mod chết ngay lúc load. Rào lại để mod còn
+-- chạy được server-side (cần cho self-test headless, và cho hướng dual-side).
+-- STRINGS overrides bên dưới thì luôn chạy ở CẢ HAI phía.
+-- =========================================================================
+local IS_DEDICATED = rawget(_G, "TheNet") ~= nil
+    and TheNet.IsDedicated ~= nil and TheNet:IsDedicated()
+
+if not IS_DEDICATED then
+
 -- Hook 1: TextWidget (C++ class, low-level renderer)
 local oldSetString = TextWidget.SetString
 TextWidget.SetString = function(guid, str)
@@ -155,6 +167,8 @@ if ok_te and TextEdit and TextEdit.SetString then
     end
 end
 
+end -- if not IS_DEDICATED
+
 -- =========================================================================
 -- Load translation tables (sub-modules populate textfix/word_fix)
 -- =========================================================================
@@ -181,11 +195,20 @@ mod_env.AddSimPostInit(function()
     -- phase6 nạp CUỐI: vá các chuỗi còn thiếu ở mod gốc v19.0 (Trần Bình An,
     -- XD_USE_INVENTORY). Đặt sau cùng để không bị phase trước ghi đè.
     modimport("scripts/phase6_v19_strings.lua")
+    -- phase7: chuỗi chỉ lộ ra khi chạy thật (đăng ký từ file đã mã hóa của
+    -- mod gốc), tìm bằng selftest.lua trên dedicated server headless.
+    modimport("scripts/phase7_runtime_gaps.lua")
 
     if DEBUG_SCANNER then
         modimport("scripts/strings_scanner.lua")
         modimport("scripts/global_scanner.lua")
         modimport("scripts/runtime_dump.lua")
+    end
+
+    -- Self-test headless: chỉ bật ở bản build test (tools/make_test_build.sh),
+    -- không bao giờ chạy ở bản người chơi tải về.
+    if rawget(_G, "DANGTIEN_SELFTEST") then
+        modimport("scripts/selftest.lua")
     end
 end)
 

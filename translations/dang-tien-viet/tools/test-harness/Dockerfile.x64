@@ -1,0 +1,7 @@
+# Image dẫn xuất: thêm lib 64-bit còn thiếu để chạy được binary server x64.
+# Cần vì image gốc chỉ cài lib 32-bit, mà Rosetta (Apple Silicon) không chạy 32-bit.
+FROM kimdat546/dst-server:latest
+USER root
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends libcurl3-gnutls \
+ && rm -rf /var/lib/apt/lists/*

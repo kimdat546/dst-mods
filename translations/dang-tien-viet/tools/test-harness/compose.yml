@@ -1,0 +1,20 @@
+# Harness test độc lập cho mod dịch Đăng Tiên.
+# KHÔNG dùng chung cấu hình/dữ liệu với server thật ở _infra/dst-server-docker.
+services:
+  master:
+    image: dst-server-x64-test:local
+    platform: linux/amd64
+    container_name: dst-test-dangtien
+    network_mode: host
+    stdin_open: true          # mở kênh gửi lệnh Lua vào console server qua stdin
+    env_file: [ ./test.env ]
+    environment:
+      DST_SKIP_MOD_SETUP: "true"     # mod đã mount sẵn, không cần steamcmd tải
+      DST_SKIP_GAME_UPGRADE: "true"  # game đã có trong image; steamcmd 32-bit segfault trên Apple Silicon
+    volumes:
+      # dùng binary 64-bit: bản 32-bit mặc định segfault dưới Rosetta (Apple Silicon)
+      - ./container-x64:/usr/bin/container:ro
+      - ./data/Master:/var/lib/game
+      - ./config/Master/modoverrides.lua:/etc/dst-config/Master/modoverrides.lua:ro
+      - "${STEAM_DIR:?đặt STEAM_DIR}/steamapps/workshop/content/322330/3235319974:/usr/share/game/mods/workshop-3235319974:ro"
+      - ./build/dang-tien-viet-test:/usr/share/game/mods/dang-tien-viet-test:ro
