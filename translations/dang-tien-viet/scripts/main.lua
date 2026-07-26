@@ -184,6 +184,21 @@ modimport("scripts/textfix_dynamic.lua")
 -- modimport("scripts/fallback_textfix.lua")
 
 -- =========================================================================
+-- Chẩn đoán thoại (chỉ khi bật "Log string thiếu")
+-- Post-init phải đăng ký ngay trong modmain, không đăng ký được từ trong
+-- AddSimPostInit vì lúc đó đã muộn.
+-- =========================================================================
+if DEBUG_MISSING then
+    modimport("scripts/diag_speech.lua")
+    mod_env.AddPlayerPostInit(function(inst)
+        inst:DoTaskInTime(5, function()
+            local f = rawget(_G, "dangtien_diag_speech")
+            if f then f("TRONG GAME, 5s sau khi spawn") end
+        end)
+    end)
+end
+
+-- =========================================================================
 -- STRINGS overrides — runs AFTER all mods load
 -- =========================================================================
 mod_env.AddSimPostInit(function()
@@ -204,6 +219,11 @@ mod_env.AddSimPostInit(function()
         modimport("scripts/strings_scanner.lua")
         modimport("scripts/global_scanner.lua")
         modimport("scripts/runtime_dump.lua")
+    end
+
+    if DEBUG_MISSING then
+        local f = rawget(_G, "dangtien_diag_speech")
+        if f then f("NGAY SAU KHI CÁC PHASE CHẠY XONG") end
     end
 
     -- Self-test headless: chỉ bật ở bản build test (tools/make_test_build.sh),

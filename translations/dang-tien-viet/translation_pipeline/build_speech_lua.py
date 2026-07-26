@@ -71,6 +71,15 @@ def main():
         "    return",
         "end",
         "",
+        "-- Đếm THẬT lúc chạy: set_str trả false khi path không tồn tại trong",
+        "-- STRINGS của mod gốc. Trước đây con số chỉ là chuỗi cứng ghi lúc build,",
+        "-- nên hàng nghìn dòng có thể trượt âm thầm mà log vẫn báo đẹp.",
+        "local _ok, _fail, _first_fail = 0, 0, nil",
+        "local function S(p, v)",
+        "    if set_str(p, v) then _ok = _ok + 1",
+        "    else _fail = _fail + 1; _first_fail = _first_fail or p end",
+        "end",
+        "",
     ]
     for path, cn in entries:
         vn = vn_map.get(cn)
@@ -79,10 +88,13 @@ def main():
             continue
         # Convert path: "ACTIONFAIL.APPRAISE.NOTNOW" → STRINGS.CHARACTERS.XD_WUKONG.ACTIONFAIL.APPRAISE.NOTNOW
         # array indices like FOO[3] need adjustment
-        out_lines.append(f'set_str(CHAR .. ".{path}", "{lua_escape(vn)}")')
+        out_lines.append(f'S(CHAR .. ".{path}", "{lua_escape(vn)}")')
 
     out_lines.append("")
-    out_lines.append(f'print("[DangTienVN] {char_key} speech: {len(entries) - missing} translated, {missing} missing")')
+    out_lines.append(
+        f'print(string.format("[DangTienVN] {char_key} speech: %d ÁP DỤNG / %d TRƯỢT'
+        f' (build: {len(entries) - missing} dòng, {missing} chưa dịch)%s",'
+        f' _ok, _fail, _first_fail and (" | trượt đầu: " .. _first_fail) or ""))')
 
     with open(out_lua, "w", encoding="utf-8") as f:
         f.write("\n".join(out_lines))

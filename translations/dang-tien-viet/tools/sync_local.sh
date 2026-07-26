@@ -52,6 +52,13 @@ rsync -a \
     --exclude '*.txt' --exclude '.DS_Store' \
     "$SRC"/ "$STAGE"/
 
+# --debug: ép bật logger MISSING_CN + chẩn đoán thoại, khỏi phải vào settings
+# trong game bật tay (dễ quên, mà quên thì mất cả một lần chơi thử).
+if [[ "${1:-}" == "--debug" ]]; then
+    sed -i '' 's|^modimport("scripts/main.lua")|_G.DANGTIEN_DEBUG_MISSING = true\nmodimport("scripts/main.lua")|' "$STAGE/modmain.lua"
+    echo "  ⚑ bật sẵn DEBUG_MISSING (log chuỗi Hán còn sót + chẩn đoán thoại)"
+fi
+
 # Gắn nhãn [LOCAL] vào tên hiển thị.
 # Bản Workshop (3719981130) trùng tên và trùng priority=-10000, bật nhầm bản
 # cũ là tưởng bản dịch hỏng. Chỉ sửa ở bản cài, repo giữ tên sạch để upload.
