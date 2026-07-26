@@ -178,6 +178,9 @@ mod_env.AddSimPostInit(function()
     modimport("scripts/phase4_mod_private.lua")
     modimport("scripts/phase5_book_strings_data.lua")
     modimport("scripts/phase5_book_strings.lua")
+    -- phase6 nạp CUỐI: vá các chuỗi còn thiếu ở mod gốc v19.0 (Trần Bình An,
+    -- XD_USE_INVENTORY). Đặt sau cùng để không bị phase trước ghi đè.
+    modimport("scripts/phase6_v19_strings.lua")
 
     if DEBUG_SCANNER then
         modimport("scripts/strings_scanner.lua")
