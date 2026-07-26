@@ -3,3 +3,8 @@ runtime_dump.txt
 scanner.txt
 scanner_nonspeech_cn.txt
 .DS_Store
+
+# File trung gian khi dịch theo lô — bản chuẩn là <char>_translated.tsv
+translation_pipeline/cp_batches/
+translation_pipeline/cp_src.txt
+translation_pipeline/cp_vn.txt
