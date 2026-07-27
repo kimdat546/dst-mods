@@ -90,6 +90,21 @@ def main():
         # array indices like FOO[3] need adjustment
         out_lines.append(f'S(CHAR .. ".{path}", "{lua_escape(vn)}")')
 
+    # ── Lớp đỡ: nạp cặp CN→VN vào từ điển textfix ────────────────────────
+    # Thoại nhân vật do SERVER phân giải rồi gửi chuỗi đã thành hình xuống
+    # client, nên override STRINGS phía client KHÔNG chạm tới được. Hook
+    # TextWidget/Text.SetString bắt lúc render là cơ hội cuối — nhưng nó tra
+    # theo NGUYÊN VĂN chữ Hán, nên phải nạp sẵn cặp CN→VN vào đây.
+    # Nhờ vậy mod vẫn dịch được thoại khi chơi trên server không cài mod.
+    out_lines.append("")
+    out_lines.append('local textfix = rawget(_G, "dangtien_viet_textfix")')
+    out_lines.append("if textfix ~= nil then")
+    for cn, vn in sorted(vn_map.items()):
+        if "\n" in cn:
+            continue  # chuỗi nhiều dòng không khớp nguyên văn lúc render
+        out_lines.append(f'    textfix["{lua_escape(cn)}"] = "{lua_escape(vn)}"')
+    out_lines.append("end")
+
     out_lines.append("")
     out_lines.append(
         f'print(string.format("[DangTienVN] {char_key} speech: %d ÁP DỤNG / %d TRƯỢT'
