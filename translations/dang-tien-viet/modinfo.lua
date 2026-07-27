@@ -7,29 +7,40 @@ YÊU CẦU
 - Phải sub và bật mod 登仙 gốc trước (Workshop ID: 3235319974).
 - Mod này phải load sau mod gốc.
 
+MỚI Ở BẢN NÀY (1.2.0)
+- Bắt kịp mod gốc v19.0.
+- Dịch TRỌN BỘ nhân vật mới Trần Bình An: 3447 dòng thoại, cùng toàn bộ vật phẩm
+  (Bắc Đẩu, Thanh Bình, Thập Ngũ, Trảm Long Đài, Nón/Áo bào Ẩn Quan, cây thanh mai...).
+- Sửa lỗi lớn: thoại nhân vật do server gửi xuống trước đây vẫn hiện tiếng Trung dù
+  đã dịch. Nay dịch được cả khi bạn chơi trên server KHÔNG cài mod này.
+- Bổ sung tên nhân vật, danh hiệu, 25 tên ngoại trang và các nhãn menu còn sót.
+
 ĐÃ DỊCH
 - Tên item, recipe, mô tả khi inspect — khoảng 2000 dòng.
-- Toàn bộ thoại của Vương Ma Tử (vai cultivator nói kiểu kiêu ngạo "bổn tôn", "Vương Mỗ"...) — 2951 dòng.
+- Toàn bộ thoại Vương Ma Tử (giọng kiêu ngạo "bổn tôn", "Vương Mỗ"...) — 2951 dòng.
+- Toàn bộ thoại Trần Bình An (giọng mộc mạc chân chất) — 3447 dòng.
 - Mô tả skill, buff của pháp bảo.
 - NPC dialogue (Tử Vân chân quân, lão phu Khúc Tiên...).
 - Một số UI tooltip hay gặp.
-- Đã bắt kịp mod gốc v19.0: toàn bộ vật phẩm và mô tả của nhân vật mới Trần Bình An (Bắc Đẩu, Thanh Bình, Thập Ngũ, Trảm Long Đài, cây thanh mai...) cùng menu dùng vật phẩm.
 
 CHƯA DỊCH
-- Thoại 9 nhân vật còn lại: Trần Bình An, Hàn Thiên Tôn, Long Thái Tử, Tinh Vệ, Tô Đát Kỷ, Ngộ Không, Lạc Thần, Vân Tiêu, Thi Cơ. Mỗi nhân vật ~3000 dòng, dịch dần.
-- Nội dung Tu Tiên Mật Quyển. Tác giả mod gốc đóng gói thành ảnh nên phải vẽ lại, đang tìm cách xử lý.
+- Thoại 8 nhân vật còn lại: Hàn Thiên Tôn, Long Thái Tử, Tinh Vệ, Tô Đát Kỷ,
+  Ngộ Không, Lạc Thần, Vân Tiêu, Thi Cơ. Mỗi người ~3000 dòng, dịch dần.
+- Nội dung Tu Tiên Mật Quyển. Tác giả mod gốc đóng gói thành ảnh nên phải vẽ lại,
+  đang tìm cách xử lý.
 - Một số nhãn nướng sẵn trong ảnh giao diện (Ngoại trang, Nhân vật, Đổi...).
 
 LƯU Ý
 - Mod chỉ thay text, không động vào logic game, không hỏng save.
-- Nếu thấy chữ Trung còn sót, bật option "Log string thiếu" trong settings rồi gửi cho mình client_log.txt + ảnh chụp.
+- Nếu thấy chữ Trung còn sót, bật option "Log string thiếu" trong settings rồi gửi cho
+  mình client_log.txt + ảnh chụp. Có log là vá được đúng chỗ.
 - Khi mod gốc update, mod này sẽ chậm vá hơn vài hôm.
 
 Cảm ơn tác giả 登仙 đã làm ra một mod hay như vậy. Nếu thấy hữu ích thì cho mình 1 like.
 
-Cập nhật: 2026-07-26 — bắt kịp mod gốc v19.0]]
+Cập nhật: 2026-07-27 — v19.0 + trọn bộ thoại Trần Bình An]]
 author = "kimdat546"
-version = "1.1.0"
+version = "1.2.0"
 
 forumthread = ""
 api_version = 10
