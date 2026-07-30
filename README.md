@@ -63,7 +63,7 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 | Myth Words VN | `translations/myth-words-viet` | Dịch mod | 1.2 | Datgavl | *cần điền* |
 | Phàm Nhân Tu Tiên | `originals/pham-nhan-tu-tien` | Tự làm (alpha) | 0.2.0-remake-m1 | kimdat546 | *chưa publish?* |
 | Tu Tiên Lite | `originals/tu-tien-lite` | Tự làm | 1.0.0 | kimdat546 + Claude | *cần điền* |
-| Food Buff | `originals/food-buff-hud` | Tự làm | 1.0.0 | kimdat546 | *chưa publish* |
+| Food Buff | `originals/food-buff-hud` | Tự làm | 1.0.0 | kimdat546 | **3774466732** |
 
 > **TODO:** còn thiếu Workshop ID của Myth Words VN và Tu Tiên Lite.
 

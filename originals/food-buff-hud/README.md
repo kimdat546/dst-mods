@@ -1,4 +1,6 @@
-# Food Buff HUD
+# Food Buff — Đừng Chết Đói :)
+
+**Workshop: <https://steamcommunity.com/sharedfiles/filedetails/?id=3774466732>** (ID `3774466732`)
 
 Hiện buff từ thức ăn đang có tác dụng + đếm ngược **chính xác**, để biết đúng lúc cần ăn tiếp.
 
