@@ -1,4 +1,4 @@
-name = "Food Buff HUD"
+name = "Food Buff - Đừng Chết Đói :)"
 description = [[Hiện các hiệu ứng (buff) từ thức ăn đang có tác dụng, kèm ĐỒNG HỒ ĐẾM NGƯỢC chính xác — để biết đúng lúc nào cần ăn tiếp.
 
 Phủ các buff từ:
