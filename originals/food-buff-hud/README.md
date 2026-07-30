@@ -61,7 +61,7 @@ Muối cũng không tạo buff — nó chỉ `+25% HEALTH` của chính món ăn
 
 ```
 SERVER  quét debuffable mỗi 1s → đọc timer "buffover" → gửi RPC xuống client đó
-        chỉ gửi khi tập buff ĐỔI, cộng heartbeat 5s để sửa lệch
+        gửi khi tập buff ĐỔI, khi buff được GIA HẠN (ăn thêm), + heartbeat 5s
 CLIENT  nhận RPC → tự trừ dần tại chỗ (không tốn băng thông) → vẽ HUD
 ```
 
@@ -73,7 +73,7 @@ Nhờ vậy sau này muốn tách bản client riêng cũng không phải sửa 
 `all_clients_require_mod = true` — client **tự tải** khi vào server (mod tạm, không
 thêm vào danh sách sub của họ). Người chơi không cần cài trước, không bị chặn.
 
-`version_compatible = "0.1.0"` — client cũ/mới đều vào được miễn `>=` mốc này.
+`version_compatible = "1.0.0"` — client cũ/mới đều vào được miễn `>=` mốc này.
 Chỉ nâng khi đổi định dạng RPC theo cách không tương thích, lúc đó chặn mới là đúng.
 Không khai trường này thì game so khớp **tuyệt đối**, lệch một chữ số là client bị đá
 (`modindex.lua:1255`).
@@ -85,10 +85,12 @@ Không khai trường này thì game so khớp **tuyệt đối**, lệch một 
 - Dưới ngưỡng cảnh báo (mặc định 30s) thì đổi màu đỏ nhạt
 - **Giữ chuột phải kéo** để đổi vị trí, thả ra tự lưu qua `TheSim:SetPersistentString`
 
-Mặc định đặt ở mép trái giữa chiều cao — vùng thường trống, tránh inventory (giữa dưới),
-status/minimap (phải dưới), đồng hồ (phải trên). Đè mod khác thì kéo là xong.
+Neo `ANCHOR_TOP` + `ANCHOR_LEFT`, mặc định lệch `(60, -120)` từ góc trên-trái — vùng
+thường trống, tránh inventory (giữa dưới), status/minimap (phải dưới), đồng hồ (phải trên).
+Đè mod khác thì giữ chuột phải kéo là xong.
 
-Phần kéo thả lấy nguyên từ `originals/pham-nhan-tu-tien/scripts/widgets/pn_hud_dantian.lua`.
+⚠ **KHÔNG** lấy `pham-nhan/scripts/widgets/pn_hud_dantian.lua` làm mẫu — mod đó chưa chạy
+được và thiếu `SetVAnchor`/`SetHAnchor`. Mẫu đúng: `workshop-2905304624` Buff Timer (client).
 
 ## Trạng thái
 
