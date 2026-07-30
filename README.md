@@ -34,7 +34,8 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 │
 ├── originals/           ← mod TỰ LÀM (custom content)
 │   ├── pham-nhan-tu-tien/   Phàm Nhân Tu Tiên [Alpha] — flagship [git]
-│   └── tu-tien-lite/        Tu Tiên Lite (Đăng Tiên gọn nhẹ)
+│   ├── tu-tien-lite/        Tu Tiên Lite (Đăng Tiên gọn nhẹ)
+│   └── food-buff-hud/       Food Buff HUD (đếm ngược buff thức ăn)
 │
 ├── _sources/            ← nguồn tham khảo, KHÔNG phải mod của mình
 │   ├── dengxian-3235319974/ mod gốc 【登仙】 v18.1 (nguồn để dịch/nghiên cứu)
@@ -113,15 +114,15 @@ Dịch mod "Myth Words" sang tiếng Việt. v1.2 (bản v1.0 cũ ở `_archive/
 - **Kho tài liệu (rất giá trị, tái dùng được):** `docs/analysis/` — phân tích kiến trúc 登仙, `dst-api-foundation.md`, `dst-hot-reload.md`, glossary gameplay; `docs/superpowers/` — plans + specs; `docs/ai-art-prompts.md`, `docs/icon-assets-reference.md`.
 - **Build upload:** `tools/make_swap_build.md`. Bản build sạch cũ ở `_archive/pham-nhan-tu-tien-upload`.
 
+### 5. Tu Tiên Lite — `originals/tu-tien-lite/`
+Bản làm lại **gọn nhẹ** của 登仙 (do kimdat546 + Claude). Chỉ scripts, nhỏ. v1.0.0.
+
 ### 6. Food Buff HUD — `originals/food-buff-hud/`
 Hiện buff từ thức ăn đang có tác dụng + đếm ngược chính xác (món Warly, món nêm gia vị).
 - **Vì sao chạy ở server:** `debuffable`/`debuff`/`timer` không có replica → client không đọc được thời gian còn lại. Mod tính ở server rồi gửi RPC xuống. Các mod buff-timer chỉ chạy client buộc phải đoán theo `TUNING`, nên sai khi buff được gia hạn hoặc khi vào server giữa lúc buff đang chạy.
 - **Chống mục ruỗng:** duyệt `debuffable.debuffs` + đọc timer `"buffover"` → tự phủ mọi buff dùng `MakeBuff`, kể cả món Klei thêm sau. Không hardcode danh sách như hai mod "Buff Timer" trên Workshop (58–80 entry, tác giả bỏ từ 2024-03).
 - **Đóng gói:** `all_clients_require_mod = true` (client tự tải khi join) + `version_compatible` để client cũ/mới đều vào được.
 - **Đọc thêm:** `README.md` trong folder.
-
-### 5. Tu Tiên Lite — `originals/tu-tien-lite/`
-Bản làm lại **gọn nhẹ** của 登仙 (do kimdat546 + Claude). Chỉ scripts, nhỏ. v1.0.0.
 
 ---
 
