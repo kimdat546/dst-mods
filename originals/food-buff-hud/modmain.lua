@@ -134,4 +134,16 @@ AddPlayerPostInit(function(inst)
     end)
 end)
 
+-- Phơi hàm nội bộ để selftest headless kiểm được, và để chẩn đoán khi cần.
+-- Không có tác dụng phụ, không ai gọi trong lúc chơi bình thường.
+_G.FOODBUFFHUD_DEBUG = { Collect = Collect, Encode = Encode, Decode = Decode }
+
+-- Selftest chỉ chạy khi bản build test bật cờ (tools/test-harness/build.sh).
+-- Bản phát hành không bao giờ đặt cờ này.
+if rawget(_G, "FOODBUFFHUD_SELFTEST") then
+    AddPrefabPostInit("world", function()
+        _G.TheWorld:DoTaskInTime(3, function() modimport("scripts/selftest.lua") end)
+    end)
+end
+
 print("[FoodBuffHUD] loaded. HUD=" .. tostring(SHOW_HUD) .. " warn=" .. tostring(WARN_SECONDS) .. "s")

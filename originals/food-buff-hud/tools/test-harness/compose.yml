@@ -1,0 +1,19 @@
+# Harness test headless cho Food Buff HUD.
+# Đơn giản hơn harness của dang-tien: mod này không phụ thuộc mod nào khác.
+services:
+  master:
+    image: dst-server-x64-test:local
+    platform: linux/amd64
+    container_name: dst-test-foodbuff
+    network_mode: host
+    stdin_open: true
+    env_file: [ ./test.env ]
+    environment:
+      DST_SKIP_MOD_SETUP: "true"     # mod mount sẵn, không cần steamcmd
+      DST_SKIP_GAME_UPGRADE: "true"  # game có trong image; steamcmd 32-bit segfault trên Apple Silicon
+    volumes:
+      # binary 64-bit: bản 32-bit mặc định segfault dưới Rosetta
+      - ./container-x64:/usr/bin/container:ro
+      - ./data/Master:/var/lib/game
+      - ./config/Master/modoverrides.lua:/etc/dst-config/Master/modoverrides.lua:ro
+      - ./build/food-buff-hud:/usr/share/game/mods/food-buff-hud:ro
