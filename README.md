@@ -62,6 +62,7 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 | Myth Words VN | `translations/myth-words-viet` | Dịch mod | 1.2 | Datgavl | *cần điền* |
 | Phàm Nhân Tu Tiên | `originals/pham-nhan-tu-tien` | Tự làm (alpha) | 0.2.0-remake-m1 | kimdat546 | *chưa publish?* |
 | Tu Tiên Lite | `originals/tu-tien-lite` | Tự làm | 1.0.0 | kimdat546 + Claude | *cần điền* |
+| Food Buff HUD | `originals/food-buff-hud` | Tự làm | 0.1.0 | kimdat546 | *chưa publish* |
 
 > **TODO:** còn thiếu Workshop ID của Myth Words VN và Tu Tiên Lite.
 
@@ -111,6 +112,13 @@ Dịch mod "Myth Words" sang tiếng Việt. v1.2 (bản v1.0 cũ ở `_archive/
 - **Git:** branch `main`, commit chi tiết (items, atlas icon, prefab, placer…).
 - **Kho tài liệu (rất giá trị, tái dùng được):** `docs/analysis/` — phân tích kiến trúc 登仙, `dst-api-foundation.md`, `dst-hot-reload.md`, glossary gameplay; `docs/superpowers/` — plans + specs; `docs/ai-art-prompts.md`, `docs/icon-assets-reference.md`.
 - **Build upload:** `tools/make_swap_build.md`. Bản build sạch cũ ở `_archive/pham-nhan-tu-tien-upload`.
+
+### 6. Food Buff HUD — `originals/food-buff-hud/`
+Hiện buff từ thức ăn đang có tác dụng + đếm ngược chính xác (món Warly, món nêm gia vị).
+- **Vì sao chạy ở server:** `debuffable`/`debuff`/`timer` không có replica → client không đọc được thời gian còn lại. Mod tính ở server rồi gửi RPC xuống. Các mod buff-timer chỉ chạy client buộc phải đoán theo `TUNING`, nên sai khi buff được gia hạn hoặc khi vào server giữa lúc buff đang chạy.
+- **Chống mục ruỗng:** duyệt `debuffable.debuffs` + đọc timer `"buffover"` → tự phủ mọi buff dùng `MakeBuff`, kể cả món Klei thêm sau. Không hardcode danh sách như hai mod "Buff Timer" trên Workshop (58–80 entry, tác giả bỏ từ 2024-03).
+- **Đóng gói:** `all_clients_require_mod = true` (client tự tải khi join) + `version_compatible` để client cũ/mới đều vào được.
+- **Đọc thêm:** `README.md` trong folder.
 
 ### 5. Tu Tiên Lite — `originals/tu-tien-lite/`
 Bản làm lại **gọn nhẹ** của 登仙 (do kimdat546 + Claude). Chỉ scripts, nhỏ. v1.0.0.

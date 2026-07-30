@@ -1,0 +1,97 @@
+# Food Buff HUD
+
+Hiện buff từ thức ăn đang có tác dụng + đếm ngược **chính xác**, để biết đúng lúc cần ăn tiếp.
+
+## Vì sao phải chạy ở server
+
+Thời gian còn lại của buff **chỉ tồn tại phía server**. Đã kiểm trong source game:
+
+- `components/debuffable.lua`, `components/debuff.lua`, `components/timer.lua` — **không có replica, không netvar**
+- Client không có đường nào đọc được
+
+Nên mọi mod buff-timer *chỉ chạy phía client* buộc phải hardcode thời lượng từ `TUNING`
+rồi tự đếm nhẩm. Cách đó sai trong ba tình huống: buff được **gia hạn** (ăn thêm món),
+**vào server giữa lúc buff đang chạy**, và **server lag**.
+
+Mod này đọc số thật ở server rồi gửi xuống, nên không có tình huống nào sai.
+
+## Cơ chế buff của game (đã tra source)
+
+Mỗi buff là một entity gắn vào người chơi, đếm bằng component `timer`, timer tên `"buffover"`:
+
+```lua
+-- prefabs/foodbuffs.lua
+MakeBuff("attack", ..., TUNING.BUFF_ATTACK_DURATION, 1)
+  OnAttached:  inst.entity:SetParent(target.entity)
+  OnExtended:  timer:StopTimer("buffover"); timer:StartTimer("buffover", duration)
+```
+
+Thời gian còn lại thật:
+```lua
+player.components.debuffable.debuffs[key].inst.components.timer:GetTimeLeft("buffover")
+```
+
+## Điểm chống mục ruỗng
+
+Mod **không hardcode danh sách buff**. Nó duyệt `debuffable.debuffs` và đọc timer
+`"buffover"` → tự động phủ **mọi** buff dùng cơ chế `MakeBuff`, kể cả món Klei thêm
+về sau. Buff lạ chưa có tên tiếng Việt vẫn hiện, chỉ là tên thô hoá
+(`buff_foo_bar` → "Foo bar") chứ không bị ẩn.
+
+So sánh: hai mod "Buff Timer" trên Workshop (`2630628898`, `2905304624`) hardcode
+58–80 entry, còn nguyên dòng `-- TODO: acid healing salve`. Tác giả cập nhật lần cuối
+**2024-03**, và đó là lý do chúng không còn dùng được.
+
+### Đã phủ
+
+Mọi buff dựng bằng `MakeBuff`: `attack`, `playerabsorption`, `workeffectiveness`,
+`moistureimmunity`, `electricattack`, `sleepresistance`, `sleepimmunity`,
+`firefrenzy` (than Willow) — tức toàn bộ món Warly và món nêm gia vị
+(ớt→attack, tỏi→playerabsorption, đường→workeffectiveness).
+
+### CHƯA phủ
+
+Hiệu ứng **không** dùng `MakeBuff` nên phải xử lý riêng từng cái:
+jellybean (hồi máu), wormlight (phát sáng), trà, elixir của Wendy.
+Muối cũng không tạo buff — nó chỉ `+25% HEALTH` của chính món ăn
+(`TUNING.SPICE_MULTIPLIERS.SPICE_SALT`), thuộc phần "hiện hiệu ứng TRƯỚC khi ăn"
+(chưa làm).
+
+## Kiến trúc
+
+```
+SERVER  quét debuffable mỗi 1s → đọc timer "buffover" → gửi RPC xuống client đó
+        chỉ gửi khi tập buff ĐỔI, cộng heartbeat 5s để sửa lệch
+CLIENT  nhận RPC → tự trừ dần tại chỗ (không tốn băng thông) → vẽ HUD
+```
+
+Dùng **RPC** chứ không netvar: netvar cần khai báo khớp hai phía, RPC thì không.
+Nhờ vậy sau này muốn tách bản client riêng cũng không phải sửa gì ở tầng dữ liệu.
+
+## Đóng gói
+
+`all_clients_require_mod = true` — client **tự tải** khi vào server (mod tạm, không
+thêm vào danh sách sub của họ). Người chơi không cần cài trước, không bị chặn.
+
+`version_compatible = "0.1.0"` — client cũ/mới đều vào được miễn `>=` mốc này.
+Chỉ nâng khi đổi định dạng RPC theo cách không tương thích, lúc đó chặn mới là đúng.
+Không khai trường này thì game so khớp **tuyệt đối**, lệch một chữ số là client bị đá
+(`modindex.lua:1255`).
+
+## HUD
+
+- Có buff tự hiện, hết buff tự ẩn
+- Sắp xếp theo thời gian còn lại **tăng dần** — cái sắp hết nằm trên
+- Dưới ngưỡng cảnh báo (mặc định 30s) thì đổi màu đỏ nhạt
+- **Giữ chuột phải kéo** để đổi vị trí, thả ra tự lưu qua `TheSim:SetPersistentString`
+
+Mặc định đặt ở mép trái giữa chiều cao — vùng thường trống, tránh inventory (giữa dưới),
+status/minimap (phải dưới), đồng hồ (phải trên). Đè mod khác thì kéo là xong.
+
+Phần kéo thả lấy nguyên từ `originals/pham-nhan-tu-tien/scripts/widgets/pn_hud_dantian.lua`.
+
+## Chưa làm
+
+- Phần B: hiện hiệu ứng **trước khi ăn**, ngay trên món ăn (gồm cả muối +25% HEALTH)
+- Icon cho từng buff (hiện chỉ có chữ)
+- Các hiệu ứng không dùng `MakeBuff` (xem trên)
