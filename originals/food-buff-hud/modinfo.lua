@@ -17,13 +17,18 @@ không có bản sao cho client). Nên mod tính ở server rồi gửi số th�
 Các mod tương tự chỉ chạy phía client buộc phải đoán theo thời lượng cố định,
 nên sai khi buff được gia hạn hoặc khi bạn vào server giữa lúc buff đang chạy.
 
-Người chơi KHÔNG cần cài trước: DST tự tải mod khi họ vào server.]]
+Người chơi KHÔNG cần cài trước: DST tự tải mod khi họ vào server.
+
+CHƯA PHỦ
+- Muối không tạo buff (nó chỉ +25% hồi máu của chính món ăn) nên không có gì để đếm.
+- Vài hiệu ứng dùng cơ chế riêng chứ không phải buff có thời hạn: jellybean, wormlight,
+  trà, elixir của Wendy.]]
 author = "kimdat546"
 
-version = "0.1.0"
+version = "1.0.0"
 -- Client cũ/mới đều vào được, miễn >= mốc này. Chỉ nâng khi đổi định dạng RPC
 -- theo cách không tương thích (lúc đó chặn mới là đúng).
-version_compatible = "0.1.0"
+version_compatible = "1.0.0"
 
 forumthread = ""
 api_version = 10

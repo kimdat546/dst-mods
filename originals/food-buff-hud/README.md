@@ -90,6 +90,19 @@ status/minimap (phải dưới), đồng hồ (phải trên). Đè mod khác th�
 
 Phần kéo thả lấy nguyên từ `originals/pham-nhan-tu-tien/scripts/widgets/pn_hud_dantian.lua`.
 
+## Trạng thái
+
+**v1.0.0 — đã test chạy được trên game thật** (2026-07-30): HUD hiện, đếm ngược đúng,
+ăn thêm món cùng loại thì số reset ngay, kéo thả bằng chuột phải lưu được vị trí.
+Selftest headless PASS 14/0.
+
+### Ba lỗi đã sửa trong quá trình test
+
+1. `modmain` chạy trong env sandbox, không có `rawget`/`tonumber` → phải gọi qua `_G.`
+2. Server không người chơi thì `Sim paused`, `DoTaskInTime` không nổ → dùng `DoStaticTaskInTime`
+3. **Widget HUD phải neo** bằng `SetVAnchor`/`SetHAnchor`, nếu không thì trôi ra ngoài
+   màn hình dù đặt toạ độ nào. Xem `pham-nhan-tu-tien/docs/analysis/dst-hud-widgets.md`.
+
 ## Chưa làm
 
 - Phần B: hiện hiệu ứng **trước khi ăn**, ngay trên món ăn (gồm cả muối +25% HEALTH)

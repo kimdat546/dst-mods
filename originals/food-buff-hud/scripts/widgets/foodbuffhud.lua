@@ -1,25 +1,33 @@
 -- HUD hiện buff đang có tác dụng + đếm ngược.
 --
--- File này chạy trong _G thật (được require, không phải modimport) nên dùng
--- global trực tiếp: Widget, Text, TheInput, GetTime... KHÔNG wrap GLOBAL.
+-- File này chạy trong _G thật (được require) nên dùng global trực tiếp.
 --
--- Phần kéo thả bằng chuột phải + lưu vị trí lấy nguyên từ
--- originals/pham-nhan-tu-tien/scripts/widgets/pn_hud_dantian.lua — cơ chế đó
--- đã chạy thật rồi, không viết lại.
+-- ⚠ BÀI HỌC ĐẮT: widget con của controls.top_root PHẢI neo bằng
+-- SetVAnchor/SetHAnchor. Thiếu neo thì nó nằm trong không gian toạ độ không neo
+-- và trôi ra ngoài màn hình dù đặt toạ độ nào — mất 3 vòng test mới ra.
+--
+-- Tham chiếu: mod "Buff Timer (client)" (workshop 2905304624),
+-- scripts/BuffTimerClient/widgets/Root.lua — mod ĐANG CHẠY ĐƯỢC.
+-- KHÔNG lấy pham-nhan/pn_hud_dantian.lua làm chuẩn: mod đó chưa chạy được,
+-- tôi đã sai khi giả định nó đúng chỉ vì có tài liệu nhắc tới.
 
 local Widget = require("widgets/widget")
 local Text = require("widgets/text")
 
 local SAVE_KEY = "foodbuffhud_position"
-local FONT = CHATFONT
-local FONT_SIZE = 20
-local ROW_H = 24
+local FONT = NUMBERFONT
+local FONT_SIZE = 26
+local ROW_H = 30
 local MAX_ROWS = 8
 
--- Mặc định đặt ở mép trái, giữa chiều cao: vùng này thường trống, tránh đè
--- inventory (giữa dưới), status/minimap (phải dưới), đồng hồ (phải trên).
--- Đè thì kéo chuột phải là xong.
-local DEFAULT_X, DEFAULT_Y = -520, 60
+-- Offset tính từ GÓC TRÊN-TRÁI màn hình (vì neo TOP/LEFT).
+-- y âm là đi xuống. Giá trị nhỏ, không phải ±500 như không gian không neo.
+-- Bề rộng vùng chữ: Text mặc định căn GIỮA quanh toạ độ của nó, nên nếu không
+-- cho region + căn trái thì nửa chuỗi thò ra ngoài mép màn hình.
+local LABEL_W = 260
+local TIME_W = 90
+
+local DEFAULT_X, DEFAULT_Y = 60, -120
 
 local COLOR_OK   = { 1, 1, 1, 1 }
 local COLOR_WARN = { 1, 0.45, 0.35, 1 }
@@ -46,27 +54,38 @@ local FoodBuffHUD = Class(Widget, function(self, owner)
     Widget._ctor(self, "FoodBuffHUD")
     self.owner = owner
 
+    -- Lớp NEO — đây chính là thứ thiếu khiến HUD không bao giờ hiện
+    self.root = self:AddChild(Widget("root"))
+    self.root:SetVAnchor(ANCHOR_TOP)
+    self.root:SetHAnchor(ANCHOR_LEFT)
+
+    -- Lớp di chuyển được, con của lớp neo
+    self.panel = self.root:AddChild(Widget("panel"))
+    self.panel:SetPosition(DEFAULT_X, DEFAULT_Y)
+
     self.rows = {}
     for i = 1, MAX_ROWS do
-        local row = self:AddChild(Widget("row" .. i))
-        row.label = row:AddChild(Text(FONT, FONT_SIZE))
+        local row = self.panel:AddChild(Widget("row" .. i))
+        row.label = row:AddChild(Text(FONT, FONT_SIZE, ""))
+        row.label:SetRegionSize(LABEL_W, ROW_H)
         row.label:SetHAlign(ANCHOR_LEFT)
-        row.label:SetPosition(0, 0)
-        row.timeleft = row:AddChild(Text(FONT, FONT_SIZE))
+        row.label:SetPosition(LABEL_W / 2, 0)   -- region căn giữa quanh vị trí → dời nửa bề rộng để chữ bắt đầu từ gốc
+        row.timeleft = row:AddChild(Text(FONT, FONT_SIZE, ""))
+        row.timeleft:SetRegionSize(TIME_W, ROW_H)
         row.timeleft:SetHAlign(ANCHOR_LEFT)
-        row.timeleft:SetPosition(150, 0)
+        row.timeleft:SetPosition(LABEL_W + TIME_W / 2, 0)
         row:Hide()
         self.rows[i] = row
     end
 
     self._dragging = false
-    self:SetPosition(DEFAULT_X, DEFAULT_Y)
     LoadPos(function(x, y)
-        if self.inst and self.inst:IsValid() then self:SetPosition(x, y) end
+        if self.panel ~= nil and self.panel.inst ~= nil and self.panel.inst:IsValid() then
+            self.panel:SetPosition(x, y)
+        end
     end)
 
     self:StartUpdating()
-    self:Hide()
 end)
 
 -- Giữ chuột phải để kéo, thả ra là lưu vị trí
@@ -76,12 +95,12 @@ function FoodBuffHUD:OnMouseButton(button, down)
         self._dragging = true
         local mx, my = TheInput:GetScreenPosition():Get()
         self._m0 = { x = mx, y = my }
-        local p = self:GetPosition()
+        local p = self.panel:GetPosition()
         self._w0 = { x = p.x, y = p.y }
         return true
     elseif self._dragging then
         self._dragging = false
-        local p = self:GetPosition()
+        local p = self.panel:GetPosition()
         SavePos(p.x, p.y)
         return true
     end
@@ -92,19 +111,19 @@ function FoodBuffHUD:OnUpdate()
     if self._dragging then
         if not TheInput:IsMouseDown(MOUSEBUTTON_RIGHT) then
             self._dragging = false
-            local p = self:GetPosition()
+            local p = self.panel:GetPosition()
             SavePos(p.x, p.y)
         else
             local mx, my = TheInput:GetScreenPosition():Get()
-            self:SetPosition(self._w0.x + (mx - self._m0.x), self._w0.y + (my - self._m0.y))
+            self.panel:SetPosition(self._w0.x + (mx - self._m0.x), self._w0.y + (my - self._m0.y))
         end
     end
 
     local data = FOODBUFFHUD_DATA
     if data == nil or data.list == nil then return end
 
-    -- Trừ dần theo thời gian đã qua kể từ lần server gửi số. Server gửi lại mỗi
-    -- 5 giây nên sai số không tích luỹ.
+    -- Trừ dần theo thời gian đã qua kể từ lần server gửi. Server gửi lại mỗi 5s
+    -- nên sai số không tích luỹ.
     local elapsed = GetTime() - (data.at or 0)
     local warn = FOODBUFFHUD_WARN_SECONDS or 30
 
@@ -112,7 +131,7 @@ function FoodBuffHUD:OnUpdate()
     for i = 1, MAX_ROWS do
         local entry = data.list[i]
         local row = self.rows[i]
-        local left = entry and (entry.left - elapsed) or nil
+        local left = entry ~= nil and (entry.left - elapsed) or nil
 
         if entry ~= nil and left > 0 then
             shown = shown + 1

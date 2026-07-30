@@ -1,3 +1,18 @@
+# ⚠ CẢNH BÁO (thêm 2026-07-30)
+#
+# HUD `pn_hud_dantian` mô tả trong tài liệu này **CHƯA ĐƯỢC XÁC MINH là chạy được**.
+# Mod pham-nhan đang ở trạng thái alpha/treo, chưa ai xác nhận HUD hiện lên màn hình.
+#
+# Khi làm mod food-buff-hud, tôi lấy widget này làm mẫu chỉ vì tài liệu này nhắc
+# nhiều tới nó → mất 3 vòng test mới phát hiện nó **thiếu SetVAnchor/SetHAnchor**,
+# tức thiếu đúng thứ khiến widget hiện được lên màn hình.
+#
+# Muốn tham chiếu widget HUD, hãy dùng mod ĐANG CHẠY ĐƯỢC:
+#   originals/food-buff-hud/scripts/widgets/foodbuffhud.lua   (của mình, đã test)
+#   workshop-2905304624 Buff Timer (client), scripts/BuffTimerClient/widgets/Root.lua
+#
+# Xem docs/analysis/dst-hud-widgets.md để biết chi tiết.
+
 # DST HUD hot-reload: iterating on `pn_hud_dantian` without quitting
 
 Goal: tweak the size/position of our client HUD widget (`ThePlayer.HUD.controls.pn_hud`,

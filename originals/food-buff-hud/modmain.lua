@@ -82,7 +82,11 @@ end)
 if SHOW_HUD then
     AddClassPostConstruct("widgets/controls", function(self)
         local FoodBuffHUD = require("widgets/foodbuffhud")
-        self.foodbuffhud = self:AddChild(FoodBuffHUD(self.owner))
+        -- top_root chứ không phải self: gắn thẳng vào controls thì widget nằm
+        -- trong không gian toạ độ khác và trôi ra ngoài màn hình.
+        -- pham-nhan/scripts/main/widgets.lua cũng dùng top_root và chạy được.
+        local parent = self.top_root or self
+        self.foodbuffhud = parent:AddChild(FoodBuffHUD(self.owner))
     end)
 end
 
@@ -111,20 +115,35 @@ local function Collect(player)
 end
 
 local function StartTracking(player)
-    local last_payload, last_sent = nil, -math.huge
+    local last_keys, last_sent, last_times = nil, -math.huge, nil
 
     player:DoPeriodicTask(SCAN_PERIOD, function()
         if not (player:IsValid() and player.userid ~= nil and player.userid ~= "") then return end
 
         local list = Collect(player)
         if list == nil then return end
-        local payload = Encode(list)
         local now = _G.GetTime()
 
-        -- Gửi khi tập buff đổi, hoặc theo nhịp heartbeat. Không gửi mỗi giây để
-        -- khỏi tốn băng thông vô ích — client tự trừ dần được.
-        if payload ~= last_payload or (now - last_sent) >= HEARTBEAT then
-            last_payload, last_sent = payload, now
+        -- So sánh TẬP KEY, không so cả payload: payload chứa số giây nên lần nào
+        -- cũng khác → hoá ra gửi mỗi giây (log cho thấy 79 lần liên tiếp).
+        local keys = {}
+        for i = 1, #list do keys[#keys + 1] = list[i].key end
+        local keyset = table.concat(keys, ",")
+
+        -- Ăn thêm món cùng loại thì buff được GIA HẠN: tập key không đổi nhưng
+        -- thời gian nhảy lên. Không bắt ca này thì người chơi phải chờ tới nhịp
+        -- heartbeat mới thấy số reset — trông như hỏng.
+        local extended = false
+        for i = 1, #list do
+            local prev = last_times ~= nil and last_times[list[i].key] or nil
+            if prev ~= nil and list[i].left > prev + 1 then extended = true end
+        end
+        last_times = {}
+        for i = 1, #list do last_times[list[i].key] = list[i].left end
+
+        if keyset ~= last_keys or extended or (now - last_sent) >= HEARTBEAT then
+            local payload = Encode(list)
+            last_keys, last_sent = keyset, now
             SendModRPCToClient(GetClientModRPC(RPC_NS, "Sync"), player.userid, payload)
         end
     end)
