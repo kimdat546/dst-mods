@@ -14,6 +14,10 @@ GLOBAL.setfenv(1, GLOBAL)
 
 local function log(msg) print("[FoodBuffHUD][TEST] " .. msg) end
 
+-- Định nghĩa hàm chứ không chạy ngay: modimport phải được gọi trong lúc modmain
+-- chạy, còn việc test thì phải đợi world sẵn sàng. Tách hai thời điểm ra.
+_G.FOODBUFFHUD_RunSelfTest = function()
+
 local DEBUG = rawget(_G, "FOODBUFFHUD_DEBUG")
 if DEBUG == nil then
     log("FATAL: không thấy FOODBUFFHUD_DEBUG — modmain chưa nạp?")
@@ -115,3 +119,4 @@ p:Remove()
 
 log(string.format("===== KẾT QUẢ: PASS %d / FAIL %d =====", pass, fail))
 log(fail == 0 and "TỔNG: PASS" or "TỔNG: FAIL")
+end

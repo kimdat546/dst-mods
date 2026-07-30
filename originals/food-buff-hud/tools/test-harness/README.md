@@ -47,3 +47,31 @@ mới thì `docker compose down` trước, hoặc so mốc thời gian.
 docker compose down       # giữ world
 docker compose down -v    # xoá sạch
 ```
+
+## Hai cái bẫy đã vấp (ghi lại kẻo lặp)
+
+**1. `modmain` chạy trong env sandbox, thiếu nhiều hàm base Lua.**
+`mods.lua CreateEnvironment()` chỉ cấp:
+`pairs ipairs print math table type string tostring require Class TUNING GLOBAL modname MODROOT`.
+KHÔNG có `rawget`, `tonumber`, `pcall`, `assert`, `next`… → phải gọi qua `_G.`.
+Các file trong `scripts/` thì khác: chúng `setfenv(1, GLOBAL)` nên dùng trực tiếp được.
+Lỗi biểu hiện là `attempt to call global 'rawget' (a nil value)`, và trên dedicated
+server nó còn bị che bởi `variable 'SetGlobalErrorWidget' is not declared` (server
+headless không có widget báo lỗi) — phải kéo log lên xem dòng `MOD ERROR` phía trên.
+
+**2. Server không có người chơi thì DST `Sim paused` → `DoTaskInTime` không bao giờ nổ.**
+Dùng `DoStaticTaskInTime` cho những gì phải chạy bất chấp pause. Ngoài ra harness đặt
+`DST_GAMEPLAY_PAUSE_WHEN_EMPTY=false` để sim chạy thật — nếu sim đứng thì timer buff
+cũng đứng, test đếm ngược thành vô nghĩa.
+
+**3. `modimport` phải được gọi trong lúc `modmain` chạy**, không gọi được trong callback
+trễ. Nạp file ở modmain để định nghĩa hàm, rồi chỉ hoãn phần *gọi*.
+
+## Kết quả mốc (2026-07-30)
+
+```
+PASS 14 / FAIL 0
+buff_attack 240.0s · buff_playerabsorption 240.0s · buff_workeffectiveness 240.0s
+buff_moistureimmunity 300.0s · buff_electricattack 300.0s · buff_sleepresistance 480.0s
+buff_some_future_thing → "Some future thing"
+```

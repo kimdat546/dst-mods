@@ -8,6 +8,11 @@
 -- Không dùng netvar vì netvar cần khai báo khớp hai phía; RPC thì không, nên
 -- sau này muốn tách bản client riêng cũng không phải sửa gì ở đây.
 
+-- ⚠ modmain chạy trong ENV SANDBOX của mod, chỉ có sẵn:
+--     pairs ipairs print math table type string tostring require Class
+--     TUNING GLOBAL modname MODROOT
+-- KHÔNG có rawget/tonumber/pcall/assert/next... → phải gọi qua _G.
+-- (Các file trong scripts/ thì khác: chúng setfenv sang _G nên dùng trực tiếp.)
 local _G = GLOBAL
 local TheNet = _G.TheNet
 
@@ -57,7 +62,7 @@ local function Decode(payload)
     local list = {}
     if payload == nil or payload == "" then return list end
     for key, secs in payload:gmatch("([%w_]+)=([%d%.]+)") do
-        list[#list + 1] = { key = key, left = tonumber(secs) or 0 }
+        list[#list + 1] = { key = key, left = _G.tonumber(secs) or 0 }
     end
     return list
 end
@@ -140,9 +145,19 @@ _G.FOODBUFFHUD_DEBUG = { Collect = Collect, Encode = Encode, Decode = Decode }
 
 -- Selftest chỉ chạy khi bản build test bật cờ (tools/test-harness/build.sh).
 -- Bản phát hành không bao giờ đặt cờ này.
-if rawget(_G, "FOODBUFFHUD_SELFTEST") then
-    AddPrefabPostInit("world", function()
-        _G.TheWorld:DoTaskInTime(3, function() modimport("scripts/selftest.lua") end)
+if _G.rawget(_G, "FOODBUFFHUD_SELFTEST") then
+    -- modimport BẮT BUỘC gọi trong lúc modmain chạy (nó bám vào env của mod),
+    -- nên nạp file ở đây để định nghĩa hàm, rồi chỉ hoãn phần GỌI tới khi
+    -- world sẵn sàng.
+    modimport("scripts/selftest.lua")
+    AddPrefabPostInit("world", function(inst)
+        print("[FoodBuffHUD] world postinit — hẹn chạy selftest sau 3s")
+        -- DoStaticTaskInTime chứ không DoTaskInTime: server không có người chơi
+        -- thì DST "Sim paused", task theo thời gian mô phỏng sẽ không bao giờ nổ.
+        inst:DoStaticTaskInTime(3, function()
+            local run = _G.rawget(_G, "FOODBUFFHUD_RunSelfTest")
+            if run ~= nil then run() else print("[FoodBuffHUD] KHÔNG thấy RunSelfTest") end
+        end)
     end)
 end
 
