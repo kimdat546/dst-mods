@@ -11,6 +11,7 @@ DEST="$(cd "$SRC/../.." && pwd)/_archive/food-buff-hud-upload"
 FILES=(
     modinfo.lua
     modmain.lua
+    preview.png                       # ảnh Workshop, 512x512
     scripts/widgets/foodbuffhud.lua   # HUD phía client
 )
 # KHÔNG ship: scripts/selftest.lua (chỉ dùng cho test headless)
@@ -41,4 +42,9 @@ fi
 echo "✓ Bản upload sẵn sàng → $DEST"
 echo "  $(find "$DEST" -type f | wc -l | tr -d ' ') file, $(du -sh "$DEST" | cut -f1)"
 grep -E '^(name|version|version_compatible|all_clients_require_mod|client_only_mod)' "$DEST/modinfo.lua" | sed 's/^/  /'
-[[ -f "$DEST/preview.png" ]] || echo "  ⚠ chưa có preview.png — Mod Tools sẽ hỏi ảnh preview khi upload"
+# preview phải vuông, Workshop hiển thị thumbnail vuông
+if [[ -f "$DEST/preview.png" ]]; then
+    w=$(sips -g pixelWidth "$DEST/preview.png" | awk '/pixelWidth/{print $2}')
+    h=$(sips -g pixelHeight "$DEST/preview.png" | awk '/pixelHeight/{print $2}')
+    [[ "$w" == "$h" ]] && echo "  preview.png ${w}x${h} ✓" || echo "  ⚠ preview.png ${w}x${h} — nên cắt vuông"
+fi
