@@ -74,6 +74,14 @@ local function translate_str(str)
         end
     end
     if translated then return translated end
+    -- Không còn chữ Hán thì không pattern/word_fix nào khớp được → về sớm.
+    -- Đây là đường đi NÓNG: hook chạy trên mọi lần render text (đo được
+    -- 173–200+ lượt/giây khi chơi), mà phần lớn chuỗi trên màn hình là số,
+    -- tên đã dịch, nhãn HUD — đều trượt textfix rồi rơi xuống 24 pattern +
+    -- ~400 word_fix = ~426 lượt gsub vô ích, mỗi lượt cấp phát một chuỗi mới.
+    -- Đã kiểm: 100% key word_fix và 100% pattern đều chứa ký tự mà
+    -- has_chinese() nhận ra (byte đầu 0xE3–0xEA), nên bỏ qua là an toàn.
+    if not has_chinese(str) then return str end
     -- pattern matching first, then substring replace
     for _, p in ipairs(textfix_patterns) do
         str = str:gsub(p[1], p[2])
@@ -176,6 +184,29 @@ end -- if not IS_DEDICATED
 modimport("scripts/wiki_glossary.lua")
 modimport("scripts/textfix_dynamic.lua")
 -- modimport("scripts/book_dump.lua")  -- disabled: no longer needed
+
+-- Chốt bất biến cho early-out trong translate_str: nếu có key word_fix hay
+-- pattern nào KHÔNG chứa chữ Hán thì nó sẽ không bao giờ được áp dụng nữa.
+-- Báo ngay lúc nạp thay vì để chuỗi đó lặng lẽ không dịch trong game.
+do
+    local bad = 0
+    for cn in pairs(word_fix) do
+        if not has_chinese(cn) then
+            bad = bad + 1
+            print("[DangTienVN] CẢNH BÁO: word_fix key không có chữ Hán, sẽ bị early-out bỏ qua: " .. cn)
+        end
+    end
+    for _, p in ipairs(textfix_patterns) do
+        if not has_chinese(p[1]) then
+            bad = bad + 1
+            print("[DangTienVN] CẢNH BÁO: pattern không có chữ Hán, sẽ bị early-out bỏ qua: " .. p[1])
+        end
+    end
+    if bad > 0 then
+        print("[DangTienVN] → " .. bad .. " mục sẽ không chạy. Bỏ dòng early-out trong "
+              .. "translate_str, hoặc chuyển các mục này sang bảng textfix (khớp chính xác).")
+    end
+end
 
 -- Phase translation tables (textfix + word_fix entries)
 -- Uncomment as phases are completed:
