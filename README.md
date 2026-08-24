@@ -7,12 +7,14 @@ Nơi tập trung **tất cả mod Don't Starve Together (DST)** mình làm: mod 
 ## Git / GitHub
 
 **Monorepo:** <https://github.com/kimdat546/dst-mods> (public) — chứa toàn bộ 5 mod.
-Lịch sử 116 commit của `pham-nhan-tu-tien` và của `dang-tien-viet` được bảo toàn qua `git subtree`.
+Lịch sử của `dang-tien-viet` được bảo toàn qua `git subtree`.
+`pham-nhan-tu-tien` và `tu-tien-lite` đã gỡ khỏi cây làm việc (2026-08-24) — nội dung vẫn nằm trong
+lịch sử git, lấy lại bằng `git checkout a796d4f -- originals/pham-nhan-tu-tien`.
 
 **Repo riêng:** `_infra/dst-server-docker` KHÔNG gộp vào đây, vì nó dùng *branch làm cấu hình từng thế giới*
 (`dang-tien`, `myth-words`, `pntt-dev`, `speedrun`…). Gộp vào thì `git checkout dang-tien` sẽ đổi luôn code cả 5 mod.
 
-**Không version** (xem `.gitignore`): `_sources/` (mod của tác giả khác), `_archive/`,
+**Không version** (xem `.gitignore`): `_sources/` (mod của tác giả khác),
 `translations/dst-tieng-viet/game_source/` (234MB source Klei — giải nén lại từ `scripts.zip`),
 các file dump debug.
 
@@ -34,8 +36,6 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 │   └── newconstant-viet/    NewConstant Việt (dựng lại i18n)     [git]
 │
 ├── originals/           ← mod TỰ LÀM (custom content)
-│   ├── pham-nhan-tu-tien/   Phàm Nhân Tu Tiên [Alpha] — flagship [git]
-│   ├── tu-tien-lite/        Tu Tiên Lite (Đăng Tiên gọn nhẹ)
 │   └── food-buff-hud/       Food Buff HUD (đếm ngược buff thức ăn)
 │
 ├── _sources/            ← nguồn tham khảo, KHÔNG phải mod của mình
@@ -43,11 +43,10 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 │   ├── dang-tien-wiki.pdf    PDF wiki/cẩm nang 登仙 (nguồn glossary)
 │   └── neverland_mod[.zip]   mod ngoài "Neverland" (của Neverland Team)
 │
-├── _archive/            ← bản trùng / build cũ (xóa lúc nào cũng được)
-│   ├── dst-viet-modv3-dupe/     .po y hệt dst-tieng-viet, chỉ khác version
-│   ├── dang-tien-viet-upload/   build sạch để upload (dang-tien)
-│   ├── pham-nhan-tu-tien-upload/ build sạch để upload (pham-nhan)
-│   └── myth-words-viet-v1.0/    bản Myth Words cũ (v1.0)
+├── docs/                ← kiến thức DST dùng chung (tách ra khi gỡ pham-nhan)
+│   └── dst-knowledge/       analysis/ (DST API, hot-reload, kiến trúc 登仙)
+│
+├── .claude/skills/      ← skill dựng nội dung DST, tái dùng cho mọi mod
 │
 └── _infra/              ← hạ tầng, KHÔNG phải mod
     └── dst-server-docker/   server DST chạy Docker + bot + CLI  [git]
@@ -63,11 +62,9 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 | Đăng Tiên VN | `translations/dang-tien-viet` | Dịch mod 登仙 | 1.2.0 (git) / **1.0.0 trên Workshop** | kimdat546 | **3719981130** (mod nguồn: 3235319974) |
 | Myth Words VN | `translations/myth-words-viet` | Dịch mod | 1.2 | Datgavl | *cần điền* |
 | NewConstant Việt | `translations/newconstant-viet` | Dựng lại i18n + dịch | — | kimdat546 | *đã publish (hidden) — cần điền* |
-| Phàm Nhân Tu Tiên | `originals/pham-nhan-tu-tien` | Tự làm (alpha) | 0.2.0-remake-m1 | kimdat546 | *chưa publish?* |
-| Tu Tiên Lite | `originals/tu-tien-lite` | Tự làm | 1.0.0 | kimdat546 + Claude | *cần điền* |
 | Food Buff | `originals/food-buff-hud` | Tự làm | 1.0.0 | kimdat546 | **3774466732** |
 
-> **TODO:** còn thiếu Workshop ID của Myth Words VN, Tu Tiên Lite và NewConstant Việt.
+> **TODO:** còn thiếu Workshop ID của Myth Words VN và NewConstant Việt.
 
 ---
 
@@ -81,7 +78,7 @@ Dịch **toàn bộ game DST gốc** sang tiếng Việt. Bản trưởng thành
 - **Công cụ:** `tools/sync_check.py` (phát hiện string mới khi game update), `tools/quality_check.py` (kiểm lỗi format `%s`, `{winner}`). Báo cáo trong `sync_reports/`.
 - **Git:** `git@github.com:kimdat546/dst-tieng-viet.git` (branch `main`). Có thay đổi chưa commit.
 - **Đọc thêm:** `CLAUDE.md` + `README.md` trong folder (quy trình sync + upload).
-- ⚠️ Bản upload cuối là **v2026.7** (xem `_archive/dst-viet-modv3-dupe`), nhưng git repo mới ở **v2026.5** — nội dung `.po` giống hệt, chỉ lệch số version.
+- ⚠️ Bản upload cuối là **v2026.7** nhưng git repo mới ở **v2026.5** — nội dung `.po` giống hệt, chỉ lệch số version.
 
 ### 2. Đăng Tiên VN — `translations/dang-tien-viet/`
 Dịch mod tu tiên tiếng Trung **【登仙】** (nguồn Workshop `3235319974`).
@@ -108,7 +105,7 @@ Dịch mod tu tiên tiếng Trung **【登仙】** (nguồn Workshop `3235319974
   chỉ cần ẩn ảnh trang rồi vẽ chữ Việt bằng Text widget đè lên khung có sẵn.
 
 ### 3. Myth Words VN — `translations/myth-words-viet/`
-Dịch mod "Myth Words" sang tiếng Việt. v1.2 (bản v1.0 cũ ở `_archive/myth-words-viet-v1.0`). Kỹ thuật giống Đăng Tiên (phase strings + textfix + fallback). Không có git.
+Dịch mod "Myth Words" sang tiếng Việt. v1.2. Kỹ thuật giống Đăng Tiên (phase strings + textfix + fallback). Không có git.
 
 ### 4. NewConstant Việt — `translations/newconstant-viet/`
 Dựng lại hệ đa ngôn ngữ của **NewConstant** (永恒新界) rồi dịch sang tiếng Việt. Mod gốc do **莫非则** viết
@@ -125,16 +122,7 @@ Dựng lại hệ đa ngôn ngữ của **NewConstant** (永恒新界) rồi d�
 - **Thêm ngôn ngữ mới:** chép `translations/vi.json` → `<mã>.json`, dịch, chạy `tools/gen_lang.py`.
   Không phải đụng `modmain.lua` — khác hẳn mod gốc.
 
-### 5. Phàm Nhân Tu Tiên [Alpha] — `originals/pham-nhan-tu-tien/` ⭐
-**Mod tự làm lớn nhất** — custom content tu tiên từ đầu (1.3GB gồm anim/art/portraits). Đang phát triển (alpha).
-- **Git:** branch `main`, commit chi tiết (items, atlas icon, prefab, placer…).
-- **Kho tài liệu (rất giá trị, tái dùng được):** `docs/analysis/` — phân tích kiến trúc 登仙, `dst-api-foundation.md`, `dst-hot-reload.md`, glossary gameplay; `docs/superpowers/` — plans + specs; `docs/ai-art-prompts.md`, `docs/icon-assets-reference.md`.
-- **Build upload:** `tools/make_swap_build.md`. Bản build sạch cũ ở `_archive/pham-nhan-tu-tien-upload`.
-
-### 6. Tu Tiên Lite — `originals/tu-tien-lite/`
-Bản làm lại **gọn nhẹ** của 登仙 (do kimdat546 + Claude). Chỉ scripts, nhỏ. v1.0.0.
-
-### 7. Food Buff — `originals/food-buff-hud/`
+### 5. Food Buff — `originals/food-buff-hud/`
 Hiện buff từ thức ăn đang có tác dụng + đếm ngược chính xác (món Warly, món nêm gia vị).
 - **Vì sao chạy ở server:** `debuffable`/`debuff`/`timer` không có replica → client không đọc được thời gian còn lại. Mod tính ở server rồi gửi RPC xuống. Các mod buff-timer chỉ chạy client buộc phải đoán theo `TUNING`, nên sai khi buff được gia hạn hoặc khi vào server giữa lúc buff đang chạy.
 - **Chống mục ruỗng:** duyệt `debuffable.debuffs` + đọc timer `"buffover"` → tự phủ mọi buff dùng `MakeBuff`, kể cả món Klei thêm sau. Không hardcode danh sách như hai mod "Buff Timer" trên Workshop (58–80 entry, tác giả bỏ từ 2024-03).
@@ -147,7 +135,8 @@ Hiện buff từ thức ăn đang có tác dụng + đếm ngược chính xác 
 
 - **Dịch mod bị mã hóa/bytecode:** không sửa được source → hook runtime. Đặt `priority = -10000` để load sau mod gốc, ghi đè `STRINGS.*` trong `AddSimPostInit`, hook `TextWidget.SetString` để bắt text render-time.
 - **Dịch game gốc:** ưu tiên file `.po` qua `LoadPOFile()` cho string tĩnh; chỉ dùng textfix hook cho text động lọt lưới.
-- **DST API pitfalls / hot-reload / kiến trúc:** xem `originals/pham-nhan-tu-tien/docs/analysis/`.
+- **DST API pitfalls / hot-reload / kiến trúc:** xem `docs/dst-knowledge/analysis/`.
+- **Skill dựng nội dung DST:** `.claude/skills/` (nhân vật, vật phẩm, công trình, đan dược, mob AI).
 - **Quy trình upload Workshop:**
   1. `rsync` các file cần thiết sang thư mục build sạch (chỉ file upload, bỏ tools/docs/git).
   2. Tăng `version` + cập nhật ngày trong `description` của `modinfo.lua`.
@@ -156,4 +145,4 @@ Hiện buff từ thức ăn đang có tác dụng + đếm ngược chính xác 
 
 ## Ghi chú dọn dẹp còn lại
 - Đường dẫn upload trong vài `CLAUDE.md`/`README.md` cũ còn trỏ tới `~/Desktop/dst-viet-mod/` (không còn tồn tại) — cập nhật khi cần build.
-- `_archive/` và `_sources/neverland_*` có thể xóa để tiết kiệm đĩa; `_sources/dengxian-3235319974` (376MB) giữ lại vì là nguồn dịch/nghiên cứu.
+- `_sources/neverland_*` có thể xóa để tiết kiệm đĩa; `_sources/dengxian-3235319974` (376MB) giữ lại vì là nguồn dịch/nghiên cứu.

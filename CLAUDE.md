@@ -6,9 +6,10 @@
 2. Mỗi mod là một project độc lập trong `translations/`, `originals/`, hoặc `_infra/`. Nhiều mod có `README.md`/`CLAUDE.md`/`docs/` riêng — đọc của mod đang làm.
 
 ## Quy ước nhanh
-- `translations/` = mod dịch tiếng Việt (phủ text). `originals/` = mod tự làm. `_sources/` = nguồn tham khảo (không phải mod của mình, đừng sửa để upload). `_archive/` = bản trùng/build cũ. `_infra/` = server, không phải mod.
+- `translations/` = mod dịch tiếng Việt (phủ text). `originals/` = mod tự làm. `_sources/` = nguồn tham khảo (không phải mod của mình, đừng sửa để upload). `_infra/` = server, không phải mod. `docs/dst-knowledge/` = kiến thức DST dùng chung.
 - **Git:** cả workspace là MỘT monorepo → `github.com/kimdat546/dst-mods` (public). Ngoại lệ duy nhất: `_infra/dst-server-docker` là repo RIÊNG (nó dùng branch làm cấu hình từng world, gộp vào sẽ hỏng). Chỉ commit/push khi user yêu cầu; nếu đang ở nhánh mặc định thì tạo nhánh trước.
-- **Kiến thức DST API / pitfalls / hot-reload / kiến trúc 登仙:** `originals/pham-nhan-tu-tien/docs/analysis/`.
+- **Kiến thức DST API / pitfalls / hot-reload / kiến trúc 登仙:** `docs/dst-knowledge/analysis/`.
+- **Skill dựng nội dung DST** (nhân vật, vật phẩm, công trình, đan dược, mob AI): `.claude/skills/`.
 - **Hai pattern dịch:** (a) mod bytecode → hook runtime, `priority=-10000`, ghi đè `STRINGS.*` trong `AddSimPostInit` + hook `TextWidget.SetString`; (b) game gốc → file `.po` qua `LoadPOFile()` + textfix cho text động.
 - **Upload Workshop:** rsync sang thư mục build sạch → tăng version → Don't Starve Mod Tools → Upload Existing Mod → nhập Workshop ID.
 
