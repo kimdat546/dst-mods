@@ -6,8 +6,8 @@ ngôn ngữ đúng chuẩn và bản dịch tiếng Việt đầy đủ.
 > **Nguồn gốc:** mod gốc do **莫非则** viết —
 > [Core `3645179905`](https://steamcommunity.com/sharedfiles/filedetails/?id=3645179905) ·
 > [Base `3191348907`](https://steamcommunity.com/sharedfiles/filedetails/?id=3191348907).
-> Toàn bộ gameplay, assets, âm thanh là của tác giả gốc. Bản này **chỉ dùng
-> local**. Muốn đưa lên Workshop thì phải xin phép 莫非则 trước.
+> Toàn bộ gameplay, assets, âm thanh là của tác giả gốc — bản này chỉ thay hệ
+> ngôn ngữ. **Đã publish lên Workshop, đang để hidden.**
 
 ## Vì sao dựng lại
 
@@ -41,6 +41,19 @@ hỏng là hệ ngôn ngữ, nên chỉ dựng lại đúng chỗ đó.
 85 MB assets (73 MB riêng âm thanh) là của tác giả gốc và không delta-nén được —
 đưa vào sẽ làm `.git` phình từ 34 MB lên gấp mấy lần. `tools/build.sh` lấy chúng
 từ thư mục Workshop lúc dựng. Repo chỉ giữ phần việc của mình.
+
+## Dựng lại từ repo
+
+Repo **không chứa `vendor/`** (3 mod gốc, 164 MB) — xem `.gitignore`. Không có
+script nào tự kéo về, nên trước khi dựng phải chép tay từ thư mục Workshop:
+
+```
+vendor/core/        ← mod 3645179905
+vendor/base/        ← mod 3191348907
+vendor/nightmare/
+```
+
+Rồi `python3 tools/build.py` để ghép ra `build/`.
 
 ## Cấu trúc
 
