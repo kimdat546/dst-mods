@@ -1,0 +1,27 @@
+.DS_Store
+
+# ── Mod gốc của 莫非则 — KHÔNG đưa vào repo public ───────────────────────
+# vendor/ là 3 mod gốc (core, base, nightmare): 157 file logic gameplay +
+# toàn bộ assets. Là code và art có bản quyền của tác giả khác, cùng lý do
+# _sources/ bị gitignore ở monorepo.
+#
+# DỰNG LẠI: không có script nào tự kéo về. Phải chép tay 3 mod từ thư mục
+# Workshop vào vendor/core, vendor/base, vendor/nightmare — tools/build.py
+# đọc thẳng ba đường dẫn đó.
+vendor/
+
+# ── Sinh ra được, không version ─────────────────────────────────────────
+# build/ = vendor/ + phần i18n của mình, do tools/build.py ghép
+build/
+
+# Dữ liệu server headless tự sinh lúc chạy test.
+# Giữ lại phần định nghĩa: tools/test/compose.yml, config/, test.env
+tools/test/data/
+
+# Wiki: giữ NGUỒN (data.json), bỏ phần sinh ra.
+# img/ là art trích từ vendor/ bằng tools/extract_images.py → cùng lý do
+# loại vendor/. wiki.html và PDF nhúng lại đúng số art đó.
+# Dựng lại: tools/build_wiki_data.py rồi tools/build_wiki_html.py
+wiki/img/
+wiki/wiki.html
+wiki/*.pdf

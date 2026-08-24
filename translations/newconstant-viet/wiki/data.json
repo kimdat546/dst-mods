@@ -1,0 +1,1701 @@
+{
+ "entries": {
+  "abyss_curse": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Lời Nguyền Vực Sâu",
+   "prefab": "abyss_curse",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "abyss_endswell": {
+   "category": "Sinh vật & Boss",
+   "describe": "Ngươi đang khao khát điều gì?",
+   "image": null,
+   "name": "Giếng Kết Liễu",
+   "prefab": "abyss_endswell",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "abyss_eye": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "∆∞?Ey?",
+   "prefab": "abyss_eye",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "abyss_flower": {
+   "category": "Sinh vật & Boss",
+   "describe": "Bệnh tật tiêu tan, bất lão bất tử.",
+   "image": null,
+   "name": "Hoa Vĩnh Hằng",
+   "prefab": "abyss_flower",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "abyss_hoplite": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Thiết Vệ Vực Sâu",
+   "prefab": "abyss_hoplite",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "abyss_knight": {
+   "category": "Sinh vật & Boss",
+   "describe": "Chỉ phép thuật ô uế nhất mới tạo nổi sinh vật kinh khiếp thế này.",
+   "image": null,
+   "name": "Kỵ Sĩ Vực Sâu",
+   "prefab": "abyss_knight",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "abyss_leak": {
+   "category": "Sinh vật & Boss",
+   "describe": "Nó đang khao khát điều gì?",
+   "image": null,
+   "name": "Khe Nứt Lớn",
+   "prefab": "abyss_leak",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "abyss_thrall": {
+   "category": "Sinh vật & Boss",
+   "describe": "Tận thế sắp tới.",
+   "image": null,
+   "name": "Tiên Phong Viễn Cổ",
+   "prefab": "abyss_thrall",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "accessory_sack": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Ô Trang Sức",
+   "prefab": "accessory_sack",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "acid_poison": {
+   "category": "Chất độc",
+   "describe": null,
+   "image": null,
+   "name": "Nọc Độc Axit",
+   "prefab": "acid_poison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "alter_beam_small": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Tia Khai Sáng",
+   "prefab": "alter_beam_small",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "ancient_hulk": {
+   "category": "Sinh vật & Boss",
+   "describe": "Cỗ máy kinh hoàng.",
+   "image": null,
+   "name": "Người Sắt Viễn Cổ",
+   "prefab": "ancient_hulk",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "ancient_hulk_mine": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Mìn",
+   "prefab": "ancient_hulk_mine",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "ancient_scanner": {
+   "category": "Sinh vật & Boss",
+   "describe": "Đội cảm tử thần phong à?",
+   "image": null,
+   "name": "Trinh Sát Bóng Tối",
+   "prefab": "ancient_scanner",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "antidote": {
+   "category": "Chế tạo được",
+   "describe": "Nó chữa được bách bệnh.",
+   "image": "img/antidote.png",
+   "name": "Thuốc Giải Vạn Năng",
+   "prefab": "antidote",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Bào tử nhỏ",
+      "prefab": "spore_small"
+     },
+     {
+      "count": 1,
+      "name": "Chai rỗng",
+      "prefab": "messagebottleempty"
+     },
+     {
+      "count": 1,
+      "name": "Rong biển",
+      "prefab": "kelp"
+     }
+    ],
+    "mod": "base",
+    "station": false,
+    "station_tag": null,
+    "tech": "SCIENCE_TWO"
+   },
+   "recipe_desc": "Giải mọi loại độc"
+  },
+  "archive_lockbox_enhanced": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Tri Thức Cấm",
+   "prefab": "archive_lockbox_enhanced",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "armorabyss": {
+   "category": "Chế tạo được",
+   "describe": "Ngươi đang nhìn vào vực sâu.",
+   "image": "img/armorabyss.png",
+   "name": "Áo Choàng Xoáy",
+   "prefab": "armorabyss",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Giáp xương",
+      "prefab": "armorskeleton"
+     },
+     {
+      "count": 8,
+      "name": "Nhiên liệu kinh hoàng",
+      "prefab": "horrorfuel"
+     },
+     {
+      "count": 8,
+      "name": "Vải hư không",
+      "prefab": "voidcloth"
+     },
+     {
+      "count": 2,
+      "name": "Hồn Bóng Tối",
+      "prefab": "shadow_soul"
+     }
+    ],
+    "mod": "nightmare",
+    "station": true,
+    "station_tag": null,
+    "tech": "SHADOWFORGING_TWO"
+   },
+   "recipe_desc": "Lối vào chiều sâu thẳm"
+  },
+  "armororichal": {
+   "category": "Chế tạo được",
+   "describe": "Giáp thần kim tàn sát!",
+   "image": "img/armororichal.png",
+   "name": "Giáp Diệu Kim",
+   "prefab": "armororichal",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Giáp Thulecite",
+      "prefab": "armorruins"
+     },
+     {
+      "count": 8,
+      "name": "Diệu Kim",
+      "prefab": "aurumite"
+     },
+     {
+      "count": 2,
+      "name": "Hồn Bóng Tối",
+      "prefab": "shadow_soul"
+     },
+     {
+      "count": 1,
+      "name": "Nước Vĩnh Hằng",
+      "prefab": "cs_waterdrop"
+     },
+     {
+      "count": 10,
+      "name": "Đá khiếp sợ",
+      "prefab": "dreadstone"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": null
+  },
+  "astrallaw": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": "img/astrallaw.png",
+   "name": "Quyền Trượng Thiên Giới",
+   "prefab": "astrallaw",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "aurumite": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Năng lượng trong quặng này... nhìn thêm cái nữa là nổ.",
+   "image": "img/aurumite.png",
+   "name": "Diệu Kim",
+   "prefab": "aurumite",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "aurumite_kit": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": "img/aurumite_kit.png",
+   "name": "Bộ Sửa Diệu Kim",
+   "prefab": "aurumite_kit",
+   "recipe": null,
+   "recipe_desc": "Dùng sức ngọc lục bảo để sửa chữa"
+  },
+  "aurumite_mine": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Toàn tia lửa với sét, chạm vào là hẹn kiếp sau.",
+   "image": null,
+   "name": "Mỏ Diệu Kim",
+   "prefab": "aurumite_mine",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "bee_poison": {
+   "category": "Chất độc",
+   "describe": null,
+   "image": null,
+   "name": "Nọc Ong",
+   "prefab": "bee_poison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "beequeen_poison": {
+   "category": "Chất độc",
+   "describe": null,
+   "image": null,
+   "name": "Nọc Ong Chúa",
+   "prefab": "beequeen_poison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "bossrush_manager": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Đến nước này rồi, ta không còn đường lui.",
+   "image": null,
+   "name": "Cổng Hư Cảnh",
+   "prefab": "bossrush_manager",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_attack": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Tăng Sát Thương",
+   "prefab": "buff_attack",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_conprotect": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Che Chở Vĩnh Hằng",
+   "prefab": "buff_conprotect",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_crazy": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Điên Cuồng",
+   "prefab": "buff_crazy",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_cursefire": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Lửa Nguyền",
+   "prefab": "buff_cursefire",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_deadpoison": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Kịch Độc",
+   "prefab": "buff_deadpoison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_electricattack": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Nhiễm Điện",
+   "prefab": "buff_electricattack",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_exhaustion": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Tàn Úa",
+   "prefab": "buff_exhaustion",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_fast": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Tăng Tốc",
+   "prefab": "buff_fast",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_foodsick": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Chán Ăn",
+   "prefab": "buff_foodsick",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_halluc": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Ảo Ảnh",
+   "prefab": "buff_halluc",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_insight": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Thông Tỏ Vạn Vật",
+   "prefab": "buff_insight",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_iron": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Kim Loại Hoá",
+   "prefab": "buff_iron",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_moistureimmunity": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Miễn Ẩm Ướt",
+   "prefab": "buff_moistureimmunity",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_mooncurse": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Nguyệt Thương",
+   "prefab": "buff_mooncurse",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_playerabsorption": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Bột Tỏi",
+   "prefab": "buff_playerabsorption",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_poison": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Trúng Độc",
+   "prefab": "buff_poison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_sleepresistance": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Kháng Ngủ",
+   "prefab": "buff_sleepresistance",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_slimed": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Dính Nhớt",
+   "prefab": "buff_slimed",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_solarfire": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Loá Mặt Trời",
+   "prefab": "buff_solarfire",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_vulnerability_hex": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Bùa Suy Nhược",
+   "prefab": "buff_vulnerability_hex",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_vulnerable": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Dễ Tổn Thương",
+   "prefab": "buff_vulnerable",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_warm": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Giữ Ấm",
+   "prefab": "buff_warm",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_weak": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Suy Nhược",
+   "prefab": "buff_weak",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "buff_workeffectiveness": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Làm Việc Hiệu Quả",
+   "prefab": "buff_workeffectiveness",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "calamityeye": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Bóng Tai Ương",
+   "prefab": "calamityeye",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "constant_medal": {
+   "category": "Chế tạo được",
+   "describe": null,
+   "image": null,
+   "name": "Lệnh Bài Bất Diệt",
+   "prefab": "constant_medal",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Bùa hộ mệnh",
+      "prefab": "amulet"
+     },
+     {
+      "count": 1,
+      "name": "Nước Vĩnh Hằng",
+      "prefab": "cs_waterdrop"
+     },
+     {
+      "count": 8,
+      "name": "Diệu Kim",
+      "prefab": "aurumite"
+     },
+     {
+      "count": 8,
+      "name": "Ngọc đỏ",
+      "prefab": "redgem"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": null
+  },
+  "corrupt_heart": {
+   "category": "Sinh vật & Boss",
+   "describe": "Nó nuốt trọn mọi ánh sáng của thế gian.",
+   "image": null,
+   "name": "Tim Hủ Hoá",
+   "prefab": "corrupt_heart",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "cs_infused_iron": {
+   "category": "Chế tạo được",
+   "describe": "Ta sẽ càn quét thiên hạ.",
+   "image": "img/cs_infused_iron.png",
+   "name": "Đá Vĩnh Hằng",
+   "prefab": "cs_infused_iron",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 5,
+      "name": "Diệu Kim",
+      "prefab": "aurumite"
+     },
+     {
+      "count": 1,
+      "name": "Hồn Thị Vực",
+      "prefab": "insight_soul"
+     },
+     {
+      "count": 10,
+      "name": "Thulecite",
+      "prefab": "thulecite"
+     },
+     {
+      "count": 2,
+      "name": "Nước Vĩnh Hằng",
+      "prefab": "cs_waterdrop"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": "Chứa đựng sức mạnh vĩnh hằng"
+  },
+  "cs_shadowthrone": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Chỉ là một cái bóng.",
+   "image": null,
+   "name": "Ngai Ác Mộng",
+   "prefab": "cs_shadowthrone",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "cs_void_bag": {
+   "category": "Chế tạo được",
+   "describe": "Thần kỳ thật, đồ trong này đi đâu hết rồi?",
+   "image": "img/cs_void_bag.png",
+   "name": "Túi Hư Không",
+   "prefab": "cs_void_bag",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 10,
+      "name": "Nhiên liệu kinh hoàng",
+      "prefab": "horrorfuel"
+     },
+     {
+      "count": 10,
+      "name": "Vải hư không",
+      "prefab": "voidcloth"
+     },
+     {
+      "count": 1,
+      "name": "Hồn Bóng Tối",
+      "prefab": "shadow_soul"
+     },
+     {
+      "count": 1,
+      "name": "Nước Vĩnh Hằng",
+      "prefab": "cs_waterdrop"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "SHADOWFORGING_TWO"
+   },
+   "recipe_desc": "Nối thông chiều bóng tối"
+  },
+  "cs_waterdrop": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Nước thánh kính thần.",
+   "image": "img/cs_waterdrop.png",
+   "name": "Nước Vĩnh Hằng",
+   "prefab": "cs_waterdrop",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "dark_energy": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Năng Lượng Hắc Ám",
+   "prefab": "dark_energy",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "demon_soul": {
+   "category": "Linh hồn",
+   "describe": null,
+   "image": "img/demon_soul.png",
+   "name": "Hồn Ác Quỷ",
+   "prefab": "demon_soul",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "dpstarget": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Hình Nộm Thử Nghiệm",
+   "prefab": "dpstarget",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "dreaddragon": {
+   "category": "Sinh vật & Boss",
+   "describe": "Mắt đỏ hoe thế kia, nhỏ tí thuốc mắt đi.",
+   "image": null,
+   "name": "Rồng Tuyệt Vọng",
+   "prefab": "dreaddragon",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "dreadsword": {
+   "category": "Chế tạo được",
+   "describe": "Bóng tối chỉ là phương tiện...",
+   "image": "img/dreadsword.png",
+   "name": "Kiếm Tuyệt Vọng",
+   "prefab": "dreadsword",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 3,
+      "name": "Nhiên liệu kinh hoàng",
+      "prefab": "horrorfuel"
+     },
+     {
+      "count": 3,
+      "name": "Vải hư không",
+      "prefab": "voidcloth"
+     },
+     {
+      "count": 4,
+      "name": "Đá khiếp sợ",
+      "prefab": "dreadstone"
+     },
+     {
+      "count": 1,
+      "name": "Tim bóng tối",
+      "prefab": "shadowheart"
+     }
+    ],
+    "mod": "nightmare",
+    "station": true,
+    "station_tag": "shadow_forge",
+    "tech": "SHADOWFORGING_TWO"
+   },
+   "recipe_desc": "Mang tuyệt vọng đến cho kẻ địch"
+  },
+  "fissure_abyss": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Đến từ vực sâu.",
+   "image": null,
+   "name": "Mầm Quặng Đá Tuyệt Vọng",
+   "prefab": "fissure_abyss",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "gestalt_staff": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": "img/gestalt_staff.png",
+   "name": "Trượng Nguyệt Linh",
+   "prefab": "gestalt_staff",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "healingsalve_acidbuff": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Miễn Ăn Mòn",
+   "prefab": "healingsalve_acidbuff",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "healthregenbuff": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Hồi Máu",
+   "prefab": "healthregenbuff",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "hellblasts": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Vong Hồn Vực Sâu",
+   "prefab": "hellblasts",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "insight_soul": {
+   "category": "Linh hồn",
+   "describe": "Sức mạnh nhìn thấu vạn vật.",
+   "image": "img/insight_soul.png",
+   "name": "Hồn Thị Vực",
+   "prefab": "insight_soul",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "iokheira": {
+   "category": "Chế tạo được",
+   "describe": null,
+   "image": "img/iokheira.png",
+   "name": "Mũi Tên Mặt Trăng",
+   "prefab": "iokheira",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Đinh ba",
+      "prefab": "trident"
+     },
+     {
+      "count": 3,
+      "name": "Đá Vĩnh Hằng",
+      "prefab": "cs_infused_iron"
+     },
+     {
+      "count": 10,
+      "name": "Ngọc lam",
+      "prefab": "bluegem"
+     },
+     {
+      "count": 5,
+      "name": "Ánh Sáng Thuần Khiết",
+      "prefab": "purebrilliance"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": null
+  },
+  "iron_soul": {
+   "category": "Linh hồn",
+   "describe": "Bồn chồn không yên.",
+   "image": "img/iron_soul.png",
+   "name": "Hồn Thép",
+   "prefab": "iron_soul",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "ironlord": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Giáp Phụ Thân",
+   "prefab": "ironlord",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "ironlord_death": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Bên trong nó trống rỗng.",
+   "image": null,
+   "name": "Xác Vụn",
+   "prefab": "ironlord_death",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "laser_cannon": {
+   "category": "Chế tạo được",
+   "describe": null,
+   "image": null,
+   "name": "Súng Laser",
+   "prefab": "laser_cannon",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Quyền Giáp",
+      "prefab": "laser_generator"
+     },
+     {
+      "count": 2,
+      "name": "Đá Vĩnh Hằng",
+      "prefab": "cs_infused_iron"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "LOST"
+   },
+   "recipe_desc": "Bắn cầu laser"
+  },
+  "laser_generator": {
+   "category": "Chế tạo được",
+   "describe": "Sức nhổ núi, khí trùm đời!",
+   "image": "img/laser_generator.png",
+   "name": "Quyền Giáp",
+   "prefab": "laser_generator",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 6,
+      "name": "Diệu Kim",
+      "prefab": "aurumite"
+     },
+     {
+      "count": 1,
+      "name": "Mảnh mũ Vệ Thần",
+      "prefab": "alterguardianhatshard"
+     },
+     {
+      "count": 8,
+      "name": "Mảnh Wagpunk",
+      "prefab": "wagpunk_bits"
+     },
+     {
+      "count": 2,
+      "name": "Hồn Thép",
+      "prefab": "iron_soul"
+     }
+    ],
+    "mod": "nightmare",
+    "station": true,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": "Đủ sức đập tan tuyệt vọng"
+  },
+  "leechterror": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Vuốt Bóng Tối",
+   "prefab": "leechterror",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "lunarlight": {
+   "category": "Chế tạo được",
+   "describe": "Ngọn lửa của nó xua tan được lũ hư ảnh!",
+   "image": "img/lunarlight.png",
+   "name": "Trụ Đèn Huy Hoàng",
+   "prefab": "lunarlight",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Ngọc Opal",
+      "prefab": "opalpreciousgem"
+     },
+     {
+      "count": 8,
+      "name": "Đá mặt trăng",
+      "prefab": "moonrocknugget"
+     },
+     {
+      "count": 4,
+      "name": "Ánh Sáng Thuần Khiết",
+      "prefab": "purebrilliance"
+     }
+    ],
+    "mod": "base",
+    "station": false,
+    "station_tag": null,
+    "tech": "LOST"
+   },
+   "recipe_desc": "Ánh sáng thuần khiết, xua tan tà ác"
+  },
+  "lunarthrall_plant_queen": {
+   "category": "Sinh vật & Boss",
+   "describe": "Đại thực vật phương Nam!",
+   "image": "img/lunarthrall_plant_queen.png",
+   "name": "Cà Sáng Chí Tôn",
+   "prefab": "lunarthrall_plant_queen",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "maze_key": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Chìa Khoá Mê Cung",
+   "prefab": "maze_key",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "medal_temperature_down": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Hạ Nhiệt",
+   "prefab": "medal_temperature_down",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "medal_temperature_up": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Tăng Nhiệt",
+   "prefab": "medal_temperature_up",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "medal_wormlight": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Phát Sáng",
+   "prefab": "medal_wormlight",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "messagebottleempty_blueprint": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Bản Vẽ Chai Rỗng",
+   "prefab": "messagebottleempty_blueprint",
+   "recipe": null,
+   "recipe_desc": "Nung thuỷ tinh ở nhiệt độ cao"
+  },
+  "moon_lightning2": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Sét Nguyệt Năng",
+   "prefab": "moon_lightning2",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "newcs_armorobsidian": {
+   "category": "Chế tạo được",
+   "describe": null,
+   "image": "img/newcs_armorobsidian.png",
+   "name": "Giáp Hắc Diệu Thạch",
+   "prefab": "newcs_armorobsidian",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 5,
+      "name": "Hắc Diệu Thạch",
+      "prefab": "newcs_obsidian"
+     },
+     {
+      "count": 2,
+      "name": "Tim Rồng",
+      "prefab": "newcs_dragoonheart"
+     }
+    ],
+    "mod": "base",
+    "station": true,
+    "station_tag": null,
+    "tech": "OBSIDIAN_ONE"
+   },
+   "recipe_desc": "Sờ vào thấy rất nóng"
+  },
+  "newcs_axeobsidian": {
+   "category": "Chế tạo được",
+   "describe": "Tiều phu ơi, lấy nó mà đốn cây đi!",
+   "image": "img/newcs_axeobsidian.png",
+   "name": "Rìu Hắc Diệu Thạch",
+   "prefab": "newcs_axeobsidian",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Rìu vàng",
+      "prefab": "goldenaxe"
+     },
+     {
+      "count": 1,
+      "name": "Hắc Diệu Thạch",
+      "prefab": "newcs_obsidian"
+     },
+     {
+      "count": 1,
+      "name": "Tim Rồng",
+      "prefab": "newcs_dragoonheart"
+     }
+    ],
+    "mod": "base",
+    "station": true,
+    "station_tag": null,
+    "tech": "OBSIDIAN_ONE"
+   },
+   "recipe_desc": "Như rìu thường, chỉ là nóng hơn"
+  },
+  "newcs_dragoon": {
+   "category": "Sinh vật & Boss",
+   "describe": "Sinh vật nực cười, chỉ còn chút huyết mạch cự long loãng toẹt.",
+   "image": null,
+   "name": "Long Nhân Bạo Ngược",
+   "prefab": "newcs_dragoon",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "newcs_dragoonegg": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Phá huỷ nó!",
+   "image": null,
+   "name": "Trứng Rồng",
+   "prefab": "newcs_dragoonegg",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "newcs_dragoonheart": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Nó vẫn đập, như ta vẫn gánh nặng bước tới.",
+   "image": "img/newcs_dragoonheart.png",
+   "name": "Tim Rồng",
+   "prefab": "newcs_dragoonheart",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "newcs_firerain": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Mưa Lửa",
+   "prefab": "newcs_firerain",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "newcs_lavapool": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Chứa tinh hoa của lửa.",
+   "image": null,
+   "name": "Hố Dung Nham",
+   "prefab": "newcs_lavapool",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "newcs_obsidian": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Sức mạnh của cự long.",
+   "image": "img/newcs_obsidian.png",
+   "name": "Hắc Diệu Thạch",
+   "prefab": "newcs_obsidian",
+   "recipe": null,
+   "recipe_desc": "Chứa ngọn lửa thuần khiết nhất"
+  },
+  "newcs_obsidianfirepit": {
+   "category": "Chế tạo được",
+   "describe": "Rực rỡ chói mắt.",
+   "image": "img/newcs_obsidianfirepit.png",
+   "name": "Hố Lửa Hắc Diệu Thạch",
+   "prefab": "newcs_obsidianfirepit",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 5,
+      "name": "Hắc Diệu Thạch",
+      "prefab": "newcs_obsidian"
+     },
+     {
+      "count": 8,
+      "name": "Gỗ",
+      "prefab": "log"
+     }
+    ],
+    "mod": "base",
+    "station": false,
+    "station_tag": null,
+    "tech": "SCIENCE_TWO"
+   },
+   "recipe_desc": "Ngọn lửa dữ dội nhất"
+  },
+  "newcs_spear_obsidian": {
+   "category": "Chế tạo được",
+   "describe": "Một mình đâm lật cả cái thế giới này!!",
+   "image": "img/newcs_spear_obsidian.png",
+   "name": "Giáo Hắc Diệu Thạch",
+   "prefab": "newcs_spear_obsidian",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Giáo",
+      "prefab": "spear"
+     },
+     {
+      "count": 2,
+      "name": "Hắc Diệu Thạch",
+      "prefab": "newcs_obsidian"
+     },
+     {
+      "count": 1,
+      "name": "Tim Rồng",
+      "prefab": "newcs_dragoonheart"
+     }
+    ],
+    "mod": "base",
+    "station": true,
+    "station_tag": null,
+    "tech": "OBSIDIAN_ONE"
+   },
+   "recipe_desc": "Thêm chút lửa cho ngọn giáo"
+  },
+  "newcs_vault_orb_refined": {
+   "category": "Chế tạo được",
+   "describe": null,
+   "image": null,
+   "name": "Mảnh Ngọc Dịch Chuyển",
+   "prefab": "newcs_vault_orb_refined",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 2,
+      "name": "Đá mặt trăng",
+      "prefab": "moonrocknugget"
+     },
+     {
+      "count": 1,
+      "name": "Bùa dịch chuyển",
+      "prefab": "townportaltalisman"
+     },
+     {
+      "count": 1,
+      "name": "Mảnh Thulecite",
+      "prefab": "thulecite_pieces"
+     }
+    ],
+    "mod": "base",
+    "station": false,
+    "station_tag": null,
+    "tech": "LOST"
+   },
+   "recipe_desc": null
+  },
+  "newcs_volcanostaff": {
+   "category": "Chế tạo được",
+   "describe": "Thiên uy rực rỡ!",
+   "image": "img/newcs_volcanostaff.png",
+   "name": "Nộ Dương Viêm",
+   "prefab": "newcs_volcanostaff",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Gậy lửa",
+      "prefab": "firestaff"
+     },
+     {
+      "count": 3,
+      "name": "Tim Rồng",
+      "prefab": "newcs_dragoonheart"
+     },
+     {
+      "count": 4,
+      "name": "Hắc Diệu Thạch",
+      "prefab": "newcs_obsidian"
+     },
+     {
+      "count": 2,
+      "name": "Hồn Ác Quỷ",
+      "prefab": "demon_soul"
+     }
+    ],
+    "mod": "base",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_ONE"
+   },
+   "recipe_desc": "Để lửa thanh tẩy tất cả"
+  },
+  "nightvision_buff": {
+   "category": "Hiệu ứng",
+   "describe": null,
+   "image": null,
+   "name": "Nhìn Đêm",
+   "prefab": "nightvision_buff",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "obsidianhat": {
+   "category": "Chế tạo được",
+   "describe": "Cảm giác... đầu nóng nóng.",
+   "image": null,
+   "name": "Mũ Vảy Rồng",
+   "prefab": "obsidianhat",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 3,
+      "name": "Tim Rồng",
+      "prefab": "newcs_dragoonheart"
+     },
+     {
+      "count": 1,
+      "name": "Vảy Rồng",
+      "prefab": "dragon_scales"
+     },
+     {
+      "count": 1,
+      "name": "Mũ bóng bầu dục",
+      "prefab": "footballhat"
+     }
+    ],
+    "mod": "base",
+    "station": true,
+    "station_tag": null,
+    "tech": "OBSIDIAN_ONE"
+   },
+   "recipe_desc": "Xông lên như cự long"
+  },
+  "odd_mushroom": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Khiến ngươi thấy ảo ảnh sống động về vạn vật xung quanh. Cảnh báo: một số rất ít người có thể lên cơn động kinh khi xem một số hình ảnh.",
+   "image": "img/odd_mushroom.png",
+   "name": "Nấm Kỳ Lạ",
+   "prefab": "odd_mushroom",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "orichalhat": {
+   "category": "Chế tạo được",
+   "describe": "Mũ Diệu Kim trấn bóng tối!",
+   "image": "img/orichalhat.png",
+   "name": "Mũ Diệu Kim",
+   "prefab": "orichalhat",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Vương miện Thulecite",
+      "prefab": "ruinshat"
+     },
+     {
+      "count": 6,
+      "name": "Diệu Kim",
+      "prefab": "aurumite"
+     },
+     {
+      "count": 1,
+      "name": "Hồn Thị Vực",
+      "prefab": "insight_soul"
+     },
+     {
+      "count": 10,
+      "name": "Vải hư không",
+      "prefab": "voidcloth"
+     },
+     {
+      "count": 1,
+      "name": "Nước Vĩnh Hằng",
+      "prefab": "cs_waterdrop"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": null
+  },
+  "planar_key": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Một tinh thể thời không, ghi lại toạ độ của mọi không gian.",
+   "image": "img/planar_key.png",
+   "name": "Chìa Khoá Không Gian",
+   "prefab": "planar_key",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "quaker": {
+   "category": "Chế tạo được",
+   "describe": "Ầm ầm ầm!",
+   "image": "img/quaker.png",
+   "name": "Máy Động Đất",
+   "prefab": "quaker",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 2,
+      "name": "Bánh răng",
+      "prefab": "gears"
+     },
+     {
+      "count": 1,
+      "name": "Ngọc cam",
+      "prefab": "orangegem"
+     },
+     {
+      "count": 2,
+      "name": "Mảnh Wagpunk",
+      "prefab": "wagpunk_bits"
+     },
+     {
+      "count": 2,
+      "name": "Búa",
+      "prefab": "hammer"
+     },
+     {
+      "count": 1,
+      "name": "Lông Gấu Voi",
+      "prefab": "bearger_fur"
+     }
+    ],
+    "mod": "base",
+    "station": false,
+    "station_tag": null,
+    "tech": "SCIENCE_TWO"
+   },
+   "recipe_desc": "Tạo sóng địa chấn"
+  },
+  "shadow_soul": {
+   "category": "Linh hồn",
+   "describe": "Bóng tối nguyên sơ.",
+   "image": "img/shadow_soul.png",
+   "name": "Hồn Bóng Tối",
+   "prefab": "shadow_soul",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "shadowdragon": {
+   "category": "Sinh vật & Boss",
+   "describe": "Dễ thương ghê, khen thế rồi, tha cho ta được không?",
+   "image": null,
+   "name": "Rồng Khiếp Sợ",
+   "prefab": "shadowdragon",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "shadoweyeturret": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Ánh nhìn của nó như pho tượng... xa xăm, tĩnh lặng, lạnh lùng.",
+   "image": null,
+   "name": "Tháp Canh Nhãn Cầu Viễn Cổ",
+   "prefab": "shadoweyeturret",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "shadowfireball": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Viêm Nhiệt Vực Sâu",
+   "prefab": "shadowfireball",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "small_leechterror": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Vuốt Bóng Tối",
+   "prefab": "small_leechterror",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "soul_break": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Vỡ Hồn",
+   "prefab": "soul_break",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "soul_seeker": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Kẻ Tìm Hồn",
+   "prefab": "soul_seeker",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "spider_dead_poison": {
+   "category": "Chất độc",
+   "describe": null,
+   "image": null,
+   "name": "Nọc Nhện Chí Mạng",
+   "prefab": "spider_dead_poison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "spider_poison": {
+   "category": "Chất độc",
+   "describe": null,
+   "image": null,
+   "name": "Nọc Nhện",
+   "prefab": "spider_poison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "spider_robot": {
+   "category": "Sinh vật & Boss",
+   "describe": "Nó lạc lối, vĩnh viễn lang thang nơi đây.",
+   "image": null,
+   "name": "Xác Máy Móc",
+   "prefab": "spider_robot",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "spotty_shrub": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Gai Vặn Vẹo",
+   "prefab": "spotty_shrub",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "spotty_sprig": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Mầm Vặn Vẹo",
+   "prefab": "spotty_sprig",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "staff_lunarblast": {
+   "category": "Chế tạo được",
+   "describe": null,
+   "image": "img/staff_lunarblast.png",
+   "name": "Trượng Cà Sáng Chân",
+   "prefab": "staff_lunarblast",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Trượng cây mặt trăng",
+      "prefab": "staff_lunarplant"
+     },
+     {
+      "count": 1,
+      "name": "Hồn Thị Vực",
+      "prefab": "insight_soul"
+     },
+     {
+      "count": 8,
+      "name": "Ánh Sáng Thuần Khiết",
+      "prefab": "purebrilliance"
+     },
+     {
+      "count": 6,
+      "name": "Diệu Kim",
+      "prefab": "aurumite"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": "Dùng nguyệt năng gây nổ"
+  },
+  "sword_ancient": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": "img/sword_ancient.png",
+   "name": "Lưỡi Vĩnh Hằng",
+   "prefab": "sword_ancient",
+   "recipe": null,
+   "recipe_desc": "Chứa sức mạnh huỷ diệt không gian"
+  },
+  "sword_lunarblast": {
+   "category": "Chế tạo được",
+   "describe": "Ánh thánh thần bùng cháy dữ dội!",
+   "image": "img/sword_lunarblast.png",
+   "name": "Kiếm Cà Sáng Chân",
+   "prefab": "sword_lunarblast",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Kiếm cây mặt trăng",
+      "prefab": "sword_lunarplant"
+     },
+     {
+      "count": 3,
+      "name": "Ánh Sáng Thuần Khiết",
+      "prefab": "purebrilliance"
+     },
+     {
+      "count": 4,
+      "name": "Diệu Kim",
+      "prefab": "aurumite"
+     },
+     {
+      "count": 1,
+      "name": "Mảnh mũ Vệ Thần",
+      "prefab": "alterguardianhatshard"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": "Phóng kiếm khí mặt trăng"
+  },
+  "toad_poison": {
+   "category": "Chất độc",
+   "describe": null,
+   "image": null,
+   "name": "Nọc Nấm",
+   "prefab": "toad_poison",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "true_voidcloth_scythe": {
+   "category": "Chế tạo được",
+   "describe": "Bóng âm lạnh mê hoặc linh hồn!",
+   "image": "img/true_voidcloth_scythe.png",
+   "name": "Lưỡi Hái Tử Thần",
+   "prefab": "true_voidcloth_scythe",
+   "recipe": {
+    "ingredients": [
+     {
+      "count": 1,
+      "name": "Lưỡi hái vải hư không",
+      "prefab": "voidcloth_scythe"
+     },
+     {
+      "count": 12,
+      "name": "Đá khiếp sợ",
+      "prefab": "dreadstone"
+     },
+     {
+      "count": 1,
+      "name": "Tim bóng tối cường hoá",
+      "prefab": "shadowheart_infused"
+     },
+     {
+      "count": 1,
+      "name": "Hồn Bóng Tối",
+      "prefab": "shadow_soul"
+     }
+    ],
+    "mod": "nightmare",
+    "station": false,
+    "station_tag": null,
+    "tech": "OBSIDIAN_TWO"
+   },
+   "recipe_desc": "Thu hoạch linh hồn"
+  },
+  "void_key": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Còn lưu dấu vết của một tồn tại vô danh.",
+   "image": "img/void_key.png",
+   "name": "Chìa Khoá Hư Không",
+   "prefab": "void_key",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "void_light": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Cháy mãi vĩnh hằng.",
+   "image": null,
+   "name": "Trụ Đèn Hư Vô",
+   "prefab": "void_light",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "void_peghook": {
+   "category": "Sinh vật & Boss",
+   "describe": null,
+   "image": null,
+   "name": "Bọ Cạp Ăn Mòn",
+   "prefab": "void_peghook",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "void_peghook_fossilized": {
+   "category": "Vật phẩm & Khác",
+   "describe": null,
+   "image": null,
+   "name": "Tượng Đá Khả Nghi",
+   "prefab": "void_peghook_fossilized",
+   "recipe": null,
+   "recipe_desc": null
+  },
+  "voidkeyhole": {
+   "category": "Vật phẩm & Khác",
+   "describe": "Kích hoạt nó có lẽ là sai lầm.",
+   "image": null,
+   "name": "Cổng Hư Cảnh",
+   "prefab": "voidkeyhole",
+   "recipe": null,
+   "recipe_desc": null
+  }
+ },
+ "stats": {
+  "co_anh": 35,
+  "co_cong_thuc": 23,
+  "co_mo_ta": 50,
+  "cong_thuc_tim_duoc": 23,
+  "tong_muc": 122
+ },
+ "tech_vi": {
+  "ANCIENT_FOUR": "Viễn Cổ IV",
+  "ANCIENT_TWO": "Viễn Cổ II",
+  "CELESTIAL_THREE": "Thiên Thể III",
+  "LUNARFORGING_ONE": "Rèn Nguyệt I",
+  "LUNARFORGING_TWO": "Rèn Nguyệt II",
+  "MAGIC_THREE": "Ma thuật III",
+  "MAGIC_TWO": "Ma thuật II",
+  "NONE": "Không cần",
+  "OBSIDIAN_ONE": "Hắc Diệu Thạch I",
+  "OBSIDIAN_TWO": "Hắc Diệu Thạch II",
+  "SCIENCE_ONE": "Khoa học I",
+  "SCIENCE_TWO": "Khoa học II",
+  "SHADOWFORGING_ONE": "Rèn Bóng Tối I",
+  "SHADOWFORGING_TWO": "Rèn Bóng Tối II"
+ }
+}

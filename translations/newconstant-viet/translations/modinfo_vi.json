@@ -1,0 +1,38 @@
+{
+  "_note": "Chuỗi trong modinfo.lua — nhãn tuỳ chọn cấu hình và mô tả mod. Chúng KHÔNG đi qua bảng STRINGS (modinfo được đọc trước khi game nạp Lua), nên phải thay thẳng vào văn bản lúc build. tools/build.py áp file này.",
+
+  "冲刺模式": "Chế độ lướt",
+  "冲刺键位": "Phím lướt",
+  "饰品技能键位": "Phím kỹ năng trang sức",
+  "根据人物朝向": "Theo hướng nhân vật",
+  "根据鼠标方向": "Theo hướng con trỏ chuột",
+
+  "世界规则": "Luật thế giới",
+  "远古改动": "Sửa đổi Viễn Cổ",
+  "洞穴地形修改": "Sửa địa hình hang động",
+  "火雨": "Mưa lửa",
+  "开启剧毒": "Bật kịch độc",
+  "月灵改动": "Sửa đổi Nguyệt Linh",
+  "Boss改动": "Sửa đổi Boss",
+  "克眼改动": "Sửa đổi Mắt Khắc",
+  "天体英雄改动": "Sửa đổi Anh Hùng Thiên Thể",
+  "噩梦猪人改动": "Sửa đổi Người Lợn Ác Mộng",
+  "远古守护者改动": "Sửa đổi Vệ Binh Viễn Cổ",
+  "克劳斯改动": "Sửa đổi Klaus",
+  "暗影棋子改动": "Sửa đổi Quân Cờ Bóng Tối",
+  "织影者改动": "Sửa đổi Kẻ Dệt Bóng",
+  "毒菌蟾蜍改动": "Sửa đổi Cóc Nấm Độc",
+  "其他": "Khác",
+  "传送宝珠配方改动": "Sửa công thức Ngọc Dịch Chuyển",
+  "衣柜储物": "Tủ quần áo chứa đồ",
+  "铥棒格挡": "Gậy Thulium đỡ đòn",
+
+  "启用": "Bật",
+  "关闭": "Tắt",
+
+  "永恒新界的基础内容，不包含深渊": "Nội dung nền của Vĩnh Hằng Tân Giới, không bao gồm Vực Sâu",
+  "更多信息参见工坊介绍页面或者交流群": "Xem thêm ở trang Workshop hoặc nhóm trao đổi của tác giả",
+  "禁止未经授权的转载、二次分发、修改模组内容等侵权行为": "Tác giả cấm sao chép, phát tán lại và sửa đổi nội dung mod khi chưa được phép",
+  "mod交流群255268032": "Nhóm trao đổi mod: 255268032",
+  "mod wiki页": "Trang wiki của mod"
+}
