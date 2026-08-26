@@ -17,3 +17,13 @@ settings.local.json là cấu hình riêng từng máy
 
 # Debug dump của browser automation
 .playwright-mcp/
+
+# ── Mod của tác giả khác, chép về để học ────────────────────────────────
+# learning/ chứa source mod người khác kèm chú thích của mình. Repo public
+# nên không redistribute code của họ — cùng lý do _sources/ bị loại.
+learning/
+
+# ── Mod mẫu: đang mượn tài nguyên của tác giả khác ──────────────────────
+# originals/mod-mau/ dùng anim + ảnh của mod 景熹家居 (Workshop 3597024951)
+# để kiểm thử khung. Bỏ dòng này khi đã thay hết bằng tài nguyên tự làm.
+originals/mod-mau/
