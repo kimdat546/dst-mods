@@ -48,6 +48,11 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 │
 ├── .claude/skills/      ← skill dựng nội dung DST, tái dùng cho mọi mod
 │
+├── tools/               ← công cụ dùng chung cho mọi mod
+│   ├── ktex.py              .tex của Klei ↔ PNG
+│   ├── make_atlas.py        gộp nhiều PNG thành atlas .tex + .xml
+│   └── dstmod.py            điều khiển DST Mod Tool qua IPC
+│
 └── _infra/              ← hạ tầng, KHÔNG phải mod
     └── dst-server-docker/   server DST chạy Docker + bot + CLI  [git]
 ```
@@ -137,6 +142,7 @@ Hiện buff từ thức ăn đang có tác dụng + đếm ngược chính xác 
 - **Dịch game gốc:** ưu tiên file `.po` qua `LoadPOFile()` cho string tĩnh; chỉ dùng textfix hook cho text động lọt lưới.
 - **DST API pitfalls / hot-reload / kiến trúc:** xem `docs/dst-knowledge/analysis/`.
 - **Skill dựng nội dung DST:** `.claude/skills/` (nhân vật, vật phẩm, công trình, đan dược, mob AI).
+- **Công cụ dùng chung:** `tools/` — xem `tools/README.md`. Đáng nhớ hai điều: `image = "x.tex"` trong code là tên `<Element>` trong xml chứ không phải file trên đĩa; và trục `v` của atlas tính TỪ ĐÁY lên.
 - **Quy trình upload Workshop:**
   1. `rsync` các file cần thiết sang thư mục build sạch (chỉ file upload, bỏ tools/docs/git).
   2. Tăng `version` + cập nhật ngày trong `description` của `modinfo.lua`.
