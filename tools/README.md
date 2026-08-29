@@ -8,6 +8,7 @@ bản, sửa một chỗ không lan sang chỗ khác.
 | `ktex.py` | `.tex` của Klei ↔ PNG |
 | `make_atlas.py` | gộp nhiều PNG thành một atlas `.tex` + `.xml` |
 | `dstmod.py` | điều khiển DST Mod Tool qua IPC (đọc/sửa/render hoạt ảnh) |
+| `patch_workshop_mods.py` | vá lại mod Workshop lỗi làm sập server (Steam hay ghi đè) |
 
 ---
 
@@ -70,6 +71,57 @@ workspace hiện tại, không tự mở file.
 **Không phải MCP** — chỉ là gọi binary rồi đọc JSON trả về. Nhưng bản thân
 tool có hẳn chương *"Guide for AI Agents"* mô tả đúng cách dùng này, kể cả
 `export_png` để agent render ra ảnh rồi tự nhìn.
+
+---
+
+## `patch_workshop_mods.py` — vá mod Workshop lỗi
+
+```bash
+python3 tools/patch_workshop_mods.py --check   # kiểm tra
+python3 tools/patch_workshop_mods.py           # áp vá
+```
+
+Steam ghi đè thư mục Workshop mỗi lần mod cập nhật, cuốn theo bản vá tay →
+chạy lại script sau mỗi lần Steam tải mod về. Idempotent, giữ `.bak` cạnh
+file gốc.
+
+**Vá hiện có — Raiden Shogun (2845021470)** *(2026-08-29)*
+
+`raiden_descriptions.lua:25` làm `STRINGS.CHARACTERS.RAIDEN_SHOGUN =
+require "speech_wilson"` **không deepcopy**. Vanilla `strings.lua:15581` cũng
+là `STRINGS.CHARACTERS.GENERIC = require "speech_wilson"` → hai bảng là MỘT.
+Gán tiếp `.ACTIONFAIL.COOK = "chuỗi"` (vanilla là table `{GENERIC, INUSE,
+TOOFAR}`) làm hỏng `speech_wilson` cho toàn bộ game. Mod nhân vật nạp sau —
+`3625940357` 腌笃鲜•神话书说 — index `.COOK.xxx` rồi sập cả server:
+
+```
+speech_xydztz_yutu.lua:34: attempt to index field 'COOK' (a string value)
+→ Error loading main.lua → Failed mSimulation->Reset()
+```
+
+Vá bằng cách giữ `COOK` ở dạng table. **Không** sửa dòng 25 thành deepcopy:
+Raiden sẽ mất mô tả mọi item của các mod nạp sau nó.
+
+> Cùng lỗi tiềm ẩn: `2992200942` 枝江往事 gán `DIANA`/`BELLA =
+> require "speech_winona"`, `AVAVA = require "speech_wurt"`. Chưa sửa field
+> lồng nhau nào nên chưa nổ.
+
+**Vá hiện có — Xuaner (3014076942)** *(2026-08-29)*
+
+Xuaner (`priority=-9999999999`) nạp **trước** Don't Starve: Dehydrated
+(`priority=-10000010001`). Cặp này làm server treo cứng — 100% CPU, log đứng
+mãi ở `modimport: ../mods/workshop-3004639365/scripts/set_env`, không bao giờ
+tới worldgen. Chạy riêng từng mod đều bình thường; chỉ khi đứng chung mới treo.
+`modinfo.lua` của Xuaner bị obfuscate nên không truy được cơ chế, nhưng **đảo
+thứ tự nạp là đủ**: hạ `priority` của Xuaner xuống `-10000010002` để nó nạp sau
+Dehydrated.
+
+Cách cô lập (dùng lại được cho lần sau): dựng cluster offline trong `/tmp`, chạy
+thẳng `Contents/MacOS/dontstarve_dedicated_server_nullrenderer` với
+`-persistent_storage_root /tmp/dst_test -cluster Cluster_TEST -shard Master`, rồi
+bisect danh sách mod trong `modoverrides.lua`. Mốc phân biệt: log có
+`Sim paused` là chạy được, dừng ở `set_env` là treo. Một lượt mất ~2 phút; tìm ra
+cặp xung đột trong 5 lượt.
 
 ---
 
