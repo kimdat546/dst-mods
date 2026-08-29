@@ -14,10 +14,15 @@ import argparse
 import io
 import shutil
 import sys
+import zipfile
 from pathlib import Path
 
 WORKSHOP = Path.home() / (
     "Library/Application Support/Steam/steamapps/workshop/content/322330"
+)
+SCRIPTS_ZIP = Path.home() / (
+    "Library/Application Support/Steam/steamapps/common/Don't Starve Together"
+    "/dontstarve_steam.app/Contents/data/databundles/scripts.zip"
 )
 
 # --- 2845021470 Raiden Shogun --------------------------------------------
@@ -77,6 +82,59 @@ XUANER_PRIORITY = (
     "priority=-10000010002",
 )
 
+# --- 439115156 [DST]Musha ------------------------------------------------
+#
+# Musha đặt `scripts/components/pickable.lua` trong mod — đường dẫn này THAY
+# THẾ hẳn component vanilla cho toàn bộ game (khác `postinit/`, chỉ vá thêm).
+# File đó là bản chép của một phiên bản DST cũ, thiếu `IsStuck`, `SetStuck`,
+# `SpawnProductLoot` và `SpringGrowthMod`. Hái bất cứ thứ gì là server chết:
+#
+#   actions.lua:1930: attempt to call method 'IsStuck' (a nil value)
+#   ← ACTIONS.PICK.fn → pickable:IsStuck()
+#
+# Toàn bộ sửa đổi thật của Musha chỉ là: thú cưng yamcheb / critter_musha nhặt
+# đồ vào container của nó thay vì inventory. Nên bản vá lấy pickable.lua vanilla
+# hiện hành rồi port đúng chỗ đó sang, thay vì giữ bản cũ.
+
+MUSHA_PICKABLE = (
+    "    local inventory = picker ~= nil and picker.components.inventory or nil",
+    """    -- MUSHA (439115156): thú cưng yamcheb / critter_musha nhặt vào container của nó
+    -- thay vì inventory. Đây là toàn bộ sửa đổi của Musha so với vanilla — phần còn
+    -- lại của file này là bản vanilla hiện hành, thay cho bản cũ mà mod chép theo
+    -- (bản cũ thiếu IsStuck/SetStuck/SpawnProductLoot → hái gì cũng sập server).
+    local inventory = picker ~= nil
+        and ((picker:HasTag("yamcheb") or picker.critter_musha)
+             and picker.components.container
+             or picker.components.inventory)
+        or nil""",
+)
+
+MUSHA_HARVESTABLE_EVENT = (
+    '\t\t\tif picker ~= nil and picker.components.inventory ~= nil then\n'
+    '\t\t\t\tpicker:PushEvent("harvestsomething", { object = self.inst })\n'
+    '\t\t\tend',
+    '\t\t\t-- MUSHA (439115156): thú cưng yamcheb / critter_musha nhận đồ vào container\n'
+    '\t\t\t-- của nó thay vì inventory. Đây là toàn bộ sửa đổi của Musha so với vanilla;\n'
+    '\t\t\t-- phần còn lại của file là bản vanilla hiện hành, thay cho bản cũ mà mod chép\n'
+    '\t\t\t-- theo (bản cũ thiếu SetCanHarvestFn/IsMagicGrowable/DoMagicGrowth).\n'
+    '\t\t\tlocal receiver = picker ~= nil\n'
+    '\t\t\t\tand ((picker:HasTag("yamcheb") or picker.critter_musha)\n'
+    '\t\t\t\t\t and picker.components.container\n'
+    '\t\t\t\t\t or picker.components.inventory)\n'
+    '\t\t\t\tor nil\n'
+    '\n'
+    '\t\t\tif receiver ~= nil then\n'
+    '\t\t\t\tpicker:PushEvent("harvestsomething", { object = self.inst })\n'
+    '\t\t\tend',
+)
+
+MUSHA_HARVESTABLE_GIVE = (
+    '\t\t\t\t\tif picker ~= nil and picker.components.inventory ~= nil then\n'
+    '\t\t\t\t\t\tpicker.components.inventory:GiveItem(loot, nil, pos)',
+    '\t\t\t\t\tif receiver ~= nil then\n'
+    '\t\t\t\t\t\treceiver:GiveItem(loot, nil, pos)',
+)
+
 PATCHES = [
     {
         "mod": "2845021470 (Raiden Shogun)",
@@ -88,6 +146,18 @@ PATCHES = [
         "file": "3014076942/modinfo.lua",
         "replacements": [XUANER_PRIORITY],
     },
+    {
+        "mod": "439115156 (Musha)",
+        "file": "439115156/scripts/components/pickable.lua",
+        "vanilla": "scripts/components/pickable.lua",
+        "replacements": [MUSHA_PICKABLE],
+    },
+    {
+        "mod": "439115156 (Musha)",
+        "file": "439115156/scripts/components/harvestable.lua",
+        "vanilla": "scripts/components/harvestable.lua",
+        "replacements": [MUSHA_HARVESTABLE_EVENT, MUSHA_HARVESTABLE_GIVE],
+    },
 ]
 
 
@@ -96,6 +166,34 @@ def apply(patch, check_only):
     label = f'{patch["mod"]} — {Path(patch["file"]).name}'
     if not path.exists():
         print(f"  bỏ qua  {label}: không có file (mod chưa cài?)")
+        return True
+
+    if patch.get("vanilla"):
+        # Lấy bản vanilla hiện hành từ scripts.zip rồi port sửa đổi của mod sang,
+        # thay vì vá tại chỗ bản cũ mà mod mang theo.
+        if not SCRIPTS_ZIP.exists():
+            print(f"  ⚠ LỖI   {label}: không thấy {SCRIPTS_ZIP.name}")
+            return False
+        with zipfile.ZipFile(SCRIPTS_ZIP) as z:
+            vanilla = z.read(patch["vanilla"]).decode("utf-8")
+        cur = path.read_text(encoding="utf-8") if path.exists() else ""
+        if all(new in cur for _, new in patch["replacements"]):
+            print(f"  đã vá   {label}")
+            return True
+        if check_only:
+            print(f"  CẦN VÁ  {label} (thay bằng vanilla + port sửa đổi)")
+            return False
+        text = vanilla
+        for old, new in patch["replacements"]:
+            if old not in text:
+                print(f"  ⚠ LỖI   {label}: vanilla đã đổi, không thấy đoạn cần port")
+                return False
+            text = text.replace(old, new, 1)
+        bak = path.with_suffix(path.suffix + ".bak")
+        if not bak.exists():
+            shutil.copy2(path, bak)
+        io.open(path, "w", encoding="utf-8").write(text)
+        print(f"  ĐÃ VÁ   {label} (vanilla + {len(patch['replacements'])} sửa đổi)")
         return True
 
     text = io.open(path, encoding="utf-8").read()

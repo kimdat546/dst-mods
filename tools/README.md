@@ -116,6 +116,30 @@ tới worldgen. Chạy riêng từng mod đều bình thường; chỉ khi đứ
 thứ tự nạp là đủ**: hạ `priority` của Xuaner xuống `-10000010002` để nó nạp sau
 Dehydrated.
 
+**Vá hiện có — Musha (439115156)** *(2026-08-29)*
+
+Musha đặt `scripts/components/pickable.lua` và `harvestable.lua` trong mod.
+Đường dẫn `scripts/components/<tên vanilla>.lua` **thay thế hẳn** component
+vanilla cho toàn bộ game — khác `postinit/components/`, vốn chỉ vá thêm. Hai
+file đó là bản chép của một phiên bản DST cũ nên thiếu hàm mà game hiện tại
+gọi tới. Hái bất cứ thứ gì là server chết ngay giữa lúc chơi:
+
+```
+actions.lua:1930: attempt to call method 'IsStuck' (a nil value)
+  ← ACTIONS.PICK.fn → pickable:IsStuck()
+```
+
+`pickable` thiếu `IsStuck`, `SetStuck`, `SpawnProductLoot`; `harvestable`
+thiếu `SetCanHarvestFn`, `IsMagicGrowable`, `DoMagicGrowth`,
+`SetDoMagicGrowthFn`. Toàn bộ sửa đổi thật của Musha chỉ là: thú cưng
+`yamcheb` / `critter_musha` nhận đồ vào **container** của nó thay vì
+inventory. Nên bản vá lấy file vanilla hiện hành từ `databundles/scripts.zip`
+rồi port đúng chỗ đó sang, thay vì vá tại chỗ bản cũ.
+
+> Đã quét toàn bộ mod đang bật: chỉ còn `2992200942/aoespell.lua`,
+> `2039181790/deerclopsspawner.lua` và `439115156/cookable.lua` ghi đè
+> component vanilla, cả ba không thiếu hàm nào nên chưa cần vá.
+
 Cách cô lập (dùng lại được cho lần sau): dựng cluster offline trong `/tmp`, chạy
 thẳng `Contents/MacOS/dontstarve_dedicated_server_nullrenderer` với
 `-persistent_storage_root /tmp/dst_test -cluster Cluster_TEST -shard Master`, rồi
