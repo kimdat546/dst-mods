@@ -28,8 +28,6 @@ learning/
 # để kiểm thử khung. Bỏ dòng này khi đã thay hết bằng tài nguyên tự làm.
 originals/mod-mau/
 
-# Thần Binh Phù Ấn: vendor/ là mã nguồn mod của tác giả khác — repo này public
-# nên không đẩy lên, tránh phát hành lại tác phẩm của họ. Lấy lại bằng
-# tools/fetch_vendor.sh. build/ sinh lại được từ vendor/ + strings_source.json.
-translations/than-binh-phu-an-viet/vendor/
+# Thần Binh Phù Ấn: build/ sinh lại được từ vendor/ + strings_source.json.
+# vendor/ CÓ trong git — cần bản gốc để diff khi vá lỗi và khi mod cập nhật.
 translations/than-binh-phu-an-viet/build/

@@ -22,6 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 VENDOR = ROOT / "vendor"
 BUILD = ROOT / "build" / "than-binh-phu-an-vi"
 SRC = ROOT / "strings_source.json"
+PATCHES = ROOT / "patches.json"
 
 HAN = re.compile(r"[一-鿿]")
 LUA_STR = re.compile(r'"((?:[^"\\\n]|\\.)*)"')
@@ -43,6 +44,35 @@ Tác giả gốc: 宇宙超级霹雳闪电大煎蛋 — mã nguồn mở.
 Việt hoá: kimdat546
 ]]""",
 )
+
+
+def apply_code_patches():
+    """Áp các bản vá MÃ NGUỒN (khác với dịch chuỗi) từ patches.json.
+
+    Tác giả gốc nói rõ: có bug thì tự làm bản vá mà sửa. vendor/ luôn giữ
+    nguyên bản gốc để còn diff được, mọi sửa đổi nằm ở đây.
+
+    Mỗi mục: {"file": đường dẫn trong mod, "old": ..., "new": ..., "vi_sao": ...}
+    """
+    if not PATCHES.exists():
+        return
+    items = json.loads(PATCHES.read_text(encoding="utf-8"))
+    if not items:
+        return
+    for i, it in enumerate(items, 1):
+        f = BUILD / it["file"]
+        if not f.exists():
+            print(f"  ⚠ vá #{i}: không có file {it['file']}")
+            continue
+        s = f.read_text(encoding="utf-8")
+        if it["new"] in s:
+            print(f"  vá #{i} đã có sẵn: {it.get('vi_sao', it['file'])}")
+            continue
+        if it["old"] not in s:
+            print(f"  ⚠ vá #{i}: không khớp đoạn cần vá trong {it['file']} — mod đã đổi")
+            continue
+        f.write_text(s.replace(it["old"], it["new"], 1), encoding="utf-8")
+        print(f"  ✓ vá #{i}: {it.get('vi_sao', it['file'])}")
 
 
 def patch_modinfo():
@@ -104,6 +134,7 @@ def build(check_only=False):
             files_touched += 1
 
     patch_modinfo()
+    apply_code_patches()
 
     print(f"thay {replaced} lượt chuỗi trong {files_touched} file")
     print(f"→ {BUILD.relative_to(ROOT)}")

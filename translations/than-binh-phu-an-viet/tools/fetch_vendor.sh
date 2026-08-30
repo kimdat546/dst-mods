@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Lấy lại vendor/ (mã nguồn mod gốc) từ bản Steam Workshop đã cài trên máy.
+# Cập nhật vendor/ từ bản Steam Workshop đã cài trên máy.
 #
-# vendor/ KHÔNG nằm trong git: đó là tác phẩm của tác giả khác, còn repo này
-# public. Mỗi máy tự lấy từ bản Workshop của mình.
+# Dùng khi tác giả ra bản mới: chạy script này rồi `git diff` để thấy đúng
+# những gì tác giả đã đổi, trước khi dịch tiếp và dựng lại.
 #
 #   ./tools/fetch_vendor.sh
 set -euo pipefail
