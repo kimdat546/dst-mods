@@ -135,6 +135,35 @@ MUSHA_HARVESTABLE_GIVE = (
     '\t\t\t\t\t\treceiver:GiveItem(loot, nil, pos)',
 )
 
+# --- 3401927745 [DST] Montfluv -------------------------------------------
+#
+# Montfluv và newconstant-base-vi cùng khai báo bộ âm thanh Shipwrecked:
+#   sound/dontstarve_DLC002.fev        (928898 B, md5 4e239ece…)
+#   sound/dontstarve_shipwreckedSFX.fsb (35827008 B, md5 8105a312…)
+# Hai file byte-identical, và vanilla DST không có DLC002 (chỉ có DLC001).
+# FMOD phải đăng ký event project tên `dontstarve_DLC002` hai lần → client
+# SIGSEGV trong FMOD::EventSystem::load(), luôn cùng một offset:
+#
+#   libfmodevent.dylib +227427 → +148756 → +125670 → +123545
+#   → FMOD::EventSystem::load(char const*, FMOD_EVENT_LOADINFO*, ...)
+#
+# Log client luôn dừng đúng ở dòng cuối của giai đoạn đăng ký prefab, ngay
+# trước khi nạp asset. Bỏ khai báo ở Montfluv, giữ ở newconstant-base-vi (mod
+# chính, và là mod ta tự quản). FMOD project là toàn cục sau khi nạp nên âm
+# thanh của Montfluv vẫn dùng được bình thường.
+
+MONTFLUV_DUP_SOUND = (
+    '    -- 单机海难的音效\n'
+    '    Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),\n'
+    '    Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),',
+    '    -- 单机海难的音效\n'
+    '    -- FIX: newconstant-base-vi 也加载同一个音效包（文件逐字节相同）。同名 FMOD event\n'
+    '    -- project 被加载两次会让客户端在 FMOD::EventSystem::load() 里 SIGSEGV 崩溃。\n'
+    '    -- 这里只留一份加载；FMOD project 是全局的，本模组的音效照常可用。\n'
+    '    -- Asset("SOUNDPACKAGE", "sound/dontstarve_DLC002.fev"),\n'
+    '    -- Asset("SOUND", "sound/dontstarve_shipwreckedSFX.fsb"),',
+)
+
 PATCHES = [
     {
         "mod": "2845021470 (Raiden Shogun)",
@@ -157,6 +186,11 @@ PATCHES = [
         "file": "439115156/scripts/components/harvestable.lua",
         "vanilla": "scripts/components/harvestable.lua",
         "replacements": [MUSHA_HARVESTABLE_EVENT, MUSHA_HARVESTABLE_GIVE],
+    },
+    {
+        "mod": "3401927745 (Montfluv)",
+        "file": "3401927745/init/init_assets.lua",
+        "replacements": [MONTFLUV_DUP_SOUND],
     },
 ]
 
