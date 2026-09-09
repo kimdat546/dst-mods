@@ -39,9 +39,24 @@ MODINFO_DESC = (
     """description = [[
 Phù ấn trang bị / Cường hoá sinh vật
 
-Bản Việt hoá của mod 传奇武器-附魔强化 (Workshop 3096210166).
-Tác giả gốc: 宇宙超级霹雳闪电大煎蛋 — mã nguồn mở.
-Việt hoá: kimdat546
+Thêm hệ phù ấn cho trang bị: gắn dòng thuộc tính, kế thừa, nâng sao,
+cường hoá sinh vật, quái kho báu, ấp trứng và nghề nghiệp.
+
+MỚI Ở 0.0.3 — ĐUA TOP CHIẾN LỰC
+Chế Bù Nhìn Đo Chiến Lực (4 ván gỗ + 10 Tinh Thể, tab Tinh Chế), bấm
+vào nó rồi đánh trong 60 giây. Mod đo sát thương thật của bạn, tính
+kèm khả năng chống chịu rồi cho ra một điểm Chiến lực duy nhất.
+Xem bảng xếp hạng ở Trợ giúp -> Nhật ký thế giới -> Chiến lực.
+Kỷ lục lưu theo tài khoản nên không mất khi chết hay đổi nhân vật.
+
+Phát triển từ mod mã nguồn mở 传奇武器-附魔强化 (Workshop 3096210166)
+của tác giả 宇宙超级霹雳闪电大煎蛋. Xin cảm ơn tác giả gốc.
+
+Việt hoá và phát triển thêm: kimdat546
+Cập nhật lần cuối: 07/09/2026
+
+LƯU Ý: hãy TẮT mod gốc 3096210166 nếu đang bật — hai bản trùng prefab
+và công thức chế tạo.
 ]]""",
 )
 
@@ -53,6 +68,7 @@ def apply_code_patches():
     nguyên bản gốc để còn diff được, mọi sửa đổi nằm ở đây.
 
     Mỗi mục: {"file": đường dẫn trong mod, "old": ..., "new": ..., "vi_sao": ...}
+    Thêm "tat_ca": true nếu cần thay MỌI chỗ khớp thay vì chỗ đầu tiên.
     """
     if not PATCHES.exists():
         return
@@ -71,8 +87,10 @@ def apply_code_patches():
         if it["old"] not in s:
             print(f"  ⚠ vá #{i}: không khớp đoạn cần vá trong {it['file']} — mod đã đổi")
             continue
-        f.write_text(s.replace(it["old"], it["new"], 1), encoding="utf-8")
-        print(f"  ✓ vá #{i}: {it.get('vi_sao', it['file'])}")
+        n = -1 if it.get("tat_ca") else 1
+        f.write_text(s.replace(it["old"], it["new"], n), encoding="utf-8")
+        so = s.count(it["old"]) if it.get("tat_ca") else 1
+        print(f"  ✓ vá #{i}{f' (x{so})' if so > 1 else ''}: {it.get('vi_sao', it['file'])}")
 
 
 def patch_modinfo():
@@ -86,12 +104,46 @@ def patch_modinfo():
         print("⚠ không khớp description trong modinfo — mod đã đổi, xem lại tay")
 
 
+# KHÔNG cho khoảng trắng trong phần cờ: "10% cơ hội" là dấu phần trăm bình thường,
+# không phải ô thay thế. Chỉ "%s", "%d", "%%"... mới tính.
+FMT = re.compile(r"%[-+#0-9.]*[a-zA-Z%]")
+
+
+def kiem_ban_dich(table):
+    """Bắt các lỗi làm hỏng mod mà mắt thường khó thấy khi sửa tay.
+
+    Lua không có tham số theo vị trí, nên %s trong bản dịch phải ĐÚNG SỐ LƯỢNG
+    và ĐÚNG THỨ TỰ như bản gốc; sai là string.format nổ lúc chạy chứ không phải
+    lúc build. Dấu " chưa thoát thì làm hỏng cú pháp Lua. Số dòng \n phải giữ
+    vì nhiều nhãn hai dòng được canh theo từng dòng.
+    """
+    loi = 0
+    for zh, rec in table.items():
+        vi = rec.get("vi")
+        if not vi:
+            continue
+        a, b = FMT.findall(zh), FMT.findall(vi)
+        if a != b:
+            print(f"  ⚠ ô thay thế lệch: gốc {a} ≠ dịch {b}  |  {vi[:44]}")
+            loi += 1
+        if '"' in vi:
+            print(f"  ⚠ có dấu nháy kép chưa thoát: {vi[:44]}")
+            loi += 1
+        if zh.count("\\n") > vi.count("\\n"):
+            print(f"  · mất dấu xuống dòng: gốc {zh.count(chr(92)+chr(110))} "
+                  f"≠ dịch {vi.count(chr(92)+chr(110))}  |  {vi[:40]}")
+            loi += 1
+    print(f"  {loi} cảnh báo" if loi else "  bản dịch không có lỗi định dạng")
+    return loi
+
+
 def build(check_only=False):
     table = json.loads(SRC.read_text(encoding="utf-8"))
     done = {zh: rec["vi"] for zh, rec in table.items() if rec.get("vi")}
 
     total = len(table)
     print(f"đã dịch {len(done)}/{total} chuỗi ({len(done) * 100 // max(total, 1)}%)")
+    kiem_ban_dich(table)
     if check_only:
         return
 
@@ -132,6 +184,27 @@ def build(check_only=False):
             f.write_text(new, encoding="utf-8")
             replaced += hits
             files_touched += 1
+
+    # addons/ = mã DO MÌNH VIẾT (tính năng mở rộng), giữ ngoài vendor/ theo đúng
+    # nguyên tắc bên dưới: vendor/ phải là bản gốc nguyên vẹn để còn diff khi
+    # tác giả cập nhật. Chép đè lên build sau khi đã copy vendor.
+    addons = ROOT / "addons"
+    if addons.exists():
+        n = 0
+        for f in addons.rglob("*"):
+            if f.is_file():
+                dest = BUILD / f.relative_to(addons)
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(f, dest)
+                n += 1
+        print(f"  chép {n} file mở rộng từ addons/")
+
+    # preview.png cho Workshop: để ở assets/ chứ KHÔNG nhét vào vendor/,
+    # vì vendor/ phải giữ đúng bản gốc 3.21 để còn diff khi tác giả cập nhật.
+    pv = ROOT / "assets" / "preview.png"
+    if pv.exists():
+        shutil.copy2(pv, BUILD / "preview.png")
+        print("  chép preview.png cho Workshop")
 
     patch_modinfo()
     apply_code_patches()

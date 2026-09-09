@@ -1,1 +1,322 @@
-[]
+[
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "local scale_x, scale_y = 7, 3.5",
+    "new": "local scale_x, scale_y = 11.4, 3.5",
+    "vi_sao": "nới bề ngang nút tab (49px -> 80px) cho vừa nhãn tiếng Việt"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "local text_size_x, text_size_y = 40, 20",
+    "new": "local text_size_x, text_size_y = 80, 20",
+    "vi_sao": "giãn khoảng cách tab 55px -> 95px, hết chồng chữ"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "tostring(str), { 1, 1, 1, 1 }, 20)",
+    "new": "tostring(str), { 1, 1, 1, 1 }, 17)",
+    "vi_sao": "hạ cỡ chữ tab 20 -> 17"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui, Vector3(-220, -5, 1), \"Trang bị ==>\", nil, 20)",
+    "new": "HHCreateTextUi(father_ui, Vector3(-220, -5, 1), \"Trang bị ==>\", nil, 15)",
+    "vi_sao": "hạ cỡ chữ 'Trang bị ==>' để không đè ô trang bị"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "Vector3(-260, -60, 1), \"Nguyên\\nliệu\", { 255 / 255, 116 / 255, 0 / 255, 1 }, 20)",
+    "new": "Vector3(-260, -60, 1), \"Nguyên\\nliệu\", { 255 / 255, 116 / 255, 0 / 255, 1 }, 15)",
+    "vi_sao": "hạ cỡ chữ 'Nguyên/liệu' để không tràn mép trái bảng"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "Vector3(-10, -160, 1), \"Trang bị sao\\ntăng tỉ lệ\", { 255 / 255, 116 / 255, 0 / 255, 1 }, 15)",
+    "new": "Vector3(-10, -160, 1), \"Trang bị sao\\ntăng tỉ lệ\", { 255 / 255, 116 / 255, 0 / 255, 1 }, 12)",
+    "vi_sao": "hạ cỡ chữ 'Trang bị sao/tăng tỉ lệ' để không đè nút Sửa chữa"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui[\"hh_btn_upgrading\"], Vector3(0, 0, 1), \"Cường hoá\", nil, 20)",
+    "new": "HHCreateTextUi(father_ui[\"hh_btn_upgrading\"], Vector3(0, 0, 1), \"Cường hoá\", nil, 15)",
+    "vi_sao": "hạ cỡ chữ nút 'Cường hoá' cho vừa bề ngang nút (75px)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui[\"hh_btn_add_star\"], Vector3(0, 0, 1), \"Nâng sao\", nil, 20)",
+    "new": "HHCreateTextUi(father_ui[\"hh_btn_add_star\"], Vector3(0, 0, 1), \"Nâng sao\", nil, 15)",
+    "vi_sao": "hạ cỡ chữ nút 'Nâng sao' cho vừa bề ngang nút (75px)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui[\"hh_btn_prefix\"], Vector3(0, 0, 1), \"Sửa chữa\", nil, 20)",
+    "new": "HHCreateTextUi(father_ui[\"hh_btn_prefix\"], Vector3(0, 0, 1), \"Sửa chữa\", nil, 15)",
+    "vi_sao": "hạ cỡ chữ nút 'Sửa chữa' cho vừa bề ngang nút (75px)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "father_ui[\"hh_help\"]:SetPosition(-100, 35, 1)",
+    "new": "father_ui[\"hh_help\"]:SetPosition(-45, 35, 1)",
+    "vi_sao": "dời khối trợ giúp sang phải 55px: dòng đỏ cỡ 30 đang chui xuống dưới ô ngọc (ô chiếm x -104..-54)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "local btn_start_x, btn_start_y = -hh_main_size_x / 2 + 20, hh_main_size_y / 6 - 30",
+    "new": "local btn_start_x, btn_start_y = -hh_main_size_x / 2 + 20, hh_main_size_y / 6 - 5",
+    "vi_sao": "nâng hàng tab lên 25px cho khỏi chạm dòng tiêu đề của tab đang mở"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui[\"hh_btn_sure\"], Vector3(0, 0, 1), \"Kế thừa\", nil, 20)",
+    "new": "HHCreateTextUi(father_ui[\"hh_btn_sure\"], Vector3(0, 0, 1), \"Kế thừa\", nil,15)",
+    "vi_sao": "hạ cỡ chữ nút 'Kế thừa' cho đều với các nút khác (45/56 đv, sát mép)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui[\"hh_btn_sure\"], Vector3(0, 0, 1), \"Tổng hợp\", nil, 20)",
+    "new": "HHCreateTextUi(father_ui[\"hh_btn_sure\"], Vector3(0, 0, 1), \"Tổng hợp\", nil,15)",
+    "vi_sao": "hạ cỡ chữ nút 'Tổng hợp' cho đều với các nút khác (52/56 đv, sát mép)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui[\"hh_btn_sure\"], Vector3(0, 0, 1), \"Chuyển đổi\", nil, 20)",
+    "new": "HHCreateTextUi(father_ui[\"hh_btn_sure\"], Vector3(0, 0, 1), \"Chuyển đổi\", nil,15)",
+    "vi_sao": "hạ cỡ chữ nút 'Chuyển đổi': 65 đv vượt bề ngang nút 56 đv"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "HHCreateTextUi(father_ui[\"sure_refuse_ui\"][\"hh_sure\"], Vector3(0, 2, 1), \"Xác nhận\", nil, 25)",
+    "new": "HHCreateTextUi(father_ui[\"sure_refuse_ui\"][\"hh_sure\"], Vector3(0, 2, 1), \"Xác nhận\", nil,17)",
+    "vi_sao": "hạ cỡ chữ nút 'Xác nhận': 65 đv vượt bề ngang nút 56 đv"
+  },
+  {
+    "file": "main/hh_ui.lua",
+    "old": "tostring(effect_str), { 1, 1, 1, 1 }, 40, true)",
+    "new": "tostring(effect_str), { 1, 1, 1, 1 }, 24, true)",
+    "vi_sao": "nhãn phù ấn trên icon túi đồ: cỡ 40 chỉ vừa 4 ký tự trong ô 64px, hạ 24 cho vừa 7"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_forge_ui.lua",
+    "old": "tostring(effect_small_name), nil, image_size / 2, true)",
+    "new": "tostring(effect_small_name), nil, image_size / 2.8, true)",
+    "tat_ca": true,
+    "vi_sao": "nhãn phù ấn trong lưới bàn phù ấn: hạ cỡ chữ 20 -> 14 (ô chỉ rộng 40)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "tostring(v[\"small_name\"]), nil, image_size / 2, true)",
+    "new": "tostring(v[\"small_name\"]), nil, image_size / 2.8, true)",
+    "vi_sao": "nhãn phù ấn trong sách trợ giúp: hạ cỡ chữ 20 -> 14"
+  },
+  {
+    "file": "main/hh_rpc.lua",
+    "old": "        if desc_num > 20 then\n            item_desc = HH_UTILS:SubStringUTF8(item_desc, 1, 20) .. \"...\"",
+    "new": "        if desc_num > 60 then\n            item_desc = HH_UTILS:SubStringUTF8(item_desc, 1, 60) .. \"...\"",
+    "vi_sao": "nới giới hạn mô tả trong tooltip 20 -> 60 ký tự: 20 vừa một câu chữ Hán nhưng cắt cụt câu tiếng Việt"
+  },
+  {
+    "file": "scripts/enums/hh_hoverer.lua",
+    "old": "    [\"hh_24_tradable\"] = {",
+    "new": "    --[\"hh_24_tradable\"] = {",
+    "vi_sao": "tắt dòng 'Giá trị: Vàng/Cống Kiến Sư Tử' trong tooltip — không có ích, cùng cách tác giả tắt các trường khác; handleFormatStr tự bỏ qua khi thiếu khoá"
+  },
+  {
+    "file": "main/hh_string.lua",
+    "old": "addString(\"hh_effect_tally\", \"Cuộn Phù Ấn\", \"Cuộn Phù Ấn\", \"Cuộn Phù Ấn\")",
+    "new": "addString(\"hh_effect_tally\", \"Cuộn Phù Ấn\", \"Chữ còn giấu trong giấy. Mở ra mới biết trời cho gì.\", \"Phù ấn ngẫu nhiên một dòng lên trang bị\")",
+    "vi_sao": "bản gốc nhét CÙNG một chuỗi vào name + desc + recipe_str; tách ra để desc (thoại nhân vật) có chữ, recipe_str giữ phần công dụng"
+  },
+  {
+    "file": "main/hh_string.lua",
+    "old": "addString(\"hh_essence\", \"Tinh Thể\", \"Tinh Thể\", \"Tinh Thể\")",
+    "new": "addString(\"hh_essence\", \"Tinh Thể\", \"Ấn cũ nghiền tan, còn lại chút sáng này.\", \"Nguyên liệu đổi Đá Phù Ấn\")",
+    "vi_sao": "như trên; Tinh Thể có công thức chế tạo nên recipe_str thật sự hiện ra, cần chữ khô khan chứ không phải văn vẻ"
+  },
+  {
+    "file": "scripts/utils/hh_utils.lua",
+    "old": "        if symbol == \"#\" then\n            -- 解析文本: #文字内容:颜色:大小\n            -- 将数据按 ':' 分割成最多3个部分\n            local parts = {}\n            local last_pos = 1\n            local count = 0\n            for i = 1, 3 do\n                -- 最多三个参数\n                local pos = data_str:find(\":\", last_pos)\n                if not pos then\n                    table[\"insert\"](parts, data_str:sub(last_pos))\n                    break\n                else\n                    table[\"insert\"](parts, data_str:sub(last_pos, pos - 1))\n                    last_pos = pos + 1\n                end\n            end\n\n            -- 确保有3个槽位\n            while #parts < 3 do\n                table[\"insert\"](parts, \"\")\n            end\n\n            local content = parts[1]\n            local color_param = parts[2] == \"\" and nil or parts[2]\n            local scale_param = parts[3] == \"\" and nil or parts[3]\n",
+    "new": "        if symbol == \"#\" then\n            -- 解析文本: #文字内容:颜色:大小\n            -- Tách từ PHẢI sang: cỡ chữ rồi màu là hai tham số cuối, phần còn lại\n            -- là nội dung. Nhờ vậy nội dung được phép chứa dấu ':' — bản gốc dùng\n            -- dấu hai chấm toàn rộng '：' nên không vướng, tiếng Việt thì dùng ':'\n            -- thường và sẽ bị cắt cụt nếu tách từ trái sang như cũ.\n            local parts = {}\n            local last_pos = 1\n            while true do\n                local pos = data_str:find(\":\", last_pos, true)\n                if not pos then\n                    table[\"insert\"](parts, data_str:sub(last_pos))\n                    break\n                end\n                table[\"insert\"](parts, data_str:sub(last_pos, pos - 1))\n                last_pos = pos + 1\n            end\n\n            local scale_param, color_param = nil, nil\n            if #parts > 1 and tonumber(parts[#parts]) then\n                scale_param = parts[#parts]\n                table[\"remove\"](parts)\n            end\n            if #parts > 1 and (COLOR_CONFIG[parts[#parts]] or parts[#parts] == \"\") then\n                color_param = parts[#parts] ~= \"\" and parts[#parts] or nil\n                table[\"remove\"](parts)\n            end\n\n            local content = table[\"concat\"](parts, \":\")",
+    "vi_sao": "ParseStrToUi tách '#chữ:màu:cỡ' từ TRÁI sang nên dấu ':' trong câu tiếng Việt làm cụt câu và mất cả %s; đổi sang tách từ PHẢI (cỡ, rồi màu) — sửa 31 chuỗi"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "tostring(str), { 1, 1, 1, 1 }, 20)",
+    "new": "tostring(str), { 1, 1, 1, 1 }, 17)",
+    "vi_sao": "sách trợ giúp: hạ cỡ chữ tab 20 -> 17"
+  },
+  {
+    "file": "scripts/utils/hh_utils.lua",
+    "old": "            result_ui[\"ui_\" .. i]:SetPosition(0, start_y - child_size_y / 2, 0)",
+    "new": "            -- CreateImageAndText đã đặt con ở -child_size_y/2 so với gốc hàng rồi,\n            -- nên trừ thêm ở đây là lệch hai lần: hàng cao đè lên hàng thấp kế tiếp.\n            result_ui[\"ui_\" .. i]:SetPosition(0, start_y, 0)",
+    "vi_sao": "sửa lệch dòng kép trong CreateMoreParseUi — hàng nhiều dòng đè lên hàng sau"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "Vector3(0, 0, 1), \"[Đá / Cuộn]: gắn phù ấn\\nchỉ định hoặc ngẫu nhiên\", { 1, 1, 1, 1 }, 20, true)",
+    "new": "Vector3(0, 0, 1), \"[Đá / Cuộn]: gắn phù ấn\\nchỉ định hoặc ngẫu nhiên\", { 1, 1, 1, 1 }, 15, true)",
+    "vi_sao": "hạ cỡ chữ mô tả 20 -> 15: bảng chỉ rộng 150 đv, chữ Việt tràn ra ngoài"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "Vector3(0, 0, 1), \"[Ngọc Tái Luyện]: random lại\\nchỉ số các phù ấn\", { 1, 1, 1, 1 }, 20, true)",
+    "new": "Vector3(0, 0, 1), \"[Ngọc Tái Luyện]: random lại\\nchỉ số các phù ấn\", { 1, 1, 1, 1 }, 15, true)",
+    "vi_sao": "hạ cỡ chữ mô tả 20 -> 15: bảng chỉ rộng 150 đv, chữ Việt tràn ra ngoài"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "Vector3(0, 0, 1), \"[Đá Tẩy Ấn]: xoá ngẫu nhiên\\nmột phù ấn\", { 1, 1, 1, 1 }, 20, true)",
+    "new": "Vector3(0, 0, 1), \"[Đá Tẩy Ấn]: xoá ngẫu nhiên\\nmột phù ấn\", { 1, 1, 1, 1 }, 15, true)",
+    "vi_sao": "hạ cỡ chữ mô tả 20 -> 15: bảng chỉ rộng 150 đv, chữ Việt tràn ra ngoài"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "gem_main_ui[\"hh_right_text\"] = HH_UTILS:HHCreateTextUi(gem_main_ui, Vector3(75, 75, 1)",
+    "new": "gem_main_ui[\"hh_right_text\"] = HH_UTILS:HHCreateTextUi(gem_main_ui, Vector3(55, 75, 1)",
+    "vi_sao": "dời nhãn 'Trang bị →' về 55 đv: nằm gọn giữa tiêu đề và ô trang bị (ô ở 91..121)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "gem_main_ui[\"hh_title\"]:SetPosition(0, gem_ui_size_y / 2 - 5 - gem_main_ui_title_size_y / 2, 1)",
+    "new": "gem_main_ui[\"hh_title\"]:SetPosition(-75, gem_ui_size_y / 2 - 5 - gem_main_ui_title_size_y / 2, 1)",
+    "vi_sao": "dời tiêu đề 'Khảm ngọc' sang trái: canh giữa thì đè nhãn 'Trang bị →' và ô trang bị"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "    self:CreateTitle(\"Nhật ký thế giới\")",
+    "new": "    self:CreateTitle(\"Nhật ký thế giới\")\n    -- hàng tab con chạy từ -340 tới +25 nên đè tiêu đề canh giữa: dời tiêu đề sang phải\n    local hh_tieu_de = self[\"hh_main\"][\"main_ui\"][\"hh_title\"]\n    hh_tieu_de:SetPosition(240, hh_tieu_de:GetPosition().y, 1)",
+    "vi_sao": "dời tiêu đề 'Nhật ký thế giới' sang phải 240 đv: đủ thoát hàng 5 tab (kết thúc ~+60) mà mép phải vẫn nằm trong khung nội dung (±360)"
+  },
+  {
+    "file": "scripts/widgets/hh_hoverer_config.lua",
+    "old": "    father[ui_id]:SetTextSize(30)",
+    "new": "    father[ui_id]:SetTextSize(18)",
+    "vi_sao": "bảng cấu hình: hạ cỡ chữ nút chữ 30 -> 18 (5 nút góc chỉ cách nhau 40 đv)"
+  },
+  {
+    "file": "scripts/widgets/hh_hoverer_config.lua",
+    "old": "Vector3(icon_start_x, icon_start_y, 1), \"Không\", { 1, 1, 1, 1 }, image_size)",
+    "new": "Vector3(icon_start_x, icon_start_y, 1), \"Không\", { 1, 1, 1, 1 }, image_size / 3)",
+    "vi_sao": "bảng cấu hình: chữ 'Không' đang lấy cỡ = bề rộng ô icon (40) nên tràn kín hàng"
+  },
+  {
+    "file": "scripts/widgets/hh_hoverer_config.lua",
+    "old": "Vector3(0, 0, 1), \"Áp dụng viền\", nil, 25)",
+    "new": "Vector3(0, 0, 1), \"Áp dụng viền\", nil,15)",
+    "vi_sao": "bảng cấu hình: hạ cỡ chữ nút 'Áp dụng viền' (nút rộng ~70 đv, chữ cỡ 25 chiếm 97)"
+  },
+  {
+    "file": "scripts/widgets/hh_hoverer_config.lua",
+    "old": "Vector3(0, 0, 1), \"Tắt hiển thị\", nil, 25)",
+    "new": "Vector3(0, 0, 1), \"Tắt hiển thị\", nil,15)",
+    "vi_sao": "bảng cấu hình: hạ cỡ chữ nút 'Tắt hiển thị' (nút rộng ~70 đv, chữ cỡ 25 chiếm 97)"
+  },
+  {
+    "file": "scripts/widgets/hh_hoverer_config.lua",
+    "old": "Vector3(0, 0, 1), \"Bật hiển thị\", nil, 25)",
+    "new": "Vector3(0, 0, 1), \"Bật hiển thị\", nil,15)",
+    "vi_sao": "bảng cấu hình: hạ cỡ chữ nút 'Bật hiển thị' (nút rộng ~70 đv, chữ cỡ 25 chiếm 97)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "{ [\"str\"] = \"Mô tả:\" .. v[\"desc\"], [\"color\"] = nil, [\"scale\"] = 20 },",
+    "new": "{ [\"str\"] = \"Mô tả:\" .. v[\"desc\"], [\"color\"] = nil, [\"scale\"] = 15 },",
+    "vi_sao": "trang Chi tiết: hạ cỡ chữ dòng 'Mô tả' 20 -> 15 (hai cột chỉ cách nhau 370 đv)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "{ [\"str\"] = \"Tính duy nhất:\" .. v[\"is_one\"], [\"color\"] = nil, [\"scale\"] = 20 },",
+    "new": "{ [\"str\"] = \"Tính duy nhất:\" .. v[\"is_one\"], [\"color\"] = nil, [\"scale\"] = 15 },",
+    "vi_sao": "trang Chi tiết: hạ cỡ chữ dòng 'Tính duy nhất' 20 -> 15 (hai cột chỉ cách nhau 370 đv)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "{ [\"str\"] = \"Nguồn:\" .. v[\"can_add\"], [\"color\"] = can_add_color, [\"scale\"] = 20 },",
+    "new": "{ [\"str\"] = \"Nguồn:\" .. v[\"can_add\"], [\"color\"] = can_add_color, [\"scale\"] = 15 },",
+    "vi_sao": "trang Chi tiết: hạ cỡ chữ dòng 'Nguồn' 20 -> 15 (hai cột chỉ cách nhau 370 đv)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "{ [\"str\"] = \"Điều kiện tiên quyết:\" .. v[\"check_desc\"], [\"color\"] = nil, [\"scale\"] = 20 },",
+    "new": "{ [\"str\"] = \"Điều kiện tiên quyết:\" .. v[\"check_desc\"], [\"color\"] = nil, [\"scale\"] = 15 },",
+    "vi_sao": "trang Chi tiết: hạ cỡ chữ dòng 'Điều kiện tiên quyết' 20 -> 15 (hai cột chỉ cách nhau 370 đv)"
+  },
+  {
+    "file": "scripts/widgets/hh_hoverer_config.lua",
+    "old": "Vector3(0, 0, 1), \"Độ trong\", { 1, 1, 1, 1 }, 30, true)",
+    "new": "Vector3(0, 0, 1), \"Độ trong\", { 1, 1, 1, 1 }, 22, true)",
+    "tat_ca": true,
+    "vi_sao": "bảng cấu hình: hạ cỡ chữ 'Độ trong' 30 -> 22 cho tách khỏi nút Giảm ở +100 đv"
+  },
+  {
+    "file": "modinfo.lua",
+    "old": "author = \"宇宙超级霹雳闪电大煎蛋\" --作者",
+    "new": "author = \"kimdat546\"  -- tác giả gốc ghi trong description",
+    "vi_sao": "modinfo: đổi tác giả sang kimdat546, ghi công tác giả gốc ở description"
+  },
+  {
+    "file": "modinfo.lua",
+    "old": "version = \"3.21\" -- mod版本 上传mod需要两次的版本不一样",
+    "new": "version = \"0.0.3\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
+    "vi_sao": "phiên bản 0.0.3: thêm hệ đua top chiến lực (bù nhìn đo + bảng xếp hạng)"
+  },
+  {
+    "file": "modinfo.lua",
+    "old": "    \"hh_hh\", \"高冷恐龙爱上甜妹煎蛋\", \"史上无敌超级霹雳闪电暴风霸王龙\",",
+    "new": "    \"hh_hh\", \"Viet hoa\", \"Tieng Viet\", \"Phu An\",",
+    "vi_sao": "modinfo: đổi thẻ lọc server sang tiếng Việt không dấu (thẻ Hán vô dụng với người Việt)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "    local child_size_x, child_size_y = 95, 32",
+    "new": "    local child_size_x, child_size_y = 143, 32",
+    "vi_sao": "bảng Khảm ngọc: ô rộng 95 chỉ vừa 13 ký tự ở cỡ 20, mà 33/35 tên ngọc tiếng Việt dài hơn -> nới ô, giảm còn 2 cột"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "                num_columns = 3,",
+    "new": "                num_columns = 2,",
+    "vi_sao": "bảng Khảm ngọc: 3 cột -> 2 cột cho tên ngọc đủ chỗ (danh sách dài hơn nhưng có thanh cuộn)"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "widget[\"hh_background\"][\"hh_btn\"][\"gem_name\"] = HH_UTILS:HHCreateTextUi(widget[\"hh_background\"][\"hh_btn\"], Vector3(0, 0, 1), \"Ngọc\", nil, 20)",
+    "new": "widget[\"hh_background\"][\"hh_btn\"][\"gem_name\"] = HH_UTILS:HHCreateTextUi(widget[\"hh_background\"][\"hh_btn\"], Vector3(0, 0, 1), \"Ngọc\", nil, 16)",
+    "vi_sao": "bảng Khảm ngọc: hạ cỡ chữ tên ngọc 20 -> 16"
+  },
+  {
+    "file": "scripts/widgets/hh_ui/hh_equip_ui.lua",
+    "old": "widget[\"hh_background\"][\"hh_btn\"][\"gem_name\"][\"gem_num\"] = HH_UTILS:HHCreateTextUi(widget[\"hh_background\"][\"hh_btn\"][\"gem_name\"], Vector3(0, 0, 1), \"Ngọc\", nil, 20)",
+    "new": "widget[\"hh_background\"][\"hh_btn\"][\"gem_name\"][\"gem_num\"] = HH_UTILS:HHCreateTextUi(widget[\"hh_background\"][\"hh_btn\"][\"gem_name\"], Vector3(0, 0, 1), \"Ngọc\", nil, 16)",
+    "vi_sao": "bảng Khảm ngọc: hạ cỡ chữ số lượng 20 -> 16 cho khớp tên"
+  },
+  {
+    "file": "modmain.lua",
+    "old": "    \"hh_job_item\",\n}",
+    "new": "    \"hh_job_item\",\n    \"hh_rank\",\n}\n\n-- mở rộng của bản Việt hoá: đua top chiến lực (không có trong mod gốc)\nmodimport(\"main/hh_rank.lua\")",
+    "vi_sao": "đăng ký prefab bù nhìn đo chiến lực + nạp hh_rank.lua; đặt SAU khối PrefabFiles vì modimport chạy trước dòng 20 sẽ bị ghi đè"
+  },
+  {
+    "file": "main/hh_rpc.lua",
+    "old": "    local desc_success, desc = pcall(function()\n        return GetDescription(player, item)\n    end)",
+    "new": "    local desc_success, desc = pcall(function()\n        -- Ưu tiên inspectable:GetDescription vì nó có xét descriptionfn (mô tả\n        -- ĐỘNG). Hàm toàn cục GetDescription chỉ tra chuỗi thoại tĩnh nên bảng\n        -- hover không bao giờ hiện được số liệu thay đổi theo thời gian.\n        if item_com[\"inspectable\"] ~= nil and item_com[\"inspectable\"][\"GetDescription\"] ~= nil then\n            local hh_dyn = item_com[\"inspectable\"]:GetDescription(player)\n            if hh_dyn ~= nil then\n                return hh_dyn\n            end\n        end\n        return GetDescription(player, item)\n    end)",
+    "vi_sao": "bảng hover đọc mô tả động: cho phép prefab tự trả chuỗi theo trạng thái (bù nhìn đo chiến lực hiện tổng sát thương/số nhát theo thời gian thực)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "    { [\"str\"] = getLogLanguage(\"type_egg\"), [\"log_type\"] = \"egg\", },",
+    "new": "    { [\"str\"] = getLogLanguage(\"type_egg\"), [\"log_type\"] = \"egg\", },\n    { [\"str\"] = \"Chiến lực\", [\"log_type\"] = \"hh_rank\", },",
+    "vi_sao": "thêm tab Chiến lực vào Nhật ký thế giới (tính năng mở rộng của bản Việt hoá)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "    local scale_x, scale_y = 7, 3",
+    "new": "    local scale_x, scale_y = 11.4, 3",
+    "vi_sao": "nới nút tab nhật ký 49->80 đv cho vừa nhãn tiếng Việt ('Ấp trứng' 52đv, 'Chiến lực' 58đv)"
+  },
+  {
+    "file": "scripts/widgets/hh_help_ui.lua",
+    "old": "            local text_size_x, text_size_y = 40, 20",
+    "new": "            local text_size_x, text_size_y = 80, 20",
+    "vi_sao": "giãn khoảng cách tab nhật ký theo bề ngang mới (5 tab x 95 = 475 đv, panel rộng 800)"
+  }
+]
