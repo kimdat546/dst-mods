@@ -31,3 +31,18 @@ originals/mod-mau/
 # Thần Binh Phù Ấn: build/ sinh lại được từ vendor/ + strings_source.json.
 # vendor/ CÓ trong git — cần bản gốc để diff khi vá lỗi và khi mod cập nhật.
 translations/than-binh-phu-an-viet/build/
+translations/than-binh-phu-an-viet/upload/
+# ảnh nguồn 2048px (5,5 MB) — bản 512px trong assets/preview.png đã đủ để dựng
+translations/than-binh-phu-an-viet/assets/preview_source.png
+
+# ── Rác phiên làm việc ──────────────────────────────────────────────
+# Ảnh chụp màn hình để soi layout UI, xong việc là bỏ.
+image.png
+# Log server lúc gỡ lỗi — 1,3 MB, sinh lại được bằng tools/giu_log_dst.sh.
+translations/than-binh-phu-an-viet/logs-crash/
+
+# ── Server test cục bộ của Thần Binh ────────────────────────────────
+# test.env có DST_CLUSTER_TOKEN (repo public) → chỉ commit test.env.example.
+# data/ là thư mục runtime do container ghi vào.
+translations/than-binh-phu-an-viet/tools/test/test.env
+translations/than-binh-phu-an-viet/tools/test/data/
