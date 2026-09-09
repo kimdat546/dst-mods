@@ -3332,7 +3332,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:72"
   ],
-  "vi": "Tượng Hồn Ngưng Hoa★"
+  "vi": "Hồn Nghề Ngưng Hoa★"
  },
  "升品": {
   "ctx": "nhan_ui",
@@ -4093,7 +4093,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:71"
   ],
-  "vi": "Danh Tượng Điêu Trác★"
+  "vi": "Danh Thủ Điêu Trác★"
  },
  "名字": {
   "ctx": "khac",
@@ -4496,7 +4496,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:77"
   ],
-  "vi": "Thánh Tượng Chi Huy★"
+  "vi": "Thánh Thủ Chi Huy★"
  },
  "圣嘉然的庇佑(专属-那珂)": {
   "ctx": "khac",
@@ -5219,7 +5219,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:73"
   ],
-  "vi": "Thiên Tượng Truyền Thừa★"
+  "vi": "Thiên Thủ Truyền Thừa★"
  },
  "天后晾干": {
   "ctx": "khac",
@@ -5243,7 +5243,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:71"
   ],
-  "vi": "Thiên Công Tượng Tâm★"
+  "vi": "Thiên Công Tâm Nghề★"
  },
  "天气风向标": {
   "ctx": "ten",
@@ -5972,7 +5972,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:76"
   ],
-  "vi": "Tịch Tượng Lãnh Diễm★"
+  "vi": "Tịch Thủ Lãnh Diễm★"
  },
  "寒冰之力": {
   "ctx": "ten",
@@ -11731,7 +11731,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:75"
   ],
-  "vi": "Viêm Tượng Đoạt Phách★"
+  "vi": "Viêm Thủ Đoạt Phách★"
  },
  "炫彩": {
   "ctx": "khac",
@@ -11787,7 +11787,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:72"
   ],
-  "vi": "Luyện Hồn Hoả Chú★"
+  "vi": "Luyện Hồn Đúc Lửa★"
  },
  "炼魂觉醒★": {
   "ctx": "khac",
@@ -12875,7 +12875,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:71"
   ],
-  "vi": "Thần Tượng Tôi Lửa★"
+  "vi": "Thần Thủ Tôi Lửa★"
  },
  "神奇的月亮碎片": {
   "ctx": "thong_bao",
@@ -13565,7 +13565,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:72"
   ],
-  "vi": "Tinh Chú Vô Hà★"
+  "vi": "Tinh Đúc Vô Hà★"
  },
  "精雕的": {
   "ctx": "khac",
@@ -16208,7 +16208,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:76"
   ],
-  "vi": "Minh Tượng Chí Tôn★"
+  "vi": "Minh Thủ Chí Tôn★"
  },
  "铲子": {
   "ctx": "ten",
@@ -16225,7 +16225,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:76"
   ],
-  "vi": "Chú Huy Diệu Thế★"
+  "vi": "Đúc Huy Diệu Thế★"
  },
  "铸铁的": {
   "ctx": "khac",
@@ -16241,7 +16241,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:75"
   ],
-  "vi": "Chú Hồn Chấn Không★"
+  "vi": "Đúc Hồn Chấn Không★"
  },
  "锅": {
   "ctx": "ten",
@@ -16330,7 +16330,7 @@
   "o": [
    "scripts/job/hh_job_smith_config.lua:73"
   ],
-  "vi": "Đoàn Hoả Tinh Hồn★"
+  "vi": "Rèn Lửa Tinh Hồn★"
  },
  "锻纹的": {
   "ctx": "khac",
