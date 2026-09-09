@@ -1,0 +1,649 @@
+{
+ "pages": {
+  "shanhai_kunlunisland": {
+   "vi": "【Bối cảnh】\nSinh ra trên đại dương khi tạo thế giới, mang theo “Pháp Trận Chúc Long”, “Côn Bằng” cùng một phần hệ sinh thái Sơn Hà.\n\n【Đặc biệt】\nĐặt “Cành Mê Cốc” xuống đất, chuột phải để dẫn đường, nó sẽ chỉ về vị trí “Đảo Long Mạch Côn Lôn”.",
+   "zh": "\n【背景】\n创建世界时在海洋上生成，带有“烛龙法阵”、“鲲鹏”以及部分山河生态。\n\n【特殊】\n将“迷榖枝”放到地上，右键引路可以指向“昆仑龙脉岛屿”的位置。\n\t",
+   "en": "\nBackground:\nThe Kunlun Island spawn in the ocean during world creation, featuring Zhulong's Sigil Array, Kunpeng and Montfluv ecosystems.\n\nSpecial:\nPlace a \"Migu Twig\" on the ground and right-click to activate its guiding function, which points toward the Kunlun Island' location.\n\t"
+  },
+  "shanhai_deepseacave": {
+   "vi": "【Bối cảnh】\nThế giới bên trong “Động Thiên Tháp”, nằm ngoài thế giới chính. Chỉ sinh ra lúc tạo thế giới mới, thêm mod vào file cũ sẽ không có.\n\n【Đặc biệt】\nTrong “Động Thiên Tháp” không có chó săn tấn công, không sinh BOSS cấp sử thi.\nTrong “Động Thiên Tháp” tránh được mưa (kể cả Mưa Thuỷ Tinh), tránh tuyết, và không tăng độ ẩm ướt.\n\nTầng một “Động Thiên Tháp” chia thành đảo chính và đảo phụ, đảo phụ có “Ốc Đảo Thuỷ Tinh Nhỏ”. Phạm vi “Ốc Đảo Thuỷ Tinh Nhỏ” mang hiệu ứng Khai Sáng.\n\nĐảo phụ tầng một mặc định không mở cho người chơi. Dù lên đảo phụ bằng cách nào cũng bị dịch chuyển cưỡng bức về đảo chính. Sau khi đưa cho “Vũ Nhuận” 1 “Lông Vũ Bảy Màu”, người chơi mới lên được đảo phụ tầng một và không bị đẩy ra nữa.\n\nSau khi xây “Cửa Hiệu Chu Nguyên”, học chế “Bản Vẽ Linh Chi Nguỵ Trang” thì vào được tầng hai “Động Thiên Tháp”; kích hoạt “Tảng Đá Kỳ Lạ” ở tầng hai để trở về tầng một.\n\nSau khi “Động Thiên Tháp” bị phong ấn, lối ra tầng một sẽ đóng lại. Lúc đó người chơi vẫn có thể rời “Đảo Động Thiên Tháp” qua “Tảng Đá Kỳ Lạ” ở tầng một, nó nấp gần “Tiểu Thạch Đàm”.",
+   "zh": "\n【背景】\n“洞天塔”的塔内世界，位于世界之外。只可在创建世界时生成，旧档添加不会生成。\n\n【特殊】\n“洞天塔”内不会有猎犬来袭、不会生成史诗级BOSS。\n“洞天塔”内防雨（包括玻璃雨）、防雪，不会增加潮湿度。\n\n”洞天塔“一层分为主岛和附岛，附岛带有“小玻璃绿洲”。“小玻璃绿洲”范围带有启蒙效果。\n“洞天塔”一层附岛默认不对玩家开放。无论玩家通过任何手段登陆附岛，都会被强制传送回主岛。给予“羽润”1个“彩色羽毛”后，玩家才可正常登陆一层附岛，且不再被排斥。\n\n建造“朱源的小铺”后，学习制作“伪装灵芝”蓝图，可进入“洞天塔”二层，激活“洞天塔”二层“突兀的石头”回到一层。\n\n“洞天塔”被封印后，一层出口将被关闭。此时玩家仍然可以通过一层“突兀的石头”离开“洞天塔岛屿”，“突兀的石头”藏在“小石潭”附近。\n\t",
+   "en": "\nBackground:\nThe world inside the Montfluv Tower exists beyond the main world. It is generated only during world creation; it will not appear if the mod is added to an existing save.\n\nSpecial:\nNo Hound attacks occur inside the Montfluv Tower, and Epic Bosses cannot spawn.\n\nThe tower interior is rainproof (including Glass Rain) and snowproof, with humidity locked (no wetness gain).\n\nThe first layer of the Montfluv Tower consists of a Main Island and an Auxiliary Island. The Auxiliary Island contains a \"Small Glass Oasis,\" which carries the Enlightenment effect (replaces Sanity).\n\nThe Auxiliary Island is not accessible to players by default. Any player attempting to land on it by any means will be forcibly teleported back to the Main Island. After giving Yurun 1 Colorful Feather, players can access the Auxiliary Island normally and will no longer be ejected.\n\nAfter building \"Zhuyuan’s Shop,\" players can learn to craft the \"Disguised Ganoderma Blueprint,\" which allows entry to the second layer of the Montfluv Tower. Activating the \"Prominent Stone\" in the second layer returns players to the first layer.\n\nWhen the Montfluv Tower is sealed, the exit on the first layer will be closed. Players can still leave the tower via the \"Prominent Stone\" on the first layer, which is hidden near the \"Small Stone Pool.\"\n\t"
+  },
+  "shanhai_deepseacave_two": {
+   "vi": "【Bối cảnh】\nThế giới bên trong “Động Thiên Tháp”, nằm ngoài thế giới chính. Chỉ sinh ra lúc tạo thế giới mới, thêm mod vào file cũ sẽ không có.\n\n【Đặc biệt】\nTrong “Động Thiên Tháp” không có chó săn tấn công, không sinh BOSS cấp sử thi.\nTrong “Động Thiên Tháp” tránh được mưa (kể cả Mưa Thuỷ Tinh), tránh tuyết, và không tăng độ ẩm ướt.\n\nSau khi xây “Cửa Hiệu Chu Nguyên”, học chế “Bản Vẽ Linh Chi Nguỵ Trang” thì vào được tầng hai “Động Thiên Tháp”; nhảy vào khe nứt Động Thiên Tháp để trở về tầng một.",
+   "zh": "\n【背景】\n“洞天塔”的塔内世界，位于世界之外。只可在创建世界时生成，旧档添加不会生成。\n\n【特殊】\n“洞天塔”内不会有猎犬来袭、不会生成史诗级BOSS。\n“洞天塔”内防雨（包括玻璃雨）、防雪，且不会增加潮湿度。\n\n建造“朱源的小铺”后，学习制作“伪装灵芝”蓝图，可进入“洞天塔”二层，跳入洞天塔裂口回到一层。\n\t",
+   "en": "\nBackground:\nThe world inside the Montfluv Tower exists beyond the main world. It is generated only during world creation; it will not appear if the mod is added to an existing save.\n\nSpecial:\nNo Hound attacks occur inside the Montfluv Tower, and Epic Bosses cannot spawn.\n\nThe tower interior is rainproof (including Glass Rain) and snowproof, with humidity locked (no wetness gain).\n\nAfter building \"Zhuyuan’s Shop,\" players can learn to craft the \"Disguised Lingzhi Blueprint,\" which allows entry to the second layer of the Montfluv Tower. Interacting with the \"Prominent Stone\" in the second layer returns players to the first layer.\n\t"
+  },
+  "sh_zhuyan_spawner": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Tây Sơn Kinh》: Lại đi về tây bốn trăm dặm, gọi là núi Tiểu Thứ, trên nhiều bạch ngọc, dưới nhiều xích đồng. Có thú ở đó, hình như vượn mà đầu trắng chân đỏ, tên là Chu Yếm, hễ thấy là có đại binh đao.\n\n【Đặc biệt】\nDùng cuốc nện 3 lần, Núi Tiểu Thứ sẽ rung chuyển, “Chu Yếm” phá núi mà ra.\nGiết 1 con khỉ gần Núi Tiểu Thứ cũng khiến “Chu Yếm” phá núi mà ra.\n\nSau khi bật “Sơn Hải Bí Tàng”, hạ “Chu Yếm Con” ở gần đó cũng khiến “Chu Yếm” phá núi mà ra.\n\nSau khi hạ “Chu Yếm”, “Núi Tiểu Thứ” vào trạng thái hồi, thời gian hồi là 20 ngày.",
+   "zh": "\n【背景】\n《山海经·西山经》：又西四百里，曰小次之山，其上多白玉，其下多赤铜。有兽焉，其状如猿而白首赤足，名曰朱厌，见则大兵。\n\n【特殊】\n使用稿子敲击3次后，小次山会颤抖，‘朱厌’破山而出。\n在小次山附近杀死1只猴子，同样会使‘朱厌’破山而出。\n\n开启‘山海秘藏’后，击杀附近的‘小朱厌’，同样会使‘朱厌’破山而出。\n\n击杀‘朱厌’后，‘小次山’进入冷却状态，冷却CD为20天。\n\t",
+   "en": "\nBackground:\n《山海经·西山经》：又西四百里，曰小次之山，其上多白玉，其下多赤铜。有兽焉，其状如猿而白首赤足，名曰朱厌，见则大兵。\n\nSpecial:\nStriking Zhuyan Mountain with a pickaxe three consecutive times will cause seismic tremors, triggering Zhuyan's emergence from the mountain core.\nEliminating any monkey-type creature near Zhuyan Mountain will immediately awaken Zhuyan.\n\nAfter activating the '山海秘藏' MOD, defeating Little Zhuyan in the vicinity forces Zhuyan's awaken.\n\nAfter killing Zhuyan, Zhuyan Mountain enters a cooling state, with a cooling CD period of 20 days.\n\t"
+  },
+  "shanhai_secretplace": {
+   "vi": "【Bối cảnh】\nPháp trận của “Đảo Long Mạch Côn Lôn”, có 6 nốt kích hoạt: Cung, Thương, Giốc, Chuỷ, Vũ, =, lần lượt ứng với các cung cổ nhạc C, D, E, G, A; “=” là phím xác nhận.\n\n【Đặc biệt】\nSau khi người chơi giải mã “Giấy Manh Mối”, kích hoạt các nốt theo đáp án sẽ phát ra âm thanh; nhập đúng thứ tự chỉ định thì nhận được vật phẩm và trứng phục sinh.\n\nNốt phải kích hoạt bằng tay, không phải để giẫm lên!",
+   "zh": "\n【背景】\n“昆仑龙脉岛屿”的法阵，带有6个激活音符：宫、商、角、徵、羽、=，分别对应古乐调的C、D、E、G、A，=为提交按键。\n\n【特殊】\n玩家解密“线索纸”后，根据答案激活音符，可以触发音效，按指定顺序输入后可以获取道具、彩蛋。\n\n音符需要手动激活，不是用来踩的！\n\t",
+   "en": "\nBackground:\nZhulong's Sigil Array on the Kunlun Island. Features six tonal notes: Gong (C), Shang (D), Jue (E), Zhi (G), Yu (A), and = (submit key), corresponding to ancient musical pitches.\n\nSpecial:\nAfter deciphering RedPaper Clue, players activate notes in the correct sequence to trigger sound cues. Successful input rewards hidden items/Easter eggs.\n\t"
+  },
+  "shanhai_secretorder": {
+   "vi": "【Bối cảnh】\nThiết bị kích hoạt “Pháp Trận Chúc Long” trên “Đảo Long Mạch Côn Lôn”. Có 6 nốt kích hoạt: Cung, Thương, Giốc, Chuỷ, Vũ, =, lần lượt ứng với các cung cổ nhạc C, D, E, G, A; “=” là phím xác nhận.\n\n【Đặc biệt】\nSau khi người chơi giải mã “Giấy Manh Mối”, kích hoạt các nốt theo đáp án sẽ phát ra âm thanh; nhập đúng thứ tự chỉ định thì nhận được vật phẩm và trứng phục sinh.\n\nNốt phải kích hoạt bằng tay, không phải để giẫm lên!",
+   "zh": "\n【背景】\n“昆仑龙脉岛屿”的“烛龙法阵”激活装置。6个激活音符：宫、商、角、徵、羽、=，分别对应古乐调的C、D、E、G、A，=为提交按键。\n\n【特殊】\n玩家解密“线索纸”后，根据答案激活音符，可以触发音效，按指定顺序输入后可以获取道具、彩蛋。\n\n音符需要手动激活，不是用来踩的！\n\t",
+   "en": "\nBackground:\nActivation device for Zhulong's Sigil Array on the Kunlun Island. Features six tonal notes: Gong (C), Shang (D), Jue (E), Zhi (G), Yu (A), and = (submit key), corresponding to ancient musical pitches.\n\nSpecial:\nAfter deciphering RedPaper Clue, players activate notes in the correct sequence to trigger sound cues. Successful input rewards hidden items/Easter eggs.\n\nNotes must be manually activated (not stepped on!).\n\t"
+  },
+  "deepseacave_pool": {
+   "vi": "【Bối cảnh】\n“Tiểu Thạch Đàm” của “Động Thiên Tháp”, mặc định mọc sẵn “Đại Thụ Xoắn Vặn”. Dùng làm nguồn nước được; mọi tương tác với “Đại Thụ Xoắn Vặn” đều dựa vào “Tiểu Thạch Đàm”.\n\n【Đặc biệt】\nChế “Dây Giống Quả Tinh Thạch”, “Dây Giống Dâu Đêm”, “Dây Giống Trứng Chim Cao Cẳng” rồi thả vào “Tiểu Thạch Đàm” thì cây sẽ ký sinh loại dây tương ứng.\nBắt “Cua Phát Sáng” rồi thả vào “Tiểu Thạch Đàm”, nó sẽ làm tổ trên “Đại Thụ Xoắn Vặn” và cho buff nguồn sáng phạm vi nhỏ.",
+   "zh": "\n【背景】\n“洞天塔”的“小石潭”，默认长有“扭曲的大树”。可作为水源，与“扭曲的大树”的交互依托于“小石潭”。\n\n【特殊】\n制作“晶洞果种藤”、“夜莓种藤”、“高脚鸟蛋种藤”投入“小石潭”后，可以寄生对应的藤蔓。\n捕捉“发光蟹”放生到“小石潭”后，“发光蟹”会在“扭曲的大树”上安家，并且给予小范围的光源buff。\n\t",
+   "en": "\nBackground:\nThe Small Rocky Pond within Montfluv Tower perpetually hosts a Twisted Tree. It functions as a water source, and all interactions with the Twisted Tree are anchored to the Small Rocky Pond.\n\nSpecial:\nCrafting a \"Ancientfruit Gem VineSeed\",\"Ancientfruit Nightvision VineSeed\", or \"Tallbird VineSeed\" and tossing it into the Small Rocky Pond will infest their corresponding vines onto the tree.\nCatching a \"Lightcrab\" and releasing it into the pond causes the creature to take residence in the Twisted Tree, granting a small-radius ambient light buff.\n\t"
+  },
+  "deepseacave_exit": {
+   "vi": "【Bối cảnh】\nLối ra tầng một “Động Thiên Tháp”. Khi mùa đông tới, rêu và cành lá ở lối ra sẽ héo rụng. Người chơi đi qua “Lối Ra Động Thiên Tháp” để rời “Đảo Động Thiên Tháp”, trở về vị trí “Động Thiên Tháp”.\n\n【Đặc biệt】\nSau khi “Động Thiên Tháp” bị phong ấn, lối ra sẽ đóng. Lúc đó người chơi vẫn rời “Đảo Động Thiên Tháp” được qua “Tảng Đá Kỳ Lạ”, nó nấp gần “Tiểu Thạch Đàm”.",
+   "zh": "\n【背景】\n“洞天塔”一层的出口，冬季到来时，出口的苔藓和枝叶会枯落。玩家可通过“洞天塔出口”离开“洞天塔岛屿”，返回“洞天塔”位置。\n\n【特殊】\n“洞天塔”被封印后，出口将被关闭。此时玩家仍然可以通过“突兀的石头”离开“洞天塔岛屿”，“突兀的石头”藏在“小石潭”附近。\n\t",
+   "en": "\nBackground:\nWhen winter arrives at the exit of Montfluv Tower's first layer, the moss and branches there wither and shed. Players may leave the Montfluv Island via the Tower's Exit to return to the Montfluv Tower's original location.\n\nSpecial:\nIf Montfluv Tower becomes sealed, its exit will close. During this time, players can still escape the Island using the \"Hidden Exit\" hidden near the \"Small Rocky Pond\".\n\t"
+  },
+  "sh_tictactoe_game": {
+   "vi": "【Bối cảnh】\nTrò chơi nhỏ trong “Động Thiên Tháp”: đưa cho “Trưởng Lão Dị Vực” vàng, Sương Sáo Sơn Hải hoặc Ấn Ký Câu Mang để tham gia.\n\nNếu trong 5 giây không có người chơi B tham gia, “Trưởng Lão Dị Vực” sẽ vào chơi; lúc này vật phẩm người chơi đưa quyết định độ khó: cục vàng (khó), Sương Sáo Sơn Hải (vừa), Ấn Ký Câu Mang (dễ).\n\n【Đặc biệt】\nNgười chơi A và B lần lượt nhận quân X và O, thứ tự đi trước sau là ngẫu nhiên.\n\nVán đấu kéo dài tối đa 1 phút; hết 1 phút chưa phân thắng bại thì kết thúc cưỡng bức.\nNgười thắng nhận thưởng, hoà hoặc thua thì không có; phần thưởng gửi thẳng vào ba lô.\n\nTỉ lệ hòm thưởng: cục vàng > Bản Vẽ Trụ Đá Biển > Bản Vẽ Tiểu Thạch Đàm = Bản Vẽ Bậc Đá Nhỏ > Tiền Mũi Heo = Thuốc Trường Sinh Bất Lão rỗng\n\nSau khi tải lại, bàn cờ và quân cờ đều biến mất.",
+   "zh": "\n【背景】\n“洞天塔”小游戏，给予“异域长老”任意金子、山海烧仙草、句芒印记后参与游戏。\n\n5秒内没有玩家B参与时，“异域长老”会加入游戏，此时玩家给予的道具会决定游戏难度，金块（困难）、山河烧仙草（中等）、句芒印记（简单）\n\n【特殊】\n玩家A和玩家B分别获得X和O棋子，随机先后手。\n\n游戏时长最多1分钟，1分钟未分胜负则强制结束游戏。\n获胜者将获得奖励，平局或者失败没有奖励，奖励直接发送到玩家背包。\n\n奖池概率：金块>海蚀柱蓝图>小石潭蓝图=小石阶蓝图>猪鼻铸币=空的长生不老药\n \n重新加载游戏后，棋盘与棋子均会消失\n\t",
+   "en": "\nBackground:\nThe Montfluv Tower minigame is initiated by offering the \"Elderpig\" any of the following items: Goldnuggets, Montfluv Tea, or the Goumang Fruit.\n\nIf no second player (Player B) joins within 5 seconds, the \"Elderpig\" will participate instead. The item offered by the player determines the game’s difficulty:\nGoldnugget → Hard\nMountain Blubbletea → Medium\nGoumang Fruit → Easy\n\nSpecial:\nPlayer A and Player B are assigned the markers X and O, respectively, with random Player moving first.\n\nThe game lasts up to 1 minute. If no winner is decided within the time limit, the game ends automatically.\n\nOnly the winner receives a reward, which is sent directly to their inventory. No reward is given for a draw or loss.\n\nReward pool probability (weighted):\n\nGold Nugget > Seastack Blueprint > Empty Elixir of Longevity\n\nNote: After reloading the game, the game board and all pieces will disappear.\n\t"
+  },
+  "shanhai_hiddenexit": {
+   "vi": "【Đặc biệt】\nSau khi nhấn tảng đá ở tầng một, một nhánh “Dây Hoa” sẽ mọc gần “Tiểu Thạch Đàm”; nhấn liên tiếp ba lần thì sinh ra một “Khe Nứt Thời Không”, người chơi nhảy vào sẽ được dịch chuyển tới “Cửa Rực Rỡ”.",
+   "zh": "\n【特殊】\n按下一层的石头后，会在“小石潭”附近生成一枝“花藤”，连续按下三次后，生成一道“时空裂隙”，玩家跳入后可传送到“绚丽之门”。\n\t",
+   "en": "\nBackground:\nA concealed egress on the first tier of the Montfluv Tower, nestled near the Small Rocky Pond. When the Tower is sealed, players may still depart the Island via the Hidden Exit.\n\nSpecial:\nUpon activation, summons a flower vine near the Small Rocky Pond. Triple activation ruptures spacetime, conjuring a Chronal Rift. Leaping through warps the player to the Florid Postern.\t\n\t"
+  },
+  "dsc_light": {
+   "vi": "【Bối cảnh】\nPhép lửa do “Vũ Nhuận” thi triển.\n\n【Đặc biệt】\nHoạt ảnh lửa lấy từ mod “拼好mod”.",
+   "zh": "\n【背景】\n“羽润”施放的火焰法术。\n\n【特殊】\n火焰动画来自MOD——“拼好mod”。\n\t",
+   "en": "\nBackground:\nFire spell of Yurun.\n\nSpecial:\nThe fire animation comes from the MOD - Chinese Horror.\n\t"
+  },
+  "xuanhe_fall": {
+   "vi": "【Bối cảnh】\nThác nước của “Bí Cảnh Huyền Hà”. Chức năng chưa mở hết, hiện chỉ dùng làm nguồn nước và cảnh thác.",
+   "zh": "\n【背景】\n“悬河秘境”的瀑布，功能没有完全放出，目前仅作为水源、瀑布造景。\n\t",
+   "en": "\nBackground:\nA special Waterfall.\n\t"
+  },
+  "xuanhe_pond": {
+   "vi": "【Bối cảnh】\nAo của “Bí Cảnh Huyền Hà”, sửa xong thì dùng làm nguồn nước được.\n\n【Đặc biệt】\nBan đầu ở trạng thái khô cạn, phải giải mã bằng cách soi văn bản rồi đưa đúng vật phẩm mới sang giai đoạn tiếp theo.\n\n【Câu đố giai đoạn 1】Đom đóm cỏ hoa đều dung chứa\n【Câu đố giai đoạn 2】Linh khí đất trời tụ ngưng hoa\n【Câu đố giai đoạn 3】Vàng rực đầy cây như bướm lượn\n【Câu đố giai đoạn 4】Chẳng thấy sương giá khắc vào xương\n\nMàn hình tải game có xác suất hiện đáp án giải mã; đưa “Giấy Manh Mối” cho anh heo cũng có xác suất nhận đáp án.\n\nSau khi người chơi giải mã và sửa xong “Ao Huyền Hà”, ao sẽ sinh ra “Cua Phát Sáng”.\nNgười chơi câu được cá biển ở Ao Huyền Hà, tỉ lệ câu trúng cá đúng mùa là cao nhất.",
+   "zh": "\n【背景】\n“悬河秘境”的池塘，修缮后可作为水源。\n\n【特殊】\n初始为干涸状态，需要解密检查文本，给予对应物品后才能进入下一阶段。\n\n【阶段1谜题】萤火芳菲皆可容\n【阶段2谜题】天地灵韵聚凝华\n【阶段3谜题】金黄满树如蝶翩\n【阶段4谜题】不见风霜刻骨痕\n\n游戏加载界面概率出现解密答案，给予猪哥“线索纸”概率获取答案。\n\n玩家解密修复“悬河池塘”后，池塘会生成“发光蟹”。\n玩家可在悬河池塘钓到海鱼，钓到当季时令鱼的概率最大。\n\t",
+   "en": "\nBackground:\nThe pond comes from the \"Xuanhe Island\", which can be restored as a water source.\n\nSpecial:\nInitial State: Starts dried up. Players must solve riddles by inspecting text and offering specific items to progress.\nStage 1 Riddle: \"Fireflies and Blossoms All Welcomed\"\nStage 2 Riddle: \"Ancient Celestial Aura\"\nStage 3 Riddle: \"Golden Leaves Flutter Like Butterflies\"\nStage 4 Riddle: \"No Trace of Frost's Bite\"\n\nAfter restoring, the pond spawns lightcrabs.\nAllows fishing, but only saltwater fish appear. Random catches, with highest chance to catch seasonal fish.\n\t"
+  },
+  "sh_seastack": {
+   "vi": "【Bối cảnh】\nTrụ Đá Biển của bản gốc, giờ chế tạo được.\n\n【Đặc biệt】\nSau khi thắng ván đấu với “Trưởng Lão Dị Vực”, có xác suất nhận bản vẽ.\nDùng chổi là đổi được kiểu dáng.",
+   "zh": "\n【背景】\n官方原版的海蚀柱，现在可制作。\n\n【特殊】\n与“异域长老”进行游戏获胜后，概率获取蓝图。\n可以直接使用扫把更换造型。\n\t",
+   "en": "\nBackground:\nSeastack in the sea.\n\nSpecial:\nAfter winning the minigame against the \"Elderpig\", there is a chance to obtain the blueprint.\n\t"
+  },
+  "sh_marsh_plant": {
+   "vi": "【Bối cảnh】\nCây mọc ven ao của bản gốc, giờ chế tạo được.\n\n【Đặc biệt】\nSau khi thắng ván đấu với “Trưởng Lão Dị Vực”, có xác suất nhận bản vẽ.",
+   "zh": "\n【背景】\n官方原版池塘边的植物，现在可制作。\n\n【特殊】\n与“异域长老”进行游戏获胜后，概率获取蓝图。\n\t",
+   "en": "\nBackground:\nThis marsh plant from the original game is now craftable.\n\nSpecial:\nWin a game against the \"Elderpig\" for a chance to obtain its blueprint.\n\t"
+  },
+  "sh_pond_algae": {
+   "vi": "【Bối cảnh】\nCây mọc ven ao của bản gốc, giờ chế tạo được.\n\n【Đặc biệt】\nSau khi thắng ván đấu với “Trưởng Lão Dị Vực”, có xác suất nhận bản vẽ.",
+   "zh": "\n【背景】\n官方原版池塘边的植物，现在可制作。\n\n【特殊】\n与“异域长老”进行游戏获胜后，概率获取蓝图。\n\t",
+   "en": "\nBackground:\nThis marsh plant from the original game is now craftable.\n\nSpecial:\nWin a game against the \"Elderpig\" for a chance to obtain its blueprint.\n\t"
+  },
+  "sh_fly": {
+   "vi": "【Bối cảnh】\nMa pháp phương Tây, pháp thuật phương Đông, Quạ đều biết một chút! Vào đêm trăng tròn, đưa cho “Vũ Nhuận” 1 quả “Bí Ngô” để đổi lấy bản vẽ chế “Chổi Sâm Núi”.\nTrang bị “Chổi Sâm Núi” rồi chuột phải vào người chơi để bay, tháo trang bị ra thì đáp đất.\n\n【Đặc biệt】\nLấy từ tác phẩm “飞天扫帚” trên Steam Workshop.\nVật phẩm này là trứng phục sinh nhỏ, không thuộc nội dung Sơn Hà, nên sẽ không mở rộng thêm chức năng.",
+   "zh": "\n【背景】\n西方魔法，东方法术，鸦都会一点！在月圆之夜，给予“羽润”1个“南瓜”换取蓝图制作“山参扫把”。\n装备“山参扫把”后，右键玩家飞行，取下装备后落地。\n\n【特殊】\n来自steam创意工坊作品“飞天扫帚”。\n该道具属于小彩蛋，不是山河的内容，所以不会进行更多功能拓展。\n\t",
+   "en": "\nBackground:\nWestern magic, Eastern magic, Crow all knows a little bit！ During a Full Moon, give Yurun 1 Pumpkin to obtain the blueprint. \nEquip the Ginseng Broom, right-click yourself to fly, and unequip to land.\n\nSpecial:\nEquipping the broom prevents Wonkey from entering crawl/sprint states.  Place boats mid-flight to land safely without drowning.\n\nCode adapted from the Steam Workshop mod \"Flying Broom\" by “乌鸦头头”, used with permission.\nCode has been modified from the original to optimize equipment-swapping logic handling.\nOriginal animations by “乌鸦头头”, with additions by 威吊: swap_face, tail, and new funny idle animations.\n\t"
+  },
+  "sh_cookpotfire": {
+   "vi": "【Bối cảnh】\nCơ chế lửa bếp bổ sung: khi người chơi dùng Nồi Nấu Ăn hoặc Lò Nung Cổ để nấu món, đáy nồi sẽ bốc lửa.\nNấu các món hạ nhiệt như kem, súp măng tây thì sinh ra lửa lạnh.\n\nNồi Di Động thuộc dạng công cụ nấu ăn mang tính khái niệm, nên không sinh lửa bếp.",
+   "zh": "\n【背景】\n额外的灶火机制，玩家使用烹饪锅、远古窑制作料理时，会在锅的底部产生火焰。\n烹饪冰激凌、芦笋汤等降温料理会产生冷火。\n\n大厨锅属于概念级别的烹饪工具，不会产生灶火。\n\t",
+   "en": "\nBackground:\nAdditional Hearthfire Mechanism. When players use a Cooking Pot or Ancient Kiln to prepare dishes, flames will appear at the base of the pot. Cooking cooling dishes like Ice Cream or Asparagus Soup will generate coldfire instead.\n\nThe Portable Crock Pot (which lacks a base charcoal fire texture) is exempt from the Hearthfire Mechanism, as visual inconsistencies would otherwise break immersion.\n\t"
+  },
+  "sh_boat": {
+   "vi": "【Bối cảnh】\nCơ chế đi biển bổ sung: người chơi đặt “Bè Lá Nhỏ” xuống biển thì nó biến thành thuyền nhỏ.\nThuyền có sẵn 1 ô gắn đèn; khi không đang lái, người chơi chuột phải để thu thuyền lại.\n\nThuyền không tốn độ bền; mọi sát thương thân thuyền chịu đều do người chơi gánh.\nCó thể mang vật nặng lên thuyền, nhưng sẽ làm người chơi chậm lại.",
+   "zh": "\n【背景】\n额外的航海机制，玩家将“小叶槎”放置在海洋会变为小船。\n自带1格船灯位置，玩家在非航行状态下右键可以将小船收回。\n\n小船没有使用耐久，船体受到的伤害均由玩家承担。\n可以携带重物登船，但会导致玩家减速。\n\t",
+   "en": "\nBackground:\nAdditional sailing mechanics: players can place the \"Leafboat Item\" on the ocean to turn it into a small boat.\n\nSpecial:\nThe boat comes with 1 built-in mast light slot. When not sailing, players can right-click to retrieve the boat.\n\nThe boat has no usage durability—any damage taken by the hull is directly transferred to the player.\n\nPlayers can board while carrying heavy items, but this will slow them down.\n\t"
+  },
+  "deepseacave_pigman": {
+   "vi": "【Bối cảnh】\nCư dân bản địa của Động Thiên Tháp.\n\n【Đặc biệt】\nXây một cái nồi gần “Nhà Nhỏ Của Chu Nguyên”, nấu Súp Thịt Hầm trong nồi và đừng lấy ra. Chế rồi bật “Quạt Nhỏ”, mùi thịt thơm sẽ dụ Chu Nguyên ra khỏi nhà.\nSự kiện này chỉ cần kích hoạt một lần, sau đó Chu Nguyên sẽ tự ra ngoài thám hiểm vĩnh viễn.\n\nĐưa cho “Chu Nguyên” 1 phần “Linh Chi Ướp Lạnh” để đổi lấy bản vẽ “Cửa Hiệu Chu Nguyên”.\n\n【Hành vi】\nMở hiệu (khi người chơi lại gần cửa hiệu);\nNhặt đồ ăn (kể cả món trong nồi);\nMở tủ lạnh trộm đồ ăn, người chơi lại gần tủ lạnh thì cắt được;\nMở tủ lạnh bỏ nguyên liệu vào, loại và độ tươi ngẫu nhiên;\nTự nấu ăn (dùng nguyên liệu ngẫu nhiên);\nLảng vảng cạnh cái nồi đang nấu;\nGiả chết, người chơi kịp cho đồ ăn thì cứu được Chu Nguyên;\nĐược cứu 2 lần sau khi giả chết, Chu Nguyên sẽ thi pháp thúc mọc một cây trồng khổng lồ;\nĐánh nhau với Vũ Nhuận.",
+   "zh": "\n【背景】\n洞天塔的原住民。\n\n【特殊】\n在“朱源的小屋”附近建造一口锅，锅内制作料理炖肉汤，不要取走。制作并打开“小风扇”，肉香味会吸引朱源出门。\n事件只需要触发一次，朱源就能自行永久出门探索。\n\n给予“朱源”1个“芝上谈冰”，可以换取“朱源的小铺”蓝图。\n\n【行为】\n开店（玩家靠近小铺时）；\n捡吃的（包括锅里的食物）；\n开冰箱偷东西吃，玩家靠近冰箱可以打断偷吃；\n开冰箱放食材，食材种类和新鲜度随机；\n自己烹饪食物（随机使用食材）；\n在正烹饪食物的锅旁边闲逛；\n装死，玩家可以给食物及时救起朱源；\n2次装死被救起时，朱源会施法催生一株巨大作物；\n与羽润打架；\n\t",
+   "en": "\nBackground:\nA native of the Montfluv Tower, Zhuyuan is a well-read and scholarly pig.\n\nSpecial:\nBuild a Cooking Pot near \"Zhuyuan’s shop\", cook a serving of Meat Stew in it, and do not take it out. Then craft and activate a \"Small Fan\"—the aroma of the stew will lure Zhuyuan outside.\nThis event only needs to be triggered once; afterward, Zhuyuan will permanently venture out on his own.\n\nGive Zhuyuan 1 \"Ganoderma Ice\" to exchange for the \"Zhuyuan’s Shop\" blueprint.\n\nBehavior:\nOpens his shop (when players approach the shop).\nPicks up food (including meals from Cooking Pots).\nSneaks food from the Icebox—players can interrupt him by approaching the Icebox.\nOpen the fridge to store ingredients — their type and freshness will be random.\nCooks food independently (uses random ingredients).\nLoiters near a Cooking Pot that is currently preparing food.\nPlays dead; players can revive him in time by offering food.\nIf revived twice from playing dead, Zhuyuan will cast a spell to grow a giant crop.\nFights with Yurun.\n\t"
+  },
+  "deepseacave_crow": {
+   "vi": "【Bối cảnh】\nCư dân bản địa của Động Thiên Tháp, chú quạ nhỏ biết pháp thuật.\n\n【Đặc biệt】\nThiện cảm mặc định với người chơi là 1; xây “Hố Lửa”, “Tượng Bách Điểu Chầu Phượng” gần “Tiểu Thạch Đàm” sẽ tăng thiện cảm, tối đa là 3.\n“Vũ Nhuận” nhận quà của người chơi và đáp lễ; thiện cảm càng cao, quà đáp càng giá trị.\nĐưa các món sau, “Vũ Nhuận” có xác suất đáp lễ:\n+ Đá quý các màu, lông vũ, Sương Sáo Sơn Hải\nĐưa các món sau, “Vũ Nhuận” chắc chắn đáp lễ:\n+ Vảy Rồng, Da Gấu Ma, Nhãn Cầu Nai Sừng Tấm, Sừng Vệ Binh\n\nNgười chơi có thể dùng “Cành Mê Cốc” trêu Vũ Nhuận; lần trêu đầu nhận buff ăn ké ánh sáng, thêm hiệu ứng chiếu sáng phạm vi nhỏ cho “Cành Mê Cốc”. Trêu “Vũ Nhuận” nhiều lần sẽ bị nó chửi.\nSau khi đưa “Vũ Nhuận” 1 “Lông Vũ Bảy Màu”, đảo phụ lớn của Động Thiên Tháp sẽ mở, người chơi lên đảo phụ trong tháp bình thường mà không bị đẩy ra.\n“Vũ Nhuận” sẽ chào người chơi chủ động lại gần, có thoại đặc biệt với “Anh Đào”, nhận trao đổi “anh đào” và “anh đào nướng” để lấy thẳng bản vẽ “Tượng Hợp Bích Bản Vẽ”.\n\nVào đêm trăng tròn, đưa cho “Vũ Nhuận” 1 quả “Bí Ngô” để đổi bản vẽ “Chổi Sâm Núi”. Ma pháp phương Tây, pháp thuật phương Đông, Quạ đều biết một chút!\n\n【Hành vi】\nNhận được quà quý thì ngẫu nhiên vào một trạng thái thưởng lãm, rồi cất quà và đáp lễ;\nLảng vảng gần “Tiểu Thạch Đàm” lẩm bẩm một mình;\nChủ động gõ cửa quấy Chu Nguyên;\nThèm món đang nấu trong nồi của người chơi (nhưng không trộm ăn);\nChập tối chủ động thêm nhiên liệu vào lửa trại giúp người chơi;\nNgồi xổm cạnh lửa trại sưởi ấm;\nLuyện pháp thuật gần “Tượng Bách Điểu Chầu Phượng”;\nCảnh giác sinh vật nguy hiểm, nhìn thấy được quái bóng tối và cảnh giác bỏ chạy.",
+   "zh": "\n【背景】\n洞天塔的原住民，会法术的小乌鸦。\n\n【特殊】\n对玩家的默认好感度为1，在“小石潭”附近建造“火坑”、“百鸟朝凤雕塑”可以提升其好感度，好感度最高为3。\n“羽润”可以接受玩家赠礼并进行回礼，好感度越高，回礼价值越高。\n给予下列物品后，“羽润”概率回礼：\n+ 各色宝石、羽毛、山海烧仙草\n给予下列物品后，“羽润”必定回礼：\n+ 龙鳞、熊皮、巨鹿眼球、犀牛角\n\n玩家可以使用“迷榖枝”恶搞羽润，首次恶搞获得沾光buff，为“迷榖枝”增加小范围光照效果，玩家多次恶搞“羽润”会被嘴臭。\n给予“羽润”1个“彩色羽毛”后，开放洞天塔大的附属岛屿，玩家可登正常陆塔内附岛，不会被排斥。\n“羽润”会与主动靠近的玩家打招呼，与“樱桃子”有特殊文本交互，可接受“樱桃”和“烤樱桃”交易，直接获取“合璧蓝图雕塑”的蓝图。\n\n在月圆之夜，给予“羽润”1个“南瓜”换取“山参扫把”蓝图。西方魔法，东方法术，鸦都会一点！\n\n【行为】\n收到贵重礼物后，会随机进入一种鉴赏状态，然后收走礼物并回礼；\n会在“小石潭”附近闲逛自言自语；\n会主动敲门骚扰朱源；\n嘴馋玩家锅里烹饪的食物（但不会偷吃）；\n傍晚时主动为玩家添加篝火的燃料;\n会蹲坐在篝火附近烤火；\n在“百鸟朝凤雕塑”附近练习法术；\n警惕危险生物，能够看到影怪，并警惕逃跑。\n\t",
+   "en": "\nBackground:\nA native of the Montfluv Tower, a small crowkid proficient in magic.\n\nSpecial:\nDefault affinity toward players is 1. Building a Fire Pit or Phoenix Statue near the Little Rocky Pond increases affinity (max 3). Yurun accepts gifts from players and will reciprocate. Higher affinity yields better rewards.\nRandom Rewards (Probability-Based):\nColored gems, feathers, or Montfluv Tea.\nGuaranteed Rewards:\nScales, Bearger Fur, Deerclops Eyeball, or Guardian's Horn.\n\nPlayers can prank Yurun with Migu Twig. First prank grants a Glow Buff (adds minor light effect to the Migu Twig). Repeated pranks trigger verbal retaliation.\nGifting 1 \"Colorful Feather\" unlocks the Montfluv Tower's attached island, allowing players to explore without being repelled.\nGreets approaching players. Unique dialogue with Wirlywings (trades cherry or cherry cooked for the \"Splicing Blueprint Sculpture\" blueprint).\n\nDuring a Full Moon, give Yurun 1 Pumpkin to obtain the blueprint. Western magic, Eastern magic, Crow all knows a little bit！\n\nBehavior:\nEnters a random appreciation state upon receiving rare gifts, then reciprocates.\nWanders near Little Rocky Pond, muttering to itself.\nHarasses Zhuyuan by knocking on his door.\nEyes players' cooking (but never steals).\nAdds fuel to campfires at dusk.\nRoasts itself near campfires.\nPractices magic near Phoenix Statue.\nFlees from hostile creatures and Shadow Creatures.\n\t"
+  },
+  "dsc_elderswampig": {
+   "vi": "【Bối cảnh】\nTrưởng lão của “Động Thiên Tháp tầng hai”; đưa vàng, Sương Sáo Sơn Hải hoặc Ấn Ký Câu Mang để mở trò cờ ca-rô.\n\nNếu trong 5 giây không có người chơi B tham gia, “Trưởng Lão Dị Vực” sẽ vào chơi; lúc này vật phẩm người chơi đưa quyết định độ khó: cục vàng (khó), Sương Sáo Sơn Hải (vừa), Ấn Ký Câu Mang (dễ).\n\n【Đặc biệt】\nNgười chơi A và B lần lượt nhận quân X và O, thứ tự đi trước sau là ngẫu nhiên.\n\nVán đấu kéo dài tối đa 1 phút; hết 1 phút chưa phân thắng bại thì kết thúc cưỡng bức.\nNgười thắng nhận thưởng, hoà hoặc thua thì không có; phần thưởng gửi thẳng vào ba lô.\n\nTỉ lệ hòm thưởng: cục vàng > Bản Vẽ Trụ Đá Biển = Bản Vẽ Tiểu Thạch Đàm = Bản Vẽ Bậc Đá Nhỏ = Bản Vẽ Cây Cỏ = Bản Vẽ Rong Nước > Tiền Mũi Heo = Thuốc Trường Sinh Bất Lão rỗng\n\nSau khi tải lại, bàn cờ và quân cờ đều biến mất.",
+   "zh": "\n【背景】\n“洞天塔二层”的长老，给予任意金子、山海烧仙草、句芒印记后开启井字棋小游戏。\n\n5秒内没有玩家B参与时，“异域长老”会加入游戏，此时玩家给予的道具会决定游戏难度，金块（困难）、山河烧仙草（中等）、句芒印记（简单）\n\n【特殊】\n玩家A和玩家B分别获得X和O棋子，随机先后手。\n\n游戏时长最多1分钟，1分钟未分胜负则强制结束游戏。\n获胜者将获得奖励，平局或者失败没有奖励，奖励直接发送到玩家背包。\n\n奖池概率：金块>海蚀柱蓝图=小石潭蓝图=小石阶蓝图=植物蓝图=水藻蓝图>猪鼻铸币=空的长生不老药\n \n重新加载游戏后，棋盘与棋子均会消失。\n\t",
+   "en": "\nBackground:\nThe Montfluv Tower minigame is initiated by offering the \"Elderpig\" any of the following items: Goldnuggets, Montfluv Tea, or the Goumang Fruit.\n\nIf no second player (Player B) joins within 5 seconds, the \"Elderpig\" will participate instead. The item offered by the player determines the game’s difficulty:\nGoldnugget → Hard\nMountain Blubbletea → Medium\nGoumang Fruit → Easy\n\nSpecial:\nPlayer A and Player B are assigned the markers X and O, respectively, with random Player moving first.\n\nThe game lasts up to 1 minute. If no winner is decided within the time limit, the game ends automatically.\n\nOnly the winner receives a reward, which is sent directly to their inventory. No reward is given for a draw or loss.\n\nReward pool probability (weighted):\n\nGold Nugget > Seastack Blueprint = Small Pond Blueprint = Small Stone Steps Blueprint = Plant Blueprint = Algae Blueprint > Empty Elixir of Longevity\n\nNote: After reloading the game, the game board and all pieces will disappear.\n\t"
+  },
+  "shanhai_zhuyan": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Tây Sơn Kinh》: Có thú ở đó, hình như vượn mà đầu trắng chân đỏ, tên là Chu Yếm, hễ thấy là có đại binh đao.\nXuất hiện ở Núi Tiểu Thứ gần ốc đảo; dùng cuốc nện Núi Tiểu Thứ 3 lần thì nó hiện ra.\n\n【Chiến đấu】\n30000 máu, 75 sát thương.\nBan đầu ở trạng thái phòng thủ, sát thương nhận vào giảm một nửa. Người chơi ăn “Thạch Sừng Dê Điện” rồi tấn công, hoặc thôi miên “Chu Yếm”, thì phá được phòng thủ.\nỞ trạng thái không phòng thủ, cứ qua 13 giây hoặc chịu 2000 sát thương thì “Chu Yếm” hồi lại trạng thái phòng thủ.\n\n【Kỹ năng Chu Yếm】\nĐấm móc, phóng vồ, triệu hồi (bầy khỉ, bầy chó, dơi, ma, nhện, dê điện, tinh cây), nện chuông (giảm tinh thần của người chơi trong phạm vi).\n\n【Chiến đấu - Giai đoạn 1】\nKhoá trạng thái phòng thủ, dùng đấm móc.\n【Chiến đấu - Giai đoạn 2】\nDưới 90% máu, dùng đấm móc 2 liên đòn và mở khoá kỹ năng triệu hồi.\n【Chiến đấu - Giai đoạn 3】\nDưới 80% máu, vào lại trạng thái phòng thủ.\n【Chiến đấu - Giai đoạn 4】\nDưới 50% máu, dùng đấm móc 4 liên đòn và mở khoá ma âm chuông.\n【Chiến đấu - Giai đoạn 5】\nDưới 25% máu, dùng đấm móc 999 liên đòn.\n\n【Đặc biệt】\n“Chu Yếm” chết rơi ra “Thịt Lớn”, “Linh Ngọc Huyền Hà”, “Sừng Chu Yếm”, “Chuông Chu Yếm”, “Thuốc Trường Sinh Bất Lão rỗng”.",
+   "zh": "\n【背景】\n《山海经·西山经》：有兽焉，其壮如猿而白首赤足，名曰朱厌，见则大兵。\n在绿洲附近的小次山出没，使用稿子敲击3次小次山后出现。\n\n【战斗】\n30000血量，75攻击力。\n初始为防御状态，受到的伤害减半。玩家食用“伏特羊角冻”进行攻击或是催眠“朱厌”后可使其破防。\n非防御状态下，每过13s或受到2000伤害后，“朱厌”恢复防御状态。\n\n【朱厌技能】\n勾拳、飞扑，召唤（猴群、狗群、蝙蝠、鬼魂、蜘蛛、电羊、树精），锤击铃铛（降低范围内玩家的san值）。\n\n【战斗-阶段1】\n锁定防御状态，使用勾拳攻击。\n【战斗-阶段2】\n90%血量后，使用勾拳2连击，并解锁召唤技能\n【战斗-阶段3】\n80%血量后，重新进入防御状态。\n【战斗-阶段4】\n50%血量后，使用勾拳4连击，并解锁铃铛魔音\n【战斗-阶段5】\n25%血量后，使用勾拳999连击。\n\n【特殊】\n“朱厌”死亡掉落“大肉”、“悬河灵玉”、“朱厌角”、“朱厌铃铛”、“空的长生不老药”。\n\t",
+   "en": "\nBackground:\n《山海经·西山经》：有兽焉，其壮如猿而白首赤足，名曰朱厌，见则大兵。洞天塔二层逃出的BOSS，通过翻找'稍大的土堆'概率发现。\nThis boss escaped from the second tier of the Montfluv Tower and can be encountered by investigating \"Larger Pile\".\n\nCombat:\nHP: 30,000 | ATK: 75\nDefensive Stance: Starts battle in this state, taking 50% reduced damage.\nBreak defense by attacking after consuming \"Volt Goat Chaud-Froid\" or hypnotizing Zhuyan.\nStance Reset: Returns to Defensive Stance every 13 seconds or after taking 2,000 damage in non-defensive state.\n\nAbilities:\nHook Punch (melee strike)\nLeaping Pounce (AOE knockback)\nSummon Minions (monkeys, hounds, bats, ghosts, spiders, Volt Goats, Treeguards)\nBell Strike (reduces sanity of players in range)\n\nPhases:\nPhase 1: Defensive Stance locked; uses Hook Punch.\nPhase 2 (90% HP): Unleashes Hook Punch Combo x2; gains Summon Minions.\nPhase 3 (80% HP): Re-enters Defensive Stance.\nPhase 4 (50% HP): Hook Punch Combo x4; activates Bell Strike.\nPhase 5 (25% HP): Hook Punch Combo x999 (rapid multi-hit barrage).\n\nSpecial:\nDrops Meats、Xuanhe Passport、Zhuyan's Horn、Zhuyan's Bell\n\t"
+  },
+  "kun_rider": {
+   "vi": "【Bối cảnh】\nSinh vật cổ xưa bị mắc kẹt trên “Đảo Long Mạch Côn Lôn”.\n\n【Đặc biệt】\nĐưa 1 “Lá Câu Mang” để nhận bản vẽ “Ấn Ký Câu Mang”.\nĐưa 1 “Ấn Ký Câu Mang” có 3% xác suất nhận 1 “Túi Krampus”.\nĐưa 1 “Ủng Đào Tẩu” để giúp “Côn Bằng” thoát khỏi ràng buộc của đảo, nhận “Bè Lá Nhỏ”.",
+   "zh": "\n【背景】\n被困在“昆仑龙脉岛屿”的古老生物。\n\n【特殊】\n给予1个“句芒叶”可以获取“句芒印记”蓝图。\n给予1个“句芒印记”有3%概率获取1个“坎普斯背包”。\n给予1个“出逃腿靴”可以帮助“鲲鹏”逃脱岛屿束缚，获取“小叶槎”。\n\t",
+   "en": "\nBackground:\nAn ancient entity trapped within the Kunlun Island.\n\nSpecial:\nOffering 1 \"Goumang's Fruit\" allows players to exchange it for 1 \"Krampus Sack\"(3%).\nOffering 1 \"Goumang's Leaf \" allows players to exchange it for 1 \"Goumang's Fruit Blueprint\".\n\t"
+  },
+  "sh_qinyuan": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Tây Thứ Tam Kinh》: Núi Côn Lôn, có chim ở đó, hình như ong, lớn bằng uyên ương, tên là Khâm Nguyên; chích chim thú thì chết, chích cây thì khô.\n\nNgười chơi chuột phải bằng “Ngòi Đuôi Rực Rỡ” để triệu hồi, và có thể chọc giận, xoa dịu, gọi về.\nSau khi “Khâm Nguyên” chết, ngòi đuôi cũng biến mất.\n\n【Chiến đấu】\nỞ độ khó mặc định: 3000 máu, đòn đánh có 30% xác suất chuyển thành phép lửa phạm vi 1 ô. Khi dưới 1000 máu, có 30% xác suất dùng phép tự hồi 500 máu.\n\n【Đặc biệt】\n“Khâm Nguyên” miễn nhiễm hoàn toàn sát thương Cà Sáng Chết Người, không tấn công người chơi, chủ động gây thù với quái gần đó.\n“Khâm Nguyên” vô chủ còn sót trong file cũ có thể thu hồi bằng “Dây Đỏ”.",
+   "zh": "\n【背景】\n《山海经·西次三经》：昆仑山，有鸟焉，其状如蜂，大如鸳鸯，名曰钦原，蠚鸟兽则死，蠚木则枯。\n\n玩家使用“辉煌尾刺”右键进行召唤，并可以激怒、平息、召回。\n“钦原”死亡后，尾刺也会消失。\n\n【战斗】\n默认难度配置下，3000血量，攻击有30%概率转为1格范围的火焰法术。低于1000血量时有30%概率使用法术恢复自身500血量。\n\n【特殊】\n“钦原”完全免疫亮茄伤害，不会攻击玩家，主动仇恨附近怪物。\n旧档存在的无主“钦原”可以通过“红绳”进行回收。\n\t",
+   "en": "\nBackground:\n《山海经·西次三经》：昆仑山，有鸟焉，其状如蜂，大如鸳鸯，名曰钦原，蠚鸟兽则死，蠚木则枯。\nPlayers can summon it by right-clicking with the \"Qinyuan's Stinger\" to cast a spell, and recall it using a Red Rope.\n\n[Combat]\nUnder default difficulty settings: 3,000 HP. Attacks have a 30% chance to turn into a flame spell with 1-tile range. When HP drops below 1,000, there is a 30% chance to heal itself for 500 HP.\n\n[Special]\nQin Yuan is fully immune to Deadly Brightshade, does not attack players, and actively targets nearby hostile creatures.\n\t"
+  },
+  "sh_paperbird": {
+   "vi": "【Bối cảnh】\n“Én Giấy” do “Chu Nguyên” dùng pháp thuật tạo ra, trên mình có chữ viết của bộ lạc người heo, chỉ đáp xuống khu Rừng Bạch Dương.\n\n【Đặc biệt】\nGiết “Én Giấy” sẽ rơi ra “Giấy Manh Mối”. Bắt được bằng “Bẫy Chim”, nuôi trong lồng chim; “Én Giấy” trong lồng không chết.\nDùng 1 “Bút Lông Vũ” tra khảo “Én Giấy” trong lồng thì nó nhả “Giấy Manh Mối”; cho thịt, cây trồng thì vẫn nhả trứng chim, hạt giống bình thường.\n\nSau khi bật mod “Uncompromising”, có thể không đưa được “Bút Lông Vũ” cho “Én Giấy” trong lồng; người chơi cứ khiếu nại đòi bồi thường thoải mái.",
+   "zh": "\n【背景】\n“朱源”使用法术制作的“纸燕”，身上写有猪人部落的文字，只会在桦树林区域降落。\n\n【特殊】\n杀死“纸燕”后掉落“线索纸”。可用“捕鸟陷阱”捕捉，养在鸟笼中，鸟笼中的“纸燕”不会死亡。\n鸟笼中的“纸燕”1个“羽毛笔”进行逼供可以掉落“线索纸”，给予肉、作物也可以正常掉落鸟蛋、种子。\n\n开启“永不妥协”MOD之后，可能会导致“羽毛笔”无法给予鸟笼中的“纸燕”，玩家可以合理进行理赔。\n\t",
+   "en": "\nBackground:\nPaper Swallows – origami avian constructs imbued with sorcery by Zhuyuan. Inscribed with pigmen tribal script, they only land in Deciduous Forest biomes.\n\nSpecial:\nKilling a Paper Swallow drops a RedPaper Clue. Capture with a Bird Trap; Paper Swallows in Birdcages do not perish.\nInterrogating caged ones with a Feather Pencil yields a RedPaper Clue. Offering meat/crops makes them drop eggs/seeds normally.\n\nEnabling the 'Uncompromising' Mod may block Feather Pencil interactions; players can file claims for compensation.\n\t"
+  },
+  "deepseacave_fish": {
+   "vi": "【Bối cảnh】\nCá chép trong “Đảo Động Thiên Tháp”, thỉnh thoảng xuất hiện ở vùng biển trong tháp, không tương tác được.\n\n【Đặc biệt】\nHiệu ứng hình ảnh của vân bề mặt và hoạt ảnh khá tệ nên mặc định không bật.\nMuốn xem thì vào màn hình cấu hình bật “Cá Chép Động Thiên”.",
+   "zh": "\n【背景】\n“洞天塔岛屿”中的锦鲤，在塔内的海洋区域不定期出现，无法交互。\n\n【特殊】\n贴图和动画的视觉效果很差，默认不放出。\n想要看可以在配置界面设置“洞天锦鲤”查看。\n\t",
+   "en": "\nBackground:\nKoi within the Montfluv Island appear sporadically in the tower's oceanic zones and remain non-interactive.\n\t"
+  },
+  "sh_fishspawner": {
+   "vi": "【Bối cảnh】\nĐàn cá nhỏ của “Động Thiên Tháp”, xuất hiện ở vùng biển ven bờ “Động Thiên Tháp”. Người chơi lại gần thì đàn cá bị doạ chạy, không tương tác được.\n\n【Đặc biệt】\nĐàn cá nhỏ không cản người chơi lát bến tàu.",
+   "zh": "\n【背景】\n“洞天塔”的小鱼群，在“洞天塔”岸边的海洋区域出现。玩家靠近时小鱼群会被吓跑，无法交互。\n\n【特殊】\n小鱼群不会阻挡玩家铺设码头。\n\t",
+   "en": "\nBackground:\nThe Minnow Shoals of Montfluv Tower appear in coastal waters near the tower's shore. They scatter when players approach and cannot be interacted with.\n\nSpecial:\nThe shoals do not obstruct players from constructing monkeydock.\n\t"
+  },
+  "shanhai_phoenix": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Nam Sơn Kinh》: Có chim ở đó, hình như gà, năm sắc mà có vân, tên là Phượng Hoàng; vân trên đầu là Đức, vân trên cánh là Nghĩa, vân trên lưng là Lễ, vân trước ngực là Nhân, vân dưới bụng là Tín. Chim ấy ăn uống tự nhiên, tự ca tự múa, hễ thấy là thiên hạ an ninh.\n\n【Đặc biệt】\nNgười chơi xây “Tượng Bách Điểu Chầu Phượng”, trang trí bằng lông vũ các màu (đỏ, vàng, xanh dương, trắng, xám, đen) thì sẽ triệu hồi “Ảnh Ảo Phượng Hoàng” ở gần đó. Ảnh ảo bay theo hướng ngẫu nhiên, dọc đường rơi ra “Lông Vũ Bảy Màu”, “Bản Vẽ Dục Hoả Trùng Sinh”.\n\n“Ảnh Ảo Phượng Hoàng” không xuất hiện ban đêm. Do thiết định đặc thù của “Động Thiên Tháp”, trong tháp chỉ có trứng phục sinh bách điểu chầu phượng chứ không sinh “Ảnh Ảo Phượng Hoàng”.",
+   "zh": "\n【背景】\n《山海经·南山经》：有鸟焉，其状如鸡，五采而文，名曰凤凰，首文曰德，翼文曰义，背文曰礼，膺文曰仁，腹文曰信。是鸟也，饮食自然，自歌自舞，见则天下安宁。\n\n【特殊】\n玩家建造“百鸟朝凤雕塑”，使用各色羽毛（红、黄、蓝、白、灰、黑）进行装饰后，会在附近召唤“凤凰虚影”。虚影会朝随机方向飞行，飞行途中掉落“彩色羽毛”、“浴火重生蓝图”。\n\n“凤凰虚影”不会在夜晚出现。由于“洞天塔”设定的特殊性，塔内只会有百鸟朝凤的彩蛋，不会生成“凤凰虚影”。\n\t",
+   "en": "\nBackground:\n《山海经·南山经》：有鸟焉，其状如鸡，五采而文，名曰凤凰，首文曰德，翼文曰义，背文曰礼，膺文曰仁，腹文曰信。是鸟也，饮食自然，自歌自舞，见则天下安宁。\n\nSpecial:\nWhen a player constructs the \"Phoenix Statue\" and adorns it with colored feathers (red, yellow, blue, white, gray, black), a Phoenix Shadow is summoned nearby. The shadow flies in random directions, dropping Colorful Feather and Rebirth Statue Blueprint during flight.\n\nThe Phoenix Shadow does not appear at night. Due to the Montfluv Tower's unique spatial rules, the statue within the tower only displays an Easter egg and cannot summon the shadow.\n\t"
+  },
+  "sh_migutree": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh》: Mê Cốc là loài cây, mọc trên núi Chiêu Diêu ở Tây Hải, hình dáng như cây dâu giấy, có vân đen, ánh sáng toả bốn phía, người đeo nó thì không lạc lối.\nLà cây mọc gần khu Ong Chúa lúc tạo thế giới.\n\n【Đặc biệt】\nMặc định cứ 10 ngày lớn 1 lần; lớn xong thì hái được “Cành Mê Cốc”. Phát sáng vào hoàng hôn và ban đêm.\nGiao dịch ở Cửa Hiệu Chu Nguyên để lấy bản vẽ, dùng “Cành Mê Cốc” và “Ấn Ký Câu Mang” để chế và di thực.",
+   "zh": "\n【背景】\n《山海经》：迷穀，木也，生於西海招搖山之上，其狀若構樹，有黑理焉，光華四照，人佩之而不迷。\n世界生成时，在蜂后区域附近生成的植株。\n\n【特殊】\n默认情况下，每10天长成1次，长成后采集获取“迷榖枝”。在黄昏和夜晚会发光。\n在朱源的小铺进行交易获取蓝图，使用“迷榖枝”和“句芒印记”制作进行移植。\n\t",
+   "en": "\nBackground:\n《山海经》：迷穀，木也，生於西海招搖山之上，其狀若構樹，有黑理焉，光華四照，人佩之而不迷。\nIn the game world, this plant spawns near the Bee Queen area during world generation.\n\nSpecial:\nBy default, it matures every 10 days. When harvested, it yields \"Migu Twig\". The plant emits light during dusk and night.\nDeal with Zhuyuan to obtain blueprint. Craft with Migu Twig and Goumang's Fruit to perform transplantation.\n\t"
+  },
+  "dsc_oceantree_pillar": {
+   "vi": "【Bối cảnh】\n“Đại Thụ Xoắn Vặn” mọc trong “Tiểu Thạch Đàm”, do “Vũ Nhuận” dùng pháp thuật thúc mọc; ngọn cây chui qua lỗ thủng trên nóc tháp để bịt kín chỗ hổng.\n\n【Đặc biệt】\n“Đại Thụ Xoắn Vặn” ở tầng hai tạm thời chưa tương tác được!!!\n\nBan đầu có 3 đến 4 dây leo, loại dây tuỳ theo độ khó của MOD.\n\nMọi tương tác của người chơi với “Đại Thụ Xoắn Vặn” đều dựa vào “Tiểu Thạch Đàm”.\nChế “Dây Giống Quả Tinh Thạch”, “Dây Giống Dâu Đêm”, “Dây Giống Trứng Chim Cao Cẳng” rồi thả vào “Tiểu Thạch Đàm” thì cây sẽ ký sinh loại dây tương ứng.\nBắt “Cua Phát Sáng” rồi thả vào “Tiểu Thạch Đàm”, nó sẽ làm tổ trên “Đại Thụ Xoắn Vặn” và cho buff nguồn sáng phạm vi nhỏ.",
+   "zh": "\n【背景】\n生长在“小石潭”中的“扭曲的大树”，由“羽润”使用法术催生而成，顶部从塔顶破洞长出，以堵住塔顶缺口。\n\n【特殊】\n二层“扭曲的大树”暂时无法交互！！！\n\n初始带有3到4根藤蔓，藤蔓的类型根据MOD难易程度而定。\n\n玩家与“扭曲的大树”的交互依托于“小石潭”。\n制作“晶洞果种藤”、“夜莓种藤”、“高脚鸟蛋种藤”投入“小石潭”后，可以寄生对应的藤蔓。\n捕捉“发光蟹”放生到“小石潭”后，“发光蟹”会在“扭曲的大树”上安家，并且给予小范围的光源buff。\n\t",
+   "en": "\nBackground:\nThe Twisted Tree growing in the Small Rocky Pond was cultivated through Yurun's magic. Its crown emerges from a breach in the tower's apex to seal the gap.\n\nSpecial:\nInitially bears 3-4 vines, with vine types determined by the MOD's selected difficulty level.\n\nAll player interactions with the Twisted Tree must be conducted via the Small Rocky Pond.\nCrafting a \"Ancientfruit Gem VineSeed\",\"Ancientfruit Nightvision VineSeed\", or \"Tallbird VineSeed\" and tossing it into the Small Rocky Pond will infest their corresponding vines onto the tree.\nCatching a \"Lightcrab\" and releasing it into the pond causes the creature to take residence in the Twisted Tree, granting a small-radius ambient light buff.\n\t"
+  },
+  "shanhai_goumang_plant": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Hải Ngoại Đông Kinh》: Câu Mang phương Đông, mình chim mặt người, cưỡi hai rồng. Tương truyền là thần Xuân, thần Mộc, thần phương Đông, thần Đông Hải, thần sao Mộc, cai quản việc sinh trưởng của cỏ cây.\nChủ yếu sinh ra trên “Đảo Long Mạch Côn Lôn”, trong “Động Thiên Tháp” có xác suất sinh ra.\n\n【Đặc biệt】\nKhông bị “Cà Sáng Chết Người” ký sinh, mùa hè sẽ héo. Hái thì được “Lá Câu Mang”, có xác suất được “Ấn Ký Câu Mang”.\nDi thực được; “Cây Câu Mang” sau khi di thực phải bón bằng “Tức Nhưỡng” mới lớn.\n\nNếu gần “Cây Câu Mang” không có “Đom Đóm”, nó sẽ sinh một con ở xung quanh, chu kỳ sinh là 3 ngày.",
+   "zh": "\n【背景】\n《山海经·海外东经》：东方勾芒，鸟身人面，乘两龙。传说中的春神、木神、东方之神、东海之神、木星之神，掌管草木的生长。\n主要生成在“昆仑龙脉岛屿”上，“洞天塔”内有概率生成。\n\n【特殊】\n不会被“亮茄”寄生，夏天会枯萎。采集时获取“句芒叶”，有概率获取“句芒印记”。\n可移植，移植后的“句芒植株”必须使用“息壤”进行施肥才能生长。\n\n如果“句芒植株”附近没有“萤火虫”，它会在周围生成一只，生成周期为3天。\n\t",
+   "en": "\nBackground:\n《山海经·海外东经》：东方勾芒，鸟身人面，乘两龙。传说中的春神、木神、东方之神、东海之神、木星之神，掌管草木的生长。\nFound predominantly upon the Kunlun Island, with rare emergence within the Montfluv Tower.\n\nSpecial:\nImmune to Deadly Brightshade parasitization. Withers in summer. Harvest yields Goumang's Leaf; chance to obtain Goumang's Fruit.\nTransplantable. Transplanted Goumang plant requires fertilization with Xirang to mature.\n\t"
+  },
+  "shanhai_shanshen_planted": {
+   "vi": "【Bối cảnh】\nPhân bố trên “Đảo Long Mạch Côn Lôn”, trong “Động Thiên Tháp” có xác suất sinh ra, “Khu Vực Ong Chúa” cũng có một cây.\n\n【Đặc biệt】\nNgười chơi hái bằng tay không sẽ sinh ra “Tinh Sâm Núi”, “Tinh Sâm Núi” chủ động bỏ chạy khỏi người chơi. Trói lại bằng “Dây Đỏ” rồi hái thì mới lấy được “Sâm Núi”.",
+   "zh": "\n【背景】\n分布在“昆仑龙脉岛屿”上，“洞天塔”内有概率生成，“蜂后区域”也会有一株。\n\n【特殊】\n玩家空手采集后生成“山参精”，“山参精”会主动逃离玩家。使用“红绳”束缚后，玩家采集可以获取“山参”。\n\t",
+   "en": "\nBackground:\nSpawns across the Kunlun Island, with rare generation inside the Montfluv Tower. One specimen also grows in the Bee Queen's domain.\n\nSpecial:\nHarvesting bare-handed spawns a Ginseng Spirit, which actively flees from players. Restrain it with a RedRope to safely harvest Ginseng.\n\t"
+  },
+  "shanhai_xirang": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Hải Nội Kinh》: Nước lụt ngập trời, Cổn trộm Tức Nhưỡng của Thượng Đế để lấp lụt, không đợi lệnh Đế; Đế sai Chúc Dung giết Cổn ở Vũ Giao. Bụng Cổn sinh ra Vũ, Đế bèn sai Vũ đắp đất mà định chín châu.\n\n【Đặc biệt】\nNgười chơi hái “Tức Nhưỡng” sẽ phá hỏng bến tàu xung quanh, và hiện ra 3 đến 5 con ma tấn công kẻ hái.",
+   "zh": "\n【背景】\n《山海经·海内经》：洪水滔天，鲧窃帝之息壤以堙洪水，不侍帝命，帝令祝融杀鲧于羽郊。鲧腹生禹，帝乃命禹率布土以定九州。\n\n【特殊】\n玩家采集“息壤”后会破坏周围码头，并出现3到5个鬼魂攻击采集者。\n\t",
+   "en": "\nBackground:\n《山海经·海内经》：洪水滔天，鲧窃帝之息壤以堙洪水，不侍帝命，帝令祝融杀鲧于羽郊。鲧腹生禹，帝乃命禹率布土以定九州。\n\nSpecial:\nHarvesting Xirang damages surrounding piers and triggers 3-5 vengeful spirits to assault the gatherer.\n\t"
+  },
+  "shanhai_ginkgo_tree": {
+   "vi": "【Bối cảnh】\nXuân sang lá non ửng hồng, thu muộn lá già vàng óng, thảy đều nên tranh.\n\n【Đặc biệt】\n4 giai đoạn sinh trưởng: nhỏ - vừa - lớn (xanh) - lớn (vàng); đốt cháy được, mùa đông sẽ đọng tuyết.\nChỉ khi chặt Cây Bạch Quả vàng mới rơi ra Bạch Quả, Lá Bạch Quả, Bướm Lá Bạch Quả.",
+   "zh": "\n【背景】\n春时新叶微红，秋深老叶金黄，皆成画境。\n\n【特殊】\n4个生长阶段：小-中-大（绿色）-大（金色），可被点燃、冬天会有落雪\n只有砍伐金色银杏树才会掉落银杏、银杏叶、杏叶蝶。\n\t",
+   "en": "\nBackground:\n春时新叶微红，秋深老叶金黄，皆成画境。\n\nSpecial:\n4 growth stages: Small - Medium - Large (Green) - Large (Golden), can be ignited, accumulates snow in winter.\nOnly chopping Golden Ginkgo Trees drops Ginkgo Nuts, Ginkgo Leaves, and Ginkgo Leaf Butterflies.\n\t"
+  },
+  "shanhai_ganoderma": {
+   "vi": "【Bối cảnh】\nTinh quái nấm suýt chút nữa thì thành tinh.\n\n【Đặc biệt】\nNgười chơi lại gần thì nó rụt xuống đất, rồi bật lên hất văng người chơi. “Linh Chi” đã di thực vào “Động Thiên Tháp” thì không tấn công người chơi.\nLinh Chi sau khi bị hái phải trải đủ 2 ngày mưa cộng dồn mới mọc lại.\nLinh Chi bị phá huỷ bằng bất kỳ cách nào, sau 30 ngày sẽ thử tái sinh một cây Linh Chi ở gần đó.",
+   "zh": "\n【背景】\n差一点点就成精的蘑菇精怪。\n\n【特殊】\n玩家靠近会缩地，然后弹起击飞玩家，移植到“洞天塔”中的“灵芝”不会攻击玩家。\n灵芝在被采集后，需要累计经历2天的雨水才会重新长出。\n灵芝在被任意方式摧毁30天后，会在附近尝试再生一株灵芝。\n\t",
+   "en": "\nBackground:\nA mushroom spirit on the cusp of gaining sentience.\n\nSpecial:\nWhen players approach, it burrows underground and launches them skyward. Transplanted \"Ganoderma\" in the Montfluv Tower do not attack. Classified as a renewable resource, but regenerates at a sluggish pace.\n\t"
+  },
+  "shanhai_mushroomguard2": {
+   "vi": "【Bối cảnh】\nDùng “Gạc Hươu” trồng xuống thì sinh ra “Nhung Hươu”, đào lại thì lấy về “Gạc Hươu”.\n\n【Đặc biệt】\nTrồng 3 “Nhung Hươu” theo hình dấu ? sẽ chuyển thành một cây “Linh Chi”.",
+   "zh": "\n【背景】\n用“鹿角”栽种生成“鹿茸”，可重新挖掘获取“鹿角”。\n\n【特殊】\n种植3个？形状的“鹿茸”会转为生成一株“灵芝”。\n\t",
+   "en": "\nBackground:\nPlanted Deer Antler. Re-dig to reclaim the Deer Antler.\n\nSpecial:\nPlanting three ?-shaped \"Deer Antler\" will transform them into a \"Ganoderma\".\n\t"
+  },
+  "sh_flower": {
+   "vi": "【Bối cảnh】\nKhoác giang ly cùng bích chỉ chừ, kết lan thu để làm đồ đeo. Cắt lá ấu sen làm áo chừ, gom phù dung để làm xiêm.\n\nCâu đố chữ: Đom đóm cỏ hoa đều dung chứa.",
+   "zh": "\n【背景】\n扈江离与辟芷兮，纫秋兰以为佩。制芰荷以为衣兮，集芙蓉以为裳。\n\n字谜：萤火芳菲皆可容。\n\t",
+   "en": "\nBackground:\n扈江离与辟芷兮，纫秋兰以为佩。制芰荷以为衣兮，集芙蓉以为裳。\n\nPuzzle: Fireflies and Fragrant Blossoms All Welcomed.\n\t"
+  },
+  "shanhai_orangefly": {
+   "vi": "【Bối cảnh】\nCon bướm nhìn bề ngoài giống lá bạch quả, xuất hiện sau khi chặt cây bạch quả, trồng xuống thì mọc ra hoa núi.",
+   "zh": "\n【背景】\n外表看起来像是银杏叶的蝴蝶，砍伐银杏树后出现，可栽种生成山花。\n\t",
+   "en": "\nBackground:\nA butterfly that resembles a ginkgo leaf in appearance. It appears after chopping down a ginkgo tree and can be planted to grow Montfluv flowers.\n\t"
+  },
+  "shanhai_flowervine": {
+   "vi": "【Bối cảnh】Dây leo dùng để trang trí.",
+   "zh": "\n【背景】装饰用的藤蔓。\n\t",
+   "en": "\nBackground:\nVines for decoration.\n\t"
+  },
+  "shanhaivine_moon": {
+   "vi": "【Bối cảnh】\nDây leo của “Đại Thụ Xoắn Vặn”, hái thì được Hoa Cây Trăng.",
+   "zh": "\n【背景】\n“扭曲的大树”的藤蔓，采集获取月树花。\n\t",
+   "en": "\nBackground: Vines on the Twisted Tree.\n\t"
+  },
+  "shanhaivine_gem": {
+   "vi": "【Bối cảnh】\nThả “Dây Giống Quả Tinh Thạch” vào “Tiểu Thạch Đàm”, hoặc ký sinh thẳng lên “Cây Dưới Nước”, thì sinh ra “Dây Quả Tinh Thạch”.\n\n【Đặc biệt】\nDùng dao cạo để cắt đứt dây leo.\nKý sinh nhiều lần không sinh thêm dây mới, mà nâng cấp dây sẵn có.",
+   "zh": "\n【背景】\n将“晶洞果种藤”投入“小石潭”，或者直接寄生到“水中木”上之后，生成“晶洞果藤”。\n\n【特殊】\n可使用剃刀割断藤蔓。\n多次寄生动作不会生成更多藤蔓，而是升级原有藤蔓。\n\t",
+   "en": "\nBackground:\nWhen Ancientfruit Gem Vine Seeds are placed into the Small Rocky Pond or parasitized onto Ocean/Water Trees, they grow into Ancientfruit Gem Vines.\n\nSpecial:\nCan use a Razor to cut through vines.\n\nPerforming the parasitic action multiple times does not generate additional vines, but rather upgrades the existing ones.\n\t"
+  },
+  "shanhaivine_night": {
+   "vi": "【Bối cảnh】\nThả “Dây Giống Dâu Đêm” vào “Tiểu Thạch Đàm”, hoặc ký sinh thẳng lên “Cây Dưới Nước”, thì sinh ra “Dây Dâu Đêm”.\n\n【Đặc biệt】\nDùng dao cạo để cắt đứt dây leo.\nKý sinh nhiều lần không sinh thêm dây mới, mà nâng cấp dây sẵn có.",
+   "zh": "\n【背景】\n将“夜莓种藤”投入“小石潭”，或者直接寄生到“水中木”上之后，生成“夜莓果藤”。\n\n【特殊】\n可使用剃刀割断藤蔓。\n多次寄生动作不会生成更多藤蔓，而是升级原有藤蔓。\n\t",
+   "en": "\nBackground:\nWhen Ancientfruit Nightvision Vine Seeds are placed into the Small Rocky Pond or parasitized onto Ocean/Water Trees, they grow into Ancientfruit Nightvision Vines.\n\nSpecial:\nCan use a Razor to cut through vines.\n\nPerforming the parasitic action multiple times does not generate additional vines, but rather upgrades the existing ones.\n\t"
+  },
+  "dsc_eggvine": {
+   "vi": "【Bối cảnh】\nThả “Dây Giống Trứng Chim Cao Cẳng” vào “Tiểu Thạch Đàm”, hoặc ký sinh thẳng lên “Cây Dưới Nước”, thì sinh ra “Dây Trứng Chim Cao Cẳng”.\n\n【Đặc biệt】\nDùng dao cạo để cắt đứt dây leo.\nKý sinh nhiều lần không sinh thêm dây mới, mà nâng cấp dây sẵn có.",
+   "zh": "\n【背景】\n将“高脚鸟蛋种藤”投入“小石潭”，或者直接寄生到“水中木”上之后，生成“高脚鸟蛋藤”。\n\n【特殊】\n可使用剃刀割断藤蔓。\n多次寄生动作不会生成更多藤蔓，而是升级原有藤蔓。\n\t",
+   "en": "\nBackground:\nWhen Tallbirdegg Seeds are placed into the Small Rocky Pond or parasitized onto Ocean/Water Trees, they grow into Tallbirdegg Vines.\n\nSpecial:\nCan use a Razor to cut through vines.\n\nPerforming the parasitic action multiple times does not generate additional vines, but rather upgrades the existing ones.\n\t"
+  },
+  "statue_chaofeng": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Nam Sơn Kinh》: Có chim ở đó, hình như gà, năm sắc mà có vân, tên là Phượng Hoàng; vân trên đầu là Đức, vân trên cánh là Nghĩa, vân trên lưng là Lễ, vân trước ngực là Nhân, vân dưới bụng là Tín. Chim ấy ăn uống tự nhiên, tự ca tự múa, hễ thấy là thiên hạ an ninh.\nGiao dịch lấy bản vẽ ở Cửa Hiệu Chu Nguyên. Tượng hồi tinh thần cho người chơi trong phạm vi nhỏ quanh nó.\n\n【Đặc biệt】\nTheo thiết định, sự kiện bách điểu chầu phượng không kích hoạt được trong tháp!\n\nTượng người chơi mới xây ở trạng thái bạc màu; trang trí bằng lông vũ đỏ (chim cổ đỏ), vàng (chim hoàng yến), trắng (chim cổ đỏ mùa đông), xanh dương (Malbatross), xám (Nai Ngỗng), đen (quạ) thì triệu hồi được “Ảnh Ảo Phượng Hoàng”. “Ảnh Ảo Phượng Hoàng” không sinh ra ban đêm; bám theo ảnh ảo thì nhặt được “Lông Vũ Bảy Màu”, “Bản Vẽ Tượng Dục Hoả Trùng Sinh”.\nSau khi trang trí đủ hết lông vũ, quanh tượng sẽ thỉnh thoảng kích hoạt trứng phục sinh bách điểu chầu phượng; lúc đó có 10~20 con chim ngẫu nhiên đáp xuống.\n\nXây gần “Tiểu Thạch Đàm” sẽ tăng thiện cảm của “Vũ Nhuận”; “Vũ Nhuận” sẽ luyện phép lửa quanh tượng.\n\nTượng xoay hướng được bằng “Kiếm Hàng Rào”.",
+   "zh": "\n【背景】\n《山海经·南山经》：有鸟焉，其状如鸡，五采而文，名曰凤凰，首文曰德，翼文曰义，背文曰礼，膺文曰仁，腹文曰信。是鸟也，饮食自然，自歌自舞，见则天下安宁。\n在朱源的小铺交易蓝图。雕塑附近小范围内恢复玩家san值。\n\n【特殊】\n按照设定，百鸟朝凤事件无法在塔内触发！\n\n玩家初始建造的雕塑为失色状态，使用红（罗宾）、黄（金丝雀）、白（冬季罗宾）、蓝（邪天翁）、灰（麋鹿鹅）、黑（乌鸦）羽毛进行装饰，可召唤“凤凰虚影”。“凤凰虚影”不会在夜晚生成，追踪虚影可以捡取“彩色羽毛”、“浴火重生雕塑蓝图”。\n全部羽毛装饰完成后，在雕塑附近不定期性触发百鸟朝凤彩蛋，触发时降落10~20只随机鸟类。\n\n在“小石潭”附近建造可以提升“羽润”好感度，“羽润”会在雕塑附近练习火焰法术。\n\n雕塑可以被“栅栏击剑”转向。\n\t",
+   "en": "\nBackground:\n《山海经·南山经》：有鸟焉，其状如鸡，五采而文，名曰凤凰，首文曰德，翼文曰义，背文曰礼，膺文曰仁，腹文曰信。是鸟也，饮食自然，自歌自舞，见则天下安宁。\nSculptures restore player Sanity within a small radius.\n\nSpecial:\nInitial State: Newly constructed sculptures are Faded. Decorate them with specific feathers to summon a Phoenix Shadow:\nRed Feather (from Robins)\nYellow Feather (from Canaries)\nWhite Feather (from Winter Robins)\nBlue Feather (from Malbatross)\nGray Feather (from Moose/Goose)\nBlack Feather (from Crows)\nPhoenix Shadow spawns only during daytime, flying randomly and dropping Colorful Feather and Rebirth Statue Blueprint. Cannot be attacked; players must track its path to collect drops.\n\nEaster Egg Trigger:\nFully decorated sculptures periodically summon a \"Hundred Birds Homage\" event, attracting 10-20 random birds around the sculpture.\n\nAdditional Interactions:\nBuilding near a Small Rocky Pond boosts affinity with the NPC Yurun, triggering its fire spell practice animations (non-damaging).\nUse Fencing Sword to rotate the sculpture, altering the phantom’s initial flight direction.\n\t"
+  },
+  "statue_zhulong": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Đại Hoang Bắc Kinh》: Ngoài biển tây bắc, phía bắc Xích Thuỷ, có núi Chương Vĩ. Có vị thần, mặt người mình rắn mà đỏ, mắt dọc thẳng hàng; hễ nhắm mắt là tối, mở mắt là sáng; không ăn không ngủ không nghỉ, gió mưa đều theo. Ấy là Chúc Cửu Âm, ấy là Chúc Long.\nGiao dịch ở Cửa Hiệu Chu Nguyên để nhận bản vẽ. “Tượng Chúc Long Hối Sóc” xây ra là độc nhất thế giới, và chỉ xây được trên đất liền.\n\n【Đặc biệt】\n“Tượng Chúc Long Hối Sóc” của “Pháp Trận Chúc Long” trên “Đảo Long Mạch Côn Lôn” ở trạng thái bạc màu, sẽ gợi ý hoặc chế nhạo người chơi giải mã thất bại. Tượng người chơi xây từ bản vẽ thì có đủ màu.\n\nTượng do người chơi xây sẽ đổi theo thời gian thế giới: mắt mở thì thế giới sang ngày, mắt nhắm thì thế giới vào đêm. Đặt vật phẩm chỉ định lên móng Chúc Long, tế xong thì điều khiển được trạng thái ngày, hoàng hôn, đêm.\nTrạng thái thời gian hiện tại xem được ở cửa sổ nhỏ, chỉ cần phóng to lên tí xíu thôi...\n\n'Ấn Ký Câu Mang'   —— ngày đêm phân minh 【mặc định】\n'Mắt Trăng Vàng'    —— chỉ có ban ngày\n'Mắt Trăng Cam'     —— chỉ có hoàng hôn\n'Mắt Trăng Tím'     —— chỉ có ban đêm\n'Linh Chi Ướp Lạnh'  —— hoàng hôn cực dài\n'Gà Hầm Sâm Tỏi'    —— đêm cực dài 【món chưa làm, tạm dùng Mắt Trăng Xanh thay】\n'Sương Sáo Sơn Hải'  —— ngày cực dài\n'Súp Mandrake'      —— không có ban ngày\n'Trà Thư Giãn'      —— không có hoàng hôn\n'Thịt Hầm Ớt'       —— không có ban đêm",
+   "zh": "\n【背景】\n《山海经·大荒北经》：西北海之外，赤水之北，有章尾山。有神，人面蛇身而赤，直目正乘，其瞑乃晦，其视乃明，不食不寝不息，风雨是谒。是烛九阴，是烛龙。\n在朱源的小铺进行交易掉落蓝图。建造的“烛龙晦朔雕塑”世界唯一，且只能在地上建造。\n\n【特殊】\n“昆仑龙脉岛屿”上“烛龙法阵”的“烛龙晦朔雕塑”为失色状态，会对解密失败的玩家给予一定提示或是嘲讽。玩家通过蓝图建造的雕塑拥有完整颜色。\n\n由玩家建造的“烛龙晦朔雕塑”会根据世界时间变换，眼睛睁开世界进入天亮，眼睛闭合世界进入黑夜。在烛龙爪上放置指定物品，献祭后控制白天、黄昏、黑夜状态。\n当前世界的时间状态可在小窗口中查看，只需要放大亿点点...\n\n'句芒印记'   ——昼夜分明 【默认】\n'黄色月眼'   ——只有白天\n'橙色月眼'   ——只有黄昏\n'紫色月眼'   ——只有黑夜\n'芝上谈冰'   ——极长黄昏\n'参鸡妙蒜'   ——极长黑夜 【料理未实现，可使用蓝色月眼代替】\n'山海烧仙草'  ——极长白天\n'曼德拉草汤'  ——没有白天\n'舒缓茶'     ——没有黄昏\n'辣椒炖肉'   ——没有黑夜\n\t",
+   "en": "\nBackground:\n《山海经·大荒北经》：西北海之外，赤水之北，有章尾山。有神，人面蛇身而赤，直目正乘，其瞑乃晦，其视乃明，不食不寝不息，风雨是谒。是烛九阴，是烛龙。\nDeal with Zhuyuan to get this blueprint. The \"Dragon Statue\" is world-unique and can only be built on the ground.\n\nSpecial:\nThe sculpture on the Kunlun Island (part of Zhulong's Sigil Array) remains \"Faded,\" giving cryptic hints or mocking players who fail decryption. Player-built sculptures are fully colored.\n\nTime Control:\nThe sculpture's eyes open at dawn (daytime starts) and close at dusk (nighttime begins). Place specific offerings on its claws to manipulate time:\n\"Goumang's Fruit\" — Default day/night cycle.\n\"Yellow MoonEye\" — Permanent daytime.\n\"Orange MoonEye\" — Permanent dusk.\n\"Purple MoonEye\" — Permanent night.\n\"Garnodema Ice\"  — Extended dusk.\n\"Ginseng-Chicken Garlic\" — Extended night (unimplemented; use Blue MoonEye temporarily).\n\"Montfluv Tea\"\t — Extended daytime.\n\"Mandrake Soup\"  — No daytime.\n\"Soothing Tea\" \t — No dusk.\n\"Spicy Chili\" \t — No night.\nUI Indicator: Current time state is shown in a tiny window.\n\t"
+  },
+  "statue_niepan": {
+   "vi": "【Bối cảnh】\nTượng mang thần lực phượng hoàng. Bám theo “Ảnh Ảo Phượng Hoàng” để nhận bản vẽ này. Tượng là nguồn nhiệt; người chơi ở trạng thái hồn ma có thể ám “Tượng Dục Hoả Trùng Sinh” để hồi sinh.\n\n【Đặc biệt】\nVật phẩm bỏ vào “Tượng Dục Hoả Trùng Sinh” sẽ ngừng hư hỏng.\nĐặt đồ rơi của một số sinh vật vào rồi châm lửa thì hồi sinh được sinh vật tương ứng.\n\nCác món “Tượng Dục Hoả Trùng Sinh” nhận:\n+ Lông Nai Ngỗng, Vảy Rồng, Da Gấu Ma, Nhãn Cầu\n+ Túi Krampus (Krampus), Sừng Nai (Klaus)\n+ Mảnh Khai Sáng (Thiên Thể Anh Hùng), Lư Hương Bóng Tối (Kẻ Dệt Bóng Cổ Đại)\n+ Sừng Vệ Binh, Lông Malbatross, Vương Miện Ong Chúa, Mũ Nhện\n+ Ủng Đào Tẩu, Chất Trắng Sữa, Da Nấm Cóc\n+ Răng Chó, Áo Răng Chó (Sói Chúa), Quả Mọng Phát Sáng (Sâu Hang)\n+ Lông vũ các màu, Đuôi Mèo, Sừng Bò, Sừng Dê, Cánh Bướm\n+ Gỗ Sống, Da Heo, Lông Thỏ, Cá (Người Cá), Vòi Voi, Gạc Hươu\n+ Hoa Glommer, Da Kẻ Hút, Sừng Kỳ Lân Biển\n+ Bánh Răng (Hiệp Sĩ Dây Cót), Da Xúc Tu, Ngà Hải Mã\n+ Thanh Long (Kỳ Nhông Dung Nham), Quả Ruồi Giấm Thân Thiện\n+ Mũ Mai (Rùa Sên), Giáp Vỏ Ốc (Ốc Rùa)\n+ Đùi Chim (Gà Tây), Nấm Trăng (Yêu Tinh Nấm), Túi Máu Muỗi (Muỗi)\n+ Lỗ Mũi Trần (Dơi Chuột Chũi), Đùi Ếch, Bông Thép, Sâu Dung Nham Đông Lạnh\n+ Trứng Chim Cao Cẳng, Tôm Hùm Chết, Mũ Chuột Chũi\n+ Giấy Manh Mối, Sừng Chu Yếm, Ấn Ký Câu Mang (Cây Câu Mang), Linh Chi, Sâm Núi",
+   "zh": "\n【背景】\n拥有凤凰神力的雕塑。追踪“凤凰虚影”得到该蓝图。雕塑为热源，鬼魂状态下的玩家可作祟“浴火重生雕塑”进行复活。\n\n【特殊】\n放入“浴火重生雕塑”的物品会停止腐烂。\n放置部分生物的掉落物，点燃后复活对应生物，可用于复活生物。\n\n浴火重生雕塑可接受的物品：\n+ 麋鹿鹅毛、龙鳞、熊皮、眼球\n+ 坎普斯背包（坎普斯）、麋鹿茸（克劳斯）\n+ 启迪碎片（天体英雄）、暗影香炉（远古织影者）\n+ 犀牛角、邪天翁羽毛、蜂王冠、蜘蛛帽\n+ 出逃腿靴、乳白物、蟾蜍皮\n+ 犬牙、犬牙背心（座狼）、发光浆果（洞穴蠕虫）\n+ 各色羽毛、猫尾、牛角、羊角、蝴蝶翅膀\n+ 活木、猪皮、兔毛、鱼（鱼人）、象鼻、鹿角\n+ 格罗姆花、啜食者皮、一角鲸的角\n+ 齿轮（发条骑士）、触手皮、海象牙\n+ 火龙果（蝾螈）、友好果蝇果\n+ 背壳头盔（蛞蝓龟）、蜗壳护甲（蜗牛龟）\n+ 鸟腿（火鸡）、月亮蘑菇（蘑菇地精）、蚊子血囊（蚊子）\n+ 裸露鼻孔（裸鼹蝠）、蛙腿、钢丝棉、冰冻的岩浆虫\n+ 高脚鸟蛋、死龙虾、鼹鼠帽\n+ 线索纸、朱厌角、句芒印记（句芒植株）、灵芝、山参\n\t",
+   "en": "\nBackground:\nA sculpture imbued with phoenix divinity. Its blueprint is obtained by tracking the Phoenix Shadow. Acts as a heat source. Ghost players can haunt the Rebirth Statue to revive themselves.\n\nSpecial:\nPlace a creature's dropped item inside and ignite it to revive the corresponding creature (e.g., Beefalo).\n\nItems stored within the sculpture halt spoilage indefinitely.\n\t"
+  },
+  "statue_eatmoon": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Tây Sơn Kinh》: (Núi Âm) sông Trọc Dục chảy ra từ đó, xuôi nam đổ vào đầm Phiên. Trong đó nhiều văn bối; có thú ở đó, gọi là Thiên Cẩu, hình như con li mà đầu trắng, tiếng kêu như “lựu lựu”, có thể chống điềm dữ.\nGiao dịch ở Cửa Hiệu Chu Nguyên để nhận bản vẽ.\n\n【Đặc biệt】\nSau khi đưa “Đá Xanh Dương”, Thiên Cẩu sẽ mở mắt.\n\nĐúng ngày trăng tròn, Thiên Cẩu đang mở mắt sẽ biến mất, đêm đó kích hoạt trứng phục sinh “Thiên Cẩu Nuốt Trăng”. Tượng đã được cho Cầu Thiên Thể thì không mở sự kiện nuốt trăng.\n\nSau khi sự kiện nuốt trăng hoàn tất, đêm đó tuần trăng chuyển thành trăng non, tượng biến thành nguồn sáng phạm vi 3.\nTượng sẽ có 1 ô chứa đồ, nhưng chỉ bỏ được Cầu Thiên Thể. Cho Cầu Thiên Thể thì mở rộng nguồn sáng lên 7; Cầu Thiên Thể đã nâng cấp thì mở rộng lên 13.\nSau khi cho Cầu Thiên Thể, người chơi lại gần tượng là mở khoá được công nghệ Cầu Thiên Thể.\n\nDùng “Nguyệt Truỵ” thi pháp sẽ cắt được sự kiện nuốt trăng; lúc đó năng lượng thiên thể thắng thế và nhập vào Thiên Cẩu, quanh tượng sẽ rơi ra “Sói Chúa Bị Ám”.",
+   "zh": "\n【背景】\n《山海经·西山经》：（阴山）浊浴之水出焉，而南流于番泽。其中多文贝，有兽焉，曰天狗，其状如狸而白首，其音如榴榴，可以御凶。\n在朱源的小铺进行交易掉落蓝图。\n\n【特殊】\n给予“蓝宝石”后，天狗会睁开眼睛。\n\n在月圆的当天，睁开眼睛的天狗会消失，当晚触发“天狗食月”彩蛋。已经给予了天体宝球的雕塑不会开启食月事件。\n\n食月事件完成后，当晚月相变为新月，雕塑变为范围3的光源。\n雕塑将拥有1个储物空间，但只可以放天体宝球。给予天体宝球可以扩大光源范围到7，升级后的天体宝球扩大光源范围到13。\n给予天体宝球后，玩家可以靠近雕塑解锁天体宝球科技。\n\n使用“月坠”施法可以打断食月事件，此时天体能量战胜并附身天狗，在雕塑附近会掉落“附身座狼”。\n\t",
+   "en": "\nBackground:\n《山海经·西山经》：（阴山）浊浴之水出焉，而南流于番泽。其中多文贝，有兽焉，曰天狗，其状如狸而白首，其音如榴榴，可以御凶。\nDeal with Zhuyuan to get this blueprint.\n\nSpecial:\nOffer Bluegem to the Eatmoon Statue statue to make its eyes open.\n\nOn the night of a Full Moon, awakened statues vanish and trigger the \"Hound Devours Moon\" event. Sculptures that have been given a Celestial Orb will not trigger the Eclipse event.\n\nOnce the event is successfully completed, the moon phase changes to New Moon immediately, and the statue becomes a light source with a range of 3.\n\nThe statue will gain 1 storage slot, but it can only hold Celestial Orbs. Giving it a Celestial Orb will expand the light radius to 7, and giving an upgraded Celestial Orb will increase the radius to 13.\n\nAfter placing a Celestial Orb, players can approach the statue to unlock Celestial Orb-related technology.\n\nCasting Moonfall on the statue interrupts the Devouring event. This causes celestial energy to overcome and possess the hound, causing a Possessed Warg to spawn near the statue.\n\t"
+  },
+  "sh_cherrystatue": {
+   "vi": "【Bối cảnh】\nTượng liên quan tới “Rừng Anh Đào”.\n\n【Đặc biệt】\nGiao dịch ở Cửa Hiệu Chu Nguyên để nhận bản vẽ.\nĐể kỷ niệm tình bạn giữa các tiểu quái vật, và cảm ơn ADM — tác giả Rừng Anh Đào — đã giúp đỡ.",
+   "zh": "\n【背景】\n“樱花林”相关的雕塑。\n\n【特殊】\n在朱源的小铺进行交易掉落蓝图。\n纪念小怪物之间的友谊，感谢樱花林作者ADM的帮助。\n\t",
+   "en": "\nBackground:\nSculptures tied to the Cherry Forest.\n\nSpecial:\nUnwrapping Goumang's Fruit has a chance to yield their blueprints. Commemorates the camaraderie among minor creatures. With gratitude for ADM — the author of Cherry Forest.\n\t"
+  },
+  "sh_seasonaquarium": {
+   "vi": "【Bối cảnh】\nCông trình mang thần lực Chúc Long, chế gần Máy Giả Kim.\n\n【Đặc biệt】\nCho cá đúng mùa vào thì giảm được áp lực mùa vụ cho cây trồng gần đó.\nCá Ngừ Vây Hoa【Xuân】, Cá Mặt Trời Nóng Rực【Hạ】\nCá Bơn Lá Rụng【Thu】,  Cá Tráp Băng【Đông】\nCho lươn sống vào thì dùng được như cột thu lôi.\n\nVí dụ: ớt ưa thu và hạ; bỏ Cá Mặt Trời vào bể cá sẽ giảm áp lực mùa vụ khi trồng ớt giữa mùa đông.\n\nCây trồng của các MOD tương thích:\n+ Quả bầu của 神话书说 (Thần Thoại Thư Thuyết)\n+ Địa y của 棱镜 (Lăng Kính)\n+ Bao quả, quả bất hủ của 勋章 (Huân Chương)\n+ Xoài, nho của 海洋传说 (Hải Dương Truyền Thuyết)\n+ Vải của 荔只只物语\n+ Cây trồng của 丰耘秘境",
+   "zh": "\n【背景】\n拥有烛龙神力的建筑，靠近炼金引擎制作。\n\n【特殊】\n给予时令鱼，可以缓解附近的作物的季节压力。\n花朵金枪鱼【春】、炽热太阳鱼【夏】\n落叶比目鱼【秋】、  冰雕鱼 【冬】\n给予活鳗鱼，可以当作避雷针使用。\n\n举例：辣椒喜爱秋夏，在鱼囿中放置太阳鱼，能缓解冬季种植辣椒的季节压力。\n\n兼容MOD作物：\n+ 神话书说的葫芦\n+ 棱镜的松萝\n+ 勋章的包果、不朽果实\n+ 海洋传说的芒果、葡萄\n+ 荔只只物语的荔枝\n+ 丰耘秘境的作物\n\t",
+   "en": "\nBackground:\nA structure imbued with the divine power of Zhulong (Candle Dragon). Craftable near the Alchemy Engine, it protects nearby crops from seasonal stress.\n\n[Special]\nOffer seasonal fish to shield crops from corresponding seasonal pressures:\nBloomfin Tuna [Spring], \tScorching Sunfish [Summer]\nFallounder [Autumn], \t\tIce Bream [Winter]\nHand it a live eel, and it'll work as a lightning rod.\n\t"
+  },
+  "deepseacave_pighouse": {
+   "vi": "【Bối cảnh】\nCư dân bản địa của “Động Thiên Tháp”.\n\n【Đặc biệt】\nNgười chơi hoặc “Vũ Nhuận” có thể gõ cửa nhà Chu Nguyên; gõ xong “Chu Nguyên” sẽ thò đầu ra doạ.\nNhét “Tiền Mũi Heo” vào “Nhà Nhỏ Của Chu Nguyên” thì nhận được vật phẩm “Vân Khai”.\n\nXây một cái nồi gần “Nhà Nhỏ Của Chu Nguyên”, nấu Súp Thịt Hầm trong nồi và đừng lấy ra. Chế rồi bật “Quạt Nhỏ”, mùi thịt thơm sẽ dụ Chu Nguyên ra khỏi nhà.\nSự kiện này chỉ cần kích hoạt một lần, sau đó Chu Nguyên sẽ tự ra ngoài thám hiểm vĩnh viễn.",
+   "zh": "\n【背景】\n“洞天塔”的原住民。\n\n【特殊】\n玩家或者“羽润”可以敲朱源的小屋门，敲门后“朱源”会探头进行恐吓。\n将“猪鼻铸币”塞进“朱源的小屋”可以获取道具“云开”。\n\n在“朱源的小屋”附近建造一口锅，锅内制作料理炖肉汤，不要取走。制作并打开“小风扇”，肉香味会吸引朱源出门。\n事件只需要触发一次，朱源就能自行永久出门探索。\n\t",
+   "en": "\nBackground:\nThe native inhabitants of Montfluv Tower.\n\nSpecial:\nPlayers or Yurun may knock on Zhuyuan's cabin door. After knocking, Zhuyuan will peer out to intimidate. \nInserting a Pig Coin into Zhuyuan's House grants the item \"Cloud Move\".\n\nBuild a Cooking Pot near \"Zhuyuan’s shop\", cook a serving of Meat Stew in it, and do not take it out. Then craft and activate a \"Small Fan\"—the aroma of the stew will lure Zhuyuan outside.\nThis event only needs to be triggered once; afterward, Zhuyuan will permanently venture out on his own.\n\t"
+  },
+  "dsc_pig_shop": {
+   "vi": "【Bối cảnh】\nCửa hiệu để giao dịch với Chu Nguyên, mở khoá sau khi đưa cho “Chu Nguyên” 1 phần “Linh Chi Ướp Lạnh”.",
+   "zh": "\n【背景】\n与朱源进行交易的商铺，给予“朱源”1个“芝上谈冰”后解锁。\n\t",
+   "en": "\nBackground:\nA shop for trading with Zhuyuan, unlocked after giving Zhuyuan 1 Garnodema Ice.\n\t"
+  },
+  "shanhai_shellchest": {
+   "vi": "【Bối cảnh】\nRương làm bằng vỏ sò, không gian bên trong 3*4, chống cháy 100%.",
+   "zh": "\n【背景】\n贝壳做的箱子，3*4的内部空间，100%防火。\n\t",
+   "en": "\nBackground:\nA chest made of seashells. 3x4 internal storage grid, 100% fireproof.\n\t"
+  },
+  "shanhai_hiddencellar_use": {
+   "vi": "【Bối cảnh】\nRương làm bằng đá, không gian bên trong 3*4, chống cháy 100%.",
+   "zh": "\n【背景】\n石头做的箱子，3*4的内部空间，100%防火。\n\t",
+   "en": "\nBackground:\nA chest made of stones. 3x4 internal storage grid, 100% fireproof.\n\t"
+  },
+  "sh_rock_1": {
+   "vi": "【Bối cảnh】Hòn non bộ để ngắm.",
+   "zh": "\n【背景】观赏用的石景。\n\t",
+   "en": "\nBackground: A decorative stone landscape.\n\t"
+  },
+  "sh_basefan": {
+   "vi": "【Bối cảnh】Quạt nhỏ đến từ Hamlet.\n\n【Đặc biệt】\nXây một cái nồi gần “Nhà Nhỏ Của Chu Nguyên”, nấu Súp Thịt Hầm trong nồi và đừng lấy ra. Chế rồi bật “Quạt Nhỏ”, mùi thịt thơm sẽ dụ Chu Nguyên ra khỏi nhà.\nSự kiện này chỉ cần kích hoạt một lần, sau đó Chu Nguyên sẽ tự ra ngoài thám hiểm vĩnh viễn.",
+   "zh": "\n【背景】来自哈姆雷特的小风扇。\n\n【特殊】\n在“朱源的小屋”附近建造一口锅，锅内制作料理炖肉汤，不要取走。制作并打开“小风扇”，肉香味会吸引朱源出门。\n事件只需要触发一次，朱源就能自行永久出门探索。\n\t",
+   "en": "\nSpecial:\nBuild a Cooking Pot near \"Zhuyuan’s shop\", cook a serving of Meat Stew in it, and do not take it out. Then craft and activate a \"Small Fan\"—the aroma of the stew will lure Zhuyuan outside.\nThis event only needs to be triggered once; afterward, Zhuyuan will permanently venture out on his own.\n\t"
+  },
+  "sh_ironopenwork_base": {
+   "vi": "【Bối cảnh】\nMón đồ nhỏ tạo không khí dịp Tết.\n\n【Đặc biệt】\nKích hoạt xong thì bắn ra hạt pháo hoa nhỏ, kéo dài 18 giây; trong lúc đó có 3 lần xét, mỗi lần có 0,5% xác suất thành công, phun ra 3~5 phần thưởng.\nTrong dịp Đại Tiệc Mùa Đông, xác suất xét tăng lên 1%.\nDùng đủ 5 lần thì vật phẩm biến mất.\nTỉ lệ thưởng: cục vàng > đá đỏ = đá xanh dương = Tiền Mũi Heo > đá cam = đá vàng > đá lục = đá tím = Thuốc Trường Sinh Bất Lão rỗng.",
+   "zh": "\n【背景】\n过年期间的气氛小物件。\n\n【特殊】\n激活后发射小烟花粒子，持续18秒，期间会进行3次判定，每次都有0.5%的概率判定成功，喷发3~5个奖励。\n冬季盛宴期间，判定概率增长到1%。\n使用5次后，道具消失。\n奖励概率：金块>红宝石=蓝宝石=猪鼻铸币>橙宝石=黄宝石>绿宝石=紫宝石=空的长生不老药。\n\t",
+   "en": "\nBackground:\nA festive decorative item for the New Year period.\n\nSpecial:\nWhen activated, it shoots out small firework particles for 18 seconds. During this time, there are 3 probability checks, each with a 0.5% chance of success. It'll vanish after 5 uses. If successful, it erupts with 3–5 rewards.\n\nDuring the Winter’s Feast event, the success rate increases to 1% per check.\n\t"
+  },
+  "sh_seanest": {
+   "vi": "【Bối cảnh】\nTác giả muốn dựng 1 Cọc Vẹm ở bờ biển, nhưng vùng biển này chỉ có hà biển với mòng biển!\nChế gần Máy Giả Kim, chỉ xây được ở bờ biển.\n\n【Đặc biệt】\nSau khi người chơi xây, trên đỉnh “Tổ Chim Biển” sẽ ngẫu nhiên đáp xuống “Mòng Biển” hoặc “Chim Hải Âu Cổ Rụt”. Cây cọc định kỳ sinh ra “Hà Biển”; người chơi lại gần cây cọc hái được thì chim biển sẽ kêu.\nLúc hái có xác suất rơi ra “Lông Vũ Trắng”, “Lông Vũ Đen” hoặc “Trứng Chim”.",
+   "zh": "\n【背景】\n威吊想在海边做1个贻贝杆，但是这片海域只有藤壶和海鸥！\n靠近炼金引擎制作，只可建造在海边。\n\n【特殊】\n玩家建造后，“海鸟巢”顶部会随机落下“海鸥”或“海鹦鹉”。周期性生成“藤壶”，玩家靠近可采集的柱子时海鸟会鸣叫。\n采集时概率掉落“白色羽毛”、“黑色羽毛”或“鸟蛋”。\n\t",
+   "en": "\nBackground:\nWilson wanted to build a mussel rod by the seaside, but this area only has barnacles and seagulls!\nCraftable near the Alchemy Engine, and can only be constructed near the ocean.\n\n[Special]\nAfter construction, the \"Seagull Nest\" randomly spawns either \"Seagulls\" or \"Sea Parrots\" on its top. Periodically generates \"Barnacles\" on the pillar, and seabirds will chirp when players approach the harvestable pillar.\nHarvesting has a chance to drop \"White Feathers\" (from seagulls), \"Black Feathers\" (from sea parrots), or \"Bird Egg\".\n\t"
+  },
+  "shanhai_ginkgoleave_ground": {
+   "vi": "【Bối cảnh】\nĐồ trang trí làm từ lá bạch quả, đặt trên mặt đất, dùng xẻng xúc đi được.",
+   "zh": "\n【背景】\n银杏叶制作的装饰，放置在地面，可用铲子铲除。\n\t",
+   "en": "\nBackground:\nCraftable Decoration. Placeable on the ground. Can be removed by digging.\n\t"
+  },
+  "deepseacave": {
+   "vi": "【Bối cảnh】\nPháp khí trấn áp dị thú, do Chu Nguyên và Vũ Nhuận trông giữ. Sau khi mảnh thiên thể rơi xuống, nóc tháp bị đập thủng một lỗ, khiến dị thú bị phong ấn ở tầng hai trong tháp bắt đầu manh động...\n\n【Cách lấy】\nBắt “Én Giấy” ở khu Rừng Bạch Dương, giết nó hoặc dùng “Bút Lông Vũ” tra khảo để lấy “Giấy Manh Mối”. Đưa “Giấy Manh Mối” cho anh heo đã mua chuộc để dịch, có xác suất nhận đáp án giải mã đúng. Tới “Đảo Long Mạch Côn Lôn”, nhập mật mã ở “Pháp Trận Chúc Long” thì nhận được vật phẩm này.\n\n【Đặc biệt】\nVật phẩm độc nhất thế giới; người chơi đặt xuống thì nó thành công trình, và nhận được “Phong Ấn Động Thiên”. Qua “Động Thiên Tháp” là vào được “Đảo Động Thiên Tháp” nằm ngoài thế giới; dùng “Phong Ấn Động Thiên” để phong ấn nó trở lại thành vật phẩm. Vì độc nhất thế giới nên “Động Thiên Tháp” không mang xuống hang được; muốn từ thế giới hang vào “Đảo Động Thiên Tháp” thì dùng vật phẩm “Vân Khai”.",
+   "zh": "\n【背景】\n镇压异兽的法器，由朱源、羽润看守，天体碎片掉落后，在塔顶砸出了一个破洞，这让塔内二层被封印的异兽蠢蠢欲动...\n\n【获取】\n在桦树林区域捕捉“纸燕”，通过谋杀或者“羽毛笔”逼供“纸燕”的方式获取“线索纸”。将“线索纸”交给被收买的猪哥进行翻译，概率获取正确的解密答案。前往“昆仑龙脉岛屿”，在“烛龙法阵”输入密码得到该道具。\n\n【特殊】\n世界唯一的物品，玩家放置后变为建筑，并获取“洞天封印”。可通过“洞天塔”进入世界之外的“洞天塔岛屿”，使用“洞天封印”可将其重新封印为物品。由于世界唯一，“洞天塔”无法被带入洞穴，想从洞穴世界中进入“洞天塔岛屿”，可以使用道具“云开”。\n\t",
+   "en": "\nBackground: \nAn artifact used to suppress mythical beasts, guarded by Zhuyuan and Yurun. After moon shard fell, they created a hole in the top of the tower, causing the sealed beasts on the second floor to grow restless...\n\nAcquisition: \nCapture \"Paper Swallow\" in the deciduous forest region. Obtain \"Red Paper\" by either killing them or interrogating them with a \"featherpencil\". Hand the \"Red Paper\" to a bribed \"Pigman\" for translation, with a chance of obtaining the correct decrypted answer. Travel to the \"Island Kunlun\" and enter the password into the \"Zhulong's Sigil Array\" to acquire this item.\n\nSpecial: \nA world-unique item that transforms into a structure when placed, granting the \"Tower's Seal.\" Players can enter the \"Island Montfluv\" outside the world via the \"Montfluv Tower.\" Using the \"Tower's Seal\" reverts it back into an item. Since it is world-unique, the \"Montfluv Tower\" cannot be taken into caves. To enter the \"Island Montfluv\" from a cave world, use the item \"Cloud Move\".\n\t"
+  },
+  "deepseacave_seal": {
+   "vi": "【Bối cảnh】\nNhận được sau khi đặt “Động Thiên Tháp”, đồng thời cũng là vật phẩm để phong ấn “Động Thiên Tháp”.\n\n【Đặc biệt】\nChế được gần Máy Khoa Học (để phòng người chơi làm mất phong ấn); phong ấn thừa dùng làm nhiên liệu cho lửa trại.",
+   "zh": "\n【背景】\n放置“洞天塔”后获取，同时也是封印“洞天塔”的道具。\n\n【特殊】\n可靠近科学机器制作（为防止玩家丢失封印），多余的封印可作为篝火的燃料。\n\t",
+   "en": "\nBackground:\nObtained after placing the Montfluv Tower, this item is also used to seal the Tower.\n\nSpecial:\nCraftable near Science Machine (to prevent losing the seal). Excess seals can fuel campfires.\n\t"
+  },
+  "sh_desc": {
+   "vi": "【Bối cảnh】\nTrang hướng dẫn của MOD Sơn Hà Biểu Lý.\n\n【Đặc biệt】\nChế được gần Máy Khoa Học (phòng người chơi làm mất); cuộn tranh thừa dùng làm nhiên liệu cho lửa trại, và cất được lên giá sách.",
+   "zh": "\n【背景】\n山河表里MOD的说明页。\n\n【特殊】\n可靠近科学机器制作（防止玩家丢失），多余的卷轴可作为篝火的燃料，可放入书架。\n\t",
+   "en": "\nBackground:\nThe info page for the Montfluv MOD.\n\nSpecial:\nCraftable near Science Machines (prevents loss). Excess scrolls can be used as fuel for campfires and can be placed on bookshelves.\n\t"
+  },
+  "sh_redpaper": {
+   "vi": "【Bối cảnh】\nVật trung gian truyền tin “Chu Nguyên” dùng để cầu cứu bộ lạc người heo; rơi ra khi giết “Én Giấy”, hoặc dùng “Bút Lông Vũ” tra khảo “Én Giấy” trong lồng. Dùng làm nhiên liệu được, có độ bền; hết bền thì thành tro.\n\n【Đặc biệt】\nSau khi mua chuộc một anh heo, đưa “Giấy Manh Mối” cho nó để giải mã: 20% ra đáp án, có cơ chế bảo hiểm — 5 lần giải là chắc chắn ra đáp án đúng.\n\nĐưa cho anh heo chưa mua chuộc để giải mã thì người chơi sẽ bị nó chửi.\n\nGiải mã “Giấy Manh Mối” có xác suất phát hiện trứng phục sinh nhỏ, lấy từ: biệt danh tác giả, Thần Điêu Đại Hiệp, Vô Gian Đạo, Võ Lâm Ngoại Truyện, Chân Hoàn Truyện, The Shining, Gravity Falls, Friends.",
+   "zh": "\n【背景】\n“朱源”向猪人部落求助的线索媒介，杀死“纸燕”后掉落，使用“羽毛笔”逼供鸟笼中的“纸燕”掉落。可作为燃料，拥有耐久，耐久消失后变为灰烬。\n\n【特殊】\n收买一只猪哥后，给予“线索纸”可以进行破解，20%获取解密答案，拥有保底机制，5次破解必出正确答案。\n\n尝试给未被收买的猪哥进行破解时，玩家会被猪哥嘴臭。\n\n破解“线索纸”概率发现小彩蛋，彩蛋来自：作者昵称、神雕侠侣、无间道、武林外传、甄嬛传、闪灵、怪诞小镇、老友记。\n\t",
+   "en": "\nBackground:\nRedPaper Clue – Mediating parchment forged by Zhuyuan to seek aid from Pigmen tribes. Dropped by killing Paper Swallows or interrogating caged ones with a Feather Pencil. Acts as fuel with limited durability; disintegrates into ash when depleted.\n\nSpecial:\nBribe a Pigman and gift the redpaper for decryption: 20% success rate per attempt, with a pity system guaranteeing the correct answer on the 5th try.\n\nOffering the redpaper to unbribed Pigman triggers mocking insults toward the player.\n\nSuccessful decryption may unlock Easter eggs referencing:\nAuthor's aliases、神雕侠侣、无间道、武林外传、甄嬛传、The Shining、Gravity Falls、Friends.\n\t"
+  },
+  "shanhai_goumang": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Hải Ngoại Đông Kinh》: Câu Mang phương Đông, mình chim mặt người, cưỡi hai rồng. Tương truyền là thần Xuân, thần Mộc, thần phương Đông, thần Đông Hải, thần sao Mộc, cai quản việc sinh trưởng của cỏ cây.\nỞ độ khó mặc định, hái “Cây Câu Mang” có 7% xác suất rơi ra; quà đáp lễ của “Vũ Nhuận” cũng có xác suất nhỏ rơi ra. Đưa cho “Côn Bằng” 1 “Lá Câu Mang” thì nhận bản vẽ “Ấn Ký Câu Mang”.\n\n【Đặc biệt】\nĐưa cho “Côn Bằng” trên “Đảo Long Mạch Côn Lôn” có xác suất cực nhỏ đổi được 1 “Túi Krampus”.\n\nCâu đố chữ: Linh khí đất trời tụ ngưng hoa",
+   "zh": "\n【背景】\n《山海经·海外东经》：东方勾芒，鸟身人面，乘两龙。传说中的春神、木神、东方之神、东海之神、木星之神，掌管草木的生长。\n默认难度配置下，采集“句芒植株”有7%的概率掉落，“羽润”的回礼也有小概率掉落。给予“鲲鹏”1个“句芒叶”可以获取“句芒印记”蓝图。\n\n【特殊】\n给予“昆仑龙脉岛屿”的“鲲鹏”有极小概率换取1个“坎普斯背包”。\n\n字谜：天地灵韵聚凝华\n\t",
+   "en": "\nBackground:\n《山海经·海外东经》：东方勾芒，鸟身人面，乘两龙。传说中的春神、木神、东方之神、东海之神、木星之神，掌管草木的生长。\nUnder default settings, harvesting \"Goumang Plant\" has a 7% chance to drop this item. It may also rarely drop as a reciprocal gift from Yurun.\nGive 1 Goumang's Leaf to Kunpeng to get this blueprint.\n\nSpecial:\nUsed to craft exclusive technology.\nGiving it to the \"Kunoeng\" on the \"Kunlun Island\" will exchange for 1 Krampus Sack.\n\nPuzzle: Ancient Celestial Aura.\n\t"
+  },
+  "xuanhe_passport": {
+   "vi": "【Bối cảnh】\nGiấy thông hành của “Bí Cảnh Huyền Hà”, rơi ra khi hạ “Chu Yếm”.",
+   "zh": "\n【背景】\n“悬河秘境”的通行证，击杀“朱厌”掉落。\n\t",
+   "en": "\nBackground:\nDropped by defeating the Zhu Yan.\n\t"
+  },
+  "sh_qystick": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Tây Thứ Tam Kinh》: Núi Côn Lôn, có chim ở đó, hình như ong, lớn bằng uyên ương, tên là Khâm Nguyên; chích chim thú thì chết, chích cây thì khô.\nNgòi đuôi bị năng lượng thiên thể thấm đẫm, giao dịch ở Cửa Hiệu Chu Nguyên thì nhận được.\n\n【Đặc biệt】\nCầm trên tay rồi chuột phải để thi pháp, triệu hồi sinh vật thân thiện “Khâm Nguyên”.",
+   "zh": "\n【背景】\n《山海经·西次三经》：昆仑山，有鸟焉，其状如蜂，大如鸳鸯，名曰钦原，蠚鸟兽则死，蠚木则枯。\n被天体能量浸染的尾刺，在朱源的小铺进行交易掉落。\n\n【特殊】\n手持后右键施法，召唤友好生物“钦原”。\n\t",
+   "en": "\nBackground:\n《山海经·西次三经》：昆仑山，有鸟焉，其状如蜂，大如鸳鸯，名曰钦原，蠚鸟兽则死，蠚木则枯。\nA stinger infused with celestial energy.\n\nSpecial:\nRight-click while holding it to summon a friendly Qinyuan.\n\t"
+  },
+  "sh_feather_phoenix": {
+   "vi": "【Bối cảnh】\nLông đuôi do “Ảnh Ảo Phượng Hoàng” rơi ra. Xây “Tượng Bách Điểu Chầu Phượng” rồi trang trí bằng lông vũ các màu thì triệu hồi được “Ảnh Ảo Phượng Hoàng”; đuổi theo “Ảnh Ảo Phượng Hoàng” thì chắc chắn rơi ra “Lông Vũ Bảy Màu”.\n\n【Đặc biệt】\nĐưa cho “Vũ Nhuận” 1 cọng “Lông Vũ Bảy Màu” thì “Vũ Nhuận” sẽ mở khoá đảo phụ tầng một của “Động Thiên Tháp” cho người chơi.\nGiao dịch được với “Vua Heo”, giá trị 99 cục vàng; cũng đưa được cho “Sư Tử Kiến” để hoãn thời gian nó nổi giận.\n\n“Lông Vũ Bảy Màu” không trang trí được Chester Tuyết — hiện bản chính thức chưa mở giao diện, và mã liên quan bị kết dính hơi chặt. Mong các cao thủ có giải pháp.",
+   "zh": "\n【背景】\n“凤凰虚影”掉落的尾羽。建造“百鸟朝凤雕塑”并使用各色羽毛进行装饰后，召唤“凤凰虚影”，追逐“凤凰虚影”必定掉落“彩色羽毛”。\n\n【特殊】\n给予“羽润”1根“彩色羽毛”后，“羽润”会为玩家解锁“洞天塔”一层的附属岛屿。\n可与“猪王”进行交易，价值99金块，也可给予“蚁狮”延缓其发怒时间。\n\n“彩色羽毛”不可以装饰雪人，官方目前没有接口开放，且相关代码耦合度有点高，期待大佬们的解决方案。\n\t",
+   "en": "\nBackground:\nTail feathers shed by the \"Phoenix Shadow.\" Building the \"Phoenix Statue\" and adorning it with colored feathers summons the Phoenix Shadow. Chasing it guarantees a \"Colorful Feather\" drop.\n\nSpecial:\nGiving Yurun 1 \"Colorful Feather\" unlocks the Montfluv Tower's first-layer attached island.\nTradable with the PigKing for 99 Gold Nuggets, or given to the Antlion to postpone its anger timer.\n\nColorful Feathers cannot decorate Snow Chester (official APIs are currently unavailable, and the code integration is too tightly coupled). Awaiting solutions from the modding community!\n\t"
+  },
+  "sh_backpack_leaf": {
+   "vi": "【Bối cảnh】\nChế ở “Cửa Hiệu Chu Nguyên”, 14 ô ba lô, che mưa chống sét.\n\n【Đặc biệt】\nSau khi trang bị, sẽ có bóng tối hầu cận cầm lá che trên đầu người chơi.",
+   "zh": "\n【背景】\n在“朱源的小铺”制作，14格背包空间，防雨防雷。\n\n【特殊】\n装备后，会有暗影仆从手持叶片遮挡在玩家头部。\n\t",
+   "en": "\nBackground:\nCrafted at \"Zhuyuan’s Shop.\" Provides 14 inventory slots and is waterproof and lightning-resistant.\n\nSpecial:\nWhen equipped, a shadow servant will hold a leaf overhead to shelter the player's head.\n\t"
+  },
+  "sh_zybell": {
+   "vi": "【Bối cảnh】\nChuông của “Chu Yếm”, rơi ra khi hạ “Chu Yếm”.",
+   "zh": "\n【背景】\n“朱厌”的铃铛，击杀“朱厌”掉落。\n\t",
+   "en": "\nBackground:\nThe bell of Zhuyan, dropped by defeating Zhuyan.\n\t"
+  },
+  "sh_panflute": {
+   "vi": "【Bối cảnh】\nChế ở “Cửa Hiệu Chu Nguyên”, độ bền 4 lần dùng.\n\n【Đặc biệt】\nPhải trang bị lên tay mới thổi được, không dùng được khi đang cưỡi (vì chưa có hoạt ảnh đó).\nThổi tiêu tốn 50 máu, hồi 50 tinh thần, và làm cả nhóm người chơi trong phạm vi cùng hồi tinh thần.\nTiếng thổi đánh thức cưỡng bức người chơi đang ngủ gần đó, kể cả người đang ngủ trong lều và túi ngủ.\nTiếng thổi có thể chăm sóc cây trồng.\n\nThổi có thể hạ quái bóng tối hoặc sinh vật thính giác nhạy trong hang; đối tượng hạ được gồm:\n+ Quái Bóng Tối, Quái Ác Mộng\n+ Bóng tối ký sinh rơi ra từ heo điên\n+ Khỉ Hang Bóng Tối\n+ Bàn Tay Vô Hình của Kẻ Dệt Bóng Cổ Đại\n+ Dơi, Người Thỏ, Bướm Bụi, Sâu Sáng Hình Cầu, Dơi Chuột Chũi, Kẻ Hút, Rùa Sên, Tôm Đá, Sâu Hang và các sinh vật hang thính giác nhạy khác\n(không tính Sâu Khổng Lồ, và nhện vốn thính giác kém)\n\nTệp hoạt ảnh thổi Ống Tiêu Cổ lấy từ MOD 山海密藏, cảm ơn tông chủ!",
+   "zh": "\n【背景】\n在“朱源的小铺”制作，4次使用耐久。\n\n【特殊】\n需要装备在手上才能演奏，不能再骑行时使用（因为没有这个动画）。\n吹奏消耗50血量、恢复50san值，并使范围内的玩家集体回SAN。\n吹奏声音会强行唤醒附近昏睡的玩家，即使是在帐篷和睡袋中睡觉的玩家。\n吹奏声音可以照料作物。\n\n吹奏可以击杀影怪或者洞穴中听力发达的生物，可被击杀的对象如下\n+ 影怪、梦魇影怪\n+ 疯猪身上掉下的寄生暗影\n+ 暗影穴居猴\n+ 远古织影者的看不见的手\n+ 蝙蝠、兔人、尘蛾、球状光虫、裸鼹蝠、啜食者、蛞蝓龟、石虾、蠕虫等听力发达的穴居生物\n（不包括巨型蠕虫，以及听力不发达的蜘蛛）\n\n远古排箫的吹奏动画文件来自MOD——山海密藏，感谢宗主！\n\t",
+   "en": "\nBackground:\nCrafted at \"Zhuyuan's Shop,\" with 4 uses of durability.\n\nSpecial:\nMust be equipped in the hand to play; cannot be used while riding (due to lack of corresponding animation).\n\nPlaying consumes 50 Health, restores 50 Sanity, and provides a Sanity restoration aura to nearby players.\n\nThe sound of the flute forcibly wakes up sleeping players in the vicinity, even those sleeping in Tents or Sleeping Rolls.\n\nThe flute’s sound can tend to crops.\n\nPlaying the flute can kill certain shadow creatures or hearing-sensitive cave-dwelling creatures.\n\nNote: The animation for playing the Ancient Pan Flute is sourced from the mod \"山海密藏\". Thanks to the original creator!\n\t"
+  },
+  "shanhai_starfly": {
+   "vi": "【Bối cảnh】\nMượn sức mạnh của các vì sao để hút vật thể lên và phân loại.\n\n【Đặc biệt】\nChuột phải thi pháp sẽ hút đồ vật gần đó bay lên, tự động xếp chồng và sắp xếp; cùng một món nhưng khác skin cũng được tách riêng, sau 10 giây đồ rơi xuống.\nDùng để nhặt đồ rơi ven biển, đồ mắc trên đảo lẻ trong hang, hoặc dọn đồ dưới đất.",
+   "zh": "\n【背景】\n借助星星的力量，吸引物体并进行区分。\n\n【特殊】\n右键施法后，吸引附近的物品升空，自动堆叠整理，相同物品不同皮肤也会区分，10s后物品降落。\n可用于捡取掉落海边的物品、洞穴中的孤岛物品，或是整理地面道具。\n\t",
+   "en": "\nBackground:\nHarnessing stellar forces to attract and categorize objects.\n\nSpecial:\nRight-click to cast: Draws nearby items skyward, auto-stacks and organizes them (even distinguishing between alternate skins of identical items) before descending after 10 seconds.\nUtility: Collecting items stranded along shores, isolating objects in caverns, or tidying scattered ground loot.\n\t"
+  },
+  "shanhai_moonfall": {
+   "vi": "【Bối cảnh】\nMượn sức mạnh của mặt trăng, xua một khối thiên thạch rơi xuống đất.\n\n【Đặc biệt】\nCầm trên tay rồi chuột phải thi pháp, thả 1 khối thiên thạch lớn xuống vị trí chỉ định. Dùng để chặt cây, đào mỏ, sản xuất “Đá Trăng”.\n\nTrong lúc diễn ra sự kiện thiên cẩu nuốt trăng, thi pháp lên “Tượng Thiên Cẩu Nuốt Trăng” sẽ cắt được sự kiện “Thiên Cẩu Nuốt Trăng”; lúc đó năng lượng thiên thể nhập vào Thiên Cẩu, quanh tượng sẽ rơi ra “Sói Chúa Bị Ám”.",
+   "zh": "\n【背景】\n借助月亮的力量，驱逐一块陨石掉落到地面。\n\n【特殊】\n手持后右键施法，在指定位置落下1颗大陨石。可用于砍树、挖矿、生产“月岩”。\n\n天狗食月事件期间，对“天狗食月雕塑”施法可打断“天狗食月”事件，此时天体能量会附身天狗，在雕塑附近掉落“附身座狼”。\n\t",
+   "en": "\nBackground:\nChanneling the lunar force to expel a meteoric mass unto the ground.\n\nSpecial:\nRight-click to cast while holding: Summons a colossal Moonfall Meteor at a targeted location. Use to fell trees, excavate minerals, or harvest Moon Rock.\n\nDuring the Celestial Hound Eclipse event, casting on the Eatmon Statue disrupts the ritual. This infuses the Hound with astral energy, causing it to drop Possessed Varg near the statue.\n\t"
+  },
+  "dsc_copytool": {
+   "vi": "【Bối cảnh】\nVật phẩm dịch chuyển được pháp thuật “Chu Nguyên” gia trì, dùng để về nhanh “Động Thiên Tháp”, trong hang cũng dùng được.\n\n【Đặc biệt】\nNhận được sau khi đưa cho “Nhà Nhỏ Của Chu Nguyên” 1 “Tiền Mũi Heo”.\nĐặt xuống thì sinh ra 1 hố giun cuộn giấy dịch chuyển tới gần “Nhà Nhỏ Của Chu Nguyên”. Chức năng dịch chuyển tương tự “Đồng Hồ Truy Nguyên” của “Wanda”, dùng được trong hang. Chức năng dịch chuyển có 2 phút hồi chiêu, dùng lại được nhiều lần.",
+   "zh": "\n【背景】\n“朱源”法术加成的传送道具，用于快速回到“洞天塔”，洞穴内也可使用。\n\n【特殊】\n给予“朱源的小屋”1个“猪鼻铸币”后获取。\n放置后生成1个可传送到“朱源的小屋”附近的卷轴虫洞。传送功能类似“旺达”的“溯源表”，可在洞穴中使用。传送功能有2分钟的CD，可重复使用。\n\t",
+   "en": "\nBackground:\nA teleportation item enhanced by Zhuyuan's magic.\n\nSpecial:\nObtained by giving 1 \"Pig Coin\" to Zhuyuan's House.\nWhen placed, it creates a Scroll Wormhole that teleports users near Zhuyuan's House. Functions similarly to Wanda's \"Backtrek Watch\" (usable in Caves). Has a 2-minute cooldown and is reusable indefinitely.\n\t"
+  },
+  "sh_migutwig": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh》: Mê Cốc là loài cây, mọc trên núi Chiêu Diêu ở Tây Hải, hình dáng như cây dâu giấy, có vân đen, ánh sáng toả bốn phía, người đeo nó thì không lạc lối.\n\n【Đặc biệt】\nHái “Cây Mê Cốc” thì rơi ra; trang bị vào là có sẵn hiệu ứng hạt lá.\n\nĐặt “Cành Mê Cốc” xuống đất rồi chuột phải để dẫn đường:\nDẫn đường trên mặt đất sẽ chỉ về: “Long Mạch Côn Lôn”, “Bến Trăng”\nDẫn đường trong hang sẽ chỉ về: “Khoa Học Cổ Đại”, “Thư Khố”\n\nNgười chơi cầm “Cành Mê Cốc” có thể tụ linh hoặc trêu chọc đối tượng chỉ định để nâng cấp chức năng:\nTụ linh vào “Pháp Trận Chúc Long” ở “Long Mạch Côn Lôn”, hoặc “Cổng Phi Tự Nhiên” ở “Bến Trăng”, thì nâng được mức cộng tốc chạy;\nCộng tốc chạy: 0% -> 15% -> 30%\n\nNgười chơi cầm “Cành Mê Cốc” tụ linh vào bất kỳ “Trạm Khoa Học Cổ Đại”, “Bệ Đá Lộng Lẫy”, hay “Vũ Nhuận” (thiện cảm cấp 3) thì nó sẽ phát sáng; sau đó tụ linh nốt hai đối tượng còn lại sẽ mở rộng phạm vi nguồn sáng.\nPhạm vi nguồn sáng: nhỏ -> vừa -> lớn\n\nNgười chơi có thể thi pháp lên “Cành Mê Cốc” cấp cao hơn để sao chép thuộc tính của nó, dân gian gọi là ăn ké.",
+   "zh": "\n【背景】\n《山海经》：迷穀，木也，生於西海招搖山之上，其狀若構樹，有黑理焉，光華四照，人佩之而不迷。\n\n【特殊】\n采集“迷榖树”掉落，装备后自带叶片粒子特效。\n\n将“迷榖枝”放在地面后，可右键操作进行引路：\n在地面引路，会指向：“昆仑龙脉”、“月亮码头”\n在洞穴引路，会指向：“远古科技”、“档案馆”\n\n\n玩家手持“迷榖枝”，可以对指定对象进行聚灵、恶搞，以升级功能：\n对“昆仑龙脉”的“烛龙法阵”、“月亮码头”的“非自然传送门”聚灵，可以升级移速加成；\n移速加成：0% -> 15% -> 30%\n\n玩家手持“迷榖枝”对任意的“远古科技站”、“华丽基座”、“羽润”（3级好感度）聚灵便可以发光，之后聚灵其它两个对象，可以扩大光源范围。\n光源范围：小 -> 中 -> 大\n\n玩家可对更高级的“迷榖枝”施法，复制对方的属性，俗称沾光。\n\t",
+   "en": "\nBackground:\n《山海经》：迷穀，木也，生於西海招搖山之上，其狀若構樹，有黑理焉，光華四照，人佩之而不迷。\n\nSpecial:\nDropped when harvesting \"Migu Tree\", with leaf particle effects.\n\nRight-click planted \"Migu Twig\" on the ground to activate guidance:\nOn the ground: Points toward \"Kunlun Island\"、 \"Moon Quay\"\nIn the cave  : Points toward \"Ancient Pseudoscience Station\"、 \"Archive's Ornate Pedestal\"\n\nUse \"Migu Twig\" on \"Sealed Dragon\" (Kunlun Island) or \"Unnatural Portal\" (Moon Quay) to enhance speed:\n0% → 15% → 30%\nWhen a player holds the 'Migu Twig' and channels spiritual energy into any of the three—'Ancient Pseudoscience Station', 'Ornate Pedestal', or 'Yurun' (at 3+ friendship)—it will begin to glow. Channeling into the remaining two objects will then expand the light's radius.\nSmall → Medium → Large\n\nPlayers can cast a spell on a higher-level \"Migu Twig\" to copy its attributes.\n\t"
+  },
+  "sh_magicshanshen": {
+   "vi": "【Bối cảnh】\nVào đêm trăng tròn, đưa cho “Vũ Nhuận” 1 quả “Bí Ngô” để đổi lấy bản vẽ mà chế. Ma pháp phương Tây, pháp thuật phương Đông, Quạ đều biết một chút!\n\n【Đặc biệt】\nVật phẩm này là trứng phục sinh nhỏ, không thuộc nội dung Sơn Hà, nên dự kiến sẽ không mở rộng thêm chức năng.",
+   "zh": "\n【背景】\n在月圆之夜，给予“羽润”1个“南瓜”换取蓝图制作。西方魔法，东方法术，鸦都会一点！\n\n【特殊】\n该道具属于小彩蛋，不是山河的内容，所以预计不会进行更多功能拓展。\n\t",
+   "en": "\nBackground:\nDuring a Full Moon, give Yurun 1 Pumpkin to obtain the blueprint. Western magic, Eastern magic, Crow all knows a little bit！\n\nSpecial:\nEquipping the broom prevents Wonkey from entering crawl/sprint states.  Place boats mid-flight to land safely without drowning.\n\t"
+  },
+  "sh_killall_weapon": {
+   "vi": "【Bối cảnh】\nSừng của “Chu Yếm”, rơi ra khi hạ “Chu Yếm”.\n\n【Đặc biệt】\nỞ cấu hình mặc định, sát thương bằng “Chuỳ Thulecite”. Dùng “Sừng Chu Yếm” hạ một sinh vật thì giết ngay toàn bộ sinh vật cùng tên trong phạm vi 20.",
+   "zh": "\n【背景】\n“朱厌”的角，击杀“朱厌”掉落。\n\n【特殊】\n默认配置下，攻击力与“铥矿棒”相同。使用“朱厌角”击杀生物后，秒杀范围20内的所有同名生物。\n\t",
+   "en": "\nBackground:\nThe horn of Zhuyan, dropped by defeating Zhuyan.\n\nSpecial:\nUnder default settings, its attack power matches the \"Thulecite Club.\" Killing a creature with the Zhuyan's Horn instantly kills all creatures of the same name within a radius of 20.\n\t"
+  },
+  "sh_leafboat_item": {
+   "vi": "【Bối cảnh】\nChế ở “Cửa Hiệu Chu Nguyên”.\n\n【Đặc biệt】\nĐặt xuống biển thì thành thuyền nhỏ, có sẵn 1 ô gắn đèn thuyền;\nKhi không đang lái, chuột phải để thu thuyền lại;\nThuyền không tốn độ bền, mọi sát thương thân thuyền chịu đều do người chơi gánh;\nCó thể mang vật nặng lên thuyền, nhưng sẽ làm người chơi chậm lại.",
+   "zh": "\n【背景】\n在“朱源的小铺”制作。\n\n【特殊】\n放置在海洋变为小船，自带1格船灯位置；\n非航行状态下右键可以将小船收回；\n小船没有使用耐久，船体受到的伤害均由玩家承担；\n可以携带重物登船，但会导致玩家减速。\n\t",
+   "en": "\nBackground:\nUnlock from Zhuyuan’s Shop.\n\nSpecial:\nThe boat comes with 1 built-in mast light slot. When not sailing, players can right-click to retrieve the boat.\n\nThe boat has no usage durability—any damage taken by the hull is directly transferred to the player.\n\nPlayers can board while carrying heavy items, but this will slow them down.\n\t"
+  },
+  "sh_boat_torch": {
+   "vi": "【Đặc biệt】\nĐặt được vào ô đèn thuyền của Bè Lá Nhỏ, chuột phải để bật, tắt.",
+   "zh": "\n【特殊】\n可放置在小叶槎的船灯位置，右键打开、关闭。\n\t",
+   "en": "\nSpecial:\n\nCan be placed in the Leafboat’s boatlight slot, and toggled on/off by right-clicking.\n\t"
+  },
+  "shanhai_seed_gem": {
+   "vi": "【Bối cảnh】\nHạt giống được “Ấn Ký Câu Mang” ban thần lực cỏ cây, chế được gần Máy Giả Kim. Quà đáp lễ của “Vũ Nhuận” có xác suất rơi ra.\n\n【Đặc biệt】\nThả vào “Tiểu Thạch Đàm”, hoặc ký sinh thẳng lên “Cây Dưới Nước”, thì sinh ra “Dây Quả Tinh Thạch”.",
+   "zh": "\n【背景】\n被“句芒印记”赋予草木神力的种子，可靠近炼金引擎制作。“羽润”回礼概率掉落。\n\n【特殊】\n投入“小石潭”，或者直接寄生到“水中木”可以生成“晶洞果藤”。\n\t",
+   "en": "\nBackground:\nSeeds imbued with Goumang's Sigil—verdant power over flora. Craftable near an Alchemy Engine. Chance drop when receiving Yurun's Reciprocation(gift exchange).\n\nSpecial:\nToss into a Small Rocky Pond or parasitize Ocean/Water Trees to spawn Ancientfruit Nightvision Vine.\n\t"
+  },
+  "shanhai_seed_night": {
+   "vi": "【Bối cảnh】\nHạt giống được “Ấn Ký Câu Mang” ban thần lực cỏ cây, chế được gần Máy Giả Kim. Quà đáp lễ của “Vũ Nhuận” có xác suất rơi ra.\n\n【Đặc biệt】\nThả vào “Tiểu Thạch Đàm”, hoặc ký sinh thẳng lên “Cây Dưới Nước”, thì sinh ra “Dây Dâu Đêm”.",
+   "zh": "\n【背景】\n被“句芒印记”赋予草木神力的种子，可靠近炼金引擎制作。“羽润”回礼概率掉落。\n\n【特殊】\n投入“小石潭”，或者直接寄生到“水中木”可以生成“夜莓果藤”。\n\t",
+   "en": "\nBackground:\nSeeds imbued with Goumang's Sigil—verdant power over flora. Craftable near an Alchemy Engine. Chance drop when receiving Yurun's Reciprocation(gift exchange).\n\nSpecial:\nToss into a Small Rocky Pond or parasitize Ocean/Water Trees to spawn Ancientfruit Nightvision Vine.\n\t"
+  },
+  "shanhai_seed_tallbirdegg": {
+   "vi": "【Bối cảnh】\nHạt giống được “Ấn Ký Câu Mang” ban thần lực cỏ cây, chế được gần Máy Giả Kim. Quà đáp lễ của “Vũ Nhuận” có xác suất rơi ra.\n\n【Đặc biệt】\nThả vào “Tiểu Thạch Đàm”, hoặc ký sinh thẳng lên “Cây Dưới Nước”, thì sinh ra “Dây Trứng Chim Cao Cẳng”.",
+   "zh": "\n【背景】\n被“句芒印记”赋予草木神力的种子，可靠近炼金引擎制作。“羽润”回礼概率掉落。\n\n【特殊】\n投入“小石潭”，或者直接寄生到“水中木”可以生成“高脚鸟蛋藤”。\n\t",
+   "en": "\nBackground:\nSeeds imbued with Goumang's Sigil—verdant power over flora. Craftable near an Alchemy Engine. Chance drop when receiving Yurun's Reciprocation(gift exchange).\n\nSpecial:\nToss into a Small Rocky Pond or parasitize Ocean/Water Trees to spawn Tallbirdegg Vine.\n\t"
+  },
+  "shanhai_seed_shanshen": {
+   "vi": "【Bối cảnh】\nHạt giống được “Ấn Ký Câu Mang” ban thần lực cỏ cây, chế được gần Máy Giả Kim. Quà đáp lễ của “Vũ Nhuận” có xác suất rơi ra.\n\n【Đặc biệt】\nTrồng thẳng xuống đất được, sinh ra “Sâm Núi”.",
+   "zh": "\n【背景】\n被“句芒印记”赋予草木神力的种子，可靠近炼金引擎制作。“羽润”回礼概率掉落。\n\n【特殊】\n可以直接栽种，生成“山参”。\n\t",
+   "en": "\nBackground:\nSeeds imbued with Goumang's Sigil—verdant power over flora. Craftable near an Alchemy Engine. Chance drop when receiving Yurun's Reciprocation(gift exchange).\n\nSpecial:\nDeployable, to plant Ginseng Plant.\n\t"
+  },
+  "shpighat": {
+   "vi": "【Bối cảnh】\nMặt nạ dùng để nguỵ trang thành người heo.\n\n【Đặc biệt】\nSau khi đeo, đám người cá đang đi theo sẽ lập tức ngừng đi theo; người đeo bị xem là tộc người heo, và không bị xem là quái vật.\nNgười đeo giao dịch được với Vua Heo và người heo, không bị người heo chủ động thù. Nhưng sẽ bị người cá chủ động thù.",
+   "zh": "\n【背景】\n用来伪装自己是猪人的面具。\n\n【特殊】\n佩戴后，佩戴者的鱼人族追随者会立即停止追随，佩戴者会被视作猪人族，并且不会被视作怪物。\n佩戴者可以与猪王、猪人进行交易，不会被猪人主动仇恨。佩戴者会被鱼人主动仇恨。\n\t",
+   "en": "\nBackground:\nA mask designed to disguise the wearer as a member of the Pigmen race.\n\nSpecial:\nWhen worn, Fishmen followers immediately cease allegiance to the wearer. The wearer is recognized as a Pigman and not classified as a monster.\nAllows trading with Pig King and Pigmen without triggering hostility. Fishmen will now actively despise and attack the wearer.\n\t"
+  },
+  "shanhai_goumang_item": {
+   "vi": "【Bối cảnh】\nRơi ra khi hái “Cây Câu Mang”, dùng để chế vật phẩm công nghệ. Ăn sống được, tính là 1 đơn vị rau khi bỏ vào nồi.",
+   "zh": "\n【背景】\n采集“句芒植株”掉落，可用于制作科技道具。可生吃，可视为1单位蔬菜入锅。\n\t",
+   "en": "\nBackground:\nHarvested from Goumang Plant; used in crafting arcane-scientific tools. Edible raw or counted as 1 Vegetable unit in cookpots.\n\t"
+  },
+  "ganoderma_cap": {
+   "vi": "【Bối cảnh】\nRơi ra sau khi hái “Linh Chi”; ăn sống để hồi lượng máu lớn, tính là 1 đơn vị rau khi bỏ vào nồi.",
+   "zh": "\n【背景】\n采集“灵芝”后掉落，可生吃食用以恢复大量血量，可视为1单位蔬菜入锅。\n\t",
+   "en": "\nBackground:\nDropped upon harvesting \"Ganoderma\". Edible raw to restore significant health, counts as 1 Vegetable unit in cookpots.\n\t"
+  },
+  "ganoderma_cap_cooked": {
+   "vi": "【Bối cảnh】\nNhận được sau khi nướng “Linh Chi”, ăn vào hồi lượng lớn cả ba chỉ số.",
+   "zh": "\n【背景】\n烹烤“灵芝”后获取，食用以恢复大量三维。\n\t",
+   "en": "\nBackground:\nObtained by roasting \"Ganoderma\". Consume to restore significant Health, Hunger, and Sanity.\n\t"
+  },
+  "shanhai_shanshen": {
+   "vi": "【Bối cảnh】\nCủ sâm núi già đã tu luyện thành tinh, rơi ra khi hái “Cây Sâm Núi” đang bị “Dây Đỏ” trói.\n\n【Đặc biệt】\nĂn sống được, bỏ nồi được; công hiệu tạm giống Mandrake.",
+   "zh": "\n【背景】\n修炼成精的老山参，采集被“红绳”束缚的“山参植株”掉落。\n\n【特殊】\n可生吃，可入锅，功效暂同曼德拉草。\n\t",
+   "en": "\nBackground:\nAn ancient, sentient mountain ginseng refined through centuries of spiritual cultivation. Dropped when harvesting Ginseng bound by Red Rope.\n\nSpecial:\nEdible raw or as a cooking ingredient. Effects mirror Mandrake (restores Health, Hunger, and Sanity but may induce brief drowsiness).\n\t"
+  },
+  "shanhai_cookedshanshen": {
+   "vi": "【Bối cảnh】\nNhận được sau khi nướng 'Sâm Núi', bỏ nồi được; công hiệu tạm giống Mandrake nướng chín.\n\nDùng để chế Sáo Lá Nhỏ ở “Cửa Hiệu Chu Nguyên”.",
+   "zh": "\n【背景】\n烹烤'山参'后获取，可入锅，功效暂同烤熟的曼德拉草。\n\n可在“朱源的小铺”制作小叶笛。\n\t",
+   "en": "\nBackground:\nObtained by roasting Ginseng. Edible or cookable, with effects identical to Cooked Mandrake (restores Health, Hunger, Sanity, but induces brief drowsiness).\n\nCan make Ancient Panflute in Zhuyuan’s Shop.\n\t"
+  },
+  "shanhai_ginkgo": {
+   "vi": "【Bối cảnh】\nQuả của cây bạch quả, rơi ra khi chặt Cây Bạch Quả vàng, trồng xuống thành cây bạch quả con.\n\n【Đặc biệt】\nĂn sống được, tính là 1 đơn vị trái cây khi bỏ vào nồi.",
+   "zh": "\n【背景】\n银杏树的果实，砍伐金色银杏树掉落，可栽种为银杏植株。\n\n【特殊】\n可生吃，可视为1单位水果入锅。\n\t",
+   "en": "\nBackground:\nFruit of the Ginkgo tree, dropped when felling Golden Ginkgo Trees. Can be planted to grow new saplings.\n\nSpecial:\nEdible raw. Counts as 1 Fruit unit in cookpots.\n\t"
+  },
+  "shanhai_ginkgoleave": {
+   "vi": "【Bối cảnh】\nRơi ra khi chặt Cây Bạch Quả vàng.\n\n【Đặc biệt】\nChế thành đồ trang trí, đặt trên mặt đất. Về sau sẽ dùng làm nguyên liệu nấu ăn và chế vật phẩm công nghệ.\n\nCâu đố chữ: Vàng rực đầy cây như bướm lượn.",
+   "zh": "\n【背景】\n砍伐金色银杏树掉落。\n\n【特殊】\n可制作装饰，放置在地面。后续会作为料理原料和用于制作科技道具。\n\n字谜：金黄满树如蝶翻。\n\t",
+   "en": "\nBackground:\nCraftable Decoration. Placeable on the ground. Dropped when Golden Ginkgo Trees are felled.\n\nSpecial:\nDesignated for future integration as both culinary reagent and Celestial-tech contraption component.\n\nPuzzle: Golden Leaves Flutter Like Butterflies.\n\t"
+  },
+  "dug_shanhai_goumang_plant": {
+   "vi": "【Bối cảnh】'Cây Câu Mang' di thực được.\n\n【Đặc biệt】Trồng xuống rồi thì chỉ bón được bằng 'Tức Nhưỡng'.",
+   "zh": "\n【背景】可移植的'句芒植株'。\n\n【特殊】栽种后只可使用'息壤'施肥。\n\t",
+   "en": "\nTransplantable 'Goumang plant'.\n\nonly 'Xirang' can be used to fertilize this plant.\n\t"
+  },
+  "shanhai_xirang_item": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Hải Nội Kinh》: Nước lụt ngập trời, Cổn trộm Tức Nhưỡng của Thượng Đế để lấp lụt, không đợi lệnh Đế; Đế sai Chúc Dung giết Cổn ở Vũ Giao. Bụng Cổn sinh ra Vũ, Đế bèn sai Vũ đắp đất mà định chín châu.\nPhân bón không hao; chất thúc lớn, phân ủ, phân chuồng đều có giá trị dinh dưỡng 999.\n\n【Đặc biệt】\nDùng cộng dồn 30 lần, hoặc bón cho dòng 子圭 (Tử Khuê) của “棱镜 (Lăng Kính)”, thì sẽ vào thời gian hồi rất dài.",
+   "zh": "\n【背景】\n《山海经·海内经》：洪水滔天，鲧窃帝之息壤以堙洪水，不侍帝命，帝令祝融杀鲧于羽郊。鲧腹生禹，帝乃命禹率布土以定九州。。\n无消耗的肥料，催长剂、堆肥、粪肥的营养值都是999。\n\n【特殊】\n累计使用30次，或是对“棱镜”的子圭系列施肥后会进入长时间的冷却。\n\t",
+   "en": "\nBackground:\n《山海经·海内经》：洪水滔天，鲧窃帝之息壤以堙洪水，不侍帝命，帝令祝融杀鲧于羽郊。鲧腹生禹，帝乃命禹率布土以定九州。。\nA zero-consumption fertilizer. Growth Accelerant, Compost, and Manure all provide 999 nutrient value.\n\nSpecial:\nEnters a prolonged cooldown after 30 uses or when applied to the Legion's 子圭 Series.\n\t"
+  },
+  "shanhai_redrope": {
+   "vi": "【Bối cảnh】\nSợi dây thấm đẫm máu tươi, chế gần Máy Khoa Học.\n\n【Đặc biệt】\nDùng để trói “Sâm Núi”, không cho “Sâm Núi” bỏ chạy. Cũng dùng để gọi “Khâm Nguyên” về.",
+   "zh": "\n【背景】\n鲜血浸染的绳子，靠近科学机器制作。\n\n【特殊】\n可用于束缚“山参”，防止“山参”逃跑。也可用于召回“钦原”。\n\t",
+   "en": "\nBackground:\nCrafted near a Science Machine, this rope is steeped in sanguine stains.\n\nSpecial:\nRestrains \"Ginseng\", preventing their escape. Activates recall protocols for \"Qinyuan\".\n\t"
+  },
+  "shanhai_pinecone": {
+   "vi": "【Bối cảnh】\nHạt giống được “Ấn Ký Câu Mang” ban thần lực cỏ cây, chế gần Máy Khoa Học. Trồng thành cây con “Thông Phì Nộn”, cũng bỏ được vào chậu hoa của Đại Tiệc Mùa Đông.",
+   "zh": "\n【背景】\n被“句芒印记”赋予草木神力的种子，靠近科学机器制作。可栽种为“臃肿常青树”树苗，也可以放入冬季盛宴的花盆。\n\t",
+   "en": "\nBackground:\nSeeds empowered by Goumang's Fruit with botanical divinity. Crafted near a Science Machine. Can be planted as Lumpytree Saplings or placed into Winter's Feast Festive Planters.\n\t"
+  },
+  "saddle_kun_ground": {
+   "vi": "【Bối cảnh】\nĐám mây nhỏ trên lưng “Côn Bằng”.",
+   "zh": "\n【背景】\n“鲲鹏”背上的小云朵。\n\t",
+   "en": "\nBackground:\nA small cloudlet resting upon Kunpeng's back.\n\t"
+  },
+  "sh_fireworks": {
+   "vi": "【Bối cảnh】\nMón đồ nhỏ tạo không khí dịp Tết.\n\n【Đặc biệt】\nChâm lửa thì bắn ra 7 đến 11 quả pháo hoa, kèm hạt pháo hoa và ảnh đại diện Chu Nguyên, Vũ Nhuận ngẫu nhiên.",
+   "zh": "\n【背景】\n过年期间的气氛小物件。\n\n【特殊】\n点燃后释放7到11个烟花，伴随烟花粒子和随机的朱源、羽润头像。\n\t",
+   "en": "\nBackground:\nA festive ambiance item for the Lunar New Year period.\n\nSpecial:\nWhen ignited, it releases 7-11 fireworks accompanied by firework particles and random avatars of Zhuyuan or Yurun.\n\t"
+  },
+  "sh_ironopenwork_base_kit": {
+   "vi": "【Bối cảnh】\nMón đồ nhỏ tạo không khí dịp Tết.\n\n【Đặc biệt】\nKích hoạt xong thì bắn ra hạt pháo hoa nhỏ, kéo dài 18 giây; trong lúc đó có 3 lần xét, mỗi lần có 0,5% xác suất thành công, phun ra 3~5 phần thưởng.\nTrong dịp Đại Tiệc Mùa Đông, xác suất xét tăng lên 1%.\nTỉ lệ thưởng: cục vàng > đá đỏ = đá xanh dương = Tiền Mũi Heo > đá cam = đá vàng > đá lục = đá tím = Thuốc Trường Sinh Bất Lão rỗng.",
+   "zh": "\n【背景】\n过年期间的气氛小物件。\n\n【特殊】\n激活后发射小烟花粒子，持续18秒，期间会进行3次判定，每次都有0.5%的概率判定成功，喷发3~5个奖励。\n冬季盛宴期间，判定概率增长到1%。\n奖励概率：金块>红宝石=蓝宝石=猪鼻铸币>橙宝石=黄宝石>绿宝石=紫宝石=空的长生不老药。\n\t",
+   "en": "\nBackground:\nA festive decorative item for the New Year period.\n\nSpecial:\nWhen activated, it shoots out small firework particles for 18 seconds. During this time, there are 3 probability checks, each with a 0.5% chance of success. If successful, it erupts with 3–5 rewards.\n\nDuring the Winter’s Feast event, the success rate increases to 1% per check.\n\t"
+  },
+  "shanhai_bubbletea": {
+   "vi": "【Bối cảnh】\nThức uống mang thần lực cỏ cây.\n\n【Đặc biệt】\n“Sương Sáo Sơn Hải” là món lạnh, lúc nấu sẽ sinh lửa lạnh ở đáy nồi. Ăn xong thì nhiệt độ tiếp tục hạ trong 5 giây.\n“Sương Sáo Sơn Hải” là món “Vũ Nhuận” thích nhất; đưa cho “Vũ Nhuận” là chắc chắn có quà đáp lễ.",
+   "zh": "\n【背景】\n拥有草木神力的饮品。\n\n【特殊】\n“山海烧仙草”为冷料理，制作时会在锅底生成冷火。食用后5s内温度持续降低。\n“山海烧仙草”是“羽润”最喜欢的食物，给予“羽润”必定获得回礼。\n\t",
+   "en": "\nBackground:\nA drink infused with the divine power of plants.\n\nSpecial:\n\"Montfluv Tea\" is a cold dish. When cooked, it generates cold flames at the bottom of the cookpot. Consuming it lowers the player’s temperature continuously for 5 seconds.\nThis dish is Yurun’s favorite food. Giving it to Yurun will trigger a reciprocal gift.\n\t"
+  },
+  "sh_ganodermaice": {
+   "vi": "【Bối cảnh】\nThức uống mang pháp thuật khai trí, uống xong mở khoá toàn bộ công nghệ 1 lần.\n\n【Đặc biệt】\nĐưa cho “Chu Nguyên” 1 phần “Linh Chi Ướp Lạnh” để đổi lấy bản vẽ “Cửa Hiệu Chu Nguyên”.\n\nChữ nghĩa trên giấy rốt cuộc vẫn nông, muốn thấu việc này phải tự thân làm.",
+   "zh": "\n【背景】\n拥有开智法术的饮品，食用后解锁所有科技1次。\n\n【特殊】\n给予“朱源”1个“芝上谈冰”，可以换取“朱源的小铺”蓝图。\n\n纸上得来终觉浅，绝知此事要躬行。\n\t",
+   "en": "\nBackground:\nA drink with the magic of enlightenment. After drinking it, all technologies will be unlocked once.\n\nSpecial:\nAfter giving Zhuyuan 1 Garnodema Ice to exchange for the \"Zhuyuan’s Shop\" blueprint.\n\t"
+  },
+  "sh_neverold": {
+   "vi": "【Bối cảnh】\n“Thuốc Trường Sinh Bất Lão” Tây Vương Mẫu đánh rơi ở Đại Lục Vĩnh Hằng. Ăn xong thì trần no và trần máu tăng 30, trần tinh thần không đổi.\nĐổi nhân vật rồi thì phần chỉ số tăng thêm vẫn được kế thừa.\n\nLiệu đây có phải một cú lừa không, chẳng lẽ khoẻ hơn và ăn ngon hơn thì tinh thần cũng phơi phới hơn?",
+   "zh": "\n【背景】\n西王母遗失在永恒大陆的“长生不老药”。食用后饥饿、血量上限增加30，精神上限不会变化。\n重选人物后，三维增长会被继承。\n\n这会是一场骗局吗，你并不会因为体力变强、胃口变好而变得更精神？\n\t",
+   "en": "\nBackground:\nA lost relic from the Constant, brewed by the celestial goddess Xiwangmu herself. Consuming it permanently increases max Health, Hunger by 30 each.\n\nHmm... is this a trap? You won't actually feel more energized just because you get stronger and eat better, will you?\n\t"
+  },
+  "sh_fsm_monkey_zhuyan": {
+   "vi": "【Bối cảnh】\n《Sơn Hải Kinh · Tây Sơn Kinh》: Có thú ở đó, hình như vượn mà đầu trắng chân đỏ, tên là Chu Yếm, hễ thấy là có đại binh đao.\n\n【Đặc biệt】\nLiên động với “山海秘藏 (Sơn Hải Bí Tàng)”: sau khi bật “山海秘藏”, sinh vật mà “Chu Yếm” của “Sơn Hà Biểu Lý” triệu hồi lúc chiến đấu sẽ có thêm “Chu Yếm Con”.",
+   "zh": "\n【背景】\n《山海经·西山经》：有兽焉，其壮如猿而白首赤足，名曰朱厌，见则大兵。\n\n【特殊】\n与“山海秘藏”的联动，开启“山海秘藏”后，“山河表里”的“朱厌”战斗时的召唤生物将会添加“小朱厌”。\n\t",
+   "en": "\nBackground:\n《山海经·西山经》：有兽焉，其壮如猿而白首赤足，名曰朱厌，见则大兵。\n\nSpecial:\nA crossover with \"山海秘藏\": when the mod is enabled, the battle against \"Zhuyan\" will add \"Little Zhuyan\" to its summoned creatures.\t\n\t"
+  },
+  "sh_abysspillar": {
+   "vi": "【Bối cảnh】\nChơi với Trưởng Lão Dị Vực, thắng thì có xác suất nhận bản vẽ; đặt xuống biển để đi lại.\n\n【Đặc biệt】\nThiết kế mã và vân bề mặt của Cọc Gỗ Nhỏ dùng chung với MOD 拼好.\nĐừng chơi nữa, vẽ nhanh lên!",
+   "zh": "\n【背景】\n与异域长老进行游戏，获胜后概率获取蓝图，可放置在海上通行。\n\n【特殊】\n小木桩的代码设计、贴图与拼好MOD共用。\n别玩了，快点画！\n\t",
+   "en": "\nBackground:\nPlay with Elderpig, chance to get it's blueprint when you win.\nCan be placed in the ocean.\n\t"
+  },
+  "sh_taco": {
+   "vi": "【Bối cảnh】\nBánh cuốn ngũ cốc bình thường, xem ra chẳng có gì đặc biệt.",
+   "zh": "\n【背景】\n普通的杂粮煎饼，似乎没有什么特别的。\n\t",
+   "en": "\nBackground:\nAn ordinary multigrain pancake roll. It doesn't seem particularly special.\n\t"
+  },
+  "sh_zhulong_taco": {
+   "vi": "【Bối cảnh】\nBánh cuốn được ban sức mạnh thời không, ăn hoài không hết!\nĐặt “Bánh Cuốn Sơn Hà” lên tượng Chúc Long để tế, có 0,1% xác suất biến thành “Bánh Cuốn Thời Không”.\n\n【Đặc biệt】\nBánh Cuốn Thời Không có thể cuốn một món ăn vào, ban cho nó sức mạnh thời không.\nBánh Cuốn Thời Không không bao giờ hỏng; người chơi cắn một miếng thì nó tự đầy lại, và cho đúng hiệu quả ăn của món gốc.",
+   "zh": "\n【背景】\n赋予时空之力的卷饼，永远吃不完！\n将“山河卷饼”放到烛龙雕塑献祭，有0.1%的概率被转换为“时空卷饼”。\n\n【特殊】\n时空卷饼可以卷起料理，赋予时空之力。\n时空卷饼永远不会腐烂，玩家咬下一口后自动补充完整，并提供原料理的食用效果。\n\t",
+   "en": "\nBackground:\nA taco imbued with the power of time and space. It's never-ending!\nSacrifice the \"Montfluv Taco\" at the Dragon Statue for a 0.1% chance to convert it into the \"Time Taco\".\n\nSpecial:\nUse this Space-Time Taco on any prepared dish to wrap it up, permanently transforming that dish into this specific taco.\n\nThe Space-Time Taco never spoils. Taking a bite will automatically restore it to completeness, and it will provide the same eating effects as the original dish it consumed.\n\t"
+  }
+ },
+ "fields": {
+  "洞天塔": {
+   "vi": "Động Thiên Tháp",
+   "f": [
+    "location"
+   ]
+  },
+  "小次山": {
+   "vi": "Núi Tiểu Thứ",
+   "f": [
+    "location"
+   ]
+  },
+  "昆仑龙脉": {
+   "vi": "Long Mạch Côn Lôn",
+   "f": [
+    "location"
+   ]
+  },
+  "永恒大陆": {
+   "vi": "Đại Lục Vĩnh Hằng",
+   "f": [
+    "location"
+   ]
+  },
+  "桦树林": {
+   "vi": "Rừng Bạch Dương",
+   "f": [
+    "location"
+   ]
+  },
+  "蜂后区域": {
+   "vi": "Khu Vực Ong Chúa",
+   "f": [
+    "location"
+   ]
+  },
+  "昆仑龙脉、洞天塔": {
+   "vi": "Long Mạch Côn Lôn, Động Thiên Tháp",
+   "f": [
+    "location"
+   ]
+  },
+  "雕塑": {
+   "vi": "Tượng",
+   "f": [
+    "type"
+   ]
+  },
+  "建筑": {
+   "vi": "Công trình",
+   "f": [
+    "type"
+   ]
+  },
+  "箱子": {
+   "vi": "Rương",
+   "f": [
+    "type"
+   ]
+  },
+  "装饰": {
+   "vi": "Trang trí",
+   "f": [
+    "type"
+   ]
+  },
+  "道具": {
+   "vi": "Vật phẩm",
+   "f": [
+    "type"
+   ]
+  },
+  "武器": {
+   "vi": "Vũ khí",
+   "f": [
+    "type"
+   ]
+  },
+  "食物": {
+   "vi": "Thức ăn",
+   "f": [
+    "type"
+   ]
+  },
+  "绿洲沙漠": {
+   "vi": "Sa Mạc Ốc Đảo",
+   "f": [
+    "location"
+   ]
+  }
+ },
+ "ui": {
+  "MOD Plots": "Cốt truyện MOD",
+  "MOD Preview": "Hé lộ cập nhật",
+  "MOD Progress": "Tiến độ MOD",
+  "About MOD": "Về MOD",
+  "MOD Sponsor": "Ủng hộ MOD",
+  "Terrains": "Địa hình",
+  "Buildings": "Công trình",
+  "Biomes": "Sinh vật",
+  "Items": "Vật phẩm",
+  "Details": "Chi tiết",
+  "Settings": "Thiết lập",
+  "Shanhe World Settings": "Thiết lập thế giới Sơn Hà",
+  "Apply Settings": "Áp dụng",
+  "Reset to Default": "Về mặc định",
+  "Current Value:": "Giá trị hiện tại:",
+  "Settings saved.": "Đã lưu thiết lập.",
+  "No changes to save.": "Không có thay đổi nào để lưu.",
+  "ON": "BẬT",
+  "OFF": "TẮT",
+  "OK": "Đồng ý",
+  "Cancel": "Huỷ",
+  "location": "nơi xuất hiện",
+  "recipe": "công thức",
+  "attitude": "phe phái",
+  "friendly": "thân thiện",
+  "hostile": "thù địch",
+  "unable to craft": "không chế được",
+  "target": "đối tượng",
+  "desc": "giới thiệu",
+  "unlock": "cách mở khoá",
+  "type": "loại"
+ }
+}

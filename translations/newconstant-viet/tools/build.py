@@ -73,15 +73,15 @@ REQUIRED_MODINFO = ('name', 'version', 'version_compatible', 'api_version', 'pri
 # Phiên bản của BẢN VIỆT HOÁ, độc lập với version của tác giả gốc.
 # Tăng số này mỗi lần upload lại lên Workshop, nếu không người dùng không biết
 # có bản mới. Giữ nguyên version gốc thì Workshop coi như không đổi.
-VI_VERSION = '1.0.1'
+VI_VERSION = '1.0.2'
 # version_compatible: BẮT BUỘC phải có. Thiếu nó thì DST khớp version tuyệt đối
 # giữa client và server — lệch một chữ số là người chơi bị từ chối vào phòng.
 VI_VERSION_COMPATIBLE = '1.0.0'
 
 UPSTREAM = {
-    'core':      ('0.9.25', '3645179905', 'Core'),
-    'base':      ('0.9.35', '3191348907', 'Base'),
-    'nightmare': ('0.9.30', '3645181516', 'Nightmare'),
+    'core':      ('0.9.41', '3645179905', 'Core'),
+    'base':      ('0.9.41', '3191348907', 'Base'),
+    'nightmare': ('0.9.41', '3645181516', 'Nightmare'),
 }
 
 DESC = {
@@ -329,11 +329,20 @@ def main():
     shutil.rmtree(BUILD, ignore_errors=True)
     os.makedirs(BUILD)
 
+    # mod.manifest chép từ vendor liệt kê file của Workshop item GỐC, mà bộ file
+    # bản Việt đã khác (bỏ languages/, thêm lang/). ModUploader tự sinh cái đúng.
+    def _bo_manifest(d):
+        f = os.path.join(d, 'mod.manifest')
+        if os.path.exists(f):
+            os.remove(f)
+
     core, n_old = build_core()
     print(f"  ✓ core → {os.path.relpath(core, ROOT)}  (bỏ {n_old} file ngôn ngữ cũ)")
     base, nb_dep = build_base()
     print(f"  ✓ base → {os.path.relpath(base, ROOT)}  (gỡ {nb_dep} khai báo phụ thuộc)")
     night, n_dead, nn_dep = build_nightmare()
+    for _d in (core, base, night):
+        _bo_manifest(_d)
     print(f"  ✓ nightmare → {os.path.relpath(night, ROOT)}  "
           f"(bỏ {n_dead} file ngôn ngữ chết, gỡ {nn_dep} khai báo phụ thuộc)")
 

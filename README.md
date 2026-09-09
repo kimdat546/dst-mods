@@ -66,10 +66,12 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 | DST Tiếng Việt | `translations/dst-tieng-viet` | Dịch game gốc | 2026.5 (git) | Datgavl | **3683660917** |
 | Đăng Tiên VN | `translations/dang-tien-viet` | Dịch mod 登仙 | 1.2.0 (git) / **1.0.0 trên Workshop** | kimdat546 | **3719981130** (mod nguồn: 3235319974) |
 | Myth Words VN | `translations/myth-words-viet` | Dịch mod | 1.2 | Datgavl | *cần điền* |
-| NewConstant Việt | `translations/newconstant-viet` | Dựng lại i18n + dịch | — | kimdat546 | *đã publish (hidden) — cần điền* |
+| NewConstant Việt (Core/Base/Nightmare) | `translations/newconstant-viet` | Dựng lại i18n + dịch | 1.0.2 (upstream 0.9.41) | kimdat546 | Core **3778107626** · Base **3778108141** · Nightmare **3778108374** |
 | Food Buff | `originals/food-buff-hud` | Tự làm | 1.0.0 | kimdat546 | **3774466732** |
+| Thần Binh Phù Ấn | `translations/than-binh-phu-an-viet` | Dịch + phát triển tiếp mod mã nguồn mở | 0.0.3 | kimdat546 | **3792863569** (nguồn: 3096210166) |
+| Montfluv Việt | `translations/montfluv-viet` | Dịch mod 山河表里 bằng **mod client riêng**, KHÔNG fork | 1.1.2 | kimdat546 | **3797940738** (mod nguồn: 3401927745) |
 
-> **TODO:** còn thiếu Workshop ID của Myth Words VN và NewConstant Việt.
+> **TODO:** còn thiếu Workshop ID của Myth Words VN.
 
 ---
 

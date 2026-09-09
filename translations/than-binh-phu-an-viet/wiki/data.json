@@ -1,0 +1,4916 @@
+{
+ "phu_an": [
+  {
+   "key": "restore_use_10s_1use",
+   "ten": "Hồi bền 10 giây +1",
+   "mo_ta": "Mỗi 10 giây hồi 1 độ bền"
+  },
+  {
+   "key": "restore_use_1s_2_percent",
+   "ten": "Hồi bền mỗi giây +2% độ bền",
+   "mo_ta": "Mỗi giây hồi 2% độ bền"
+  },
+  {
+   "key": "restore_use_3s_1use",
+   "ten": "Hồi bền 3 giây +1",
+   "mo_ta": "Mỗi 3 giây hồi 1 độ bền"
+  },
+  {
+   "key": "restore_use_5s_1use",
+   "ten": "Hồi bền 5 giây +1",
+   "mo_ta": "Mỗi 5 giây hồi 1 độ bền"
+  },
+  {
+   "key": "absorb_small",
+   "ten": "",
+   "mo_ta": "Giảm %s%% sát thương nhận vào"
+  },
+  {
+   "key": "add_com_damage",
+   "ten": "",
+   "mo_ta": "Sát thương gây ra +%s"
+  },
+  {
+   "key": "add_critical_hit_effect",
+   "ten": "",
+   "mo_ta": "%s%% hiệu quả bạo kích"
+  },
+  {
+   "key": "add_critical_hit_rate",
+   "ten": "",
+   "mo_ta": "%s%% tỉ lệ bạo kích"
+  },
+  {
+   "key": "add_critical_hit_rate_damage",
+   "ten": "",
+   "mo_ta": "Bạo kích +%s%%, hiệu quả bạo kích +100%%"
+  },
+  {
+   "key": "add_day_damage",
+   "ten": "",
+   "mo_ta": "Ban ngày tăng %s sát thương"
+  },
+  {
+   "key": "add_dusk_damage",
+   "ten": "",
+   "mo_ta": "Hoàng hôn tăng %s sát thương"
+  },
+  {
+   "key": "add_extra_damage_percent",
+   "ten": "",
+   "mo_ta": "Tăng sát thương %s%%"
+  },
+  {
+   "key": "add_hit_damage_boss",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên sinh vật khổng lồ"
+  },
+  {
+   "key": "add_hit_damage_dog",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài chó"
+  },
+  {
+   "key": "add_hit_damage_fish",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài cá"
+  },
+  {
+   "key": "add_hit_damage_frog",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài ếch"
+  },
+  {
+   "key": "add_hit_damage_gear",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên sinh vật bánh răng"
+  },
+  {
+   "key": "add_hit_damage_insect",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên côn trùng"
+  },
+  {
+   "key": "add_hit_damage_monkey",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài khỉ"
+  },
+  {
+   "key": "add_hit_damage_pig",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài lợn"
+  },
+  {
+   "key": "add_hit_damage_plant",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên thực vật"
+  },
+  {
+   "key": "add_hit_damage_shadow",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên sinh vật bóng tối"
+  },
+  {
+   "key": "add_hit_damage_spider",
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài nhện"
+  },
+  {
+   "key": "add_immune_cold",
+   "ten": "",
+   "mo_ta": "Miễn quá lạnh"
+  },
+  {
+   "key": "add_immune_freeze",
+   "ten": "",
+   "mo_ta": "Không thể bị đóng băng"
+  },
+  {
+   "key": "add_immune_hot",
+   "ten": "",
+   "mo_ta": "Miễn quá nóng"
+  },
+  {
+   "key": "add_immune_poison",
+   "ten": "",
+   "mo_ta": "Miễn sát thương độc"
+  },
+  {
+   "key": "add_light",
+   "ten": "",
+   "mo_ta": "Tăng khả năng chiếu sáng"
+  },
+  {
+   "key": "add_max_health_01",
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu"
+  },
+  {
+   "key": "add_max_health_02",
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu"
+  },
+  {
+   "key": "add_max_health_03",
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu"
+  },
+  {
+   "key": "add_max_health_04",
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu"
+  },
+  {
+   "key": "add_max_use",
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (dùng chung)"
+  },
+  {
+   "key": "add_max_use_armor_01",
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (giáp)"
+  },
+  {
+   "key": "add_max_use_armor_02",
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (giáp)"
+  },
+  {
+   "key": "add_max_use_armor_03",
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (giáp)"
+  },
+  {
+   "key": "add_moisture_damage",
+   "ten": "",
+   "mo_ta": "Khi ướt tăng %s sát thương"
+  },
+  {
+   "key": "add_night_damage",
+   "ten": "",
+   "mo_ta": "Ban đêm tăng %s sát thương"
+  },
+  {
+   "key": "add_poisonProtection",
+   "ten": "",
+   "mo_ta": "Sát thương độc giảm %s%%"
+  },
+  {
+   "key": "add_speed_percent",
+   "ten": "",
+   "mo_ta": "Tăng tốc chạy %s%%"
+  },
+  {
+   "key": "armor_immune_amount",
+   "ten": "",
+   "mo_ta": "Giáp không hao mòn (khi trúng đòn)"
+  },
+  {
+   "key": "armor_reduce_amount",
+   "ten": "",
+   "mo_ta": "Hao mòn giáp giảm %s%% (khi trúng đòn)"
+  },
+  {
+   "key": "atk_10s_health",
+   "ten": "",
+   "mo_ta": "Khi đánh có xác suất nhận hiệu ứng hồi máu 10 giây (+1)"
+  },
+  {
+   "key": "atk_add_good_damage",
+   "ten": "",
+   "mo_ta": "Sát thương gây ra +%s"
+  },
+  {
+   "key": "atk_add_poison",
+   "ten": "",
+   "mo_ta": "%s%% cơ hội khiến quái trúng độc (mỗi 2 giây mất 5 máu, kéo dài 60 giây)"
+  },
+  {
+   "key": "atk_add_san",
+   "ten": "",
+   "mo_ta": "Hồi tinh thần %s%%"
+  },
+  {
+   "key": "atk_blood_01",
+   "ten": "",
+   "mo_ta": "Hút máu %s%%"
+  },
+  {
+   "key": "atk_blood_suck_02",
+   "ten": "",
+   "mo_ta": "Hút máu %s%%"
+  },
+  {
+   "key": "atk_blood_suck_03",
+   "ten": "",
+   "mo_ta": "Hút máu %s%%"
+  },
+  {
+   "key": "atk_speed",
+   "ten": "",
+   "mo_ta": "Tăng tốc đánh %s%% ("
+  },
+  {
+   "key": "attack_fire_impact",
+   "ten": "",
+   "mo_ta": "Khi đánh có xác suất kích hoạt %s cột lửa tấn công"
+  },
+  {
+   "key": "autumn_god",
+   "ten": "",
+   "mo_ta": "Sát thương gây ra vào mùa thu +50, tỉ lệ bạo kích 10%%"
+  },
+  {
+   "key": "black_monkey",
+   "ten": "",
+   "mo_ta": "Mỗi món trang sức bị nguyền trong túi đồ tăng %s%% sát thương"
+  },
+  {
+   "key": "blood_outburst",
+   "ten": "",
+   "mo_ta": "Máu càng thấp sát thương càng cao (tối đa +50%)"
+  },
+  {
+   "key": "fast_act",
+   "ten": "",
+   "mo_ta": "Tăng mạnh tốc độ thu thập, xây dựng, nấu nướng, giao dịch"
+  },
+  {
+   "key": "follow_damage",
+   "ten": "",
+   "mo_ta": "Sát thương thuộc hạ +%s"
+  },
+  {
+   "key": "follow_reduce_damage",
+   "ten": "",
+   "mo_ta": "Thuộc hạ giảm %s sát thương"
+  },
+  {
+   "key": "health_suppress_num",
+   "ten": "",
+   "mo_ta": "Có %s%% cơ hội khiến mục tiêu dính Chế Tài trong 10 giây"
+  },
+  {
+   "key": "hunger_assault",
+   "ten": "",
+   "mo_ta": "Độ no càng thấp sát thương càng cao (tối đa +50%)"
+  },
+  {
+   "key": "immune_bramble",
+   "ten": "",
+   "mo_ta": "Miễn sát thương phản đòn"
+  },
+  {
+   "key": "immune_debuff",
+   "ten": "",
+   "mo_ta": "Miễn lạnh, nóng, đóng băng, độc"
+  },
+  {
+   "key": "immune_sleep",
+   "ten": "",
+   "mo_ta": "Miễn hiệu ứng ru ngủ"
+  },
+  {
+   "key": "immunity_moisture",
+   "ten": "",
+   "mo_ta": "Miễn ẩm ướt"
+  },
+  {
+   "key": "immunity_stick",
+   "ten": "",
+   "mo_ta": "Miễn nhớt"
+  },
+  {
+   "key": "money_player",
+   "ten": "",
+   "mo_ta": "Tốn Vàng Thỏi để tăng 100 sát thương (không có thì -200 sát thương)"
+  },
+  {
+   "key": "moon_camp",
+   "ten": "",
+   "mo_ta": "Nguyệt Linh không tự gây thù hằn"
+  },
+  {
+   "key": "more_damage_15_300",
+   "ten": "",
+   "mo_ta": "15%% cơ hội gây %s%% sát thương (bạo kích được)"
+  },
+  {
+   "key": "more_damage_20_200",
+   "ten": "",
+   "mo_ta": "20%% cơ hội gây %s%% sát thương (bạo kích được)"
+  },
+  {
+   "key": "more_damage_8_500",
+   "ten": "",
+   "mo_ta": "8%% cơ hội gây %s%% sát thương (bạo kích được)"
+  },
+  {
+   "key": "porter",
+   "ten": "",
+   "mo_ta": "Khiêng tượng không bị chậm"
+  },
+  {
+   "key": "reduce_bramble_percent",
+   "ten": "",
+   "mo_ta": "Giảm %s%% sát thương phản giáp nhận vào"
+  },
+  {
+   "key": "reduce_com_attacked_damage",
+   "ten": "",
+   "mo_ta": "Giảm cố định %s sát thương"
+  },
+  {
+   "key": "reduce_fire_damage",
+   "ten": "",
+   "mo_ta": "Giảm %s%% sát thương lửa"
+  },
+  {
+   "key": "reduce_good_damage",
+   "ten": "",
+   "mo_ta": "Giảm cố định %s sát thương"
+  },
+  {
+   "key": "reflexive_injury",
+   "ten": "",
+   "mo_ta": "Khi trúng đòn, dội lại %s sát thương cho kẻ tấn công"
+  },
+  {
+   "key": "san_replace_damage",
+   "ten": "",
+   "mo_ta": "%s%% cơ hội tiêu tinh thần để chặn sát thương nhận vào"
+  },
+  {
+   "key": "shadow_camp",
+   "ten": "",
+   "mo_ta": "Quái bóng tối không thể gây thù hằn lên người chơi"
+  },
+  {
+   "key": "special_bhtg",
+   "ten": "",
+   "mo_ta": "Hồi tinh thần 3%% · Hút máu 3%% · Sát thương +50 · Tăng 10%% · Chế Tài"
+  },
+  {
+   "key": "special_immune_control",
+   "ten": "",
+   "mo_ta": "Miễn hất văng, nhớt (Dê Cứng / Dịch Độc), ru ngủ, đóng băng"
+  },
+  {
+   "key": "special_sgsy",
+   "ten": "",
+   "mo_ta": "Giảm sát thương 35, né sát thương 45%%, miễn phản đòn"
+  },
+  {
+   "key": "special_true_damage",
+   "ten": "",
+   "mo_ta": "Đòn đánh kèm %s sát thương chuẩn"
+  },
+  {
+   "key": "special_zqrf",
+   "ten": "",
+   "mo_ta": "Miễn chế tài, làm chậm, lạnh, nóng, đóng băng, độc, ẩm ướt"
+  },
+  {
+   "key": "spirit_fade",
+   "ten": "",
+   "mo_ta": "Tinh thần càng thấp sát thương càng cao (tối đa +50%)"
+  },
+  {
+   "key": "target_percent_damage",
+   "ten": "",
+   "mo_ta": "Sát thương + %s%% máu hiện tại của mục tiêu"
+  },
+  {
+   "key": "tga_robot",
+   "ten": "",
+   "mo_ta": "Người máy tăng %s sát thương cao"
+  },
+  {
+   "key": "treasure_hot_cold",
+   "ten": "",
+   "mo_ta": "Miễn quá lạnh, quá nóng"
+  },
+  {
+   "key": "treasure_poison_freeze",
+   "ten": "",
+   "mo_ta": "Miễn trúng độc, đóng băng"
+  },
+  {
+   "key": "true_damage_small",
+   "ten": "",
+   "mo_ta": "Khi gây sát thương kèm %s sát thương chuẩn"
+  },
+  {
+   "key": "work_speed",
+   "ten": "",
+   "mo_ta": "Tốc độ làm việc gấp đôi"
+  },
+  {
+   "key": "z_suit_bhtg",
+   "ten": "",
+   "mo_ta": "Bạch Hổ Thiên Cương"
+  },
+  {
+   "key": "z_suit_fyyy",
+   "ten": "",
+   "mo_ta": "Phi Vân Dật Ảnh (riêng)"
+  },
+  {
+   "key": "z_suit_slly",
+   "ten": "",
+   "mo_ta": "Thần Long Lăng Vân"
+  },
+  {
+   "key": "z_suit_xwsh",
+   "ten": "",
+   "mo_ta": "Huyền Vũ Thủ Hộ"
+  },
+  {
+   "key": "z_suit_yhby",
+   "ten": "",
+   "mo_ta": "Thánh Quang Che Chở"
+  },
+  {
+   "key": "z_suit_zqrf",
+   "ten": "",
+   "mo_ta": "Chu Tước Loan Phượng"
+  }
+ ],
+ "phu_an_chi_tiet": [
+  {
+   "key": "restore_use_10s_1use",
+   "id": 1,
+   "ten": "Hồi bền 10 giây +1",
+   "mo_ta": "Mỗi 10 giây hồi 1 độ bền",
+   "sao": 3,
+   "chi_mot": true,
+   "tex": "sewing_kit.tex"
+  },
+  {
+   "key": "restore_use_5s_1use",
+   "id": 2,
+   "ten": "Hồi bền 5 giây +1",
+   "mo_ta": "Mỗi 5 giây hồi 1 độ bền",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "restore_use_3s_1use",
+   "id": 3,
+   "ten": "Hồi bền 3 giây +1",
+   "mo_ta": "Mỗi 3 giây hồi 1 độ bền",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "restore_use_1s_2_percent",
+   "id": 4,
+   "ten": "Hồi bền mỗi giây +2% độ bền",
+   "mo_ta": "Mỗi giây hồi 2% độ bền",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_max_use",
+   "id": 5,
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (dùng chung)",
+   "sao": 10,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_max_use_armor_01",
+   "id": 6,
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (giáp)",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_max_use_armor_02",
+   "id": 7,
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (giáp)",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_max_use_armor_03",
+   "id": 8,
+   "ten": "",
+   "mo_ta": "Tăng %s độ bền (giáp)",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "reduce_com_attacked_damage",
+   "id": 9,
+   "ten": "",
+   "mo_ta": "Giảm cố định %s sát thương",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_com_damage",
+   "id": 10,
+   "ten": "",
+   "mo_ta": "Sát thương gây ra +%s",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_night_damage",
+   "id": 11,
+   "ten": "",
+   "mo_ta": "Ban đêm tăng %s sát thương",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_day_damage",
+   "id": 12,
+   "ten": "",
+   "mo_ta": "Ban ngày tăng %s sát thương",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_dusk_damage",
+   "id": 13,
+   "ten": "",
+   "mo_ta": "Hoàng hôn tăng %s sát thương",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_moisture_damage",
+   "id": 14,
+   "ten": "",
+   "mo_ta": "Khi ướt tăng %s sát thương",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "blood_outburst",
+   "id": 15,
+   "ten": "",
+   "mo_ta": "Máu càng thấp sát thương càng cao (tối đa +50%)",
+   "sao": 4,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "spirit_fade",
+   "id": 16,
+   "ten": "",
+   "mo_ta": "Tinh thần càng thấp sát thương càng cao (tối đa +50%)",
+   "sao": 4,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "hunger_assault",
+   "id": 17,
+   "ten": "",
+   "mo_ta": "Độ no càng thấp sát thương càng cao (tối đa +50%)",
+   "sao": 4,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "reflexive_injury",
+   "id": 18,
+   "ten": "",
+   "mo_ta": "Khi trúng đòn, dội lại %s sát thương cho kẻ tấn công",
+   "sao": 3,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_pig",
+   "id": 19,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài lợn",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_fish",
+   "id": 20,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài cá",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_monkey",
+   "id": 21,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài khỉ",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_gear",
+   "id": 22,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên sinh vật bánh răng",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_spider",
+   "id": 23,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài nhện",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_dog",
+   "id": 24,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài chó",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_frog",
+   "id": 25,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên loài ếch",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_insect",
+   "id": 26,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên côn trùng",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_shadow",
+   "id": 27,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên sinh vật bóng tối",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_boss",
+   "id": 28,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên sinh vật khổng lồ",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_hit_damage_plant",
+   "id": 29,
+   "ten": "",
+   "mo_ta": "Tăng %s sát thương lên thực vật",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_extra_damage_percent",
+   "id": 30,
+   "ten": "",
+   "mo_ta": "Tăng sát thương %s%%",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_critical_hit_rate",
+   "id": 31,
+   "ten": "",
+   "mo_ta": "%s%% tỉ lệ bạo kích",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_critical_hit_effect",
+   "id": 32,
+   "ten": "",
+   "mo_ta": "%s%% hiệu quả bạo kích",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "atk_blood_01",
+   "id": 34,
+   "ten": "",
+   "mo_ta": "Hút máu %s%%",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "atk_blood_suck_02",
+   "id": 35,
+   "ten": "",
+   "mo_ta": "Hút máu %s%%",
+   "sao": 10,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "atk_blood_suck_03",
+   "id": 36,
+   "ten": "",
+   "mo_ta": "Hút máu %s%%",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "atk_add_good_damage",
+   "id": 37,
+   "ten": "",
+   "mo_ta": "Sát thương gây ra +%s",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "reduce_good_damage",
+   "id": 38,
+   "ten": "",
+   "mo_ta": "Giảm cố định %s sát thương",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "atk_add_san",
+   "id": 39,
+   "ten": "",
+   "mo_ta": "Hồi tinh thần %s%%",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_speed_percent",
+   "id": 40,
+   "ten": "",
+   "mo_ta": "Tăng tốc chạy %s%%",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_max_health_01",
+   "id": 41,
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu",
+   "sao": 4,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_max_health_02",
+   "id": 42,
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_max_health_03",
+   "id": 43,
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu",
+   "sao": 10,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "add_max_health_04",
+   "id": 44,
+   "ten": "",
+   "mo_ta": "Tăng %s giới hạn máu",
+   "sao": 5,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "atk_10s_health",
+   "id": 45,
+   "ten": "",
+   "mo_ta": "Khi đánh có xác suất nhận hiệu ứng hồi máu 10 giây (+1)",
+   "sao": 3,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_critical_hit_rate_damage",
+   "id": 46,
+   "ten": "",
+   "mo_ta": "Bạo kích +%s%%, hiệu quả bạo kích +100%%",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_immune_cold",
+   "id": 47,
+   "ten": "",
+   "mo_ta": "Miễn quá lạnh",
+   "sao": 10,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_immune_hot",
+   "id": 48,
+   "ten": "",
+   "mo_ta": "Miễn quá nóng",
+   "sao": 10,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_immune_poison",
+   "id": 49,
+   "ten": "",
+   "mo_ta": "Miễn sát thương độc",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_immune_freeze",
+   "id": 50,
+   "ten": "",
+   "mo_ta": "Không thể bị đóng băng",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "immune_debuff",
+   "id": 51,
+   "ten": "",
+   "mo_ta": "Miễn lạnh, nóng, đóng băng, độc",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "immune_bramble",
+   "id": 52,
+   "ten": "",
+   "mo_ta": "Miễn sát thương phản đòn",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "san_replace_damage",
+   "id": 53,
+   "ten": "",
+   "mo_ta": "%s%% cơ hội tiêu tinh thần để chặn sát thương nhận vào",
+   "sao": 10,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "atk_add_poison",
+   "id": 54,
+   "ten": "",
+   "mo_ta": "%s%% cơ hội khiến quái trúng độc (mỗi 2 giây mất 5 máu, kéo dài 60 giây)",
+   "sao": 3,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "reduce_bramble_percent",
+   "id": 55,
+   "ten": "",
+   "mo_ta": "Giảm %s%% sát thương phản giáp nhận vào",
+   "sao": 3,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "follow_add_damage",
+   "id": 56,
+   "ten": "",
+   "mo_ta": "Sát thương thuộc hạ +%s",
+   "sao": 10,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "follow_reduce_damage",
+   "id": 57,
+   "ten": "",
+   "mo_ta": "Thuộc hạ giảm %s sát thương",
+   "sao": 10,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "health_suppress_num",
+   "id": 58,
+   "ten": "",
+   "mo_ta": "Có %s%% cơ hội khiến mục tiêu dính Chế Tài trong 10 giây",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "more_damage_20_200",
+   "id": 59,
+   "ten": "",
+   "mo_ta": "20%% cơ hội gây %s%% sát thương (bạo kích được)",
+   "sao": 4,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "more_damage_15_300",
+   "id": 60,
+   "ten": "",
+   "mo_ta": "15%% cơ hội gây %s%% sát thương (bạo kích được)",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "more_damage_8_500",
+   "id": 61,
+   "ten": "",
+   "mo_ta": "8%% cơ hội gây %s%% sát thương (bạo kích được)",
+   "sao": 5,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "true_damage_small",
+   "id": 62,
+   "ten": "",
+   "mo_ta": "Khi gây sát thương kèm %s sát thương chuẩn",
+   "sao": 6,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "true_damage_big",
+   "id": 63,
+   "ten": "",
+   "mo_ta": "Khi gây sát thương kèm %s sát thương chuẩn",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "target_percent_damage",
+   "id": 64,
+   "ten": "",
+   "mo_ta": "Sát thương + %s%% máu hiện tại của mục tiêu",
+   "sao": 12,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "shadow_camp",
+   "id": 65,
+   "ten": "",
+   "mo_ta": "Quái bóng tối không thể gây thù hằn lên người chơi",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "moon_camp",
+   "id": 66,
+   "ten": "",
+   "mo_ta": "Nguyệt Linh không tự gây thù hằn",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "immunity_moisture",
+   "id": 67,
+   "ten": "",
+   "mo_ta": "Miễn ẩm ướt",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "add_light",
+   "id": 68,
+   "ten": "",
+   "mo_ta": "Tăng khả năng chiếu sáng",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "fast_act",
+   "id": 69,
+   "ten": "",
+   "mo_ta": "Tăng mạnh tốc độ thu thập, xây dựng, nấu nướng, giao dịch",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "work_speed",
+   "id": 70,
+   "ten": "",
+   "mo_ta": "Tốc độ làm việc gấp đôi",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "armor_reduce_amount_small",
+   "id": 71,
+   "ten": "",
+   "mo_ta": "Hao mòn giáp giảm %s%% (khi trúng đòn)",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "armor_reduce_amount",
+   "id": 72,
+   "ten": "",
+   "mo_ta": "Hao mòn giáp giảm %s%% (khi trúng đòn)",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "porter",
+   "id": 73,
+   "ten": "",
+   "mo_ta": "Khiêng tượng không bị chậm",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "atk_speed_small",
+   "id": 74,
+   "ten": "",
+   "mo_ta": "Tăng tốc đánh %s%% (",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "atk_speed_big",
+   "id": 75,
+   "ten": "",
+   "mo_ta": "Tăng tốc đánh %s%% (",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "immune_sleep",
+   "id": 76,
+   "ten": "",
+   "mo_ta": "Miễn hiệu ứng ru ngủ",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "absorb_small",
+   "id": 77,
+   "ten": "",
+   "mo_ta": "Giảm %s%% sát thương nhận vào",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "absorb_middle",
+   "id": 78,
+   "ten": "",
+   "mo_ta": "Giảm %s%% sát thương nhận vào",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "absorb_big",
+   "id": 79,
+   "ten": "",
+   "mo_ta": "Giảm %s%% sát thương nhận vào",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "autumn_god",
+   "id": 80,
+   "ten": "",
+   "mo_ta": "Sát thương gây ra vào mùa thu +50, tỉ lệ bạo kích 10%%",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "black_monkey",
+   "id": 81,
+   "ten": "",
+   "mo_ta": "Mỗi món trang sức bị nguyền trong túi đồ tăng %s%% sát thương",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "tga_robot",
+   "id": 82,
+   "ten": "",
+   "mo_ta": "Người máy tăng %s sát thương cao",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "money_player",
+   "id": 83,
+   "ten": "",
+   "mo_ta": "Tốn Vàng Thỏi để tăng 100 sát thương (không có thì -200 sát thương)",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "immunity_stick",
+   "id": 84,
+   "ten": "",
+   "mo_ta": "Miễn nhớt",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "armor_immune_amount",
+   "id": 900,
+   "ten": "",
+   "mo_ta": "Giáp không hao mòn (khi trúng đòn)",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "special_bhtg",
+   "id": 901,
+   "ten": "",
+   "mo_ta": "Hồi tinh thần 3%% · Hút máu 3%% · Sát thương +50 · Tăng 10%% · Chế Tài",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "special_zqrf",
+   "id": 902,
+   "ten": "",
+   "mo_ta": "Miễn chế tài, làm chậm, lạnh, nóng, đóng băng, độc, ẩm ướt",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "special_true_damage",
+   "id": 903,
+   "ten": "",
+   "mo_ta": "Đòn đánh kèm %s sát thương chuẩn",
+   "sao": 8,
+   "chi_mot": true,
+   "tex": null
+  },
+  {
+   "key": "special_sgsy",
+   "id": 904,
+   "ten": "",
+   "mo_ta": "Giảm sát thương 35, né sát thương 45%%, miễn phản đòn",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  },
+  {
+   "key": "special_immune_control",
+   "id": 905,
+   "ten": "",
+   "mo_ta": "Miễn hất văng, nhớt (Dê Cứng / Dịch Độc), ru ngủ, đóng băng",
+   "sao": 8,
+   "chi_mot": false,
+   "tex": null
+  }
+ ],
+ "thuoc_tinh": [
+  {
+   "key": "immuneCold",
+   "ten": "Miễn giá rét",
+   "mo_ta": ""
+  },
+  {
+   "key": "immuneHot",
+   "ten": "Miễn quá nóng",
+   "mo_ta": ""
+  },
+  {
+   "key": "immuneFreeze",
+   "ten": "Miễn đóng băng",
+   "mo_ta": ""
+  },
+  {
+   "key": "immunePoison",
+   "ten": "Miễn trúng độc",
+   "mo_ta": ""
+  },
+  {
+   "key": "immuneBramble",
+   "ten": "Miễn phản thương",
+   "mo_ta": ""
+  },
+  {
+   "key": "fireProtection",
+   "ten": "Kháng lửa",
+   "mo_ta": ""
+  },
+  {
+   "key": "poisonProtection",
+   "ten": "Kháng độc",
+   "mo_ta": ""
+  },
+  {
+   "key": "sanReplaceDamageChance",
+   "ten": "Khiên Bóng Tối",
+   "mo_ta": "Có tỉ lệ đốt tinh thần để chặn sát thương (trần 80)"
+  },
+  {
+   "key": "criticalHitEffect",
+   "ten": "Hiệu lực chí mạng",
+   "mo_ta": ""
+  },
+  {
+   "key": "criticalHitRate",
+   "ten": "Tỉ lệ chí mạng",
+   "mo_ta": ""
+  },
+  {
+   "key": "addComDamage",
+   "ten": "Cộng thẳng sát thương",
+   "mo_ta": ""
+  },
+  {
+   "key": "addComDamagePercent",
+   "ten": "Cộng sát thương",
+   "mo_ta": ""
+  },
+  {
+   "key": "addSpeedPercent",
+   "ten": "Cộng tốc chạy",
+   "mo_ta": ""
+  },
+  {
+   "key": "reduceAttackedDamage",
+   "ten": "Giảm sát thương khi trúng đòn",
+   "mo_ta": ""
+  },
+  {
+   "key": "bloodSuck",
+   "ten": "Hút máu",
+   "mo_ta": ""
+  },
+  {
+   "key": "restoreSpirit",
+   "ten": "Hồi tinh thần",
+   "mo_ta": ""
+  },
+  {
+   "key": "reflexiveInjury",
+   "ten": "Phản thẳng sát thương",
+   "mo_ta": ""
+  },
+  {
+   "key": "reflexiveInjuryByPercent",
+   "ten": "Phản sát thương theo %",
+   "mo_ta": ""
+  },
+  {
+   "key": "reduceBrambleDamage",
+   "ten": "Kháng phản thương",
+   "mo_ta": ""
+  },
+  {
+   "key": "atkAddPoisonChance",
+   "ten": "Đánh trúng gây độc",
+   "mo_ta": "Đánh trúng có tỉ lệ gây độc cho mục tiêu"
+  },
+  {
+   "key": "nightMenace",
+   "ten": "Kích Ám Dạ",
+   "mo_ta": "Ban đêm tăng %s sát thương"
+  },
+  {
+   "key": "sunlightStrike",
+   "ten": "Kích Dương Quang",
+   "mo_ta": "Ban ngày tăng %s sát thương"
+  },
+  {
+   "key": "afterglowStrike",
+   "ten": "Kích Tà Dương",
+   "mo_ta": "Hoàng hôn tăng %s sát thương"
+  },
+  {
+   "key": "soakStrike",
+   "ten": "Kích Thấm Ướt",
+   "mo_ta": "Khi ướt tăng %s sát thương"
+  },
+  {
+   "key": "bloodOutburst",
+   "ten": "Huyết Dũng",
+   "mo_ta": "Máu càng thấp sát thương càng cao (tối đa +30%)"
+  },
+  {
+   "key": "spiritFade",
+   "ten": "Thần Tuyệt",
+   "mo_ta": "Tinh thần càng thấp sát thương càng cao (tối đa +30%)"
+  },
+  {
+   "key": "hungerAssault",
+   "ten": "Kẻ Điên",
+   "mo_ta": "Càng đói sát thương càng cao (tối đa +30%)"
+  },
+  {
+   "key": "addHitPigDamage",
+   "ten": "Sát Thủ Người Heo",
+   "mo_ta": "Tăng sát thương lên loài heo"
+  },
+  {
+   "key": "addHitFishDamage",
+   "ten": "Sát Thủ Người Cá",
+   "mo_ta": "Tăng sát thương lên loài cá"
+  },
+  {
+   "key": "addHitMonkeyDamage",
+   "ten": "Sát Thủ Loài Khỉ",
+   "mo_ta": "Tăng sát thương lên loài khỉ"
+  },
+  {
+   "key": "addHitGearDamage",
+   "ten": "Sát Thủ Máy Móc",
+   "mo_ta": "Tăng sát thương lên máy móc"
+  },
+  {
+   "key": "addHitSpiderDamage",
+   "ten": "Sát Thủ Loài Nhện",
+   "mo_ta": "Tăng sát thương lên loài nhện"
+  },
+  {
+   "key": "addHitDogDamage",
+   "ten": "Sát Thủ Loài Chó",
+   "mo_ta": "Tăng sát thương lên loài chó"
+  },
+  {
+   "key": "addHitFrogDamage",
+   "ten": "Sát Thủ Loài Ếch",
+   "mo_ta": "Tăng sát thương lên loài ếch"
+  },
+  {
+   "key": "addHitInsectDamage",
+   "ten": "Sát Thủ Côn Trùng",
+   "mo_ta": "Tăng sát thương lên côn trùng"
+  },
+  {
+   "key": "addHitShadowDamage",
+   "ten": "Sát Thủ Bóng Tối",
+   "mo_ta": "Tăng sát thương lên sinh vật bóng tối"
+  },
+  {
+   "key": "addHitBossDamage",
+   "ten": "Sát Thủ Khổng Lồ",
+   "mo_ta": "Tăng sát thương lên quái khổng lồ"
+  },
+  {
+   "key": "addHitPlantDamage",
+   "ten": "Sát Thủ Thực Vật",
+   "mo_ta": "Tăng sát thương lên thực vật"
+  },
+  {
+   "key": "attackToAddHealth",
+   "ten": "Kích hoạt hồi máu ",
+   "mo_ta": "Đánh trúng có tỉ lệ nhận buff hồi máu"
+  },
+  {
+   "key": "sanityReplaceDamage",
+   "ten": "Có tỉ lệ đốt tinh thần để chặn sát thương ",
+   "mo_ta": "Có tỉ lệ đốt tinh thần để chặn sát thương"
+  },
+  {
+   "key": "atkChanceAddPoison",
+   "ten": "Có tỉ lệ gây độc cho mục tiêu (3 giây 1 máu, kéo 480 giây)",
+   "mo_ta": "Có tỉ lệ gây độc cho mục tiêu (3 giây 1 máu, kéo 480 giây)"
+  },
+  {
+   "key": "hitChanceAddPoison",
+   "ten": "Có tỉ lệ gây độc cho kẻ tấn công (3 giây 1 máu, kéo 480 giây)",
+   "mo_ta": "Có tỉ lệ gây độc cho kẻ tấn công (3 giây 1 máu, kéo 480 giây)"
+  },
+  {
+   "key": "atkChanceAddFreeze",
+   "ten": "Có tỉ lệ đóng băng mục tiêu 2 giây",
+   "mo_ta": "Có tỉ lệ đóng băng mục tiêu 2 giây"
+  },
+  {
+   "key": "hitChanceAddFreeze",
+   "ten": "Có tỉ lệ đóng băng kẻ tấn công 2 giây",
+   "mo_ta": "Có tỉ lệ đóng băng kẻ tấn công 2 giây"
+  },
+  {
+   "key": "addSuppressAddHealth",
+   "ten": "Gắn buff áp chế hồi máu",
+   "mo_ta": "Có tỉ lệ gắn buff áp chế hồi máu lên mục tiêu"
+  },
+  {
+   "key": "hitSuppressAddHealth",
+   "ten": "Gắn buff áp chế hồi máu",
+   "mo_ta": "Có tỉ lệ khiến kẻ tấn công bị áp chế hồi máu"
+  },
+  {
+   "key": "healthSuppressNum",
+   "ten": "Chế Tài",
+   "mo_ta": "Bị áp chế hồi máu"
+  },
+  {
+   "key": "addFollowDamage",
+   "ten": "Cường hoá thuộc hạ",
+   "mo_ta": "Thuộc hạ tăng sát thương"
+  },
+  {
+   "key": "addFollowReduceDamage",
+   "ten": "Cường hoá thuộc hạ",
+   "mo_ta": "Thuộc hạ giảm sát thương nhận"
+  },
+  {
+   "key": "addFollowCritical",
+   "ten": "Cường hoá thuộc hạ",
+   "mo_ta": "Thuộc hạ tăng chí mạng"
+  },
+  {
+   "key": "moreDamage20To200",
+   "ten": "Sát thương gấp đôi",
+   "mo_ta": "Sát thương gấp đôi"
+  },
+  {
+   "key": "moreDamage10To300",
+   "ten": "Sát thương gấp ba",
+   "mo_ta": "Sát thương gấp ba"
+  },
+  {
+   "key": "moreDamage8To500",
+   "ten": "Sát thương gấp năm",
+   "mo_ta": "Sát thương gấp năm"
+  },
+  {
+   "key": "trueDamageNum",
+   "ten": "Sát thương thật",
+   "mo_ta": "Sát thương thật"
+  },
+  {
+   "key": "targetPercentDamage",
+   "ten": "Tận Thế",
+   "mo_ta": "Kèm sát thương theo %"
+  },
+  {
+   "key": "shadowCamp",
+   "ten": "Nguỵ Trang Bóng Tối",
+   "mo_ta": "Nguỵ Trang Bóng Tối"
+  },
+  {
+   "key": "moonCamp",
+   "ten": "Nguỵ Trang Nguyệt Linh",
+   "mo_ta": "Nguỵ Trang Nguyệt Linh"
+  },
+  {
+   "key": "immunityMoisture",
+   "ten": "Miễn ẩm ướt",
+   "mo_ta": "Miễn ẩm ướt"
+  },
+  {
+   "key": "workAddSpeed",
+   "ten": "Hiệu suất làm việc gấp đôi",
+   "mo_ta": "Hiệu suất làm việc gấp đôi"
+  },
+  {
+   "key": "z_suit_yhby_hand",
+   "ten": "Thánh Quang Che Chở (tay)",
+   "mo_ta": "Thánh Quang Che Chở (tay)"
+  },
+  {
+   "key": "z_suit_yhby_body",
+   "ten": "Thánh Quang Che Chở (áo)",
+   "mo_ta": "Thánh Quang Che Chở (áo)"
+  },
+  {
+   "key": "z_suit_yhby_hat",
+   "ten": "Thánh Quang Che Chở (mũ)",
+   "mo_ta": "Thánh Quang Che Chở (mũ)"
+  },
+  {
+   "key": "z_suit_bhtg_hand",
+   "ten": "",
+   "mo_ta": ""
+  },
+  {
+   "key": "z_suit_bhtg_body",
+   "ten": "",
+   "mo_ta": ""
+  },
+  {
+   "key": "z_suit_bhtg_hat",
+   "ten": "",
+   "mo_ta": ""
+  },
+  {
+   "key": "z_suit_zqrf_hand",
+   "ten": "",
+   "mo_ta": ""
+  },
+  {
+   "key": "z_suit_zqrf_body",
+   "ten": "",
+   "mo_ta": ""
+  },
+  {
+   "key": "z_suit_zqrf_hat",
+   "ten": "",
+   "mo_ta": ""
+  },
+  {
+   "key": "z_suit_fyyy_hand",
+   "ten": "Phi Vân Dật Ảnh (tay)",
+   "mo_ta": "Phi Vân Dật Ảnh (tay)"
+  },
+  {
+   "key": "z_suit_fyyy_body",
+   "ten": "Phi Vân Dật Ảnh (áo)",
+   "mo_ta": "Phi Vân Dật Ảnh (áo)"
+  },
+  {
+   "key": "z_suit_fyyy_hat",
+   "ten": "Phi Vân Dật Ảnh (mũ)",
+   "mo_ta": "Phi Vân Dật Ảnh (mũ)"
+  },
+  {
+   "key": "immuneReduceSpeed",
+   "ten": "Miễn làm chậm",
+   "mo_ta": ""
+  },
+  {
+   "key": "immuneSuppressNum",
+   "ten": "Miễn Chế Tài",
+   "mo_ta": ""
+  },
+  {
+   "key": "atkSpeed",
+   "ten": "Tốc đánh",
+   "mo_ta": ""
+  },
+  {
+   "key": "add_light",
+   "ten": "Phát sáng",
+   "mo_ta": ""
+  },
+  {
+   "key": "fast_act",
+   "ten": "Tương tác nhanh",
+   "mo_ta": ""
+  },
+  {
+   "key": "work_speed",
+   "ten": "Hiệu suất làm việc gấp đôi",
+   "mo_ta": ""
+  },
+  {
+   "key": "porter",
+   "ten": "Phu Khuân Vác",
+   "mo_ta": ""
+  },
+  {
+   "key": "atk_speed",
+   "ten": "Tốc đánh",
+   "mo_ta": ""
+  },
+  {
+   "key": "immunitySleep",
+   "ten": "Miễn thôi miên",
+   "mo_ta": ""
+  },
+  {
+   "key": "absorbDamage",
+   "ten": "Giảm sát thương nhận",
+   "mo_ta": ""
+  },
+  {
+   "key": "autumnGod",
+   "ten": "Chiến Thần Mùa Thu",
+   "mo_ta": ""
+  },
+  {
+   "key": "monkey_god",
+   "ten": "Hắc Mã Lâu",
+   "mo_ta": ""
+  },
+  {
+   "key": "tga_robot",
+   "ten": "Người Máy Vũ Trụ",
+   "mo_ta": ""
+  },
+  {
+   "key": "immunityStick",
+   "ten": "Miễn nhớt dê thép",
+   "mo_ta": ""
+  },
+  {
+   "key": "immunityKnockBack",
+   "ten": "Miễn hất văng",
+   "mo_ta": ""
+  },
+  {
+   "key": "money_player",
+   "ten": "Đại Gia Nạp Thẻ",
+   "mo_ta": ""
+  },
+  {
+   "key": "addMaxHealthNum",
+   "ten": "Tăng máu tối đa",
+   "mo_ta": ""
+  },
+  {
+   "key": "addMaxHealthPercent",
+   "ten": "Tăng % máu tối đa",
+   "mo_ta": ""
+  },
+  {
+   "key": "addComDamageNum",
+   "ten": "Tăng sát thương gây ra",
+   "mo_ta": ""
+  },
+  {
+   "key": "addComDamagePercent",
+   "ten": "Cộng % sát thương gây ra",
+   "mo_ta": ""
+  },
+  {
+   "key": "reduceAttackedDamage",
+   "ten": "Giảm sát thương khi trúng đòn",
+   "mo_ta": ""
+  },
+  {
+   "key": "reboundDamageNum",
+   "ten": "Phản sát thương",
+   "mo_ta": ""
+  },
+  {
+   "key": "reboundDamagePercent",
+   "ten": "Phản sát thương theo %",
+   "mo_ta": ""
+  },
+  {
+   "key": "atkChanceAddPoison",
+   "ten": "Có tỉ lệ gây độc cho mục tiêu (3 giây 1 máu, kéo 480 giây)",
+   "mo_ta": ""
+  },
+  {
+   "key": "hitChanceAddPoison",
+   "ten": "Có tỉ lệ gây độc cho kẻ tấn công (3 giây 1 máu, kéo 480 giây)",
+   "mo_ta": ""
+  },
+  {
+   "key": "atkChanceAddFreeze",
+   "ten": "Có tỉ lệ đóng băng mục tiêu 2 giây",
+   "mo_ta": ""
+  },
+  {
+   "key": "hitChanceAddFreeze",
+   "ten": "Có tỉ lệ đóng băng kẻ tấn công 2 giây",
+   "mo_ta": ""
+  },
+  {
+   "key": "atkChanceReduceSpeed",
+   "ten": "Có tỉ lệ làm chậm mục tiêu",
+   "mo_ta": ""
+  },
+  {
+   "key": "hitChanceReduceSpeed",
+   "ten": "Có tỉ lệ làm chậm kẻ tấn công",
+   "mo_ta": ""
+  },
+  {
+   "key": "atkBlood",
+   "ten": "Hút máu",
+   "mo_ta": ""
+  },
+  {
+   "key": "addSpeedPercent",
+   "ten": "Tăng tốc",
+   "mo_ta": ""
+  },
+  {
+   "key": "criticalHitRate",
+   "ten": "Tỉ lệ chí mạng",
+   "mo_ta": ""
+  },
+  {
+   "key": "criticalHitEffect",
+   "ten": "Hiệu lực chí mạng",
+   "mo_ta": ""
+  },
+  {
+   "key": "attackToAddHealth",
+   "ten": "Có tỉ lệ nhận buff hồi máu 10 giây",
+   "mo_ta": ""
+  },
+  {
+   "key": "reduceDeltaHealthPercent",
+   "ten": "Áp chế hồi máu - tối đa 50%",
+   "mo_ta": ""
+  },
+  {
+   "key": "sunlightStrike",
+   "ten": "Kích Dương Quang",
+   "mo_ta": "Ban ngày tăng %s sát thương"
+  },
+  {
+   "key": "afterglowStrike",
+   "ten": "Kích Tà Dương",
+   "mo_ta": "Hoàng hôn tăng %s sát thương"
+  },
+  {
+   "key": "nightMenace",
+   "ten": "Kích Ám Dạ",
+   "mo_ta": "Ban đêm tăng %s sát thương"
+  },
+  {
+   "key": "addSuppressAddHealth",
+   "ten": "Gắn buff áp chế hồi máu",
+   "mo_ta": "Có tỉ lệ gắn buff áp chế hồi máu lên mục tiêu"
+  },
+  {
+   "key": "hitSuppressAddHealth",
+   "ten": "Gắn buff áp chế hồi máu",
+   "mo_ta": "Có tỉ lệ khiến kẻ tấn công bị áp chế hồi máu"
+  },
+  {
+   "key": "healthSuppressNum",
+   "ten": "Bị hạn chế",
+   "mo_ta": "Bị áp chế hồi máu %s%%"
+  },
+  {
+   "key": "iceLaser",
+   "ten": "Tia Laser",
+   "mo_ta": "Tia Laser"
+  },
+  {
+   "key": "addTargetDamage",
+   "ten": "Tăng sát thương lên mục tiêu",
+   "mo_ta": "Tăng sát thương lên mục tiêu"
+  },
+  {
+   "key": "immuneFreeze",
+   "ten": "Miễn đóng băng",
+   "mo_ta": "Miễn đóng băng"
+  },
+  {
+   "key": "replaceDamageChance",
+   "ten": "Đỡ đòn",
+   "mo_ta": "Có tỉ lệ chặn sát thương"
+  },
+  {
+   "key": "hitAddMoisture",
+   "ten": "Tăng độ ẩm ướt",
+   "mo_ta": "Tăng độ ẩm ướt"
+  },
+  {
+   "key": "addColdBuffValue",
+   "ten": "Dễ lạnh",
+   "mo_ta": "Dễ lạnh"
+  },
+  {
+   "key": "addHotBuffValue",
+   "ten": "Dễ nóng",
+   "mo_ta": "Dễ nóng"
+  },
+  {
+   "key": "reduceNightDamage",
+   "ten": "Giảm thương ban đêm",
+   "mo_ta": "Ban đêm nhận ít sát thương hơn"
+  },
+  {
+   "key": "reduceSunlightDamage",
+   "ten": "Giảm thương ban ngày",
+   "mo_ta": "Ban ngày nhận ít sát thương hơn"
+  },
+  {
+   "key": "reduceAfterglowDamage",
+   "ten": "Giảm thương hoàng hôn",
+   "mo_ta": "Hoàng hôn nhận ít sát thương hơn"
+  },
+  {
+   "key": "atkAddArmorReduceBuff",
+   "ten": "Đánh trúng gây buff vỡ giáp",
+   "mo_ta": "Đánh trúng gây buff vỡ giáp"
+  },
+  {
+   "key": "reducePercentDamage",
+   "ten": "Giảm sát thương theo %",
+   "mo_ta": "Giảm sát thương theo %"
+  },
+  {
+   "key": "immuneTearing",
+   "ten": "Miễn hiệu ứng xé rách",
+   "mo_ta": "Miễn hiệu ứng xé rách"
+  }
+ ],
+ "boss": [
+  {
+   "key": "hh_sharkboi",
+   "ten": "Cá Mập Sương Lớn",
+   "mo_ta": "Cá Mập Sương Lớn"
+  },
+  {
+   "key": "hh_beetle_pig",
+   "ten": "Lợn Rừng Giáp Bọ",
+   "mo_ta": "Lợn Rừng Giáp Bọ"
+  },
+  {
+   "key": "hh_dual_wield_pig",
+   "ten": "Lợn Rừng Song Đao",
+   "mo_ta": "Lợn Rừng Song Đao"
+  }
+ ],
+ "quai": [],
+ "quai_kho_bau": [
+  {
+   "key": "treasure_kps",
+   "ten": "Đại Vương Klaus Siêu Cấp · Sao: ∞ · Chịu trên 1000 sát thương thì rơi Đá Phù Ấn"
+  },
+  {
+   "key": "treasure_cat_you",
+   "ten": "Đại Vương Miêu Du Siêu Cấp · Sao: ∞ · Chịu trên 1000 sát thương thì rơi Ngọc Phù Ấn"
+  },
+  {
+   "key": "pig_tank",
+   "ten": "★★ Lợn Tăng ★★ · Phòng thủ cực mạnh"
+  },
+  {
+   "key": "pig_attack",
+   "ten": "★★ Lợn Bạo Lực ★★ · Sát thương được cường hoá"
+  },
+  {
+   "key": "pig_buff",
+   "ten": "★★ Lợn Làm Thuê ★★ · Tôi sắp nổ tung rồi"
+  },
+  {
+   "key": "pig_wsz",
+   "ten": "★★ Cột Thời Gian ★★ · Ngươi là người tốt, ta theo ngươi"
+  },
+  {
+   "key": "super_pig",
+   "ten": "★★★ Lợn Quán Quân ★★★ · Ta đấu mười tên một lúc"
+  },
+  {
+   "key": "mutateddeerclops_boss",
+   "ten": "★★★★★★ Đại Vương Nai Sừng Tấm ★★★★★★ · Chết rơi Đá Phù Ấn Chu Tước (miễn sát thương vũ khí tầm xa)"
+  },
+  {
+   "key": "mutatedbearger_boss",
+   "ten": "★★★★★★ Gấu Voi Siêu Cấp ★★★★★★ · Chết rơi Đá Phù Ấn Bạch Hổ (miễn sát thương vũ khí tầm xa)"
+  },
+  {
+   "key": "hh_sharkboi_boss",
+   "ten": "★★★★★★ Cá Mập Siêu Cấp ★★★★★★ · Chết rơi Đá Phù Ấn Khoá Giáp (miễn sát thương vũ khí tầm xa)"
+  },
+  {
+   "key": "mutatedwarg_boss",
+   "ten": "★★★★★★ Vương Sói Phụ Thân ★★★★★★ · Chết rơi Đá Phù Ấn Thần Quy Thủ Ngự (miễn sát thương vũ khí tầm xa)"
+  },
+  {
+   "key": "hh_beetle_pig_boss",
+   "ten": "★★★★★★ Đại Trư Tri Phi ★★★★★★ · Chết rơi Đá Phù Ấn Miễn Khống Chế (miễn sát thương vũ khí tầm xa)"
+  },
+  {
+   "key": "hh_dual_wield_pig_boss",
+   "ten": "★★★★★★ Lợn Rừng Ngốc ★★★★★★ · Chết rơi Đá Phù Ấn Chân Thương (miễn sát thương vũ khí tầm xa)"
+  },
+  {
+   "key": "leif_hot",
+   "ten": "★★ Tinh Cây ★★ · Xác suất thấp rơi Miễn Quá Nóng"
+  },
+  {
+   "key": "leif_cold",
+   "ten": "★★ Tinh Cây ★★ · Xác suất thấp rơi Miễn Quá Lạnh"
+  }
+ ],
+ "buff": [
+  {
+   "key": "add_health",
+   "ten": "+󰀍"
+  },
+  {
+   "key": "buff_10s_1_health",
+   "ten": "+󰀍"
+  },
+  {
+   "key": "add_hunger",
+   "ten": "+󰀎"
+  },
+  {
+   "key": "add_sanity",
+   "ten": "+󰀓"
+  },
+  {
+   "key": "test_01",
+   "ten": "Thử 01"
+  },
+  {
+   "key": "test_02",
+   "ten": "Thử 02"
+  },
+  {
+   "key": "test_03",
+   "ten": "Thử 03"
+  },
+  {
+   "key": "test_04",
+   "ten": "Thử 04"
+  },
+  {
+   "key": "test_05",
+   "ten": "Thử 05"
+  },
+  {
+   "key": "test_06",
+   "ten": "Thử 06"
+  },
+  {
+   "key": "test_07",
+   "ten": "Thử 07"
+  },
+  {
+   "key": "test_08",
+   "ten": "Thử 08"
+  },
+  {
+   "key": "test_09",
+   "ten": "Thử 09"
+  },
+  {
+   "key": "test_10",
+   "ten": "Thử 10"
+  },
+  {
+   "key": "poison",
+   "ten": "Trúng Độc"
+  },
+  {
+   "key": "monster_poison",
+   "ten": "Trúng Độc — quái"
+  },
+  {
+   "key": "reduce_speed",
+   "ten": "Làm Chậm"
+  },
+  {
+   "key": "player_healthSuppressNum",
+   "ten": "Chế Tài"
+  },
+  {
+   "key": "monster_healthSuppressNum",
+   "ten": "Chế Tài"
+  },
+  {
+   "key": "monster_add_target_damage",
+   "ten": "Khiếp Sợ"
+  },
+  {
+   "key": "turret_fire",
+   "ten": "Bỏng"
+  },
+  {
+   "key": "turret_poison",
+   "ten": "Chảy Máu"
+  },
+  {
+   "key": "suit_basalt",
+   "ten": "Sức Mạnh Huyền Vũ"
+  },
+  {
+   "key": "suit_basalt_cd",
+   "ten": "Hiệu ứng bộ Huyền Vũ"
+  },
+  {
+   "key": "suit_yhby",
+   "ten": "Thánh Quang Che Chở"
+  },
+  {
+   "key": "suit_yhby_cd",
+   "ten": "Che Chở — hồi chiêu trị liệu diện rộng"
+  },
+  {
+   "key": "add_cold",
+   "ten": "Dễ lạnh"
+  },
+  {
+   "key": "add_hot",
+   "ten": "Dễ nóng"
+  },
+  {
+   "key": "add_armor_consume",
+   "ten": "Giáp Giòn"
+  },
+  {
+   "key": "hh_beetle_pig_speed",
+   "ten": "Tăng Tốc Chạy"
+  }
+ ],
+ "vat_pham": [
+  {
+   "key": "a_punchStone",
+   "ten": "Đá Đục Lỗ"
+  },
+  {
+   "key": "a_stoneDecoder",
+   "ten": "Máy Gỡ Ngọc"
+  },
+  {
+   "key": "a_refreshStone",
+   "ten": "Ngọc Tái Luyện"
+  },
+  {
+   "key": "durableGem",
+   "ten": "Ngọc Bền Bỉ"
+  },
+  {
+   "key": "damageBoostGem",
+   "ten": "Ngọc Tăng Sát Thương"
+  },
+  {
+   "key": "powerMettleStone",
+   "ten": "Đá Lực Thế"
+  },
+  {
+   "key": "strideBead",
+   "ten": "Ngọc Bộ Pháp"
+  },
+  {
+   "key": "shadowNightBead",
+   "ten": "Ngọc Ám Tập"
+  },
+  {
+   "key": "followCritical",
+   "ten": "Linh Thú - Bạo"
+  },
+  {
+   "key": "followDamage",
+   "ten": "Linh Thú - Công"
+  },
+  {
+   "key": "followArmor",
+   "ten": "Linh Thú - Ngự"
+  },
+  {
+   "key": "twilightBead",
+   "ten": "Ngọc Hoàng Hôn"
+  },
+  {
+   "key": "dayShineBead",
+   "ten": "Ngọc Quang Diệu"
+  },
+  {
+   "key": "critStrikeStone",
+   "ten": "Đá Chí Mạng"
+  },
+  {
+   "key": "resistDamageGem",
+   "ten": "Đá Kháng Thương"
+  },
+  {
+   "key": "vigorousStone",
+   "ten": "Đá Bồng Bột"
+  },
+  {
+   "key": "frostGuardCrystal",
+   "ten": "Tinh Thể Chống Rét"
+  },
+  {
+   "key": "heatGuardCrystal",
+   "ten": "Tinh Thể Chống Nóng"
+  },
+  {
+   "key": "elementBead",
+   "ten": "Sao Nguyên Tố"
+  },
+  {
+   "key": "retaliateGem",
+   "ten": "Đá Phản Thương"
+  },
+  {
+   "key": "spiderVengeance",
+   "ten": "Khắc Chế Nhện"
+  },
+  {
+   "key": "insectStrikeCrystal",
+   "ten": "Khắc Chế Côn Trùng"
+  },
+  {
+   "key": "shadowStrikeLuminary",
+   "ten": "Khắc Chế Bóng Tối"
+  },
+  {
+   "key": "bossStrikeGem",
+   "ten": "Khắc Chế Thủ Lĩnh"
+  },
+  {
+   "key": "z_clean_stone",
+   "ten": "Phù Tịnh Hoá"
+  },
+  {
+   "key": "eightPigGem",
+   "ten": "Đá Âm Âm"
+  },
+  {
+   "key": "nkGem",
+   "ten": "Kẹo Gia Tâm"
+  },
+  {
+   "key": "baconOmeletteBlessArmor",
+   "ten": "Cực Phẩm - Thủ"
+  },
+  {
+   "key": "baconOmeletteBlessAtk",
+   "ten": "Cực Phẩm - Công"
+  },
+  {
+   "key": "baconOmeletteBlessCritical",
+   "ten": "Cực Phẩm - Bạo"
+  },
+  {
+   "key": "baconOmeletteTrueDamage",
+   "ten": "Cực - Sát Thương Thật"
+  },
+  {
+   "key": "fxGem",
+   "ten": "Ngọc Hiệu Ứng"
+  },
+  {
+   "key": "treasure_atk",
+   "ten": "Bảo ★ Công Kích"
+  },
+  {
+   "key": "treasure_bj",
+   "ten": "Bảo ★ Chí Mạng"
+  },
+  {
+   "key": "treasure_armor",
+   "ten": "Bảo ★ Hồi Bền"
+  },
+  {
+   "key": "z_fertilizer",
+   "ten": "Thuật: Bón Phân"
+  },
+  {
+   "key": "z_plant",
+   "ten": "Thuật: Thúc Chín"
+  },
+  {
+   "key": "z_soil",
+   "ten": "Thuật: Cày Đất"
+  },
+  {
+   "key": "z_rain",
+   "ten": "Thuật: Gọi Mưa"
+  },
+  {
+   "key": "z_sleep",
+   "ten": "Thuật: Thôi Miên"
+  },
+  {
+   "key": "z_stone",
+   "ten": "Thuật: Hoá Đá"
+  }
+ ],
+ "trung": [],
+ "prefab_mod": [
+  {
+   "key": "hh_treasure_jl",
+   "ten": "Nai Sừng Tấm Nguyệt Hậu"
+  },
+  {
+   "key": "hh_treasure_xd",
+   "ten": "Gấu Voi Nguyệt Hậu"
+  },
+  {
+   "key": "hh_treasure_sy",
+   "ten": "Cá Mập Sương Nguyệt Hậu"
+  },
+  {
+   "key": "hh_treasure_kps",
+   "ten": "Klaus Siêu Cấp"
+  },
+  {
+   "key": "hh_treasure_warg",
+   "ten": "Sói Đầu Đàn Nguyệt Hậu"
+  },
+  {
+   "key": "hh_treasure_zf",
+   "ten": "Heo Bọ Cánh Cứng"
+  },
+  {
+   "key": "hh_treasure_lz",
+   "ten": "Lợn Rừng Song Đao"
+  },
+  {
+   "key": "hh_cat_box",
+   "ten": "Hộp Phù Ấn",
+   "mo_ta": "Hộp chứa Đá Phù Ấn"
+  },
+  {
+   "key": "hh_treasure_tally",
+   "ten": "Cuộn Tầm Bảo",
+   "mo_ta": "Cuộn Tầm Bảo"
+  },
+  {
+   "key": "hh_treasure_build",
+   "ten": "Điểm Kho Báu",
+   "mo_ta": "Điểm Kho Báu"
+  },
+  {
+   "key": "hh_treasure_jl",
+   "ten": "Điểm Kho Báu — Nai Sừng Tấm Nguyệt Hậu",
+   "mo_ta": "Điểm Kho Báu — Nai Sừng Tấm Nguyệt Hậu"
+  },
+  {
+   "key": "hh_treasure_xd",
+   "ten": "Điểm Kho Báu — Gấu Voi Nguyệt Hậu",
+   "mo_ta": "Điểm Kho Báu — Gấu Voi Nguyệt Hậu"
+  },
+  {
+   "key": "hh_treasure_sy",
+   "ten": "Điểm Kho Báu — Cá Mập Sương Nguyệt Hậu",
+   "mo_ta": "Điểm Kho Báu — Cá Mập Sương Nguyệt Hậu"
+  },
+  {
+   "key": "hh_treasure_kps",
+   "ten": "Điểm Kho Báu — Klaus Siêu Cấp",
+   "mo_ta": "Điểm Kho Báu — Klaus Siêu Cấp"
+  },
+  {
+   "key": "hh_treasure_warg",
+   "ten": "Điểm Kho Báu — Sói Đầu Đàn Phụ Thân",
+   "mo_ta": "Điểm Kho Báu — Sói Đầu Đàn Phụ Thân"
+  },
+  {
+   "key": "hh_treasure_zf",
+   "ten": "Điểm Kho Báu — Lợn Giáp Bọ",
+   "mo_ta": "Điểm Kho Báu — Lợn Giáp Bọ"
+  },
+  {
+   "key": "hh_treasure_lz",
+   "ten": "Điểm Kho Báu — Lợn Song Đao",
+   "mo_ta": "Điểm Kho Báu — Lợn Song Đao"
+  },
+  {
+   "key": "hh_treasure_text",
+   "ten": "Danh Hiệu Rương Báu",
+   "mo_ta": "Danh Hiệu Rương Báu"
+  },
+  {
+   "key": "hh_duck_box",
+   "ten": "Hộp Vịt Vịt",
+   "mo_ta": "Đổi vàng hàng loạt"
+  },
+  {
+   "key": "hh_shark_ice_start_fx",
+   "ten": "Hiệu ứng băng — bắt đầu",
+   "mo_ta": "Hiệu ứng băng"
+  },
+  {
+   "key": "hh_shark_ice_fx",
+   "ten": "Hiệu ứng băng — đào được",
+   "mo_ta": "Hiệu ứng băng"
+  },
+  {
+   "key": "hh_white_equip_body",
+   "ten": "Trang bị trắng vô giá trị",
+   "mo_ta": "Nhận thuộc tính cường hoá ngẫu nhiên"
+  },
+  {
+   "key": "hh_egg_nest",
+   "ten": "Tổ Ấp Trứng",
+   "mo_ta": "Tổ Ấp Trứng"
+  },
+  {
+   "key": "hh_egg_exhibition_table",
+   "ten": "Bệ Trưng Bày Trứng",
+   "mo_ta": "Dùng để trưng bày các loại trứng khác nhau"
+  },
+  {
+   "key": "hh_hat_star",
+   "ten": "Vòng Sao Thái Diệu",
+   "mo_ta": "Vòng Sao Thái Diệu"
+  },
+  {
+   "key": "hh_hat_star_fx",
+   "ten": "Hiệu ứng Vương Miện Sao",
+   "mo_ta": "Hiệu ứng Vương Miện Sao"
+  },
+  {
+   "key": "hh_talk_fx",
+   "ten": "Hiệu ứng lời thoại",
+   "mo_ta": "Hiệu ứng lời thoại"
+  }
+ ],
+ "trang_bi_phu_an": [
+  {
+   "key": "spear",
+   "ten": "Giáo"
+  },
+  {
+   "key": "hambat",
+   "ten": "Gậy Giò Heo"
+  },
+  {
+   "key": "nightsword",
+   "ten": "Kiếm Ám Dạ"
+  },
+  {
+   "key": "ruins_bat",
+   "ten": "Gậy Quặng Thulecite"
+  },
+  {
+   "key": "glasscutter",
+   "ten": "Đao Thuỷ Tinh"
+  },
+  {
+   "key": "nightstick",
+   "ten": "Búa Sao Mai"
+  },
+  {
+   "key": "tentaclespike",
+   "ten": "Gai Xúc Tu"
+  },
+  {
+   "key": "trident",
+   "ten": "Đinh Ba Chói Tai"
+  },
+  {
+   "key": "batbat",
+   "ten": "Gậy Dơi"
+  },
+  {
+   "key": "spear_wathgrithr",
+   "ten": "Giáo Chiến Đấu"
+  },
+  {
+   "key": "pocketwatch_weapon",
+   "ten": "Chuông Báo Động"
+  },
+  {
+   "key": "firestaff",
+   "ten": "Trượng Lửa"
+  },
+  {
+   "key": "whip",
+   "ten": "Roi Ba Đuôi Mèo"
+  },
+  {
+   "key": "telestaff",
+   "ten": "Trượng Dịch Chuyển"
+  },
+  {
+   "key": "opalstaff",
+   "ten": "Trượng Gọi Trăng"
+  },
+  {
+   "key": "icestaff",
+   "ten": "Trượng Băng"
+  },
+  {
+   "key": "cane",
+   "ten": "Gậy Đi Bộ"
+  },
+  {
+   "key": "orangestaff",
+   "ten": "Trượng Lười"
+  },
+  {
+   "key": "yellowstaff",
+   "ten": "Trượng Gọi Sao"
+  },
+  {
+   "key": "pitchfork",
+   "ten": "Chĩa Cỏ"
+  },
+  {
+   "key": "bugnet",
+   "ten": "Vợt Bắt Côn Trùng"
+  },
+  {
+   "key": "axe",
+   "ten": "Rìu"
+  },
+  {
+   "key": "farm_hoe",
+   "ten": "Cuốc Làm Vườn"
+  },
+  {
+   "key": "pickaxe",
+   "ten": "Cuốc Chim"
+  },
+  {
+   "key": "hammer",
+   "ten": "Búa"
+  },
+  {
+   "key": "shovel",
+   "ten": "Xẻng"
+  },
+  {
+   "key": "brush",
+   "ten": "Bàn Chải"
+  },
+  {
+   "key": "golden_farm_hoe",
+   "ten": "Cuốc Làm Vườn Vàng"
+  },
+  {
+   "key": "goldenpitchfork",
+   "ten": "Chĩa Cỏ Vàng"
+  },
+  {
+   "key": "goldenshovel",
+   "ten": "Xẻng Vàng"
+  },
+  {
+   "key": "reskin_tool",
+   "ten": "Chổi Quét Dọn"
+  },
+  {
+   "key": "lighter",
+   "ten": "Bật Lửa Của Willow"
+  },
+  {
+   "key": "lantern",
+   "ten": "Đèn Lồng"
+  },
+  {
+   "key": "thurible",
+   "ten": "Lư Hương Bóng Tối"
+  },
+  {
+   "key": "torch",
+   "ten": "Đuốc"
+  },
+  {
+   "key": "staff_tornado",
+   "ten": "Chong Chóng Gió"
+  },
+  {
+   "key": "fence_rotator",
+   "ten": "Kiếm Hàng Rào"
+  },
+  {
+   "key": "goldenpickaxe",
+   "ten": "Cuốc Chim Vàng"
+  },
+  {
+   "key": "goldenaxe",
+   "ten": "Rìu Vàng"
+  },
+  {
+   "key": "pickaxe_lunarplant",
+   "ten": "Chuỳ Cà Sáng"
+  },
+  {
+   "key": "shovel_lunarplant",
+   "ten": "Cuốc Xẻng Cà Sáng"
+  },
+  {
+   "key": "multitool_axe_pickaxe",
+   "ten": "Rìu Cuốc Đa Năng"
+  },
+  {
+   "key": "moonglassaxe",
+   "ten": "Rìu Thuỷ Tinh Nguyệt Quang"
+  },
+  {
+   "key": "voidcloth_scythe",
+   "ten": "Kẻ Gặt Bóng Tối"
+  },
+  {
+   "key": "lucy",
+   "ten": "Rìu Lucy"
+  },
+  {
+   "key": "voidcloth_umbrella",
+   "ten": "Ô Bóng Tối"
+  },
+  {
+   "key": "sword_lunarplant",
+   "ten": "Kiếm Cà Sáng"
+  },
+  {
+   "key": "staff_lunarplant",
+   "ten": "Trượng Cà Sáng"
+  },
+  {
+   "key": "hawaiianshirt",
+   "ten": "Áo Sơ Mi Hoa"
+  },
+  {
+   "key": "beargervest",
+   "ten": "Áo Gilê Da Gấu"
+  },
+  {
+   "key": "reflectivevest",
+   "ten": "Đồ Hè Mát Mẻ"
+  },
+  {
+   "key": "armorwood",
+   "ten": "Giáp Gỗ"
+  },
+  {
+   "key": "sweatervest",
+   "ten": "Áo Gilê Răng Chó"
+  },
+  {
+   "key": "armorruins",
+   "ten": "Giáp Thulecite"
+  },
+  {
+   "key": "armor_bramble",
+   "ten": "Vỏ Gai"
+  },
+  {
+   "key": "armorgrass",
+   "ten": "Giáp Cỏ"
+  },
+  {
+   "key": "armor_sanity",
+   "ten": "Giáp Ám Dạ"
+  },
+  {
+   "key": "armormarble",
+   "ten": "Giáp Cẩm Thạch"
+  },
+  {
+   "key": "armorsnurtleshell",
+   "ten": "Giáp Vỏ Ốc"
+  },
+  {
+   "key": "armordragonfly",
+   "ten": "Giáp Vảy"
+  },
+  {
+   "key": "armorwagpunk",
+   "ten": "Giáp W.A.R.B.I.S."
+  },
+  {
+   "key": "armordreadstone",
+   "ten": "Giáp Đá Tuyệt Vọng"
+  },
+  {
+   "key": "raincoat",
+   "ten": "Áo Mưa"
+  },
+  {
+   "key": "trunkvest_winter",
+   "ten": "Áo Gilê Bông Xốp"
+  },
+  {
+   "key": "trunkvest_summer",
+   "ten": "Áo Gilê Thoáng Khí"
+  },
+  {
+   "key": "armorskeleton",
+   "ten": "Giáp Xương"
+  },
+  {
+   "key": "armorslurper",
+   "ten": "Thắt Lưng Đói"
+  },
+  {
+   "key": "armor_voidcloth",
+   "ten": "Áo Choàng Hư Không"
+  },
+  {
+   "key": "hivehat",
+   "ten": "Vương Miện Ong Chúa"
+  },
+  {
+   "key": "skeletonhat",
+   "ten": "Mũ Xương"
+  },
+  {
+   "key": "ruinshat",
+   "ten": "Vương Miện Thulecite"
+  },
+  {
+   "key": "footballhat",
+   "ten": "Mũ Bóng Bầu Dục"
+  },
+  {
+   "key": "beehat",
+   "ten": "Mũ Nuôi Ong"
+  },
+  {
+   "key": "cookiecutterhat",
+   "ten": "Mũ Khuôn Bánh"
+  },
+  {
+   "key": "polly_rogershat",
+   "ten": "Mũ Polly Roger"
+  },
+  {
+   "key": "bushhat",
+   "ten": "Mũ Bụi Rậm"
+  },
+  {
+   "key": "featherhat",
+   "ten": "Mũ Lông Vũ"
+  },
+  {
+   "key": "antlionhat",
+   "ten": "Mũ Cày Đất"
+  },
+  {
+   "key": "moonstorm_goggleshat",
+   "ten": "Kính Bảo Hộ Thiên Văn"
+  },
+  {
+   "key": "blue_mushroomhat",
+   "ten": "Mũ Nấm Lam"
+  },
+  {
+   "key": "watermelonhat",
+   "ten": "Mũ Dưa Hấu"
+  },
+  {
+   "key": "deserthat",
+   "ten": "Kính Bảo Hộ Sa Mạc"
+  },
+  {
+   "key": "green_mushroomhat",
+   "ten": "Mũ Nấm Lục"
+  },
+  {
+   "key": "earmuffshat",
+   "ten": "Bịt Tai Thỏ"
+  },
+  {
+   "key": "catcoonhat",
+   "ten": "Mũ Mèo"
+  },
+  {
+   "key": "red_mushroomhat",
+   "ten": "Mũ Nấm Đỏ"
+  },
+  {
+   "key": "tophat",
+   "ten": "Mũ Chóp Cao"
+  },
+  {
+   "key": "rainhat",
+   "ten": "Mũ Đi Mưa"
+  },
+  {
+   "key": "kelphat",
+   "ten": "Vòng Hoa Biển"
+  },
+  {
+   "key": "wagpunkhat",
+   "ten": "Bánh Răng Đội Đầu W.A.R.B.I.S."
+  },
+  {
+   "key": "goggleshat",
+   "ten": "Kính Bảo Hộ Thời Trang"
+  },
+  {
+   "key": "flowerhat",
+   "ten": "Vòng Hoa"
+  },
+  {
+   "key": "winterhat",
+   "ten": "Mũ Mùa Đông"
+  },
+  {
+   "key": "beefalohat",
+   "ten": "Mũ Sừng Bò"
+  },
+  {
+   "key": "wathgrithrhat",
+   "ten": "Mũ Chiến Đấu"
+  },
+  {
+   "key": "icehat",
+   "ten": "Mũ Băng"
+  },
+  {
+   "key": "eyebrellahat",
+   "ten": "Ô Nhãn Cầu"
+  },
+  {
+   "key": "strawhat",
+   "ten": "Mũ Cỏ"
+  },
+  {
+   "key": "batnosehat",
+   "ten": "Mũ Sữa"
+  },
+  {
+   "key": "molehat",
+   "ten": "Mũ Chuột Chũi"
+  },
+  {
+   "key": "voidclothhat",
+   "ten": "Mũ Trùm Hư Không"
+  },
+  {
+   "key": "dreadstonehat",
+   "ten": "Mũ Đá Tuyệt Vọng"
+  },
+  {
+   "key": "eyemaskhat",
+   "ten": "Mặt Nạ Mắt"
+  },
+  {
+   "key": "lunarplanthat",
+   "ten": "Mũ Cà Sáng"
+  },
+  {
+   "key": "armor_lunarplant",
+   "ten": "Giáp Cà Sáng"
+  },
+  {
+   "key": "slurtlehat",
+   "ten": "Mũ Mai Lưng"
+  },
+  {
+   "key": "spear_wathgrithr_lightning",
+   "ten": "Giáo Sấm Sét"
+  },
+  {
+   "key": "spear_wathgrithr_lightning_charged",
+   "ten": "Giáo Sấm Sét"
+  },
+  {
+   "key": "wathgrithr_improvedhat",
+   "ten": "Mũ Nữ Chiến Thần"
+  },
+  {
+   "key": "hh_ice_knife",
+   "ten": " "
+  },
+  {
+   "key": "hh_knife_atk",
+   "ten": " "
+  },
+  {
+   "key": "hh_knife_atk_super",
+   "ten": " "
+  },
+  {
+   "key": "hh_sword_angry",
+   "ten": " "
+  },
+  {
+   "key": "hh_sword_atk",
+   "ten": " "
+  },
+  {
+   "key": "hh_sword_atk_super",
+   "ten": " "
+  },
+  {
+   "key": "hh_bow_sky",
+   "ten": " "
+  },
+  {
+   "key": "hh_bow_lava",
+   "ten": " "
+  },
+  {
+   "key": "hh_staff_dis",
+   "ten": " "
+  },
+  {
+   "key": "hh_staff_star",
+   "ten": " "
+  },
+  {
+   "key": "voidcloth_boomerang",
+   "ten": "Boomerang Bóng Tối"
+  },
+  {
+   "key": "shadow_battleaxe",
+   "ten": "Rìu Bóng Tối"
+  }
+ ],
+ "trang_bi_roi": [
+  {
+   "key": "hambat",
+   "ten": "Gậy Giò Heo"
+  },
+  {
+   "key": "nightsword",
+   "ten": "Kiếm Ám Dạ"
+  },
+  {
+   "key": "ruins_bat",
+   "ten": "Gậy Quặng Thulecite"
+  },
+  {
+   "key": "nightstick",
+   "ten": "Búa Sao Mai"
+  },
+  {
+   "key": "tentaclespike",
+   "ten": "Gai Xúc Tu"
+  },
+  {
+   "key": "batbat",
+   "ten": "Gậy Dơi"
+  },
+  {
+   "key": "spear_wathgrithr",
+   "ten": "Giáo Chiến Đấu"
+  },
+  {
+   "key": "firestaff",
+   "ten": "Trượng Lửa"
+  },
+  {
+   "key": "whip",
+   "ten": "Roi Ba Đuôi Mèo"
+  },
+  {
+   "key": "icestaff",
+   "ten": "Trượng Băng"
+  },
+  {
+   "key": "cane",
+   "ten": "Gậy Đi Bộ"
+  },
+  {
+   "key": "pitchfork",
+   "ten": "Chĩa Cỏ"
+  },
+  {
+   "key": "bugnet",
+   "ten": "Vợt Bắt Côn Trùng"
+  },
+  {
+   "key": "axe",
+   "ten": "Rìu"
+  },
+  {
+   "key": "farm_hoe",
+   "ten": "Cuốc Làm Vườn"
+  },
+  {
+   "key": "pickaxe",
+   "ten": "Cuốc Chim"
+  },
+  {
+   "key": "hammer",
+   "ten": "Búa"
+  },
+  {
+   "key": "shovel",
+   "ten": "Xẻng"
+  },
+  {
+   "key": "goldenpitchfork",
+   "ten": "Chĩa Cỏ Vàng"
+  },
+  {
+   "key": "brush",
+   "ten": "Bàn Chải"
+  },
+  {
+   "key": "golden_farm_hoe",
+   "ten": "Cuốc Làm Vườn Vàng"
+  },
+  {
+   "key": "goldenpitchfork",
+   "ten": "Chĩa Cỏ Vàng"
+  },
+  {
+   "key": "goldenshovel",
+   "ten": "Xẻng Vàng"
+  },
+  {
+   "key": "reskin_tool",
+   "ten": "Chổi Quét Dọn"
+  },
+  {
+   "key": "torch",
+   "ten": "Đuốc"
+  },
+  {
+   "key": "fence_rotator",
+   "ten": "Kiếm Hàng Rào"
+  },
+  {
+   "key": "goldenpickaxe",
+   "ten": "Cuốc Chim Vàng"
+  },
+  {
+   "key": "goldenaxe",
+   "ten": "Rìu Vàng"
+  },
+  {
+   "key": "multitool_axe_pickaxe",
+   "ten": "Rìu Cuốc Đa Năng"
+  },
+  {
+   "key": "moonglassaxe",
+   "ten": "Rìu Thuỷ Tinh Nguyệt Quang"
+  },
+  {
+   "key": "hawaiianshirt",
+   "ten": "Áo Sơ Mi Hoa"
+  },
+  {
+   "key": "reflectivevest",
+   "ten": "Đồ Hè Mát Mẻ"
+  },
+  {
+   "key": "armorwood",
+   "ten": "Giáp Gỗ"
+  },
+  {
+   "key": "sweatervest",
+   "ten": "Áo Gilê Răng Chó"
+  },
+  {
+   "key": "armorruins",
+   "ten": "Giáp Thulecite"
+  },
+  {
+   "key": "armor_bramble",
+   "ten": "Vỏ Gai"
+  },
+  {
+   "key": "armorgrass",
+   "ten": "Giáp Cỏ"
+  },
+  {
+   "key": "armor_sanity",
+   "ten": "Giáp Ám Dạ"
+  },
+  {
+   "key": "armormarble",
+   "ten": "Giáp Cẩm Thạch"
+  },
+  {
+   "key": "armorsnurtleshell",
+   "ten": "Giáp Vỏ Ốc"
+  },
+  {
+   "key": "armordragonfly",
+   "ten": "Giáp Vảy"
+  },
+  {
+   "key": "raincoat",
+   "ten": "Áo Mưa"
+  },
+  {
+   "key": "trunkvest_winter",
+   "ten": "Áo Gilê Bông Xốp"
+  },
+  {
+   "key": "trunkvest_summer",
+   "ten": "Áo Gilê Thoáng Khí"
+  },
+  {
+   "key": "armorslurper",
+   "ten": "Thắt Lưng Đói"
+  },
+  {
+   "key": "slurtlehat",
+   "ten": "Mũ Mai Lưng"
+  },
+  {
+   "key": "ruinshat",
+   "ten": "Vương Miện Thulecite"
+  },
+  {
+   "key": "footballhat",
+   "ten": "Mũ Bóng Bầu Dục"
+  },
+  {
+   "key": "beehat",
+   "ten": "Mũ Nuôi Ong"
+  },
+  {
+   "key": "cookiecutterhat",
+   "ten": "Mũ Khuôn Bánh"
+  },
+  {
+   "key": "bushhat",
+   "ten": "Mũ Bụi Rậm"
+  },
+  {
+   "key": "featherhat",
+   "ten": "Mũ Lông Vũ"
+  },
+  {
+   "key": "blue_mushroomhat",
+   "ten": "Mũ Nấm Lam"
+  },
+  {
+   "key": "watermelonhat",
+   "ten": "Mũ Dưa Hấu"
+  },
+  {
+   "key": "deserthat",
+   "ten": "Kính Bảo Hộ Sa Mạc"
+  },
+  {
+   "key": "green_mushroomhat",
+   "ten": "Mũ Nấm Lục"
+  },
+  {
+   "key": "earmuffshat",
+   "ten": "Bịt Tai Thỏ"
+  },
+  {
+   "key": "catcoonhat",
+   "ten": "Mũ Mèo"
+  },
+  {
+   "key": "red_mushroomhat",
+   "ten": "Mũ Nấm Đỏ"
+  },
+  {
+   "key": "tophat",
+   "ten": "Mũ Chóp Cao"
+  },
+  {
+   "key": "rainhat",
+   "ten": "Mũ Đi Mưa"
+  },
+  {
+   "key": "kelphat",
+   "ten": "Vòng Hoa Biển"
+  },
+  {
+   "key": "goggleshat",
+   "ten": "Kính Bảo Hộ Thời Trang"
+  },
+  {
+   "key": "flowerhat",
+   "ten": "Vòng Hoa"
+  },
+  {
+   "key": "winterhat",
+   "ten": "Mũ Mùa Đông"
+  },
+  {
+   "key": "beefalohat",
+   "ten": "Mũ Sừng Bò"
+  },
+  {
+   "key": "wathgrithrhat",
+   "ten": "Mũ Chiến Đấu"
+  },
+  {
+   "key": "icehat",
+   "ten": "Mũ Băng"
+  },
+  {
+   "key": "strawhat",
+   "ten": "Mũ Cỏ"
+  },
+  {
+   "key": "batnosehat",
+   "ten": "Mũ Sữa"
+  },
+  {
+   "key": "molehat",
+   "ten": "Mũ Chuột Chũi"
+  },
+  {
+   "key": "slurtlehat",
+   "ten": "Mũ Mai Lưng"
+  }
+ ],
+ "sinh_vat": [
+  {
+   "key": "pigguard",
+   "ten": "Vệ Binh Người Heo"
+  },
+  {
+   "key": "pigman",
+   "ten": "Người Heo"
+  },
+  {
+   "key": "wildbore",
+   "ten": "Lợn Rừng"
+  },
+  {
+   "key": "bunnyman",
+   "ten": "Thỏ Nhân"
+  },
+  {
+   "key": "rabbitkingminion_bunnyman",
+   "ten": "Thỏ Nhân Bóng Tối"
+  },
+  {
+   "key": "rabbitking_aggressive",
+   "ten": "Vua Thỏ Bóng Tối"
+  },
+  {
+   "key": "merm",
+   "ten": "Người Cá"
+  },
+  {
+   "key": "mermguard",
+   "ten": "Vệ Binh Người Cá"
+  },
+  {
+   "key": "merm_shadow",
+   "ten": "Người Cá Bóng Tối"
+  },
+  {
+   "key": "mermguard_shadow",
+   "ten": "Người Cá Bóng Tối"
+  },
+  {
+   "key": "merm_lunar",
+   "ten": "Người Cá Nguyệt Quang"
+  },
+  {
+   "key": "mermguard_lunar",
+   "ten": "Người Cá Nguyệt Quang"
+  },
+  {
+   "key": "mermfisher",
+   "ten": "Người Cá Già"
+  },
+  {
+   "key": "little_walrus",
+   "ten": "Hải Mã Con"
+  },
+  {
+   "key": "walrus",
+   "ten": "Hải Mã"
+  },
+  {
+   "key": "knight",
+   "ten": "Hiệp Sĩ Dây Cót"
+  },
+  {
+   "key": "bishop",
+   "ten": "Giám Mục Dây Cót"
+  },
+  {
+   "key": "rook",
+   "ten": "Chiến Xa Dây Cót"
+  },
+  {
+   "key": "knight_nightmare",
+   "ten": "Hiệp Sĩ Dây Cót Hỏng"
+  },
+  {
+   "key": "bishop_nightmare",
+   "ten": "Giám Mục Dây Cót Hỏng"
+  },
+  {
+   "key": "rook_nightmare",
+   "ten": "Chiến Xa Dây Cót Hỏng"
+  },
+  {
+   "key": "knightboat",
+   "ten": "Thuyền Hiệp Sĩ Dây Cót"
+  },
+  {
+   "key": "spider",
+   "ten": "Nhện"
+  },
+  {
+   "key": "spider_warrior",
+   "ten": "Nhện Chiến Binh"
+  },
+  {
+   "key": "spider_hider",
+   "ten": "Nhện Hang"
+  },
+  {
+   "key": "spider_spitter",
+   "ten": "Nhện Phun"
+  },
+  {
+   "key": "spider_dropper",
+   "ten": "Nhện Treo Hang"
+  },
+  {
+   "key": "spider_moon",
+   "ten": "Nhện Vỡ (Mặt Trăng)"
+  },
+  {
+   "key": "spider_water",
+   "ten": "Nhện Biển"
+  },
+  {
+   "key": "tropical_spider_warrior",
+   "ten": "Nhện Chiến Binh Độc"
+  },
+  {
+   "key": "hound",
+   "ten": "Chó Săn"
+  },
+  {
+   "key": "firehound",
+   "ten": "Chó Săn Đỏ"
+  },
+  {
+   "key": "icehound",
+   "ten": "Chó Săn Xanh"
+  },
+  {
+   "key": "mutatedhound",
+   "ten": "Chó Săn Kinh Hoàng"
+  },
+  {
+   "key": "crocodog",
+   "ten": "Chó Cá Sấu"
+  },
+  {
+   "key": "watercrocodog",
+   "ten": "Chó Cá Sấu Nước"
+  },
+  {
+   "key": "poisoncrocodog",
+   "ten": "Chó Cá Sấu Độc"
+  },
+  {
+   "key": "frog",
+   "ten": "Ếch"
+  },
+  {
+   "key": "lunarfrog",
+   "ten": "Ếch Mắt Sáng"
+  },
+  {
+   "key": "catcoon",
+   "ten": "Mèo Gấu Trúc"
+  },
+  {
+   "key": "bat",
+   "ten": "Dơi Hang"
+  },
+  {
+   "key": "shark",
+   "ten": "Cá Mập Trắng Đá"
+  },
+  {
+   "key": "gnarwail",
+   "ten": "Kỳ Lân Biển"
+  },
+  {
+   "key": "squid",
+   "ten": "Mực"
+  },
+  {
+   "key": "swordfish",
+   "ten": "Cá Kiếm"
+  },
+  {
+   "key": "solofish",
+   "ten": "Cá Chó"
+  },
+  {
+   "key": "jellyfish_planted",
+   "ten": "Sứa"
+  },
+  {
+   "key": "rainbowjellyfish_planted",
+   "ten": "Sứa Cầu Vồng"
+  },
+  {
+   "key": "whale_blue",
+   "ten": "Cá Voi Xanh"
+  },
+  {
+   "key": "whale_white",
+   "ten": "Cá Voi Trắng"
+  },
+  {
+   "key": "ballphin",
+   "ten": "Cá Heo"
+  },
+  {
+   "key": "stungray",
+   "ten": "Cá Đuối"
+  },
+  {
+   "key": "tallbird",
+   "ten": "Chim Chân Cao"
+  },
+  {
+   "key": "penguin",
+   "ten": "Chim Cánh Cụt"
+  },
+  {
+   "key": "mutated_penguin",
+   "ten": "Chim Cánh Cụt Đá Trăng"
+  },
+  {
+   "key": "babybeefalo",
+   "ten": "Bò Lông Xù Con"
+  },
+  {
+   "key": "beefalo",
+   "ten": "Bò Lông Xù"
+  },
+  {
+   "key": "ox",
+   "ten": "Trâu Nước"
+  },
+  {
+   "key": "babyox",
+   "ten": "Trâu Nước Con"
+  },
+  {
+   "key": "koalefant_summer",
+   "ten": "Voi Koala"
+  },
+  {
+   "key": "koalefant_winter",
+   "ten": "Voi Koala"
+  },
+  {
+   "key": "lightninggoat",
+   "ten": "Dê Sét"
+  },
+  {
+   "key": "tentacle",
+   "ten": "Xúc Tu"
+  },
+  {
+   "key": "bee",
+   "ten": "Ong"
+  },
+  {
+   "key": "killerbee",
+   "ten": "Ong Sát Thủ"
+  },
+  {
+   "key": "beeguard",
+   "ten": "Ong Vo Ve"
+  },
+  {
+   "key": "mushgnome",
+   "ten": "Yêu Tinh Nấm"
+  },
+  {
+   "key": "grassgekko",
+   "ten": "Thằn Lằn Cỏ"
+  },
+  {
+   "key": "monkey",
+   "ten": "Khỉ Hang"
+  },
+  {
+   "key": "prime_mate",
+   "ten": "Phó Thuyền Trưởng"
+  },
+  {
+   "key": "powder_monkey",
+   "ten": "Khỉ Thuốc Súng"
+  },
+  {
+   "key": "primeape",
+   "ten": "Vượn"
+  },
+  {
+   "key": "slurtle",
+   "ten": "Rùa Sên"
+  },
+  {
+   "key": "snurtle",
+   "ten": "Rùa Ốc"
+  },
+  {
+   "key": "rocky",
+   "ten": "Tôm Đá"
+  },
+  {
+   "key": "slurper",
+   "ten": "Kẻ Hút"
+  },
+  {
+   "key": "worm",
+   "ten": "Giun Hang"
+  },
+  {
+   "key": "krampus",
+   "ten": "Klaus Nhỏ"
+  },
+  {
+   "key": "ghost",
+   "ten": "Hồn Ma"
+  },
+  {
+   "key": "waterplant",
+   "ten": "Rong Biển"
+  },
+  {
+   "key": "deer",
+   "ten": "Nai Không Mắt"
+  },
+  {
+   "key": "deer_red",
+   "ten": "Nai Không Mắt Đỏ"
+  },
+  {
+   "key": "deer_blue",
+   "ten": "Nai Không Mắt Xanh"
+  },
+  {
+   "key": "mossling",
+   "ten": "Nai Ngỗng Con"
+  },
+  {
+   "key": "twister_seal",
+   "ten": "Hải Cẩu Con"
+  },
+  {
+   "key": "sharkitten",
+   "ten": "Cá Mập Hổ Con"
+  },
+  {
+   "key": "doydoy",
+   "ten": "Chim Dodo"
+  },
+  {
+   "key": "doydoybaby",
+   "ten": "Chim Dodo Con"
+  },
+  {
+   "key": "crab",
+   "ten": "Cua Thỏ"
+  },
+  {
+   "key": "flup",
+   "ten": "Cá Mắt To"
+  },
+  {
+   "key": "dragoon",
+   "ten": "Rồng Ngốc"
+  },
+  {
+   "key": "kraken_tentacle",
+   "ten": "Xúc Tu Hải Yêu"
+  },
+  {
+   "key": "crabking_claw",
+   "ten": "Càng Khổng Lồ"
+  },
+  {
+   "key": "eyeofterror_mini",
+   "ten": "Mắt Nhỏ Khả Nghi"
+  },
+  {
+   "key": "shadowthrall_hands",
+   "ten": "Mặc Hoang - Kẻ Hai Tay"
+  },
+  {
+   "key": "shadowthrall_horns",
+   "ten": "Mặc Hoang - Kẻ Ăn Thịt Người"
+  },
+  {
+   "key": "shadowthrall_wings",
+   "ten": "Mặc Hoang - Kẻ Có Cánh"
+  },
+  {
+   "key": "shadowthrall_mouth",
+   "ten": "Mặc Hoang - Rắn"
+  },
+  {
+   "key": "crawlinghorror",
+   "ten": "Nỗi Sợ Bò Lê"
+  },
+  {
+   "key": "terrorbeak",
+   "ten": "Mỏ Nhọn Kinh Hoàng"
+  },
+  {
+   "key": "fused_shadeling",
+   "ten": "Bóng Tối Dung Hợp"
+  },
+  {
+   "key": "swimminghorror",
+   "ten": "Quái Bóng Tối Dưới Nước"
+  },
+  {
+   "key": "mosquito",
+   "ten": "Muỗi"
+  },
+  {
+   "key": "mosquito_poison",
+   "ten": "Muỗi Độc"
+  },
+  {
+   "key": "snake",
+   "ten": "Rắn"
+  },
+  {
+   "key": "snake_poison",
+   "ten": "Rắn Độc"
+  },
+  {
+   "key": "warglet",
+   "ten": "Sói Đầu Đàn Non"
+  },
+  {
+   "key": "grassgator",
+   "ten": "Cá Sấu Cỏ"
+  },
+  {
+   "key": "spat",
+   "ten": "Dê Thép"
+  },
+  {
+   "key": "warg",
+   "ten": "Sói Đầu Đàn"
+  },
+  {
+   "key": "lunarthrall_plant",
+   "ten": "Cà Sáng"
+  },
+  {
+   "key": "klaus",
+   "ten": "Klaus"
+  },
+  {
+   "key": "daywalker",
+   "ten": "Người Heo Ác Mộng"
+  },
+  {
+   "key": "daywalker2",
+   "ten": "Người Heo Ác Mộng"
+  },
+  {
+   "key": "alterguardian_phase1",
+   "ten": "Anh Hùng Thiên Thể - 1"
+  },
+  {
+   "key": "alterguardian_phase2",
+   "ten": "Anh Hùng Thiên Thể - 2"
+  },
+  {
+   "key": "alterguardian_phase3",
+   "ten": "Anh Hùng Thiên Thể - 3"
+  },
+  {
+   "key": "crabking",
+   "ten": "Cua Hoàng Đế"
+  },
+  {
+   "key": "eyeofterror",
+   "ten": "Mắt Kinh Hoàng"
+  },
+  {
+   "key": "toadstool",
+   "ten": "Cóc Nấm Độc"
+  },
+  {
+   "key": "toadstool_dark",
+   "ten": "Cóc Nấm Độc Thảm Hại"
+  },
+  {
+   "key": "lordfruitfly",
+   "ten": "Vua Ruồi Giấm"
+  },
+  {
+   "key": "beequeen",
+   "ten": "Ong Chúa"
+  },
+  {
+   "key": "mutateddeerclops",
+   "ten": "Nai Độc Nhãn Pha Lê"
+  },
+  {
+   "key": "shadow_bishop",
+   "ten": "Giám Mục Bóng Tối"
+  },
+  {
+   "key": "shadow_rook",
+   "ten": "Chiến Xa Bóng Tối"
+  },
+  {
+   "key": "shadow_knight",
+   "ten": "Hiệp Sĩ Bóng Tối"
+  },
+  {
+   "key": "leif",
+   "ten": "Tinh Cây"
+  },
+  {
+   "key": "leif_sparse",
+   "ten": "Vệ Binh Tinh Cây"
+  },
+  {
+   "key": "twinofterror1",
+   "ten": "Mắt Laser"
+  },
+  {
+   "key": "twinofterror2",
+   "ten": "Mắt Ma Diễm"
+  },
+  {
+   "key": "mutatedbearger",
+   "ten": "Gấu Lửng Bọc Giáp"
+  },
+  {
+   "key": "bearger",
+   "ten": "Gấu Lửng"
+  },
+  {
+   "key": "deerclops",
+   "ten": "Nai Độc Nhãn"
+  },
+  {
+   "key": "antlion",
+   "ten": "Sư Tử Kiến"
+  },
+  {
+   "key": "spiderqueen",
+   "ten": "Nhện Chúa"
+  },
+  {
+   "key": "minotaur",
+   "ten": "Thủ Hộ Cổ Đại"
+  },
+  {
+   "key": "stalker_atrium",
+   "ten": "Chức Ảnh Cổ Đại"
+  },
+  {
+   "key": "stalker_forest",
+   "ten": "Chức Ảnh Lục"
+  },
+  {
+   "key": "malbatross",
+   "ten": "Hải Âu Tà"
+  },
+  {
+   "key": "mutatedwarg",
+   "ten": "Sói Đầu Đàn Bị Ám"
+  },
+  {
+   "key": "moose",
+   "ten": "Nai Ngỗng"
+  },
+  {
+   "key": "dragonfly",
+   "ten": "Rồng Ruồi"
+  },
+  {
+   "key": "tigershark",
+   "ten": "Cá Mập Hổ"
+  },
+  {
+   "key": "kraken",
+   "ten": "Hải Yêu"
+  },
+  {
+   "key": "twister",
+   "ten": "Lốc Báo"
+  },
+  {
+   "key": "leif_palm",
+   "ten": "Tinh Cây Dừa"
+  },
+  {
+   "key": "leif_jungle",
+   "ten": "Tinh Cây Rừng Rậm"
+  },
+  {
+   "key": "antman2",
+   "ten": "Terraria - Người Kiến"
+  },
+  {
+   "key": "sharkboi",
+   "ten": "Cá Mập Lớn"
+  },
+  {
+   "key": "hh_sharkboi",
+   "ten": "Cá Mập"
+  },
+  {
+   "key": "hh_beetle_pig",
+   "ten": "Heo Bọ Cánh Cứng"
+  },
+  {
+   "key": "hh_dual_wield_pig",
+   "ten": "Heo Song Đao"
+  }
+ ],
+ "nghe": [
+  {
+   "ten": "Thợ Rèn Tập Sự"
+  },
+  {
+   "ten": "Thợ Thủ Công Lành Nghề"
+  },
+  {
+   "ten": "Đại Sư Thợ Rèn"
+  },
+  {
+   "ten": "Thợ Đúc Truyền Kỳ"
+  },
+  {
+   "ten": "Thánh Thủ Thần Đúc"
+  },
+  {
+   "ten": "Thợ Rèn"
+  }
+ ],
+ "tuy_chon": [
+  {
+   "key": "hoverer_pos_config",
+   "nhan": "Vị trí bảng thông tin"
+  },
+  {
+   "key": "hoverer_text",
+   "nhan": "Bảng hiện chữ gốc của game"
+  },
+  {
+   "key": "hoverer_effect",
+   "nhan": "Bảng chỉ hiện dòng thuộc tính"
+  },
+  {
+   "key": "key_config",
+   "nhan": "Phím tắt mở bảng cường hoá"
+  },
+  {
+   "key": "equip_drop",
+   "nhan": "Tỉ lệ rơi trang bị"
+  },
+  {
+   "key": "monster",
+   "nhan": "Bật cường hoá một số quái"
+  },
+  {
+   "key": "monster_difficulty",
+   "nhan": "Độ khó quái cường hoá"
+  },
+  {
+   "key": "equip",
+   "nhan": "Cường hoá mọi trang bị (vũ khí của mod khác có thể gây sập)"
+  },
+  {
+   "key": "monster_day",
+   "nhan": "Máu quái tăng mỗi ngày, không giới hạn số ngày"
+  },
+  {
+   "key": "can_drop_equip",
+   "nhan": "Quái có rơi trang bị không (nên tắt ở hậu kỳ)"
+  },
+  {
+   "key": "atk_speed_is_sure",
+   "nhan": "Chỉnh tốc đánh"
+  },
+  {
+   "key": "medal_tr_num",
+   "nhan": "Cho phép phù ấn đồ của mod Terraria / Huân Chương"
+  },
+  {
+   "key": "can_show_equip",
+   "nhan": "Cho phép khoe chỉ số trang bị lên khung chat"
+  },
+  {
+   "key": "can_show_text_fx",
+   "nhan": "Hiện chữ hiệu ứng khi đánh"
+  },
+  {
+   "key": "can_build_duck_box",
+   "nhan": "Cho phép chế Hộp Vịt"
+  },
+  {
+   "key": "worm_config",
+   "nhan": "Giun đất có rơi thêm chiến lợi phẩm không"
+  },
+  {
+   "key": "show_stone_text",
+   "nhan": "Đá Phù Ấn hiện chữ gợi ý"
+  },
+  {
+   "key": "limit_drop_equip",
+   "nhan": "Giới hạn trang bị rơi mỗi ngày"
+  },
+  {
+   "key": "limit_drop_tally",
+   "nhan": "Giới hạn Cuộn Phù Ấn / Đá Tẩy Ấn rơi mỗi ngày"
+  },
+  {
+   "key": "limit_drop_stone",
+   "nhan": "Giới hạn Đá Phù Ấn cực phẩm rơi mỗi ngày"
+  }
+ ],
+ "phan_loai": {
+  "pig": [
+   {
+    "key": "pigguard",
+    "ten": "pigguard"
+   },
+   {
+    "key": "pigman",
+    "ten": "pigman"
+   },
+   {
+    "key": "daywalker",
+    "ten": "daywalker"
+   },
+   {
+    "key": "daywalker2",
+    "ten": "daywalker2"
+   },
+   {
+    "key": "wildbore",
+    "ten": "wildbore"
+   },
+   {
+    "key": "hh_beetle_pig",
+    "ten": "hh_beetle_pig"
+   },
+   {
+    "key": "hh_dual_wield_pig",
+    "ten": "hh_dual_wield_pig"
+   }
+  ],
+  "rabbit": [
+   {
+    "key": "bunnyman",
+    "ten": "bunnyman"
+   },
+   {
+    "key": "rabbitkingminion_bunnyman",
+    "ten": "rabbitkingminion_bunnyman"
+   },
+   {
+    "key": "rabbitking_aggressive",
+    "ten": "rabbitking_aggressive"
+   }
+  ],
+  "fish": [
+   {
+    "key": "merm",
+    "ten": "merm"
+   },
+   {
+    "key": "mermguard",
+    "ten": "mermguard"
+   },
+   {
+    "key": "merm_shadow",
+    "ten": "merm_shadow"
+   },
+   {
+    "key": "mermguard_shadow",
+    "ten": "mermguard_shadow"
+   },
+   {
+    "key": "merm_lunar",
+    "ten": "merm_lunar"
+   },
+   {
+    "key": "mermguard_lunar",
+    "ten": "mermguard_lunar"
+   },
+   {
+    "key": "mermfisher",
+    "ten": "mermfisher"
+   },
+   {
+    "key": "shark",
+    "ten": "shark"
+   },
+   {
+    "key": "sharkboi",
+    "ten": "sharkboi"
+   },
+   {
+    "key": "gnarwail",
+    "ten": "gnarwail"
+   },
+   {
+    "key": "squid",
+    "ten": "squid"
+   },
+   {
+    "key": "crabking",
+    "ten": "crabking"
+   },
+   {
+    "key": "jellyfish_planted",
+    "ten": "jellyfish_planted"
+   },
+   {
+    "key": "rainbowjellyfish_planted",
+    "ten": "rainbowjellyfish_planted"
+   },
+   {
+    "key": "whale_blue",
+    "ten": "whale_blue"
+   },
+   {
+    "key": "whale_white",
+    "ten": "whale_white"
+   },
+   {
+    "key": "stungray",
+    "ten": "stungray"
+   },
+   {
+    "key": "ballphin",
+    "ten": "ballphin"
+   },
+   {
+    "key": "solofish",
+    "ten": "solofish"
+   },
+   {
+    "key": "swordfish",
+    "ten": "swordfish"
+   },
+   {
+    "key": "hh_sharkboi",
+    "ten": "hh_sharkboi"
+   }
+  ],
+  "gear": [
+   {
+    "key": "knight",
+    "ten": "knight"
+   },
+   {
+    "key": "bishop",
+    "ten": "bishop"
+   },
+   {
+    "key": "rook",
+    "ten": "rook"
+   },
+   {
+    "key": "knight_nightmare",
+    "ten": "knight_nightmare"
+   },
+   {
+    "key": "bishop_nightmare",
+    "ten": "bishop_nightmare"
+   },
+   {
+    "key": "rook_nightmare",
+    "ten": "rook_nightmare"
+   },
+   {
+    "key": "knightboat",
+    "ten": "knightboat"
+   }
+  ],
+  "spider": [
+   {
+    "key": "spider",
+    "ten": "spider"
+   },
+   {
+    "key": "spider_warrior",
+    "ten": "spider_warrior"
+   },
+   {
+    "key": "spider_hider",
+    "ten": "spider_hider"
+   },
+   {
+    "key": "spider_spitter",
+    "ten": "spider_spitter"
+   },
+   {
+    "key": "spider_dropper",
+    "ten": "spider_dropper"
+   },
+   {
+    "key": "spider_moon",
+    "ten": "spider_moon"
+   },
+   {
+    "key": "spider_water",
+    "ten": "spider_water"
+   },
+   {
+    "key": "spiderqueen",
+    "ten": "spiderqueen"
+   },
+   {
+    "key": "tropical_spider_warrior",
+    "ten": "tropical_spider_warrior"
+   }
+  ],
+  "dog": [
+   {
+    "key": "hound",
+    "ten": "hound"
+   },
+   {
+    "key": "firehound",
+    "ten": "firehound"
+   },
+   {
+    "key": "icehound",
+    "ten": "icehound"
+   },
+   {
+    "key": "mutatedhound",
+    "ten": "mutatedhound"
+   },
+   {
+    "key": "warglet",
+    "ten": "warglet"
+   },
+   {
+    "key": "warg",
+    "ten": "warg"
+   },
+   {
+    "key": "mutatedwarg",
+    "ten": "mutatedwarg"
+   },
+   {
+    "key": "crocodog",
+    "ten": "crocodog"
+   },
+   {
+    "key": "watercrocodog",
+    "ten": "watercrocodog"
+   },
+   {
+    "key": "poisoncrocodog",
+    "ten": "poisoncrocodog"
+   },
+   {
+    "key": "sharx",
+    "ten": "sharx"
+   }
+  ],
+  "frog": [
+   {
+    "key": "frog",
+    "ten": "frog"
+   },
+   {
+    "key": "lunarfrog",
+    "ten": "lunarfrog"
+   },
+   {
+    "key": "toadstool",
+    "ten": "toadstool"
+   },
+   {
+    "key": "toadstool_dark",
+    "ten": "toadstool_dark"
+   }
+  ],
+  "insect": [
+   {
+    "key": "bee",
+    "ten": "bee"
+   },
+   {
+    "key": "killerbee",
+    "ten": "killerbee"
+   },
+   {
+    "key": "beeguard",
+    "ten": "beeguard"
+   },
+   {
+    "key": "mosquito",
+    "ten": "mosquito"
+   },
+   {
+    "key": "lordfruitfly",
+    "ten": "lordfruitfly"
+   },
+   {
+    "key": "beequeen",
+    "ten": "beequeen"
+   },
+   {
+    "key": "dragonfly",
+    "ten": "dragonfly"
+   },
+   {
+    "key": "mosquito_poison",
+    "ten": "泰拉蚂蚁人"
+   },
+   {
+    "key": "antman2",
+    "ten": "antman2"
+   },
+   {
+    "key": "hh_beetle_pig",
+    "ten": "hh_beetle_pig"
+   }
+  ],
+  "monkey": [
+   {
+    "key": "monkey",
+    "ten": "monkey"
+   },
+   {
+    "key": "prime_mate",
+    "ten": "prime_mate"
+   },
+   {
+    "key": "powder_monkey",
+    "ten": "powder_monkey"
+   },
+   {
+    "key": "primeape",
+    "ten": "primeape"
+   }
+  ],
+  "shadow": [
+   {
+    "key": "shadowthrall_hands",
+    "ten": "shadowthrall_hands"
+   },
+   {
+    "key": "shadowthrall_horns",
+    "ten": "shadowthrall_horns"
+   },
+   {
+    "key": "shadowthrall_wings",
+    "ten": "shadowthrall_wings"
+   },
+   {
+    "key": "shadowthrall_mouth",
+    "ten": "shadowthrall_mouth"
+   },
+   {
+    "key": "crawlinghorror",
+    "ten": "crawlinghorror"
+   },
+   {
+    "key": "terrorbeak",
+    "ten": "terrorbeak"
+   },
+   {
+    "key": "fused_shadeling",
+    "ten": "fused_shadeling"
+   },
+   {
+    "key": "shadow_bishop",
+    "ten": "shadow_bishop"
+   },
+   {
+    "key": "shadow_rook",
+    "ten": "shadow_rook"
+   },
+   {
+    "key": "shadow_knight",
+    "ten": "shadow_knight"
+   },
+   {
+    "key": "stalker_atrium",
+    "ten": "stalker_atrium"
+   },
+   {
+    "key": "stalker_forest",
+    "ten": "stalker_forest"
+   },
+   {
+    "key": "swimminghorror",
+    "ten": "swimminghorror"
+   },
+   {
+    "key": "rabbitkingminion_bunnyman",
+    "ten": "rabbitkingminion_bunnyman"
+   },
+   {
+    "key": "rabbitking_aggressive",
+    "ten": "rabbitking_aggressive"
+   }
+  ],
+  "plant": [
+   {
+    "key": "mushgnome",
+    "ten": "Yêu Tinh Nấm"
+   },
+   {
+    "key": "grassgekko",
+    "ten": "Thằn Lằn Cỏ"
+   },
+   {
+    "key": "waterplant",
+    "ten": "Rong Biển"
+   },
+   {
+    "key": "lunarthrall_plant",
+    "ten": "Cà Sáng"
+   },
+   {
+    "key": "leif",
+    "ten": "Tinh Cây"
+   },
+   {
+    "key": "leif_sparse",
+    "ten": "Vệ Binh Tinh Cây"
+   },
+   {
+    "key": "leif_palm",
+    "ten": "Tinh Cây Dừa"
+   },
+   {
+    "key": "leif_jungle",
+    "ten": "Tinh Cây Rừng Rậm"
+   }
+  ]
+ },
+ "bac_quai": {
+  "common_monster": [
+   {
+    "key": "grassgator",
+    "ten": "Cá Sấu Cỏ"
+   },
+   {
+    "key": "shadow_knight",
+    "ten": "暗影骑士 辣鸡滚去当小怪"
+   },
+   {
+    "key": "mosquito",
+    "ten": "Muỗi"
+   },
+   {
+    "key": "mosquito_poison",
+    "ten": "Muỗi Độc"
+   },
+   {
+    "key": "crawlinghorror",
+    "ten": "Nỗi Sợ Bò Lê"
+   },
+   {
+    "key": "terrorbeak",
+    "ten": "Mỏ Nhọn Kinh Hoàng"
+   },
+   {
+    "key": "eyeofterror_mini",
+    "ten": "Mắt Nhỏ Khả Nghi"
+   },
+   {
+    "key": "deer",
+    "ten": "Nai Không Mắt"
+   },
+   {
+    "key": "deer_red",
+    "ten": "Nai Không Mắt Đỏ"
+   },
+   {
+    "key": "deer_blue",
+    "ten": "Nai Không Mắt Xanh"
+   },
+   {
+    "key": "mossling",
+    "ten": "Nai Ngỗng Con"
+   },
+   {
+    "key": "crabking_claw",
+    "ten": "Càng Khổng Lồ"
+   },
+   {
+    "key": "krampus",
+    "ten": "Klaus Nhỏ"
+   },
+   {
+    "key": "ghost",
+    "ten": "Hồn Ma"
+   },
+   {
+    "key": "waterplant",
+    "ten": "Rong Biển"
+   },
+   {
+    "key": "monkey",
+    "ten": "Khỉ Hang"
+   },
+   {
+    "key": "powder_monkey",
+    "ten": "Khỉ Thuốc Súng"
+   },
+   {
+    "key": "prime_mate",
+    "ten": "Phó Thuyền Trưởng"
+   },
+   {
+    "key": "primeape",
+    "ten": "Vượn"
+   },
+   {
+    "key": "slurtle",
+    "ten": "Rùa Sên"
+   },
+   {
+    "key": "snurtle",
+    "ten": "Rùa Ốc"
+   },
+   {
+    "key": "rocky",
+    "ten": "Tôm Đá"
+   },
+   {
+    "key": "slurper",
+    "ten": "Kẻ Hút"
+   },
+   {
+    "key": "bee",
+    "ten": "Ong"
+   },
+   {
+    "key": "killerbee",
+    "ten": "Ong Sát Thủ"
+   },
+   {
+    "key": "beeguard",
+    "ten": "Ong Vo Ve"
+   },
+   {
+    "key": "mushgnome",
+    "ten": "Yêu Tinh Nấm"
+   },
+   {
+    "key": "grassgekko",
+    "ten": "Thằn Lằn Cỏ"
+   },
+   {
+    "key": "lightninggoat",
+    "ten": "Dê Sét"
+   },
+   {
+    "key": "tentacle",
+    "ten": "Xúc Tu"
+   },
+   {
+    "key": "babybeefalo",
+    "ten": "Bò Lông Xù Con"
+   },
+   {
+    "key": "squid",
+    "ten": "Mực"
+   },
+   {
+    "key": "penguin",
+    "ten": "Chim Cánh Cụt"
+   },
+   {
+    "key": "mutated_penguin",
+    "ten": "Chim Cánh Cụt Đá Trăng"
+   },
+   {
+    "key": "frog",
+    "ten": "Ếch"
+   },
+   {
+    "key": "lunarfrog",
+    "ten": "Ếch Mắt Sáng"
+   },
+   {
+    "key": "catcoon",
+    "ten": "Mèo Gấu Trúc"
+   },
+   {
+    "key": "bat",
+    "ten": "Dơi Hang"
+   },
+   {
+    "key": "knight",
+    "ten": "Hiệp Sĩ Dây Cót"
+   },
+   {
+    "key": "knight_nightmare",
+    "ten": "Hiệp Sĩ Dây Cót Hỏng"
+   },
+   {
+    "key": "spider",
+    "ten": "Nhện"
+   },
+   {
+    "key": "spider_warrior",
+    "ten": "Nhện Chiến Binh"
+   },
+   {
+    "key": "spider_hider",
+    "ten": "Nhện Hang"
+   },
+   {
+    "key": "spider_spitter",
+    "ten": "Nhện Phun"
+   },
+   {
+    "key": "spider_dropper",
+    "ten": "Nhện Treo Hang"
+   },
+   {
+    "key": "spider_moon",
+    "ten": "Nhện Vỡ (Mặt Trăng)"
+   },
+   {
+    "key": "spider_water",
+    "ten": "Nhện Biển"
+   },
+   {
+    "key": "tropical_spider_warrior",
+    "ten": "tropical_spider_warrior"
+   },
+   {
+    "key": "hound",
+    "ten": "Chó Săn"
+   },
+   {
+    "key": "firehound",
+    "ten": "Chó Săn Đỏ"
+   },
+   {
+    "key": "icehound",
+    "ten": "Chó Săn Xanh"
+   },
+   {
+    "key": "mutatedhound",
+    "ten": "Chó Săn Kinh Hoàng"
+   },
+   {
+    "key": "crocodog",
+    "ten": "crocodog"
+   },
+   {
+    "key": "watercrocodog",
+    "ten": "watercrocodog"
+   },
+   {
+    "key": "poisoncrocodog",
+    "ten": "poisoncrocodog"
+   },
+   {
+    "key": "sharx",
+    "ten": "sharx"
+   },
+   {
+    "key": "pigguard",
+    "ten": "Vệ Binh Người Heo"
+   },
+   {
+    "key": "pigman",
+    "ten": "Người Heo"
+   },
+   {
+    "key": "wildbore",
+    "ten": "wildbore"
+   },
+   {
+    "key": "bunnyman",
+    "ten": "Thỏ Nhân"
+   },
+   {
+    "key": "rabbitkingminion_bunnyman",
+    "ten": "Thỏ Nhân"
+   },
+   {
+    "key": "merm",
+    "ten": "Người Cá"
+   },
+   {
+    "key": "mermguard",
+    "ten": "Vệ Binh Người Cá"
+   },
+   {
+    "key": "merm_shadow",
+    "ten": "Vệ Binh Người Cá"
+   },
+   {
+    "key": "mermguard_shadow",
+    "ten": "Vệ Binh Người Cá"
+   },
+   {
+    "key": "merm_lunar",
+    "ten": "Vệ Binh Người Cá"
+   },
+   {
+    "key": "mermguard_lunar",
+    "ten": "Vệ Binh Người Cá"
+   },
+   {
+    "key": "little_walrus",
+    "ten": "Hải Mã Con"
+   },
+   {
+    "key": "jellyfish_planted",
+    "ten": "Sứa"
+   },
+   {
+    "key": "rainbowjellyfish_planted",
+    "ten": "Sứa Cầu Vồng"
+   },
+   {
+    "key": "whale_blue",
+    "ten": "Cá Voi Xanh"
+   },
+   {
+    "key": "whale_white",
+    "ten": "Cá Voi Trắng"
+   },
+   {
+    "key": "stungray",
+    "ten": "Cá Đuối"
+   },
+   {
+    "key": "ballphin",
+    "ten": "Cá Heo"
+   },
+   {
+    "key": "solofish",
+    "ten": "Cá Chó"
+   },
+   {
+    "key": "swordfish",
+    "ten": "Cá Kiếm"
+   },
+   {
+    "key": "tallbird",
+    "ten": "Chim Chân Cao"
+   },
+   {
+    "key": "bishop_nightmare",
+    "ten": "Giám Mục Dây Cót Hỏng"
+   },
+   {
+    "key": "rook_nightmare",
+    "ten": "Chiến Xa Dây Cót Hỏng"
+   },
+   {
+    "key": "bishop",
+    "ten": "Giám Mục Dây Cót"
+   },
+   {
+    "key": "rook",
+    "ten": "Chiến Xa Dây Cót"
+   },
+   {
+    "key": "knightboat",
+    "ten": "Thuyền Hiệp Sĩ Dây Cót"
+   },
+   {
+    "key": "ox",
+    "ten": "Trâu Nước"
+   },
+   {
+    "key": "babyox",
+    "ten": "Trâu Nước Con"
+   },
+   {
+    "key": "flup",
+    "ten": "跳跳鱼"
+   },
+   {
+    "key": "sharkitten",
+    "ten": "Cá Mập Hổ Con"
+   },
+   {
+    "key": "dragoon",
+    "ten": "Rồng Ngốc"
+   },
+   {
+    "key": "kraken_tentacle",
+    "ten": "Xúc Tu Hải Yêu"
+   }
+  ],
+  "elite_monster": [
+   {
+    "key": "walrus",
+    "ten": "Hải Mã"
+   },
+   {
+    "key": "lunarthrall_plant",
+    "ten": "Cà Sáng"
+   },
+   {
+    "key": "beefalo",
+    "ten": "Bò Lông Xù"
+   },
+   {
+    "key": "warg",
+    "ten": "Sói Đầu Đàn"
+   },
+   {
+    "key": "shadow_bishop",
+    "ten": "Giám Mục Bóng Tối"
+   },
+   {
+    "key": "shadow_rook",
+    "ten": "Chiến Xa Bóng Tối"
+   },
+   {
+    "key": "leif",
+    "ten": "Tinh Cây"
+   },
+   {
+    "key": "leif_sparse",
+    "ten": "Vệ Binh Tinh Cây"
+   },
+   {
+    "key": "spat",
+    "ten": "Dê Thép"
+   },
+   {
+    "key": "warglet",
+    "ten": "Sói Đầu Đàn Non"
+   },
+   {
+    "key": "fused_shadeling",
+    "ten": "Bóng Tối Dung Hợp"
+   },
+   {
+    "key": "shadowthrall_hands",
+    "ten": "Mặc Hoang - Kẻ Hai Tay"
+   },
+   {
+    "key": "shadowthrall_horns",
+    "ten": "Mặc Hoang - Kẻ Ăn Thịt Người"
+   },
+   {
+    "key": "shadowthrall_wings",
+    "ten": "Mặc Hoang - Kẻ Có Cánh"
+   },
+   {
+    "key": "shadowthrall_mouth",
+    "ten": "Mặc Hoang - Rắn"
+   },
+   {
+    "key": "worm",
+    "ten": "Giun Hang"
+   },
+   {
+    "key": "shark",
+    "ten": "Cá Mập Trắng Đá"
+   },
+   {
+    "key": "gnarwail",
+    "ten": "Kỳ Lân Biển"
+   },
+   {
+    "key": "spiderqueen",
+    "ten": "Nhện Chúa"
+   },
+   {
+    "key": "koalefant_summer",
+    "ten": "Voi Koala"
+   },
+   {
+    "key": "koalefant_winter",
+    "ten": "Voi Koala"
+   },
+   {
+    "key": "doydoybaby",
+    "ten": "Chim Dodo Con"
+   },
+   {
+    "key": "doydoy",
+    "ten": "Chim Dodo"
+   },
+   {
+    "key": "twister_seal",
+    "ten": "Hải Cẩu Con"
+   },
+   {
+    "key": "stalker_forest",
+    "ten": "[\"leif_jungle\"] = true, --丛林树精"
+   },
+   {
+    "key": "leif_palm",
+    "ten": "Tinh Cây Dừa"
+   },
+   {
+    "key": "rabbitking_aggressive",
+    "ten": "暗影兔子王"
+   }
+  ],
+  "boss_monster": [
+   {
+    "key": "mutatedwarg",
+    "ten": "附生狗王"
+   },
+   {
+    "key": "klaus",
+    "ten": "Klaus"
+   },
+   {
+    "key": "daywalker",
+    "ten": "Người Heo Ác Mộng"
+   },
+   {
+    "key": "daywalker2",
+    "ten": "Người Heo Ác Mộng"
+   },
+   {
+    "key": "alterguardian_phase1",
+    "ten": "Anh Hùng Thiên Thể - 1"
+   },
+   {
+    "key": "alterguardian_phase2",
+    "ten": "Anh Hùng Thiên Thể - 2"
+   },
+   {
+    "key": "alterguardian_phase3",
+    "ten": "Anh Hùng Thiên Thể - 3"
+   },
+   {
+    "key": "crabking",
+    "ten": "Cua Hoàng Đế"
+   },
+   {
+    "key": "eyeofterror",
+    "ten": "Mắt Kinh Hoàng"
+   },
+   {
+    "key": "lordfruitfly",
+    "ten": "Vua Ruồi Giấm"
+   },
+   {
+    "key": "beequeen",
+    "ten": "Ong Chúa"
+   },
+   {
+    "key": "mutateddeerclops",
+    "ten": "Nai Độc Nhãn Pha Lê"
+   },
+   {
+    "key": "twinofterror1",
+    "ten": "Mắt Laser"
+   },
+   {
+    "key": "twinofterror2",
+    "ten": "Mắt Ma Diễm"
+   },
+   {
+    "key": "mutatedbearger",
+    "ten": "Gấu Lửng Bọc Giáp"
+   },
+   {
+    "key": "bearger",
+    "ten": "Gấu Lửng"
+   },
+   {
+    "key": "deerclops",
+    "ten": "Nai Độc Nhãn"
+   },
+   {
+    "key": "antlion",
+    "ten": "Sư Tử Kiến"
+   },
+   {
+    "key": "minotaur",
+    "ten": "Thủ Hộ Cổ Đại"
+   },
+   {
+    "key": "stalker_atrium",
+    "ten": "Chức Ảnh Cổ Đại"
+   },
+   {
+    "key": "malbatross",
+    "ten": "Hải Âu Tà"
+   },
+   {
+    "key": "moose",
+    "ten": "Nai Ngỗng"
+   },
+   {
+    "key": "dragonfly",
+    "ten": "Rồng Ruồi"
+   },
+   {
+    "key": "toadstool",
+    "ten": "Cóc Nấm Độc"
+   },
+   {
+    "key": "toadstool_dark",
+    "ten": "Cóc Nấm Độc"
+   },
+   {
+    "key": "sharkboi",
+    "ten": "Cá Mập Lớn"
+   },
+   {
+    "key": "tigershark",
+    "ten": "Cá Mập Hổ"
+   },
+   {
+    "key": "twister",
+    "ten": "Lốc Báo"
+   },
+   {
+    "key": "kraken",
+    "ten": "Hải Yêu"
+   },
+   {
+    "key": "hh_sharkboi",
+    "ten": "Cá Mập"
+   },
+   {
+    "key": "hh_beetle_pig",
+    "ten": "Heo Bọ Cánh Cứng"
+   },
+   {
+    "key": "hh_dual_wield_pig",
+    "ten": "hh_dual_wield_pig"
+   }
+  ]
+ }
+}
