@@ -19,9 +19,17 @@ echo "▸ Kiểm chữ tràn khung…"
 python3 "$SRC/tools/check_layout.py" | sed 's/^/  /'
 
 echo "▸ Kiểm cú pháp Lua…"
+# DST chạy Lua 5.1. `luac` trên máy là 5.5 và CHẤP NHẬN cú pháp mà DST từ chối
+# -> dùng luajit (cùng cú pháp 5.1) nếu có. `brew install luajit`.
+if command -v luajit >/dev/null; then
+    CHECK="luajit -bl"
+else
+    CHECK="luac -p"
+    echo "  ⚠ không có luajit, dùng luac (5.5) — không bắt được khác biệt 5.1"
+fi
 n=0
 while IFS= read -r f; do
-    luac -p "$f" || { echo "✗ lỗi cú pháp: $f"; exit 1; }
+    $CHECK "$f" >/dev/null || { echo "✗ lỗi cú pháp: $f"; exit 1; }
     n=$((n + 1))
 done < <(find "$SRC/build/$MOD" -name '*.lua')
 echo "  ✓ $n file .lua hợp lệ"
