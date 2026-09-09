@@ -124,8 +124,13 @@ def kiem_ban_dich(table):
             continue
         a, b = FMT.findall(zh), FMT.findall(vi)
         if a != b:
-            print(f"  ⚠ ô thay thế lệch: gốc {a} ≠ dịch {b}  |  {vi[:44]}")
-            loi += 1
+            # Chuỗi os.date: mỗi %X độc lập, đảo thứ tự là ĐÚNG (ngày Việt là
+            # d/m/Y). Chỉ báo lỗi khi tập ô thay thế thật sự khác nhau.
+            if rec.get("doi_thu_tu") and sorted(a) == sorted(b):
+                pass
+            else:
+                print(f"  ⚠ ô thay thế lệch: gốc {a} ≠ dịch {b}  |  {vi[:44]}")
+                loi += 1
         if '"' in vi:
             print(f"  ⚠ có dấu nháy kép chưa thoát: {vi[:44]}")
             loi += 1
