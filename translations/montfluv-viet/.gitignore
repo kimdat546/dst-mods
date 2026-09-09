@@ -1,0 +1,8 @@
+# build/ và upload/ sinh lại được: tools/build.py + tools/build_client_mod.py
+# đọc strings_source.json, desc_source.json và vendor/. Cùng quy ước với
+# than-binh-phu-an-viet và newconstant-viet — không mod nào commit build/.
+build/
+upload/
+
+# vendor/ CÓ trong git — cần bản gốc tiếng Trung để đối chiếu khi dịch
+# và để diff khi mod nguồn (Workshop 3401927745) cập nhật.

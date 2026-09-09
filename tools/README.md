@@ -7,6 +7,7 @@ bản, sửa một chỗ không lan sang chỗ khác.
 |---|---|
 | `ktex.py` | `.tex` của Klei ↔ PNG |
 | `make_atlas.py` | gộp nhiều PNG thành một atlas `.tex` + `.xml` |
+| `make_modicon.py` | ảnh bất kỳ → `modicon.tex/.xml/.png` + `preview.png` cho Workshop |
 | `dstmod.py` | điều khiển DST Mod Tool qua IPC (đọc/sửa/render hoạt ảnh) |
 | `patch_workshop_mods.py` | vá lại mod Workshop lỗi làm sập server (Steam hay ghi đè) |
 
@@ -46,6 +47,27 @@ Gom mọi PNG trong thư mục, xếp lưới, làm tròn lên luỹ thừa củ
 2. Trục **`v` tính từ ĐÁY lên** (quy ước OpenGL). Kiểm chứng bằng atlas của
    mod 景熹家居: icon `jx_potted` có `v1=0.8716 v2=0.9331`; cắt theo chiều từ
    đỉnh ra ô rỗng, cắt từ đáy mới ra đúng icon.
+
+## `make_modicon.py` — icon + ảnh Workshop
+
+```bash
+python3 tools/make_modicon.py <ảnh_nguồn> <thư_mục_ra>
+```
+
+Sinh `modicon.png` (256×256), `modicon.tex` (DXT5), `modicon.xml` (atlas 1 phần
+tử) và `preview.png` cho trang Workshop. Rồi khai trong `modinfo.lua`:
+
+```lua
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"
+```
+
+- Ảnh không vuông sẽ bị **cắt giữa** trước khi thu nhỏ — thu thẳng thì méo.
+- `u1/v1 = 1/512`, `u2/v2 = 1 − 1/512` (lùi vào nửa texel), chép đúng atlas gốc
+  của Klei; để 0..1 thì viền icon rỉ màu từ mép texture.
+- Preview tự ép xuống dưới 1 MB (giới hạn Steam): thử PNG đầy màu → PNG bảng
+  256 màu → hạ độ phân giải. Không dùng JPEG vì gây quầng ở nét viền line-art.
+
 
 ## `dstmod.py` — điều khiển DST Mod Tool
 
