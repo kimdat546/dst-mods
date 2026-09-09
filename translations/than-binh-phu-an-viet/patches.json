@@ -256,8 +256,8 @@
  {
   "file": "modinfo.lua",
   "old": "version = \"3.21\" -- mod版本 上传mod需要两次的版本不一样",
-  "new": "version = \"0.0.6\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
-  "vi_sao": "phiên bản 0.0.6: hiệu chỉnh Địa Ngục theo số đo thật trên server ngày 831, và đưa cường độ thành tuỳ chọn cấu hình"
+  "new": "version = \"0.0.7\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
+  "vi_sao": "phiên bản 0.0.7: Địa Ngục cường hoá cả quái của mod khác (Đăng Tiên…) và sửa trần sát thương quái kho báu"
  },
  {
   "file": "modinfo.lua",
@@ -292,8 +292,8 @@
  {
   "file": "modmain.lua",
   "old": "    \"hh_job_item\",\n}",
-  "new": "    \"hh_job_item\",\n    \"hh_rank\",\n}\n\n-- mở rộng của bản Việt hoá: đua top chiến lực (không có trong mod gốc)\nmodimport(\"main/hh_rank.lua\")",
-  "vi_sao": "đăng ký prefab bù nhìn đo chiến lực + nạp hh_rank.lua; đặt SAU khối PrefabFiles vì modimport chạy trước dòng 20 sẽ bị ghi đè"
+  "new": "    \"hh_job_item\",\n    \"hh_rank\",\n}\n\n-- mở rộng của bản Việt hoá: đua top chiến lực (không có trong mod gốc)\nmodimport(\"main/hh_rank.lua\")\n\n-- mở rộng của bản Việt hoá: Địa Ngục cường hoá cả quái của MOD KHÁC\n-- (mod gốc chỉ có danh sách trắng 226 prefab vanilla)\nmodimport(\"main/hh_hell_expand.lua\")",
+  "vi_sao": "đăng ký prefab bù nhìn đo chiến lực + nạp hh_rank.lua; đặt SAU khối PrefabFiles vì modimport chạy trước dòng 20 sẽ bị ghi đè; nạp thêm hh_hell_expand.lua cho Địa Ngục"
  },
  {
   "file": "main/hh_rpc.lua",
@@ -354,5 +354,11 @@
   "old": "        name = \"equip\",",
   "new": "        name = \"hell_strength\",\n        label = \"Cường độ Địa Ngục\",\n        hover = \"Chỉ có tác dụng khi Độ khó = Địa Ngục. Chỉnh được ở đây để khỏi phải đẩy lại mod mỗi lần dò số.\",\n        options = {\n            { description = \"Nhẹ\", data = \"1\", hover = \"Máu ×1.003 mỗi ngày. Ngày 831: Gấu Voi ~1,9 triệu (26 giây).\" },\n            { description = \"Vừa\", data = \"2\", hover = \"Máu ×1.004 mỗi ngày. Ngày 831: Gấu Voi ~4,4 triệu (60 giây), Rồng Ruồi ~12,7 triệu (2,9 phút).\" },\n            { description = \"Nặng\", data = \"3\", hover = \"Máu ×1.005 mỗi ngày. Ngày 831: Rồng Ruồi ~29 triệu (6,6 phút).\" },\n        },\n        default = \"2\",\n    },\n    {\n        name = \"equip\",",
   "vi_sao": "đưa cường độ Địa Ngục thành tuỳ chọn cấu hình: hằng số chôn trong mã thì mỗi lần dò số phải đẩy lại Workshop, vòng lặp quá chậm"
+ },
+ {
+  "file": "scripts/enums/hh_treasure_monster.lua",
+  "old": "            val = math[\"max\"](old_health - 1000, 0)",
+  "new": "            -- Trần mỗi đòn phải nhân theo cùng hệ số với máu, nếu không số\n            -- nhát cần đánh sẽ phình theo (1 triệu máu / 1000 = 1000 nhát;\n            -- nhân máu lên 27 lần mà giữ trần 1000 thì thành 27.000 nhát).\n            local hh_cap = 1000\n            local hh_hell = TUNING[\"HH_HELL_MODE\"]\n            if hh_hell then\n                local world_day = TheWorld and TheWorld[\"state\"] and TheWorld[\"state\"][\"cycles\"] or 0\n                hh_cap = hh_cap * math[\"min\"](hh_hell[\"HP_MAX_MULT\"], math[\"pow\"](hh_hell[\"HP_RATE\"][\"boss_monster\"], world_day))\n            end\n            val = math[\"max\"](old_health - hh_cap, 0)",
+  "vi_sao": "Địa Ngục: trần sát thương mỗi đòn của quái kho báu nhân theo cùng hệ số, giữ nguyên đúng 1000 nhát mỗi con"
  }
 ]
