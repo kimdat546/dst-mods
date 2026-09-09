@@ -256,8 +256,8 @@
  {
   "file": "modinfo.lua",
   "old": "version = \"3.21\" -- mod版本 上传mod需要两次的版本不一样",
-  "new": "version = \"0.0.4\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
-  "vi_sao": "phiên bản 0.0.4: dịch xong 100% (2128/2128), sửa Krampus bị dịch nhầm thành Klaus và thống nhất heo/lợn"
+  "new": "version = \"0.0.5\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
+  "vi_sao": "phiên bản 0.0.5: thêm độ khó \"Địa Ngục\" (máu/sát thương quái theo cấp số nhân) và cho người chơi tự xem bảng thông tin của mình"
  },
  {
   "file": "modinfo.lua",
@@ -318,5 +318,35 @@
   "old": "            local text_size_x, text_size_y = 40, 20",
   "new": "            local text_size_x, text_size_y = 80, 20",
   "vi_sao": "giãn khoảng cách tab nhật ký theo bề ngang mới (5 tab x 95 = 475 đv, panel rộng 800)"
+ },
+ {
+  "file": "modinfo.lua",
+  "old": "            { description = \"Khó\", data = \"3\", hover = \"Khó\" },",
+  "new": "            { description = \"Khó\", data = \"3\", hover = \"Khó\" },\n            { description = \"Địa Ngục\", data = \"4\", hover = \"Máu và sát thương quái tăng theo CẤP SỐ NHÂN theo ngày, không có trần. Chỉ dành cho server đã chơi rất lâu — người mới vào sẽ không sống nổi.\" },",
+  "vi_sao": "thêm độ khó 4 'Địa Ngục': server ngày 700 thì quái đã tụt lại quá xa (boss chỉ +50..100 máu/ngày, tuyến tính, và số dòng cường hoá bị chặn cứng từ ngày ~84)"
+ },
+ {
+  "file": "main/hh_config.lua",
+  "old": "    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_ADD_HEALTH_DAY\"] = 150\nend",
+  "new": "    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_ADD_HEALTH_DAY\"] = 150\nelseif monster_difficulty_config == \"4\" then\n    -- ĐỊA NGỤC: máu và sát thương theo cấp số nhân, gỡ mọi trần.\n    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_EFFECT_NUM\"][\"base_num\"] = 5\n    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_EFFECT_NUM\"][\"common_monster\"] = 10\n    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_EFFECT_NUM\"][\"elite_monster\"] = 16\n    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_EFFECT_NUM\"][\"boss_monster\"] = 25\n    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_ADD_EFFECT_DATE\"] = 6\n    TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_ADD_HEALTH_DAY\"] = 99999\n    TUNING[\"HH_HELL_MODE\"] = {\n        -- Máu ×HP_RATE mỗi ngày, TÁCH RIÊNG theo loại quái.\n        -- Quái thường để nhẹ hơn hẳn: ngày 700 mà nhện có 105k máu thì người\n        -- mới vào server không giết nổi thứ gì, coi như khoá cửa.\n        -- ĐÃ ĐO trên server test ở ngày 701: buff phần trăm (addMaxHealthPercent)\n        -- NHÂN CHỒNG lên hàm mũ, có boss ăn thêm ×2,7. Nên hệ số phải để thấp\n        -- hơn tính toán trên giấy, nếu không Ong Chúa lên 66 triệu máu = 15 phút.\n        --   1.003^700 ≈   8 lần   (quái thường)\n        --   1.006^700 ≈  66 lần   (tinh anh)\n        --   1.008^700 ≈ 271 lần   (boss)\n        [\"HP_RATE\"] = {\n            [\"common_monster\"] = 1.003,\n            [\"elite_monster\"] = 1.006,\n            [\"boss_monster\"] = 1.008,\n        },\n        -- Sát thương ×DMG_RATE mỗi ngày. 1.004^700 ≈ 16 lần.\n        [\"DMG_RATE\"] = 1.004,\n        -- Trần cứng: chống tràn số và chống quái thành bất tử.\n        [\"HP_MAX_MULT\"] = 5000,\n        [\"DMG_MAX_MULT\"] = 60,\n    }\nend",
+  "vi_sao": "Địa Ngục: gỡ trần số dòng cường hoá (boss 7 -> 25, rút chu kỳ 15 -> 6 ngày) và khai tham số hàm mũ cho máu/sát thương"
+ },
+ {
+  "file": "scripts/components/hh_monster.lua",
+  "old": "        local hh_day_extra_health = day_add_health * math[\"min\"](world_day, TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_ADD_HEALTH_DAY\"])",
+  "new": "        local hh_day_extra_health = day_add_health * math[\"min\"](world_day, TUNING[\"HH_CHANCE_CONFIG\"][\"MONSTER_ADD_HEALTH_DAY\"])\n        -- ĐỊA NGỤC: cộng tuyến tính theo ngày là quá nông. Ngày 700 boss chỉ\n        -- được +35k..70k máu, trong khi người chơi full đồ đánh ~73k/giây.\n        -- Đổi sang cấp số nhân trên máu GỐC, có trần cứng chống tràn số.\n        local hh_hell = TUNING[\"HH_HELL_MODE\"]\n        if hh_hell and base_max_health and base_max_health > 0 then\n            -- PHẢI có nhánh dự phòng getMonsterType() giống dòng 77 bên dưới:\n            -- HH_UTILS:GetMonsterType() trả nil cho quái thường (đã đo trên\n            -- server test), thiếu nó thì BOSS cũng bị tính là quái thường.\n            local hh_type = HH_UTILS:GetMonsterType(inst) or getMonsterType(inst[\"prefab\"]) or \"common_monster\"\n            local rate = hh_hell[\"HP_RATE\"][hh_type] or hh_hell[\"HP_RATE\"][\"common_monster\"]\n            local mult = math[\"min\"](hh_hell[\"HP_MAX_MULT\"], math[\"pow\"](rate, world_day))\n            hh_day_extra_health = hh_day_extra_health + base_max_health * (mult - 1)\n        end",
+  "vi_sao": "Địa Ngục: máu quái theo cấp số nhân thay vì tuyến tính (áp cho MỌI loại quái, kể cả quái thường)"
+ },
+ {
+  "file": "scripts/components/hh_monster.lua",
+  "old": "    -------------------------特殊效果buff-----------------------------------\n    return amount\nend",
+  "new": "    -------------------------特殊效果buff-----------------------------------\n    -- ĐỊA NGỤC: bản gốc KHÔNG hề tăng sát thương quái theo ngày — sát thương\n    -- chỉ đến từ các dòng cường hoá ngẫu nhiên, mà số dòng lại bị chặn trần.\n    -- Nhân thêm hệ số theo ngày, có trần cứng.\n    local hh_hell = TUNING[\"HH_HELL_MODE\"]\n    if hh_hell then\n        local world_day = TheWorld and TheWorld[\"state\"] and TheWorld[\"state\"][\"cycles\"] or 0\n        amount = amount * math[\"min\"](hh_hell[\"DMG_MAX_MULT\"], math[\"pow\"](hh_hell[\"DMG_RATE\"], world_day))\n    end\n    return amount\nend",
+  "vi_sao": "Địa Ngục: sát thương quái nhân theo ngày; bản gốc không có cơ chế này nên quái chỉ dày máu mà không đau"
+ },
+ {
+  "file": "scripts/widgets/hh_hoverer.lua",
+  "old": "    if TheInput:GetWorldEntityUnderMouse() == self[\"owner\"] and HH_UTILS:HasComponents(self[\"owner\"], \"playercontroller\") then\n        local lmb = self[\"owner\"][\"components\"][\"playercontroller\"]:GetLeftMouseAction()\n        if not lmb then\n            self[\"hh_main\"]:Hide()\n            return\n        end\n    end",
+  "new": "    -- BỎ chặn xem bảng của CHÍNH MÌNH. Bản gốc ẩn bảng khi trỏ vào bản thân mà\n    -- trên tay không có gì (\"防止出显示bug\"), hệ quả là người chơi không tự xem\n    -- được phù ấn/ngọc của mình, phải nhờ người khác hover hộ. Giữ bảng lại,\n    -- chỉ bù tên khi chuỗi hover của bản gốc rỗng.\n    if TheInput:GetWorldEntityUnderMouse() == self[\"owner\"] then\n        if not self[\"hh_target_name\"] or self[\"hh_target_name\"] == \"\" then\n            self[\"hh_target_name\"] = self[\"owner\"][\"name\"] or \"\"\n        end\n    end",
+  "vi_sao": "cho người chơi tự xem bảng thông tin trang bị của mình — trước phải nhờ người khác hover hộ"
  }
 ]
