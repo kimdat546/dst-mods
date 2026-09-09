@@ -1,9 +1,8 @@
 -- lang/vi.lua — SINH TỰ ĐỘNG bởi tools/gen_lang.py. ĐỪNG SỬA TAY.
--- bản dịch tay, 239/239 chuỗi
+-- bản dịch tay, 238/238 chuỗi
 -- Sửa bản dịch ở translations/<mã>.json rồi chạy lại tools/gen_lang.py.
 
 return {
-  ["STRINGS.ACTIONS.AURUMITE_REPAIR"] = "Sửa chữa",
   ["STRINGS.ACTIONS.CASTAOE.DREADSWORD"] = "Đỡ Đòn",
   ["STRINGS.ACTIONS.CASTAOE.IOKHEIRA"] = "Ném",
   ["STRINGS.ACTIONS.CASTAOE.LASER_CANNON"] = "Bắn",

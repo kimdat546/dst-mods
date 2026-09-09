@@ -1,9 +1,4 @@
 {
- "STRINGS.ACTIONS.AURUMITE_REPAIR": {
-  "en": null,
-  "file": "AddAction (nightmare/main/actions.lua) — không nằm trong file ngôn ngữ",
-  "zh": "修补"
- },
  "STRINGS.ACTIONS.CASTAOE.DREADSWORD": {
   "en": "parry",
   "file": "others.lua",

@@ -3,7 +3,6 @@
 -- Sửa bản dịch ở translations/<mã>.json rồi chạy lại tools/gen_lang.py.
 
 return {
-  ["STRINGS.ACTIONS.AURUMITE_REPAIR"] = "修补",
   ["STRINGS.ACTIONS.CASTAOE.DREADSWORD"] = "格挡",
   ["STRINGS.ACTIONS.CASTAOE.IOKHEIRA"] = "投掷",
   ["STRINGS.ACTIONS.CASTAOE.LASER_CANNON"] = "发射",
