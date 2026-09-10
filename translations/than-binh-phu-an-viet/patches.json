@@ -256,8 +256,8 @@
  {
   "file": "modinfo.lua",
   "old": "version = \"3.21\" -- mod版本 上传mod需要两次的版本不一样",
-  "new": "version = \"0.0.11\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
-  "vi_sao": "phiên bản 0.0.11: quái miễn Xé Rách không nhân máu, chặn trần hồi máu 5%"
+  "new": "version = \"0.0.12\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
+  "vi_sao": "phiên bản 0.0.12: tuỳ chọn thú theo kế thừa chỉ số của chủ (B1 + B2), mặc định tắt"
  },
  {
   "file": "modinfo.lua",
@@ -384,5 +384,35 @@
   "old": "                inst[_task_name] = inst:DoPeriodicTask(10, function()\n                    if HH_UTILS:NotIsDead(inst) then\n                        local max_health = inst[\"components\"][\"health\"][\"maxhealth\"]\n                        inst[\"components\"][\"health\"]:DoDelta(value * max_health / 100)\n                    end\n                end)",
   "new": "                -- ĐỊA NGỤC: chặn trần % hồi máu. Với boss máu lớn, 10% mỗi 10 giây\n                -- vượt xa DPS của người chơi khi bị chặn Xé Rách -> không bao giờ hạ\n                -- được. Trần 5% đưa trận đấu về khoảng 2 phút (đo thật, DPS 3.924).\n                local hh_hell_heal = TUNING[\"HH_HELL_MODE\"]\n                local hh_heal_value = hh_hell_heal\n                        and math[\"min\"](value, hh_hell_heal[\"HEAL_PCT_MAX\"])\n                        or value\n                inst[_task_name] = inst:DoPeriodicTask(10, function()\n                    if HH_UTILS:NotIsDead(inst) then\n                        local max_health = inst[\"components\"][\"health\"][\"maxhealth\"]\n                        inst[\"components\"][\"health\"]:DoDelta(hh_heal_value * max_health / 100)\n                    end\n                end)",
   "vi_sao": "Địa Ngục: chặn trần % hồi máu của quái ở 5%"
+ },
+ {
+  "file": "modinfo.lua",
+  "old": "        name = \"hell_strength\",",
+  "new": "        name = \"follower_inherit\",\n        label = \"Thú theo kế thừa chỉ số của chủ\",\n        hover = \"Bản sao / thú triệu hồi hưởng các dòng CỘNG THẲNG của chủ, và đồ mặc trên chúng mới có tác dụng. Mặc định TẮT — bật lên là thay đổi cân bằng.\",\n        options = {\n            { description = \"Tắt\", data = false, hover = \"Giữ nguyên như mod gốc\" },\n            { description = \"Bật\", data = true, hover = \"Thú theo hưởng dòng cộng thẳng; đồ trên chúng áp phù ấn lên chủ\" },\n        },\n        default = false,\n    },\n    {\n        name = \"hell_strength\",",
+  "vi_sao": "thêm tuỳ chọn 'Thú theo kế thừa chỉ số của chủ', mặc định TẮT để không đổi hành vi gốc"
+ },
+ {
+  "file": "main/hh_config.lua",
+  "old": "local monster_difficulty_config = GetModConfigData(\"monster_difficulty\")",
+  "new": "-- Thú theo kế thừa chỉ số của chủ (mở rộng của bản Việt hoá, mặc định tắt)\nTUNING[\"HH_FOLLOWER_INHERIT\"] = GetModConfigData(\"follower_inherit\") or false\nlocal monster_difficulty_config = GetModConfigData(\"monster_difficulty\")",
+  "vi_sao": "đọc tuỳ chọn follower_inherit vào TUNING"
+ },
+ {
+  "file": "main/hh_api.lua",
+  "old": "        if attacker and attacker[\"prefab\"] == \"abigail\"\n                and HH_UTILS:HasComponents(attacker, \"follower\")",
+  "new": "        -- B1 (bản Việt hoá): mod gốc khoá cứng đường này cho mỗi Abigail. Khi bật\n        -- tuỳ chọn \"Thú theo kế thừa chỉ số của chủ\" thì mở cho MỌI thú theo có\n        -- chủ mang hh_player — không nhắc tên mod nào nên server không cài mod\n        -- khác vẫn chạy y hệt. Giới hạn của tác giả giữ nguyên: is_follow return\n        -- trước phần nhân %, chí mạng và Xé Rách.\n        if attacker and (attacker[\"prefab\"] == \"abigail\" or TUNING[\"HH_FOLLOWER_INHERIT\"])\n                and HH_UTILS:HasComponents(attacker, \"follower\")",
+  "vi_sao": "B1: nới đường 'thú theo hưởng cộng thẳng của chủ' từ riêng Abigail ra mọi thú theo, khoá sau tuỳ chọn"
+ },
+ {
+  "file": "scripts/components/hh_equip.lua",
+  "old": "    local oldEquip = inst[\"components\"][\"equippable\"][\"onequipfn\"]\n    inst[\"components\"][\"equippable\"][\"onequipfn\"] = function(equip, owner, ...)\n        if oldEquip then\n            oldEquip(equip, owner, ...)\n        end\n        --只对玩家生效\n        if HH_UTILS:HasComponents(equip, hh_equip_component)\n                and owner:IsValid() and owner:HasTag(\"player\")\n                and HH_UTILS:HasComponents(owner, \"hh_buff\")\n        then\n            equip[\"components\"][hh_equip_component]:HandleEquipBuffToPlayer(owner, true)\n        end\n    end",
+  "new": "    -- B2 (bản Việt hoá): mod gốc chặn ngay tại đây bằng owner:HasTag(\"player\"),\n    -- nên phù ấn trên đồ mà THÚ THEO mặc không bao giờ được áp. Khi bật tuỳ chọn\n    -- thì chuyển hướng sang CHỦ. Không gắn hh_player cho thú theo: constructor\n    -- của nó sinh 2 container UI và móc vào temperature/health/moisture/\n    -- inventory/grogginess — quá nặng cho một thực thể không phải người chơi.\n    local function hhChuNhan(owner)\n        if TUNING[\"HH_FOLLOWER_INHERIT\"] and owner and owner[\"IsValid\"] and owner:IsValid()\n                and not owner:HasTag(\"player\")\n                and HH_UTILS:HasComponents(owner, \"follower\")\n                and owner[\"components\"][\"follower\"][\"leader\"]\n                and HH_UTILS:HasComponents(owner[\"components\"][\"follower\"][\"leader\"], \"hh_player\")\n        then\n            return owner[\"components\"][\"follower\"][\"leader\"]\n        end\n        return owner\n    end\n    local oldEquip = inst[\"components\"][\"equippable\"][\"onequipfn\"]\n    inst[\"components\"][\"equippable\"][\"onequipfn\"] = function(equip, owner, ...)\n        if oldEquip then\n            oldEquip(equip, owner, ...)\n        end\n        --只对玩家生效\n        local hh_chu = hhChuNhan(owner)\n        if HH_UTILS:HasComponents(equip, hh_equip_component)\n                and hh_chu:IsValid() and hh_chu:HasTag(\"player\")\n                and HH_UTILS:HasComponents(hh_chu, \"hh_buff\")\n        then\n            equip[\"components\"][hh_equip_component]:HandleEquipBuffToPlayer(hh_chu, true)\n        end\n    end",
+  "vi_sao": "B2: đồ mặc trên thú theo áp phù ấn lên chủ (lúc MẶC vào)"
+ },
+ {
+  "file": "scripts/components/hh_equip.lua",
+  "old": "        if HH_UTILS:HasComponents(equip, hh_equip_component)\n                and owner:IsValid() and owner:HasTag(\"player\")\n                and HH_UTILS:HasComponents(owner, \"hh_buff\")\n        then\n            equip[\"components\"][hh_equip_component]:HandleEquipBuffToPlayer(owner, false)\n        end",
+  "new": "        local hh_chu = hhChuNhan(owner)\n        if HH_UTILS:HasComponents(equip, hh_equip_component)\n                and hh_chu:IsValid() and hh_chu:HasTag(\"player\")\n                and HH_UTILS:HasComponents(hh_chu, \"hh_buff\")\n        then\n            equip[\"components\"][hh_equip_component]:HandleEquipBuffToPlayer(hh_chu, false)\n        end",
+  "vi_sao": "B2: gỡ phù ấn khỏi chủ khi thú theo CỞI đồ"
  }
 ]
