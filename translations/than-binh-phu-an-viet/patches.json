@@ -256,8 +256,8 @@
  {
   "file": "modinfo.lua",
   "old": "version = \"3.21\" -- mod版本 上传mod需要两次的版本不一样",
-  "new": "version = \"0.0.12\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
-  "vi_sao": "phiên bản 0.0.12: tuỳ chọn thú theo kế thừa chỉ số của chủ (B1 + B2), mặc định tắt"
+  "new": "version = \"0.0.13\"  -- bản Việt hoá đánh số riêng, không theo bản gốc 3.21",
+  "vi_sao": "phiên bản 0.0.13: tính lại máu ngay khi quái nhận immuneTearing"
  },
  {
   "file": "modinfo.lua",
@@ -414,5 +414,12 @@
   "old": "        if HH_UTILS:HasComponents(equip, hh_equip_component)\n                and owner:IsValid() and owner:HasTag(\"player\")\n                and HH_UTILS:HasComponents(owner, \"hh_buff\")\n        then\n            equip[\"components\"][hh_equip_component]:HandleEquipBuffToPlayer(owner, false)\n        end",
   "new": "        local hh_chu = hhChuNhan(owner)\n        if HH_UTILS:HasComponents(equip, hh_equip_component)\n                and hh_chu:IsValid() and hh_chu:HasTag(\"player\")\n                and HH_UTILS:HasComponents(hh_chu, \"hh_buff\")\n        then\n            equip[\"components\"][hh_equip_component]:HandleEquipBuffToPlayer(hh_chu, false)\n        end",
   "vi_sao": "B2: gỡ phù ấn khỏi chủ khi thú theo CỞI đồ"
+ },
+ {
+  "file": "scripts/enums/hh_monster.lua",
+  "tat_ca": true,
+  "old": "                    inst[\"components\"][\"hh_monster\"]:AddEffectValueByKey(\"immuneTearing\", 1)",
+  "new": "                    inst[\"components\"][\"hh_monster\"]:AddEffectValueByKey(\"immuneTearing\", 1)\n                    -- ĐỊA NGỤC: tính lại máu NGAY. Quái kho báu gọi\n                    -- hookMaxHealth() TRƯỚC addMonsterEffect(), nên lúc\n                    -- refreshMaxHealth chạy thì immuneTearing chưa có và phần\n                    -- miễn-Xé-Rách-thì-không-nhân-máu bị bỏ qua. Đẩy lại sự kiện\n                    -- để máu được tính đúng sau khi đã có dòng này.\n                    inst:PushEvent(\"hh_change_max_health\")",
+  "vi_sao": "Địa Ngục: tính lại máu ngay khi quái nhận immuneTearing (hookMaxHealth chạy trước addMonsterEffect)"
  }
 ]
