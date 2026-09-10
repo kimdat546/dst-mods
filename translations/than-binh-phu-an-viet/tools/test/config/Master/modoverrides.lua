@@ -5,7 +5,7 @@ return {
       monster_difficulty = "4",
       hell_strength = "1",
       monster_day = true,
-      follower_inherit = false,
+      follower_inherit = true,
     },
   },
 }
