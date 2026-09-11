@@ -158,9 +158,35 @@ cả thế giới** — entity ngủ thì không chạy não. Đã đối chứn
 nó cũng ngủ, cũng đứng im y hệt. Phần đi lại, chặt cây, đánh nhau phải vào game
 thật mới xem được.
 
+## Quyết định: dân làng KHÔNG hiện trong tab người chơi
+
+Đã chốt 11/09/2026, **giữ mod chỉ chạy phía server**. Ghi lại để khỏi bàn lại.
+
+Tab người chơi dựng từ `TheNet:GetClientTable()`. Đã đo: bảng đó **dựng lại mới
+mỗi lần gọi**, nên thêm mục từ phía server là vô ích — sửa xong gọi lại là mất.
+Đường duy nhất là móc widget `PlayerStatusScreen` ở **phía client**, mà làm vậy
+thì `all_clients_require_mod` phải bật và ai vào server cũng phải tải mod.
+
+Đổi lại được gì nếu giữ server-only:
+
+- Người chơi không phải cài gì
+- Dân làng vẫn là nhân vật thật: mặc giáp, cầm vũ khí, ăn cơm
+- Vẫn nói chuyện được — `talker:Say()` chạy qua mạng, không cần mod ở client
+- Vẫn xem được bằng `c_ailang_dem()`
+
+Mất: không có tên nổi trên đầu, không hiện trong tab.
+
+**Và dù có làm phần client thì cũng KHÔNG đưa dân làng trở lại `AllPlayers`.**
+Đã đo: có mặt trong `AllPlayers` làm sai mọi thứ đếm người chơi, và mọi mod
+chia máu boss theo đầu người — như Thần Binh Phù Ấn trên server — sẽ tính sai
+theo. Nếu sau này muốn hiện trong tab thì đó phải là thay đổi **chỉ ở phần
+hiển thị**.
+
 ## Còn phải làm
 
-- Vào game thật xem dân làng có thật sự đi lại và làm việc không.
+- ~~Vào game thật xem dân làng có thật sự đi lại và làm việc không.~~ Đã xác
+  nhận 11/09/2026: đi lại, nhặt đồ, thu thập tài nguyên đều chạy.
+- Tự chữa thương. Hiện dân làng không có cách nào hồi máu ngoài ăn.
 - `modicon.tex/.xml` (đang cảnh báo lúc nạp, vô hại).
 - Nghề nghiệp: hiện mọi dân làng dùng chung một cây hành vi.
 - Trí nhớ dài hạn cho tầng suy nghĩ (giờ mỗi nhịp là một lần hỏi độc lập).
