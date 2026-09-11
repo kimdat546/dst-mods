@@ -64,6 +64,73 @@ local function NguoiChoiGanNhat(inst)
     return gan
 end
 
+-- ── bỏ qua mục tiêu cứng đầu ────────────────────────────────────────────
+--
+-- ⚠ Người chơi báo dân làng "nhặt mãi nhưng không được" ở chỗ nấm chưa mọc.
+--   Nguyên nhân đã đo được: `pickable:CanBePicked()` trả TRUE cho nấm chưa
+--   tới giờ mọc. Lúc hoàng hôn, nấm đỏ và nấm lam đều cho
+--   CanBePicked=true nhưng caninteractwith=FALSE — mà chính caninteractwith
+--   mới là thứ chặn hành động. Cây hành vi vì thế chọn lại đúng con nấm đó
+--   mỗi nhịp, mãi mãi.
+--
+--   Sửa gốc: lọc theo TAG thay vì gọi CanBePicked. Tag bám sát trạng thái
+--   thật và cũng chính là thứ game dùng để hiện nút hành động cho người chơi:
+--     "pickable"       hái được ngay bây giờ  (mất tag khi chưa tới giờ mọc)
+--     "CHOP_workable"  chặt được
+--     "MINE_workable"  đào được
+--     "_inventoryitem" nhặt được
+--
+--   Nhưng vẫn giữ thêm lưới này cho MỌI trường hợp còn lại — mục tiêu không
+--   đi tới được, bị vật cản chắn, bị mod khác khoá. Đeo bám quá lâu thì ghi
+--   sổ đen một lúc rồi làm việc khác.
+
+local KIEN_NHAN   = 10    -- giây, đeo bám một mục tiêu tối đa bấy nhiêu
+local BO_QUA_GIAY = 120   -- giây, ghi sổ đen bấy nhiêu lâu
+
+local function So(inst)
+    local a = inst.ailang
+    if a.bo_qua == nil then a.bo_qua = {} end
+    return a
+end
+
+local function DangBoQua(inst, e)
+    local a = So(inst)
+    local het = a.bo_qua[e.GUID]
+    if het == nil then return false end
+    if GetTime() > het then a.bo_qua[e.GUID] = nil return false end
+    return true
+end
+
+-- Gọi mỗi lần chọn được mục tiêu. Trả false nếu đã đeo bám quá lâu.
+local function ConKienNhan(inst, e)
+    local a = So(inst)
+    if a.dang_duoi ~= e.GUID then
+        a.dang_duoi = e.GUID
+        a.duoi_tu = GetTime()
+        return true
+    end
+    if GetTime() - (a.duoi_tu or 0) > KIEN_NHAN then
+        a.bo_qua[e.GUID] = GetTime() + BO_QUA_GIAY
+        a.dang_duoi = nil
+        nen.chitiet(tostring(a.ten), "bỏ qua mục tiêu cứng đầu",
+                    tostring(e.prefab), e.GUID)
+        return false
+    end
+    return true
+end
+
+local KHONG_LAY = { "INLIMBO", "NOCLICK", "FX", "fire", "burnt", "catchable" }
+
+local function Tim(inst, musttag, loc_them)
+    local e = FindEntity(inst, TAM_NHIN, function(v)
+        if DangBoQua(inst, v) then return false end
+        return loc_them == nil or loc_them(v)
+    end, { musttag }, KHONG_LAY)
+    if e == nil then return nil end
+    if not ConKienNhan(inst, e) then return nil end
+    return e
+end
+
 -- ── hành động ───────────────────────────────────────────────────────────
 
 -- Ăn khi đói: tìm món ăn được trong túi.
@@ -84,23 +151,25 @@ end
 local function HanhDongNhat(inst)
     local tui = inst.components.inventory
     if tui == nil or tui:IsFull() then return nil end
-    local mon = FindEntity(inst, TAM_NHIN, function(v)
+    local mon = Tim(inst, "_inventoryitem", function(v)
         return v.components.inventoryitem ~= nil
            and v.components.inventoryitem.canbepickedup
            and v:IsOnValidGround()
            and not v:IsInLimbo()
-    end, nil, { "INLIMBO", "catchable", "fire" })
+    end)
     if mon == nil then return nil end
     return BufferedAction(inst, mon, ACTIONS.PICKUP)
 end
 
--- Hái: quả mọng, cà rốt, cành cây, cỏ...
+-- Hái: quả mọng, cà rốt, cành cây, cỏ, nấm ĐÃ MỌC.
 local function HanhDongHai(inst)
     local tui = inst.components.inventory
     if tui == nil or tui:IsFull() then return nil end
-    local cay = FindEntity(inst, TAM_NHIN, function(v)
-        return v.components.pickable ~= nil and v.components.pickable:CanBePicked()
-    end, nil, { "INLIMBO", "fire", "event_trigger" })
+    local cay = Tim(inst, "pickable", function(v)
+        return v.components.pickable ~= nil
+           and v.components.pickable:CanBePicked()
+           and v.components.pickable.caninteractwith ~= false
+    end)
     if cay == nil then return nil end
     return BufferedAction(inst, cay, ACTIONS.PICK)
 end
@@ -124,27 +193,19 @@ local function CamDungCu(inst, hanh_dong)
     return false
 end
 
-local function HanhDongChat(inst)
-    if not CamDungCu(inst, ACTIONS.CHOP) then return nil end
-    local cay = FindEntity(inst, TAM_NHIN, function(v)
+local function LamViec(inst, hanh_dong, tag)
+    if not CamDungCu(inst, hanh_dong) then return nil end
+    local muc = Tim(inst, tag, function(v)
         return v.components.workable ~= nil
            and v.components.workable:CanBeWorked()
-           and v.components.workable:GetWorkAction() == ACTIONS.CHOP
-    end, nil, { "INLIMBO", "fire", "burnt" })
-    if cay == nil then return nil end
-    return BufferedAction(inst, cay, ACTIONS.CHOP)
+           and v.components.workable:GetWorkAction() == hanh_dong
+    end)
+    if muc == nil then return nil end
+    return BufferedAction(inst, muc, hanh_dong)
 end
 
-local function HanhDongDao(inst)
-    if not CamDungCu(inst, ACTIONS.MINE) then return nil end
-    local da = FindEntity(inst, TAM_NHIN, function(v)
-        return v.components.workable ~= nil
-           and v.components.workable:CanBeWorked()
-           and v.components.workable:GetWorkAction() == ACTIONS.MINE
-    end, nil, { "INLIMBO", "fire", "burnt" })
-    if da == nil then return nil end
-    return BufferedAction(inst, da, ACTIONS.MINE)
-end
+local function HanhDongChat(inst) return LamViec(inst, ACTIONS.CHOP, "CHOP_workable") end
+local function HanhDongDao(inst)  return LamViec(inst, ACTIONS.MINE, "MINE_workable") end
 
 -- Mục tiêu do tầng suy nghĩ đặt vào. Không có thì trả nil để cây đi tiếp
 -- xuống các nhánh mặc định.
