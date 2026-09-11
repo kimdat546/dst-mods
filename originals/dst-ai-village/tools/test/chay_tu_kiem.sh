@@ -52,9 +52,16 @@ elif ! grep -qa '\[ailang\] làng có' <<<"$NHAT_KY"; then
 fi
 echo "✓ mod nạp sạch, dân làng đã sinh"
 
-# Bỏ dòng comment rồi gộp một dòng: console DST đọc bằng printf '%s\n' nên Lua
-# phải nằm trên MỘT dòng, mà gộp thẳng thì `--` nuốt sạch phần còn lại.
-LUA=$(python3 "$MOD/tools/gop_mot_dong.py" "$MOD/tools/tu_kiem.lua")
+# ⚠ ĐỪNG gộp cả bộ kiểm thành một dòng rồi nhét qua console — console DST có
+#   giới hạn độ dài, chạm 10.402 ký tự là im lặng không chạy gì, hoặc cụt giữa
+#   chừng rồi báo trơ trọi "attempt to call a nil value" không kèm dòng nào.
+#   Nên bộ kiểm nằm thẳng trong scripts/ailang/ và chỉ cần require — lệnh gửi
+#   đi luôn ngắn bất kể bộ kiểm dài bao nhiêu.
+#
+# ⚠ Cũng ĐỪNG mount riêng tu_kiem.lua vào trong scripts/: scripts đã mount
+#   read-only nên Docker không tạo nổi điểm mount lồng bên trong, container
+#   chết ngay lúc khởi tạo với "create mountpoint ...: read-only file system".
+LUA='package.loaded["ailang/tu_kiem"] = nil local ok, err = pcall(require, "ailang/tu_kiem") if not ok then print("[TU-KIEM] LOI NAP: " .. tostring(err)) end'
 
 MOC=$(date -u +%Y-%m-%dT%H:%M:%S)
 docker exec --privileged -u root -e DST_LUA="$LUA" "$CT" sh -c '

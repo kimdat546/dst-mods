@@ -13,6 +13,11 @@
 -- Cách chạy: tools/test/chay_tu_kiem.sh
 
 local dat, hong = 0, 0
+local function nhuCauTorch(tui)
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m.prefab == "torch" then return m end
+    end
+end
 local function KT(ten, dieu_kien, chi_tiet)
     if dieu_kien then
         dat = dat + 1
@@ -23,8 +28,8 @@ local function KT(ten, dieu_kien, chi_tiet)
     end
 end
 
-for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/lenh",
-                     "brains/danlangbrain" }) do
+for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/nhu_cau",
+                     "ailang/sinh_ton", "ailang/lenh", "brains/danlangbrain" }) do
     package.loaded[m] = nil
 end
 local dan_lang = require("ailang/dan_lang")
@@ -261,9 +266,81 @@ local function ThuMuThoMo(tiep)
     end)
 end
 
+
+-- ── 9. không ăn nấm độc khi chưa đến mức ────────────────────────────────
+local function ThuNamDoc(tiep)
+    local nhu_cau = require("ailang/nhu_cau")
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+    e.components.hunger:SetPercent(0.4)      -- đói nhưng CHƯA lả
+    tui:GiveItem(SpawnPrefab("red_cap"))     -- máu −20
+    tui:GiveItem(SpawnPrefab("green_cap"))   -- não −50
+    KT("đói vừa thì KHÔNG đụng nấm độc",
+       nhu_cau.ChonMonAn(e) == nil,
+       "chọn=" .. tostring(nhu_cau.ChonMonAn(e) and nhu_cau.ChonMonAn(e).prefab))
+    tui:GiveItem(SpawnPrefab("carrot"))      -- máu +1, no +12
+    local chon = nhu_cau.ChonMonAn(e)
+    KT("có món lành thì chọn món lành",
+       chon ~= nil and chon.prefab == "carrot",
+       "chọn=" .. tostring(chon and chon.prefab))
+    e.components.hunger:SetPercent(0.05)     -- sắp lả
+    for _, mon in pairs(tui.itemslots or {}) do
+        if mon ~= nil and mon.prefab == "carrot" then tui:RemoveItem(mon):Remove() end
+    end
+    KT("sắp lả thì chấp nhận ăn cả món hại",
+       nhu_cau.ChonMonAn(e) ~= nil)
+    tiep()
+end
+
+-- ── 10. thiếu nguyên liệu thì đi kiếm đúng thứ đang thiếu ───────────────
+local function ThuDiKiem(tiep)
+    local sinh_ton = require("ailang/sinh_ton")
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    local thieu = sinh_ton.ConThieu(e, "torch")
+    local ten = {}
+    for _, x in ipairs(thieu or {}) do table.insert(ten, x[1] .. "x" .. x[2]) end
+    KT("biết đuốc còn thiếu cutgrass×2 và twigs×2",
+       #ten == 2, table.concat(ten, " "))
+
+    local x, y, z = e.Transform:GetWorldPosition()
+    local bui = SpawnPrefab("grass")
+    bui.Transform:SetPosition(x + 4, y, z)
+    local hd = sinh_ton.DiKiem(e, "cutgrass")
+    KT("đi kiếm cutgrass thì nhắm đúng bụi cỏ",
+       hd ~= nil and hd.target == bui and hd.action == ACTIONS.PICK,
+       "nhắm=" .. tostring(hd and hd.target and hd.target.prefab))
+    tiep()
+end
+
+-- ── 11. nhu cầu được xét đúng thứ tự ưu tiên ────────────────────────────
+local function ThuThuTu(tiep)
+    local sinh_ton = require("ailang/sinh_ton")
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    -- Vừa tối vừa đói: ánh sáng phải được lo TRƯỚC đồ ăn.
+    TheWorld:PushEvent("ms_setphase", "night")
+    e.components.hunger:SetPercent(0.3)
+    local n = sinh_ton.NhuCauCapThiet(e)
+    KT("vừa tối vừa đói thì lo ÁNH SÁNG trước",
+       n ~= nil and n.ma == "anh_sang", "đang lo=" .. tostring(n and n.ma))
+    -- Có đuốc rồi thì mới tới đồ ăn.
+    tui:GiveItem(SpawnPrefab("torch"))
+    tui:Equip(nhuCauTorch(tui))
+    local n2 = sinh_ton.NhuCauCapThiet(e)
+    KT("có ánh sáng rồi thì chuyển sang lo ĐỒ ĂN",
+       n2 ~= nil and n2.ma == "do_an", "đang lo=" .. tostring(n2 and n2.ma))
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
-               ThuDanhTra, ThuHoangHon, ThuMuThoMo }
+               ThuDanhTra, ThuHoangHon, ThuMuThoMo,
+               ThuNamDoc, ThuDiKiem, ThuThuTu }
 local i = 0
 local function tiep()
     i = i + 1
