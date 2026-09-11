@@ -34,6 +34,53 @@ local function GoKhoiAllPlayers(inst)
     return go
 end
 
+-- Chụp túi đồ. Chỉ giữ tên prefab và số lượng chồng — mất độ bền và mất mọi
+-- thứ mod khác gắn lên món đồ, nhưng đủ để dân làng không tay trắng sau mỗi
+-- lần restart (gặp thật: phát rìu xong restart là mất sạch).
+local function ChupTui(inst)
+    local tui = inst.components.inventory
+    if tui == nil then return nil end
+
+    local function mo_ta(mon)
+        if mon == nil then return nil end
+        local n = mon.components.stackable ~= nil
+                  and mon.components.stackable:StackSize() or 1
+        return { mon.prefab, n }
+    end
+
+    local ra = { tui_do = {}, tren_nguoi = {} }
+    for _, mon in pairs(tui.itemslots or {}) do
+        table.insert(ra.tui_do, mo_ta(mon))
+    end
+    for o, mon in pairs(tui.equipslots or {}) do
+        ra.tren_nguoi[o] = mo_ta(mon)
+    end
+    return ra
+end
+
+local function DungLaiTui(inst, tui_hs)
+    local tui = inst.components.inventory
+    if tui == nil or tui_hs == nil then return end
+
+    local function tao(m)
+        if m == nil or Prefabs[m[1]] == nil then return nil end
+        local mon = SpawnPrefab(m[1])
+        if mon ~= nil and m[2] and m[2] > 1 and mon.components.stackable ~= nil then
+            mon.components.stackable:SetStackSize(m[2])
+        end
+        return mon
+    end
+
+    for _, m in ipairs(tui_hs.tui_do or {}) do
+        local mon = tao(m)
+        if mon ~= nil then tui:GiveItem(mon) end
+    end
+    for _, m in pairs(tui_hs.tren_nguoi or {}) do
+        local mon = tao(m)
+        if mon ~= nil then tui:GiveItem(mon) tui:Equip(mon) end
+    end
+end
+
 -- Sinh một dân làng. `hoso` là bảng đã lưu (hoặc nil để tạo mới).
 function dan_lang.Sinh(hoso)
     hoso = hoso or {}
@@ -88,6 +135,8 @@ function dan_lang.Sinh(hoso)
         inst.components.health:SetPercent(math.max(0.3, hoso.mau))
     end
 
+    nen.thu("dựng lại túi đồ", DungLaiTui, inst, hoso.tui)
+
     -- Dân làng là prefab NGƯỜI CHƠI, nên chết là hoá MA chứ không biến mất —
     -- để nguyên thì cái làng đầy ma lởn vởn. Gỡ xác rồi dựng lại người mới
     -- sau một lúc, coi như dân làng khác tới ở.
@@ -130,6 +179,7 @@ function dan_lang.ChupHoSo(inst)
     if inst == nil or not inst:IsValid() or inst.ailang == nil then return nil end
     local x, _, z = inst.Transform:GetWorldPosition()
     return {
+        tui       = ChupTui(inst),
         ma        = inst.ailang.ma,
         ten       = inst.ailang.ten,
         nhan_vat  = inst.prefab,
