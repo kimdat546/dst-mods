@@ -20,6 +20,8 @@ require("behaviours/standstill")
 
 local nen = require("ailang/nen")
 local dan_lang = require("ailang/dan_lang")
+local nhu_cau  = require("ailang/nhu_cau")
+local sinh_ton = require("ailang/sinh_ton")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30    -- lang thang quanh nhà trong bán kính này
@@ -137,17 +139,15 @@ end
 -- ── hành động ───────────────────────────────────────────────────────────
 
 -- Ăn khi đói: tìm món ăn được trong túi.
+-- ⚠ ĐỪNG ăn bừa mọi thứ eater:CanEat(). Đã đo giá trị thật: red_cap máu −20,
+--   green_cap não −50, blue_cap não −15, thịt sống não −10. Bản đầu ăn bất cứ
+--   thứ gì nên dân làng tự đầu độc mình bằng đúng con nấm vừa hái.
+--   nhu_cau.ChonMonAn chấm điểm và chỉ đụng món hại khi sắp lả.
 local function HanhDongAn(inst)
     if not DangDoi(inst) then return nil end
-    local tui = inst.components.inventory
-    local an  = inst.components.eater
-    if tui == nil or an == nil then return nil end
-    for _, mon in pairs(tui.itemslots or {}) do
-        if mon ~= nil and an:CanEat(mon) then
-            return BufferedAction(inst, mon, ACTIONS.EAT)
-        end
-    end
-    return nil
+    local mon = nhu_cau.ChonMonAn(inst)
+    if mon == nil then return nil end
+    return BufferedAction(inst, mon, ACTIONS.EAT)
 end
 
 -- Nhặt đồ rơi dưới đất.
@@ -417,16 +417,21 @@ function DanLangBrain:OnStart()
         IfNode(function() return DangDoi(inst) end, "Đói",
             DoAction(inst, HanhDongAn, "ăn", true)),
 
-        -- TRỜI TỐI — lo ánh sáng TRƯỚC khi làm gì khác. Không có sáng là chết.
-        WhileNode(function() return ChapToi() end, "Chập tối / ban đêm",
-            PriorityNode({
-                IfNode(function() return ConCachThapSang(inst) end, "Thắp sáng được",
-                    ActionNode(function() ThapSang(inst) end, "thắp sáng")),
-                -- Hết cách tự thắp: bám lấy đống lửa gần nhất.
-                WhileNode(function() return ToiHan() and not DangCoAnhSang(inst) end,
-                          "Đêm mà chưa có sáng",
-                    Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
-            }, 0.5)),
+        -- SINH TỒN — bảng nhu cầu có thứ tự: ánh sáng > đồ ăn > hồi máu >
+        -- hồi não > vũ khí > giáp > nhà. Xem scripts/ailang/nhu_cau.lua.
+        -- Việc tức thì (mặc/chế) làm ngay; việc cần đi (hái/chặt/đào) trả về
+        -- hành động cho DoAction chạy.
+        IfNode(function() return sinh_ton.Giai(inst) == "xong" end,
+            "Vừa lo xong một nhu cầu", ActionNode(function() end, "xong")),
+        DoAction(inst, function() 
+            local kq = sinh_ton.Giai(inst)
+            return kq ~= "xong" and kq or nil
+        end, "lo sinh tồn", true),
+
+        -- Tối hẳn mà vẫn chưa có sáng: bám lấy đống lửa gần nhất.
+        WhileNode(function() return ToiHan() and not DangCoAnhSang(inst) end,
+                  "Đêm mà chưa có sáng",
+            Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
 
         DoAction(inst, HanhDongTheoMucTieu, "mục tiêu", true),
 
