@@ -15,6 +15,14 @@ local QuanLyLang = Class(function(self, inst)
     self.da_dung_lai = false
 
     self.inst:DoPeriodicTask(NHIP_CHUP, function() self:ChupTatCa() end)
+
+    -- Thiện cảm trôi theo ngày: sống yên thì tăng, bị bỏ đói thì giảm.
+    self.inst:ListenForEvent("cycleschanged", function()
+        local than_thiet = require("ailang/than_thiet")
+        for _, e in ipairs(dan_lang.TatCa()) do
+            nen.thu("trôi thiện cảm", than_thiet.SangNgayMoi, e)
+        end
+    end)
 end)
 
 -- DỰNG LẠI bảng hồ sơ từ dân làng đang sống, chứ không ghi đè từng mục.

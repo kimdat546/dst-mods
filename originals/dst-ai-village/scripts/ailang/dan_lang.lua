@@ -105,6 +105,8 @@ function dan_lang.Sinh(hoso)
     inst:AddTag(TAG)
     inst.ailang = {
         ma       = hoso.ma or tostring(inst.GUID),
+        thien_cam = hoso.thien_cam,
+        che_do   = hoso.che_do,
         ten      = hoso.ten or nen.TEN[math.random(#nen.TEN)],
         tinh_cach = hoso.tinh_cach or "binh_than",
         nha      = hoso.nha,          -- {x, z} hoặc nil
@@ -197,6 +199,9 @@ function dan_lang.Sinh(hoso)
     --   đi vắng thì phải mô phỏng trừu tượng, không thể để não chạy thật.
     inst.entity:AddServerNonSleepable()
 
+    -- Thiện cảm và chế độ đi theo, mượn mô hình Wurt ↔ merm.
+    require("ailang/than_thiet").GanVaoDanLang(inst)
+
     local brain = require("brains/danlangbrain")
     inst:SetBrain(brain)
     inst:RestartBrain()
@@ -275,22 +280,8 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     inst:AddTag("playerghost")
 
     -- ⚠ KHÔNG dựa vào đường hồi sinh nội bộ của engine — nó gắn với phiên
-    --   người chơi thật. Thay vào đó gắn `trader`: người chơi ĐƯA THẲNG vật
-    --   phẩm cho hồn ma, đúng thao tác vanilla, và mình tự xử.
-    if inst.components.trader == nil then
-        inst:AddComponent("trader")
-    end
-    inst.components.trader:SetAcceptTest(function(_, mon)
-        return mon ~= nil and (mon:HasTag("reviver") or mon:HasTag("resurrector"))
-    end)
-    inst.components.trader.onaccept = function(me, nguoi_dua, mon)
-        if mon ~= nil and mon:IsValid() then mon:Remove() end
-        dan_lang.HoiSinh(me)
-        if me.components.talker ~= nil then
-            me.components.talker:Say("Cảm ơn " ..
-                tostring(nguoi_dua ~= nil and nguoi_dua.name or "bạn") .. "!")
-        end
-    end
+    --   người chơi thật. `trader` do than_thiet gắn sẵn cho MỌI dân làng nhận
+    --   luôn cả đồ hồi sinh khi đang là hồn ma, nên ở đây không cần làm gì.
 
     -- ⚠ Hồn ma ở đây KHÔNG giống hồn ma DST thật (engine không cho, xem chú
     --   thích ở đầu mục). Người chơi báo "thấy một Wendy mờ đứng im, giống hồn
@@ -364,6 +355,8 @@ function dan_lang.ChupHoSo(inst)
     local x, _, z = inst.Transform:GetWorldPosition()
     return {
         tui       = ChupTui(inst),
+        thien_cam = inst.ailang.thien_cam,
+        che_do    = inst.ailang.che_do,
         ma        = inst.ailang.ma,
         ten       = inst.ailang.ten,
         nhan_vat  = inst.prefab,

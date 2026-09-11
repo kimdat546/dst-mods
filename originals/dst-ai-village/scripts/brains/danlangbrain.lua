@@ -16,15 +16,20 @@ require("behaviours/chaseandattack")
 require("behaviours/runaway")
 require("behaviours/leash")
 require("behaviours/standstill")
+require("behaviours/follow")
 
 local nen = require("ailang/nen")
 local dan_lang = require("ailang/dan_lang")
 local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = require("ailang/sinh_ton")
+local than_thiet = require("ailang/than_thiet")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30
-local VE_NHA_XA     = 50   -- xa nhà quá bấy nhiêu thì bỏ việc, về đã    -- lang thang quanh nhà trong bán kính này
+local VE_NHA_XA     = 50   -- xa nhà quá bấy nhiêu thì bỏ việc, về đã
+local THEO_GAN      = 3
+local THEO_VUA      = 6
+local THEO_XA       = 12    -- lang thang quanh nhà trong bán kính này
 local MAU_SO        = 0.35  -- dưới ngưỡng này thì bỏ chạy
 local DOI_THI_AN    = 0.5
 
@@ -39,6 +44,21 @@ end)
 -- ── tiện ích ────────────────────────────────────────────────────────────
 
 -- Khoảng cách tới nhà. Không có nhà thì coi như đang ở nhà.
+-- Chủ đang được dân làng này đi theo. Chỉ chịu theo khi đủ thiện cảm.
+local function ChuDeTheo(inst)
+    local a = inst.ailang
+    if a == nil or a.che_do ~= "theo_chan" then return nil end
+    if not than_thiet.ChiuTheo(inst) then return nil end
+    local gan, d_gan = nil, math.huge
+    for _, p in ipairs(AllPlayers) do
+        if p:IsValid() then
+            local d = inst:GetDistanceSqToInst(p)
+            if d < d_gan then gan, d_gan = p, d end
+        end
+    end
+    return gan
+end
+
 local function XaNha(inst)
     local nha = inst.ailang ~= nil and inst.ailang.nha or nil
     if nha == nil then return 0 end
@@ -460,12 +480,19 @@ function DanLangBrain:OnStart()
                   "Đêm mà chưa có sáng",
             Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
 
+        -- ĐI THEO CHỦ khi được đặt chế độ "theo chân" và đủ thiện cảm.
+        -- Ở chế độ này thì bỏ qua nhánh về nhà — chủ đi đâu thì theo đó.
+        WhileNode(function() return ChuDeTheo(inst) ~= nil end, "Theo chân chủ",
+            Follow(inst, ChuDeTheo, THEO_GAN, THEO_VUA, THEO_XA)),
+
         -- ⚠ VỀ NHÀ khi đã đi quá xa. Không có nhánh này thì dân làng TRÔI VÔ
         --   HẠN: mỗi lần đi kiếm nguyên liệu lại dời đi một đoạn, rồi từ chỗ
         --   mới tìm tiếp, cứ thế xa dần. Đo trên server thật: cả ba chết ở
         --   cách nhà 95, 155 và 235 đơn vị — lang thang vào chỗ nguy hiểm,
         --   không lửa, không đường lui.
-        WhileNode(function() return XaNha(inst) > VE_NHA_XA end, "Đi quá xa nhà",
+        WhileNode(function()
+            return ChuDeTheo(inst) == nil and XaNha(inst) > VE_NHA_XA
+        end, "Đi quá xa nhà",
             Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
 
         DoAction(inst, HanhDongTheoMucTieu, "mục tiêu", true),
