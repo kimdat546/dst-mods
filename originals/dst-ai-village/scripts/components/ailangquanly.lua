@@ -26,6 +26,9 @@ end)
 function QuanLyLang:ChupTatCa()
     -- Chưa dựng lại xong thì chưa có ai sống — chụp lúc này là xoá sạch hồ sơ.
     if not self.da_dung_lai then return end
+    -- Bộ tự kiểm xoá sạch dân làng để dựng bản thử. Chụp lúc đó là XOÁ VĨNH
+    -- VIỄN cả làng của người chơi — nên nó tạm khoá cờ này trong lúc chạy.
+    if self.tam_dung_chup then return end
 
     local moi = {}
     for _, e in ipairs(dan_lang.TatCa()) do

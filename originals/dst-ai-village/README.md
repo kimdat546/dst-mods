@@ -105,11 +105,24 @@ Bỏ vào thư mục mod của server. Cấu hình trong `modoverrides.lua`:
 Lệnh trong game:
 
 ```
+c_ailang_soi()                -- ĐANG NGHĨ GÌ: lo nhu cầu nào, làm hành động
+                              --   gì với mục tiêu nào, mang gì, túi có gì
+c_ailang_kiem()               -- chạy cả 20 phép tự kiểm NGAY TRONG GAME
+c_ailang_dem()                -- liệt kê gọn
 c_ailang_them("Tí", "wx78")   -- thêm một dân làng ở chỗ mình đứng
-c_ailang_dem()                -- liệt kê dân làng và trạng thái
 c_ailang_datnha()             -- đặt nhà tại chỗ mình đứng
+c_ailang_tiepte()             -- phát 2 cỏ + 2 cành cho cả làng
+c_ailang_naplai()             -- nạp mã mới, không phải khởi động lại game
 c_ailang_xoahet()
 ```
+
+`c_ailang_soi()` là lệnh đáng dùng nhất khi muốn biết "nó có làm đúng không":
+cây hành vi chạy trong im lặng nên nhìn bằng mắt thường rất khó đoán.
+
+⚠ `c_ailang_kiem()` xoá sạch dân làng để dựng bản thử rồi **dựng lại làng của
+bạn** ở cuối, và có đổi giờ trong ngày. Chạy lúc rảnh, đừng chạy giữa lúc đánh
+boss. Nếu không có bước dựng lại đó thì cả làng biến mất vĩnh viễn —
+`ChupTatCa` dựng bảng hồ sơ TỪ dân làng đang sống, mà lúc đó không còn ai.
 
 ### Dịch vụ suy nghĩ (tuỳ chọn)
 
