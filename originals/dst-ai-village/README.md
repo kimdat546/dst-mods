@@ -186,6 +186,30 @@ lại được. Sửa mấy file đó thì vẫn phải thoát game.
 ⚠ Thêm/xoá FILE thì luôn phải khởi động lại game — DST chỉ quét danh sách file
 mod một lần lúc mở game.
 
+### Server test cho NGƯỜI CHƠI vào được
+
+```bash
+./tools/test/keo_game.sh        # một lần, ~15 phút
+cd tools/test && docker compose up -d
+```
+rồi trong DST: `c_connect("127.0.0.1", 11000)`
+
+⚠ **Ảnh Docker không nhúng sẵn file game** — nó tải lúc chạy bằng steamcmd, mà
+steamcmd là **ELF 32-bit** (EM_386) và Rosetta trên Apple Silicon **không chạy
+32-bit**, nó segfault. Nên bản game trong ảnh đứng yên ở 726875 trong khi client
+đã 747465, và người chơi nhận *"máy chủ ở phiên bản cũ hơn bạn"*.
+`keo_game.sh` chép thư mục game từ server thật trên ThinkPad (x86_64 thật, tự
+cập nhật được) về đây. 4,3 GB, ~5 MB/s qua Tailscale.
+
+⚠ **Cổng phải trong [10998, 11018]** vì đây là cụm offline. Ngoài khoảng đó DST
+không báo lỗi mà lặng lẽ tụt về 10999.
+
+⚠ Mount thư mục game phải **đọc-ghi**. Mount `:ro` thì Docker không tạo nổi điểm
+mount LỒNG cho mấy file mod bên dưới, container chết ngay lúc khởi tạo.
+
+Vào được server này thì thế giới THỨC (có client thật), nên xem được đầy đủ
+chuyển động và hành vi — thứ mà bộ tự kiểm không kiểm được.
+
 ### Tự kiểm — không cần người chơi
 
 ```bash

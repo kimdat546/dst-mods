@@ -381,10 +381,35 @@ local function ThuHonMaKeu(tiep)
     tiep()
 end
 
+
+-- ── 13. hồn ma đúng dáng DST và nhận vật phẩm hồi sinh ──────────────────
+local function ThuHonMaDangDST(tiep)
+    local e, nao = DanLangSach(Goc())
+    dan_lang.ThanhHonMa(e)
+    KT("hồn ma mang tag playerghost để vật phẩm hồi sinh soi thấy",
+       e:HasTag("playerghost"))
+    KT("hồn ma có component trader để nhận vật phẩm",
+       e.components.trader ~= nil)
+    local tim_thu = SpawnPrefab("reviver")
+    KT("trader nhận tim đập (reviver)",
+       e.components.trader ~= nil and e.components.trader.acceptnontradable ~= nil
+       or (e.components.trader ~= nil and e.components.trader.onaccept ~= nil))
+    tim_thu:Remove()
+    -- Đưa tim đập cho nó xem có sống lại không
+    local tim = SpawnPrefab("reviver")
+    e.components.trader.onaccept(e, nil, tim)
+    KT("đưa tim đập thì hồn ma sống lại",
+       e.ailang.la_hon_ma == false, "la_hon_ma=" .. tostring(e.ailang.la_hon_ma))
+    KT("sống lại thì bỏ tag playerghost và gỡ trader",
+       not e:HasTag("playerghost") and e.components.trader == nil)
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
-               ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu }
+               ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
+               ThuHonMaDangDST }
 local i = 0
 local function tiep()
     i = i + 1

@@ -15,6 +15,19 @@ services:
     stdin_open: true
     env_file: [ ./test.env ]
     volumes:
+      # Thư mục game bản MỚI, kéo từ container trên ThinkPad về.
+      #
+      # ⚠ Vì sao phải làm vậy: ảnh Docker không nhúng sẵn file game mà tải lúc
+      #   chạy bằng steamcmd, mà steamcmd là ELF 32-bit (EM_386) — Rosetta trên
+      #   Apple Silicon KHÔNG chạy được 32-bit, nó segfault. Nên bản game trong
+      #   ảnh đứng yên ở 726875 trong khi client đã 747465, và người chơi nhận
+      #   "máy chủ ở phiên bản cũ hơn bạn".
+      #   Cách lấy lại: tools/test/keo_game.sh
+      #
+      # ⚠ Phải mount ĐỌC-GHI. Mount :ro thì Docker không tạo nổi điểm mount
+      #   LỒNG cho mấy file mod bên dưới, container chết ngay lúc khởi tạo với
+      #   "create mountpoint ...: read-only file system".
+      - ./game:/usr/share/game
       - /Users/kimdat546/Code/dst-mods/translations/dang-tien-viet/tools/test-harness/container-x64:/usr/bin/container:ro
       - ./data/Master:/var/lib/game
       - ./config/Master/modoverrides.lua:/etc/dst-config/Master/modoverrides.lua:ro
