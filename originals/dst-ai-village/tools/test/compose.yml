@@ -1,0 +1,16 @@
+# Server headless để thử AI Làng. Offline, chỉ bật đúng mod này.
+name: ailang-test
+services:
+  master:
+    image: dst-server-x64-test:local
+    platform: linux/amd64
+    container_name: dst-ailang-test
+    stdin_open: true
+    env_file: [ ./test.env ]
+    volumes:
+      - /Users/kimdat546/Code/dst-mods/translations/dang-tien-viet/tools/test-harness/container-x64:/usr/bin/container:ro
+      - ./data/Master:/var/lib/game
+      - ./config/Master/modoverrides.lua:/etc/dst-config/Master/modoverrides.lua:ro
+      - /Users/kimdat546/Code/dst-mods/originals/dst-ai-village:/usr/share/game/mods/dst-ai-village:ro
+    ports:
+      - "11993:11993/udp"
