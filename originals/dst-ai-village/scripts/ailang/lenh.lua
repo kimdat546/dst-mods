@@ -220,4 +220,67 @@ function lenh.Goi()
     Bao(string.format("đã gọi %d dân làng tới đây và đặt nhà tại %.0f,%.0f", n, x, z))
 end
 
+
+-- ── bảng điều khiển dân làng ────────────────────────────────────────────
+--
+-- ⚠ Đây là "bảng setting" dạng LỆNH, không phải giao diện. Giao diện thật đòi
+--   phần chạy ở client, mà mod cố ý giữ server-only để không ai phải cài gì
+--   mới vào được server. Xem mục "Quyết định" trong README.
+
+local function TimTheoTen(ten)
+    local ra = {}
+    for _, e in ipairs(dan_lang.TatCa()) do
+        if ten == nil or e.ailang.ten == ten then table.insert(ra, e) end
+    end
+    return ra
+end
+
+local function DatCheDo(ten, che_do, mo_ta)
+    local than_thiet = require("ailang/than_thiet")
+    local ds = TimTheoTen(ten)
+    if #ds == 0 then Bao("không tìm thấy dân làng nào") return end
+    local n, tu_choi = 0, {}
+    for _, e in ipairs(ds) do
+        if che_do == "theo_chan" and not than_thiet.ChiuTheo(e) then
+            table.insert(tu_choi, string.format("%s (thiện cảm %d, cần %d)",
+                e.ailang.ten, than_thiet.Lay(e), than_thiet.DU_THEO))
+        else
+            e.ailang.che_do = che_do
+            e:RestartBrain()
+            n = n + 1
+        end
+    end
+    if n > 0 then Bao(string.format("%d dân làng: %s", n, mo_ta)) end
+    for _, s in ipairs(tu_choi) do
+        Bao("  " .. s .. " — chưa đủ thân, cho ăn thêm đã")
+    end
+end
+
+function lenh.Theo(ten)   DatCheDo(ten, "theo_chan", "đi theo bạn")            end
+function lenh.ONha(ten)   DatCheDo(ten, "o_nha",     "ở nhà, không đi đâu")    end
+function lenh.TuDo(ten)   DatCheDo(ten, "tu_do",     "làm việc quanh nhà")     end
+
+-- Bảng liệt kê đủ để quyết ai theo, ai ở nhà.
+function lenh.Bang()
+    local than_thiet = require("ailang/than_thiet")
+    local ds = dan_lang.TatCa()
+    if #ds == 0 then
+        Bao("không có dân làng nào — mod đã bật ở tab SERVER MODS chưa?")
+        return
+    end
+    Bao("── dân làng ──  (c_ailang_theo/onha/tudo \"tên\")")
+    for _, e in ipairs(ds) do
+        local a = e.ailang
+        local tc = than_thiet.Lay(e)
+        Bao(string.format("%-8s %-11s thân %3d/100 %s  máu %d%%  đói %d%%%s",
+            a.ten, than_thiet.CHE_DO[a.che_do or "tu_do"], tc,
+            tc >= than_thiet.DU_THEO and "(theo được)"
+                or (tc < than_thiet.BO_DI and "(sắp bỏ đi)" or "(chưa đủ thân)"),
+            math.floor((e.components.health and e.components.health:GetPercent() or 1) * 100),
+            math.floor((e.components.hunger and e.components.hunger:GetPercent() or 1) * 100),
+            a.la_hon_ma and "  [HỒN MA]" or ""))
+    end
+    Bao("Cho ăn để tăng thân (thả đồ ăn lên dân làng). Đánh nó thì mất thân.")
+end
+
 return lenh

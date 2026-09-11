@@ -112,6 +112,10 @@ c_ailang_dem()                -- liệt kê gọn
 c_ailang_them("Tí", "wx78")   -- thêm một dân làng ở chỗ mình đứng
 c_ailang_datnha()             -- đặt nhà tại chỗ mình đứng
 c_ailang_tiepte()             -- phát 2 cỏ + 2 cành cho cả làng
+c_ailang_bang()               -- BẢNG: ai chế độ nào, thân bao nhiêu
+c_ailang_theo("Tí")           -- đi theo mình (cần thiện cảm ≥ 70)
+c_ailang_onha("Tí")           -- ở nhà
+c_ailang_tudo("Tí")           -- làm việc quanh nhà (mặc định)
 c_ailang_goi()                -- gọi cả làng tới chỗ mình và đặt nhà ở đây
 c_ailang_cuu()                -- hồi sinh mọi hồn ma dân làng
 c_ailang_giet("Tí")           -- giết một dân làng để xem cơ chế hồn ma
@@ -308,6 +312,60 @@ nghề**. Không phải viết điều kiện tay.
 
 Bản đầu ăn bất cứ thứ gì nên dân làng tự đầu độc mình bằng đúng con nấm vừa
 hái. Giờ chấm điểm `no + máu×3 + não×2`, chỉ đụng món hại khi đói dưới 15%.
+
+## Thiện cảm và chế độ — mượn mô hình Wurt ↔ merm
+
+Wurt cho merm ăn thì merm kết thân và đi theo. Dân làng ở đây cũng vậy.
+
+**Thiện cảm 0–100**, bắt đầu ở 50:
+
+| | thay đổi |
+|---|---|
+| Cho ăn (thả đồ ăn lên dân làng) | **+10** |
+| Cứu sống khi đang là hồn ma | **+20** |
+| Tặng dụng cụ / vũ khí / giáp | +3 |
+| Sống yên qua một ngày | +2 |
+| Bị bỏ đói (dưới 25%) qua một ngày | −5 |
+| **Bị chính người chơi đánh** | **−25** |
+
+- Từ **70** trở lên mới chịu đi theo
+- Dưới **15** thì nó nói *"Đủ rồi! Tôi không ở đây nữa."*
+
+Cách cho ăn là thao tác vanilla: kéo món đồ thả lên dân làng. Chạy được mà
+**không cần mod ở client** — dân làng có component `trader`, đúng cơ chế merm.
+Nó chỉ nhận món có lợi: đưa nấm não −50 thì nó từ chối.
+
+### Ba chế độ
+
+```
+c_ailang_bang()           -- bảng: ai đang chế độ nào, thân bao nhiêu
+c_ailang_theo("Tí")       -- đi theo mình (cần thiện cảm ≥ 70)
+c_ailang_onha("Tí")       -- ở nhà, không rời đi
+c_ailang_tudo("Tí")       -- làm việc quanh nhà (mặc định)
+```
+
+Bỏ tên thì áp cho cả làng. Chưa đủ thân mà đòi theo thì nó báo còn thiếu bao
+nhiêu.
+
+⚠ Đây là "bảng setting" dạng **lệnh**, không phải giao diện. Giao diện thật đòi
+phần chạy ở client, mà mod cố ý giữ server-only để không ai phải cài gì mới vào
+được server — xem mục quyết định bên dưới.
+
+### Vì sao KHÔNG đổi dân làng sang prefab kiểu merm/pigman
+
+Đã đo, hai phép liền nhau cùng một nền:
+
+| | CPU hơn nền |
+|---|---|
+| 20 heo vanilla thức | +11,8% |
+| 20 dân làng (đã tắt não) thức | +13,9% |
+
+Prefab người chơi chỉ đắt hơn heo khoảng **18%**. Đổi lấy chừng đó mà mất
+`builder` (heo và merm **không chế tạo được**), mất mặc giáp, mất cầm vũ khí
+bất kỳ thì không đáng. Thứ đáng mượn từ merm là **quan hệ**, không phải prefab.
+
+Chi phí thật: **≈0,9% CPU mỗi dân làng thức**, RAM không tăng. Đòn bẩy nằm ở
+số dân làng thức cùng lúc, không ở loại prefab.
 
 ## Giới hạn quan trọng: dân làng chỉ sống khi có người chơi ở gần
 

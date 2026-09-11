@@ -28,8 +28,9 @@ local function KT(ten, dieu_kien, chi_tiet)
     end
 end
 
-for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/nhu_cau",
-                     "ailang/sinh_ton", "ailang/lenh", "brains/danlangbrain" }) do
+for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/than_thiet",
+                     "ailang/nhu_cau", "ailang/sinh_ton", "ailang/lenh",
+                     "brains/danlangbrain" }) do
     package.loaded[m] = nil
 end
 local dan_lang = require("ailang/dan_lang")
@@ -585,13 +586,89 @@ local function ThuHonMaCoHinh(tiep)
     tiep()
 end
 
+
+-- ── 21. thiện cảm kiểu Wurt-merm ────────────────────────────────────────
+local function ThuThienCam(tiep)
+    local tt = require("ailang/than_thiet")
+    local e, nao = DanLangSach(Goc())
+    KT("sinh ra với thiện cảm trung lập", tt.Lay(e) == tt.BAN_DAU,
+       "thiện cảm=" .. tt.Lay(e))
+    KT("chưa đủ thân thì chưa chịu đi theo", not tt.ChiuTheo(e))
+    KT("có component trader để nhận đồ từ người chơi", e.components.trader ~= nil)
+
+    -- Cho ăn: thiện cảm tăng
+    local truoc = tt.Lay(e)
+    local ca_rot = SpawnPrefab("carrot")
+    e.components.trader.onaccept(e, nil, ca_rot)
+    KT("cho ăn thì thiện cảm tăng", tt.Lay(e) > truoc,
+       truoc .. " -> " .. tt.Lay(e))
+
+    -- Không nhận nấm độc
+    local nam = SpawnPrefab("green_cap")
+    KT("không nhận món hại (nấm não −50)",
+       e.components.trader.acceptfn == nil
+       or e.components.trader.acceptfn(e, nam) ~= true)
+    nam:Remove()
+
+    -- Đủ thân thì theo được
+    tt.Doi(e, 100, "thử")
+    KT("đủ thân thì chịu đi theo", tt.ChiuTheo(e), "thiện cảm=" .. tt.Lay(e))
+
+    -- Bị người chơi đánh thì mất lòng
+    local truoc2 = tt.Lay(e)
+    local ke_danh = AllPlayers[1]
+    if ke_danh ~= nil then
+        e:PushEvent("attacked", { attacker = ke_danh, damage = 1 })
+        KT("bị người chơi đánh thì mất lòng", tt.Lay(e) < truoc2,
+           truoc2 .. " -> " .. tt.Lay(e))
+    else
+        print("[TU-KIEM] BỎ QUA phép đánh — không có người chơi trong world")
+    end
+
+    -- Bỏ đói qua ngày thì mất lòng
+    local truoc3 = tt.Lay(e)
+    e.components.hunger:SetPercent(0.1)
+    tt.SangNgayMoi(e)
+    KT("bỏ đói qua ngày thì mất lòng", tt.Lay(e) < truoc3,
+       truoc3 .. " -> " .. tt.Lay(e))
+    tiep()
+end
+
+-- ── 22. chế độ theo chân / ở nhà ────────────────────────────────────────
+local function ThuCheDo(tiep)
+    local tt = require("ailang/than_thiet")
+    local lenh = require("ailang/lenh")
+    local e, nao = DanLangSach(Goc())
+    KT("mặc định là chế độ tự do", (e.ailang.che_do or "tu_do") == "tu_do",
+       "chế độ=" .. tostring(e.ailang.che_do))
+
+    -- Chưa đủ thân thì từ chối đặt theo chân
+    tt.Doi(e, -100, "thử")
+    lenh.Theo(e.ailang.ten)
+    KT("chưa đủ thân thì KHÔNG đặt được theo chân",
+       e.ailang.che_do ~= "theo_chan", "chế độ=" .. tostring(e.ailang.che_do))
+
+    -- Đủ thân thì đặt được
+    tt.Doi(e, 100, "thử")
+    lenh.Theo(e.ailang.ten)
+    KT("đủ thân thì đặt được theo chân",
+       e.ailang.che_do == "theo_chan", "chế độ=" .. tostring(e.ailang.che_do))
+
+    lenh.ONha(e.ailang.ten)
+    KT("đặt được chế độ ở nhà", e.ailang.che_do == "o_nha")
+    lenh.TuDo(e.ailang.ten)
+    KT("đặt được chế độ tự do", e.ailang.che_do == "tu_do")
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
                ThuHonMaDangDST, ThuKhongKetXe,
                ThuKhongDoiRiuDuoc, ThuKienNhan, ThuCoNha,
-               ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh }
+               ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh,
+               ThuThienCam, ThuCheDo }
 local i = 0
 local function tiep()
     i = i + 1
