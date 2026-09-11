@@ -1,0 +1,10 @@
+name: ailang-tamtri
+services:
+  tam-tri:
+    build: .
+    container_name: ailang-tam-tri
+    env_file: [ ./.env ]
+    volumes:
+      # Trỏ vào thư mục save của world. Đây là kênh liên lạc duy nhất với mod.
+      - ${AILANG_SAVE:?chưa đặt AILANG_SAVE}:/save
+    restart: unless-stopped

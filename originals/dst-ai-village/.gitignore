@@ -1,0 +1,4 @@
+tools/test/test.env
+tools/test/data/
+tam-tri/.env
+tam-tri/__pycache__/
