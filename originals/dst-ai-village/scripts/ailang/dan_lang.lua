@@ -82,8 +82,30 @@ function dan_lang.Sinh(hoso)
     inst.Transform:SetPosition(x or 0, y or 0, z or 0)
 
     if hoso.mau and inst.components.health then
-        inst.components.health:SetPercent(math.max(0.1, hoso.mau))
+        -- Dựng lại tối thiểu 30% chứ không phải 10%: dân làng hồi sinh với
+        -- 10% máu thì chết lại ngay trong đêm đầu tiên, và chưa có hành vi
+        -- tự chữa thương. Đã gặp thật sau vài lần restart liên tiếp.
+        inst.components.health:SetPercent(math.max(0.3, hoso.mau))
     end
+
+    -- Dân làng là prefab NGƯỜI CHƠI, nên chết là hoá MA chứ không biến mất —
+    -- để nguyên thì cái làng đầy ma lởn vởn. Gỡ xác rồi dựng lại người mới
+    -- sau một lúc, coi như dân làng khác tới ở.
+    inst:ListenForEvent("death", function()
+        local ma = inst.ailang ~= nil and inst.ailang.ma or nil
+        local ten = inst.ailang ~= nil and inst.ailang.ten or "?"
+        nen.log("dân làng", ten, "đã chết — dựng lại sau 30 giây")
+        inst:DoTaskInTime(30, function()
+            local ql = TheWorld.components ~= nil and TheWorld.components.ailangquanly
+            local hs = ql ~= nil and ma ~= nil and ql.ho_so[ma] or nil
+            if inst:IsValid() then inst:Remove() end
+            if ql ~= nil then
+                if hs ~= nil then hs.mau = 1 end
+                ql.ho_so[ma] = nil
+                ql:Them(hs)
+            end
+        end)
+    end)
 
     -- Entity DST "ngủ" khi không có người chơi ở gần, và entity ngủ thì KHÔNG
     -- chạy não (đo được: IsAsleep()=true -> inst.brain=nil ngay sau SetBrain).
