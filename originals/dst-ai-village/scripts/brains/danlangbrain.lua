@@ -23,6 +23,7 @@ local dan_lang = require("ailang/dan_lang")
 local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = require("ailang/sinh_ton")
 local than_thiet = require("ailang/than_thiet")
+local viec = require("ailang/viec")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30
@@ -32,6 +33,14 @@ local THEO_VUA      = 6
 local THEO_XA       = 12    -- lang thang quanh nhà trong bán kính này
 local MAU_SO        = 0.35  -- dưới ngưỡng này thì bỏ chạy
 local DOI_THI_AN    = 0.5
+
+-- ⚠ Hai hằng số của nhánh hồn ma. Bản dọn mã chết từng xoá nhầm GAN_BIA và
+--   server SẬP ngay lúc dân làng khởi động não:
+--     danlangbrain.lua:206 variable 'GAN_BIA' is not declared
+--   strict.lua biến biến-chưa-khai-báo thành lỗi cứng, nên đừng dọn hằng số
+--   bằng cách đếm số lần xuất hiện.
+local TIM_BIA       = 250   -- bán kính hồn ma tìm chỗ hồi sinh, rất rộng
+local GAN_BIA       = 3     -- tới trong khoảng này thì hồi sinh
 
 -- ⚠ Brain._ctor KHÔNG nhận inst — phải gán tay, đúng như mọi brain vanilla.
 --   Truyền inst vào _ctor thì self.inst = nil, và lỗi chỉ nổ muộn ở tận trong
@@ -102,75 +111,7 @@ end
 --   đi tới được, bị vật cản chắn, bị mod khác khoá. Đeo bám quá lâu thì ghi
 --   sổ đen một lúc rồi làm việc khác.
 
-local KIEN_NHAN   = 45    -- giây, đeo bám một mục tiêu tối đa bấy nhiêu
-local BO_QUA_GIAY = 120   -- giây, ghi sổ đen bấy nhiêu lâu
 
--- Dấu hiệu "đang có tiến triển" trên mục tiêu. Đếm ngược kiên nhẫn được ĐẶT
--- LẠI mỗi khi dấu hiệu này đổi.
---
--- ⚠ Không có phần này thì dân làng chặt vài nhát rồi bỏ sang cây khác: hạ một
---   cây thông mất hơn 10 giây, mà đếm ngược cũ là 10 giây nên nó tự ghi sổ đen
---   đúng cái cây đang chặt dở. Người chơi thấy ngay.
-local function DauTienTrien(e)
-    if e == nil or not e:IsValid() then return nil end
-    local w = e.components.workable
-    if w ~= nil then return w.workleft end
-    local pk = e.components.pickable
-    if pk ~= nil then return pk:CanBePicked() and 1 or 0 end
-    return nil
-end
-
-local function So(inst)
-    local a = inst.ailang
-    if a.bo_qua == nil then a.bo_qua = {} end
-    return a
-end
-
-local function DangBoQua(inst, e)
-    local a = So(inst)
-    local het = a.bo_qua[e.GUID]
-    if het == nil then return false end
-    if GetTime() > het then a.bo_qua[e.GUID] = nil return false end
-    return true
-end
-
--- Gọi mỗi lần chọn được mục tiêu. Trả false nếu đã đeo bám quá lâu.
-local function ConKienNhan(inst, e)
-    local a = So(inst)
-    if a.dang_duoi ~= e.GUID then
-        a.dang_duoi = e.GUID
-        a.duoi_tu = GetTime()
-        a.duoi_moc = DauTienTrien(e)
-        return true
-    end
-    -- Còn đang bào mòn được mục tiêu thì kiên nhẫn lại từ đầu.
-    local moc = DauTienTrien(e)
-    if moc ~= nil and moc ~= a.duoi_moc then
-        a.duoi_moc = moc
-        a.duoi_tu = GetTime()
-        return true
-    end
-    if GetTime() - (a.duoi_tu or 0) > KIEN_NHAN then
-        a.bo_qua[e.GUID] = GetTime() + BO_QUA_GIAY
-        a.dang_duoi = nil
-        nen.chitiet(tostring(a.ten), "bỏ qua mục tiêu cứng đầu",
-                    tostring(e.prefab), e.GUID)
-        return false
-    end
-    return true
-end
-
-local KHONG_LAY = { "INLIMBO", "NOCLICK", "FX", "fire", "burnt", "catchable" }
-
-local function Tim(inst, musttag, loc_them)
-    local e = FindEntity(inst, TAM_NHIN, function(v)
-        if DangBoQua(inst, v) then return false end
-        return loc_them == nil or loc_them(v)
-    end, { musttag }, KHONG_LAY)
-    if e == nil then return nil end
-    if not ConKienNhan(inst, e) then return nil end
-    return e
-end
 
 -- ── hành động ───────────────────────────────────────────────────────────
 
@@ -186,76 +127,8 @@ local function HanhDongAn(inst)
     return BufferedAction(inst, mon, ACTIONS.EAT)
 end
 
--- Nhặt đồ rơi dưới đất.
-local function HanhDongNhat(inst)
-    local tui = inst.components.inventory
-    if tui == nil or tui:IsFull() then return nil end
-    local mon = Tim(inst, "_inventoryitem", function(v)
-        return v.components.inventoryitem ~= nil
-           and v.components.inventoryitem.canbepickedup
-           and v:IsOnValidGround()
-           and not v:IsInLimbo()
-    end)
-    if mon == nil then return nil end
-    return BufferedAction(inst, mon, ACTIONS.PICKUP)
-end
-
--- Hái: quả mọng, cà rốt, cành cây, cỏ, nấm ĐÃ MỌC.
-local function HanhDongHai(inst)
-    local tui = inst.components.inventory
-    if tui == nil or tui:IsFull() then return nil end
-    local cay = Tim(inst, "pickable", function(v)
-        return v.components.pickable ~= nil
-           and v.components.pickable:CanBePicked()
-           and v.components.pickable.caninteractwith ~= false
-    end)
-    if cay == nil then return nil end
-    return BufferedAction(inst, cay, ACTIONS.PICK)
-end
-
--- Chặt cây — chỉ khi đang cầm rìu, hoặc có rìu trong túi thì cầm lên trước.
-local function CamDungCu(inst, hanh_dong)
-    local tui = inst.components.inventory
-    if tui == nil then return false end
-    local dang_cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
-    if dang_cam ~= nil and dang_cam.components.tool ~= nil
-       and dang_cam.components.tool:CanDoAction(hanh_dong) then
-        return true
-    end
-    for _, mon in pairs(tui.itemslots or {}) do
-        if mon ~= nil and mon.components.tool ~= nil
-           and mon.components.tool:CanDoAction(hanh_dong) then
-            tui:Equip(mon)
-            return true
-        end
-    end
-    return false
-end
-
-local function LamViec(inst, hanh_dong, tag)
-    if not CamDungCu(inst, hanh_dong) then return nil end
-    local muc = Tim(inst, tag, function(v)
-        return v.components.workable ~= nil
-           and v.components.workable:CanBeWorked()
-           and v.components.workable:GetWorkAction() == hanh_dong
-    end)
-    if muc == nil then return nil end
-    return BufferedAction(inst, muc, hanh_dong)
-end
-
-local function HanhDongChat(inst) return LamViec(inst, ACTIONS.CHOP, "CHOP_workable") end
-local function HanhDongDao(inst)  return LamViec(inst, ACTIONS.MINE, "MINE_workable") end
-
-
--- ── hồn ma ──────────────────────────────────────────────────────────────
-
--- ⚠ Bán kính tìm chỗ hồi sinh phải RẤT rộng. Đo trên server thật: cả ba dân
---   làng chết thành hồn ma, thế giới CÓ 3 chỗ hồi sinh, nhưng không chỗ nào
---   trong vòng 60 nên cả ba đứng im vĩnh viễn — làng chết hẳn. Hồn ma thì bất
---   tử và không có việc gì khác, đi xa bao nhiêu cũng được.
-local TIM_BIA   = 250
-local GAN_BIA   = 3    -- tới trong khoảng này thì hồi sinh
-
+-- Chỗ hồi sinh gần nhất: bia đá, tượng thịt, hoặc dây chuyền rơi dưới đất —
+-- cả ba đều mang chung tag "resurrector".
 local function BiaGanNhat(inst)
     return FindEntity(inst, TIM_BIA, function(v)
         return not v:IsInLimbo()
@@ -288,16 +161,6 @@ end
 
 -- ── ánh sáng ────────────────────────────────────────────────────────────
 
--- Hoàng hôn thì CHUẨN BỊ, ban đêm mới CẦM LÊN.
---
--- ⚠ Bản đầu gộp cả hoàng hôn vào "trời tối" nên dân làng chế và cầm đuốc từ
---   buổi chiều — người chơi thấy ngay là vô lý. Charlie chỉ ăn người trong
---   BÓNG TỐI HẲN, mà cầm đuốc thì mất luôn tay cầm rìu. Nên hoàng hôn chỉ lo
---   CÓ đuốc trong túi, tới đêm mới cầm.
-local function ChapToi()
-    return TheWorld.state.isdusk or TheWorld.state.isnight
-end
-
 local function ToiHan()
     return TheWorld.state.isnight
 end
@@ -322,13 +185,6 @@ local function MonPhatSang(mon)
     return mon:HasTag("lighter") or mon:HasTag("light") or PHAT_SANG[mon.prefab] == true
 end
 
--- Nguồn sáng đang chiếm ô TAY — tức là không rảnh tay cầm dụng cụ.
-local function DangCoAnhSangTrenTay(inst)
-    local tui = inst.components.inventory
-    if tui == nil then return false end
-    return nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HANDS))
-end
-
 local function DangCoAnhSang(inst)
     local tui = inst.components.inventory
     if tui == nil then return false end
@@ -336,18 +192,6 @@ local function DangCoAnhSang(inst)
         if MonPhatSang(tui:GetEquippedItem(o)) then return true end
     end
     return false
-end
-
-local function DuocTrongTui(inst)
-    local tui = inst.components.inventory
-    if tui == nil then return nil end
-    for _, mon in pairs(tui.itemslots or {}) do
-        if mon ~= nil and mon.prefab == "torch"
-           and (mon.components.fueled == nil or mon.components.fueled:GetPercent() > 0) then
-            return mon
-        end
-    end
-    return nil
 end
 
 local function LuaGanNhat(inst)
@@ -361,76 +205,6 @@ local function ViTriLua(inst)
     if f == nil then return nil end
     local x, _, z = f.Transform:GetWorldPosition()
     return Vector3(x, 0, z)
-end
-
--- Còn làm được gì để có ánh sáng không? Dùng làm điều kiện canh nhánh, nên
--- KHÔNG gây tác dụng phụ.
-local function ConCachThapSang(inst)
-    if DangCoAnhSang(inst) then return false end
-    -- Hoàng hôn: chỉ lo CÓ đuốc, chưa cầm lên.
-    if DuocTrongTui(inst) ~= nil then return ToiHan() end
-    local b = inst.components.builder
-    if b == nil then return false end
-    if b:CanBuild("torch") then return true end
-    if ToiHan() and b:CanBuild("campfire") and LuaGanNhat(inst) == nil then return true end
-    return false
-end
-
-local function ThapSang(inst)
-    local tui = inst.components.inventory
-    local duoc = DuocTrongTui(inst)
-    if duoc ~= nil then
-        if ToiHan() then
-            tui:Equip(duoc)
-            nen.chitiet(tostring(inst.ailang.ten), "cầm đuốc lên")
-        end
-        return
-    end
-    local b = inst.components.builder
-    if b == nil then return end
-    if b:CanBuild("torch") then
-        nen.thu("chế đuốc", function() b:DoBuild("torch") end)
-        if ToiHan() then
-            local moi = DuocTrongTui(inst)
-            if moi ~= nil then tui:Equip(moi) end
-        else
-            -- ⚠ builder:DoBuild TỰ TRANG BỊ món vừa chế khi tay đang trống —
-            --   đó là hành vi sẵn có của DST, không phải mã ở đây. Nên ở hoàng
-            --   hôn phải CỞI RA cất đi, không thì dân làng cầm đuốc từ buổi
-            --   chiều và mất tay cầm rìu. Người chơi báo đúng chỗ này.
-            local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
-            if tay ~= nil and tay.prefab == "torch" then
-                local go = tui:Unequip(EQUIPSLOTS.HANDS)
-                if go ~= nil then tui:GiveItem(go) end
-            end
-        end
-        nen.chitiet(tostring(inst.ailang.ten),
-                    ToiHan() and "chế đuốc và cầm lên" or "chế sẵn đuốc để dành")
-        return
-    end
-    if ToiHan() and b:CanBuild("campfire") and LuaGanNhat(inst) == nil then
-        local x, y, z = inst.Transform:GetWorldPosition()
-        nen.thu("dựng lửa trại", function() b:DoBuild("campfire", Vector3(x + 1, y, z)) end)
-        nen.chitiet(tostring(inst.ailang.ten), "dựng lửa trại")
-    end
-end
-
--- Mục tiêu do tầng suy nghĩ đặt vào. Không có thì trả nil để cây đi tiếp
--- xuống các nhánh mặc định.
-local BANG_MUC_TIEU = {
-    CHAT  = HanhDongChat,
-    DAO   = HanhDongDao,
-    HAI   = HanhDongHai,
-    NHAT  = HanhDongNhat,
-    AN    = HanhDongAn,
-}
-
-local function HanhDongTheoMucTieu(inst)
-    local mt = inst.ailang ~= nil and inst.ailang.muc_tieu or nil
-    if mt == nil then return nil end
-    local fn = BANG_MUC_TIEU[mt]
-    if fn == nil then return nil end
-    return fn(inst)
 end
 
 -- ── cây ─────────────────────────────────────────────────────────────────
@@ -464,16 +238,18 @@ function DanLangBrain:OnStart()
         IfNode(function() return DangDoi(inst) end, "Đói",
             DoAction(inst, HanhDongAn, "ăn", true)),
 
-        -- SINH TỒN — bảng nhu cầu có thứ tự: ánh sáng > đồ ăn > hồi máu >
-        -- hồi não > vũ khí > giáp > nhà. Xem scripts/ailang/nhu_cau.lua.
-        -- Việc tức thì (mặc/chế) làm ngay; việc cần đi (hái/chặt/đào) trả về
-        -- hành động cho DoAction chạy.
+        -- LÀM VIỆC — MỘT node lo hết: nhu cầu sinh tồn trước, rồi nhặt /
+        -- hái / chặt / đào. Xem scripts/ailang/viec.lua.
+        --
+        -- ⚠ Trước đây chỗ này là NĂM nhánh DoAction riêng, mà PriorityNode
+        --   quyết lại từ đầu mỗi nhịp nên chúng giẫm chân nhau — người chơi
+        --   thấy dân làng đổi rìu↔đuốc liên tục và chặt vài nhát rồi bỏ.
+        --   Gom về một node GIỮ LẤY việc xuyên nhiều nhịp thì hết hẳn.
+        --   (Mô hình mượn từ GrimWorld, Workshop 3748676443.)
         IfNode(function() return sinh_ton.Giai(inst) == "xong" end,
-            "Vừa lo xong một nhu cầu", ActionNode(function() end, "xong")),
-        DoAction(inst, function() 
-            local kq = sinh_ton.Giai(inst)
-            return kq ~= "xong" and kq or nil
-        end, "lo sinh tồn", true),
+            "Vừa lo xong một nhu cầu tức thì", ActionNode(function() end, "xong")),
+
+        DoAction(inst, function() return viec.HanhDong(inst) end, "làm việc", true),
 
         -- Tối hẳn mà vẫn chưa có sáng: bám lấy đống lửa gần nhất.
         WhileNode(function() return ToiHan() and not DangCoAnhSang(inst) end,
@@ -494,24 +270,6 @@ function DanLangBrain:OnStart()
             return ChuDeTheo(inst) == nil and XaNha(inst) > VE_NHA_XA
         end, "Đi quá xa nhà",
             Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
-
-        DoAction(inst, HanhDongTheoMucTieu, "mục tiêu", true),
-
-        DoAction(inst, HanhDongNhat, "nhặt", true),
-        DoAction(inst, HanhDongHai,  "hái",  true),
-
-        -- ⚠ Ban đêm mà nguồn sáng duy nhất là ĐUỐC CẦM TAY thì ĐỪNG chặt/đào.
-        --   Người chơi bắt được: một Wilson "vừa thay đổi giữa rìu và đuốc
-        --   liên tục để chặt cây". Nhánh chặt cầm rìu lên, nhánh ánh sáng thấy
-        --   mất sáng nên cầm đuốc lại, lặp vô tận. Ban đêm lo sống đã, việc
-        --   nặng để mai — trừ khi có đèn đội đầu thì rảnh tay.
-        WhileNode(function()
-            return not (ToiHan() and DangCoAnhSangTrenTay(inst))
-        end, "Không phải đang cầm đuốc giữa đêm",
-            PriorityNode({
-                DoAction(inst, HanhDongChat, "chặt", true),
-                DoAction(inst, HanhDongDao,  "đào",  true),
-            }, 0.5)),
 
         -- Vừa hồi sinh thì quay lại chỗ chết nhặt lại đồ của mình.
         WhileNode(function() return inst.ailang.ve_nhat_do ~= nil end, "Về nhặt đồ",

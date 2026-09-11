@@ -29,8 +29,8 @@ local function KT(ten, dieu_kien, chi_tiet)
 end
 
 for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/than_thiet",
-                     "ailang/nhu_cau", "ailang/sinh_ton", "ailang/lenh",
-                     "brains/danlangbrain" }) do
+                     "ailang/nhu_cau", "ailang/sinh_ton", "ailang/viec",
+                     "ailang/lenh", "brains/danlangbrain" }) do
     package.loaded[m] = nil
 end
 local dan_lang = require("ailang/dan_lang")
@@ -736,6 +736,107 @@ local function ThuKhongNgu(tiep)
     end)
 end
 
+
+-- ── 24. giữ lấy việc xuyên nhiều nhịp ───────────────────────────────────
+--
+-- ⚠ Đây là TÍNH CHẤT CỐT LÕI của bản gom-năm-nhánh-thành-một. Bản cũ quyết
+--   lại từ đầu mỗi nhịp nên các nhánh giẫm chân nhau: đổi rìu↔đuốc liên tục,
+--   chặt vài nhát rồi bỏ. Phép kiểm này canh chừng chuyện đó tái diễn.
+local function ThuGiuViec(tiep)
+    local vi = require("ailang/viec")
+    local e, nao = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    tui:GiveItem(SpawnPrefab("axe"))
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+
+    local x, y, z = e.Transform:GetWorldPosition()
+    SpawnPrefab("evergreen").Transform:SetPosition(x + 4, y, z)
+    SpawnPrefab("evergreen").Transform:SetPosition(x - 4, y, z)
+
+    local a = vi.HanhDong(e)
+    KT("nhận được một việc", a ~= nil,
+       "hành động=" .. tostring(a and a.action and a.action.id))
+    if a == nil then tiep() return end
+
+    local dich_dau = a.target
+    local giu = true
+    for _ = 1, 5 do
+        local b = vi.HanhDong(e)
+        if b == nil or b.target ~= dich_dau then giu = false break end
+    end
+    KT("gọi 5 lần liên tiếp vẫn GIỮ đúng một mục tiêu", giu,
+       "mục tiêu đầu=" .. tostring(dich_dau and dich_dau.prefab))
+
+    KT("việc được ghi lại để soi được", e.ailang.dang_lam ~= nil,
+       "đang làm=" .. tostring(e.ailang.dang_lam))
+
+    -- Mục tiêu biến mất thì phải nhận việc khác, không kẹt
+    if dich_dau ~= nil and dich_dau:IsValid() then dich_dau:Remove() end
+    local c = vi.HanhDong(e)
+    KT("mục tiêu biến mất thì nhận việc khác, không kẹt",
+       c == nil or c.target ~= dich_dau,
+       "việc mới=" .. tostring(c and c.target and c.target.prefab))
+    tiep()
+end
+
+
+-- ── 25. không nhặt đồ quý của người chơi ────────────────────────────────
+local function ThuKhongTrom(tiep)
+    local vi = require("ailang/viec")
+    local e, nao = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local x, y, z = e.Transform:GetWorldPosition()
+    local mat = SpawnPrefab("chester_eyebone")
+    if mat ~= nil then
+        mat.Transform:SetPosition(x + 2, y, z)
+        local tim = 0
+        for _ = 1, 4 do
+            local a = vi.HanhDong(e)
+            if a ~= nil and a.target == mat then tim = tim + 1 end
+        end
+        KT("KHÔNG nhặt mắt Chester của người chơi", tim == 0,
+           "số lần nhắm tới=" .. tim)
+        mat:Remove()
+    else
+        print("[TU-KIEM] BỎ QUA — không có prefab chester_eyebone")
+    end
+    tiep()
+end
+
+-- ── 26. nhu cầu gấp thì được ra ngoài vùng làng ─────────────────────────
+local function ThuRaNgoaiLang(tiep)
+    local st = require("ailang/sinh_ton")
+    local e, nao = DanLangSach(Goc())
+    local nx, nz = e.ailang.nha[1], e.ailang.nha[2]
+    -- Bụi cây con NGOÀI bán kính làng (55) nhưng trong tầm khẩn cấp (80)
+    -- Dọn sạch quanh đó trước: còn cành rơi dưới đất thì DiKiem nhặt cái đó
+    -- (đúng hành vi — nhặt rẻ hơn hái), và phép kiểm bám sai mục tiêu.
+    for _, v in ipairs(TheSim:FindEntities(nx + 70, 0, nz, 40)) do
+        if v.prefab == "twigs" and v.Remove ~= nil then v:Remove() end
+    end
+    local bui = SpawnPrefab("sapling")
+    bui.Transform:SetPosition(nx + 70, 0, nz)
+    e.Transform:SetPosition(nx + 65, 0, nz)
+    local thuong = st.DiKiem(e, "twigs")
+    local gap    = st.DiKiem(e, "twigs", nil, 80)
+    KT("bán kính thường thì KHÔNG với tới bụi ngoài làng",
+       thuong == nil or thuong.target ~= bui,
+       "nhắm=" .. tostring(thuong and thuong.target and thuong.target.prefab))
+    -- Khẳng định đúng tính chất: với tới được thứ NẰM NGOÀI vùng làng.
+    local ngoai_lang = false
+    if gap ~= nil and gap.target ~= nil then
+        local tx, _, tz = gap.target.Transform:GetWorldPosition()
+        ngoai_lang = (tx - nx) ^ 2 + (tz - nz) ^ 2 > 55 * 55
+    end
+    KT("nhu cầu gấp thì VỚI TỚI được thứ ngoài vùng làng", ngoai_lang,
+       "nhắm=" .. tostring(gap and gap.target and gap.target.prefab))
+    bui:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -743,7 +844,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuHonMaDangDST, ThuKhongKetXe,
                ThuKhongDoiRiuDuoc, ThuKienNhan, ThuCoNha,
                ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh,
-               ThuThienCam, ThuCheDo, ThuKhongNgu }
+               ThuThienCam, ThuCheDo, ThuKhongNgu, ThuGiuViec,
+               ThuKhongTrom, ThuRaNgoaiLang }
 local i = 0
 local function tiep()
     i = i + 1

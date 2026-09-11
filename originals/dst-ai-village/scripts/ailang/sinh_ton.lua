@@ -85,11 +85,16 @@ sinh_ton.CamDungCu = CamDungCu
 --   Đo trên server thật: cả ba chết cách nhà 95-235 đơn vị.
 local TAM_LANG = 55
 
-local function TrongLang(inst, v)
+-- ⚠ Khi nhu cầu đã GẤP thì cho phép ra ngoài vùng làng. Không nới thì giới
+--   hạn làng (55) chặn luôn cả vòng tìm khẩn cấp (80), và dân làng kẹt
+--   "chưa có cách" giữa đêm dù chỉ thiếu 2 cành cây. Đã gặp thật: quanh làng
+--   không có bụi cây con nào.
+local function TrongLang(inst, v, tam)
     local nha = inst.ailang ~= nil and inst.ailang.nha or nil
     if nha == nil then return true end
+    local gioi_han = math.max(TAM_LANG, tam or 0)
     local x, _, z = v.Transform:GetWorldPosition()
-    return (x - nha[1]) ^ 2 + (z - nha[2]) ^ 2 <= TAM_LANG * TAM_LANG
+    return (x - nha[1]) ^ 2 + (z - nha[2]) ^ 2 <= gioi_han * gioi_han
 end
 
 function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
@@ -99,7 +104,7 @@ function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
 
     -- Nằm sẵn dưới đất thì nhặt, khỏi phải khai thác.
     local roi = FindEntity(inst, TAM_KIEM, function(v)
-        return TrongLang(inst, v)
+        return TrongLang(inst, v, tam)
            and v.prefab == nguyen_lieu
            and v.components.inventoryitem ~= nil
            and v.components.inventoryitem.canbepickedup
@@ -120,7 +125,7 @@ function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
     end
 
     local muc = FindEntity(inst, TAM_KIEM, function(v)
-        if not TrongLang(inst, v) then return false end
+        if not TrongLang(inst, v, tam) then return false end
         if bo_qua_fn ~= nil and bo_qua_fn(v) then return false end
         if nguon.prefab ~= nil and v.prefab ~= nguon.prefab then return false end
         if nguon.hd == "PICK" then
