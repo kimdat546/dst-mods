@@ -248,17 +248,47 @@ end
 
 -- ── ánh sáng ────────────────────────────────────────────────────────────
 
-local function TroiToi()
-    return TheWorld.state.isnight or TheWorld.state.isdusk
+-- Hoàng hôn thì CHUẨN BỊ, ban đêm mới CẦM LÊN.
+--
+-- ⚠ Bản đầu gộp cả hoàng hôn vào "trời tối" nên dân làng chế và cầm đuốc từ
+--   buổi chiều — người chơi thấy ngay là vô lý. Charlie chỉ ăn người trong
+--   BÓNG TỐI HẲN, mà cầm đuốc thì mất luôn tay cầm rìu. Nên hoàng hôn chỉ lo
+--   CÓ đuốc trong túi, tới đêm mới cầm.
+local function ChapToi()
+    return TheWorld.state.isdusk or TheWorld.state.isnight
+end
+
+local function ToiHan()
+    return TheWorld.state.isnight
+end
+
+-- ⚠ Không có dấu hiệu CHUNG nào cho "món này phát sáng". Đã đo:
+--     torch      tag "lighter"     tay
+--     lighter    tag "lighter"     tay
+--     lantern    tag "light"       tay
+--     minerhat   KHÔNG có tag nào  đầu
+--     nightstick KHÔNG có tag nào  tay
+--   Và `inst.Light` phía server là nil cho TẤT CẢ — ánh sáng là thứ client vẽ.
+--   Nên phải vừa xét tag vừa có danh sách trắng, và phải xét CẢ Ô ĐẦU: người
+--   chơi báo thấy một dân làng vừa đội mũ thợ mỏ vừa cầm đuốc, vì bản đầu chỉ
+--   nhìn mỗi ô tay.
+local PHAT_SANG = { minerhat = true, nightstick = true }
+
+local function MonPhatSang(mon)
+    if mon == nil then return false end
+    if mon.components.fueled ~= nil and mon.components.fueled:GetPercent() <= 0 then
+        return false
+    end
+    return mon:HasTag("lighter") or mon:HasTag("light") or PHAT_SANG[mon.prefab] == true
 end
 
 local function DangCoAnhSang(inst)
     local tui = inst.components.inventory
     if tui == nil then return false end
-    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
-    return cam ~= nil and cam.components.fueled ~= nil
-           and cam.components.fueled:GetPercent() > 0
-           and (cam.prefab == "torch" or cam:HasTag("lighter"))
+    for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
+        if MonPhatSang(tui:GetEquippedItem(o)) then return true end
+    end
+    return false
 end
 
 local function DuocTrongTui(inst)
@@ -290,11 +320,12 @@ end
 -- KHÔNG gây tác dụng phụ.
 local function ConCachThapSang(inst)
     if DangCoAnhSang(inst) then return false end
-    if DuocTrongTui(inst) ~= nil then return true end
+    -- Hoàng hôn: chỉ lo CÓ đuốc, chưa cầm lên.
+    if DuocTrongTui(inst) ~= nil then return ToiHan() end
     local b = inst.components.builder
     if b == nil then return false end
     if b:CanBuild("torch") then return true end
-    if b:CanBuild("campfire") and LuaGanNhat(inst) == nil then return true end
+    if ToiHan() and b:CanBuild("campfire") and LuaGanNhat(inst) == nil then return true end
     return false
 end
 
@@ -302,20 +333,35 @@ local function ThapSang(inst)
     local tui = inst.components.inventory
     local duoc = DuocTrongTui(inst)
     if duoc ~= nil then
-        tui:Equip(duoc)
-        nen.chitiet(tostring(inst.ailang.ten), "cầm đuốc lên")
+        if ToiHan() then
+            tui:Equip(duoc)
+            nen.chitiet(tostring(inst.ailang.ten), "cầm đuốc lên")
+        end
         return
     end
     local b = inst.components.builder
     if b == nil then return end
     if b:CanBuild("torch") then
         nen.thu("chế đuốc", function() b:DoBuild("torch") end)
-        local moi = DuocTrongTui(inst)
-        if moi ~= nil then tui:Equip(moi) end
-        nen.chitiet(tostring(inst.ailang.ten), "chế đuốc")
+        if ToiHan() then
+            local moi = DuocTrongTui(inst)
+            if moi ~= nil then tui:Equip(moi) end
+        else
+            -- ⚠ builder:DoBuild TỰ TRANG BỊ món vừa chế khi tay đang trống —
+            --   đó là hành vi sẵn có của DST, không phải mã ở đây. Nên ở hoàng
+            --   hôn phải CỞI RA cất đi, không thì dân làng cầm đuốc từ buổi
+            --   chiều và mất tay cầm rìu. Người chơi báo đúng chỗ này.
+            local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+            if tay ~= nil and tay.prefab == "torch" then
+                local go = tui:Unequip(EQUIPSLOTS.HANDS)
+                if go ~= nil then tui:GiveItem(go) end
+            end
+        end
+        nen.chitiet(tostring(inst.ailang.ten),
+                    ToiHan() and "chế đuốc và cầm lên" or "chế sẵn đuốc để dành")
         return
     end
-    if b:CanBuild("campfire") and LuaGanNhat(inst) == nil then
+    if ToiHan() and b:CanBuild("campfire") and LuaGanNhat(inst) == nil then
         local x, y, z = inst.Transform:GetWorldPosition()
         nen.thu("dựng lửa trại", function() b:DoBuild("campfire", Vector3(x + 1, y, z)) end)
         nen.chitiet(tostring(inst.ailang.ten), "dựng lửa trại")
@@ -372,12 +418,13 @@ function DanLangBrain:OnStart()
             DoAction(inst, HanhDongAn, "ăn", true)),
 
         -- TRỜI TỐI — lo ánh sáng TRƯỚC khi làm gì khác. Không có sáng là chết.
-        WhileNode(function() return TroiToi() end, "Trời tối",
+        WhileNode(function() return ChapToi() end, "Chập tối / ban đêm",
             PriorityNode({
                 IfNode(function() return ConCachThapSang(inst) end, "Thắp sáng được",
                     ActionNode(function() ThapSang(inst) end, "thắp sáng")),
                 -- Hết cách tự thắp: bám lấy đống lửa gần nhất.
-                WhileNode(function() return not DangCoAnhSang(inst) end, "Chưa có sáng",
+                WhileNode(function() return ToiHan() and not DangCoAnhSang(inst) end,
+                          "Đêm mà chưa có sáng",
                     Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
             }, 0.5)),
 

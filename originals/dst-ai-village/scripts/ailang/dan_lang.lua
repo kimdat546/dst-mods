@@ -23,6 +23,8 @@ local dan_lang = {}
 
 local TAG = "ailang_danlang"
 
+local TIM_DICH = 12   -- bán kính tự tìm kẻ địch
+
 local function GoKhoiAllPlayers(inst)
     local go = 0
     for i = #AllPlayers, 1, -1 do
@@ -140,6 +142,35 @@ function dan_lang.Sinh(hoso)
     inst:ListenForEvent("death", function()
         dan_lang.ThanhHonMa(inst)
     end)
+
+    -- ⚠ Prefab người chơi KHÔNG BAO GIỜ tự nhắm mục tiêu — người chơi thật tự
+    --   bấm chuột. Đã đo: targetfn=false, retargetperiod=nil, và đẩy sự kiện
+    --   "attacked" vào thì combat.target vẫn nil. Không có hai thứ dưới đây
+    --   thì dân làng cầm giáo đứng chịu trận, đúng như người chơi báo.
+    inst:ListenForEvent("attacked", function(_, data)
+        if data ~= nil and data.attacker ~= nil and not dan_lang.LaHonMa(inst)
+           and inst.components.combat ~= nil then
+            inst.components.combat:SuggestTarget(data.attacker)
+        end
+    end)
+
+    if inst.components.combat ~= nil then
+        inst.components.combat:SetRetargetFunction(2, function(me)
+            if dan_lang.LaHonMa(me) then return nil end
+            return FindEntity(me, TIM_DICH, function(v)
+                return v.components.combat ~= nil
+                   and v.components.health ~= nil
+                   and not v.components.health:IsDead()
+                   and not dan_lang.LaDanLang(v)
+                   -- Chỉ đánh thứ ĐANG nhắm vào mình hoặc vào người chơi.
+                   -- Không thì dân làng đi tàn sát cả thỏ và heo trong bản đồ.
+                   and (v.components.combat.target == me
+                        or (v.components.combat.target ~= nil
+                            and v.components.combat.target:HasTag("player")))
+            end, nil, { "INLIMBO", "notarget", "wall", "structure", "playerghost" },
+               { "monster", "hostile" })
+        end)
+    end
 
     if hoso.la_hon_ma then
         dan_lang.ThanhHonMa(inst, hoso.noi_chet)
