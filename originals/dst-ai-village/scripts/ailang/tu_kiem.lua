@@ -337,6 +337,30 @@ local function ThuThuTu(tiep)
     tiep()
 end
 
+-- ⚠ Bộ này XOÁ SẠCH dân làng để dựng bản thử sạch. Chạy trong world thật thì
+--   phải cất hồ sơ đi rồi dựng lại, không thì cả làng biến mất vĩnh viễn:
+--   ChupTatCa dựng lại bảng hồ sơ TỪ dân làng đang sống, mà lúc đó không còn
+--   ai sống.
+local ql = TheWorld.components ~= nil and TheWorld.components.ailangquanly or nil
+local ho_so_cu = nil
+if ql ~= nil then
+    ho_so_cu = {}
+    for ma, hs in pairs(ql.ho_so) do ho_so_cu[ma] = hs end
+    ql.tam_dung_chup = true
+end
+
+local function KhoiPhucLang()
+    if ql == nil then return end
+    for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
+    ql.ho_so = ho_so_cu or {}
+    local n = 0
+    for _, hs in pairs(ql.ho_so) do
+        if pcall(dan_lang.Sinh, hs) then n = n + 1 end
+    end
+    ql.tam_dung_chup = false
+    print("[TU-KIEM] đã dựng lại " .. n .. " dân làng của bạn")
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -347,7 +371,7 @@ local function tiep()
     if buoc[i] ~= nil then
         buoc[i](tiep)
     else
-        for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
+        KhoiPhucLang()
         print(string.format("[TU-KIEM] ===== XONG: %d đạt, %d hỏng =====", dat, hong))
     end
 end
