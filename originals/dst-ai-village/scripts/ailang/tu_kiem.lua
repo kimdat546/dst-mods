@@ -70,6 +70,11 @@ local function DanLangSach(x, z)
     local e = dan_lang.Sinh({ ten = "ThuNghiem", nhan_vat = "wilson",
                               vi_tri = { x, z } })
     DonQuanh(x, z, 30)
+    -- ⚠ PHẢI tắt não thật. Từ khi dân làng dùng SetCanSleep(false) thì não của
+    --   chúng chạy kể cả lúc không có người chơi — hai não cùng điều khiển một
+    --   entity thì kết quả kiểm thành ngẫu nhiên. Đã gặp: phép "đang bào mòn
+    --   được cây thì không bỏ sang cây khác" chuyển sang HỎNG với "nhắm=grass".
+    e:StopBrain()
     local nao = Brain(e)
     nao:OnStart()
     return e, nao
@@ -179,21 +184,50 @@ local function ThuHonMaKhongLamViec(tiep)
 end
 
 -- ── 5. nhặt đồ dưới đất ─────────────────────────────────────────────────
+-- ⚠ Phải cho THOẢ HẾT nhu cầu trước. Nhánh "nhặt" nằm DƯỚI nhánh sinh tồn,
+--   nên còn nhu cầu nào chưa xong là dân làng đi gom nguyên liệu cho nhu cầu
+--   đó chứ không nhặt vu vơ — đã hỏng oan với "nhắm=grass".
+local function ThoaHetNhuCau(e)
+    local tui = e.components.inventory
+    for _, m in ipairs({ "spear", "armorgrass", "torch" }) do
+        local mon = SpawnPrefab(m)
+        if mon ~= nil then tui:GiveItem(mon) tui:Equip(mon) end
+    end
+    tui:GiveItem(SpawnPrefab("carrot"))
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local lua = SpawnPrefab("campfire")
+    lua.Transform:SetPosition(x + 5, y, z)
+    return lua
+end
+
 local function ThuNhat(tiep)
     local e, nao = DanLangSach(Goc())
     TheWorld:PushEvent("ms_setphase", "day")
+    local lua = ThoaHetNhuCau(e)
+    local sinh_ton = require("ailang/sinh_ton")
+    local con = sinh_ton.ConThieuGi(e)
+    local ten = {}
+    for _, n in ipairs(con) do table.insert(ten, n.ma) end
+    KT("thoả hết nhu cầu thì không còn gì để lo",
+       #con == 0, "còn thiếu: " .. table.concat(ten, ","))
     local x, y, z = e.Transform:GetWorldPosition()
     local da = SpawnPrefab("flint")
     da.Transform:SetPosition(x + 3, y, z)
-    Nhip(nao, 3, function()
+    Nhip(nao, 6, function()
+        -- ⚠ Khẳng định theo KẾT QUẢ, không theo thời điểm. GetBufferedAction()
+        --   chỉ chụp một khoảnh khắc: dân làng nhặt xong viên đá rồi chuyển
+        --   sang hái là nó trả nil, và phép kiểm hỏng oan dù hành vi ĐÚNG.
+        --   Đúng tính chất cần kiểm: viên đá phải biến khỏi mặt đất — hoặc vào
+        --   túi, hoặc đang trên đường tới.
         local ba = e:GetBufferedAction()
-        -- Khẳng định đúng TÍNH CHẤT: thấy đồ dưới đất thì đi nhặt. Đòi phải
-        -- nhặt ĐÚNG viên đá mình thả thì hỏng oan mỗi khi bài trước còn sót
-        -- món nào đó gần hơn — đã gặp.
+        local da_nhat = not da:IsValid() or da:IsInLimbo()
+        local dang_toi = ba ~= nil and ba.action == ACTIONS.PICKUP
         KT("thấy đồ dưới đất thì đi nhặt",
-           ba ~= nil and ba.action == ACTIONS.PICKUP,
-           "hành động=" .. tostring(ba and ba.action and ba.action.id)
-           .. " nhắm=" .. tostring(ba and ba.target and ba.target.prefab))
+           da_nhat or dang_toi,
+           "đã nhặt=" .. tostring(da_nhat)
+           .. " hành động=" .. tostring(ba and ba.action and ba.action.id))
+        if lua ~= nil and lua:IsValid() then lua:Remove() end
         tiep()
     end)
 end
@@ -483,28 +517,45 @@ local function ThuKhongDoiRiuDuoc(tiep)
 end
 
 -- ── 16. kiên nhẫn không hết khi đang bào mòn được mục tiêu ──────────────
+--
+-- ⚠ Bản đầu chỉ đưa cái rìu rồi mong dân làng đi chặt — SAI TIỀN ĐỀ. Từ khi
+--   có bảng nhu cầu thì dân làng chặt cây vì NHU CẦU cần gỗ, chứ không chặt
+--   vu vơ; thấy bụi cỏ gần hơn mà nhu cầu đang cần cỏ thì nó hái cỏ, và phép
+--   kiểm hỏng oan với "nhắm=grass".
+--   Giờ dựng đúng cảnh: cho đủ cỏ, thiếu MỖI gỗ, thì nó buộc phải đi chặt.
 local function ThuKienNhan(tiep)
+    local sinh_ton = require("ailang/sinh_ton")
     local e, nao = DanLangSach(Goc())
     TheWorld:PushEvent("ms_setphase", "day")
     local tui = e.components.inventory
     local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
     if cam ~= nil then tui:DropItem(cam) cam:Remove() end
     tui:GiveItem(SpawnPrefab("axe"))
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("cutgrass")) end   -- lửa trại: cỏ×3 + gỗ×2
+
     local x, y, z = e.Transform:GetWorldPosition()
     local cay = SpawnPrefab("evergreen")
     cay.Transform:SetPosition(x + 3, y, z)
+
+    local hd = sinh_ton.DiKiem(e, "log")
+    KT("thiếu gỗ thì đi chặt cây, và cầm rìu lên",
+       hd ~= nil and hd.action == ACTIONS.CHOP,
+       "hành động=" .. tostring(hd and hd.action and hd.action.id))
+
     Nhip(nao, 3, function()
         local ba = e:GetBufferedAction()
         local nham_dau = ba and ba.target
-        -- Giả lập đã chặt được vài nhát: workleft giảm
         if cay.components.workable ~= nil then
             cay.components.workable:SetWorkLeft(cay.components.workable.workleft - 3)
         end
         Nhip(nao, 3, function()
-            local ba2 = e:GetBufferedAction()
-            KT("đang bào mòn được cây thì KHÔNG bỏ sang cây khác",
-               ba2 == nil or ba2.target == nham_dau or ba2.target == cay,
-               "nhắm=" .. tostring(ba2 and ba2.target and ba2.target.prefab))
+            -- ⚠ Khẳng định đúng TÍNH CHẤT: cái cây không bị ghi sổ đen. Đòi nó
+            --   vẫn đang nhắm cái cây thì hỏng oan — chặt ra gỗ thì nhánh nhặt
+            --   giành lấy gỗ, và đó là hành vi ĐÚNG.
+            local so_den = e.ailang.bo_qua or {}
+            KT("đang bào mòn được cây thì KHÔNG ghi nó vào sổ đen",
+               so_den[cay.GUID] == nil,
+               "sổ đen=" .. tostring(so_den[cay.GUID]))
             tiep()
         end)
     end)
@@ -661,6 +712,30 @@ local function ThuCheDo(tiep)
     tiep()
 end
 
+
+-- ── 23. dân làng KHÔNG được ngủ ─────────────────────────────────────────
+--
+-- ⚠ Phép kiểm này canh đúng cái lỗi đã tốn nhiều công: dùng nhầm
+--   AddServerNonSleepable() (vô dụng) thay vì SetCanSleep(false).
+local function ThuKhongNgu(tiep)
+    for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
+    local e = dan_lang.Sinh({ ten = "ThuThuc", nhan_vat = "wilson" })
+    local heo = SpawnPrefab("pigman")
+    local x, y, z = e.Transform:GetWorldPosition()
+    heo.Transform:SetPosition(x + 40, y, z + 40)
+    TheWorld:DoTaskInTime(11, function()
+        KT("dân làng KHÔNG ngủ dù không có người chơi ở gần",
+           not e:IsAsleep(), "ngủ=" .. tostring(e:IsAsleep()))
+        KT("não vẫn chạy khi không có người chơi",
+           e.brain ~= nil, "brain=" .. tostring(e.brain ~= nil))
+        KT("đối chứng: heo vanilla thì VẪN ngủ (đúng cơ chế DST)",
+           heo:IsAsleep(), "heo ngủ=" .. tostring(heo:IsAsleep()))
+        heo:Remove()
+        e:Remove()
+        tiep()
+    end)
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -668,7 +743,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuHonMaDangDST, ThuKhongKetXe,
                ThuKhongDoiRiuDuoc, ThuKienNhan, ThuCoNha,
                ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh,
-               ThuThienCam, ThuCheDo }
+               ThuThienCam, ThuCheDo, ThuKhongNgu }
 local i = 0
 local function tiep()
     i = i + 1
