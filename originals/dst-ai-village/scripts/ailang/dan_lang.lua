@@ -130,6 +130,13 @@ function dan_lang.Sinh(hoso)
     end
     inst.Transform:SetPosition(x or 0, y or 0, z or 0)
 
+    -- Nhà mặc định là chỗ được sinh ra. Không có nhà thì cây hành vi cũ cho
+    -- dân làng BÁM THEO NGƯỜI CHƠI — người chơi không muốn vậy, họ muốn dân
+    -- làng sống quanh làng của mình.
+    if inst.ailang.nha == nil then
+        inst.ailang.nha = { x or 0, z or 0 }
+    end
+
     if hoso.mau and inst.components.health then
         -- Dựng lại tối thiểu 30% chứ không phải 10%: dân làng hồi sinh với
         -- 10% máu thì chết lại ngay trong đêm đầu tiên, và chưa có hành vi
