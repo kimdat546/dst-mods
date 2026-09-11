@@ -183,13 +183,18 @@ function dan_lang.Sinh(hoso)
         dan_lang.ThanhHonMa(inst, hoso.noi_chet)
     end
 
-    -- Entity DST "ngủ" khi không có người chơi ở gần, và entity ngủ thì KHÔNG
-    -- chạy não (đo được: IsAsleep()=true -> inst.brain=nil ngay sau SetBrain).
-    -- Dòng này để cái làng sống tiếp lúc cả đội đang ở hang, thay vì đóng băng.
+    -- ⚠ DÒNG NÀY KHÔNG CÓ TÁC DỤNG. Giữ lại kèm chú thích để đừng ai tưởng
+    --   nó giải quyết được gì rồi mất công thử lại.
     --
-    -- ⚠ Không kiểm được trên server test: khi KHÔNG có client nào nối vào, DST
-    --   ngủ cả thế giới — đã đối chứng bằng heo vanilla, nó cũng ngủ và cũng
-    --   đứng im y hệt. Nên phần hành vi phải kiểm trong game thật.
+    --   Sự thật đã đo trên server có người chơi thật: dân làng cách người chơi
+    --   95 đơn vị thì IsAsleep()=true và brain=nil. Gọi lại
+    --   AddServerNonSleepable() rồi SetCanSleep(false) rồi RestartBrain() —
+    --   cả ba đều trả về true mà entity VẪN ngủ, não VẪN không chạy.
+    --
+    --   Nghĩa là: DÂN LÀNG CHỈ SỐNG KHI CÓ NGƯỜI CHƠI Ở GẦN. Đây là cách DST
+    --   quản lý hiệu năng, áp cho mọi sinh vật chứ không riêng gì mod này —
+    --   đã đối chứng bằng heo vanilla. Muốn làng "tiến triển" lúc người chơi
+    --   đi vắng thì phải mô phỏng trừu tượng, không thể để não chạy thật.
     inst.entity:AddServerNonSleepable()
 
     local brain = require("brains/danlangbrain")

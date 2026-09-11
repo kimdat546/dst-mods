@@ -112,6 +112,7 @@ c_ailang_dem()                -- liệt kê gọn
 c_ailang_them("Tí", "wx78")   -- thêm một dân làng ở chỗ mình đứng
 c_ailang_datnha()             -- đặt nhà tại chỗ mình đứng
 c_ailang_tiepte()             -- phát 2 cỏ + 2 cành cho cả làng
+c_ailang_goi()                -- gọi cả làng tới chỗ mình và đặt nhà ở đây
 c_ailang_cuu()                -- hồi sinh mọi hồn ma dân làng
 c_ailang_giet("Tí")           -- giết một dân làng để xem cơ chế hồn ma
 c_ailang_naplai()             -- nạp mã mới, không phải khởi động lại game
@@ -307,6 +308,23 @@ nghề**. Không phải viết điều kiện tay.
 
 Bản đầu ăn bất cứ thứ gì nên dân làng tự đầu độc mình bằng đúng con nấm vừa
 hái. Giờ chấm điểm `no + máu×3 + não×2`, chỉ đụng món hại khi đói dưới 15%.
+
+## Giới hạn quan trọng: dân làng chỉ sống khi có người chơi ở gần
+
+Đã đo trên server có người chơi thật: dân làng **cách người chơi 95 đơn vị** thì
+`IsAsleep()` = true và `brain` = nil. Gọi `AddServerNonSleepable()`, rồi
+`SetCanSleep(false)`, rồi `RestartBrain()` — cả ba đều trả về `true` mà entity
+**vẫn ngủ**, não **vẫn không chạy**.
+
+Đây là cách DST quản lý hiệu năng, áp cho mọi sinh vật chứ không riêng mod này —
+đã đối chứng bằng heo vanilla. **Không ép thức được.**
+
+Hệ quả thực tế:
+
+- Đặt nhà dân làng ở chỗ mình hay lui tới (`c_ailang_datnha()` hoặc
+  `c_ailang_goi()`), đừng để ở góc bản đồ xa.
+- Làng **không tiến triển** lúc mình đi vắng. Muốn có thì phải mô phỏng trừu
+  tượng (cộng tài nguyên vào kho theo thời gian) chứ không thể cho não chạy thật.
 
 ## Sống, chết, và hồn ma
 
