@@ -185,8 +185,85 @@ local function ThuNhat(tiep)
     end)
 end
 
+
+-- ── 6. bị đánh thì đánh trả ─────────────────────────────────────────────
+local function ThuDanhTra(tiep)
+    local e, nao = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local tui = e.components.inventory
+    local giao = SpawnPrefab("spear") tui:GiveItem(giao) tui:Equip(giao)
+    local x, y, z = e.Transform:GetWorldPosition()
+    local nhen = SpawnPrefab("spider")
+    nhen.Transform:SetPosition(x + 3, y, z)
+    e:PushEvent("attacked", { attacker = nhen, damage = 10 })
+    KT("bị đánh thì nhắm lại kẻ tấn công",
+       e.components.combat.target == nhen,
+       "target=" .. tostring(e.components.combat.target))
+    Nhip(nao, 3, function()
+        KT("bị đánh thì cây hành vi rẽ sang đánh nhau",
+           e.components.combat.target ~= nil)
+        nhen:Remove()
+        tiep()
+    end)
+end
+
+-- ── 7. hoàng hôn CHƯA cầm đuốc, ban đêm MỚI cầm ─────────────────────────
+local function ThuHoangHon(tiep)
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    for _, m in ipairs({ "cutgrass", "cutgrass", "twigs", "twigs" }) do
+        tui:GiveItem(SpawnPrefab(m))
+    end
+    TheWorld:PushEvent("ms_setphase", "dusk")
+    Nhip(nao, 4, function()
+        local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+        local co_duoc = false
+        for _, mon in pairs(tui.itemslots or {}) do
+            if mon ~= nil and mon.prefab == "torch" then co_duoc = true end
+        end
+        KT("hoàng hôn thì chế sẵn đuốc nhưng CHƯA cầm lên",
+           co_duoc and (tay == nil or tay.prefab ~= "torch"),
+           "có đuốc=" .. tostring(co_duoc) .. " đang cầm=" .. tostring(tay and tay.prefab))
+        TheWorld:PushEvent("ms_setphase", "night")
+        Nhip(nao, 3, function()
+            local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+            KT("sang đêm thì cầm đuốc lên",
+               tay2 ~= nil and tay2.prefab == "torch",
+               "đang cầm=" .. tostring(tay2 and tay2.prefab))
+            tiep()
+        end)
+    end)
+end
+
+-- ── 8. đội mũ thợ mỏ rồi thì thôi chế đuốc ──────────────────────────────
+local function ThuMuThoMo(tiep)
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    local mu = SpawnPrefab("minerhat") tui:GiveItem(mu) tui:Equip(mu)
+    for _, m in ipairs({ "cutgrass", "cutgrass", "twigs", "twigs" }) do
+        tui:GiveItem(SpawnPrefab(m))
+    end
+    TheWorld:PushEvent("ms_setphase", "night")
+    Nhip(nao, 4, function()
+        local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+        local co_duoc = false
+        for _, mon in pairs(tui.itemslots or {}) do
+            if mon ~= nil and mon.prefab == "torch" then co_duoc = true end
+        end
+        KT("đã đội mũ thợ mỏ thì KHÔNG chế thêm đuốc",
+           not co_duoc and (tay == nil or tay.prefab ~= "torch"),
+           "có đuốc=" .. tostring(co_duoc) .. " đang cầm=" .. tostring(tay and tay.prefab))
+        tiep()
+    end)
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
-local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat }
+local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
+               ThuDanhTra, ThuHoangHon, ThuMuThoMo }
 local i = 0
 local function tiep()
     i = i + 1
