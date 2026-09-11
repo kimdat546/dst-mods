@@ -10,7 +10,6 @@
 -- còn chạy được nữa. Xem README.
 
 require("behaviours/wander")
-require("behaviours/follow")
 require("behaviours/doaction")
 require("behaviours/panic")
 require("behaviours/chaseandattack")
@@ -25,9 +24,6 @@ local sinh_ton = require("ailang/sinh_ton")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30    -- lang thang quanh nhà trong bán kính này
-local THEO_GAN      = 3
-local THEO_VUA      = 6
-local THEO_XA       = 12
 local MAU_SO        = 0.35  -- dưới ngưỡng này thì bỏ chạy
 local DOI_THI_AN    = 0.5
 
@@ -57,18 +53,6 @@ local function DangDoi(inst)
     return h ~= nil and h:GetPercent() < DOI_THI_AN
 end
 
-local function NguoiChoiGanNhat(inst)
-    local x, y, z = inst.Transform:GetWorldPosition()
-    local gan, d_gan = nil, math.huge
-    for _, p in ipairs(AllPlayers) do
-        if p:IsValid() and p.entity:IsVisible() then
-            local d = inst:GetDistanceSqToInst(p)
-            if d < d_gan then gan, d_gan = p, d end
-        end
-    end
-    return gan
-end
-
 -- ── bỏ qua mục tiêu cứng đầu ────────────────────────────────────────────
 --
 -- ⚠ Người chơi báo dân làng "nhặt mãi nhưng không được" ở chỗ nấm chưa mọc.
@@ -89,8 +73,23 @@ end
 --   đi tới được, bị vật cản chắn, bị mod khác khoá. Đeo bám quá lâu thì ghi
 --   sổ đen một lúc rồi làm việc khác.
 
-local KIEN_NHAN   = 10    -- giây, đeo bám một mục tiêu tối đa bấy nhiêu
+local KIEN_NHAN   = 45    -- giây, đeo bám một mục tiêu tối đa bấy nhiêu
 local BO_QUA_GIAY = 120   -- giây, ghi sổ đen bấy nhiêu lâu
+
+-- Dấu hiệu "đang có tiến triển" trên mục tiêu. Đếm ngược kiên nhẫn được ĐẶT
+-- LẠI mỗi khi dấu hiệu này đổi.
+--
+-- ⚠ Không có phần này thì dân làng chặt vài nhát rồi bỏ sang cây khác: hạ một
+--   cây thông mất hơn 10 giây, mà đếm ngược cũ là 10 giây nên nó tự ghi sổ đen
+--   đúng cái cây đang chặt dở. Người chơi thấy ngay.
+local function DauTienTrien(e)
+    if e == nil or not e:IsValid() then return nil end
+    local w = e.components.workable
+    if w ~= nil then return w.workleft end
+    local pk = e.components.pickable
+    if pk ~= nil then return pk:CanBePicked() and 1 or 0 end
+    return nil
+end
 
 local function So(inst)
     local a = inst.ailang
@@ -111,6 +110,14 @@ local function ConKienNhan(inst, e)
     local a = So(inst)
     if a.dang_duoi ~= e.GUID then
         a.dang_duoi = e.GUID
+        a.duoi_tu = GetTime()
+        a.duoi_moc = DauTienTrien(e)
+        return true
+    end
+    -- Còn đang bào mòn được mục tiêu thì kiên nhẫn lại từ đầu.
+    local moc = DauTienTrien(e)
+    if moc ~= nil and moc ~= a.duoi_moc then
+        a.duoi_moc = moc
         a.duoi_tu = GetTime()
         return true
     end
@@ -282,6 +289,13 @@ local function MonPhatSang(mon)
     return mon:HasTag("lighter") or mon:HasTag("light") or PHAT_SANG[mon.prefab] == true
 end
 
+-- Nguồn sáng đang chiếm ô TAY — tức là không rảnh tay cầm dụng cụ.
+local function DangCoAnhSangTrenTay(inst)
+    local tui = inst.components.inventory
+    if tui == nil then return false end
+    return nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HANDS))
+end
+
 local function DangCoAnhSang(inst)
     local tui = inst.components.inventory
     if tui == nil then return false end
@@ -437,7 +451,19 @@ function DanLangBrain:OnStart()
 
         DoAction(inst, HanhDongNhat, "nhặt", true),
         DoAction(inst, HanhDongHai,  "hái",  true),
-        DoAction(inst, HanhDongChat, "chặt", true),
+
+        -- ⚠ Ban đêm mà nguồn sáng duy nhất là ĐUỐC CẦM TAY thì ĐỪNG chặt/đào.
+        --   Người chơi bắt được: một Wilson "vừa thay đổi giữa rìu và đuốc
+        --   liên tục để chặt cây". Nhánh chặt cầm rìu lên, nhánh ánh sáng thấy
+        --   mất sáng nên cầm đuốc lại, lặp vô tận. Ban đêm lo sống đã, việc
+        --   nặng để mai — trừ khi có đèn đội đầu thì rảnh tay.
+        WhileNode(function()
+            return not (ToiHan() and DangCoAnhSangTrenTay(inst))
+        end, "Không phải đang cầm đuốc giữa đêm",
+            PriorityNode({
+                DoAction(inst, HanhDongChat, "chặt", true),
+                DoAction(inst, HanhDongDao,  "đào",  true),
+            }, 0.5)),
 
         -- Vừa hồi sinh thì quay lại chỗ chết nhặt lại đồ của mình.
         WhileNode(function() return inst.ailang.ve_nhat_do ~= nil end, "Về nhặt đồ",
@@ -452,9 +478,9 @@ function DanLangBrain:OnStart()
                 return Vector3(v[1], 0, v[2])
             end, 4, 3)),
 
-        IfNode(function() return ViTriNha(inst) == nil end, "Chưa có nhà",
-            Follow(inst, NguoiChoiGanNhat, THEO_GAN, THEO_VUA, THEO_XA)),
-
+        -- Dân làng quanh quẩn NHÀ của mình, KHÔNG bám theo người chơi.
+        -- Nhà mặc định là chỗ nó được sinh ra (đặt trong dan_lang.Sinh), đổi
+        -- bằng c_ailang_datnha().
         Wander(inst, function() return ViTriNha(inst) end, TAM_VE_NHA),
     }, 0.5)
 

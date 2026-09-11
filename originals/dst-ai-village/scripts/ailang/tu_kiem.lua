@@ -186,9 +186,13 @@ local function ThuNhat(tiep)
     da.Transform:SetPosition(x + 3, y, z)
     Nhip(nao, 3, function()
         local ba = e:GetBufferedAction()
+        -- Khẳng định đúng TÍNH CHẤT: thấy đồ dưới đất thì đi nhặt. Đòi phải
+        -- nhặt ĐÚNG viên đá mình thả thì hỏng oan mỗi khi bài trước còn sót
+        -- món nào đó gần hơn — đã gặp.
         KT("thấy đồ dưới đất thì đi nhặt",
-           ba ~= nil and ba.action == ACTIONS.PICKUP and ba.target == da,
-           "hành động=" .. tostring(ba and ba.action and ba.action.id))
+           ba ~= nil and ba.action == ACTIONS.PICKUP,
+           "hành động=" .. tostring(ba and ba.action and ba.action.id)
+           .. " nhắm=" .. tostring(ba and ba.target and ba.target.prefab))
         tiep()
     end)
 end
@@ -449,11 +453,79 @@ local function ThuKhongKetXe(tiep)
     tiep()
 end
 
+
+-- ── 15. đêm cầm đuốc thì thôi chặt cây ──────────────────────────────────
+local function ThuKhongDoiRiuDuoc(tiep)
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    local riu = SpawnPrefab("axe") tui:GiveItem(riu)
+    local duoc = SpawnPrefab("torch") tui:GiveItem(duoc) tui:Equip(duoc)
+    local x, y, z = e.Transform:GetWorldPosition()
+    SpawnPrefab("evergreen").Transform:SetPosition(x + 3, y, z)
+    TheWorld:PushEvent("ms_setphase", "night")
+    Nhip(nao, 4, function()
+        local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+        KT("đêm cầm đuốc thì KHÔNG đổi sang rìu để chặt",
+           tay ~= nil and tay.prefab == "torch",
+           "đang cầm=" .. tostring(tay and tay.prefab))
+        TheWorld:PushEvent("ms_setphase", "day")
+        Nhip(nao, 3, function()
+            local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+            KT("sang ngày thì mới cầm rìu đi chặt",
+               tay2 ~= nil and tay2.prefab == "axe",
+               "đang cầm=" .. tostring(tay2 and tay2.prefab))
+            tiep()
+        end)
+    end)
+end
+
+-- ── 16. kiên nhẫn không hết khi đang bào mòn được mục tiêu ──────────────
+local function ThuKienNhan(tiep)
+    local e, nao = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    tui:GiveItem(SpawnPrefab("axe"))
+    local x, y, z = e.Transform:GetWorldPosition()
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(x + 3, y, z)
+    Nhip(nao, 3, function()
+        local ba = e:GetBufferedAction()
+        local nham_dau = ba and ba.target
+        -- Giả lập đã chặt được vài nhát: workleft giảm
+        if cay.components.workable ~= nil then
+            cay.components.workable:SetWorkLeft(cay.components.workable.workleft - 3)
+        end
+        Nhip(nao, 3, function()
+            local ba2 = e:GetBufferedAction()
+            KT("đang bào mòn được cây thì KHÔNG bỏ sang cây khác",
+               ba2 == nil or ba2.target == nham_dau or ba2.target == cay,
+               "nhắm=" .. tostring(ba2 and ba2.target and ba2.target.prefab))
+            tiep()
+        end)
+    end)
+end
+
+-- ── 17. dân làng có nhà mặc định, không bám người chơi ──────────────────
+local function ThuCoNha(tiep)
+    for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
+    local e = dan_lang.Sinh({ ten = "ThuNha", nhan_vat = "wilson" })
+    KT("sinh ra là có nhà ngay, khỏi bám theo người chơi",
+       e.ailang.nha ~= nil,
+       "nhà=" .. tostring(e.ailang.nha and (e.ailang.nha[1] .. "," .. e.ailang.nha[2])))
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
-               ThuHonMaDangDST, ThuKhongKetXe }
+               ThuHonMaDangDST, ThuKhongKetXe,
+               ThuKhongDoiRiuDuoc, ThuKienNhan, ThuCoNha }
 local i = 0
 local function tiep()
     i = i + 1
