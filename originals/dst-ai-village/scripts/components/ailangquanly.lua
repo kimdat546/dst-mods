@@ -17,11 +17,22 @@ local QuanLyLang = Class(function(self, inst)
     self.inst:DoPeriodicTask(NHIP_CHUP, function() self:ChupTatCa() end)
 end)
 
+-- DỰNG LẠI bảng hồ sơ từ dân làng đang sống, chứ không ghi đè từng mục.
+--
+-- ⚠ Bản đầu chỉ làm `self.ho_so[hs.ma] = hs`, không bao giờ dọn mục cũ, nên
+--   mọi hồ sơ mồ côi (dân làng sinh hụt, xoá tay, đổi số dân trong cấu hình)
+--   nằm lại vĩnh viễn và được dựng lại sau mỗi restart. Đo được 6 hồ sơ cho 3
+--   dân làng đang sống, và con số chỉ có tăng.
 function QuanLyLang:ChupTatCa()
+    -- Chưa dựng lại xong thì chưa có ai sống — chụp lúc này là xoá sạch hồ sơ.
+    if not self.da_dung_lai then return end
+
+    local moi = {}
     for _, e in ipairs(dan_lang.TatCa()) do
         local hs = dan_lang.ChupHoSo(e)
-        if hs ~= nil then self.ho_so[hs.ma] = hs end
+        if hs ~= nil then moi[hs.ma] = hs end
     end
+    self.ho_so = moi
 end
 
 -- Dựng lại toàn bộ dân làng từ hồ sơ đã lưu. Gọi một lần sau khi world nạp.

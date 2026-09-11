@@ -1,4 +1,11 @@
 # Server headless để thử AI Làng. Offline, chỉ bật đúng mod này.
+#
+# ⚠ CỔNG phải nằm trong [10998, 11018]. Server offline/LAN của DST từ chối
+#   mọi cổng ngoài khoảng đó — nó KHÔNG báo lỗi dừng lại mà chỉ ghi một dòng
+#   warning rồi lặng lẽ tụt về 10999, nên Docker map cổng khác là người chơi
+#   nhận "máy chủ không phản hồi" mà không hiểu vì sao:
+#     [Warning] Invalid port selection: 11993
+#     LAN only servers must use a port in the range of [10998, 11018]
 name: ailang-test
 services:
   master:
@@ -11,6 +18,11 @@ services:
       - /Users/kimdat546/Code/dst-mods/translations/dang-tien-viet/tools/test-harness/container-x64:/usr/bin/container:ro
       - ./data/Master:/var/lib/game
       - ./config/Master/modoverrides.lua:/etc/dst-config/Master/modoverrides.lua:ro
-      - /Users/kimdat546/Code/dst-mods/originals/dst-ai-village:/usr/share/game/mods/dst-ai-village:ro
+      # Mount từng phần thay vì cả thư mục mod: cả thư mục sẽ kéo theo
+      # tools/test/data/ — chính là save của server này — thành mount lồng vào
+      # chính nó.
+      - ../../modinfo.lua:/usr/share/game/mods/dst-ai-village/modinfo.lua:ro
+      - ../../modmain.lua:/usr/share/game/mods/dst-ai-village/modmain.lua:ro
+      - ../../scripts:/usr/share/game/mods/dst-ai-village/scripts:ro
     ports:
-      - "11993:11993/udp"
+      - "11000:11000/udp"
