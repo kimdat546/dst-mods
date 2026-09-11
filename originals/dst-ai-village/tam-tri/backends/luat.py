@@ -10,7 +10,13 @@ Windows 12 MB để làm.
 """
 
 CAY = ("evergreen", "deciduoustree", "twiggytree", "marsh_tree", "mushtree")
+DA = ("rock", "boulder", "flint", "moonglass")
 HAI_DUOC = ("berrybush", "sapling", "grass", "reeds", "carrot", "flower")
+
+# ⚠ So khớp CHÍNH XÁC, đừng dùng `"axe" in tren_tay` — "pickaxe" cũng chứa
+#   "axe", nên cuốc bị nhận nhầm thành rìu và dân làng bị bảo đi chặt cây.
+RIU = ("axe", "goldenaxe", "multitool_axe_pickaxe")
+CUOC = ("pickaxe", "goldenpickaxe", "multitool_axe_pickaxe")
 
 
 def _co(quanh, tu_khoa):
@@ -32,8 +38,10 @@ def nghi(goi):
             noi_gi = "Đau quá, để tôi nghỉ chút."
         elif troi_toi:
             muc_tieu = "NHAT"
-        elif _co(quanh, CAY) and d.get("tren_tay", "") and "axe" in str(d.get("tren_tay")):
+        elif _co(quanh, CAY) and d.get("tren_tay") in RIU:
             muc_tieu = "CHAT"
+        elif _co(quanh, DA) and d.get("tren_tay") in CUOC:
+            muc_tieu = "DAO"
         elif _co(quanh, HAI_DUOC):
             muc_tieu = "HAI"
         else:
