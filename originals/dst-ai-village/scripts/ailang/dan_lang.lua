@@ -137,24 +137,13 @@ function dan_lang.Sinh(hoso)
 
     nen.thu("dựng lại túi đồ", DungLaiTui, inst, hoso.tui)
 
-    -- Dân làng là prefab NGƯỜI CHƠI, nên chết là hoá MA chứ không biến mất —
-    -- để nguyên thì cái làng đầy ma lởn vởn. Gỡ xác rồi dựng lại người mới
-    -- sau một lúc, coi như dân làng khác tới ở.
     inst:ListenForEvent("death", function()
-        local ma = inst.ailang ~= nil and inst.ailang.ma or nil
-        local ten = inst.ailang ~= nil and inst.ailang.ten or "?"
-        nen.log("dân làng", ten, "đã chết — dựng lại sau 30 giây")
-        inst:DoTaskInTime(30, function()
-            local ql = TheWorld.components ~= nil and TheWorld.components.ailangquanly
-            local hs = ql ~= nil and ma ~= nil and ql.ho_so[ma] or nil
-            if inst:IsValid() then inst:Remove() end
-            if ql ~= nil then
-                if hs ~= nil then hs.mau = 1 end
-                ql.ho_so[ma] = nil
-                ql:Them(hs)
-            end
-        end)
+        dan_lang.ThanhHonMa(inst)
     end)
+
+    if hoso.la_hon_ma then
+        dan_lang.ThanhHonMa(inst, hoso.noi_chet)
+    end
 
     -- Entity DST "ngủ" khi không có người chơi ở gần, và entity ngủ thì KHÔNG
     -- chạy não (đo được: IsAsleep()=true -> inst.brain=nil ngay sau SetBrain).
@@ -174,6 +163,71 @@ function dan_lang.Sinh(hoso)
     return inst
 end
 
+
+-- ── hồn ma ──────────────────────────────────────────────────────────────
+--
+-- ⚠ KHÔNG dùng được hồn ma thật của engine. `inst:SetGhostMode(true)` tồn tại
+--   nhưng nổ ngay: player_common.lua:957 "attempt to index field 'HUD'" — nó
+--   đòi HUD của client, mà dân làng không có ai điều khiển nên không có HUD.
+--   Nên trạng thái hồn ma ở đây là do mình tự dựng: vẫn là cùng một entity,
+--   chỉ đổi màu, gỡ khả năng đánh nhau, và cắm cờ để cây hành vi rẽ nhánh.
+
+local MAU_HON_MA = { 0.5, 0.6, 1, 0.5 }   -- xanh lơ, mờ
+
+function dan_lang.ThanhHonMa(inst, noi_chet)
+    local a = inst.ailang
+    if a == nil or a.la_hon_ma then return end
+
+    local x, _, z = inst.Transform:GetWorldPosition()
+    a.noi_chet = noi_chet or { x, z }
+    a.la_hon_ma = true
+    a.muc_tieu = nil
+
+    -- Quái thôi nhắm vào hồn ma, và hồn ma thôi đánh lại.
+    inst:AddTag("notarget")
+    if inst.components.combat ~= nil then
+        inst.components.combat:SetTarget(nil)
+        inst.components.combat.defaultdamage = 0
+    end
+    if inst.components.health ~= nil then
+        inst.components.health:SetInvincible(true)
+    end
+    if inst.AnimState ~= nil then
+        inst.AnimState:SetMultColour(unpack(MAU_HON_MA))
+    end
+
+    nen.log("dân làng", tostring(a.ten), "đã chết tại",
+            string.format("%.0f,%.0f", a.noi_chet[1], a.noi_chet[2]),
+            "— thành hồn ma, đi tìm chỗ hồi sinh")
+end
+
+function dan_lang.HoiSinh(inst)
+    local a = inst.ailang
+    if a == nil or not a.la_hon_ma then return false end
+
+    a.la_hon_ma = false
+    inst:RemoveTag("notarget")
+    if inst.components.health ~= nil then
+        inst.components.health:SetInvincible(false)
+        inst.components.health:SetPercent(0.5)
+    end
+    if inst.components.combat ~= nil then
+        inst.components.combat.defaultdamage = TUNING.WILSON_ATTACK_DAMAGE or 34
+    end
+    if inst.AnimState ~= nil then
+        inst.AnimState:SetMultColour(1, 1, 1, 1)
+    end
+
+    -- Quay lại chỗ chết nhặt đồ. Nhánh "nhặt" của cây hành vi lo phần còn lại.
+    a.ve_nhat_do = a.noi_chet
+    nen.log("dân làng", tostring(a.ten), "đã hồi sinh — quay lại chỗ chết nhặt đồ")
+    return true
+end
+
+function dan_lang.LaHonMa(inst)
+    return inst ~= nil and inst.ailang ~= nil and inst.ailang.la_hon_ma == true
+end
+
 -- Chụp lại trạng thái để lưu vào world.
 function dan_lang.ChupHoSo(inst)
     if inst == nil or not inst:IsValid() or inst.ailang == nil then return nil end
@@ -186,6 +240,8 @@ function dan_lang.ChupHoSo(inst)
         tinh_cach = inst.ailang.tinh_cach,
         nha       = inst.ailang.nha,
         vi_tri    = { x, z },
+        la_hon_ma = inst.ailang.la_hon_ma,
+        noi_chet  = inst.ailang.noi_chet,
         mau       = inst.components.health ~= nil
                     and inst.components.health:GetPercent() or 1,
     }

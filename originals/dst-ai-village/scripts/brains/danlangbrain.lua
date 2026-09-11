@@ -15,8 +15,11 @@ require("behaviours/doaction")
 require("behaviours/panic")
 require("behaviours/chaseandattack")
 require("behaviours/runaway")
+require("behaviours/leash")
+require("behaviours/standstill")
 
 local nen = require("ailang/nen")
+local dan_lang = require("ailang/dan_lang")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30    -- lang thang quanh nhà trong bán kính này
@@ -207,6 +210,118 @@ end
 local function HanhDongChat(inst) return LamViec(inst, ACTIONS.CHOP, "CHOP_workable") end
 local function HanhDongDao(inst)  return LamViec(inst, ACTIONS.MINE, "MINE_workable") end
 
+
+-- ── hồn ma ──────────────────────────────────────────────────────────────
+
+local TIM_BIA   = 60   -- bán kính tìm chỗ hồi sinh, rộng hơn tầm nhìn thường
+local GAN_BIA   = 3    -- tới trong khoảng này thì hồi sinh
+
+local function BiaGanNhat(inst)
+    return FindEntity(inst, TIM_BIA, function(v)
+        return not v:IsInLimbo()
+    end, { "resurrector" }, { "INLIMBO", "burnt" })
+end
+
+local function ViTriBia(inst)
+    local b = BiaGanNhat(inst)
+    if b == nil then return nil end
+    local x, _, z = b.Transform:GetWorldPosition()
+    return Vector3(x, 0, z)
+end
+
+-- Tới nơi rồi thì hồi sinh. Dây chuyền hồi sinh nằm dưới đất thì dùng luôn
+-- và mất đi — đúng như khi người chơi dùng nó.
+local function ThuHoiSinh(inst)
+    local b = BiaGanNhat(inst)
+    if b == nil then return false end
+    if inst:GetDistanceSqToInst(b) > GAN_BIA * GAN_BIA then return false end
+
+    if not dan_lang.HoiSinh(inst) then return false end
+
+    if b.components.inventoryitem ~= nil then
+        b:Remove()                       -- dây chuyền: dùng là hết
+    elseif b.components.cooldown ~= nil then
+        b.components.cooldown:StartCharging()   -- bia đá: vào thời gian chờ
+    end
+    return true
+end
+
+-- ── ánh sáng ────────────────────────────────────────────────────────────
+
+local function TroiToi()
+    return TheWorld.state.isnight or TheWorld.state.isdusk
+end
+
+local function DangCoAnhSang(inst)
+    local tui = inst.components.inventory
+    if tui == nil then return false end
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    return cam ~= nil and cam.components.fueled ~= nil
+           and cam.components.fueled:GetPercent() > 0
+           and (cam.prefab == "torch" or cam:HasTag("lighter"))
+end
+
+local function DuocTrongTui(inst)
+    local tui = inst.components.inventory
+    if tui == nil then return nil end
+    for _, mon in pairs(tui.itemslots or {}) do
+        if mon ~= nil and mon.prefab == "torch"
+           and (mon.components.fueled == nil or mon.components.fueled:GetPercent() > 0) then
+            return mon
+        end
+    end
+    return nil
+end
+
+local function LuaGanNhat(inst)
+    return FindEntity(inst, TIM_BIA, function(v)
+        return v.components.burnable ~= nil and v.components.burnable:IsBurning()
+    end, { "campfire" }, { "INLIMBO", "burnt" })
+end
+
+local function ViTriLua(inst)
+    local f = LuaGanNhat(inst)
+    if f == nil then return nil end
+    local x, _, z = f.Transform:GetWorldPosition()
+    return Vector3(x, 0, z)
+end
+
+-- Còn làm được gì để có ánh sáng không? Dùng làm điều kiện canh nhánh, nên
+-- KHÔNG gây tác dụng phụ.
+local function ConCachThapSang(inst)
+    if DangCoAnhSang(inst) then return false end
+    if DuocTrongTui(inst) ~= nil then return true end
+    local b = inst.components.builder
+    if b == nil then return false end
+    if b:CanBuild("torch") then return true end
+    if b:CanBuild("campfire") and LuaGanNhat(inst) == nil then return true end
+    return false
+end
+
+local function ThapSang(inst)
+    local tui = inst.components.inventory
+    local duoc = DuocTrongTui(inst)
+    if duoc ~= nil then
+        tui:Equip(duoc)
+        nen.chitiet(tostring(inst.ailang.ten), "cầm đuốc lên")
+        return
+    end
+    local b = inst.components.builder
+    if b == nil then return end
+    if b:CanBuild("torch") then
+        nen.thu("chế đuốc", function() b:DoBuild("torch") end)
+        local moi = DuocTrongTui(inst)
+        if moi ~= nil then tui:Equip(moi) end
+        nen.chitiet(tostring(inst.ailang.ten), "chế đuốc")
+        return
+    end
+    if b:CanBuild("campfire") and LuaGanNhat(inst) == nil then
+        local x, y, z = inst.Transform:GetWorldPosition()
+        nen.thu("dựng lửa trại", function() b:DoBuild("campfire", Vector3(x + 1, y, z)) end)
+        nen.chitiet(tostring(inst.ailang.ten), "dựng lửa trại")
+    end
+end
+
 -- Mục tiêu do tầng suy nghĩ đặt vào. Không có thì trả nil để cây đi tiếp
 -- xuống các nhánh mặc định.
 local BANG_MUC_TIEU = {
@@ -232,6 +347,17 @@ function DanLangBrain:OnStart()
 
     local goc = PriorityNode(
     {
+        -- HỒN MA — tắt hết mọi việc khác. Đã chết thì không đi hái quả nữa.
+        WhileNode(function() return dan_lang.LaHonMa(inst) end, "Hồn ma",
+            PriorityNode({
+                IfNode(function() return ThuHoiSinh(inst) end, "Tới được chỗ hồi sinh",
+                    ActionNode(function() end, "hồi sinh")),
+                Leash(inst, function() return ViTriBia(inst) end, GAN_BIA, GAN_BIA - 1),
+                -- Không có bia đá, không có dây chuyền: đứng yên chỗ chết chờ
+                -- người chơi tới cứu, thay vì lang thang khắp bản đồ.
+                StandStill(inst),
+            }, 0.5)),
+
         WhileNode(function() return inst.components.health.takingfiredamage end,
             "Cháy", Panic(inst)),
 
@@ -245,11 +371,34 @@ function DanLangBrain:OnStart()
         IfNode(function() return DangDoi(inst) end, "Đói",
             DoAction(inst, HanhDongAn, "ăn", true)),
 
+        -- TRỜI TỐI — lo ánh sáng TRƯỚC khi làm gì khác. Không có sáng là chết.
+        WhileNode(function() return TroiToi() end, "Trời tối",
+            PriorityNode({
+                IfNode(function() return ConCachThapSang(inst) end, "Thắp sáng được",
+                    ActionNode(function() ThapSang(inst) end, "thắp sáng")),
+                -- Hết cách tự thắp: bám lấy đống lửa gần nhất.
+                WhileNode(function() return not DangCoAnhSang(inst) end, "Chưa có sáng",
+                    Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
+            }, 0.5)),
+
         DoAction(inst, HanhDongTheoMucTieu, "mục tiêu", true),
 
         DoAction(inst, HanhDongNhat, "nhặt", true),
         DoAction(inst, HanhDongHai,  "hái",  true),
         DoAction(inst, HanhDongChat, "chặt", true),
+
+        -- Vừa hồi sinh thì quay lại chỗ chết nhặt lại đồ của mình.
+        WhileNode(function() return inst.ailang.ve_nhat_do ~= nil end, "Về nhặt đồ",
+            Leash(inst, function()
+                local v = inst.ailang.ve_nhat_do
+                if v == nil then return nil end
+                local x, _, z = inst.Transform:GetWorldPosition()
+                if distsq(x, z, v[1], v[2]) < 36 then
+                    inst.ailang.ve_nhat_do = nil     -- tới nơi rồi, thôi
+                    return nil
+                end
+                return Vector3(v[1], 0, v[2])
+            end, 4, 3)),
 
         IfNode(function() return ViTriNha(inst) == nil end, "Chưa có nhà",
             Follow(inst, NguoiChoiGanNhat, THEO_GAN, THEO_VUA, THEO_XA)),
