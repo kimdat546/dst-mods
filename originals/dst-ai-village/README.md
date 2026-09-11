@@ -140,6 +140,57 @@ còn **2,7 GB trống**, GPU là UHD 620 không tính toán được. Nhét mode
 tranh CPU với vòng lặp sim của DST. Muốn chạy local thì để ở máy khác rồi trỏ
 `AILANG_URL` qua Tailscale.
 
+## Vòng lặp sửa–thử
+
+Trước đây mỗi lần sửa là: sửa mã → cài lại → **thoát hẳn DST** → mở lại → host
+world → chơi. Hai bước giữa mất vài phút, mà một buổi có hàng chục vòng. Hai
+công cụ dưới đây cắt gần hết chỗ đó.
+
+### Nạp nóng — không phải khởi động lại game
+
+```bash
+./tools/sync_local.sh          # ghi mã mới vào thư mục mod của game
+```
+rồi trong game gõ:
+```
+c_ailang_naplai()
+```
+
+Nó xoá `package.loaded` của mọi mô đun rồi require lại từ đĩa, và gắn lại não
+mới cho từng dân làng đang sống.
+
+**Nạp nóng được:** `scripts/ailang/*`, `scripts/brains/*` — tức là cây hành vi,
+cách chọn mục tiêu, hồn ma, ánh sáng, và cả các lệnh `c_ailang_*`. Đây là gần
+như toàn bộ phần hay phải sửa.
+
+**KHÔNG nạp nóng được:** `modmain.lua`, `modinfo.lua`, và component
+`ailangquanly` trên `TheWorld`. modmain chạy một lần lúc world khởi động và
+những gì nó đăng ký (`AddPrefabPostInit`, `AddSimPostInit`) không gỡ ra đăng ký
+lại được. Sửa mấy file đó thì vẫn phải thoát game.
+
+⚠ Thêm/xoá FILE thì luôn phải khởi động lại game — DST chỉ quét danh sách file
+mod một lần lúc mở game.
+
+### Tự kiểm — không cần người chơi
+
+```bash
+./tools/test/chay_tu_kiem.sh
+```
+
+Dựng server test, chạy `tools/tu_kiem.lua`, in kết quả đạt/hỏng. Hiện có 8 phép
+kiểm: bỏ qua nấm chưa mọc, chế đuốc ban đêm, hoá hồn ma, hồi sinh ở bia đá,
+hồn ma không đi làm việc, nhặt đồ dưới đất.
+
+**Kiểm được:** logic chọn hành động — đúng chỗ hay sai nhất.
+**KHÔNG kiểm được:** chuyển động, tìm đường, hoạt ảnh, cảm giác chơi. Mấy thứ
+đó vẫn phải vào game thật.
+
+⚠ Bộ này chạy tay `bt:Update()` chứ không để BrainManager chạy, vì khi không có
+client nào nối vào thì DST **ngủ cả thế giới**. Đã đo ba lần:
+`AddServerNonSleepable()` không cứu, nhét dân làng vào `AllPlayers` cũng không —
+engine dùng client MẠNG thật. Đối chứng bằng heo vanilla: nó cũng ngủ, cũng
+đứng im y hệt.
+
 ## Kiểm thử
 
 `tools/test/` chạy server headless offline chỉ bật đúng mod này.
