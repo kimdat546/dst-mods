@@ -231,8 +231,39 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     if inst.components.health ~= nil then
         inst.components.health:SetInvincible(true)
     end
+    -- Đổi sang ĐÚNG dáng hồn ma của DST. Đã đo: SetBank("ghost") +
+    -- SetBuild("ghost_build") đều nhận. Bản đầu chỉ tô mờ màu xanh nên người
+    -- chơi thấy "một Wendy mờ đứng im, giống hồn ma nhưng không hiện giống
+    -- hồn ma" — nhìn lạ mà không đoán ra là gì.
     if inst.AnimState ~= nil then
-        inst.AnimState:SetMultColour(unpack(MAU_HON_MA))
+        nen.thu("đổi dáng hồn ma", function()
+            inst.AnimState:SetBank("ghost")
+            inst.AnimState:SetBuild("ghost_build")
+            inst.AnimState:PlayAnimation("idle_loop", true)
+            inst.AnimState:SetMultColour(unpack(MAU_HON_MA))
+        end)
+    end
+
+    -- Tag "playerghost" là thứ các vật phẩm hồi sinh soi vào để biết có dùng
+    -- được không.
+    inst:AddTag("playerghost")
+
+    -- ⚠ KHÔNG dựa vào đường hồi sinh nội bộ của engine — nó gắn với phiên
+    --   người chơi thật. Thay vào đó gắn `trader`: người chơi ĐƯA THẲNG vật
+    --   phẩm cho hồn ma, đúng thao tác vanilla, và mình tự xử.
+    if inst.components.trader == nil then
+        inst:AddComponent("trader")
+    end
+    inst.components.trader:SetAcceptTest(function(_, mon)
+        return mon ~= nil and (mon:HasTag("reviver") or mon:HasTag("resurrector"))
+    end)
+    inst.components.trader.onaccept = function(me, nguoi_dua, mon)
+        if mon ~= nil and mon:IsValid() then mon:Remove() end
+        dan_lang.HoiSinh(me)
+        if me.components.talker ~= nil then
+            me.components.talker:Say("Cảm ơn " ..
+                tostring(nguoi_dua ~= nil and nguoi_dua.name or "bạn") .. "!")
+        end
     end
 
     -- ⚠ Hồn ma ở đây KHÔNG giống hồn ma DST thật (engine không cho, xem chú
@@ -265,6 +296,16 @@ function dan_lang.HoiSinh(inst)
     if a == nil or not a.la_hon_ma then return false end
 
     a.la_hon_ma = false
+    inst:RemoveTag("playerghost")
+    if inst.components.trader ~= nil then inst:RemoveComponent("trader") end
+    -- Trả lại dáng người. Bank/build của nhân vật trùng tên prefab.
+    if inst.AnimState ~= nil then
+        nen.thu("trả lại dáng người", function()
+            inst.AnimState:SetBank("wilson")
+            inst.AnimState:SetBuild(inst.prefab)
+            inst.AnimState:PlayAnimation("idle_loop", true)
+        end)
+    end
     if inst.hon_ma_keu ~= nil then inst.hon_ma_keu:Cancel() inst.hon_ma_keu = nil end
     if inst.components.talker ~= nil then
         inst.components.talker:Say("Tôi sống lại rồi! Để tôi đi tìm đồ của mình.")
