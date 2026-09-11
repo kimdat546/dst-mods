@@ -200,4 +200,24 @@ function lenh.Giet(ten)
     Bao("không tìm thấy dân làng nào tên " .. tostring(ten))
 end
 
+
+-- Gọi dân làng tới chỗ mình, và đặt nhà ngay tại đó.
+--
+-- ⚠ Dân làng CHỈ SỐNG khi có người chơi ở gần — cách khoảng 95 đơn vị là DST
+--   cho ngủ và não thôi chạy. Đã đo, và không ép thức được:
+--   AddServerNonSleepable / SetCanSleep(false) / RestartBrain đều vô hiệu.
+--   Nên nhà của dân làng nên đặt ở chỗ mình hay lui tới.
+function lenh.Goi()
+    if ThePlayer == nil then Bao("không xác định được vị trí") return end
+    local x, y, z = ThePlayer.Transform:GetWorldPosition()
+    local n = 0
+    for _, e in ipairs(dan_lang.TatCa()) do
+        e.Transform:SetPosition(x + math.random(-4, 4), y, z + math.random(-4, 4))
+        e.ailang.nha = { x, z }
+        e:RestartBrain()
+        n = n + 1
+    end
+    Bao(string.format("đã gọi %d dân làng tới đây và đặt nhà tại %.0f,%.0f", n, x, z))
+end
+
 return lenh
