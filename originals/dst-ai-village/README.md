@@ -112,6 +112,8 @@ c_ailang_dem()                -- liệt kê gọn
 c_ailang_them("Tí", "wx78")   -- thêm một dân làng ở chỗ mình đứng
 c_ailang_datnha()             -- đặt nhà tại chỗ mình đứng
 c_ailang_tiepte()             -- phát 2 cỏ + 2 cành cho cả làng
+c_ailang_cuu()                -- hồi sinh mọi hồn ma dân làng
+c_ailang_giet("Tí")           -- giết một dân làng để xem cơ chế hồn ma
 c_ailang_naplai()             -- nạp mã mới, không phải khởi động lại game
 c_ailang_xoahet()
 ```
@@ -311,6 +313,10 @@ TRƯỚC khi trời tối hẳn.
   hồi sinh nằm dưới đất — cả ba đều mang chung tag `resurrector`
 - Không tìm thấy gì thì **đứng yên chỗ chết** chờ người chơi tới cứu, thay vì
   lang thang khắp bản đồ
+- **Kêu lên** lúc chết và cứ 20 giây một lần, để người chơi biết nó là gì và
+  cần gì. ⚠ Không có phần này thì người chơi chỉ thấy "một Wendy mờ đứng im,
+  giống hồn ma nhưng không hiện giống hồn ma" — đã xảy ra thật. Hồn ma tự dựng
+  không có hình dạng hồn ma của engine nên PHẢI tự nói ra mình là gì
 - Hồi sinh xong: 50% máu, rồi tự quay lại chỗ chết nhặt lại đồ của mình
 
 ⚠ **Không dùng được hồn ma thật của engine.** `inst:SetGhostMode(true)` có tồn

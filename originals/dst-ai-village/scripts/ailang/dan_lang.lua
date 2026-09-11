@@ -205,6 +205,14 @@ end
 
 local MAU_HON_MA = { 0.5, 0.6, 1, 0.5 }   -- xanh lơ, mờ
 
+-- Hồn ma kêu định kỳ để người chơi biết nó là gì và cần gì.
+local KEU = {
+    "Tôi chết rồi... ai đó cứu tôi với.",
+    "Lạnh quá... tôi cần một bia đá hồi sinh.",
+    "Dựng cho tôi một tượng thịt đi, tôi đứng đây chờ.",
+    "Đồ của tôi vẫn còn ở chỗ tôi ngã xuống.",
+}
+
 function dan_lang.ThanhHonMa(inst, noi_chet)
     local a = inst.ailang
     if a == nil or a.la_hon_ma then return end
@@ -227,6 +235,26 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
         inst.AnimState:SetMultColour(unpack(MAU_HON_MA))
     end
 
+    -- ⚠ Hồn ma ở đây KHÔNG giống hồn ma DST thật (engine không cho, xem chú
+    --   thích ở đầu mục). Người chơi báo "thấy một Wendy mờ đứng im, giống hồn
+    --   ma nhưng không hiện giống hồn ma" — nhìn thì lạ mà không đoán ra là gì,
+    --   và không biết cứu kiểu nào. Nên phải TỰ NÓI RA.
+    if inst.hon_ma_keu == nil then
+        inst.hon_ma_keu = inst:DoPeriodicTask(20, function()
+            if not dan_lang.LaHonMa(inst) then
+                if inst.hon_ma_keu ~= nil then inst.hon_ma_keu:Cancel() end
+                inst.hon_ma_keu = nil
+                return
+            end
+            if inst.components.talker ~= nil then
+                inst.components.talker:Say(KEU[math.random(#KEU)])
+            end
+        end)
+        if inst.components.talker ~= nil then
+            inst.components.talker:Say("Tôi chết rồi... ai đó cứu tôi với.")
+        end
+    end
+
     nen.log("dân làng", tostring(a.ten), "đã chết tại",
             string.format("%.0f,%.0f", a.noi_chet[1], a.noi_chet[2]),
             "— thành hồn ma, đi tìm chỗ hồi sinh")
@@ -237,6 +265,10 @@ function dan_lang.HoiSinh(inst)
     if a == nil or not a.la_hon_ma then return false end
 
     a.la_hon_ma = false
+    if inst.hon_ma_keu ~= nil then inst.hon_ma_keu:Cancel() inst.hon_ma_keu = nil end
+    if inst.components.talker ~= nil then
+        inst.components.talker:Say("Tôi sống lại rồi! Để tôi đi tìm đồ của mình.")
+    end
     inst:RemoveTag("notarget")
     if inst.components.health ~= nil then
         inst.components.health:SetInvincible(false)
