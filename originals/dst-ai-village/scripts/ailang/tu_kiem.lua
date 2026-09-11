@@ -105,8 +105,11 @@ local function ThuNam(tiep)
     Nhip(nao, 3, function()
         local ba = e:GetBufferedAction()
         local nham = ba and ba.target or nil
+        -- Khẳng định đúng TÍNH CHẤT đang thử: không đụng con nấm chưa mọc.
+        -- Bản đầu đòi phải nhắm ĐÚNG con nấm đã mọc, nên hễ quanh đó có món
+        -- nhặt được nào khác là hỏng oan — đã gặp, nó nhắm "twigs".
         KT("bỏ qua nấm chưa mọc dù nó GẦN hơn",
-           nham == roi,
+           nham ~= chua,
            "nhắm=" .. tostring(nham and nham.prefab))
         tiep()
     end)
@@ -341,6 +344,11 @@ end
 --   phải cất hồ sơ đi rồi dựng lại, không thì cả làng biến mất vĩnh viễn:
 --   ChupTatCa dựng lại bảng hồ sơ TỪ dân làng đang sống, mà lúc đó không còn
 --   ai sống.
+-- ⚠ Bộ này ĐẨY ms_setphase để thử nhánh ban đêm. Người chơi đang ở trong
+--   world sẽ thấy "trời mới tối là sáng luôn" — mod KHÔNG hề đụng vào thời
+--   gian, chỉ bộ kiểm làm. Nên phải nhớ giờ cũ và trả lại ở cuối.
+local GIO_CU = TheWorld.state.phase
+
 local ql = TheWorld.components ~= nil and TheWorld.components.ailangquanly or nil
 local ho_so_cu = nil
 if ql ~= nil then
@@ -359,6 +367,13 @@ local function KhoiPhucLang()
     end
     ql.tam_dung_chup = false
     print("[TU-KIEM] đã dựng lại " .. n .. " dân làng của bạn")
+end
+
+local function TraLaiGio()
+    if GIO_CU ~= nil and TheWorld.state.phase ~= GIO_CU then
+        TheWorld:PushEvent("ms_setphase", GIO_CU)
+        print("[TU-KIEM] đã trả lại giờ cũ: " .. tostring(GIO_CU))
+    end
 end
 
 
@@ -405,17 +420,47 @@ local function ThuHonMaDangDST(tiep)
     tiep()
 end
 
+
+-- ── 14. nhu cầu bí không được chặn nhu cầu bên dưới ─────────────────────
+local function ThuKhongKetXe(tiep)
+    local sinh_ton = require("ailang/sinh_ton")
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+    local cam = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if cam ~= nil then tui:DropItem(cam) cam:Remove() end
+    TheWorld:PushEvent("ms_setphase", "day")
+    -- Bí hoàn toàn ở hồi não: dọn sạch hoa quanh đó.
+    local x, y, z = e.Transform:GetWorldPosition()
+    for _, v in ipairs(TheSim:FindEntities(x, 0, z, 90)) do
+        if v.prefab == "flower" and v.Remove then v:Remove() end
+    end
+    e.components.sanity:SetPercent(0.1)
+    local ds = sinh_ton.ConThieuGi(e)
+    local ten = {}
+    for _, n in ipairs(ds) do table.insert(ten, n.ma) end
+    KT("thấy hồi não đang thiếu và vẫn xét tiếp các nhu cầu dưới",
+       #ds >= 2, "đang thiếu: " .. table.concat(ten, ","))
+    -- Cho nguyên liệu làm giáp cỏ: nhu cầu DƯỚI hồi não phải giải được
+    for _ = 1, 12 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+    for _ = 1, 4 do tui:GiveItem(SpawnPrefab("twigs")) end
+    local kq = sinh_ton.Giai(e)
+    KT("bí ở hồi não thì VẪN lo được nhu cầu bên dưới",
+       kq ~= nil, "Giai() trả về " .. tostring(kq))
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
-               ThuHonMaDangDST }
+               ThuHonMaDangDST, ThuKhongKetXe }
 local i = 0
 local function tiep()
     i = i + 1
     if buoc[i] ~= nil then
         buoc[i](tiep)
     else
+        TraLaiGio()
         KhoiPhucLang()
         print(string.format("[TU-KIEM] ===== XONG: %d đạt, %d hỏng =====", dat, hong))
     end

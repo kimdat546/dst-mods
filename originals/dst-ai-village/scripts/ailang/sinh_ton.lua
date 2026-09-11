@@ -16,7 +16,12 @@ local nhu_cau  = require("ailang/nhu_cau")
 
 local sinh_ton = {}
 
-local TAM_KIEM = 30    -- bán kính đi kiếm nguyên liệu
+local TAM_KIEM     = 30    -- bán kính đi kiếm bình thường
+local TAM_KIEM_GAP = 80    -- bán kính khi nhu cầu đã cấp thiết
+
+-- ⚠ Bán kính 30 là QUÁ HẸP khi đã bí. Đo trên server thật: một dân làng não 0%
+--   mà thế giới còn 321 bụi hoa — chỉ là không có bụi nào trong vòng 30, nên
+--   nó đứng chịu trận. Nhu cầu càng gấp thì phải chịu khó đi xa hơn.
 local BO_QUA   = { "INLIMBO", "NOCLICK", "FX", "fire", "burnt", "catchable" }
 
 local HANH_DONG = {
@@ -75,9 +80,10 @@ sinh_ton.CamDungCu = CamDungCu
 
 -- ── đi kiếm một nguyên liệu ─────────────────────────────────────────────
 
-function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn)
+function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
     local tui = inst.components.inventory
     if tui == nil or tui:IsFull() then return nil end
+    local TAM_KIEM = tam or TAM_KIEM
 
     -- Nằm sẵn dưới đất thì nhặt, khỏi phải khai thác.
     local roi = FindEntity(inst, TAM_KIEM, function(v)
@@ -132,7 +138,7 @@ end
 
 -- Trả "xong" nếu vừa làm một việc tức thì, BufferedAction nếu cần đi làm,
 -- nil nếu bó tay với nhu cầu này.
-local function GiaiMot(inst, n)
+local function GiaiMot(inst, n, tam)
     local b = inst.components.builder
 
     -- 1. Đã có sẵn món nào ở bậc nào chưa
@@ -182,7 +188,7 @@ local function GiaiMot(inst, n)
     if re_nhat ~= nil then
         local thieu = sinh_ton.ConThieu(inst, re_nhat.mon)
         for _, t in ipairs(thieu or {}) do
-            local hd = sinh_ton.DiKiem(inst, t[1])
+            local hd = sinh_ton.DiKiem(inst, t[1], nil, tam)
             if hd ~= nil then
                 nen.chitiet(tostring(inst.ailang.ten), "đi kiếm", t[1],
                             "(thiếu " .. t[2] .. ") cho", re_nhat.mon)
@@ -193,7 +199,7 @@ local function GiaiMot(inst, n)
 
     -- 4. Nhu cầu có danh sách "kiếm" riêng (đồ ăn, hoa...) thì đi kiếm
     for _, ng in ipairs(n.kiem or {}) do
-        local hd = sinh_ton.DiKiem(inst, ng)
+        local hd = sinh_ton.DiKiem(inst, ng, nil, tam)
         if hd ~= nil then
             nen.chitiet(tostring(inst.ailang.ten), "đi kiếm", ng, "cho", n.ten)
             return hd
@@ -205,28 +211,55 @@ end
 
 -- ── điểm vào ────────────────────────────────────────────────────────────
 
--- Nhu cầu đang cần mà chưa thoả, ưu tiên cao nhất trước.
-function sinh_ton.NhuCauCapThiet(inst)
+-- Mọi nhu cầu đang cần mà chưa thoả, ưu tiên cao nhất trước.
+function sinh_ton.ConThieuGi(inst)
+    local ra = {}
     for _, n in ipairs(nhu_cau.DANH_SACH) do
         local ok_can, can = pcall(n.can, inst)
         local ok_du, du   = pcall(n.du, inst)
         if ok_can and can and ok_du and not du then
-            return n
+            table.insert(ra, n)
         end
     end
-    return nil
+    return ra
 end
 
+function sinh_ton.NhuCauCapThiet(inst)
+    return sinh_ton.ConThieuGi(inst)[1]
+end
+
+-- ⚠ PHẢI đi hết danh sách, không được dừng ở nhu cầu đầu tiên.
+--   Bản đầu chỉ thử ĐÚNG nhu cầu ưu tiên cao nhất rồi trả nil nếu bó tay — nên
+--   một nhu cầu KHÔNG GIẢI ĐƯỢC chặn đứng mọi nhu cầu bên dưới, mãi mãi. Đo
+--   trên server thật: dân làng não 0%, hoi_nao không giải nổi vì quanh đó
+--   không có hoa, và thế là vu_khi / giap / nha KHÔNG BAO GIỜ được xét tới.
 function sinh_ton.Giai(inst)
-    local n = sinh_ton.NhuCauCapThiet(inst)
-    if n == nil then return nil end
-    if inst.ailang ~= nil then inst.ailang.dang_lo = n.ten end
-    local ok, kq = pcall(GiaiMot, inst, n)
-    if not ok then
-        nen.loi("giải nhu cầu " .. n.ten .. ":", kq)
+    local ds = sinh_ton.ConThieuGi(inst)
+    if #ds == 0 then
+        if inst.ailang ~= nil then inst.ailang.dang_lo = nil end
         return nil
     end
-    return kq
+
+    -- Vòng một: bán kính thường. Vòng hai: chịu khó đi xa cho nhu cầu gấp.
+    --
+    -- ⚠ ĐỪNG viết ipairs({ nil, TAM_KIEM_GAP }). Một `nil` ở đầu bảng làm độ
+    --   dài bằng 0 nên ipairs lặp KHÔNG LẦN NÀO, và Giai() luôn trả nil —
+    --   dân làng thôi làm mọi việc. Bộ tự kiểm bắt được ngay: ba phép kiểm
+    --   đuốc đang ĐẠT chuyển sang HỎNG cùng lúc.
+    for _, tam in ipairs({ TAM_KIEM, TAM_KIEM_GAP }) do
+        for _, n in ipairs(ds) do
+            local ok, kq = pcall(GiaiMot, inst, n, tam)
+            if not ok then
+                nen.loi("giải nhu cầu " .. n.ten .. ":", kq)
+            elseif kq ~= nil then
+                if inst.ailang ~= nil then inst.ailang.dang_lo = n.ten end
+                return kq
+            end
+        end
+    end
+
+    if inst.ailang ~= nil then inst.ailang.dang_lo = ds[1].ten .. " (chưa có cách)" end
+    return nil
 end
 
 return sinh_ton

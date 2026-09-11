@@ -171,9 +171,11 @@ nhu_cau.DANH_SACH = {
     {
         ma  = "do_an",
         ten = "đồ ăn",
+        -- ⚠ Ngưỡng này phải KHỚP với DOI_THI_AN trong danlangbrain. Lệch nhau
+        --   thì dân làng "đang lo đồ ăn" mà không chịu ăn món đang cầm.
         can = function(inst)
             local h = inst.components.hunger
-            return h ~= nil and h:GetPercent() < 0.6
+            return h ~= nil and h:GetPercent() < 0.5
         end,
         du  = function(inst) return nhu_cau.ChonMonAn(inst) ~= nil end,
         -- Không chế được đồ ăn ở bậc này; giải pháp là đi hái, xử lý ở
@@ -205,8 +207,10 @@ nhu_cau.DANH_SACH = {
             local s = inst.components.sanity
             return s ~= nil and s:GetPercent() < 0.5
         end,
+        -- Đội vòng hoa là xong. Không có thì cứ đi hái hoa cũng đã hồi —
+        -- flower có onpickedfn cộng tinh thần mỗi lần hái.
         du = function(inst) return DangMac(inst, "flowerhat") end,
-        bac = { { mon = "flowerhat" } },
+        bac = { { mon = "flowerhat" } },   -- petals×12, tech 0
         kiem = { "petals" },
     },
     {
