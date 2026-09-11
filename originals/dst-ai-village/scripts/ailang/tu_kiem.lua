@@ -361,10 +361,30 @@ local function KhoiPhucLang()
     print("[TU-KIEM] đã dựng lại " .. n .. " dân làng của bạn")
 end
 
+
+-- ── 12. hồn ma kêu cứu để người chơi biết nó là gì ──────────────────────
+local function ThuHonMaKeu(tiep)
+    local e, nao = DanLangSach(Goc())
+    local noi = nil
+    if e.components.talker ~= nil then
+        local goc_say = e.components.talker.Say
+        e.components.talker.Say = function(self, ...) noi = select(1, ...) return goc_say(self, ...) end
+    end
+    dan_lang.ThanhHonMa(e)
+    KT("hoá hồn ma thì KÊU LÊN cho người chơi biết",
+       noi ~= nil and noi ~= "", "nói=" .. tostring(noi))
+    KT("có hẹn giờ kêu lại định kỳ", e.hon_ma_keu ~= nil)
+    noi = nil
+    dan_lang.HoiSinh(e)
+    KT("hồi sinh thì báo và tắt hẹn giờ kêu",
+       noi ~= nil and e.hon_ma_keu == nil, "nói=" .. tostring(noi))
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
-               ThuNamDoc, ThuDiKiem, ThuThuTu }
+               ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu }
 local i = 0
 local function tiep()
     i = i + 1

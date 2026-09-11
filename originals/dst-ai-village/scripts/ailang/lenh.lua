@@ -167,4 +167,37 @@ function lenh.Kiem()
     if not ok then Bao("bộ tự kiểm HỎNG: " .. tostring(err)) end
 end
 
+
+-- Cứu hồn ma dân làng quanh mình. Dùng khi không tiện dựng bia đá, hoặc để
+-- gỡ bí khi một hồn ma kẹt ở chỗ không có gì hồi sinh được.
+function lenh.Cuu()
+    local ds = dan_lang.TatCa()
+    local n = 0
+    for _, e in ipairs(ds) do
+        if dan_lang.LaHonMa(e) then
+            if dan_lang.HoiSinh(e) then n = n + 1 end
+        end
+    end
+    if n == 0 then
+        Bao("không có hồn ma dân làng nào")
+    else
+        Bao(string.format("đã cứu %d hồn ma dân làng", n))
+    end
+end
+
+-- Giết một dân làng để xem cơ chế chết/hồn ma. Chỉ dùng để thử.
+function lenh.Giet(ten)
+    for _, e in ipairs(dan_lang.TatCa()) do
+        if ten == nil or e.ailang.ten == ten then
+            if e.components.health ~= nil then
+                e.components.health:SetInvincible(false)
+                e.components.health:DoDelta(-99999)
+            end
+            Bao("đã giết", tostring(e.ailang.ten), "— xem nó hoá hồn ma")
+            return
+        end
+    end
+    Bao("không tìm thấy dân làng nào tên " .. tostring(ten))
+end
+
 return lenh
