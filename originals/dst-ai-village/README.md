@@ -158,6 +158,45 @@ cả thế giới** — entity ngủ thì không chạy não. Đã đối chứn
 nó cũng ngủ, cũng đứng im y hệt. Phần đi lại, chặt cây, đánh nhau phải vào game
 thật mới xem được.
 
+## Sống, chết, và hồn ma
+
+Dân làng **chết thật**. Không có hồi sinh tự động.
+
+**Ban ngày** chúng làm việc bình thường. **Chập tối và ban đêm**, nhánh ánh sáng
+được ưu tiên trước mọi việc khác, vì không có sáng là chết:
+
+1. Đang cầm đuốc còn nhiên liệu → xong
+2. Có đuốc trong túi → cầm lên
+3. Chế được đuốc (2 cỏ + 2 cành) → chế rồi cầm
+4. Dựng được lửa trại (3 cỏ + 2 gỗ) và quanh đó chưa có lửa → dựng
+5. Hết cách → bám lấy đống lửa gần nhất trong bán kính 60
+
+⚠ **Không dùng `LightWatcher` để biết tối hay sáng.** Đã đo trên dedicated
+server: `IsInLight()` trả `true` cả khi đứng giữa đêm không cầm gì, và
+`GetTimeInDark()` đứng yên ở 0. Ánh sáng là thứ client vẽ — `inst.Light` phía
+server cũng `nil` cho cả đuốc lẫn lửa trại. Nên điều kiện ở đây là
+`TheWorld.state.isnight or isdusk`, vừa đáng tin vừa khiến dân làng chuẩn bị
+TRƯỚC khi trời tối hẳn.
+
+**Khi chết** dân làng thành hồn ma:
+
+- Ngừng mọi việc thu thập — đã chết thì không đi hái quả nữa
+- Đồ rơi lại tại chỗ, **vị trí chết được ghi vào hồ sơ**
+- Mang tag `notarget` nên quái thôi nhắm tới, và bất tử nên không chết lần nữa
+- Đi tìm chỗ hồi sinh trong bán kính 60: bia đá, tượng thịt, hoặc dây chuyền
+  hồi sinh nằm dưới đất — cả ba đều mang chung tag `resurrector`
+- Không tìm thấy gì thì **đứng yên chỗ chết** chờ người chơi tới cứu, thay vì
+  lang thang khắp bản đồ
+- Hồi sinh xong: 50% máu, rồi tự quay lại chỗ chết nhặt lại đồ của mình
+
+⚠ **Không dùng được hồn ma thật của engine.** `inst:SetGhostMode(true)` có tồn
+tại nhưng nổ ngay: `player_common.lua:957 attempt to index field 'HUD'` — nó đòi
+HUD của client, mà dân làng không có ai điều khiển nên không có HUD. Trạng thái
+hồn ma ở đây là tự dựng: vẫn cùng một entity, chỉ đổi màu, gỡ khả năng đánh
+nhau, và cắm cờ cho cây hành vi rẽ nhánh. Hệ quả: người chơi **không** dùng dây
+chuyền lên hồn ma dân làng được như với người chơi thật — nhưng hồn ma tự đi
+tới chỗ dây chuyền rơi và dùng nó.
+
 ## Quyết định: dân làng KHÔNG hiện trong tab người chơi
 
 Đã chốt 11/09/2026, **giữ mod chỉ chạy phía server**. Ghi lại để khỏi bàn lại.
@@ -187,6 +226,8 @@ hiển thị**.
 - ~~Vào game thật xem dân làng có thật sự đi lại và làm việc không.~~ Đã xác
   nhận 11/09/2026: đi lại, nhặt đồ, thu thập tài nguyên đều chạy.
 - Tự chữa thương. Hiện dân làng không có cách nào hồi máu ngoài ăn.
+- Chủ động gom cỏ và cành BAN NGÀY để chắc chắn có nguyên liệu làm đuốc. Giờ
+  chúng chỉ nhặt được gì thì nhặt, gặp đêm mà tay trắng thì vẫn kẹt.
 - `modicon.tex/.xml` (đang cảnh báo lúc nạp, vô hại).
 - Nghề nghiệp: hiện mọi dân làng dùng chung một cây hành vi.
 - Trí nhớ dài hạn cho tầng suy nghĩ (giờ mỗi nhịp là một lần hỏi độc lập).
