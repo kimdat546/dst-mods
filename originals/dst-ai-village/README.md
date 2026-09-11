@@ -177,9 +177,15 @@ mod một lần lúc mở game.
 ./tools/test/chay_tu_kiem.sh
 ```
 
-Dựng server test, chạy `tools/tu_kiem.lua`, in kết quả đạt/hỏng. Hiện có 8 phép
-kiểm: bỏ qua nấm chưa mọc, chế đuốc ban đêm, hoá hồn ma, hồi sinh ở bia đá,
-hồn ma không đi làm việc, nhặt đồ dưới đất.
+Dựng server test SẠCH, xác nhận mod nạp được, rồi chạy `scripts/ailang/tu_kiem.lua`.
+Hiện **20 phép kiểm**: nấm chưa mọc, ánh sáng ban đêm và hoàng hôn, mũ thợ mỏ,
+hồn ma và hồi sinh, đánh trả, nấm độc, đi kiếm nguyên liệu, thứ tự ưu tiên.
+
+⚠ Bộ kiểm để trong `scripts/` chứ KHÔNG mount riêng, vì hai lý do đã vấp phải:
+  console DST có **giới hạn độ dài** (gộp một dòng chạm 10.402 ký tự là im
+  lặng không chạy gì), và mount lồng vào trong `scripts` đang read-only thì
+  container chết ngay lúc khởi tạo với "create mountpoint: read-only file
+  system".
 
 **Kiểm được:** logic chọn hành động — đúng chỗ hay sai nhất.
 **KHÔNG kiểm được:** chuyển động, tìm đường, hoạt ảnh, cảm giác chơi. Mấy thứ
@@ -208,6 +214,60 @@ không lỗi (chạy tay `bt:Update()`).
 cả thế giới** — entity ngủ thì không chạy não. Đã đối chứng bằng heo vanilla:
 nó cũng ngủ, cũng đứng im y hệt. Phần đi lại, chặt cây, đánh nhau phải vào game
 thật mới xem được.
+
+## Bảng nhu cầu sinh tồn
+
+Dân làng quyết định làm gì bằng `scripts/ailang/nhu_cau.lua` — một bảng KHAI
+BÁO, không phải nhánh `if` lồng nhau. Thêm nhu cầu mới chỉ là thêm một mục.
+
+Thứ tự ưu tiên:
+
+```
+ánh sáng > đồ ăn > hồi máu > hồi não > vũ khí > giáp > nhà
+```
+
+Với nhu cầu cấp thiết nhất chưa thoả, `sinh_ton.lua` đi ba nước:
+
+1. Có sẵn món ở bậc nào thì mặc/cầm món đó
+2. Không có nhưng chế được thì chế
+3. Không bậc nào làm ngay được thì **đi kiếm nguyên liệu còn thiếu** cho bậc
+   rẻ nhất — đây là chỗ dân làng trông "biết tính" thay vì đi lang thang
+
+Ví dụ ánh sáng có ba bậc `minerhat` → `lantern` → `torch`. Đầu game
+`builder:CanBuild` trả false cho hai bậc trên vì thiếu Máy Giả Kim, nên tự tụt
+xuống đuốc; thiếu cỏ thì đi tìm bụi cỏ, thiếu cành thì tìm bụi cây con.
+
+### Cây công nghệ tự lo liệu
+
+| bậc | cần gì | ví dụ |
+|---|---|---|
+| tech 0 | không cần gì | torch, campfire, armorgrass, researchlab |
+| tech 1 | đứng gần Máy Khoa Học | rope, spear, armorwood, boards |
+| tech 2 | đứng gần Máy Giả Kim | lantern, minerhat, footballhat |
+
+`builder:CanBuild` tự xét cấp công nghệ nên **bậc cao tự rụng khi chưa đủ đồ
+nghề**. Không phải viết điều kiện tay.
+
+### Nguyên liệu lấy từ đâu
+
+Đo từ `pickable.product` và bảng loot, không phải trí nhớ: `grass`→cutgrass,
+`sapling`→twigs, `flower`→petals, `berrybush`→berries,
+**`flower_cave`→lightbulb** (trái đèn để làm đèn lồng), cây→log,
+đá→rocks/flint/goldnugget/nitre.
+
+### Ăn uống
+
+⚠ **ĐỪNG ăn bừa mọi thứ `eater:CanEat()`.** Giá trị thật đã đo:
+
+| | máu | não |
+|---|---|---|
+| red_cap | **−20** | 0 |
+| green_cap | 0 | **−50** |
+| blue_cap | +20 | −15 |
+| thịt sống | +1 | −10 |
+
+Bản đầu ăn bất cứ thứ gì nên dân làng tự đầu độc mình bằng đúng con nấm vừa
+hái. Giờ chấm điểm `no + máu×3 + não×2`, chỉ đụng món hại khi đói dưới 15%.
 
 ## Sống, chết, và hồn ma
 

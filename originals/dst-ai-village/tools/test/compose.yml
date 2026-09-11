@@ -24,14 +24,5 @@ services:
       - ../../modinfo.lua:/usr/share/game/mods/dst-ai-village/modinfo.lua:ro
       - ../../modmain.lua:/usr/share/game/mods/dst-ai-village/modmain.lua:ro
       - ../../scripts:/usr/share/game/mods/dst-ai-village/scripts:ro
-      # Bộ tự kiểm nằm trong tools/ nên KHÔNG đi theo bản cài cho người chơi
-      # (sync_local.sh loại tools/), nhưng ở đây mount vào scripts/ để
-      # require("ailang/tu_kiem") thấy được.
-      #
-      # ⚠ Phải đi đường require chứ KHÔNG gộp script thành một dòng rồi nhét
-      #   qua console: console DST có giới hạn độ dài, bộ kiểm chạm 10.402 ký
-      #   tự là im lặng không chạy gì, hoặc cụt giữa chừng rồi báo trơ trọi
-      #   "attempt to call a nil value" không kèm dòng nào.
-      - ../../tools/tu_kiem.lua:/usr/share/game/mods/dst-ai-village/scripts/ailang/tu_kiem.lua:ro
     ports:
       - "11000:11000/udp"

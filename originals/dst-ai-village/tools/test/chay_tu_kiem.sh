@@ -53,9 +53,14 @@ fi
 echo "✓ mod nạp sạch, dân làng đã sinh"
 
 # ⚠ ĐỪNG gộp cả bộ kiểm thành một dòng rồi nhét qua console — console DST có
-#   giới hạn độ dài, chạm 10.402 ký tự là im lặng không chạy gì. tu_kiem.lua
-#   được mount vào scripts/ của mod (xem compose.yml) nên chỉ cần require, và
-#   lệnh gửi đi luôn ngắn bất kể bộ kiểm dài bao nhiêu.
+#   giới hạn độ dài, chạm 10.402 ký tự là im lặng không chạy gì, hoặc cụt giữa
+#   chừng rồi báo trơ trọi "attempt to call a nil value" không kèm dòng nào.
+#   Nên bộ kiểm nằm thẳng trong scripts/ailang/ và chỉ cần require — lệnh gửi
+#   đi luôn ngắn bất kể bộ kiểm dài bao nhiêu.
+#
+# ⚠ Cũng ĐỪNG mount riêng tu_kiem.lua vào trong scripts/: scripts đã mount
+#   read-only nên Docker không tạo nổi điểm mount lồng bên trong, container
+#   chết ngay lúc khởi tạo với "create mountpoint ...: read-only file system".
 LUA='package.loaded["ailang/tu_kiem"] = nil local ok, err = pcall(require, "ailang/tu_kiem") if not ok then print("[TU-KIEM] LOI NAP: " .. tostring(err)) end'
 
 MOC=$(date -u +%Y-%m-%dT%H:%M:%S)
