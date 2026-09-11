@@ -259,6 +259,36 @@ cả thế giới** — entity ngủ thì không chạy não. Đã đối chứn
 nó cũng ngủ, cũng đứng im y hệt. Phần đi lại, chặt cây, đánh nhau phải vào game
 thật mới xem được.
 
+## Một việc, một chủ sở hữu
+
+Mọi lao động đi qua **một node duy nhất** trong cây hành vi
+(`scripts/ailang/viec.lua`), không phải năm nhánh riêng.
+
+⚠ **Vì sao phải đổi:** `PriorityNode` của DST **quyết lại từ đầu mỗi nhịp**.
+Với năm nhánh làm việc riêng (mục tiêu / nhặt / hái / chặt / đào), chúng giẫm
+chân nhau và người chơi thấy ngay:
+
+- nhánh chặt cầm rìu lên → nhánh ánh sáng thấy mất sáng → cầm đuốc lại →
+  **lặp vô tận**
+- **chặt vài nhát rồi bỏ sang cây khác** vì nhánh khác giành lượt
+
+Cách chữa mượn từ [GrimWorld](https://steamcommunity.com/sharedfiles/filedetails/?id=3748676443):
+bộ chạy việc **giữ lấy một việc xuyên nhiều nhịp** — nhận việc, đi tới, làm,
+xong hoặc bỏ. Ở đây làm gọn hơn: vẫn dùng `DoAction` của DST, nhưng hàm sinh
+hành động **nhớ** việc đang làm và trả lại đúng việc đó cho tới khi xong.
+
+Việc bị bỏ khi: mục tiêu biến mất, không làm được nữa, hoặc **đeo quá 45 giây
+mà không bào mòn được gì** (đếm ngược đặt lại mỗi khi `workleft` giảm, nên
+việc dài bao lâu cũng làm xong).
+
+Kết quả: cây hành vi từ **437 xuống 281 dòng**, và thứ tự còn lại rõ ràng:
+
+```
+hồn ma > cháy > máu thấp > đánh trả > đói
+       > nhu cầu tức thì > LÀM VIỆC > đêm chưa có sáng
+       > theo chân chủ > về nhà > về nhặt đồ > lang thang
+```
+
 ## Bảng nhu cầu sinh tồn
 
 Dân làng quyết định làm gì bằng `scripts/ailang/nhu_cau.lua` — một bảng KHAI
