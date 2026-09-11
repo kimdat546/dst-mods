@@ -520,12 +520,78 @@ local function ThuCoNha(tiep)
     tiep()
 end
 
+
+-- ── 18. không trôi ra khỏi làng ─────────────────────────────────────────
+local function ThuKhongTroi(tiep)
+    local sinh_ton = require("ailang/sinh_ton")
+    local e, nao = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local nx, nz = e.ailang.nha[1], e.ailang.nha[2]
+    -- Bụi cỏ NGOÀI vùng làng: đặt cách nhà 90 nhưng sát dân làng
+    e.Transform:SetPosition(nx + 70, 0, nz)
+    local bui_xa = SpawnPrefab("grass")
+    bui_xa.Transform:SetPosition(nx + 75, 0, nz)
+    local hd = sinh_ton.DiKiem(e, "cutgrass")
+    KT("không đi kiếm nguyên liệu NGOÀI vùng làng",
+       hd == nil or hd.target ~= bui_xa,
+       "nhắm=" .. tostring(hd and hd.target and hd.target.prefab))
+    bui_xa:Remove()
+    -- Xa nhà thì cây hành vi phải ưu tiên về nhà
+    Nhip(nao, 3, function()
+        local x, _, z = e.Transform:GetWorldPosition()
+        local xa = math.sqrt((x - nx)^2 + (z - nz)^2)
+        KT("ở xa nhà thì có nhánh kéo về (không đứng ì ngoài đó)",
+           e.brain == nil or xa <= 75, "cách nhà " .. math.floor(xa))
+        tiep()
+    end)
+end
+
+-- ── 19. hồn ma tìm chỗ hồi sinh ở RẤT xa ────────────────────────────────
+local function ThuHonMaTimXa(tiep)
+    local e, nao = DanLangSach(Goc())
+    dan_lang.ThanhHonMa(e)
+    local x, y, z = e.Transform:GetWorldPosition()
+    local bia = SpawnPrefab("resurrectionstone")
+    bia.Transform:SetPosition(x + 120, y, z)   -- xa hơn tầm nhìn thường rất nhiều
+    local thay = FindEntity(e, 250, nil, { "resurrector" }, { "INLIMBO", "burnt" })
+    KT("hồn ma thấy được chỗ hồi sinh cách 120 đơn vị",
+       thay ~= nil, "thấy=" .. tostring(thay and thay.prefab))
+    bia:Remove()
+    dan_lang.HoiSinh(e)
+    tiep()
+end
+
+
+-- ── 20. hồn ma KHÔNG được vô hình ───────────────────────────────────────
+local function ThuHonMaCoHinh(tiep)
+    for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
+    local e = dan_lang.Sinh({ ten = "ThuHinh", nhan_vat = "wilson" })
+    local bank_truoc = e.AnimState ~= nil and e.AnimState.GetBuild and e.AnimState:GetBuild()
+    dan_lang.ThanhHonMa(e)
+    local build_sau = e.AnimState ~= nil and e.AnimState.GetBuild and e.AnimState:GetBuild()
+    -- ⚠ Đổi BANK sang "ghost" làm entity biến mất hẳn vì không có bank tên đó.
+    --   Phép kiểm này canh chừng chuyện đó tái diễn.
+    KT("hoá hồn ma thì đổi BUILD chứ không đổi sang bank không tồn tại",
+       build_sau == nil or tostring(build_sau):find("ghost") ~= nil,
+       "build=" .. tostring(build_sau))
+    KT("hồn ma vẫn còn hiện hữu và hợp lệ",
+       e:IsValid() and e.entity:IsVisible())
+    dan_lang.HoiSinh(e)
+    local build_ve = e.AnimState ~= nil and e.AnimState.GetBuild and e.AnimState:GetBuild()
+    KT("hồi sinh thì trả build về nhân vật",
+       build_ve == nil or tostring(build_ve):find("ghost") == nil,
+       "build=" .. tostring(build_ve))
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
                ThuHonMaDangDST, ThuKhongKetXe,
-               ThuKhongDoiRiuDuoc, ThuKienNhan, ThuCoNha }
+               ThuKhongDoiRiuDuoc, ThuKienNhan, ThuCoNha,
+               ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh }
 local i = 0
 local function tiep()
     i = i + 1

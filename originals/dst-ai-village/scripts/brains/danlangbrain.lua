@@ -23,7 +23,8 @@ local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = require("ailang/sinh_ton")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
-local TAM_VE_NHA    = 30    -- lang thang quanh nhà trong bán kính này
+local TAM_VE_NHA    = 30
+local VE_NHA_XA     = 50   -- xa nhà quá bấy nhiêu thì bỏ việc, về đã    -- lang thang quanh nhà trong bán kính này
 local MAU_SO        = 0.35  -- dưới ngưỡng này thì bỏ chạy
 local DOI_THI_AN    = 0.5
 
@@ -36,6 +37,14 @@ local DanLangBrain = Class(Brain, function(self, inst)
 end)
 
 -- ── tiện ích ────────────────────────────────────────────────────────────
+
+-- Khoảng cách tới nhà. Không có nhà thì coi như đang ở nhà.
+local function XaNha(inst)
+    local nha = inst.ailang ~= nil and inst.ailang.nha or nil
+    if nha == nil then return 0 end
+    local x, _, z = inst.Transform:GetWorldPosition()
+    return math.sqrt((x - nha[1]) ^ 2 + (z - nha[2]) ^ 2)
+end
 
 local function ViTriNha(inst)
     local nha = inst.ailang ~= nil and inst.ailang.nha or nil
@@ -220,7 +229,11 @@ local function HanhDongDao(inst)  return LamViec(inst, ACTIONS.MINE, "MINE_worka
 
 -- ── hồn ma ──────────────────────────────────────────────────────────────
 
-local TIM_BIA   = 60   -- bán kính tìm chỗ hồi sinh, rộng hơn tầm nhìn thường
+-- ⚠ Bán kính tìm chỗ hồi sinh phải RẤT rộng. Đo trên server thật: cả ba dân
+--   làng chết thành hồn ma, thế giới CÓ 3 chỗ hồi sinh, nhưng không chỗ nào
+--   trong vòng 60 nên cả ba đứng im vĩnh viễn — làng chết hẳn. Hồn ma thì bất
+--   tử và không có việc gì khác, đi xa bao nhiêu cũng được.
+local TIM_BIA   = 250
 local GAN_BIA   = 3    -- tới trong khoảng này thì hồi sinh
 
 local function BiaGanNhat(inst)
@@ -446,6 +459,14 @@ function DanLangBrain:OnStart()
         WhileNode(function() return ToiHan() and not DangCoAnhSang(inst) end,
                   "Đêm mà chưa có sáng",
             Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
+
+        -- ⚠ VỀ NHÀ khi đã đi quá xa. Không có nhánh này thì dân làng TRÔI VÔ
+        --   HẠN: mỗi lần đi kiếm nguyên liệu lại dời đi một đoạn, rồi từ chỗ
+        --   mới tìm tiếp, cứ thế xa dần. Đo trên server thật: cả ba chết ở
+        --   cách nhà 95, 155 và 235 đơn vị — lang thang vào chỗ nguy hiểm,
+        --   không lửa, không đường lui.
+        WhileNode(function() return XaNha(inst) > VE_NHA_XA end, "Đi quá xa nhà",
+            Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
 
         DoAction(inst, HanhDongTheoMucTieu, "mục tiêu", true),
 

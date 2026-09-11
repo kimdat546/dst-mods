@@ -80,6 +80,18 @@ sinh_ton.CamDungCu = CamDungCu
 
 -- ── đi kiếm một nguyên liệu ─────────────────────────────────────────────
 
+-- ⚠ Mục tiêu đi kiếm phải NẰM TRONG VÙNG LÀNG. Không chặn thì dân làng trôi
+--   vô hạn: kiếm xong ở chỗ mới lại tìm tiếp từ chỗ mới, mỗi vòng xa thêm.
+--   Đo trên server thật: cả ba chết cách nhà 95-235 đơn vị.
+local TAM_LANG = 55
+
+local function TrongLang(inst, v)
+    local nha = inst.ailang ~= nil and inst.ailang.nha or nil
+    if nha == nil then return true end
+    local x, _, z = v.Transform:GetWorldPosition()
+    return (x - nha[1]) ^ 2 + (z - nha[2]) ^ 2 <= TAM_LANG * TAM_LANG
+end
+
 function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
     local tui = inst.components.inventory
     if tui == nil or tui:IsFull() then return nil end
@@ -87,7 +99,8 @@ function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
 
     -- Nằm sẵn dưới đất thì nhặt, khỏi phải khai thác.
     local roi = FindEntity(inst, TAM_KIEM, function(v)
-        return v.prefab == nguyen_lieu
+        return TrongLang(inst, v)
+           and v.prefab == nguyen_lieu
            and v.components.inventoryitem ~= nil
            and v.components.inventoryitem.canbepickedup
            and v:IsOnValidGround()
@@ -107,6 +120,7 @@ function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
     end
 
     local muc = FindEntity(inst, TAM_KIEM, function(v)
+        if not TrongLang(inst, v) then return false end
         if bo_qua_fn ~= nil and bo_qua_fn(v) then return false end
         if nguon.prefab ~= nil and v.prefab ~= nguon.prefab then return false end
         if nguon.hd == "PICK" then

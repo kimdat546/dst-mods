@@ -210,7 +210,16 @@ end
 --   Nên trạng thái hồn ma ở đây là do mình tự dựng: vẫn là cùng một entity,
 --   chỉ đổi màu, gỡ khả năng đánh nhau, và cắm cờ để cây hành vi rẽ nhánh.
 
-local MAU_HON_MA = { 0.5, 0.6, 1, 0.5 }   -- xanh lơ, mờ
+local MAU_HON_MA = { 1, 1, 1, 0.7 }   -- build hồn ma đã mờ sẵn, chỉ mờ thêm chút
+
+-- Nhân vật nào có build hồn ma riêng. Lấy từ chính file game
+-- (data/anim/ghost_<tên>_build.zip), không phải đoán.
+local HON_MA_BUILD = {
+    wilson = true, willow = true, wendy = true, wolfgang = true, wx78 = true,
+    wickerbottom = true, woodie = true, wes = true, waxwell = true,
+    wathgrithr = true, webber = true, winona = true, warly = true,
+    wortox = true, wormwood = true, wurt = true, walter = true, wanda = true,
+}
 
 -- Hồn ma kêu định kỳ để người chơi biết nó là gì và cần gì.
 local KEU = {
@@ -238,15 +247,20 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     if inst.components.health ~= nil then
         inst.components.health:SetInvincible(true)
     end
-    -- Đổi sang ĐÚNG dáng hồn ma của DST. Đã đo: SetBank("ghost") +
-    -- SetBuild("ghost_build") đều nhận. Bản đầu chỉ tô mờ màu xanh nên người
-    -- chơi thấy "một Wendy mờ đứng im, giống hồn ma nhưng không hiện giống
-    -- hồn ma" — nhìn lạ mà không đoán ra là gì.
+    -- Đổi sang dáng hồn ma của DST bằng cách thay BUILD, giữ nguyên BANK.
+    --
+    -- ⚠ ĐỪNG gọi AnimState:SetBank("ghost") — KHÔNG CÓ bank nào tên "ghost".
+    --   Kiểm trong chính file game: data/anim/ KHÔNG có ghost.zip, chỉ có
+    --   ghost_build.zip và ghost_<nhân vật>_build.zip. Trỏ bank vào hư vô thì
+    --   entity BIẾN MẤT HẲN — người chơi báo "thấy chỉ hướng của wilson nhưng
+    --   bay tới không thấy ai". Hàm không báo lỗi gì cả.
+    --
+    --   Đổi mỗi build thì mọi hoạt ảnh vẫn chạy (bank không đổi) mà trông vẫn
+    --   ra hồn ma — DST có sẵn build hồn ma riêng cho từng nhân vật.
     if inst.AnimState ~= nil then
         nen.thu("đổi dáng hồn ma", function()
-            inst.AnimState:SetBank("ghost")
-            inst.AnimState:SetBuild("ghost_build")
-            inst.AnimState:PlayAnimation("idle_loop", true)
+            local rieng = "ghost_" .. tostring(inst.prefab) .. "_build"
+            inst.AnimState:SetBuild(HON_MA_BUILD[inst.prefab] and rieng or "ghost_build")
             inst.AnimState:SetMultColour(unpack(MAU_HON_MA))
         end)
     end
@@ -305,12 +319,12 @@ function dan_lang.HoiSinh(inst)
     a.la_hon_ma = false
     inst:RemoveTag("playerghost")
     if inst.components.trader ~= nil then inst:RemoveComponent("trader") end
-    -- Trả lại dáng người. Bank/build của nhân vật trùng tên prefab.
+    -- Trả lại dáng người: chỉ đổi build về, KHÔNG đụng bank (xem chú thích ở
+    -- ThanhHonMa — đụng bank là entity biến mất).
     if inst.AnimState ~= nil then
         nen.thu("trả lại dáng người", function()
-            inst.AnimState:SetBank("wilson")
             inst.AnimState:SetBuild(inst.prefab)
-            inst.AnimState:PlayAnimation("idle_loop", true)
+            inst.AnimState:SetMultColour(1, 1, 1, 1)
         end)
     end
     if inst.hon_ma_keu ~= nil then inst.hon_ma_keu:Cancel() inst.hon_ma_keu = nil end
