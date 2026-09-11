@@ -65,13 +65,19 @@ function nap_lai.DangKyLenh()
             return l[ten](...)
         end
     end
-    _G.c_ailang_dem    = goi("Dem")
-    _G.c_ailang_them   = goi("Them")
-    _G.c_ailang_xoahet = goi("XoaHet")
-    _G.c_ailang_datnha = goi("DatNha")
-    _G.c_ailang_tiepte = goi("TiepTe")
+    -- ⚠ PHẢI dùng rawset. DST bật strict globals: `_G.ten = ...` từ file trong
+    --   scripts/ bị chặn thẳng bằng
+    --       "assign to undeclared variable 'c_ailang_dem'"
+    --   và MOD ERROR đó làm CẢ WORLD không khởi động được. modmain thì gán
+    --   bình thường được vì nó có lớp bọc riêng — nên lỗi chỉ lộ ra sau khi
+    --   chuyển mã từ modmain sang scripts/. rawset đi vòng qua metatable.
+    rawset(_G, "c_ailang_dem",    goi("Dem"))
+    rawset(_G, "c_ailang_them",   goi("Them"))
+    rawset(_G, "c_ailang_xoahet", goi("XoaHet"))
+    rawset(_G, "c_ailang_datnha", goi("DatNha"))
+    rawset(_G, "c_ailang_tiepte", goi("TiepTe"))
 
-    _G.c_ailang_naplai = function()
+    rawset(_G, "c_ailang_naplai", function()
         local ok, kq = nap_lai.ChayLai()
         local l = require("ailang/lenh")
         if ok then
@@ -80,7 +86,7 @@ function nap_lai.DangKyLenh()
             l.Bao("nạp nóng HỎNG: " .. tostring(kq))
         end
         return ok
-    end
+    end)
 end
 
 return nap_lai
