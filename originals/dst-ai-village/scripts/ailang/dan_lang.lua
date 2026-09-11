@@ -185,19 +185,25 @@ function dan_lang.Sinh(hoso)
         dan_lang.ThanhHonMa(inst, hoso.noi_chet)
     end
 
-    -- ⚠ DÒNG NÀY KHÔNG CÓ TÁC DỤNG. Giữ lại kèm chú thích để đừng ai tưởng
-    --   nó giải quyết được gì rồi mất công thử lại.
+    -- ⚠ PHẢI là SetCanSleep(false), KHÔNG phải AddServerNonSleepable().
     --
-    --   Sự thật đã đo trên server có người chơi thật: dân làng cách người chơi
-    --   95 đơn vị thì IsAsleep()=true và brain=nil. Gọi lại
-    --   AddServerNonSleepable() rồi SetCanSleep(false) rồi RestartBrain() —
-    --   cả ba đều trả về true mà entity VẪN ngủ, não VẪN không chạy.
+    --   Entity DST "ngủ" khi không có người chơi ở gần, và entity ngủ thì
+    --   KHÔNG chạy não — não dừng là mất luôn việc đang làm dở.
     --
-    --   Nghĩa là: DÂN LÀNG CHỈ SỐNG KHI CÓ NGƯỜI CHƠI Ở GẦN. Đây là cách DST
-    --   quản lý hiệu năng, áp cho mọi sinh vật chứ không riêng gì mod này —
-    --   đã đối chứng bằng heo vanilla. Muốn làng "tiến triển" lúc người chơi
-    --   đi vắng thì phải mô phỏng trừu tượng, không thể để não chạy thật.
-    inst.entity:AddServerNonSleepable()
+    --   Mình từng dùng AddServerNonSleepable() và kết luận nhầm rằng "engine
+    --   không cho ép thức". Sai ở chỗ dùng SAI HÀM. Đã đo, không có người chơi
+    --   nào trong world:
+    --     heo vanilla, không làm gì                  -> ngủ
+    --     heo + SetCanSleep(false)                   -> THỨC, não chạy
+    --     dân làng, chỉ có AddServerNonSleepable()   -> ngủ
+    --     dân làng + SetCanSleep(false)              -> THỨC, não chạy
+    --
+    --   Phải gọi lúc entity CÒN THỨC (ngay sau khi spawn). Gọi lên một entity
+    --   đã ngủ rồi thì vô hiệu — đó là lý do lần thử đầu của mình thất bại.
+    --
+    --   Cái giá: mỗi dân làng thức tốn ≈0,9% CPU liên tục, kể cả lúc không có
+    --   ai xem. Xem mục "Chi phí" trong README trước khi tăng số dân làng.
+    inst.entity:SetCanSleep(false)
 
     -- Thiện cảm và chế độ đi theo, mượn mô hình Wurt ↔ merm.
     require("ailang/than_thiet").GanVaoDanLang(inst)

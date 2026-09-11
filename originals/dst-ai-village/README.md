@@ -367,22 +367,31 @@ bất kỳ thì không đáng. Thứ đáng mượn từ merm là **quan hệ**,
 Chi phí thật: **≈0,9% CPU mỗi dân làng thức**, RAM không tăng. Đòn bẩy nằm ở
 số dân làng thức cùng lúc, không ở loại prefab.
 
-## Giới hạn quan trọng: dân làng chỉ sống khi có người chơi ở gần
+## Dân làng KHÔNG ngủ — và bài học về việc dùng sai hàm
 
-Đã đo trên server có người chơi thật: dân làng **cách người chơi 95 đơn vị** thì
-`IsAsleep()` = true và `brain` = nil. Gọi `AddServerNonSleepable()`, rồi
-`SetCanSleep(false)`, rồi `RestartBrain()` — cả ba đều trả về `true` mà entity
-**vẫn ngủ**, não **vẫn không chạy**.
+Entity DST "ngủ" khi không có người chơi ở gần, và entity ngủ thì **không chạy
+não** — não dừng là mất luôn việc đang làm dở.
 
-Đây là cách DST quản lý hiệu năng, áp cho mọi sinh vật chứ không riêng mod này —
-đã đối chứng bằng heo vanilla. **Không ép thức được.**
+Dân làng ở đây dùng `inst.entity:SetCanSleep(false)` nên **vẫn sống và vẫn làm
+việc kể cả khi không có ai trong world**.
 
-Hệ quả thực tế:
+⚠ **Đã từng kết luận nhầm là "engine không cho ép thức".** Sai ở chỗ dùng **sai
+hàm**: `AddServerNonSleepable()` không có tác dụng gì. Đo lại, không có người
+chơi nào trong world:
 
-- Đặt nhà dân làng ở chỗ mình hay lui tới (`c_ailang_datnha()` hoặc
-  `c_ailang_goi()`), đừng để ở góc bản đồ xa.
-- Làng **không tiến triển** lúc mình đi vắng. Muốn có thì phải mô phỏng trừu
-  tượng (cộng tài nguyên vào kho theo thời gian) chứ không thể cho não chạy thật.
+| | ngủ? | não |
+|---|---|---|
+| heo vanilla, không làm gì | ngủ | không |
+| heo + `SetCanSleep(false)` | **thức** | **chạy** |
+| dân làng, chỉ có `AddServerNonSleepable()` | ngủ | không |
+| dân làng + `SetCanSleep(false)` | **thức** | **chạy** |
+
+Hai điều kiện phải nhớ:
+
+- Gọi lúc entity **còn thức** (ngay sau khi spawn). Gọi lên entity đã ngủ rồi
+  thì vô hiệu — đó là lý do lần thử đầu thất bại.
+- **Cái giá: ≈0,9% CPU mỗi dân làng, liên tục**, kể cả lúc không ai xem. Đo
+  được 20 dân làng thức tốn thêm ~18% CPU. Cân nhắc trước khi tăng số dân.
 
 ## Sống, chết, và hồn ma
 
