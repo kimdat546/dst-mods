@@ -1578,11 +1578,33 @@ local function ThuBongCay(tiep)
     KT("đứng dưới tán cây thì tính là ĐÃ MÁT (khỏi tốn 12 bó cỏ làm mũ)",
        mat ~= nil and mat.du(e))
 
-    if che ~= nil then che.sheltered = false end
-    e.components.temperature:SetTemperature(20)
-    cay:Remove()
-    e:Remove()
-    tiep()
+    -- ⚠ TRỄ NGƯỠNG. Không có nó thì nhánh bóng cây nhả lượt NGAY khi vừa chạm
+    --   bóng râm, node làm việc lôi đi trước khi kịp nguội, rồi lại nóng, lại
+    --   quay vào — đo được máu 85% -> 77% -> 72% trong khi nhiệt lẩn quẩn
+    --   67-70. Mức nhả cũng không được đặt dưới 63, vì bóng cây chỉ hạ nhiệt
+    --   khi đang TRÊN ngưỡng đó; đòi xuống thấp hơn là đứng dưới gốc cây mãi.
+    local nao = Brain(e)
+    nao:OnStart()
+    e.ailang.tru_nong = nil
+    e.components.temperature:SetTemperature(67)
+    Nhip(nao, 2, function()
+        KT("nóng 67 độ thì bật chế độ đi trú", e.ailang.tru_nong == true)
+        e.components.temperature:SetTemperature(66)
+        Nhip(nao, 2, function()
+            KT("mới xuống 66 thì CHƯA nhả — không thì rung quanh mốc 70",
+               e.ailang.tru_nong == true)
+            e.components.temperature:SetTemperature(64)
+            Nhip(nao, 2, function()
+                KT("xuống 64 rồi mới nhả, quay lại làm việc",
+                   e.ailang.tru_nong == nil)
+                if che ~= nil then che.sheltered = false end
+                e.components.temperature:SetTemperature(20)
+                cay:Remove()
+                e:Remove()
+                tiep()
+            end)
+        end)
+    end)
 end
 
 
