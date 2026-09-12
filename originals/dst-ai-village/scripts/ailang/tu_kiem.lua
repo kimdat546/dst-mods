@@ -113,9 +113,17 @@ local function DoiPha(pha, xong)
     TheWorld:DoTaskInTime(0.25, cho)
 end
 
+-- ⚠ PHẢI dừng khi dân làng đã bị gỡ. Bài kiểm trước gọi e:Remove() nhưng các
+--   callback DoTaskInTime của Nhip vẫn còn hàng đợi, và chúng tiếp tục bơm
+--   nhịp cho não của một entity đã chết — DST tuôn "Stale Component
+--   Reference" cho tới khi SẬP CẢ SERVER (exit code 6). Đây là nguồn của
+--   hàng loạt kết quả kiểm lộn xộn khó hiểu.
 local function Nhip(nao, n, xong)
     local i = 0
     local function b()
+        if nao == nil or nao.inst == nil or not nao.inst:IsValid() then
+            xong() return
+        end
         i = i + 1
         pcall(function() nao.bt:Update() end)
         if i < n then TheWorld:DoTaskInTime(0.6, b) else xong() end
@@ -311,11 +319,21 @@ local function ThuHoangHon(tiep)
         --   khẳng định, không thì hỏng oan.
         DoiPha("night", function(ok)
         KT("đổi được sang đêm", ok, "pha=" .. tostring(TheWorld.state.phase))
-        Nhip(nao, 4, function()
+        -- ⚠ Cần đủ nhịp: đổi pha xong, dân làng còn phải bỏ việc đang làm dở
+        --   rồi mới nhận việc lo ánh sáng. Ít nhịp quá là hỏng oan.
+        Nhip(nao, 8, function()
             local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+            local co2 = {}
+            for _, mon in pairs(tui.itemslots or {}) do
+                if mon ~= nil then table.insert(co2, mon.prefab) end
+            end
             KT("sang đêm thì cầm đuốc lên",
                tay2 ~= nil and tay2.prefab == "torch",
-               "đang cầm=" .. tostring(tay2 and tay2.prefab))
+               "đang cầm=" .. tostring(tay2 and tay2.prefab)
+               .. " túi=[" .. table.concat(co2, " ") .. "]"
+               .. " isnight=" .. tostring(TheWorld.state.isnight)
+               .. " lo=" .. tostring(e.ailang.dang_lo)
+               .. " lam=" .. tostring(e.ailang.dang_lam))
             tiep()
         end)
         end)
@@ -544,7 +562,7 @@ local function ThuKhongDoiRiuDuoc(tiep)
            tay ~= nil and tay.prefab == "torch",
            "đang cầm=" .. tostring(tay and tay.prefab))
         DoiPha("day", function()
-        Nhip(nao, 5, function()
+        Nhip(nao, 8, function()
             local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
             KT("sang ngày thì mới cầm rìu đi chặt",
                tay2 ~= nil and tay2.prefab == "axe",

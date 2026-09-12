@@ -268,6 +268,17 @@ function DanLangBrain:OnStart()
         --   thấy dân làng đổi rìu↔đuốc liên tục và chặt vài nhát rồi bỏ.
         --   Gom về một node GIỮ LẤY việc xuyên nhiều nhịp thì hết hẳn.
         --   (Mô hình mượn từ GrimWorld, Workshop 3748676443.)
+        -- ⚠ NHU CẦU GẤP phải là NODE RIÊNG, ưu tiên cao hơn node làm việc.
+        --   Không thể để logic chen ngang nằm bên trong hàm sinh hành động:
+        --   `DoAction` giữ trạng thái RUNNING suốt lúc dân làng đi tới mục
+        --   tiêu, và trong lúc đó hàm sinh hành động KHÔNG được gọi lại. Nên
+        --   đêm xuống mà nó đang trên đường đi kiếm đồ làm giáo thì chẳng ai
+        --   bảo nó cầm đuốc — đuốc nằm sẵn trong túi cho tới sáng.
+        --   PriorityNode xét lại từ đầu mỗi 0,5 giây, nên node này cắt ngang
+        --   được việc đang dở. Xong việc tức thì thì lần sau nó tự nhường.
+        IfNode(function() return sinh_ton.Giai(inst) == "xong" end,
+            "Lo nhu cầu tức thì", ActionNode(function() end, "xong")),
+
         -- ⚠ CHỈ gọi sinh_ton.Giai ở MỘT chỗ. Trước đây có thêm một IfNode
         --   `Giai(inst) == "xong"` ngay trên đây, nên mỗi nhịp Giai chạy HAI
         --   lần — mà Giai có tác dụng phụ (mặc đồ, chế đồ, trừ nguyên liệu).

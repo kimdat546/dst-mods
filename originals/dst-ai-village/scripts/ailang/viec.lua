@@ -224,13 +224,14 @@ end
 function viec.HanhDong(inst)
     local a = So(inst)
 
-    -- ⚠ Nhu cầu GẤP được chen ngang việc đang làm dở. Không có chỗ này thì
-    --   việc-giữ-dai làm hệ nhu cầu BỊ BỎ ĐÓI: dân làng đang hái quả thì
-    --   viec.HanhDong trả lại đúng việc hái và không bao giờ gọi tới
-    --   sinh_ton, nên trời tối mà không ai lo đuốc. Bốn phép kiểm về đuốc
-    --   hỏng cùng lúc vì đúng chuyện này.
-    if a.viec ~= nil and not a.viec_la_nhu_cau
-       and sinh_ton.CoNhuCauGap(inst) ~= nil then
+    -- ⚠ Nhu cầu GẤP chen ngang việc đang làm dở — KỂ CẢ khi việc đó cũng là
+    --   một nhu cầu. Bản đầu chỉ chen khi việc hiện tại KHÔNG phải nhu cầu,
+    --   nên dân làng ôm việc "vũ khí" (cũng là nhu cầu) là ánh sáng không bao
+    --   giờ giành được lượt: đêm xuống, đuốc nằm sẵn trong túi, mà nó vẫn đi
+    --   kiếm đồ làm giáo cho tới sáng.
+    --   So theo NHÃN việc: đang làm đúng việc gấp đó thì để yên, khác thì bỏ.
+    local gap = sinh_ton.CoNhuCauGap(inst)
+    if a.viec ~= nil and gap ~= nil and a.viec.vi_sao ~= gap.ten then
         a.viec = nil
     end
 
@@ -245,8 +246,6 @@ function viec.HanhDong(inst)
     if not ok then nen.loi("nhận việc:", err) end
 
     a.viec = v
-    a.viec_la_nhu_cau = v ~= nil and inst.ailang.dang_lo ~= nil
-                        and v.vi_sao == inst.ailang.dang_lo
     a.viec_tu = GetTime()
     a.viec_moc = v ~= nil and DauTienTrien(v.muc_tieu) or nil
     inst.ailang.dang_lam = v ~= nil and v.vi_sao or nil
