@@ -429,6 +429,46 @@ vào **hồ sơ**: dân làng có `persists = false` nên thứ được lưu c�
 sơ chứ không phải entity. Quên một trong hai là đồ người chơi gửi vào bốc hơi
 sau mỗi restart.
 
+### Bóng cây và cái mũ — hai vai khác nhau
+
+Đừng gộp **biện pháp cấp cứu** với **giải pháp lâu dài**:
+
+```
+cấp cứu tức thời  →  cây hành vi : chạy vào bóng cây (nhánh trên node làm việc)
+giải pháp bền     →  bảng nhu cầu : cái mũ cỏ, cái lửa lạnh
+```
+
+Bản đầu cho bóng râm thoả luôn nhu cầu *mát*, tức lấy cấp cứu làm giải pháp bền.
+Dân làng sống, nhưng **rỉ máu vĩnh viễn** và không bao giờ chế mũ: mỗi vòng
+ra-vào gốc cây lại nhích qua mốc 70 một nhịp. Nhiệt độ nhìn thì ổn định
+(64-76°), chỉ có máu là nói thật — 99% → 59%.
+
+⚠ Nhánh trú nóng phải có **trễ ngưỡng**: bật ở 66, chỉ nhả ở 65, cộng
+`StandStill` giữ chân dưới gốc cây. Không có nó thì nhánh nhả lượt ngay khi vừa
+chạm bóng râm và dân làng bị lôi đi khi còn 69°.
+
+⚠ Mức nhả **không được đặt dưới 63**: bóng cây chỉ hạ nhiệt khi đang *trên*
+`TREE_SHADE_COOLING_THRESHOLD`, nên đòi xuống 58 là đứng dưới gốc cây tới sáng
+mà không bao giờ đạt.
+
+⚠ Đã **bỏ hẳn `grass_umbrella`** dù nó cách nhiệt gấp đôi mũ cỏ (120 so với 60).
+Nó chiếm **ô tay** — đúng ô mà đuốc cần. Hai nhu cầu giành nhau một ô là quay
+lại đúng bệnh rìu↔đuốc đã tốn mấy vòng để chữa.
+
+### Lo thân trước khi giữ làng
+
+Nhánh *Giữ làng* nằm rất cao trong cây, nên hễ nó giành được lượt là mọi nhánh
+tự-lo bên dưới **không bao giờ chạy**. Đã gây hoạ **ba lần**:
+
+1. một con hound cách 30 làm hỏng cả năm phép kiểm về đuốc và nhặt đồ
+2. dân làng đứng đánh nhau giữa đêm khi chưa có nguồn sáng
+3. cả ba khoá cứng ở đó để đuổi **một con ếch** giữa mùa hè — nhiệt 77° → 87°,
+   máu 94% → 28% → chết, trong khi có 21 gốc cây rợp bóng trong bán kính 40
+
+Hai lần đầu đều vá bằng cách thêm *đúng một* cửa thoát cho đúng triệu chứng vừa
+gặp. Giờ mọi lý do "chết tại chỗ đang đứng" gom trong `lang.LoThanTruoc()` —
+kiểm được bằng phép kiểm tự động, và lần sau thêm điều kiện chỉ phải sửa một chỗ.
+
 ### Nuôi lửa
 
 Lửa trại **không cháy mãi**: hết nhiên liệu là nó nhả tro rồi biến mất hẳn
@@ -440,6 +480,40 @@ Nên "tiếp lửa" là một VIỆC THƯỜNG trong `viec.lua`, xếp ngay sau 
 nửa bình thì ném củi vào, ưu tiên gỗ, chừa lại 4 cỏ/cành để còn làm đuốc. Để
 là việc thường (chứ không phải nhu cầu) vì nhu cầu gấp vẫn phải chen ngang
 được — lo thân trước, nuôi lửa sau.
+
+### Ưu tiên phải thắng khoảng cách
+
+`sinh_ton.Giai` từng lặp **bán kính ở vòng ngoài, ưu tiên ở vòng trong** — quét
+hết mọi nhu cầu ở gần rồi mới nới rộng. Nghe thì hợp lý ("đi xa là biện pháp
+cuối"), nhưng nó **lặng lẽ đảo ngược cả bảng ưu tiên**: một nhu cầu quan trọng ở
+xa luôn thua một nhu cầu vặt ở gần.
+
+Đo trên server giữa mùa hè:
+
+```
+DiKiem("cutgrass")  r=30  -> nil        (1 bụi cỏ trong vòng 30)
+DiKiem("cutgrass")  r=130 -> PICK       (39 bụi trong vòng 130)
+```
+
+*Mát* hạng 4 cần đi xa, *nhà* hạng 6 xong ngay tại chỗ. Thế là dân làng đi dựng
+lửa trại **trong khi đang mất máu vì nóng**, máu 99% → 46%, mà nhật ký chỉ ghi
+`đi kiếm log cho campfire`.
+
+Giờ **ưu tiên ở vòng ngoài**: thử từng nhu cầu ở cả hai bán kính rồi mới xuống
+nhu cầu tiếp theo.
+
+### Nhu cầu bó tay thì đừng cho cướp lượt
+
+Một nhu cầu `gap` giải không ra — thử cả hai bán kính đều tay trắng — mà vẫn giữ
+quyền chen ngang thì nó cướp lượt **mỗi nhịp**: dân làng bỏ việc liên tục, chẳng
+làm xong gì, mà nhu cầu kia vẫn không nhúc nhích.
+
+`Giai` giờ ghi lại những nhu cầu bó tay vào `inst.ailang.bo_tay`, và
+`viec.CanChenNgang` bỏ qua chúng.
+
+⚠ Nhờ chốt này mà *mát* giữ lại được `gap`. Cờ đó **không phải để chen ngang cho
+vui** — nó là thứ nới dây trói về nhà từ 50 lên 140 (xem bảng dưới). Bỏ `gap`
+thì dân làng bị trói trong 50 đơn vị và không bao giờ với tới chỗ có cỏ.
 
 ### Bán kính đi kiếm phải KHỚP với dây trói về nhà
 
