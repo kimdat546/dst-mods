@@ -276,6 +276,17 @@ function dan_lang.Sinh(hoso)
         end
     end)
 
+    -- ⚠ Đèn phải cập nhật NHANH, không đợi nhịp 2 giây. Đo được: Charlie ra
+    --   đòn đầu tiên chỉ 3 giây sau khi vào đêm. Nên bắt thẳng sự kiện mặc/cởi
+    --   đồ, và giữ thêm một nhịp 1 giây để bắt lúc đuốc cháy hết.
+    for _, sk in ipairs({ "equip", "unequip" }) do
+        inst:ListenForEvent(sk, function() dan_lang.CapNhatDen(inst) end)
+    end
+    inst:DoPeriodicTask(1, function()
+        if inst:IsValid() then nen.thu("cập nhật đèn", dan_lang.CapNhatDen, inst) end
+    end)
+    dan_lang.CapNhatDen(inst)
+
     local brain = require("brains/danlangbrain")
     inst:SetBrain(brain)
     inst:RestartBrain()
@@ -481,6 +492,55 @@ function dan_lang.CatVaoTuiHang(inst)
         end
     end
     return false
+end
+
+-- ── ánh sáng THẬT ───────────────────────────────────────────────────────
+--
+-- ⚠ ĐUỐC KHÔNG PHÁT SÁNG PHÍA SERVER. Đây là thứ đã giết cả làng hết đêm này
+--   tới đêm khác, và mọi bản vá trước đều vá nhầm chỗ.
+--
+--   Đo trực tiếp trên server chuyên dụng, giữa đêm, cách mọi đống lửa 40 đơn
+--   vị, tay CẦM ĐUỐC ĐANG CHÁY:
+--       ánh sáng tại chỗ đứng = 0.000  ->  sự kiện "enterdark"  ->  Charlie
+--   Trong khi đứng cạnh lửa trại thì = 0.871 và Charlie cấp miễn nhiễm "light".
+--   Nhật ký trận chết còn ghi rõ: Binh chết với `tay = torch` trên tay.
+--
+--   Lý do nằm trong torch.lua: `onequip` sinh một FX tên `torchfire` rồi gọi
+--   `fx:AttachLightTo(owner)`. FX là thứ CLIENT VẼ — trên server chuyên dụng
+--   nó không tạo nguồn sáng nào. Lửa trại thì khác: nó là thực thể thật trong
+--   thế giới nên có ánh sáng thật, và đó là lý do DUY NHẤT dân làng từng sống
+--   sót đêm nào.
+--
+--   May là prefab người chơi có sẵn `inst.Light` (player_common.lua dựng nó
+--   rồi Enable(false), để dành cho hiệu ứng bị điện giật). Bật nó lên là dân
+--   làng có ánh sáng THẬT: đo được 0.739 và Charlie chuyển sang miễn nhiễm
+--   "light" ngay nhịp sau.
+local DEN = {
+    torch      = { r = 3.0, i = 0.80, mau = { 180 / 255, 195 / 255, 150 / 255 } },
+    lantern    = { r = 4.0, i = 0.85, mau = { 180 / 255, 195 / 255, 150 / 255 } },
+    minerhat   = { r = 3.5, i = 0.80, mau = { 180 / 255, 195 / 255, 150 / 255 } },
+    nightstick = { r = 3.0, i = 0.80, mau = { 150 / 255, 150 / 255, 255 / 255 } },
+}
+local DEN_MAC_DINH = { r = 3.0, i = 0.80, mau = { 180 / 255, 195 / 255, 150 / 255 } }
+
+function dan_lang.CapNhatDen(inst)
+    if inst.Light == nil or not inst:IsValid() then return end
+    if dan_lang.LaHonMa(inst) then inst.Light:Enable(false) return end
+    local nc = require("ailang/nhu_cau")
+    -- ⚠ Dùng DangChayThat, KHÔNG dùng MonPhatSang: cây đuốc 20% vẫn đang cháy
+    --   và vẫn cứu mạng, chỉ là không còn đủ để yên tâm. Lấy ngưỡng kế hoạch
+    --   (25%) đi tắt đèn thật là tự đẩy chúng vào bóng tối.
+    local mon = nc.DuyetTrangBi(inst, nc.DangChayThat)
+    if mon == nil then
+        inst.Light:Enable(false)
+        return
+    end
+    local d = DEN[mon.prefab] or DEN_MAC_DINH
+    inst.Light:SetRadius(d.r)
+    inst.Light:SetIntensity(d.i)
+    inst.Light:SetFalloff(0.7)
+    inst.Light:SetColour(d.mau[1], d.mau[2], d.mau[3])
+    inst.Light:Enable(true)
 end
 
 function dan_lang.ChupHoSo(inst)

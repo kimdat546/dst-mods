@@ -45,6 +45,45 @@ function lang.ThucTheTrongLang(inst, e)
     return lang.TrongLang(inst, x, z)
 end
 
+-- ── đống lửa của làng và vùng làm việc ban đêm ──────────────────────────
+
+-- ⚠ BAN ĐÊM CHỈ LÀM VIỆC QUANH ĐỐNG LỬA. Không chốt chuyện này thì node "đêm
+--   thì về bên lửa" và node làm việc GIẰNG NHAU: node làm việc nhắm bụi cỏ
+--   cách nhà 40, dân làng đi ra, dây trói kéo về, rồi lại đi ra — người chơi
+--   nhìn thấy nó rung qua rung lại cả đêm.
+--
+--   Bó vùng làm việc lại thì hết giằng, và cũng đúng cách chơi thật: trời tối
+--   là về bên lửa, sáng mai làm tiếp.
+local TAM_DEM = 12
+
+function lang.LuaCuaLang(inst)
+    local tam = lang.Tam(inst)
+    if tam == nil then return nil end
+    local r = lang.BanKinh(inst)
+    local gan, d_gan = nil, r * r
+    for _, v in ipairs(TheSim:FindEntities(tam[1], 0, tam[2], r,
+            { "campfire" }, { "INLIMBO", "burnt" })) do
+        if v.components.burnable ~= nil and v.components.burnable:IsBurning() then
+            local x, _, z = v.Transform:GetWorldPosition()
+            local d = (x - tam[1]) ^ 2 + (z - tam[2]) ^ 2
+            if gan == nil or d < d_gan then gan, d_gan = v, d end
+        end
+    end
+    return gan
+end
+
+-- Mục tiêu này có làm được vào lúc này không? Ban ngày thì thoải mái; ban đêm
+-- mà làng có lửa thì chỉ những gì nằm sát đống lửa.
+function lang.LamDuocLucNay(inst, v)
+    if not TheWorld.state.isnight then return true end
+    local lua = lang.LuaCuaLang(inst)
+    if lua == nil then return true end      -- không có lửa thì đằng nào cũng bí
+    if v == lua then return true end        -- tiếp lửa cho chính nó thì luôn được
+    local lx, _, lz = lua.Transform:GetWorldPosition()
+    local x, _, z = v.Transform:GetWorldPosition()
+    return (x - lx) ^ 2 + (z - lz) ^ 2 <= TAM_DEM * TAM_DEM
+end
+
 -- ── kẻ địch lạc vào làng ────────────────────────────────────────────────
 --
 -- Đây là điểm khác với việc tự vệ thường: trong làng thì dân làng CHỦ ĐỘNG

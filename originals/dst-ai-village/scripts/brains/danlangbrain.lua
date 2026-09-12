@@ -181,34 +181,12 @@ local function ToiHan()
     return TheWorld.state.isnight
 end
 
--- ⚠ Không có dấu hiệu CHUNG nào cho "món này phát sáng". Đã đo:
---     torch      tag "lighter"     tay
---     lighter    tag "lighter"     tay
---     lantern    tag "light"       tay
---     minerhat   KHÔNG có tag nào  đầu
---     nightstick KHÔNG có tag nào  tay
---   Và `inst.Light` phía server là nil cho TẤT CẢ — ánh sáng là thứ client vẽ.
---   Nên phải vừa xét tag vừa có danh sách trắng, và phải xét CẢ Ô ĐẦU: người
---   chơi báo thấy một dân làng vừa đội mũ thợ mỏ vừa cầm đuốc, vì bản đầu chỉ
---   nhìn mỗi ô tay.
-local PHAT_SANG = { minerhat = true, nightstick = true }
-
-local function MonPhatSang(mon)
-    if mon == nil then return false end
-    if mon.components.fueled ~= nil and mon.components.fueled:GetPercent() <= 0 then
-        return false
-    end
-    return mon:HasTag("lighter") or mon:HasTag("light") or PHAT_SANG[mon.prefab] == true
-end
-
-local function DangCoAnhSang(inst)
-    local tui = inst.components.inventory
-    if tui == nil then return false end
-    for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
-        if MonPhatSang(tui:GetEquippedItem(o)) then return true end
-    end
-    return false
-end
+-- ⚠ ĐỪNG viết lại phép thử "món này phát sáng" ở đây. Nó từng có một bản SAO
+--   trong file này (PHAT_SANG / MonPhatSang / DangCoAnhSang), song song với
+--   bản thật trong nhu_cau.lua — hai bản logic cho cùng một câu hỏi là mầm
+--   sai lệch, và đúng là chúng đã lệch: bản ở đây coi đuốc còn 1% nhiên liệu
+--   là vẫn sáng, còn nhu_cau coi dưới 25% là hết. Bản duy nhất còn lại là
+--   nhu_cau.MonPhatSang.
 
 local function LuaGanNhat(inst)
     return FindEntity(inst, TIM_BIA, function(v)
@@ -318,6 +296,29 @@ function DanLangBrain:OnStart()
         --   Chỉ cần BỎ việc là đủ: nhịp sau node làm việc thành READY, gọi lại
         --   viec.HanhDong, và chính nó gọi Giai (một lần) để mặc/chế thứ đang
         --   thiếu. Trễ nửa giây, đổi lấy việc không còn chế đồ trùng lặp.
+        -- ĐÊM THÌ VỀ BÊN LỬA CỦA LÀNG.
+        --
+        -- ⚠ PHẢI nằm TRÊN node làm việc. Bản trước để nó ở dưới cùng, nên nó
+        --   KHÔNG BAO GIỜ chạy trong lúc dân làng đang đi tới mục tiêu —
+        --   DoAction giữ RUNNING suốt quãng đường và PriorityNode không xét
+        --   tới nhánh dưới. Đúng loại lỗi đã gặp với nhánh "về nhà".
+        --
+        -- ⚠ Và phải về NGAY KHI TRỜI TỐI, không đợi tới lúc tay trắng. Bản
+        --   trước chỉ kéo về khi trên người không còn đèn nào, mà cây đuốc sắp
+        --   tàn cũng tính là "có sáng" — nên dân làng lang thang cả đêm cho tới
+        --   lúc đuốc tắt hẳn rồi mới chạy về, và thường là không kịp.
+        --
+        --   Về bên lửa còn tự gỡ một cái bẫy nữa: nhu cầu ánh sáng coi là ĐỦ
+        --   khi có lửa trại đang cháy trong vòng 10. Đứng cạnh lửa thì không
+        --   còn nhu cầu gấp nào, nên dây trói về nhà giữ mức chặt (50) thay vì
+        --   nới ra 140 — hết chuyện chạy 130 đơn vị vào bóng tối tìm cỏ.
+        --
+        --   Leash trả FAILED khi đã ở trong bán kính, nên tới nơi rồi thì nó
+        --   nhường lượt cho node làm việc; còn vùng làm việc ban đêm đã bị bó
+        --   quanh đống lửa trong lang.LamDuocLucNay nên không giằng nhau.
+        WhileNode(function() return ToiHan() end, "Đêm thì về bên lửa",
+            Leash(inst, function() return ViTriLua(inst) end, 8, 5)),
+
         IfNode(function() return viec.CanChenNgang(inst) end,
             "Chen nhu cầu gấp",
             ActionNode(function() viec.BoViec(inst) end, "bỏ việc đang làm")),
@@ -329,11 +330,6 @@ function DanLangBrain:OnStart()
         --   đuốc/nhặt đồ hỏng cùng lúc. viec.HanhDong đã gọi Giai bên trong
         --   và trả nil khi Giai vừa làm xong một việc tức thì.
         DoAction(inst, function() return viec.HanhDong(inst) end, "làm việc", true),
-
-        -- Tối hẳn mà vẫn chưa có sáng: bám lấy đống lửa gần nhất.
-        WhileNode(function() return ToiHan() and not DangCoAnhSang(inst) end,
-                  "Đêm mà chưa có sáng",
-            Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
 
         -- ĐI THEO CHỦ khi được đặt chế độ "theo chân" và đủ thiện cảm.
         -- Ở chế độ này thì bỏ qua nhánh về nhà — chủ đi đâu thì theo đó.
