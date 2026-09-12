@@ -1654,6 +1654,49 @@ local function ThuXuong(tiep)
     tiep()
 end
 
+-- ── lo thân trước khi giữ làng ──────────────────────────────────────────
+--
+-- ⚠ Nhánh "giữ làng" nằm rất cao trong cây, nên hễ nó giành được lượt là mọi
+--   nhánh tự-lo bên dưới KHÔNG BAO GIỜ chạy. Đã gây hoạ BA LẦN, lần gần nhất
+--   bắt được tận tay: cả ba dân làng khoá cứng ở đây để đuổi MỘT CON ẾCH quanh
+--   làng giữa mùa hè — nhiệt độ leo 77 -> 84 -> 87, máu tụt 94% -> 28% -> chết,
+--   trong khi có 21 gốc cây rợp bóng trong bán kính 40 ngay cạnh đó.
+local function ThuLoThanTruoc(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local la = require("ailang/lang")
+    local lo = ThoaHetNhuCau(e)
+    e.components.temperature:SetTemperature(20)
+    KT("bình thường thì KHÔNG phải lo thân, cứ giữ làng",
+       not la.LoThanTruoc(e, 66))
+
+    e.components.temperature:SetTemperature(70)
+    KT("đang nóng thì bỏ giữ làng mà đi trú — chết vì nóng thì giữ được gì",
+       la.LoThanTruoc(e, 66))
+
+    e.components.temperature:SetTemperature(20)
+    KT("mát trở lại thì quay về giữ làng", not la.LoThanTruoc(e, 66))
+
+    -- Thiếu ánh sáng giữa đêm cũng là lý do bỏ giữ làng.
+    local tui = e.components.inventory
+    for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
+        local m = tui:GetEquippedItem(o)
+        if m ~= nil then tui:DropItem(m) m:Remove() end
+    end
+    local duoc = require("ailang/nhu_cau").CoTrongTui(e, "torch")
+    if duoc ~= nil then duoc:Remove() end
+    -- ⚠ Phải dọn cả ĐỐNG LỬA mà khuôn ThoaHetNhuCau dựng sẵn: đứng cạnh lửa
+    --   đang cháy thì `anh_sang.du` vẫn trả true và cảnh "tối om" không dựng
+    --   được. Phép kiểm này từng hỏng oan đúng vì bỏ sót nó.
+    if lo ~= nil and lo:IsValid() then lo:Remove() end
+    DoiPha("night", function()
+        KT("chưa có sáng giữa đêm thì cũng bỏ giữ làng",
+           la.LoThanTruoc(e, 66))
+        e:Remove()
+        tiep()
+    end)
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1667,7 +1710,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
                ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
                ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat,
-               ThuChongNong, ThuBongCay, ThuXuong }
+               ThuChongNong, ThuBongCay, ThuXuong,
+               ThuLoThanTruoc }
 local i = 0
 local function tiep()
     i = i + 1
