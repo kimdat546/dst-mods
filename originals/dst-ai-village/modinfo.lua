@@ -29,9 +29,18 @@ dst_compatible = true
 dont_starve_compatible = false
 reign_of_giants_compatible = false
 
--- Mod CHỈ CHẠY PHÍA SERVER: dân làng là prefab người chơi vanilla, client đã
--- có sẵn để vẽ. Nhờ vậy người chơi không phải cài gì để vào server.
-all_clients_require_mod = false
+-- ⚠ CLIENT BẮT BUỘC PHẢI CÓ MOD. Đừng đổi về false.
+--
+--   Ban đầu mod cố ý chạy server-only để không ai phải cài gì. Nhưng Đài
+--   Triệu Hồi là PREFAB TỰ TẠO, và client không nạp mod thì không dựng nổi
+--   nó: người chơi vào game bị ĐƠ, log client đầy
+--       RakNet detected a missing replica
+--   Dùng hình ảnh vanilla KHÔNG đủ — bản thân prefab phải tồn tại ở client.
+--
+--   Dân làng thì không sao vì chúng là prefab người chơi vanilla. Nhưng mọi
+--   công trình riêng, mọi giao diện (bảng điều khiển, xem hành trang) đều đòi
+--   phần chạy ở client.
+all_clients_require_mod = true
 client_only_mod = false
 
 icon_atlas = "modicon.xml"
