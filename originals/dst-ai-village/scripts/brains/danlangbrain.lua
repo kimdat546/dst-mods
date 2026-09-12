@@ -316,7 +316,15 @@ function DanLangBrain:OnStart()
         --   Leash trả FAILED khi đã ở trong bán kính, nên tới nơi rồi thì nó
         --   nhường lượt cho node làm việc; còn vùng làm việc ban đêm đã bị bó
         --   quanh đống lửa trong lang.LamDuocLucNay nên không giằng nhau.
-        WhileNode(function() return ToiHan() end, "Đêm thì về bên lửa",
+        -- ⚠ TRỪ KHI ĐANG QUÁ NHIỆT. Mùa hè, đống lửa toả nhiệt cộng thêm vào
+        --   cái nóng vốn đã quá ngưỡng — bảo chúng về bên lửa lúc đó là bảo
+        --   chúng đi chết. Đo được ngày 57: nhiệt môi trường 71.6 trong khi
+        --   ngưỡng quá nhiệt là 70, cả ba chết giữa ban ngày không cần Charlie.
+        WhileNode(function()
+            if not ToiHan() then return false end
+            local t = inst.components.temperature
+            return t == nil or not t:IsOverheating()
+        end, "Đêm thì về bên lửa",
             Leash(inst, function() return ViTriLua(inst) end, 8, 5)),
 
         IfNode(function() return viec.CanChenNgang(inst) end,

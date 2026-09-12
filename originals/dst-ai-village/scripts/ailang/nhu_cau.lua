@@ -353,6 +353,39 @@ nhu_cau.DANH_SACH = {
         kiem = { "berries", "carrot" },
     },
     {
+        ma  = "mat_me",
+        ten = "mát",
+        gap = true,
+        -- ⚠ MÙA HÈ GIẾT DÂN LÀNG GIỮA BAN NGÀY, không cần Charlie. Đo trên
+        --   server ngày 57 (mùa hè): nhiệt độ MÔI TRƯỜNG đã là 71.6 trong khi
+        --   TUNING.OVERHEAT_TEMP = 70 — chỉ đứng ngoài trời là đủ chết. Máu
+        --   tụt đều suốt ngày mà KHÔNG có sự kiện "attacked" nào, nên ban đầu
+        --   nhìn như lỗi ma. Tương quan thì thẳng tưng:
+        --       An 67.6 độ -> 56% máu | Cuong 71.3 -> 1% | Binh 72.4 -> CHẾT
+        --
+        -- ⚠ Bắt đầu lo từ 62 độ, đừng đợi chạm 70. Cách nhiệt của DST chỉ làm
+        --   CHẬM tốc độ nóng lên chứ không chặn đứng, nên đội mũ lúc đã 70 là
+        --   muộn.
+        can = function(inst)
+            local t = inst.components.temperature
+            return t ~= nil and t:GetCurrent() >= 62
+        end,
+        du = function(inst)
+            return DuyetTrangBi(inst, function(m)
+                local ins = m.components.insulator
+                return ins ~= nil and ins.type == SEASONS.SUMMER
+                   and ins:GetInsulation() > 0
+            end) ~= nil
+        end,
+        -- Đã đo: grass_umbrella cách nhiệt 120 (ô tay), strawhat 60 (ô đầu),
+        -- cả hai đều tech 0. Dù cầm ô mất một tay, nó gấp đôi mũ cỏ nên xếp
+        -- trên; thiếu đồ thì tự tụt xuống mũ.
+        bac = {
+            { mon = "grass_umbrella" },   -- twigs×4 cutgrass×3 petals×6
+            { mon = "strawhat" },         -- cutgrass×12
+        },
+    },
+    {
         ma  = "dung_cu",
         ten = "dụng cụ",
         -- ⚠ THIẾU NHU CẦU NÀY LÀ CHẾT. Rìu nằm trong bộ đồ khởi đầu, nhưng

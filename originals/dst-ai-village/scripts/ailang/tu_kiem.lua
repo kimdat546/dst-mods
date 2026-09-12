@@ -1482,6 +1482,57 @@ local function ThuDenThat(tiep)
     tiep()
 end
 
+-- ── mùa hè giết dân làng giữa ban ngày ──────────────────────────────────
+--
+-- ⚠ Không cần Charlie. Đo trên server ngày 57 (mùa hè): nhiệt độ MÔI TRƯỜNG
+--   đã là 71.6 trong khi TUNING.OVERHEAT_TEMP = 70 — chỉ đứng ngoài trời là
+--   đủ chết. Máu tụt đều suốt ngày mà KHÔNG có sự kiện "attacked" nào, nên
+--   ban đầu nhìn như lỗi ma. Tương quan thì thẳng tưng:
+--       An 67.6 độ -> 56% máu | Cuong 71.3 -> 1% | Binh 72.4 -> CHẾT
+local function ThuChongNong(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local st = require("ailang/sinh_ton")
+    local n = nc.Tim("mat_me")
+    KT("có nhu cầu chống nóng trong bảng", n ~= nil)
+
+    local t = e.components.temperature
+    t:SetTemperature(20)
+    KT("mát trời thì KHÔNG lo chống nóng", n ~= nil and not n.can(e))
+
+    t:SetTemperature(65)
+    KT("nóng 65 độ là đã phải lo, đừng đợi chạm 70",
+       n ~= nil and n.can(e), "nhiệt=" .. string.format("%.0f", t:GetCurrent()))
+    e.components.inventory:DropEverything()
+    KT("chưa có đồ chống nóng thì CHƯA thoả", n ~= nil and not n.du(e))
+
+    local mu = SpawnPrefab("strawhat")
+    e.components.inventory:GiveItem(mu)
+    e.components.inventory:Equip(mu)
+    KT("đội mũ cỏ vào thì thoả", n ~= nil and n.du(e))
+    KT("mũ cỏ đúng là đồ cách nhiệt mùa hè",
+       mu.components.insulator ~= nil
+       and mu.components.insulator.type == SEASONS.SUMMER)
+
+    -- Chống nóng phải là nhu cầu GẤP và đứng TRÊN dụng cụ / nhà / giáp.
+    KT("chống nóng là nhu cầu GẤP", n ~= nil and n.gap == true)
+    KT("chống nóng xếp trên dụng cụ và nhà",
+       nc.ChiSo("mát") < nc.ChiSo("dụng cụ")
+       and nc.ChiSo("mát") < nc.ChiSo("nhà"),
+       "mát=" .. tostring(nc.ChiSo("mát")))
+
+    e.components.inventory:DropEverything()
+    t:SetTemperature(65)
+    local gap = st.CoNhuCauGap(e)
+    KT("đang nóng mà chưa có đồ thì nó là nhu cầu gấp đang chờ",
+       gap ~= nil, "gấp=" .. tostring(gap and gap.ten))
+
+    t:SetTemperature(20)
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1494,7 +1545,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDaiTrieuHoi, ThuGiuLang,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
                ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
-               ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat }
+               ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat,
+               ThuChongNong }
 local i = 0
 local function tiep()
     i = i + 1
