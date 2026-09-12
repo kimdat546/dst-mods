@@ -177,6 +177,39 @@ local function fn()
     -- Bán kính làng: dân làng ưu tiên bảo vệ, dập lửa, cất đồ trong vòng này.
     inst.ban_kinh = (rawget(_G, "AILANG_CAUHINH") or {}).ban_kinh_lang or 60
 
+    -- ⚠ CHỖ ĐẶT ĐÀI QUYẾT ĐỊNH LÀNG SỐNG HAY CHẾT, và đó là quyết định của
+    --   NGƯỜI CHƠI — nên mod phải nói ra thay vì để dân làng lặng lẽ chết.
+    --
+    --   Đo trên server, một làng dựng giữa rừng rậm: 250 cây gỗ trong bán kính
+    --   80 nhưng chỉ 1 BỤI CỎ trong bán kính 30 và KHÔNG MỘT MỎ ĐÁ nào trong
+    --   bán kính 60. Hậu quả dây chuyền suốt mùa hè:
+    --     · mũ cỏ cần 12 bó cỏ  -> phải đi 110 đơn vị, mất máu nhiều hơn số
+    --       máu tiết kiệm được
+    --     · lửa lạnh cần diêm tiêu -> cần mỏ đá -> không có
+    --   Cả ba chết giữa ban ngày, ngồi trên một mỏ gỗ mà không đổi ra nổi thứ
+    --   gì cứu mạng.
+    inst:DoTaskInTime(1, function()
+        local x, _, z = inst.Transform:GetWorldPosition()
+        local r = inst.ban_kinh
+        local co, da, cay = 0, 0, 0
+        for _, v in ipairs(TheSim:FindEntities(x, 0, z, r, nil, { "INLIMBO", "burnt" })) do
+            if v.prefab == "grass" then co = co + 1
+            elseif v.components ~= nil and v.components.workable ~= nil
+                   and v.components.workable:GetWorkAction() == ACTIONS.MINE then
+                da = da + 1
+            elseif v:HasTag("shelter") then cay = cay + 1 end
+        end
+        local thieu = {}
+        if co  < 6 then table.insert(thieu, "cỏ (" .. co .. " bụi)") end
+        if da  < 3 then table.insert(thieu, "mỏ đá (" .. da .. ")") end
+        if cay < 5 then table.insert(thieu, "cây rợp bóng (" .. cay .. ")") end
+        if #thieu > 0 then
+            TheNet:Announce("Đài dựng ở chỗ thiếu " .. table.concat(thieu, ", ")
+                .. ". Dân làng sẽ chật vật — cỏ để làm đuốc và mũ chống nóng,"
+                .. " mỏ đá để lên Máy Khoa Học, cây để trú nóng mùa hè.")
+        end
+    end)
+
     inst:AddComponent("inspectable")
     inst:AddComponent("lootdropper")
 

@@ -339,17 +339,7 @@ function DanLangBrain:OnStart()
         --   đặt ra, nhưng chỉ cần vào trong bán kính 2 là `sheltered` bật lên
         --   và cả nhánh tự nhường lượt.
         WhileNode(function()
-            local t = inst.components.temperature
-            if t == nil then return false end
-            local a = inst.ailang
-            if a == nil then return false end
-            local nhiet = t:GetCurrent()
-            if nhiet >= NONG_THI_TRU then
-                a.tru_nong = true
-            elseif nhiet <= NONG_DA_NGUOI then
-                a.tru_nong = nil
-            end
-            return a.tru_nong == true
+            return lang.CanTruNong(inst, NONG_THI_TRU, NONG_DA_NGUOI) == true
         end, "Nóng quá thì vào bóng cây",
             -- StandStill giữ chân dưới gốc cây cho tới khi thật sự nguội.
             -- Không có nó thì Leash xong là nhánh nhả lượt ngay và dân làng
