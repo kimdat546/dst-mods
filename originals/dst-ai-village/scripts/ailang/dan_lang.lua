@@ -50,12 +50,21 @@ local function ChupTui(inst)
         return { mon.prefab, n }
     end
 
-    local ra = { tui_do = {}, tren_nguoi = {} }
+    local ra = { tui_do = {}, tren_nguoi = {}, tui_hang = {} }
     for _, mon in pairs(tui.itemslots or {}) do
         table.insert(ra.tui_do, mo_ta(mon))
     end
     for o, mon in pairs(tui.equipslots or {}) do
         ra.tren_nguoi[o] = mo_ta(mon)
+    end
+    -- ⚠ Túi hàng PHẢI vào hồ sơ. Dân làng có persists = false nên thứ được lưu
+    --   cùng world là hồ sơ này, không phải entity — quên chép túi hàng là đồ
+    --   người chơi gửi vào đó bốc hơi sau mỗi lần restart.
+    local hang = inst.components.container
+    if hang ~= nil then
+        for _, mon in pairs(hang.slots or {}) do
+            table.insert(ra.tui_hang, mo_ta(mon))
+        end
     end
     return ra
 end
@@ -80,6 +89,13 @@ local function DungLaiTui(inst, tui_hs)
     for _, m in pairs(tui_hs.tren_nguoi or {}) do
         local mon = tao(m)
         if mon ~= nil then tui:GiveItem(mon) tui:Equip(mon) end
+    end
+    local hang = inst.components.container
+    if hang ~= nil then
+        for _, m in ipairs(tui_hs.tui_hang or {}) do
+            local mon = tao(m)
+            if mon ~= nil then hang:GiveItem(mon) end
+        end
     end
 end
 
@@ -146,6 +162,27 @@ function dan_lang.Sinh(hoso)
         inst.components.health:SetPercent(math.max(0.3, hoso.mau))
     end
 
+    -- ⚠ TÚI HÀNG là container RIÊNG, không phải túi đồ của dân làng.
+    --   Người chơi muốn "lấy đồ trong đó ra", mà túi đồ của một prefab người
+    --   chơi thì không mở được — nên gắn thêm hẳn một container lên chính
+    --   entity, đúng cách Chester và Glommer làm. Trỏ chuột vào dân làng là
+    --   có nút mở.
+    --
+    -- ⚠ Đây là HỘP MỘT CHIỀU, cố ý. inventory:GetOverflowContainer chỉ nhìn
+    --   món đang mặc ở ô BODY, nên đồ trong túi hàng KHÔNG dùng để chế đồ
+    --   được. Vì vậy dân làng chỉ dồn vào đây thứ nó không cần để sống — xem
+    --   KHONG_CAT bên dưới.
+    if inst.components.container == nil then
+        inst:AddComponent("container")
+        nen.thu("dựng túi hàng", function()
+            require("containers").widgetsetup(inst.components.container, "backpack")
+        end)
+        inst.components.container.canbeopened = true
+    end
+
+    -- ⚠ PHẢI gắn túi hàng TRƯỚC khi dựng lại đồ. Bản đầu gắn ở cuối hàm, nên
+    --   lúc DungLaiTui chạy thì inst.components.container còn nil và toàn bộ
+    --   đồ người chơi gửi vào túi hàng BỐC HƠI sau mỗi lần restart.
     nen.thu("dựng lại túi đồ", DungLaiTui, inst, hoso.tui)
 
     -- ⚠ Dân làng MỚI được bộ đồ khởi đầu. Không có nó thì triệu hồi lúc trời
@@ -235,6 +272,7 @@ function dan_lang.Sinh(hoso)
     inst:DoPeriodicTask(2, function()
         if inst:IsValid() and not dan_lang.LaHonMa(inst) then
             nen.thu("cất nguồn sáng", require("ailang/nhu_cau").CatNguonSang, inst)
+            nen.thu("dồn đồ dư vào túi hàng", dan_lang.CatVaoTuiHang, inst)
         end
     end)
 
@@ -413,6 +451,38 @@ function dan_lang.LaHonMa(inst)
 end
 
 -- Chụp lại trạng thái để lưu vào world.
+-- ⚠ ĐỪNG dồn thứ dân làng cần để SỐNG. Bốn món này là nguyên liệu của đuốc
+--   (cỏ + cành), lửa trại (cỏ + gỗ) và rìu (cành + đá lửa) — cất đi là tự chặt
+--   đường sống của mình. Còn lại thì dồn tuốt.
+local KHONG_CAT = {
+    cutgrass = true, twigs = true, log = true, flint = true,
+}
+
+-- Dồn một món đồ dư sang túi hàng. CHỈ khi túi chính đã đầy — lúc đó dân làng
+-- vốn đứng ngây không nhặt được gì nữa.
+function dan_lang.CatVaoTuiHang(inst)
+    local tui = inst.components.inventory
+    local hang = inst.components.container
+    if tui == nil or hang == nil or not tui:IsFull() or hang:IsFull() then
+        return false
+    end
+    for _, mon in pairs(tui.itemslots or {}) do
+        if mon ~= nil and not KHONG_CAT[mon.prefab]
+           and mon.components.equippable == nil
+           and mon.components.tool == nil
+           and hang:CanTakeItemInSlot(mon) then
+            local go = tui:RemoveItem(mon, true)
+            if go ~= nil and hang:GiveItem(go) then
+                nen.doi(inst, tostring(inst.ailang and inst.ailang.ten),
+                        "dồn", go.prefab, "sang túi hàng")
+                return true
+            end
+            if go ~= nil then tui:GiveItem(go) end   -- không vào được thì trả lại
+        end
+    end
+    return false
+end
+
 function dan_lang.ChupHoSo(inst)
     if inst == nil or not inst:IsValid() or inst.ailang == nil then return nil end
     local x, _, z = inst.Transform:GetWorldPosition()

@@ -310,6 +310,13 @@ function lenh.Kho()
                 local mon = tui:GetEquippedItem(o)
                 DemVao(tong, mon) DemVao(rieng, mon)
             end
+            -- Túi hàng (chỗ người chơi mở ra lấy đồ) cũng là kho của làng.
+            local hang = e.components.container
+            if hang ~= nil then
+                for _, mon in pairs(hang.slots or {}) do
+                    DemVao(tong, mon) DemVao(rieng, mon)
+                end
+            end
             local n = 0
             for _ in pairs(rieng) do n = n + 1 end
             table.insert(dong_dan, string.format("%-8s %2d loại", e.ailang.ten, n))

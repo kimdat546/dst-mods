@@ -1346,6 +1346,85 @@ local function ThuKho(tiep)
     tiep()
 end
 
+-- ── túi hàng mở được ────────────────────────────────────────────────────
+--
+-- ⚠ Túi ĐỒ của một prefab người chơi thì người chơi khác KHÔNG mở được — nên
+--   phải gắn hẳn một `container` lên chính entity dân làng, đúng cách Chester
+--   và Glommer làm. Đây là hộp MỘT CHIỀU cố ý: inventory:GetOverflowContainer
+--   chỉ nhìn món mặc ở ô BODY, nên đồ trong túi hàng không chế đồ được.
+local function ThuTuiHang(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local tui, hang = e.components.inventory, e.components.container
+    KT("dân làng có túi hàng mở được", hang ~= nil and hang.canbeopened)
+    KT("túi hàng có ô chứa", hang ~= nil and (hang.numslots or 0) > 0,
+       "ô=" .. tostring(hang and hang.numslots))
+
+    tui:DropEverything()
+    tui:GiveItem(SpawnPrefab("petals"))
+    KT("túi chính CHƯA đầy thì không dồn đi đâu cả",
+       not dan_lang.CatVaoTuiHang(e))
+
+    -- ⚠ Nhồi cho đầy phải dùng NHIỀU LOẠI món khác nhau. Đổ 20 cánh hoa thì
+    --   chúng chồng hết vào ĐÚNG MỘT Ô và túi không bao giờ đầy — phép kiểm
+    --   hỏng oan, nhìn như tính năng hỏng.
+    for _, m in ipairs({ "petals", "berries", "carrot", "ash", "charcoal",
+                         "seeds", "acorn", "foliage", "cutreeds", "red_cap",
+                         "blue_cap", "green_cap", "butterflywings", "honey",
+                         "smallmeat", "petals_evil", "boards", "rocks" }) do
+        if tui:IsFull() then break end
+        local mon = SpawnPrefab(m)
+        if mon ~= nil then tui:GiveItem(mon) end
+    end
+    KT("dựng đúng cảnh: túi chính đã đầy", tui:IsFull())
+    KT("túi đầy thì dồn đồ dư sang túi hàng", dan_lang.CatVaoTuiHang(e))
+    local n = 0
+    for _, m in pairs(hang.slots or {}) do if m ~= nil then n = n + 1 end end
+    KT("đồ đã nằm trong túi hàng", n > 0, "trong túi hàng=" .. n)
+
+    -- Nguyên liệu sống còn thì TUYỆT ĐỐI không được dồn đi.
+    tui:DropEverything()
+    -- Đầy túi nhưng TOÀN nguyên liệu sống còn: không được dồn món nào đi cả.
+    for _, m in ipairs({ "cutgrass", "twigs", "log", "flint" }) do
+        for _ = 1, 6 do
+            if tui:IsFull() then break end
+            local mon = SpawnPrefab(m)
+            -- Mỗi món một ô: chồng được thì ô sau không tính, nên phải cho
+            -- từng cái rồi tách ra. Đơn giản hơn: chồng tới giới hạn là đủ đầy.
+            if mon ~= nil then tui:GiveItem(mon) end
+        end
+    end
+    -- Nếu vẫn chưa đầy thì nhồi thêm cho đủ ô, vẫn chỉ bằng bốn món trên.
+    KT("dựng đúng cảnh: túi toàn nguyên liệu sống còn",
+       require("ailang/nhu_cau").CoTrongTui(e, "cutgrass") ~= nil)
+    local truoc = 0
+    for _, m in pairs(hang.slots or {}) do if m ~= nil then truoc = truoc + 1 end end
+    dan_lang.CatVaoTuiHang(e)
+    local sau = 0
+    for _, m in pairs(hang.slots or {}) do if m ~= nil then sau = sau + 1 end end
+    KT("KHÔNG dồn cỏ/cành/gỗ/đá lửa đi — đó là nguyên liệu sống còn",
+       sau == truoc, "trước=" .. truoc .. " sau=" .. sau)
+
+    -- Hồ sơ phải chép túi hàng, nếu không restart là đồ người chơi gửi bay hết.
+    local hs = dan_lang.ChupHoSo(e)
+    KT("hồ sơ có chép túi hàng",
+       hs ~= nil and hs.tui ~= nil and #(hs.tui.tui_hang or {}) > 0,
+       "chép được " .. tostring(hs and hs.tui and #(hs.tui.tui_hang or {})))
+    e:Remove()
+
+    local moi = dan_lang.Sinh(hs)
+    local n2 = 0
+    if moi ~= nil and moi.components.container ~= nil then
+        for _, m in pairs(moi.components.container.slots or {}) do
+            if m ~= nil then n2 = n2 + 1 end
+        end
+    end
+    KT("dựng lại dân làng thì đồ trong túi hàng còn nguyên", n2 > 0,
+       "còn=" .. n2)
+    if moi ~= nil then moi:Remove() end
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1358,7 +1437,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDaiTrieuHoi, ThuGiuLang,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
                ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
-               ThuNapDayTruocDem, ThuKho }
+               ThuNapDayTruocDem, ThuKho, ThuTuiHang }
 local i = 0
 local function tiep()
     i = i + 1
