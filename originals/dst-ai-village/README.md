@@ -316,7 +316,8 @@ BÁO, không phải nhánh `if` lồng nhau. Thêm nhu cầu mới chỉ là th�
 Thứ tự ưu tiên:
 
 ```
-ánh sáng > đồ ăn > hồi máu > dụng cụ > nhà > hồi não > vũ khí > giáp > cuốc
+ánh sáng > đồ ăn > hồi máu > mát > dụng cụ > nhà > xưởng
+         > hồi não > vũ khí > giáp > cuốc
 ```
 
 Thứ tự này là thứ đã trả giá đắt nhất để tìm ra, nên chép lại lý do:
@@ -330,6 +331,10 @@ Thứ tự này là thứ đã trả giá đắt nhất để tìm ra, nên ché
   thì chỉ đau hơn. Để "nhà" ở cuối bảng là giáp/vũ khí luôn chen trước và dân
   làng không dựng nổi đống lửa nào.
 - **cuốc ở cuối.** Không có cuốc thì chỉ chậm, không chết.
+- **mát đứng gần đầu.** Mùa hè giết dân làng giữa ban ngày, không cần Charlie —
+  xem mục dưới.
+- **xưởng đứng dưới nhà.** Có chỗ trú đã rồi mới tính chuyện máy móc. Nhưng nó
+  trên vũ khí/giáp, vì một cái máy mở khoá cả một tầng.
 
 Với nhu cầu cấp thiết nhất chưa thoả, `sinh_ton.lua` đi ba nước:
 
@@ -352,6 +357,58 @@ xuống đuốc; thiếu cỏ thì đi tìm bụi cỏ, thiếu cành thì tìm 
 
 `builder:CanBuild` tự xét cấp công nghệ nên **bậc cao tự rụng khi chưa đủ đồ
 nghề**. Không phải viết điều kiện tay.
+
+### Mùa hè giết dân làng giữa ban ngày
+
+Không cần Charlie. Đo trên server ngày 57:
+
+```
+nhiệt độ MÔI TRƯỜNG = 71.6 … 78      TUNING.OVERHEAT_TEMP = 70
+```
+
+Chỉ đứng ngoài trời là đủ chết. Máu tụt đều suốt ngày mà **không một sự kiện
+`attacked` nào**, nên ban đầu nhìn như lỗi ma. Tương quan thì thẳng tưng:
+
+| dân làng | nhiệt độ | máu |
+|---|---|---|
+| An | 67.6 | 56% |
+| Cuong | 71.3 | 1% |
+| Binh | 72.4 | **chết** |
+
+Đồ chống nóng đã đo:
+
+| món | cách nhiệt | ô | công thức | tech |
+|---|---|---|---|---|
+| `coldfire` (lửa lạnh) | — | công trình | cutgrass×3 nitre×2 | **1** |
+| `grass_umbrella` | 120 | tay | twigs×4 cutgrass×3 petals×6 | 0 |
+| `strawhat` | 60 | đầu | cutgrass×12 | 0 |
+
+⚠ Mũ và ô chỉ **làm chậm** tốc độ nóng lên, không chặn đứng — ở mức 78 độ thì
+cách nhiệt 60 không cứu nổi. Lời giải thật là **lửa lạnh**, và nó tech 1.
+
+⚠ Bắt đầu lo từ **62 độ**, đừng đợi chạm 70. Đội mũ lúc đã 70 là muộn.
+
+⚠ **Đang quá nhiệt thì ĐỪNG về bên lửa.** Đống lửa toả nhiệt cộng thêm vào cái
+nóng vốn đã quá ngưỡng.
+
+### Một cái máy mở khoá cả một tầng
+
+`researchlab` là **tech 0** (`goldnugget×1 log×4 rocks×4`) nên dân làng tự dựng
+được — cần cuốc để có đá và vàng, mà nhu cầu *cuốc* đã lo phần đó. Từ lúc có
+máy, mọi nhu cầu khác **tự lên bậc mà không phải sửa gì thêm**, vì
+`builder:CanBuild` xét cấp công nghệ hộ:
+
+```
+mát     → coldfire    (lời giải thật của mùa hè)
+nhà     → firepit     (bếp lửa không biến mất khi hết củi)
+vũ khí  → spear
+giáp    → armorwood
+```
+
+⚠ `du` của nhu cầu *xưởng* phải đòi tag **`structure`**, không chỉ `prototyper`:
+`carnival_host` — con quạ của sự kiện lễ hội — cũng mang tag `prototyper` và nó
+**biết đi**. Bộ tự kiểm bắt được đúng cảnh đó: một con lảng vảng gần điểm sinh
+làm dân làng tưởng làng đã có xưởng.
 
 ### Túi hàng — chỗ người chơi lấy đồ ra
 

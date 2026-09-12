@@ -228,7 +228,14 @@ end
 -- ⚠ Phải cho THOẢ HẾT nhu cầu trước. Nhánh "nhặt" nằm DƯỚI nhánh sinh tồn,
 --   nên còn nhu cầu nào chưa xong là dân làng đi gom nguyên liệu cho nhu cầu
 --   đó chứ không nhặt vu vơ — đã hỏng oan với "nhắm=grass".
+-- ⚠ Thêm nhu cầu mới vào bảng thì PHẢI thoả nó ở đây, không thì mọi bài kiểm
+--   dựa vào khuôn này hỏng theo kiểu khó đoán. Đã gặp thật khi thêm "xưởng":
+--   bài "thấy đồ dưới đất thì đi nhặt" chuyển sang HỎNG với "hành động=MINE",
+--   vì dân làng đi đào đá làm Máy Khoa Học thay vì nhặt món trước mặt.
+local MAY_THU   -- máy khoa học của khuôn, dọn ở lần gọi sau
+
 local function ThoaHetNhuCau(e)
+    if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
     local tui = e.components.inventory
     for _, m in ipairs({ "spear", "armorgrass", "torch" }) do
         local mon = SpawnPrefab(m)
@@ -245,6 +252,8 @@ local function ThoaHetNhuCau(e)
     e.ailang.nha = { x, z }
     local lua = SpawnPrefab("campfire")
     lua.Transform:SetPosition(x + 5, y, z)
+    MAY_THU = SpawnPrefab("researchlab")
+    if MAY_THU ~= nil then MAY_THU.Transform:SetPosition(x + 7, y, z) end
     return lua
 end
 
@@ -1533,6 +1542,74 @@ local function ThuChongNong(tiep)
     tiep()
 end
 
+-- ── một cái máy mở khoá cả một tầng ─────────────────────────────────────
+--
+-- ⚠ researchlab là TECH 0 (goldnugget×1 log×4 rocks×4) nên dân làng tự dựng
+--   được, và từ lúc có nó mọi nhu cầu khác TỰ LÊN BẬC mà không phải sửa gì —
+--   builder:CanBuild xét cấp công nghệ hộ. Đây là đường thoát của mùa hè: mũ
+--   cỏ (cách nhiệt 60) không cứu nổi khi nhiệt môi trường lên 78, phải có lửa
+--   lạnh, mà lửa lạnh là tech 1.
+local function ThuXuong(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local n = nc.Tim("xuong")
+    KT("có nhu cầu xưởng trong bảng", n ~= nil)
+    KT("chưa có máy thì CHƯA thoả", n ~= nil and not n.du(e))
+
+    -- ⚠ Con quạ lễ hội (carnival_host) cũng mang tag "prototyper" và nó BIẾT
+    --   ĐI. Bộ kiểm này từng hỏng vì có một con lảng vảng gần điểm sinh —
+    --   đúng cái bẫy mà `du` phải chặn bằng cách đòi thêm tag "structure".
+    local gia = SpawnPrefab("carnival_host")
+    if gia ~= nil then
+        gia.Transform:SetPosition(gx + 3, 0, gz)
+        KT("thứ biết đi mang tag prototyper KHÔNG tính là xưởng",
+           n ~= nil and not n.du(e),
+           "quạ có prototyper=" .. tostring(gia:HasTag("prototyper")))
+        gia:Remove()
+    end
+
+    local may = SpawnPrefab("researchlab")
+    may.Transform:SetPosition(gx + 5, 0, gz)
+    KT("máy khoa học mang tag prototyper", may:HasTag("prototyper"))
+    KT("dựng máy cạnh nhà thì thoả", n ~= nil and n.du(e))
+
+    KT("xưởng xếp DƯỚI nhà (có chỗ trú đã rồi mới tính chuyện máy móc)",
+       nc.ChiSo("xưởng") > nc.ChiSo("nhà"))
+    KT("nhưng TRÊN vũ khí và giáp",
+       nc.ChiSo("xưởng") < nc.ChiSo("vũ khí")
+       and nc.ChiSo("xưởng") < nc.ChiSo("giáp"))
+    KT("xưởng KHÔNG chen ngang (dựng máy là việc dài hơi)", n ~= nil and n.gap ~= true)
+
+    -- Lửa lạnh phải là bậc CAO NHẤT của nhu cầu chống nóng.
+    local mat = nc.Tim("mat_me")
+    KT("lửa lạnh là bậc cao nhất của chống nóng",
+       mat ~= nil and mat.bac[1] ~= nil and mat.bac[1].mon == "coldfire",
+       "bậc 1=" .. tostring(mat and mat.bac[1] and mat.bac[1].mon))
+    KT("lửa lạnh dựng Ở LÀNG, không dựng dưới chân",
+       mat ~= nil and mat.bac[1] ~= nil and mat.bac[1].o_nha == true)
+
+    -- Đứng cạnh lửa lạnh đang cháy thì coi như đã mát.
+    e.components.inventory:DropEverything()
+    e.components.temperature:SetTemperature(65)
+    KT("đang nóng, chưa có gì thì CHƯA mát", mat ~= nil and not mat.du(e))
+    local lanh = SpawnPrefab("coldfire")
+    if lanh ~= nil then
+        local ex, _, ez = e.Transform:GetWorldPosition()
+        lanh.Transform:SetPosition(ex + 2, 0, ez)
+        if lanh.components.fueled ~= nil then lanh.components.fueled:SetPercent(1) end
+        KT("đứng cạnh lửa lạnh đang cháy thì tính là mát",
+           mat ~= nil and mat.du(e),
+           "cháy=" .. tostring(lanh.components.burnable
+                               and lanh.components.burnable:IsBurning()))
+        lanh:Remove()
+    end
+    e.components.temperature:SetTemperature(20)
+    may:Remove()
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1546,7 +1623,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
                ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
                ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat,
-               ThuChongNong }
+               ThuChongNong, ThuXuong }
 local i = 0
 local function tiep()
     i = i + 1
@@ -1554,6 +1631,7 @@ local function tiep()
         buoc[i](tiep)
     else
         TraLaiGio()
+        if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
         KhoiPhucLang()
         print(string.format("[TU-KIEM] ===== XONG: %d đạt, %d hỏng =====", dat, hong))
     end
