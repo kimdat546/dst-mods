@@ -273,7 +273,19 @@ function DanLangBrain:OnStart()
             return true
         end, "Giữ làng", ChaseAndAttack(inst, 15)),
 
-        ChaseAndAttack(inst, 10),
+        -- ĐÁNH TRẢ khi bị đụng tới. Nhưng cũng phải LO THÂN TRƯỚC.
+        --
+        -- ⚠ Đây là LẦN THỨ TƯ của cùng một lỗi, và lần này là do vá sót: đã
+        --   gắn chốt lo-thân cho nhánh "Giữ làng" ngay trên nhưng QUÊN nhánh
+        --   tự vệ nằm ngay dưới, mà nó cũng cao hơn mọi nhánh tự lo.
+        --
+        --   Đo được: dân làng đứng CÁCH BỤI CỎ ĐÚNG 17 ĐƠN VỊ, việc đang giữ
+        --   là "mát", mà suốt 24 giây chỉ nhích được 6 đơn vị — quá nửa số
+        --   nhịp bị ChaseAndAttack giành lượt, nhiệt leo 70 -> 76 và máu tụt
+        --   đều. Nó không chết vì xa tài nguyên; nó chết vì mải đánh nhau.
+        WhileNode(function()
+            return not lang.LoThanTruoc(inst, NONG_THI_TRU)
+        end, "Đánh trả", ChaseAndAttack(inst, 10)),
 
         IfNode(function() return DangDoi(inst) end, "Đói",
             DoAction(inst, HanhDongAn, "ăn", true)),
