@@ -1746,6 +1746,28 @@ local function ThuLoThanTruoc(tiep)
     e.components.temperature:SetTemperature(20)
     KT("mát trở lại thì quay về giữ làng", not la.LoThanTruoc(e, 66))
 
+    -- ⚠ CẢ HAI NHÁNH ĐÁNH NHAU đều phải dùng chung chốt này. Đã vá sót một
+    --   lần: gắn cho "Giữ làng" mà QUÊN nhánh tự vệ ngay dưới, mà nó cũng cao
+    --   hơn mọi nhánh tự lo. Đo được hậu quả: dân làng đứng CÁCH BỤI CỎ ĐÚNG
+    --   17 ĐƠN VỊ, việc đang giữ là "mát", mà suốt 24 giây chỉ nhích được 6
+    --   đơn vị — quá nửa số nhịp bị ChaseAndAttack giành lượt, nhiệt leo
+    --   70 -> 76, máu tụt đều. Nó không chết vì xa tài nguyên; nó chết vì mải
+    --   đánh nhau.
+    -- ⚠ Khẳng định theo BẤT BIẾN, không theo nhãn: WhileNode đặt tên node là
+    --   "Parallel" chứ không giữ nhãn mình truyền vào, nên tìm theo nhãn là
+    --   hỏng oan. Thứ cần bảo đảm là KHÔNG CÒN ChaseAndAttack nào để TRẦN ở
+    --   tầng gốc — mọi nhánh đánh nhau đều phải nằm dưới một chốt lo-thân.
+    local nao2 = Brain(e)
+    nao2:OnStart()
+    local ten_nhanh, tran = {}, 0
+    local goc = nao2.bt and nao2.bt.root
+    for _, c in ipairs((goc and goc.children) or {}) do
+        table.insert(ten_nhanh, tostring(c.name))
+        if tostring(c.name) == "ChaseAndAttack" then tran = tran + 1 end
+    end
+    KT("KHÔNG còn nhánh đánh nhau nào để trần ở tầng gốc",
+       tran == 0, "để trần=" .. tran .. " | các nhánh=" .. table.concat(ten_nhanh, ","))
+
     -- Thiếu ánh sáng giữa đêm cũng là lý do bỏ giữ làng.
     local tui = e.components.inventory
     for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
