@@ -914,6 +914,35 @@ local function ThuRaNgoaiLang(tiep)
     KT("nhu cầu gấp thì VỚI TỚI được thứ ngoài vùng làng", ngoai_lang,
        "nhắm=" .. tostring(gap and gap.target and gap.target.prefab))
     bui:Remove()
+
+    -- ⚠ VÀ PHẢI VỚI TỚI TẬN 120. Đây là chỗ hai con số từng đá nhau: bán kính
+    --   tìm khẩn cấp là 80 trong khi node "đi quá xa nhà" kéo về ở 50, nên
+    --   vòng tìm khẩn cấp CHƯA BAO GIỜ dùng được. Đo trên server, làng dựng
+    --   giữa rừng rậm: bán kính 80 có 250 cây gỗ nhưng chỉ 3 BỤI CỎ và KHÔNG
+    --   MỘT bụi cây con nào trong cả bán kính 150 — cỏ thì có 86 bụi, ở 150.
+    --   Cả ba chết đêm với 2 khúc gỗ trong túi, ngồi trên mỏ gỗ mà không đổi
+    --   ra nổi ánh sáng.
+    for _, v in ipairs(TheSim:FindEntities(nx + 120, 0, nz, 40)) do
+        if v.prefab == "cutgrass" and v.Remove ~= nil then v:Remove() end
+    end
+    local xa = SpawnPrefab("grass")
+    xa.Transform:SetPosition(nx + 120, 0, nz)
+    e.Transform:SetPosition(nx + 110, 0, nz)
+    local rat_gap = st.DiKiem(e, "cutgrass", nil, 130)
+    -- Khẳng định theo KHOẢNG CÁCH, không theo đúng cái bụi vừa dựng: bản đồ
+    -- thật có thể còn bụi khác gần đó, và nhắm bụi nào cũng được miễn là nó
+    -- nằm ngoài tầm mà dây trói về nhà từng chặn.
+    local xa_nha = -1
+    if rat_gap ~= nil and rat_gap.target ~= nil then
+        local tx, _, tz = rat_gap.target.Transform:GetWorldPosition()
+        xa_nha = math.sqrt((tx - nx) ^ 2 + (tz - nz) ^ 2)
+    end
+    KT("nhu cầu gấp với tới được tài nguyên cách nhà hơn 100",
+       xa_nha > 100,
+       "nhắm=" .. tostring(rat_gap and rat_gap.target and rat_gap.target.prefab)
+       .. " cách nhà " .. string.format("%.0f", xa_nha))
+    xa:Remove()
+    e:Remove()
     tiep()
 end
 
@@ -1257,6 +1286,66 @@ local function ThuGiapSauCung(tiep)
     tiep()
 end
 
+-- ── chập tối thì nạp lửa tới gần đầy ────────────────────────────────────
+--
+-- ⚠ Lửa đầy cháy được 360 giây, mà chập tối + đêm là 240 giây. Nạp tới nửa
+--   bình rồi bỏ đi là nó CHẾT ngay trước bình minh. Đo trên server: cả ba ôm
+--   2 khúc gỗ mỗi đứa mà lua=0 giữa đêm, một đứa đứng tay không trong bóng tối.
+local function ThuNapDayTruocDem(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    TheWorld:PushEvent("ms_setphase", "day")
+    local lo = ThoaHetNhuCau(e)
+    local tui = e.components.inventory
+    tui:GiveItem(SpawnPrefab("log"))
+    tui:GiveItem(SpawnPrefab("log"))
+
+    lo.components.fueled:SetPercent(0.7)
+    vi.BoViec(e)
+    KT("ban ngày lửa hơn nửa bình thì thôi, để dành củi",
+       (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL,
+       "việc=" .. tostring((vi.NhanViec(e) or {}).vi_sao))
+
+    DoiPha("dusk", function()
+        vi.BoViec(e)
+        local v = vi.NhanViec(e)
+        KT("nhưng CHẬP TỐI thì cùng mức đó phải nạp thêm cho gần đầy",
+           v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL,
+           "việc=" .. tostring(v and v.vi_sao))
+
+        lo.components.fueled:SetPercent(0.98)
+        vi.BoViec(e)
+        KT("đã gần đầy thì thôi, không nhồi vô ích",
+           (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL)
+        lo:Remove()
+        e:Remove()
+        tiep()
+    end)
+end
+
+-- ── bảng kho của làng ───────────────────────────────────────────────────
+local function ThuKho(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local l = require("ailang/lenh")
+    local tui = e.components.inventory
+    tui:DropEverything()
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("log")) end
+    local riu = SpawnPrefab("axe") tui:GiveItem(riu) tui:Equip(riu)
+
+    local ok, tong = pcall(l.Kho)
+    KT("c_ailang_kho chạy không nổ", ok, tostring(tong))
+    KT("bảng kho cộng đúng 3 khúc gỗ",
+       type(tong) == "table" and tong.log == 3,
+       "gỗ=" .. tostring(type(tong) == "table" and tong.log))
+    KT("bảng kho đếm cả đồ ĐANG CẦM, không chỉ đồ trong túi",
+       type(tong) == "table" and tong.axe == 1,
+       "rìu=" .. tostring(type(tong) == "table" and tong.axe))
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1268,7 +1357,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuKhongTrom, ThuRaNgoaiLang,
                ThuDaiTrieuHoi, ThuGiuLang,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
-               ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung }
+               ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
+               ThuNapDayTruocDem, ThuKho }
 local i = 0
 local function tiep()
     i = i + 1

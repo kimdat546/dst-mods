@@ -180,8 +180,20 @@ end
 --
 --   Nhu cầu "nhà" chỉ lo có/không có đống lửa; giữ cho nó cháy là việc thường,
 --   nên nhu cầu gấp vẫn chen ngang được (lo thân trước, nuôi lửa sau).
-local NGUONG_TIEP  = 0.5   -- dưới nửa bình thì thêm củi
+-- ⚠ NGƯỠNG PHẢI ĐỔI THEO GIỜ. Lửa đầy cháy được 360 giây, mà chập tối + đêm
+--   là 240 giây — nạp tới nửa bình rồi bỏ đi là nó CHẾT ngay trước bình minh.
+--   Đo trên server: cả ba dân làng ôm 2 khúc gỗ mỗi đứa mà lua=0 giữa đêm, và
+--   một đứa đứng tay không trong bóng tối.
+--   Ban ngày thì nửa bình là đủ (còn cả ngày để nạp thêm); chập tối trở đi thì
+--   nạp tới gần đầy, y như người chơi ném hết củi vào bếp trước khi trời sập.
+local NGUONG_NGAY = 0.5
+local NGUONG_TOI  = 0.95
 local GIU_LAM_DUOC = 4     -- chừa lại bấy nhiêu cỏ/cành để còn làm đuốc
+
+local function NguongTiep()
+    return (TheWorld.state.isdusk or TheWorld.state.isnight)
+           and NGUONG_TOI or NGUONG_NGAY
+end
 
 -- ⚠ ĐỪNG ném đuốc vào lửa. Đuốc có `fueled` (nhận nhiên liệu) chứ không có
 --   `fuel` (làm nhiên liệu), nên lọc theo `fuel` là đã loại đúng. Vẫn chặn
@@ -199,7 +211,7 @@ local function ViecTiepLua(inst)
     local lo = FindEntity(inst, lang.BanKinh(inst), function(v)
         return v.components.fueled ~= nil
            and v.components.fueled.accepting
-           and v.components.fueled:GetPercent() < NGUONG_TIEP
+           and v.components.fueled:GetPercent() < NguongTiep()
            and v.components.burnable ~= nil
            and v.components.burnable:IsBurning()
            and lang.ThucTheTrongLang(inst, v)

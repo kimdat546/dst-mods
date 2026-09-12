@@ -261,6 +261,105 @@ function lenh.ONha(ten)   DatCheDo(ten, "o_nha",     "ở nhà, không đi đâu
 function lenh.TuDo(ten)   DatCheDo(ten, "tu_do",     "làm việc quanh nhà")     end
 
 -- Bảng liệt kê đủ để quyết ai theo, ai ở nhà.
+-- ── kho của làng ────────────────────────────────────────────────────────
+--
+-- Gom cả TÚI DÂN LÀNG lẫn RƯƠNG TRONG LÀNG về một bảng. Không có bảng này thì
+-- muốn biết làng đang có bao nhiêu gỗ phải đi soi từng đứa một.
+
+-- Tên tiếng Việt cho những thứ hay gặp; còn lại in thẳng tên prefab.
+local TEN_VIET = {
+    log = "gỗ", cutgrass = "cỏ", twigs = "cành cây", flint = "đá lửa",
+    rocks = "đá", goldnugget = "vàng", nitre = "diêm tiêu",
+    petals = "cánh hoa", berries = "quả mọng", carrot = "cà rốt",
+    torch = "đuốc", axe = "rìu", pickaxe = "cuốc", spear = "giáo",
+    armorgrass = "áo cỏ", armorwood = "áo gỗ", rope = "dây thừng",
+    lightbulb = "trái đèn", ash = "tro", charcoal = "than",
+}
+
+local function TenMon(prefab)
+    return TEN_VIET[prefab] or prefab
+end
+
+local function DemVao(bang, mon)
+    if mon == nil then return end
+    local n = mon.components.stackable ~= nil
+              and mon.components.stackable:StackSize() or 1
+    bang[mon.prefab] = (bang[mon.prefab] or 0) + n
+end
+
+function lenh.Kho()
+    local lang = require("ailang/lang")
+    local ds = dan_lang.TatCa()
+    if #ds == 0 then
+        Bao("không có dân làng nào — mod đã bật ở tab SERVER MODS chưa?")
+        return
+    end
+
+    local tong, tu_ruong = {}, {}
+    local dong_dan = {}
+
+    for _, e in ipairs(ds) do
+        local tui = e.components.inventory
+        if tui ~= nil then
+            local rieng = {}
+            for _, mon in pairs(tui.itemslots or {}) do
+                DemVao(tong, mon) DemVao(rieng, mon)
+            end
+            -- Đồ đang mặc/cầm cũng là của làng, đếm luôn.
+            for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD, EQUIPSLOTS.BODY }) do
+                local mon = tui:GetEquippedItem(o)
+                DemVao(tong, mon) DemVao(rieng, mon)
+            end
+            local n = 0
+            for _ in pairs(rieng) do n = n + 1 end
+            table.insert(dong_dan, string.format("%-8s %2d loại", e.ailang.ten, n))
+        end
+    end
+
+    -- Rương trong bán kính làng. Lấy tâm làng của dân làng đầu tiên có nhà.
+    local tam
+    for _, e in ipairs(ds) do
+        tam = lang.Tam(e)
+        if tam ~= nil then
+            for _, v in ipairs(TheSim:FindEntities(tam[1], 0, tam[2],
+                    lang.BanKinh(e), { "structure" }, { "INLIMBO", "burnt" })) do
+                local c = v.components.container
+                if c ~= nil then
+                    for _, mon in pairs(c.slots or {}) do
+                        DemVao(tong, mon) DemVao(tu_ruong, mon)
+                    end
+                end
+            end
+            break
+        end
+    end
+
+    local ds_mon = {}
+    for prefab, n in pairs(tong) do
+        table.insert(ds_mon, { prefab = prefab, n = n })
+    end
+    table.sort(ds_mon, function(a, b)
+        if a.n ~= b.n then return a.n > b.n end
+        return a.prefab < b.prefab
+    end)
+
+    Bao("── kho của làng ──  (" .. #ds .. " dân"
+        .. (tam ~= nil and "" or ", chưa có Đài nên không tính rương") .. ")")
+    if #ds_mon == 0 then
+        Bao("trống trơn.")
+        return
+    end
+    for _, m in ipairs(ds_mon) do
+        local trong_ruong = tu_ruong[m.prefab] or 0
+        Bao(string.format("%-12s %4d%s", TenMon(m.prefab), m.n,
+            trong_ruong > 0 and ("   (rương " .. trong_ruong .. ")") or ""))
+    end
+    Bao(table.concat(dong_dan, "  |  "))
+    -- Trả về bảng để bộ tự kiểm soi được. Bắt lỗi qua chuỗi in ra thì hỏng:
+    -- Bao là hàm local, bộ kiểm thay lenh.Bao không đụng tới nó được.
+    return tong, tu_ruong
+end
+
 function lenh.Bang()
     local than_thiet = require("ailang/than_thiet")
     local ds = dan_lang.TatCa()
