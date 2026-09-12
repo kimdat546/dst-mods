@@ -174,20 +174,39 @@ nhu_cau.DANH_SACH = {
         ma  = "anh_sang",
         ten = "ánh sáng",
         gap = true,
-        -- Chập tối đã lo, không đợi tối hẳn mới cuống.
-        can = function() return TheWorld.state.isdusk or TheWorld.state.isnight end,
+        -- ⚠ LUÔN muốn có nguồn sáng sẵn trong người, kể cả giữa ban ngày.
+        --   Bản trước chỉ bật nhu cầu này lúc chập tối, và đó là ÁN TỬ: đo
+        --   trên server, cả ba dân làng dành nguyên ngày gom đồ cho vũ khí và
+        --   giáp, tới lúc trời sập thì tay trắng, và CHẾT CẢ BA trong một đêm.
+        --   Chế cây đuốc mất 2 cỏ + 2 cành — phải gom lúc còn sáng, y như
+        --   người chơi thật vẫn làm.
+        can = function() return true end,
         du  = function(inst)
-            return DuyetTrangBi(inst, nhu_cau.MonPhatSang) ~= nil
-                or (not TheWorld.state.isnight
-                    and DuyetTui(inst, nhu_cau.MonPhatSang) ~= nil)
+            -- Ban đêm thì phải CẦM TRÊN TAY mới tính; ban ngày để trong túi
+            -- là đủ, khỏi vướng tay làm việc.
+            if DuyetTrangBi(inst, nhu_cau.MonPhatSang) ~= nil then return true end
+            -- Đứng cạnh đống lửa đang cháy cũng là có sáng.
+            if FindEntity(inst, 10, function(v)
+                   return v.components.burnable ~= nil
+                      and v.components.burnable:IsBurning()
+               end, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil then
+                return true
+            end
+            if TheWorld.state.isnight then return false end
+            return DuyetTui(inst, nhu_cau.MonPhatSang) ~= nil
         end,
         -- Chỉ CẦM LÊN khi tối hẳn; hoàng hôn thì có sẵn trong túi là đủ, để
         -- còn rảnh tay cầm rìu.
         mac_khi = function() return TheWorld.state.isnight end,
+        -- ⚠ LỬA TRẠI là bậc cuối và nó CỨU MẠNG. Đo trên server: cả vùng
+        --   không có bụi cây con nào trong bán kính 150, nên dân làng không
+        --   bao giờ làm nổi đuốc (cần 2 cành) — trong khi chúng ôm 20 bó cỏ.
+        --   Lửa trại chỉ cần 3 cỏ + 2 gỗ, mà gỗ thì chặt cây là có.
         bac = {
             { mon = "minerhat" },
             { mon = "lantern" },
             { mon = "torch" },
+            { mon = "campfire", dat_xuong = true },
         },
     },
     {

@@ -77,9 +77,18 @@ end
 
 -- ── tìm việc mặc định (khi không còn nhu cầu nào) ───────────────────────
 
+-- ⚠ Mục tiêu phải NẰM TRONG VÙNG LÀNG. Không chặn thì dân làng trôi vô hạn:
+--   hái xong ở chỗ mới lại tìm tiếp quanh chỗ mới, mỗi vòng xa thêm một đoạn.
+--   Đo trên server: bán kính làng 60 mà dân làng ra tới 158 đơn vị. Lần trước
+--   đã chặn trong sinh_ton.DiKiem nhưng QUÊN chỗ này, nên việc thường (nhặt /
+--   hái / chặt) vẫn kéo chúng đi.
+--   Chưa có Đài thì chưa có làng, lúc đó thả tự do — đó là đời du mục.
 local function Tim(inst, musttag, loc_them)
     return FindEntity(inst, TAM_NHIN, function(v)
         if viec.DangBoQua(inst, v) then return false end
+        if lang.Tam(inst) ~= nil and not lang.ThucTheTrongLang(inst, v) then
+            return false
+        end
         return loc_them == nil or loc_them(v)
     end, { musttag }, KHONG_LAY)
 end
@@ -108,10 +117,32 @@ local function ViecNhat(inst)
     return { muc_tieu = mon, hanh_dong = ACTIONS.PICKUP, vi_sao = "nhặt đồ" }
 end
 
+-- ⚠ ĐỪNG gom vô hạn một thứ. Đo trên server: một dân làng ôm 20 bó cỏ mà
+--   vẫn đi hái cỏ tiếp, trong khi thứ nó THIẾU là cành cây. Gom quá mức vừa
+--   phí công vừa làm đầy túi.
+local DU_ROI = 20
+
+local function DaDuChua(inst, san_pham)
+    if san_pham == nil then return false end
+    local n = 0
+    nhu_cau.DuyetTui(inst, function(m)
+        if m.prefab == san_pham then
+            n = n + (m.components.stackable ~= nil
+                     and m.components.stackable:StackSize() or 1)
+        end
+        return false
+    end)
+    return n >= DU_ROI
+end
+
 local function ViecHai(inst)
     local tui = inst.components.inventory
     if tui == nil or tui:IsFull() then return nil end
     local cay = Tim(inst, "pickable", function(v)
+        if DaDuChua(inst, v.components.pickable ~= nil
+                    and v.components.pickable.product or nil) then
+            return false
+        end
         return v.components.pickable ~= nil
            and v.components.pickable:CanBePicked()
            and v.components.pickable.caninteractwith ~= false

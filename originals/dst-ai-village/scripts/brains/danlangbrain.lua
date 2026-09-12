@@ -276,6 +276,20 @@ function DanLangBrain:OnStart()
         --   bảo nó cầm đuốc — đuốc nằm sẵn trong túi cho tới sáng.
         --   PriorityNode xét lại từ đầu mỗi 0,5 giây, nên node này cắt ngang
         --   được việc đang dở. Xong việc tức thì thì lần sau nó tự nhường.
+        -- ⚠ VỀ NHÀ phải nằm TRÊN node làm việc. Để dưới thì không bao giờ
+        --   chạy: DoAction giữ RUNNING suốt lúc dân làng đi tới mục tiêu, và
+        --   PriorityNode không xét tới nhánh dưới. Đo trên server: bán kính
+        --   làng 60 mà dân làng ra tới 158 đơn vị rồi ở lì ngoài đó.
+        -- VỀ NHÀ khi đã đi quá xa. Không có nhánh này thì dân làng TRÔI VÔ
+        --   HẠN: mỗi lần đi kiếm nguyên liệu lại dời đi một đoạn, rồi từ chỗ
+        --   mới tìm tiếp, cứ thế xa dần. Đo trên server thật: cả ba chết ở
+        --   cách nhà 95, 155 và 235 đơn vị — lang thang vào chỗ nguy hiểm,
+        --   không lửa, không đường lui.
+        WhileNode(function()
+            return ChuDeTheo(inst) == nil and XaNha(inst) > VE_NHA_XA
+        end, "Đi quá xa nhà",
+            Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
+
         IfNode(function() return sinh_ton.Giai(inst) == "xong" end,
             "Lo nhu cầu tức thì", ActionNode(function() end, "xong")),
 
@@ -296,16 +310,6 @@ function DanLangBrain:OnStart()
         -- Ở chế độ này thì bỏ qua nhánh về nhà — chủ đi đâu thì theo đó.
         WhileNode(function() return ChuDeTheo(inst) ~= nil end, "Theo chân chủ",
             Follow(inst, ChuDeTheo, THEO_GAN, THEO_VUA, THEO_XA)),
-
-        -- ⚠ VỀ NHÀ khi đã đi quá xa. Không có nhánh này thì dân làng TRÔI VÔ
-        --   HẠN: mỗi lần đi kiếm nguyên liệu lại dời đi một đoạn, rồi từ chỗ
-        --   mới tìm tiếp, cứ thế xa dần. Đo trên server thật: cả ba chết ở
-        --   cách nhà 95, 155 và 235 đơn vị — lang thang vào chỗ nguy hiểm,
-        --   không lửa, không đường lui.
-        WhileNode(function()
-            return ChuDeTheo(inst) == nil and XaNha(inst) > VE_NHA_XA
-        end, "Đi quá xa nhà",
-            Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
 
         -- Vừa hồi sinh thì quay lại chỗ chết nhặt lại đồ của mình.
         WhileNode(function() return inst.ailang.ve_nhat_do ~= nil end, "Về nhặt đồ",
