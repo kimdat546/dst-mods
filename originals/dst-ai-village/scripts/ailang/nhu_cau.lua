@@ -69,6 +69,22 @@ local SAP_TAT = 0.25
 -- Trên mức này thì khỏi lo cây tiếp theo; dưới thì phải có đồ dự phòng.
 local DU_LAU = 0.5
 
+-- ⚠ HAI CÂU HỎI KHÁC NHAU, đừng dùng lẫn:
+--     DangChayThat  — món này CÓ ĐANG phát sáng không? (thực tế vật lý)
+--     MonPhatSang   — món này còn đủ dùng để YÊN TÂM không? (để lập kế hoạch)
+--   MonPhatSang coi đuốc dưới 25% là "không tính", để dân làng kịp làm cây mới
+--   TRƯỚC khi nó tắt. Nhưng cây đuốc 20% vẫn đang cháy và vẫn cứu mạng — lấy
+--   ngưỡng kế hoạch đi tắt đèn thật là tự đẩy chúng vào bóng tối.
+function nhu_cau.DangChayThat(mon)
+    if mon == nil then return false end
+    if mon.components.fueled ~= nil
+       and mon.components.fueled:GetPercent() <= 0 then
+        return false
+    end
+    return mon:HasTag("lighter") or mon:HasTag("light")
+           or nhu_cau.PHAT_SANG[mon.prefab] == true
+end
+
 function nhu_cau.MonPhatSang(mon)
     if mon == nil then return false end
     if mon.components.fueled ~= nil

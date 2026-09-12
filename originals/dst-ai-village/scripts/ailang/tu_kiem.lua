@@ -1425,6 +1425,63 @@ local function ThuTuiHang(tiep)
     tiep()
 end
 
+-- ── đuốc phải phát sáng THẬT phía server ────────────────────────────────
+--
+-- ⚠ PHÉP KIỂM QUAN TRỌNG NHẤT CỦA CẢ MOD. Đuốc của DST gắn ánh sáng bằng FX
+--   `torchfire` (torch.lua: onequip -> fx:AttachLightTo(owner)), mà FX là thứ
+--   CLIENT VẼ — trên server chuyên dụng nó KHÔNG tạo nguồn sáng nào. Đo trực
+--   tiếp giữa đêm, cách mọi đống lửa 40 đơn vị, tay cầm đuốc đang cháy:
+--       ánh sáng = 0.000  ->  "enterdark"  ->  Charlie đánh 100.05
+--   Nhật ký trận chết ghi rõ: Binh chết với `tay = torch`.
+--
+--   Cách chữa: bật `inst.Light` của chính dân làng (player_common.lua dựng sẵn
+--   rồi Enable(false)). Phép kiểm này canh đúng chỗ đó.
+local function ThuDenThat(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local tui = e.components.inventory
+    tui:DropEverything()
+    KT("dân làng có thực thể đèn của riêng nó", e.Light ~= nil)
+
+    dan_lang.CapNhatDen(e)
+    KT("tay không thì đèn TẮT", e.Light ~= nil and not e.Light:IsEnabled())
+
+    local duoc = SpawnPrefab("torch")
+    tui:GiveItem(duoc) tui:Equip(duoc)
+    dan_lang.CapNhatDen(e)
+    KT("cầm đuốc đang cháy thì đèn BẬT — đây là thứ cứu mạng",
+       e.Light ~= nil and e.Light:IsEnabled())
+
+    -- ⚠ Đuốc 20% vẫn đang cháy và vẫn cứu mạng. Ngưỡng 25% của MonPhatSang là
+    --   ngưỡng KẾ HOẠCH (đi làm cây mới), không được dùng để tắt đèn thật.
+    duoc.components.fueled:SetPercent(0.2)
+    dan_lang.CapNhatDen(e)
+    KT("đuốc còn 20% vẫn sáng thật (đừng lẫn ngưỡng kế hoạch)",
+       e.Light ~= nil and e.Light:IsEnabled())
+
+    duoc.components.fueled:SetPercent(0)
+    dan_lang.CapNhatDen(e)
+    KT("đuốc cháy hết thì đèn tắt",
+       e.Light ~= nil and not e.Light:IsEnabled())
+
+    duoc.components.fueled:SetPercent(1)
+    dan_lang.CapNhatDen(e)
+    tui:Unequip(EQUIPSLOTS.HANDS)
+    dan_lang.CapNhatDen(e)
+    KT("cởi đuốc ra thì đèn tắt",
+       e.Light ~= nil and not e.Light:IsEnabled())
+
+    -- Hồn ma không cầm gì và cũng không sáng.
+    tui:Equip(duoc)
+    dan_lang.CapNhatDen(e)
+    dan_lang.ThanhHonMa(e)
+    dan_lang.CapNhatDen(e)
+    KT("hồn ma thì đèn tắt", e.Light ~= nil and not e.Light:IsEnabled())
+
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1437,7 +1494,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDaiTrieuHoi, ThuGiuLang,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
                ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
-               ThuNapDayTruocDem, ThuKho, ThuTuiHang }
+               ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat }
 local i = 0
 local function tiep()
     i = i + 1

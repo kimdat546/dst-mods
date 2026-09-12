@@ -89,6 +89,7 @@ local function Tim(inst, musttag, loc_them)
         if lang.Tam(inst) ~= nil and not lang.ThucTheTrongLang(inst, v) then
             return false
         end
+        if not lang.LamDuocLucNay(inst, v) then return false end
         return loc_them == nil or loc_them(v)
     end, { musttag }, KHONG_LAY)
 end

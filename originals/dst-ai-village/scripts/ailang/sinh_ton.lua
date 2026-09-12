@@ -92,6 +92,8 @@ local TAM_LANG = 55
 --   "chưa có cách" giữa đêm dù chỉ thiếu 2 cành cây. Đã gặp thật: quanh làng
 --   không có bụi cây con nào.
 local function TrongLang(inst, v, tam)
+    -- Ban đêm thì chỉ quanh đống lửa — xem lang.LamDuocLucNay.
+    if not require("ailang/lang").LamDuocLucNay(inst, v) then return false end
     local nha = inst.ailang ~= nil and inst.ailang.nha or nil
     if nha == nil then return true end
     local gioi_han = math.max(TAM_LANG, tam or 0)
