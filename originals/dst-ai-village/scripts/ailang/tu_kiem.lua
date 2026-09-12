@@ -1097,6 +1097,11 @@ local function ThuMatRiu(tiep)
        nc.ChiSo("dụng cụ") < nc.ChiSo("nhà"),
        "dụng cụ=" .. tostring(nc.ChiSo("dụng cụ")) .. " nhà=" .. tostring(nc.ChiSo("nhà")))
 
+    -- ⚠ PHẢI thoả ánh sáng và chống nóng trước. Từ khi sinh_ton.Giai lặp ƯU
+    --   TIÊN ở vòng ngoài, nhu cầu hạng cao hơn sẽ giành lượt và Giai không
+    --   bao giờ xuống tới "dụng cụ" — bài này hỏng oan với "túi=khong co".
+    tui:GiveItem(SpawnPrefab("torch"))
+    e.components.temperature:SetTemperature(20)
     -- Cho đúng nguyên liệu chế rìu rồi bắt nó tự chế.
     tui:GiveItem(SpawnPrefab("twigs"))
     tui:GiveItem(SpawnPrefab("flint"))
@@ -1524,12 +1529,14 @@ local function ThuChongNong(tiep)
        mu.components.insulator ~= nil
        and mu.components.insulator.type == SEASONS.SUMMER)
 
-    -- ⚠ Chống nóng KHÔNG còn là nhu cầu gấp. Việc cứu nguy tức thời (chạy vào
-    --   bóng cây) do cây hành vi lo ở nhánh CAO HƠN node làm việc, nên nhu cầu
-    --   này không cần quyền chen ngang — và cho nó quyền đó thì nó cướp lượt
-    --   mỗi nhịp suốt cả mùa hè.
-    KT("chống nóng KHÔNG chen ngang (bóng cây lo phần cấp cứu)",
-       n ~= nil and n.gap ~= true)
+    -- ⚠ `gap` ở đây KHÔNG phải để chen ngang cho vui — nó là thứ nới dây trói
+    --   về nhà từ 50 lên 140. Cỏ làm mũ thì đo được: 1 bụi trong bán kính 30,
+    --   39 bụi trong bán kính 130. Không có `gap` thì dân làng bị trói trong
+    --   50 đơn vị và không bao giờ với tới chỗ có cỏ.
+    --   Chuyện "chen ngang mỗi nhịp" chặn ở chỗ khác: viec.CanChenNgang bỏ qua
+    --   mọi nhu cầu đang BÓ TAY.
+    KT("chống nóng là nhu cầu GẤP (để nới được dây trói về nhà)",
+       n ~= nil and n.gap == true)
     KT("chống nóng xếp trên dụng cụ và nhà",
        nc.ChiSo("mát") < nc.ChiSo("dụng cụ")
        and nc.ChiSo("mát") < nc.ChiSo("nhà"),
@@ -1734,8 +1741,113 @@ local function ThuLoThanTruoc(tiep)
         KT("chưa có sáng giữa đêm thì cũng bỏ giữ làng",
            la.LoThanTruoc(e, 66))
         e:Remove()
-        tiep()
+        -- ⚠ TRẢ LẠI BAN NGÀY. Bài kiểm nào đổi pha thì phải đổi về, không thì
+        --   bài CHẠY SAU thừa hưởng trời tối và hỏng oan vì lý do chẳng liên
+        --   quan gì tới nó — đã xảy ra với bài "ưu tiên thắng khoảng cách".
+        DoiPha("day", function() tiep() end)
     end)
+end
+
+-- ── ưu tiên phải thắng khoảng cách ──────────────────────────────────────
+--
+-- ⚠ sinh_ton.Giai từng lặp BÁN KÍNH ở vòng ngoài, ƯU TIÊN ở vòng trong — quét
+--   hết mọi nhu cầu ở gần rồi mới nới rộng. Cách đó LẶNG LẼ ĐẢO NGƯỢC thứ tự
+--   ưu tiên: một nhu cầu quan trọng ở xa thua một nhu cầu vặt ở gần.
+--   Đo trên server giữa mùa hè: DiKiem("cutgrass") trả nil ở 30 nhưng PICK ở
+--   130 (1 bụi cỏ trong vòng 30, 39 bụi trong vòng 130). "Mát" hạng 4 cần đi
+--   xa, "nhà" hạng 6 xong tại chỗ — dân làng đi dựng lửa trại trong khi đang
+--   mất máu vì nóng, và không bao giờ chế nổi cái mũ.
+local function ThuUuTienThangKhoangCach(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local tui = e.components.inventory
+    tui:DropEverything()
+    DonQuanh(gx, gz, 140)
+
+    -- Cảnh dựng lại đúng số đo trên server: thứ cho nhu cầu HẠNG CAO thì ở xa,
+    -- thứ cho nhu cầu HẠNG THẤP thì ngay dưới chân.
+    -- ⚠ Phải thoả ÁNH SÁNG trước: nó hạng 1, không thoả thì nó thắng cả "mát"
+    --   và bài kiểm đo nhầm thứ. Bài này từng hỏng với "đang lo=ánh sáng" —
+    --   mà đó chính là bộ giải chạy ĐÚNG, chỉ là cảnh dựng sai.
+    local duoc = SpawnPrefab("torch")
+    tui:GiveItem(duoc)
+    tui:Equip(duoc)   -- cầm hẳn lên: thoả ánh sáng bất kể trời ngày hay đêm
+    e.components.temperature:SetTemperature(68)   -- "mát" (hạng cao) vào cuộc
+    local co = SpawnPrefab("grass")
+    co.Transform:SetPosition(gx + 110, 0, gz)
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(gx + 6, 0, gz)
+    tui:GiveItem(SpawnPrefab("axe"))
+
+    KT("dựng đúng cảnh: cỏ chỉ với tới được ở bán kính xa",
+       st.DiKiem(e, "cutgrass", nil, 30) == nil
+       and st.DiKiem(e, "cutgrass", nil, 130) ~= nil)
+    KT("và mát xếp trên nhà", nc.ChiSo("mát") < nc.ChiSo("nhà"))
+
+    st.Giai(e)
+    KT("nhu cầu ƯU TIÊN CAO ở xa phải thắng nhu cầu thấp ở gần",
+       e.ailang.dang_lo == "mát",
+       "đang lo=" .. tostring(e.ailang.dang_lo))
+
+    e.components.temperature:SetTemperature(20)
+    co:Remove()
+    cay:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── nhu cầu bó tay thì đừng cho cướp lượt ───────────────────────────────
+--
+-- ⚠ Một nhu cầu GẤP mà giải không ra — thử cả hai bán kính đều tay trắng — nếu
+--   vẫn giữ quyền chen ngang thì nó cướp lượt MỖI NHỊP: dân làng bỏ việc liên
+--   tục, chẳng làm xong gì, mà nhu cầu kia vẫn không nhúc nhích.
+local function ThuBoTayThiThoi(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+
+    -- ⚠ DỰNG XONG CẢNH RỒI MỚI ĐỌC nhu cầu gấp. Bài này từng hỏng vì đọc
+    --   trước: cây đuốc cấp cho việc giả rơi vào túi và làm THOẢ luôn nhu cầu
+    --   ánh sáng, nên nhu cầu gấp đổi từ "ánh sáng" sang "nhà" và khoá bó tay
+    --   ghi sẵn không còn khớp với gì cả.
+    local mon = SpawnPrefab("torch")
+    e.components.inventory:GiveItem(mon)
+
+    -- ⚠ Và ĐỪNG cố định tên nhu cầu gấp: nó đổi theo pha trời, đồ trong túi và
+    --   cả những bài chạy trước. Cứ lấy đúng thứ bộ giải trả về.
+    local gap = st.CoNhuCauGap(e)
+    if gap == nil then
+        KT("dựng được cảnh có nhu cầu gấp", false, "không có nhu cầu gấp nào")
+        e:Remove() tiep() return
+    end
+
+    -- Việc đang làm phải xếp THẤP HƠN nhu cầu gấp kia, không thì nó vốn đã
+    -- không có quyền cướp lượt và bài kiểm chẳng chứng minh được gì.
+    local thap
+    for i = #nc.DANH_SACH, 1, -1 do
+        if nc.DANH_SACH[i].ten ~= gap.ten then thap = nc.DANH_SACH[i].ten break end
+    end
+    e.ailang.viec = { vi_sao = thap, muc_tieu = nil,
+                      hanh_dong = ACTIONS.EQUIP, mon = mon }
+    e.ailang.viec_tu = GetTime()
+
+    e.ailang.bo_tay = nil
+    KT("nhu cầu gấp giải được thì chen ngang được như thường",
+       vi.CanChenNgang(e),
+       "gấp=" .. tostring(gap.ten) .. " việc=" .. tostring(thap))
+
+    e.ailang.bo_tay = { [gap.ten] = true }
+    KT("nhưng khi nó đang BÓ TAY thì không cướp được việc đang làm",
+       not vi.CanChenNgang(e),
+       "gấp giờ=" .. tostring((st.CoNhuCauGap(e) or {}).ten))
+
+    e.ailang.bo_tay = nil
+    e:Remove()
+    tiep()
 end
 
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
@@ -1752,7 +1864,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
                ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat,
                ThuChongNong, ThuBongCay, ThuXuong,
-               ThuLoThanTruoc }
+               ThuLoThanTruoc,
+               ThuUuTienThangKhoangCach, ThuBoTayThiThoi }
 local i = 0
 local function tiep()
     i = i + 1

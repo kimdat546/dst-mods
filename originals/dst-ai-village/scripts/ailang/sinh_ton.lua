@@ -294,25 +294,46 @@ function sinh_ton.Giai(inst, loc)
         return nil
     end
 
-    -- Vòng một: bán kính thường. Vòng hai: chịu khó đi xa cho nhu cầu gấp.
+    -- ⚠ ƯU TIÊN Ở VÒNG NGOÀI, BÁN KÍNH Ở VÒNG TRONG. Bản trước làm ngược —
+    --   quét hết mọi nhu cầu ở bán kính gần rồi mới nới rộng — và cách đó
+    --   LẶNG LẼ ĐẢO NGƯỢC THỨ TỰ ƯU TIÊN: một nhu cầu quan trọng mà ở xa thua
+    --   một nhu cầu vặt ở gần.
+    --
+    --   Đo trên server giữa mùa hè: `DiKiem("cutgrass")` trả nil ở bán kính 30
+    --   nhưng trả PICK ở 130 (quanh làng chỉ có 1 bụi cỏ trong vòng 30, mà có
+    --   39 bụi trong vòng 130). "Mát" xếp hạng 4 cần đi xa, "nhà" xếp hạng 6
+    --   xong ngay tại chỗ — thế là dân làng đi dựng lửa trại trong khi đang
+    --   mất máu vì nóng, và không bao giờ chế nổi cái mũ.
     --
     -- ⚠ ĐỪNG viết ipairs({ nil, TAM_KIEM_GAP }). Một `nil` ở đầu bảng làm độ
     --   dài bằng 0 nên ipairs lặp KHÔNG LẦN NÀO, và Giai() luôn trả nil —
     --   dân làng thôi làm mọi việc. Bộ tự kiểm bắt được ngay: ba phép kiểm
     --   đuốc đang ĐẠT chuyển sang HỎNG cùng lúc.
-    for _, tam in ipairs({ TAM_KIEM, TAM_KIEM_GAP }) do
-        for _, n in ipairs(ds) do
+    --
+    -- Ghi lại những nhu cầu BÓ TAY để viec.CanChenNgang đừng lấy chúng ra cướp
+    -- lượt mỗi nhịp: một nhu cầu không giải được mà vẫn được quyền chen ngang
+    -- thì dân làng bỏ việc liên tục và chẳng làm xong gì.
+    local bo_tay = {}
+    for _, n in ipairs(ds) do
+        for _, tam in ipairs({ TAM_KIEM, TAM_KIEM_GAP }) do
             local ok, kq = pcall(GiaiMot, inst, n, tam)
             if not ok then
                 nen.loi("giải nhu cầu " .. n.ten .. ":", kq)
             elseif kq ~= nil then
-                if inst.ailang ~= nil then inst.ailang.dang_lo = n.ten end
+                if inst.ailang ~= nil then
+                    inst.ailang.dang_lo = n.ten
+                    inst.ailang.bo_tay = bo_tay
+                end
                 return kq
             end
         end
+        bo_tay[n.ten] = true
     end
 
-    if inst.ailang ~= nil then inst.ailang.dang_lo = ds[1].ten .. " (chưa có cách)" end
+    if inst.ailang ~= nil then
+        inst.ailang.dang_lo = ds[1].ten .. " (chưa có cách)"
+        inst.ailang.bo_tay = bo_tay
+    end
     return nil
 end
 

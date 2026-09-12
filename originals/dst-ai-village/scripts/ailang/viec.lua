@@ -351,6 +351,11 @@ function viec.CanChenNgang(inst)
     if a.viec == nil then return false end
     local gap = sinh_ton.CoNhuCauGap(inst)
     if gap == nil then return false end
+    -- ⚠ Nhu cầu BÓ TAY thì đừng cho cướp lượt. Lần giải gần nhất đã thử nó ở
+    --   cả hai bán kính và không ra được việc gì — để nó chen ngang thì dân
+    --   làng bỏ việc mỗi nhịp và chẳng làm xong gì, mà nhu cầu kia vẫn không
+    --   nhúc nhích. Đây là bệnh đã gặp ở nhu cầu ánh sáng, nay chặn tận gốc.
+    if a.bo_tay ~= nil and a.bo_tay[gap.ten] then return false end
     local hang_gap  = nhu_cau.ChiSo(gap.ten)
     local hang_viec = nhu_cau.ChiSo(a.viec.vi_sao)
     return hang_viec == nil or (hang_gap ~= nil and hang_gap < hang_viec)

@@ -355,10 +355,15 @@ nhu_cau.DANH_SACH = {
     {
         ma  = "mat_me",
         ten = "mát",
-        -- ⚠ KHÔNG đặt `gap`. Việc cứu nguy tức thời (chạy vào bóng cây) do cây
-        --   hành vi lo, ở nhánh CAO HƠN node làm việc — nên nhu cầu này không
-        --   cần quyền chen ngang, và cho nó quyền đó thì nó cướp lượt mỗi nhịp
-        --   suốt cả mùa hè. Ở đây chỉ lo giải pháp BỀN: cái mũ, cái lửa lạnh.
+        -- ⚠ `gap` ở đây KHÔNG phải để chen ngang cho vui — nó là thứ nới dây
+        --   trói về nhà từ 50 lên 140 (xem VE_NHA_XA_GAP trong danlangbrain).
+        --   Mà cỏ làm mũ thì đo được: 1 bụi trong bán kính 30, 39 bụi trong
+        --   bán kính 130. Không có `gap` thì dân làng bị trói trong 50 đơn vị
+        --   và không bao giờ với tới chỗ có cỏ.
+        --
+        --   Chuyện "chen ngang mỗi nhịp" đã chặn ở chỗ khác và chặt hơn:
+        --   viec.CanChenNgang bỏ qua mọi nhu cầu đang BÓ TAY.
+        gap = true,
         -- ⚠ MÙA HÈ GIẾT DÂN LÀNG GIỮA BAN NGÀY, không cần Charlie. Đo trên
         --   server ngày 57 (mùa hè): nhiệt độ MÔI TRƯỜNG đã là 71.6 trong khi
         --   TUNING.OVERHEAT_TEMP = 70 — chỉ đứng ngoài trời là đủ chết. Máu
