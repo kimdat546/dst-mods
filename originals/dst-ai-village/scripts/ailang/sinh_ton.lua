@@ -398,10 +398,16 @@ function sinh_ton.Giai(inst, loc)
     -- ⚠ ĐỪNG dùng `goto` ở đây. Nó là cú pháp Lua 5.2+; LuaJIT nuốt được nên
     --   `luajit -bl` báo sạch, nhưng đó chính là kiểu lỗi làm MOD KHÔNG NẠP
     --   ĐƯỢC và cả world không khởi động. Viết bằng vòng lặp thường cho chắc.
+    -- ⚠ CHỈ ĐO TIẾN TRIỂN CỦA NHU CẦU ĐANG ĐƯỢC CẦM LƯỢT. Bản đầu đo TẤT CẢ
+    --   nhu cầu mỗi lần quét, nên một nhu cầu hoàn toàn giải được vẫn bị phạt
+    --   chỉ vì nhu cầu xếp trên nó giành lượt suốt. Đo trên server: "nhà" đứng
+    --   im 208 giây và bị cho nghỉ, trong khi `DiKiem("log")` trả PICKUP ngay
+    --   ở bán kính 30 — nó chưa bao giờ được thử, chứ không phải làm không nổi.
+    --   Hậu quả: cả hai nhu cầu gấp cùng nghỉ và làng không có lửa trại.
     local bo_tay = {}
     for _, n in ipairs(ds) do
         -- Nhu cầu đang nghỉ thì coi như bó tay, nhường lượt cho nhu cầu dưới.
-        local nghi = DangNghi(inst, n) or SoatTienTrien(inst, n)
+        local nghi = DangNghi(inst, n)
         local kq_n = nil
         if not nghi then
             for _, tam in ipairs({ TAM_KIEM, TAM_KIEM_GAP }) do
@@ -416,13 +422,20 @@ function sinh_ton.Giai(inst, loc)
             end
         end
         if kq_n ~= nil then
-            if inst.ailang ~= nil then
-                inst.ailang.dang_lo = n.ten
-                inst.ailang.bo_tay = bo_tay
+            -- Nhu cầu này vừa giành được lượt: giờ mới đo xem nó có nhích
+            -- được không. Đứng im quá lâu thì cho nghỉ và nhường xuống dưới.
+            if SoatTienTrien(inst, n) then
+                bo_tay[n.ten] = true
+            else
+                if inst.ailang ~= nil then
+                    inst.ailang.dang_lo = n.ten
+                    inst.ailang.bo_tay = bo_tay
+                end
+                return kq_n
             end
-            return kq_n
+        else
+            bo_tay[n.ten] = true
         end
-        bo_tay[n.ten] = true
     end
 
     if inst.ailang ~= nil then

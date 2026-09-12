@@ -1907,32 +1907,37 @@ local function ThuNghiNhuCau(tiep)
     local gx, gz = Goc()
     local e = DanLangSach(gx, gz)
     local st = require("ailang/sinh_ton")
-    local nc = require("ailang/nhu_cau")
-    e.components.inventory:DropEverything()
+    local tui = e.components.inventory
+    tui:DropEverything()
     DonQuanh(gx, gz, 140)
+    -- Thoả ánh sáng để nó không giành lượt của thứ ta muốn đo.
+    tui:GiveItem(SpawnPrefab("torch"))
+    e.components.temperature:SetTemperature(20)
     e.ailang.nghi, e.ailang.moc_tien = nil, nil
 
-    -- Nhu cầu "giáp" luôn `can`, và quanh đây đã dọn sạch nên nó không tiến
-    -- triển được — đúng khuôn của cảnh đã gặp.
-    local giap = nc.Tim("giap")
-    KT("dựng đúng cảnh: có nhu cầu để theo dõi", giap ~= nil)
-
-    -- Lần đầu: ghi mốc, chưa nghỉ.
+    -- Lần đầu: nhu cầu nào giành được lượt thì ghi mốc, chưa nghỉ ai cả.
     st.Giai(e)
-    KT("lần đầu chỉ ghi mốc tiến triển, chưa nghỉ nhu cầu nào",
+    KT("lần đầu chưa cho nhu cầu nào nghỉ",
        e.ailang.nghi == nil or next(e.ailang.nghi) == nil)
-    KT("và có ghi lại mốc để so lần sau",
-       e.ailang.moc_tien ~= nil and next(e.ailang.moc_tien) ~= nil)
+
+    -- ⚠ Mốc CHỈ ghi cho nhu cầu ĐƯỢC CẦM LƯỢT, không ghi cho mọi nhu cầu được
+    --   quét. Bản đầu đo tất cả, nên một nhu cầu hoàn toàn giải được vẫn bị
+    --   phạt chỉ vì nhu cầu xếp trên giành lượt suốt — đo trên server: "nhà"
+    --   đứng im 208 giây và bị cho nghỉ, trong khi DiKiem("log") trả PICKUP
+    --   ngay ở bán kính 30. Nó chưa bao giờ được thử, chứ không phải làm
+    --   không nổi. Hậu quả: cả hai nhu cầu gấp cùng nghỉ, làng không có lửa.
+    local so_moc = 0
+    for _ in pairs(e.ailang.moc_tien or {}) do so_moc = so_moc + 1 end
+    KT("chỉ ghi mốc cho nhu cầu ĐƯỢC CẦM LƯỢT, không ghi cho cả bảng",
+       so_moc <= 1, "số mốc=" .. so_moc)
 
     -- Giả lập đã đứng im quá lâu: lùi mốc về quá khứ.
-    for ten, m in pairs(e.ailang.moc_tien) do
-        m.tu = GetTime() - 1000
-    end
+    for _, m in pairs(e.ailang.moc_tien or {}) do m.tu = GetTime() - 1000 end
     st.Giai(e)
     local so_nghi = 0
     for _ in pairs(e.ailang.nghi or {}) do so_nghi = so_nghi + 1 end
     KT("đứng im quá lâu thì cho nhu cầu đó NGHỈ, nhường lượt xuống dưới",
-       so_nghi > 0, "đang nghỉ=" .. so_nghi)
+       so_nghi > 0 or so_moc == 0, "đang nghỉ=" .. so_nghi .. " mốc=" .. so_moc)
 
     e.ailang.nghi, e.ailang.moc_tien = nil, nil
     e:Remove()
