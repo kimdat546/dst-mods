@@ -22,6 +22,7 @@
 local nen      = require("ailang/nen")
 local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = require("ailang/sinh_ton")
+local lang     = require("ailang/lang")
 
 local viec = {}
 
@@ -74,15 +75,6 @@ local function CamDungCu(inst, hanh_dong)
     return false
 end
 
--- Ban đêm mà nguồn sáng duy nhất là đuốc CẦM TAY thì không làm việc nặng:
--- cầm rìu lên là mất sáng. Có đèn đội đầu thì rảnh tay, làm bình thường.
-local function KhongRanhTay(inst)
-    if not TheWorld.state.isnight then return false end
-    local tui = inst.components.inventory
-    if tui == nil then return false end
-    return nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HANDS))
-end
-
 -- ── tìm việc mặc định (khi không còn nhu cầu nào) ───────────────────────
 
 local function Tim(inst, musttag, loc_them)
@@ -129,7 +121,7 @@ local function ViecHai(inst)
 end
 
 local function ViecLamViec(inst, hanh_dong, tag, nhan)
-    if KhongRanhTay(inst) then return nil end
+    if nhu_cau.KhongRanhTay(inst) then return nil end
     if not CamDungCu(inst, hanh_dong) then return nil end
     local muc = Tim(inst, tag, function(v)
         return v.components.workable ~= nil
@@ -138,6 +130,28 @@ local function ViecLamViec(inst, hanh_dong, tag, nhan)
     end)
     if muc == nil then return nil end
     return { muc_tieu = muc, hanh_dong = hanh_dong, vi_sao = nhan }
+end
+
+-- Dập lửa trong làng. Việc GẤP NHẤT trong các việc lao động — cháy lan là
+-- mất cả làng.
+local function ViecDapLua(inst)
+    local chay = lang.ChayTrongLang(inst)
+    if chay == nil then return nil end
+    return { muc_tieu = chay, hanh_dong = ACTIONS.EXTINGUISH, vi_sao = "dập lửa" }
+end
+
+-- Túi đầy thì mang đồ về rương trong làng, khỏi đứng ngây.
+local function ViecCatDo(inst)
+    local tui = inst.components.inventory
+    if tui == nil or not tui:IsFull() then return nil end
+    local mon = nhu_cau.DuyetTui(inst, function(m)
+        return m.components.equippable == nil and m.components.tool == nil
+    end)
+    if mon == nil then return nil end
+    local ruong = lang.RuongTrongLang(inst, mon)
+    if ruong == nil then return nil end
+    return { muc_tieu = ruong, hanh_dong = ACTIONS.STORE, mon = mon,
+             vi_sao = "cất đồ" }
 end
 
 -- ── nhận việc ───────────────────────────────────────────────────────────
@@ -156,7 +170,9 @@ function viec.NhanViec(inst)
         }
     end
 
-    return ViecNhat(inst)
+    return ViecDapLua(inst)
+        or ViecCatDo(inst)
+        or ViecNhat(inst)
         or ViecHai(inst)
         or ViecLamViec(inst, ACTIONS.CHOP, "CHOP_workable", "chặt cây")
         or ViecLamViec(inst, ACTIONS.MINE, "MINE_workable", "đào đá")
@@ -208,6 +224,16 @@ end
 function viec.HanhDong(inst)
     local a = So(inst)
 
+    -- ⚠ Nhu cầu GẤP được chen ngang việc đang làm dở. Không có chỗ này thì
+    --   việc-giữ-dai làm hệ nhu cầu BỊ BỎ ĐÓI: dân làng đang hái quả thì
+    --   viec.HanhDong trả lại đúng việc hái và không bao giờ gọi tới
+    --   sinh_ton, nên trời tối mà không ai lo đuốc. Bốn phép kiểm về đuốc
+    --   hỏng cùng lúc vì đúng chuyện này.
+    if a.viec ~= nil and not a.viec_la_nhu_cau
+       and sinh_ton.CoNhuCauGap(inst) ~= nil then
+        a.viec = nil
+    end
+
     if a.viec ~= nil and viec.ConHopLe(inst, a.viec) then
         local v = a.viec
         inst.ailang.dang_lam = v.vi_sao
@@ -219,6 +245,8 @@ function viec.HanhDong(inst)
     if not ok then nen.loi("nhận việc:", err) end
 
     a.viec = v
+    a.viec_la_nhu_cau = v ~= nil and inst.ailang.dang_lo ~= nil
+                        and v.vi_sao == inst.ailang.dang_lo
     a.viec_tu = GetTime()
     a.viec_moc = v ~= nil and DauTienTrien(v.muc_tieu) or nil
     inst.ailang.dang_lam = v ~= nil and v.vi_sao or nil

@@ -12,12 +12,52 @@ GLOBAL.AILANG_CAUHINH = {
     bat_tam_tri  = GetModConfigData("bat_tam_tri")  or false,
     nhip_suy_nghi = GetModConfigData("nhip_suy_nghi") or 15,
     muc_log      = GetModConfigData("muc_log")      or 1,
+    ban_kinh_lang = GetModConfigData("ban_kinh_lang") or 60,
 }
+
+PrefabFiles = { "ailang_dai" }
 
 local nen      = GLOBAL.require("ailang/nen")
 local dan_lang = GLOBAL.require("ailang/dan_lang")
 
 local cauhinh = GLOBAL.AILANG_CAUHINH
+
+-- ── Đài Triệu Hồi ───────────────────────────────────────────────────────
+--
+-- Vừa là chỗ gọi dân làng mới, vừa LÀ NHÀ của cả làng. Xem
+-- scripts/prefabs/ailang_dai.lua để biết vì sao gộp hai vai vào một.
+--
+-- ⚠ Dùng ảnh và dáng của resurrection_stone trong vanilla. Mod chưa có tài
+--   nguyên riêng, mà bank/build vanilla thì client nào cũng có nên không cần
+--   phần chạy ở client.
+GLOBAL.STRINGS.NAMES.AILANG_DAI = "Đài Triệu Hồi"
+GLOBAL.STRINGS.RECIPE_DESC.AILANG_DAI = "Gọi dân làng về, và làm nhà cho họ."
+GLOBAL.STRINGS.CHARACTERS.GENERIC.DESCRIBE.AILANG_DAI =
+    "Dân làng tụ về quanh nó."
+GLOBAL.STRINGS.ACTIONS.ACTIVATE.TRIEUHOI = "Triệu hồi dân làng"
+
+-- ⚠ `TECH` và `Ingredient` là biến TOÀN CỤC, phải lấy qua GLOBAL. Môi trường
+--   modmain bị hạn chế nên gọi thẳng sẽ nổ "attempt to index global 'TECH'
+--   (a nil value)" và MOD KHÔNG NẠP ĐƯỢC — cùng loại lỗi với `select`.
+local Ingredient = GLOBAL.Ingredient
+local TECH = GLOBAL.TECH
+
+AddRecipe2("ailang_dai",
+    {
+        Ingredient("goldnugget", 2),
+        Ingredient("log", 8),
+        Ingredient("rocks", 6),
+    },
+    TECH.NONE,
+    {
+        placer = "ailang_dai_placer",
+        -- ⚠ Mượn ảnh công thức của vanilla. Mod chưa có tài nguyên riêng, mà
+        --   trỏ vào atlas không tồn tại thì ô công thức hiện ô vuông hồng.
+        atlas = "images/inventoryimages3.xml",
+        image = "resurrectionstatue_monster.tex",
+        min_spacing = 6,
+    },
+    { "STRUCTURES" })
 
 local function QuanLy()
     local w = GLOBAL.TheWorld
