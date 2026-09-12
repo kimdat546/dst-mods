@@ -355,7 +355,10 @@ nhu_cau.DANH_SACH = {
     {
         ma  = "mat_me",
         ten = "mát",
-        gap = true,
+        -- ⚠ KHÔNG đặt `gap`. Việc cứu nguy tức thời (chạy vào bóng cây) do cây
+        --   hành vi lo, ở nhánh CAO HƠN node làm việc — nên nhu cầu này không
+        --   cần quyền chen ngang, và cho nó quyền đó thì nó cướp lượt mỗi nhịp
+        --   suốt cả mùa hè. Ở đây chỉ lo giải pháp BỀN: cái mũ, cái lửa lạnh.
         -- ⚠ MÙA HÈ GIẾT DÂN LÀNG GIỮA BAN NGÀY, không cần Charlie. Đo trên
         --   server ngày 57 (mùa hè): nhiệt độ MÔI TRƯỜNG đã là 71.6 trong khi
         --   TUNING.OVERHEAT_TEMP = 70 — chỉ đứng ngoài trời là đủ chết. Máu
@@ -376,20 +379,13 @@ nhu_cau.DANH_SACH = {
                 return ins ~= nil and ins.type == SEASONS.SUMMER
                    and ins:GetInsulation() > 0
             end) ~= nil then return true end
-            -- ⚠ ĐỨNG TRONG BÓNG CÂY LÀ ĐỦ MÁT, và nó KHÔNG TỐN GÌ CẢ. Đây là
-            --   lời giải mùa hè rẻ nhất, tìm ra bằng cách soi vì sao ba dân
-            --   làng có đồ đạc GIỐNG HỆT nhau mà nhiệt độ lệch hẳn:
-            --       An 64 độ, Binh 64 độ  (đứng dưới tán cây)
-            --       Cuong 83 độ           -> tụt dần rồi CHẾT
-            --   temperature.lua: `sheltered` và nhiệt trên 63 thì kéo mạnh về
-            --   TREE_SHADE_COOLER = 45. Vì thế An/Binh ghim đúng ở 64-65.
-            --
-            -- ⚠ Và phải tính là "đủ", không chỉ là hành vi cứu nguy. Nếu để
-            --   "mát" mãi chưa thoả thì nó CHEN NGANG mọi việc khác từng nhịp
-            --   một (xếp hạng 4, trên nhà/xưởng/giáp) và dân làng không làm
-            --   xong được gì — đúng bệnh đã chữa cho nhu cầu ánh sáng.
-            local che = inst.components.sheltered
-            if che ~= nil and che.sheltered then return true end
+            -- ⚠ BÓNG CÂY KHÔNG TÍNH LÀ "ĐỦ". Đứng dưới tán cây đúng là mát
+            --   thật, nhưng đó là chỗ TRÚ TẠM — dân làng phải rời gốc cây mới
+            --   làm được việc, và mỗi vòng ra-vào nó lại nhích qua mốc 70 một
+            --   nhịp. Đo được: nhiệt ổn định ở 67-71 mà máu vẫn tụt đều
+            --   99% -> 93% -> 80%. Nếu coi bóng râm là đủ thì dân làng KHÔNG
+            --   BAO GIỜ chế cái mũ, và cứ rỉ máu như thế suốt mùa hè.
+            --   Việc trú tạm để cây hành vi lo; ở đây chỉ tính giải pháp BỀN.
             -- Đứng cạnh lửa lạnh đang cháy cũng là mát, y như đứng cạnh lửa
             -- trại thì coi là có sáng.
             return FindEntity(inst, 10, function(v)
@@ -408,10 +404,13 @@ nhu_cau.DANH_SACH = {
         --   phải có Máy Khoa Học trước (xem nhu cầu "xưởng"). builder:CanBuild
         --   tự xét cấp công nghệ nên bậc này tự rụng khi chưa có máy và tự
         --   sống dậy khi có.
+        -- ⚠ ĐÃ BỎ grass_umbrella dù nó cách nhiệt gấp đôi (120 so với 60).
+        --   Nó chiếm Ô TAY, đúng ô mà đuốc cần — hai nhu cầu giành nhau một ô
+        --   là quay lại đúng bệnh rìu↔đuốc đã mất mấy vòng để chữa. Mũ cỏ đội
+        --   đầu nên không đụng ai, và 12 bó cỏ chỉ phải trả một lần.
         bac = {
             { mon = "coldfire", dat_xuong = true, o_nha = true },  -- cutgrass×3 nitre×2, tech 1
-            { mon = "grass_umbrella" },   -- twigs×4 cutgrass×3 petals×6, tech 0
-            { mon = "strawhat" },         -- cutgrass×12, tech 0
+            { mon = "strawhat" },                                  -- cutgrass×12, tech 0
         },
     },
     {

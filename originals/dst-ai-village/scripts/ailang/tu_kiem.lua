@@ -1524,8 +1524,12 @@ local function ThuChongNong(tiep)
        mu.components.insulator ~= nil
        and mu.components.insulator.type == SEASONS.SUMMER)
 
-    -- Chống nóng phải là nhu cầu GẤP và đứng TRÊN dụng cụ / nhà / giáp.
-    KT("chống nóng là nhu cầu GẤP", n ~= nil and n.gap == true)
+    -- ⚠ Chống nóng KHÔNG còn là nhu cầu gấp. Việc cứu nguy tức thời (chạy vào
+    --   bóng cây) do cây hành vi lo ở nhánh CAO HƠN node làm việc, nên nhu cầu
+    --   này không cần quyền chen ngang — và cho nó quyền đó thì nó cướp lượt
+    --   mỗi nhịp suốt cả mùa hè.
+    KT("chống nóng KHÔNG chen ngang (bóng cây lo phần cấp cứu)",
+       n ~= nil and n.gap ~= true)
     KT("chống nóng xếp trên dụng cụ và nhà",
        nc.ChiSo("mát") < nc.ChiSo("dụng cụ")
        and nc.ChiSo("mát") < nc.ChiSo("nhà"),
@@ -1533,9 +1537,15 @@ local function ThuChongNong(tiep)
 
     e.components.inventory:DropEverything()
     t:SetTemperature(65)
-    local gap = st.CoNhuCauGap(e)
-    KT("đang nóng mà chưa có đồ thì nó là nhu cầu gấp đang chờ",
-       gap ~= nil, "gấp=" .. tostring(gap and gap.ten))
+    KT("đang nóng mà chưa có đồ thì nó nằm trong danh sách phải lo",
+       #st.ConThieuGi(e, function(m) return m.ma == "mat_me" end) == 1)
+    -- ⚠ Ô TAY là ô của đuốc. Bỏ hẳn grass_umbrella dù nó cách nhiệt gấp đôi:
+    --   hai nhu cầu giành nhau một ô là quay lại đúng bệnh rìu↔đuốc.
+    local co_o_tay = false
+    for _, b in ipairs(n.bac or {}) do
+        if b.mon == "grass_umbrella" then co_o_tay = true end
+    end
+    KT("KHÔNG dùng ô che tay — ô đó dành cho đuốc", not co_o_tay)
 
     t:SetTemperature(20)
     e:Remove()
@@ -1574,9 +1584,18 @@ local function ThuBongCay(tiep)
     if che ~= nil then che.sheltered = false end
     KT("đứng xa cây thì CHƯA mát", mat ~= nil and not mat.du(e))
 
+    -- ⚠ Bóng râm là chỗ TRÚ TẠM, KHÔNG tính là "đã mát". Dân làng phải rời gốc
+    --   cây mới làm được việc, và mỗi vòng ra-vào lại nhích qua mốc 70 một
+    --   nhịp — đo được nhiệt ổn định 67-71 mà máu vẫn tụt 99% -> 93% -> 80%.
+    --   Coi bóng râm là đủ thì chúng KHÔNG BAO GIỜ chế cái mũ và cứ rỉ máu
+    --   suốt mùa hè.
     if che ~= nil then che.sheltered = true end
-    KT("đứng dưới tán cây thì tính là ĐÃ MÁT (khỏi tốn 12 bó cỏ làm mũ)",
-       mat ~= nil and mat.du(e))
+    KT("đứng dưới tán cây vẫn CHƯA tính là đủ mát (còn phải lo cái mũ)",
+       mat ~= nil and not mat.du(e))
+    local mu = SpawnPrefab("strawhat")
+    e.components.inventory:GiveItem(mu)
+    e.components.inventory:Equip(mu)
+    KT("đội mũ cỏ vào thì mới thật sự đủ", mat ~= nil and mat.du(e))
 
     -- ⚠ TRỄ NGƯỠNG. Không có nó thì nhánh bóng cây nhả lượt NGAY khi vừa chạm
     --   bóng râm, node làm việc lôi đi trước khi kịp nguội, rồi lại nóng, lại
