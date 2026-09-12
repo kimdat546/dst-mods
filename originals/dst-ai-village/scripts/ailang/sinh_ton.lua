@@ -17,7 +17,9 @@ local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = {}
 
 local TAM_KIEM     = 30    -- bán kính đi kiếm bình thường
-local TAM_KIEM_GAP = 80    -- bán kính khi nhu cầu đã cấp thiết
+-- ⚠ PHẢI KHỚP với VE_NHA_XA_GAP trong danlangbrain. Con số này từng là 80
+--   trong khi dây trói về nhà là 50, nên nó vô nghĩa. Xem chú thích ở đó.
+local TAM_KIEM_GAP = 130   -- bán kính khi nhu cầu đã cấp thiết
 
 -- ⚠ Bán kính 30 là QUÁ HẸP khi đã bí. Đo trên server thật: một dân làng não 0%
 --   mà thế giới còn 321 bụi hoa — chỉ là không có bụi nào trong vòng 30, nên

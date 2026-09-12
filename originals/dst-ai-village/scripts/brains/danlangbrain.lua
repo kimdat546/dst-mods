@@ -29,6 +29,21 @@ local lang = require("ailang/lang")
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30
 local VE_NHA_XA     = 50   -- xa nhà quá bấy nhiêu thì bỏ việc, về đã
+
+-- ⚠ HAI CON SỐ NÀY TỪNG ĐÁ NHAU. sinh_ton tìm nguyên liệu cho nhu cầu gấp
+--   trong bán kính rộng, nhưng node "đi quá xa nhà" kéo về ở 50 — nên vòng
+--   tìm khẩn cấp CHƯA BAO GIỜ dùng được, dân làng bị trói trong đúng 50 đơn vị
+--   quanh Đài dù thứ chúng cần nằm ngay ngoài đó.
+--
+--   Đo trên server, làng dựng giữa rừng rậm: trong bán kính 80 có 250 cây gỗ
+--   nhưng chỉ 3 BỤI CỎ và KHÔNG MỘT BỤI CÂY CON nào trong cả bán kính 150.
+--   Cỏ thì có 86 bụi — ở bán kính 150. Đuốc cần 2 cỏ + 2 cành, lửa trại cần
+--   3 cỏ: cả ba dân làng chết đêm với 2 khúc gỗ trong túi, ngồi trên một mỏ
+--   gỗ mà không đổi ra được ánh sáng.
+--
+--   Nên khi còn nhu cầu GẤP chưa giải được thì nới dây ra. Vẫn có trần cứng để
+--   không quay lại bệnh trôi vô hạn (đã đo: từng trôi tới 158, chết ở 235).
+local VE_NHA_XA_GAP = 140
 local THEO_GAN      = 3
 local THEO_VUA      = 6
 local THEO_XA       = 12    -- lang thang quanh nhà trong bán kính này
@@ -286,7 +301,10 @@ function DanLangBrain:OnStart()
         --   cách nhà 95, 155 và 235 đơn vị — lang thang vào chỗ nguy hiểm,
         --   không lửa, không đường lui.
         WhileNode(function()
-            return ChuDeTheo(inst) == nil and XaNha(inst) > VE_NHA_XA
+            if ChuDeTheo(inst) ~= nil then return false end
+            local nguong = sinh_ton.CoNhuCauGap(inst) ~= nil
+                           and VE_NHA_XA_GAP or VE_NHA_XA
+            return XaNha(inst) > nguong
         end, "Đi quá xa nhà",
             Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
 
