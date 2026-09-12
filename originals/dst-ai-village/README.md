@@ -107,12 +107,14 @@ Lệnh trong game:
 ```
 c_ailang_soi()                -- ĐANG NGHĨ GÌ: lo nhu cầu nào, làm hành động
                               --   gì với mục tiêu nào, mang gì, túi có gì
-c_ailang_kiem()               -- chạy cả 20 phép tự kiểm NGAY TRONG GAME
+c_ailang_kiem()               -- chạy CẢ BỘ tự kiểm NGAY TRONG GAME
 c_ailang_dem()                -- liệt kê gọn
 c_ailang_them("Tí", "wx78")   -- thêm một dân làng ở chỗ mình đứng
 c_ailang_datnha()             -- đặt nhà tại chỗ mình đứng
 c_ailang_tiepte()             -- phát 2 cỏ + 2 cành cho cả làng
 c_ailang_bang()               -- BẢNG: ai chế độ nào, thân bao nhiêu
+c_ailang_kho()                -- KHO CỦA LÀNG: gom túi đồ + đồ đang cầm + túi
+                              --   hàng của mọi dân làng, cộng rương trong làng
 c_ailang_theo("Tí")           -- đi theo mình (cần thiện cảm ≥ 70)
 c_ailang_onha("Tí")           -- ở nhà
 c_ailang_tudo("Tí")           -- làm việc quanh nhà (mặc định)
@@ -351,6 +353,25 @@ xuống đuốc; thiếu cỏ thì đi tìm bụi cỏ, thiếu cành thì tìm 
 `builder:CanBuild` tự xét cấp công nghệ nên **bậc cao tự rụng khi chưa đủ đồ
 nghề**. Không phải viết điều kiện tay.
 
+### Túi hàng — chỗ người chơi lấy đồ ra
+
+Túi **đồ** của một prefab người chơi thì người chơi khác không mở được. Nên mỗi
+dân làng được gắn thêm hẳn một `container` lên chính entity — đúng cách Chester
+và Glommer làm. Trỏ chuột vào dân làng là có nút mở.
+
+Đây là **hộp một chiều, cố ý**: `inventory:GetOverflowContainer` chỉ nhìn món
+đang mặc ở ô BODY, nên đồ trong túi hàng KHÔNG dùng để chế đồ được. Vì vậy dân
+làng chỉ dồn vào đây thứ nó không cần để sống, và chỉ khi túi chính **đã đầy** —
+lúc đó nó vốn đứng ngây không nhặt thêm được gì.
+
+⚠ Bốn món **không bao giờ** bị dồn đi: `cutgrass`, `twigs`, `log`, `flint`. Đó
+là nguyên liệu của đuốc, lửa trại và rìu — cất đi là tự chặt đường sống.
+
+⚠ Túi hàng phải gắn **trước** khi dựng lại đồ trong `dan_lang.Sinh`, và phải
+vào **hồ sơ**: dân làng có `persists = false` nên thứ được lưu cùng world là hồ
+sơ chứ không phải entity. Quên một trong hai là đồ người chơi gửi vào bốc hơi
+sau mỗi restart.
+
 ### Nuôi lửa
 
 Lửa trại **không cháy mãi**: hết nhiên liệu là nó nhả tro rồi biến mất hẳn
@@ -362,6 +383,34 @@ Nên "tiếp lửa" là một VIỆC THƯỜNG trong `viec.lua`, xếp ngay sau 
 nửa bình thì ném củi vào, ưu tiên gỗ, chừa lại 4 cỏ/cành để còn làm đuốc. Để
 là việc thường (chứ không phải nhu cầu) vì nhu cầu gấp vẫn phải chen ngang
 được — lo thân trước, nuôi lửa sau.
+
+### Bán kính đi kiếm phải KHỚP với dây trói về nhà
+
+Hai con số này từng đá nhau và nó giết cả làng:
+
+| | cũ | mới |
+|---|---|---|
+| `TAM_KIEM_GAP` (sinh_ton) — tầm tìm khi nhu cầu cấp thiết | 80 | **130** |
+| `VE_NHA_XA` (danlangbrain) — xa nhà bấy nhiêu thì bỏ việc về | 50 | 50 |
+| `VE_NHA_XA_GAP` — nhưng khi còn nhu cầu GẤP chưa giải được | *(không có)* | **140** |
+
+Vòng tìm khẩn cấp bán kính 80 là **mã chết** khi node "đi quá xa nhà" kéo chúng
+về ngay lúc vượt 50. Dân làng bị trói trong đúng 50 đơn vị quanh Đài.
+
+Đo trên server, làng dựng giữa rừng rậm:
+
+| bán kính | bụi cỏ | bụi cây con | cây gỗ |
+|---|---|---|---|
+| 30 | 1 | 0 | 55 |
+| 80 | 3 | 0 | 250 |
+| 150 | **86** | 0 | 514 |
+
+Đuốc cần 2 cỏ + 2 cành, lửa trại cần 3 cỏ. Cả ba chết đêm với 2 khúc gỗ trong
+túi — ngồi trên một mỏ gỗ mà không đổi ra nổi ánh sáng, trong khi 86 bụi cỏ nằm
+ngay ngoài sợi dây trói.
+
+Vẫn giữ trần cứng 140 để không quay lại bệnh trôi vô hạn (đã đo lần trước: trôi
+tới 158, chết ở 235).
 
 ### Đống lửa của làng đặt ở LÀNG
 
