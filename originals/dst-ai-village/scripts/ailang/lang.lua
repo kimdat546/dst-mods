@@ -84,6 +84,33 @@ function lang.LamDuocLucNay(inst, v)
     return (x - lx) ^ 2 + (z - lz) ^ 2 <= TAM_DEM * TAM_DEM
 end
 
+-- ── lo thân trước khi giữ làng ──────────────────────────────────────────
+--
+-- ⚠ Nhánh "giữ làng" trong cây hành vi nằm rất cao, nên hễ nó giành được lượt
+--   là mọi nhánh tự-lo bên dưới KHÔNG BAO GIỜ chạy. Đã gây hoạ BA LẦN:
+--     · một con hound cách 30 làm hỏng cả năm phép kiểm về đuốc và nhặt đồ
+--     · dân làng đứng đánh nhau giữa đêm khi chưa có nguồn sáng
+--     · cả ba khoá cứng ở đây để đuổi MỘT CON ẾCH quanh làng giữa mùa hè,
+--       nhiệt độ leo 77 -> 84 -> 87 và máu tụt 94% -> 28%, trong khi có 21 gốc
+--       cây rợp bóng trong bán kính 40 ngay cạnh đó
+--
+--   Nên phép thử này gom hết mọi lý do "chết tại chỗ đang đứng" vào một nơi,
+--   thay vì thêm từng cửa thoát một sau mỗi lần chết.
+function lang.LoThanTruoc(inst, nong_tu)
+    local nhu_cau = require("ailang/nhu_cau")
+    -- Chưa có ánh sáng giữa đêm: đứng đánh nhau là chết.
+    local as = nhu_cau.Tim("anh_sang")
+    if as ~= nil then
+        local ok_can, can = pcall(as.can, inst)
+        local ok_du, du = pcall(as.du, inst)
+        if ok_can and can and ok_du and not du then return true end
+    end
+    -- Đang nóng: chết vì nóng trong lúc giữ làng thì giữ được gì.
+    local t = inst.components.temperature
+    if t ~= nil and t:GetCurrent() >= (nong_tu or 66) then return true end
+    return false
+end
+
 -- ── kẻ địch lạc vào làng ────────────────────────────────────────────────
 --
 -- Đây là điểm khác với việc tự vệ thường: trong làng thì dân làng CHỦ ĐỘNG

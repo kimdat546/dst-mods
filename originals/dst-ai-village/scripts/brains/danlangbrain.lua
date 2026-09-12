@@ -249,8 +249,10 @@ function DanLangBrain:OnStart()
             --   kính 60 là dân làng kẹt vĩnh viễn ở nhánh đánh nhau, không bao
             --   giờ tới được nhánh làm việc — đo được: một con hound cách 30
             --   làm hỏng cả năm phép kiểm về đuốc và nhặt đồ.
-            local as = nhu_cau.Tim("anh_sang")
-            if as ~= nil and as.can(inst) and not as.du(inst) then return false end
+            -- ⚠ LO THÂN TRƯỚC KHI GIỮ LÀNG. Mọi lý do "chết tại chỗ đang
+            --   đứng" gom trong lang.LoThanTruoc — xem chú thích ở đó, nhánh
+            --   này đã gây hoạ ba lần vì mỗi lần chỉ vá thêm một cửa thoát.
+            if lang.LoThanTruoc(inst, NONG_THI_TRU) then return false end
             local dich = lang.DichTrongLang(inst)
             if dich == nil then return false end
             if inst.components.combat ~= nil
