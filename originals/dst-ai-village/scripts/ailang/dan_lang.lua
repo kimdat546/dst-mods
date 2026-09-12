@@ -324,6 +324,24 @@ local KEU = {
     "Đồ của tôi vẫn còn ở chỗ tôi ngã xuống.",
 }
 
+-- ⚠ RỜI TRẠNG THÁI "death" PHẢI ĐI ĐÚNG LỐI, không gọi thẳng GoToState.
+--   SGwilson.lua:3839 có một `assert(false, "Left death state.")` ngay trong
+--   onexit của trạng thái chết — gọi thẳng GoToState("idle") là ném LỖI CỨNG
+--   mỗi lần hồn ma cử động, và nhật ký ngập stack traceback.
+--
+--   Nhưng chính đoạn assert đó cũng cho biết hai lối thoát HỢP LỆ:
+--       if inst.sg.statemem.vinesaving then return
+--       elseif inst.components.revivablecorpse == nil then assert(false, ...)
+--   `vinesaving` là cờ game dùng cho pha Winona được dây leo cứu. Bật nó lên
+--   thì onexit thoát sớm, không chạm tới assert.
+local function RoiTrangThaiChet(inst)
+    if inst.sg == nil then return end
+    if inst.sg.currentstate ~= nil and inst.sg.currentstate.name == "death" then
+        inst.sg.statemem.vinesaving = true
+    end
+    nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
+end
+
 function dan_lang.ThanhHonMa(inst, noi_chet)
     local a = inst.ailang
     if a == nil or a.la_hon_ma then return end
@@ -374,9 +392,7 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     --   Hồn ma DST thật đi qua stategraph người-chơi-hồn-ma, thứ mình không
     --   dùng được (cần HUD phía client). Nên chỉ cần trả về "idle": thân thể
     --   nhận lệnh đi lại bình thường, còn "đã chết" giữ bằng cờ la_hon_ma.
-    if inst.sg ~= nil then
-        nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
-    end
+    RoiTrangThaiChet(inst)
 
     -- Bỏ việc đang làm dở. Chết rồi thì không còn đi chặt cây nữa, và giữ lại
     -- thì lúc hồi sinh nó bám tiếp một mục tiêu đã cũ mấy ngày.
@@ -445,9 +461,7 @@ function dan_lang.HoiSinh(inst)
 
     -- ⚠ Cũng phải đẩy ra khỏi "death" — xem chú thích trong ThanhHonMa. Hồi
     --   sinh mà vẫn kẹt trạng thái chết thì được cái xác biết nói, không biết đi.
-    if inst.sg ~= nil then
-        nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
-    end
+    RoiTrangThaiChet(inst)
     a.viec, a.viec_tu, a.viec_moc = nil, nil, nil
     a.dang_lam = nil
 
