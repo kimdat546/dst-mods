@@ -61,9 +61,15 @@ nhu_cau.NGUON = {
 --   Nên phải vừa xét tag vừa có danh sách trắng.
 nhu_cau.PHAT_SANG = { minerhat = true, nightstick = true }
 
+-- ⚠ Đuốc dưới 25% nhiên liệu coi như KHÔNG còn là nguồn sáng, để dân làng
+--   kịp làm cây mới TRƯỚC khi tắt. Đo trên server: chúng cầm đuốc từ chập
+--   tối, đuốc cháy hết đúng lúc vào đêm, và cả ba chết với tay không.
+local SAP_TAT = 0.25
+
 function nhu_cau.MonPhatSang(mon)
     if mon == nil then return false end
-    if mon.components.fueled ~= nil and mon.components.fueled:GetPercent() <= 0 then
+    if mon.components.fueled ~= nil
+       and mon.components.fueled:GetPercent() <= SAP_TAT then
         return false
     end
     return mon:HasTag("lighter") or mon:HasTag("light")
@@ -77,12 +83,22 @@ end
 --   trong viec.lua mà quên sinh_ton.DiKiem, nên nhu cầu "nhà" đi kiếm gỗ vẫn
 --   cầm rìu lên giữa đêm và giành mất tay cầm đuốc.
 function nhu_cau.KhongRanhTay(inst)
-    if not TheWorld.state.isnight then return false end
+    if not (TheWorld.state.isnight or TheWorld.state.isdusk) then return false end
     local tui = inst.components.inventory
     if tui == nil then return false end
-    -- Có đèn đội đầu thì rảnh tay, làm bình thường.
+    -- Đèn đội đầu thì rảnh tay hẳn.
     if nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HEAD)) then return false end
-    return nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HANDS))
+    -- Đứng cạnh lửa cũng rảnh tay.
+    if FindEntity(inst, 10, function(v)
+           return v.components.burnable ~= nil and v.components.burnable:IsBurning()
+       end, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil then
+        return false
+    end
+    -- ⚠ Còn lại thì TUYỆT ĐỐI không cầm dụng cụ lúc trời tối. Bản trước chỉ
+    --   chặn khi tay ĐANG cầm đuốc, nên hễ đuốc vừa cháy hết là dân làng rút
+    --   rìu ra đi chặt gỗ giữa đêm và chết ngay — đo được "axe" trên tay đúng
+    --   lúc nhu cầu ánh sáng đang dang dở.
+    return true
 end
 
 -- ── tiện ích chung ──────────────────────────────────────────────────────
@@ -192,12 +208,31 @@ nhu_cau.DANH_SACH = {
                end, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil then
                 return true
             end
-            if TheWorld.state.isnight then return false end
+            -- ⚠ `du` phải KHỚP với `mac_khi`. Nếu đang tới lúc phải cầm đuốc
+            --   lên mà `du` lại báo "đủ rồi" vì đuốc nằm trong túi, thì không
+            --   ai ra lệnh cầm — đo được: chập tối dân làng vẫn tay không dù
+            --   túi có đuốc, và đó chính là lúc Charlie ra đòn đầu tiên.
+            local n = nhu_cau.Tim("anh_sang")
+            if n ~= nil and n.mac_khi ~= nil and n.mac_khi(inst) then
+                return false
+            end
             return DuyetTui(inst, nhu_cau.MonPhatSang) ~= nil
         end,
-        -- Chỉ CẦM LÊN khi tối hẳn; hoàng hôn thì có sẵn trong túi là đủ, để
-        -- còn rảnh tay cầm rìu.
-        mac_khi = function() return TheWorld.state.isnight end,
+        -- ⚠ CẦM LÊN TỪ HOÀNG HÔN, không đợi tối hẳn. Đợi tối hẳn là CHẾT: đo
+        --   trên server, cả ba dân làng bị Charlie đánh 100 sát thương lúc
+        --   giao thời chập tối → đêm khi còn tay không, rồi mới kịp rút đuốc
+        --   ra và lãnh đòn thứ hai. Charlie đã đếm giờ trước khi trời tối hẳn.
+        --
+        --   Nhưng ĐỨNG CẠNH LỬA thì khỏi cầm — người chơi từng thấy dân làng
+        --   cầm đuốc từ buổi chiều và thấy vô lý. Có lửa thì rảnh tay làm việc.
+        mac_khi = function(inst)
+            if TheWorld.state.isnight then return true end
+            if not TheWorld.state.isdusk then return false end
+            return FindEntity(inst, 10, function(v)
+                       return v.components.burnable ~= nil
+                          and v.components.burnable:IsBurning()
+                   end, { "campfire" }, { "INLIMBO", "burnt" }) == nil
+        end,
         -- ⚠ LỬA TRẠI là bậc cuối và nó CỨU MẠNG. Đo trên server: cả vùng
         --   không có bụi cây con nào trong bán kính 150, nên dân làng không
         --   bao giờ làm nổi đuốc (cần 2 cành) — trong khi chúng ôm 20 bó cỏ.
@@ -244,6 +279,27 @@ nhu_cau.DANH_SACH = {
         kiem = { "berries", "carrot" },
     },
     {
+        ma  = "nha",
+        ten = "nhà",
+        -- ⚠ ĐỨNG TRƯỚC vũ khí và giáp. Đống lửa quan trọng hơn cái áo cỏ:
+        --   không có lửa thì chết đêm, còn không có giáp thì chỉ đau hơn.
+        --   Bản trước để "nhà" ở CUỐI danh sách nên giáp/vũ khí luôn chen
+        --   trước, và dân làng không bao giờ dựng nổi đống lửa nào.
+        -- ⚠ GẤP: đống lửa của làng là nguồn sáng BỀN và KHÔNG tốn tay cầm.
+        --   Dân làng chỉ sống bằng đuốc thì sớm muộn cũng chết — đuốc cháy hết
+        --   giữa đêm là hết đường. Dựng được lửa trại là xong chuyện đêm hôm,
+        --   và đó cũng là thứ người chơi thật làm đầu tiên.
+        gap = true,
+        can = function() return true end,
+        du  = function(inst)
+            local nha = inst.ailang ~= nil and inst.ailang.nha or nil
+            if nha == nil then return false end
+            -- Có nhà rồi thì phải có bếp lửa ở đó mới tính là xong.
+            return FindEntity(inst, 40, nil, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil
+        end,
+        bac = { { mon = "firepit", dat_xuong = true }, { mon = "campfire", dat_xuong = true } },
+    },
+    {
         ma  = "hoi_nao",
         ten = "hồi não",
         can = function(inst)
@@ -278,18 +334,6 @@ nhu_cau.DANH_SACH = {
             end) ~= nil
         end,
         bac = { { mon = "armorwood" }, { mon = "armorgrass" } },
-    },
-    {
-        ma  = "nha",
-        ten = "nhà",
-        can = function() return true end,
-        du  = function(inst)
-            local nha = inst.ailang ~= nil and inst.ailang.nha or nil
-            if nha == nil then return false end
-            -- Có nhà rồi thì phải có bếp lửa ở đó mới tính là xong.
-            return FindEntity(inst, 40, nil, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil
-        end,
-        bac = { { mon = "firepit", dat_xuong = true }, { mon = "campfire", dat_xuong = true } },
     },
 }
 

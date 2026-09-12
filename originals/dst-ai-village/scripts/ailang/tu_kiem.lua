@@ -311,8 +311,11 @@ local function ThuHoangHon(tiep)
         for _, mon in pairs(tui.itemslots or {}) do
             if mon ~= nil and mon.prefab == "torch" then co_duoc = true end
         end
-        KT("hoàng hôn thì chế sẵn đuốc nhưng CHƯA cầm lên",
-           co_duoc and (tay == nil or tay.prefab ~= "torch"),
+        -- ⚠ Đảo so với bản trước. Đợi tối hẳn mới cầm đuốc là CHẾT — Charlie
+        --   đánh ngay lúc giao thời chập tối → đêm. Giờ hoàng hôn mà quanh đó
+        --   KHÔNG có lửa thì phải cầm luôn.
+        KT("hoàng hôn không có lửa thì phải cầm đuốc lên",
+           tay ~= nil and tay.prefab == "torch",
            "có đuốc=" .. tostring(co_duoc) .. " đang cầm=" .. tostring(tay and tay.prefab))
         -- ⚠ ms_setphase KHÔNG ăn ngay trong cùng nhịp — đo được phải hơn 2
         --   giây mới thấy TheWorld.state.isnight đổi. Cho đủ nhịp rồi mới
