@@ -149,6 +149,66 @@ function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
     return BufferedAction(inst, muc, hanh_dong)
 end
 
+-- ── nhu cầu không tiến triển thì NGHỈ một lúc ───────────────────────────
+--
+-- ⚠ Một nhu cầu có thể GIẢI ĐƯỢC VỀ LÝ THUYẾT mà KHÔNG BAO GIỜ XONG, và khi
+--   đó nó chặn đứng mọi nhu cầu xếp dưới. Đo trên server: cả ba dân làng kẹt
+--   vĩnh viễn ở "mát" — mũ cỏ cần 12 bó, quanh làng chỉ có 3 bụi, hái xong
+--   phải chờ mọc lại. Bộ giải vẫn tìm ra bụi cỏ mỗi nhịp nên không bao giờ coi
+--   là bó tay, trong khi số cỏ trong túi đứng im ở 2-3 suốt nhiều phút. Hậu
+--   quả: KHÔNG AI dựng lửa trại (lua=0) và cả làng vào đêm tay trắng.
+--
+--   Nên đo TIẾN TRIỂN THẬT — tổng số nguyên liệu còn thiếu — chứ không đo
+--   "có tìm thấy mục tiêu không". Đứng im quá lâu thì nghỉ nhu cầu đó một lúc
+--   để những nhu cầu dưới được chạy.
+local KIEN_NHAN_NHU_CAU = 90    -- giây, không tiến triển thì nghỉ
+local NGHI_BAO_LAU      = 120   -- giây
+
+local function TongConThieu(inst, n)
+    local re_nhat = n.bac ~= nil and n.bac[#n.bac] or nil
+    if re_nhat == nil then return nil end
+    local tong = 0
+    for _, t in ipairs(sinh_ton.ConThieu(inst, re_nhat.mon) or {}) do
+        tong = tong + t[2]
+    end
+    return tong
+end
+
+-- Nhu cầu này đang nghỉ à?
+local function DangNghi(inst, n)
+    local a = inst.ailang
+    if a == nil or a.nghi == nil then return false end
+    local het = a.nghi[n.ten]
+    if het == nil then return false end
+    if GetTime() > het then a.nghi[n.ten] = nil return false end
+    return true
+end
+
+-- Ghi nhận tiến triển; trả về true nếu vừa quyết định cho nhu cầu này nghỉ.
+local function SoatTienTrien(inst, n)
+    local a = inst.ailang
+    if a == nil then return false end
+    if a.moc_tien == nil then a.moc_tien = {} end
+    if a.nghi == nil then a.nghi = {} end
+
+    local con = TongConThieu(inst, n)
+    if con == nil then return false end
+
+    local m = a.moc_tien[n.ten]
+    if m == nil or m.con ~= con then
+        a.moc_tien[n.ten] = { con = con, tu = GetTime() }
+        return false
+    end
+    if GetTime() - m.tu > KIEN_NHAN_NHU_CAU then
+        a.nghi[n.ten] = GetTime() + NGHI_BAO_LAU
+        a.moc_tien[n.ten] = nil
+        nen.doi(inst, tostring(a.ten), "nghỉ nhu cầu", n.ten,
+                "— còn thiếu", con, "mà mãi không nhích")
+        return true
+    end
+    return false
+end
+
 -- ── giải một nhu cầu ────────────────────────────────────────────────────
 
 local function MacVao(inst, mon, n)
@@ -158,7 +218,10 @@ local function MacVao(inst, mon, n)
     local tui = inst.components.inventory
     if tui == nil then return false end
     tui:Equip(mon)
-    nen.chitiet(tostring(inst.ailang.ten), "dùng", mon.prefab, "cho", n.ten)
+    -- ⚠ nen.doi chứ không nen.chitiet: hàm này chạy trong vòng quyết định nên
+    --   in ra vài lần MỖI GIÂY cho mỗi dân làng. Đã đo giữa đêm: "dùng torch
+    --   cho ánh sáng" lặp liên tục và che mất mọi tín hiệu khác trong nhật ký.
+    nen.doi(inst, tostring(inst.ailang.ten), "dùng", mon.prefab, "cho", n.ten)
     return true
 end
 
@@ -313,19 +376,32 @@ function sinh_ton.Giai(inst, loc)
     -- Ghi lại những nhu cầu BÓ TAY để viec.CanChenNgang đừng lấy chúng ra cướp
     -- lượt mỗi nhịp: một nhu cầu không giải được mà vẫn được quyền chen ngang
     -- thì dân làng bỏ việc liên tục và chẳng làm xong gì.
+    -- ⚠ ĐỪNG dùng `goto` ở đây. Nó là cú pháp Lua 5.2+; LuaJIT nuốt được nên
+    --   `luajit -bl` báo sạch, nhưng đó chính là kiểu lỗi làm MOD KHÔNG NẠP
+    --   ĐƯỢC và cả world không khởi động. Viết bằng vòng lặp thường cho chắc.
     local bo_tay = {}
     for _, n in ipairs(ds) do
-        for _, tam in ipairs({ TAM_KIEM, TAM_KIEM_GAP }) do
-            local ok, kq = pcall(GiaiMot, inst, n, tam)
-            if not ok then
-                nen.loi("giải nhu cầu " .. n.ten .. ":", kq)
-            elseif kq ~= nil then
-                if inst.ailang ~= nil then
-                    inst.ailang.dang_lo = n.ten
-                    inst.ailang.bo_tay = bo_tay
+        -- Nhu cầu đang nghỉ thì coi như bó tay, nhường lượt cho nhu cầu dưới.
+        local nghi = DangNghi(inst, n) or SoatTienTrien(inst, n)
+        local kq_n = nil
+        if not nghi then
+            for _, tam in ipairs({ TAM_KIEM, TAM_KIEM_GAP }) do
+                if kq_n == nil then
+                    local ok, kq = pcall(GiaiMot, inst, n, tam)
+                    if not ok then
+                        nen.loi("giải nhu cầu " .. n.ten .. ":", kq)
+                    elseif kq ~= nil then
+                        kq_n = kq
+                    end
                 end
-                return kq
             end
+        end
+        if kq_n ~= nil then
+            if inst.ailang ~= nil then
+                inst.ailang.dang_lo = n.ten
+                inst.ailang.bo_tay = bo_tay
+            end
+            return kq_n
         end
         bo_tay[n.ten] = true
     end

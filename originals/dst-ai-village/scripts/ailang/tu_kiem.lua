@@ -1893,6 +1893,52 @@ local function ThuBoTayThiThoi(tiep)
     tiep()
 end
 
+-- ── nhu cầu không tiến triển thì NGHỈ một lúc ───────────────────────────
+--
+-- ⚠ Một nhu cầu có thể GIẢI ĐƯỢC VỀ LÝ THUYẾT mà KHÔNG BAO GIỜ XONG, và khi đó
+--   nó chặn đứng mọi nhu cầu xếp dưới. Đo trên server: cả ba kẹt vĩnh viễn ở
+--   "mát" — mũ cỏ cần 12 bó, quanh làng chỉ 3 bụi, hái xong phải chờ mọc lại.
+--   Bộ giải vẫn tìm ra bụi cỏ mỗi nhịp nên không bao giờ coi là bó tay, trong
+--   khi số cỏ đứng im suốt nhiều phút. Chuỗi tử thần:
+--       "mát" không xong -> chặn "nhà" -> KHÔNG có lửa trại (lua=0)
+--       -> sống bằng đuốc -> hết cành cây -> tối -> Charlie
+--   Máu 87% tụt xuống 21% trong một nhịp, cả ba tay không.
+local function ThuNghiNhuCau(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    e.components.inventory:DropEverything()
+    DonQuanh(gx, gz, 140)
+    e.ailang.nghi, e.ailang.moc_tien = nil, nil
+
+    -- Nhu cầu "giáp" luôn `can`, và quanh đây đã dọn sạch nên nó không tiến
+    -- triển được — đúng khuôn của cảnh đã gặp.
+    local giap = nc.Tim("giap")
+    KT("dựng đúng cảnh: có nhu cầu để theo dõi", giap ~= nil)
+
+    -- Lần đầu: ghi mốc, chưa nghỉ.
+    st.Giai(e)
+    KT("lần đầu chỉ ghi mốc tiến triển, chưa nghỉ nhu cầu nào",
+       e.ailang.nghi == nil or next(e.ailang.nghi) == nil)
+    KT("và có ghi lại mốc để so lần sau",
+       e.ailang.moc_tien ~= nil and next(e.ailang.moc_tien) ~= nil)
+
+    -- Giả lập đã đứng im quá lâu: lùi mốc về quá khứ.
+    for ten, m in pairs(e.ailang.moc_tien) do
+        m.tu = GetTime() - 1000
+    end
+    st.Giai(e)
+    local so_nghi = 0
+    for _ in pairs(e.ailang.nghi or {}) do so_nghi = so_nghi + 1 end
+    KT("đứng im quá lâu thì cho nhu cầu đó NGHỈ, nhường lượt xuống dưới",
+       so_nghi > 0, "đang nghỉ=" .. so_nghi)
+
+    e.ailang.nghi, e.ailang.moc_tien = nil, nil
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1908,7 +1954,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat,
                ThuChongNong, ThuBongCay, ThuXuong,
                ThuLoThanTruoc,
-               ThuUuTienThangKhoangCach, ThuBoTayThiThoi }
+               ThuUuTienThangKhoangCach, ThuBoTayThiThoi,
+               ThuNghiNhuCau }
 local i = 0
 local function tiep()
     i = i + 1
