@@ -105,18 +105,20 @@ function nhu_cau.KhongRanhTay(inst)
     if not (TheWorld.state.isnight or TheWorld.state.isdusk) then return false end
     local tui = inst.components.inventory
     if tui == nil then return false end
-    -- Đèn đội đầu thì rảnh tay hẳn.
+    -- Đèn đội đầu thì rảnh tay hẳn — nó không chiếm ô tay.
     if nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HEAD)) then return false end
-    -- Đứng cạnh lửa cũng rảnh tay.
-    if FindEntity(inst, 10, function(v)
-           return v.components.burnable ~= nil and v.components.burnable:IsBurning()
-       end, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil then
-        return false
-    end
-    -- ⚠ Còn lại thì TUYỆT ĐỐI không cầm dụng cụ lúc trời tối. Bản trước chỉ
-    --   chặn khi tay ĐANG cầm đuốc, nên hễ đuốc vừa cháy hết là dân làng rút
-    --   rìu ra đi chặt gỗ giữa đêm và chết ngay — đo được "axe" trên tay đúng
-    --   lúc nhu cầu ánh sáng đang dang dở.
+    -- ⚠ KHÔNG còn lối thoát "đứng cạnh lửa trại thì rảnh tay". Đó là một THỨ
+    --   THAY THẾ cho "đang trong vùng sáng", và nó SAI Ở RÌA: vùng làm việc
+    --   ban đêm cho phép tới 12 đơn vị quanh lửa, trong khi lửa không chiếu
+    --   xa được tới đó. Đo được trên server, giữa đêm, lửa vẫn cháy (lua=1):
+    --       An[96% axe gom củi {to2,...}]   Binh[98% axe gom củi {to2}]
+    --       -> An bi danh 100.05  -> Binh bi danh 100.05  -> cả hai CHẾT
+    --   Cả hai có HAI cây đuốc trong túi mà đang cầm rìu, đứng trong bóng tối.
+    --
+    --   Cùng một sai lầm đã mắc với cây đuốc: đo bằng thứ thay thế thay vì đo
+    --   thứ thật. Giờ bỏ hẳn proxy và dùng luật bảo thủ — TRỜI TỐI THÌ CẦM
+    --   ĐUỐC, ĐỪNG CẦM DỤNG CỤ. Việc không cần tay (tiếp lửa, nhặt đồ) vẫn
+    --   làm được bình thường.
     return true
 end
 
@@ -275,13 +277,6 @@ nhu_cau.DANH_SACH = {
                 if DuyetTui(inst, nhu_cau.MonPhatSang) ~= nil then return true end
                 return false
             end
-            -- Đứng cạnh đống lửa đang cháy cũng là có sáng.
-            if FindEntity(inst, 10, function(v)
-                   return v.components.burnable ~= nil
-                      and v.components.burnable:IsBurning()
-               end, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil then
-                return true
-            end
             -- ⚠ `du` phải KHỚP với `mac_khi`. Nếu đang tới lúc phải cầm đuốc
             --   lên mà `du` lại báo "đủ rồi" vì đuốc nằm trong túi, thì không
             --   ai ra lệnh cầm — đo được: chập tối dân làng vẫn tay không dù
@@ -299,13 +294,13 @@ nhu_cau.DANH_SACH = {
         --
         --   Nhưng ĐỨNG CẠNH LỬA thì khỏi cầm — người chơi từng thấy dân làng
         --   cầm đuốc từ buổi chiều và thấy vô lý. Có lửa thì rảnh tay làm việc.
-        mac_khi = function(inst)
-            if TheWorld.state.isnight then return true end
-            if not TheWorld.state.isdusk then return false end
-            return FindEntity(inst, 10, function(v)
-                       return v.components.burnable ~= nil
-                          and v.components.burnable:IsBurning()
-                   end, { "campfire" }, { "INLIMBO", "burnt" }) == nil
+        -- ⚠ TRỜI TỐI LÀ CẦM, không trừ trường hợp nào. Bản trước chừa lối
+        --   "đứng cạnh lửa thì khỏi cầm" — nhưng "cạnh lửa" đo bằng bán kính
+        --   10 trong khi lửa không chiếu xa tới đó, nên dân làng bỏ đuốc vào
+        --   túi rồi bước ra rìa và chết. Cầm thừa một cây đuốc thì tốn chút
+        --   nhiên liệu; bỏ nó xuống nhầm lúc thì mất mạng.
+        mac_khi = function()
+            return TheWorld.state.isnight or TheWorld.state.isdusk
         end,
         -- ⚠ LỬA TRẠI là bậc cuối và nó CỨU MẠNG. Đo trên server: cả vùng
         --   không có bụi cây con nào trong bán kính 150, nên dân làng không

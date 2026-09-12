@@ -274,6 +274,9 @@ local function ViecGomCui(inst)
     return { muc_tieu = cay, hanh_dong = ACTIONS.CHOP, vi_sao = "gom củi" }
 end
 
+-- Phơi ra để bộ tự kiểm soi thẳng được, khỏi phải đoán qua cả chuỗi NhanViec.
+viec.ViecTiepLua = ViecTiepLua
+
 -- Túi đầy thì mang đồ về rương trong làng, khỏi đứng ngây.
 local function ViecCatDo(inst)
     local tui = inst.components.inventory

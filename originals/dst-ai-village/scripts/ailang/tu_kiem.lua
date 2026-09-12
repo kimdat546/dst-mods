@@ -237,10 +237,17 @@ local MAY_THU   -- máy khoa học của khuôn, dọn ở lần gọi sau
 local function ThoaHetNhuCau(e)
     if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
     local tui = e.components.inventory
-    for _, m in ipairs({ "spear", "armorgrass", "torch" }) do
-        local mon = SpawnPrefab(m)
-        if mon ~= nil then tui:GiveItem(mon) tui:Equip(mon) end
-    end
+    -- ⚠ ĐUỐC PHẢI TRANG BỊ SAU CÙNG. Giáo cũng chiếm Ô TAY, nên trang bị nó
+    --   sau đuốc là đẩy đuốc vào túi — và từ khi bỏ lối thoát "đứng cạnh lửa
+    --   thì coi như có sáng", chập tối `anh_sang` sẽ CHƯA THOẢ và giành lượt
+    --   của thứ bài kiểm muốn đo. Đã hỏng đúng vậy với "việc=nil".
+    --   Giáo để trong túi là đủ: vu_khi.mac_khi trả false, dân làng không tự
+    --   cầm vũ khí lên để khỏi vướng tay.
+    tui:GiveItem(SpawnPrefab("spear"))
+    local giap = SpawnPrefab("armorgrass")
+    if giap ~= nil then tui:GiveItem(giap) tui:Equip(giap) end
+    local duoc = SpawnPrefab("torch")
+    if duoc ~= nil then tui:GiveItem(duoc) tui:Equip(duoc) end
     -- Rìu và cuốc: nằm TRONG TÚI chứ không trang bị, đúng như nhu cầu
     -- "dụng cụ"/"cuốc" mong đợi (mac_khi trả false để khỏi vướng tay cầm đuốc).
     for _, m in ipairs({ "axe", "pickaxe" }) do
@@ -1330,26 +1337,32 @@ local function ThuNapDayTruocDem(tiep)
     tui:GiveItem(SpawnPrefab("log"))
     tui:GiveItem(SpawnPrefab("log"))
 
+    -- ⚠ Kiểm THẲNG ViecTiepLua, đừng kiểm qua viec.NhanViec. NhanViec chạy
+    --   sinh_ton.Giai trước, mà Giai CÓ TÁC DỤNG PHỤ (mặc đồ, chế đồ) và có
+    --   thể trả "xong" rồi nuốt luôn lượt — lúc đó NhanViec trả nil vì lý do
+    --   chẳng liên quan gì tới ngưỡng tiếp lửa. Đã mất mấy vòng chẩn đoán vì
+    --   phép kiểm đo quá xa nguồn: mọi điều kiện của đống lửa đều đúng, gọi
+    --   thẳng thì ra việc, mà qua NhanViec thì nil.
+    --   Thứ tự "giữ làng trước nhu cầu không gấp" đã có ThuGiuLangTruocGiap lo.
     lo.components.fueled:SetPercent(0.7)
-    vi.BoViec(e)
     KT("ban ngày lửa hơn nửa bình thì thôi, để dành củi",
-       (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL,
-       "việc=" .. tostring((vi.NhanViec(e) or {}).vi_sao))
+       vi.ViecTiepLua(e) == nil,
+       "việc=" .. tostring((vi.ViecTiepLua(e) or {}).vi_sao))
 
     DoiPha("dusk", function()
-        vi.BoViec(e)
-        local v = vi.NhanViec(e)
+        local v = vi.ViecTiepLua(e)
         KT("nhưng CHẬP TỐI thì cùng mức đó phải nạp thêm cho gần đầy",
            v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL,
-           "việc=" .. tostring(v and v.vi_sao))
+           "việc=" .. tostring(v and v.vi_sao)
+           .. " | lửa=" .. string.format("%.2f", lo.components.fueled:GetPercent()))
 
         lo.components.fueled:SetPercent(0.98)
-        vi.BoViec(e)
         KT("đã gần đầy thì thôi, không nhồi vô ích",
-           (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL)
+           vi.ViecTiepLua(e) == nil)
+
         lo:Remove()
         e:Remove()
-        tiep()
+        DoiPha("day", function() tiep() end)
     end)
 end
 
