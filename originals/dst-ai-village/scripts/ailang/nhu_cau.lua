@@ -371,18 +371,33 @@ nhu_cau.DANH_SACH = {
             return t ~= nil and t:GetCurrent() >= 62
         end,
         du = function(inst)
-            return DuyetTrangBi(inst, function(m)
+            if DuyetTrangBi(inst, function(m)
                 local ins = m.components.insulator
                 return ins ~= nil and ins.type == SEASONS.SUMMER
                    and ins:GetInsulation() > 0
-            end) ~= nil
+            end) ~= nil then return true end
+            -- Đứng cạnh lửa lạnh đang cháy cũng là mát, y như đứng cạnh lửa
+            -- trại thì coi là có sáng.
+            return FindEntity(inst, 10, function(v)
+                       return v.prefab == "coldfire"
+                          and v.components.burnable ~= nil
+                          and v.components.burnable:IsBurning()
+                   end, nil, { "INLIMBO", "burnt" }) ~= nil
         end,
         -- Đã đo: grass_umbrella cách nhiệt 120 (ô tay), strawhat 60 (ô đầu),
         -- cả hai đều tech 0. Dù cầm ô mất một tay, nó gấp đôi mũ cỏ nên xếp
         -- trên; thiếu đồ thì tự tụt xuống mũ.
+        --
+        -- ⚠ Nhưng cả hai chỉ LÀM CHẬM tốc độ nóng lên, không chặn đứng. Đo
+        --   trên server: nhiệt môi trường lên tới 78, cách nhiệt 60 của mũ cỏ
+        --   không cứu nổi. Lời giải THẬT của mùa hè là LỬA LẠNH — tech 1, nên
+        --   phải có Máy Khoa Học trước (xem nhu cầu "xưởng"). builder:CanBuild
+        --   tự xét cấp công nghệ nên bậc này tự rụng khi chưa có máy và tự
+        --   sống dậy khi có.
         bac = {
-            { mon = "grass_umbrella" },   -- twigs×4 cutgrass×3 petals×6
-            { mon = "strawhat" },         -- cutgrass×12
+            { mon = "coldfire", dat_xuong = true, o_nha = true },  -- cutgrass×3 nitre×2, tech 1
+            { mon = "grass_umbrella" },   -- twigs×4 cutgrass×3 petals×6, tech 0
+            { mon = "strawhat" },         -- cutgrass×12, tech 0
         },
     },
     {
@@ -445,6 +460,35 @@ nhu_cau.DANH_SACH = {
             { mon = "firepit",  dat_xuong = true, o_nha = true },
             { mon = "campfire", dat_xuong = true, o_nha = true },
         },
+    },
+    {
+        ma  = "xuong",
+        ten = "xưởng",
+        -- ⚠ MỘT CÁI MÁY MỞ KHOÁ CẢ MỘT TẦNG. researchlab là TECH 0
+        --   (goldnugget×1 log×4 rocks×4) nên dân làng tự dựng được — và từ lúc
+        --   có nó, mọi nhu cầu khác tự lên bậc mà KHÔNG phải sửa gì thêm, vì
+        --   builder:CanBuild tự xét cấp công nghệ:
+        --       mát     -> coldfire   (lời giải thật của mùa hè)
+        --       nhà     -> firepit    (bếp lửa không biến mất khi hết củi)
+        --       vũ khí  -> spear
+        --       giáp    -> armorwood
+        --   Vàng và đá thì cần cuốc — nhu cầu "cuốc" đã lo phần đó.
+        --
+        -- ⚠ KHÔNG đặt `gap`. Dựng máy là việc dài hơi; cho nó chen ngang thì
+        --   dân làng bỏ dở mọi thứ khác mỗi nhịp.
+        can = function() return true end,
+        du  = function(inst)
+            local nha = inst.ailang ~= nil and inst.ailang.nha or nil
+            if nha == nil then return false end
+            -- ⚠ PHẢI đòi tag "structure". Chỉ lọc theo "prototyper" là dính
+            --   cả carnival_host — con quạ của sự kiện lễ hội cũng mang tag
+            --   đó, mà nó BIẾT ĐI. Bộ tự kiểm bắt được đúng cảnh này: có một
+            --   con lảng vảng gần điểm sinh và dân làng tưởng làng đã có xưởng
+            --   dù chưa dựng gì, rồi mất luôn khi nó đi khỏi.
+            return #TheSim:FindEntities(nha[1], 0, nha[2], 40, { "structure" },
+                       { "INLIMBO", "burnt" }, { "prototyper" }) > 0
+        end,
+        bac = { { mon = "researchlab", dat_xuong = true, o_nha = true } },
     },
     {
         ma  = "hoi_nao",
