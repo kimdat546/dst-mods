@@ -180,6 +180,17 @@ end
 -- ⚠ 66 chứ không phải 70. Ngưỡng quá nhiệt của DST là 70, nhưng đi tới gốc
 --   cây cũng mất thời gian — đợi chạm 70 mới đi là đã mất máu trên đường.
 local NONG_THI_TRU = 66
+
+-- ⚠ PHẢI CÓ TRỄ NGƯỠNG, không thì dân làng RUNG quanh mốc 70 và mất máu đều.
+--   Đo được: vào bóng cây xong là nhánh nhả lượt NGAY, node làm việc lôi đi
+--   trước khi kịp nguội, rồi lại nóng, lại quay vào — máu 85% -> 77% -> 72%
+--   trong khi nhiệt lẩn quẩn 67-70.
+--
+-- ⚠ Mức nhả KHÔNG được đặt dưới 63: bóng cây chỉ hạ nhiệt khi đang TRÊN
+--   TREE_SHADE_COOLING_THRESHOLD (63), nên đòi xuống 58 là dân làng đứng dưới
+--   gốc cây tới sáng mà không bao giờ đạt. 65 thì vừa: đo được chúng ghim ở
+--   63-64 khi đứng trong bóng râm.
+local NONG_DA_NGUOI = 65
 local BO_QUA_BONG_RAM = { "FX", "NOCLICK", "DECOR", "INLIMBO", "stump", "burnt" }
 
 local function ViTriBongRam(inst)
@@ -329,11 +340,24 @@ function DanLangBrain:OnStart()
         --   và cả nhánh tự nhường lượt.
         WhileNode(function()
             local t = inst.components.temperature
-            if t == nil or t:GetCurrent() < NONG_THI_TRU then return false end
-            local che = inst.components.sheltered
-            return che == nil or not che.sheltered
+            if t == nil then return false end
+            local a = inst.ailang
+            if a == nil then return false end
+            local nhiet = t:GetCurrent()
+            if nhiet >= NONG_THI_TRU then
+                a.tru_nong = true
+            elseif nhiet <= NONG_DA_NGUOI then
+                a.tru_nong = nil
+            end
+            return a.tru_nong == true
         end, "Nóng quá thì vào bóng cây",
-            Leash(inst, function() return ViTriBongRam(inst) end, 1.8, 1.2)),
+            -- StandStill giữ chân dưới gốc cây cho tới khi thật sự nguội.
+            -- Không có nó thì Leash xong là nhánh nhả lượt ngay và dân làng
+            -- bị lôi đi khi vẫn còn 69 độ.
+            PriorityNode({
+                Leash(inst, function() return ViTriBongRam(inst) end, 1.8, 1.2),
+                StandStill(inst),
+            }, 0.5)),
 
         -- ĐÊM THÌ VỀ BÊN LỬA CỦA LÀNG.
         --
