@@ -148,6 +148,23 @@ function dan_lang.Sinh(hoso)
 
     nen.thu("dựng lại túi đồ", DungLaiTui, inst, hoso.tui)
 
+    -- ⚠ Dân làng MỚI được bộ đồ khởi đầu. Không có nó thì triệu hồi lúc trời
+    --   tối là ÁN TỬ NGAY: đo trên server, ba dân làng sinh giữa đêm tay
+    --   trắng chết sạch trong chưa tới 30 giây. Một cây đuốc và ít lương khô
+    --   đủ để nó sống qua đêm đầu và tự lo tiếp.
+    if hoso.tui == nil and inst.components.inventory ~= nil then
+        -- ⚠ PHẢI có rìu. Không dụng cụ thì dân làng không chặt được gỗ, không
+        --   gỗ thì không dựng nổi lửa trại, và ở vùng không có bụi cây con thì
+        --   cũng không làm nổi đuốc — bế tắc hoàn toàn và chết đêm đầu tiên.
+        --   Đo trên server: cả ba chết đúng kiểu đó, lúc chập tối còn đang lo
+        --   "giáp" vì nhu cầu ánh sáng KHÔNG hành động được.
+        for _, m in ipairs({ "axe", "torch", "cutgrass", "cutgrass",
+                             "twigs", "twigs", "berries", "berries" }) do
+            local mon = SpawnPrefab(m)
+            if mon ~= nil then inst.components.inventory:GiveItem(mon) end
+        end
+    end
+
     inst:ListenForEvent("death", function()
         dan_lang.ThanhHonMa(inst)
     end)

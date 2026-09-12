@@ -165,6 +165,12 @@ local function fn()
     inst:AddTag("structure")
     inst:AddTag("ailang_dai")
 
+    -- ⚠ Đài hồi sinh được chính dân của nó. Không có thứ này thì làng CHẾT
+    --   VĨNH VIỄN: đo trên server, cả ba dân làng chết đêm rồi đứng làm hồn ma
+    --   mãi vì quanh đó không có bia đá hay tượng thịt nào. Một đài triệu hồi
+    --   mà không gọi lại được người của mình thì cũng vô lý.
+    inst:AddTag("resurrector")
+
     inst.entity:SetPristine()
     if not TheWorld.ismastersim then return inst end
 

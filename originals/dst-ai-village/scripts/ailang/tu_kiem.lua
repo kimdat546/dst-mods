@@ -945,6 +945,18 @@ local function ThuDaiTrieuHoi(tiep)
     KT("điểm ngoài bán kính thì KHÔNG tính là trong làng",
        not la.TrongLang(e, gx + dai.ban_kinh + 30, gz))
 
+    -- Đài phải hồi sinh được dân của nó, không thì làng chết vĩnh viễn
+    KT("Đài mang tag resurrector để hồn ma tìm về được",
+       dai:HasTag("resurrector"))
+    local ma = ql:Them({ ten = "MaThu", nhan_vat = "wilson",
+                         nha = { gx, gz }, dai = dai.GUID })
+    ma.Transform:SetPosition(gx + 2, 0, gz)
+    dan_lang.ThanhHonMa(ma)
+    local la2 = require("ailang/lang")
+    KT("hồn ma nhìn thấy Đài là chỗ hồi sinh",
+       FindEntity(ma, 250, nil, { "resurrector" }, { "INLIMBO", "burnt" }) ~= nil)
+    ma:Remove()
+
     -- Đập Đài thì cả làng mất nhà
     dai.components.workable:SetWorkLeft(0)
     dai.components.workable.onfinish(dai)
