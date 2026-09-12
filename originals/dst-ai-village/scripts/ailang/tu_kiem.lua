@@ -18,6 +18,14 @@ local function nhuCauTorch(tui)
         if m ~= nil and m.prefab == "torch" then return m end
     end
 end
+-- ⚠ ĐỪNG tostring() thẳng một entity trong thông báo kiểm. Entity vừa bị gỡ
+--   có __tostring hỏng và chính tostring() sẽ NỔ, kéo sập cả server test.
+local function TenCua(e)
+    if e == nil then return "khong co" end
+    local ok, ten = pcall(function() return e.prefab end)
+    return ok and tostring(ten) or "?"
+end
+
 local function KT(ten, dieu_kien, chi_tiet)
     if dieu_kien then
         dat = dat + 1
@@ -29,7 +37,7 @@ local function KT(ten, dieu_kien, chi_tiet)
 end
 
 for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/than_thiet",
-                     "ailang/nhu_cau", "ailang/sinh_ton", "ailang/viec",
+                     "ailang/lang", "ailang/nhu_cau", "ailang/sinh_ton", "ailang/viec",
                      "ailang/lenh", "brains/danlangbrain" }) do
     package.loaded[m] = nil
 end
@@ -44,8 +52,12 @@ local function DonQuanh(x, z, r)
         --   inventoryitem/pickable/workable nên bộ lọc cũ bỏ sót, và bài kiểm
         --   trước để lại một cái bia là bài sau hỏng: hồn ma hồi sinh ngay rồi
         --   đi nhặt đồ. Đã dính đúng lỗi này.
+        -- ⚠ Dọn cả QUÁI. Một con hound lảng vảng trong bán kính làng là dân
+        --   làng rẽ sang nhánh giữ làng và không tới được nhánh đang kiểm —
+        --   đã làm hỏng oan năm phép kiểm cùng lúc.
         local bo = c ~= nil and (c.inventoryitem or c.pickable or c.workable)
                    or v:HasTag("resurrector") or v:HasTag("campfire")
+                   or v:HasTag("monster") or v:HasTag("hostile")
         if bo and v.Remove ~= nil and v.ailang == nil then
             v:Remove()
         end
@@ -69,20 +81,49 @@ local function DanLangSach(x, z)
     for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
     local e = dan_lang.Sinh({ ten = "ThuNghiem", nhan_vat = "wilson",
                               vi_tri = { x, z } })
-    DonQuanh(x, z, 30)
+    DonQuanh(x, z, 70)
     -- ⚠ PHẢI tắt não thật. Từ khi dân làng dùng SetCanSleep(false) thì não của
     --   chúng chạy kể cả lúc không có người chơi — hai não cùng điều khiển một
     --   entity thì kết quả kiểm thành ngẫu nhiên. Đã gặp: phép "đang bào mòn
     --   được cây thì không bỏ sang cây khác" chuyển sang HỎNG với "nhắm=grass".
     e:StopBrain()
+    -- ⚠ Đặt nhà sẵn cho bài kiểm. Từ khi NHÀ = ĐÀI TRIỆU HỒI, dân làng mới
+    --   sinh KHÔNG có nhà (đời du mục đầu game), nên bài nào giả định làng đã
+    --   yên vị phải tự dựng cảnh đó. Bài kiểm đời du mục thì gọi thẳng
+    --   dan_lang.Sinh, không qua khuôn này.
+    e.ailang.nha = { x, z }
     local nao = Brain(e)
     nao:OnStart()
     return e, nao
 end
 
+-- ⚠ ms_setphase KHÔNG ăn ngay. Đừng đoán số nhịp — CHỜ tới khi pha thật sự
+--   đổi rồi mới chạy tiếp, không thì bài kiểm hỏng oan lúc máy chậm.
+local function DoiPha(pha, xong)
+    TheWorld:PushEvent("ms_setphase", pha)
+    local n = 0
+    local function cho()
+        n = n + 1
+        if TheWorld.state.phase == pha or n > 40 then
+            xong(TheWorld.state.phase == pha)
+        else
+            TheWorld:DoTaskInTime(0.25, cho)
+        end
+    end
+    TheWorld:DoTaskInTime(0.25, cho)
+end
+
+-- ⚠ PHẢI dừng khi dân làng đã bị gỡ. Bài kiểm trước gọi e:Remove() nhưng các
+--   callback DoTaskInTime của Nhip vẫn còn hàng đợi, và chúng tiếp tục bơm
+--   nhịp cho não của một entity đã chết — DST tuôn "Stale Component
+--   Reference" cho tới khi SẬP CẢ SERVER (exit code 6). Đây là nguồn của
+--   hàng loạt kết quả kiểm lộn xộn khó hiểu.
 local function Nhip(nao, n, xong)
     local i = 0
     local function b()
+        if nao == nil or nao.inst == nil or not nao.inst:IsValid() then
+            xong() return
+        end
         i = i + 1
         pcall(function() nao.bt:Update() end)
         if i < n then TheWorld:DoTaskInTime(0.6, b) else xong() end
@@ -273,13 +314,28 @@ local function ThuHoangHon(tiep)
         KT("hoàng hôn thì chế sẵn đuốc nhưng CHƯA cầm lên",
            co_duoc and (tay == nil or tay.prefab ~= "torch"),
            "có đuốc=" .. tostring(co_duoc) .. " đang cầm=" .. tostring(tay and tay.prefab))
-        TheWorld:PushEvent("ms_setphase", "night")
-        Nhip(nao, 3, function()
+        -- ⚠ ms_setphase KHÔNG ăn ngay trong cùng nhịp — đo được phải hơn 2
+        --   giây mới thấy TheWorld.state.isnight đổi. Cho đủ nhịp rồi mới
+        --   khẳng định, không thì hỏng oan.
+        DoiPha("night", function(ok)
+        KT("đổi được sang đêm", ok, "pha=" .. tostring(TheWorld.state.phase))
+        -- ⚠ Cần đủ nhịp: đổi pha xong, dân làng còn phải bỏ việc đang làm dở
+        --   rồi mới nhận việc lo ánh sáng. Ít nhịp quá là hỏng oan.
+        Nhip(nao, 8, function()
             local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+            local co2 = {}
+            for _, mon in pairs(tui.itemslots or {}) do
+                if mon ~= nil then table.insert(co2, mon.prefab) end
+            end
             KT("sang đêm thì cầm đuốc lên",
                tay2 ~= nil and tay2.prefab == "torch",
-               "đang cầm=" .. tostring(tay2 and tay2.prefab))
+               "đang cầm=" .. tostring(tay2 and tay2.prefab)
+               .. " túi=[" .. table.concat(co2, " ") .. "]"
+               .. " isnight=" .. tostring(TheWorld.state.isnight)
+               .. " lo=" .. tostring(e.ailang.dang_lo)
+               .. " lam=" .. tostring(e.ailang.dang_lam))
             tiep()
+        end)
         end)
     end)
 end
@@ -500,18 +556,19 @@ local function ThuKhongDoiRiuDuoc(tiep)
     local x, y, z = e.Transform:GetWorldPosition()
     SpawnPrefab("evergreen").Transform:SetPosition(x + 3, y, z)
     TheWorld:PushEvent("ms_setphase", "night")
-    Nhip(nao, 4, function()
+    Nhip(nao, 7, function()
         local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
         KT("đêm cầm đuốc thì KHÔNG đổi sang rìu để chặt",
            tay ~= nil and tay.prefab == "torch",
            "đang cầm=" .. tostring(tay and tay.prefab))
-        TheWorld:PushEvent("ms_setphase", "day")
-        Nhip(nao, 3, function()
+        DoiPha("day", function()
+        Nhip(nao, 8, function()
             local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
             KT("sang ngày thì mới cầm rìu đi chặt",
                tay2 ~= nil and tay2.prefab == "axe",
                "đang cầm=" .. tostring(tay2 and tay2.prefab))
             tiep()
+        end)
         end)
     end)
 end
@@ -561,13 +618,18 @@ local function ThuKienNhan(tiep)
     end)
 end
 
--- ── 17. dân làng có nhà mặc định, không bám người chơi ──────────────────
-local function ThuCoNha(tiep)
+-- ── 17. đầu game là đời DU MỤC, chưa có nhà ────────────────────────────
+--
+-- ⚠ Đảo ngược so với bản trước. Trước đây nhà mặc định là chỗ được sinh ra;
+--   giờ NHÀ = ĐÀI TRIỆU HỒI, nên chưa dựng Đài thì chưa có nhà, và không có
+--   nhà thì dân làng bám theo người chơi. Đó là đời du mục đầu game.
+local function ThuDuMuc(tiep)
     for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
-    local e = dan_lang.Sinh({ ten = "ThuNha", nhan_vat = "wilson" })
-    KT("sinh ra là có nhà ngay, khỏi bám theo người chơi",
-       e.ailang.nha ~= nil,
-       "nhà=" .. tostring(e.ailang.nha and (e.ailang.nha[1] .. "," .. e.ailang.nha[2])))
+    local e = dan_lang.Sinh({ ten = "DuMuc2", nhan_vat = "wilson" })
+    KT("chưa có Đài thì dân làng KHÔNG có nhà",
+       e.ailang.nha == nil, "nhà=" .. tostring(e.ailang.nha))
+    local la = require("ailang/lang")
+    KT("không nhà thì không có vùng làng", la.Tam(e) == nil)
     e:Remove()
     tiep()
 end
@@ -837,15 +899,116 @@ local function ThuRaNgoaiLang(tiep)
     tiep()
 end
 
+
+-- ── 27. Đài Triệu Hồi ───────────────────────────────────────────────────
+local function ThuDaiTrieuHoi(tiep)
+    for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
+    local ql = TheWorld.components.ailangquanly
+    ql.ho_so = {}
+    local gx, gz = Goc()
+    local dai = SpawnPrefab("ailang_dai")
+    KT("prefab Đài Triệu Hồi dựng được", dai ~= nil)
+    if dai == nil then tiep() return end
+    dai.Transform:SetPosition(gx, 0, gz)
+    KT("Đài có bán kính làng", (dai.ban_kinh or 0) > 0,
+       "bán kính=" .. tostring(dai.ban_kinh))
+
+    -- Giá tăng dần theo số dân
+    local gia0 = _G.AILANG_GIA_TRIEU_HOI(0)
+    local gia3 = _G.AILANG_GIA_TRIEU_HOI(3)
+    KT("giá triệu hồi tăng theo số dân đang có",
+       gia3[1][2] > gia0[1][2],
+       string.format("0 dân=%dx%s, 3 dân=%dx%s",
+           gia0[1][2], gia0[1][1], gia3[1][2], gia3[1][1]))
+
+    -- Chưa có Đài thì dân làng KHÔNG có nhà (đời du mục)
+    local du_muc = dan_lang.Sinh({ ten = "DuMuc", nhan_vat = "wilson" })
+    KT("chưa gắn Đài thì dân làng KHÔNG có nhà (đời du mục)",
+       du_muc.ailang.nha == nil,
+       "nhà=" .. tostring(du_muc.ailang.nha))
+    du_muc:Remove()
+
+    -- Dân làng do Đài triệu hồi thì lấy Đài làm nhà
+    local e = ql:Them({ ten = "ConDai", nhan_vat = "wilson",
+                        nha = { gx, gz }, dai = dai.GUID })
+    KT("dân làng của Đài lấy Đài làm nhà",
+       e.ailang.nha ~= nil and e.ailang.dai == dai.GUID)
+
+    local la = require("ailang/lang")
+    KT("tâm làng đúng chỗ Đài",
+       la.Tam(e) ~= nil and math.abs(la.Tam(e)[1] - gx) < 1)
+    KT("bán kính làng lấy từ Đài",
+       la.BanKinh(e) == dai.ban_kinh,
+       la.BanKinh(e) .. " vs " .. tostring(dai.ban_kinh))
+    KT("điểm trong bán kính thì tính là trong làng",
+       la.TrongLang(e, gx + 10, gz))
+    KT("điểm ngoài bán kính thì KHÔNG tính là trong làng",
+       not la.TrongLang(e, gx + dai.ban_kinh + 30, gz))
+
+    -- Đập Đài thì cả làng mất nhà
+    dai.components.workable:SetWorkLeft(0)
+    dai.components.workable.onfinish(dai)
+    KT("đập Đài thì dân làng mất nhà, quay lại du mục",
+       e.ailang.nha == nil and e.ailang.dai == nil,
+       "nhà=" .. tostring(e.ailang.nha))
+    e:Remove()
+    tiep()
+end
+
+-- ── 28. giữ làng: đánh quái lạc vào, dập lửa ────────────────────────────
+local function ThuGiuLang(tiep)
+    local la = require("ailang/lang")
+    local vi = require("ailang/viec")
+    for _, e in ipairs(dan_lang.TatCa()) do e:Remove() end
+    local ql = TheWorld.components.ailangquanly
+    ql.ho_so = {}
+    local gx, gz = Goc()
+    local dai = SpawnPrefab("ailang_dai")
+    dai.Transform:SetPosition(gx, 0, gz)
+    local e = ql:Them({ ten = "GiuLang", nhan_vat = "wilson",
+                        nha = { gx, gz }, dai = dai.GUID })
+    e.Transform:SetPosition(gx, 0, gz)
+    e:StopBrain()
+
+    local nhen_trong = SpawnPrefab("spider")
+    nhen_trong.Transform:SetPosition(gx + 12, 0, gz)
+    KT("thấy quái lạc vào trong làng", la.DichTrongLang(e) == nhen_trong,
+       "thấy=" .. TenCua(la.DichTrongLang(e)))
+    nhen_trong.Transform:SetPosition(gx + dai.ban_kinh + 40, 0, gz)
+    -- Khẳng định đúng CON này ra ngoài tầm, chứ không đòi cả bản đồ sạch quái.
+    KT("quái ở NGOÀI làng thì không chủ động đuổi",
+       la.DichTrongLang(e) ~= nhen_trong,
+       "thấy=" .. TenCua(la.DichTrongLang(e)))
+    nhen_trong:Remove()
+
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(gx + 8, 0, gz)
+    if cay.components.burnable ~= nil then
+        cay.components.burnable:Ignite()
+        KT("thấy đám cháy trong làng", la.ChayTrongLang(e) == cay,
+           "thấy=" .. TenCua(la.ChayTrongLang(e)))
+        local v = vi.NhanViec(e)
+        KT("việc GẤP NHẤT là đi dập lửa",
+           v ~= nil and v.hanh_dong == ACTIONS.EXTINGUISH,
+           "việc=" .. tostring(v and v.vi_sao))
+        cay.components.burnable:Extinguish()
+    end
+    cay:Remove()
+    dai:Remove()
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
                ThuHonMaDangDST, ThuKhongKetXe,
-               ThuKhongDoiRiuDuoc, ThuKienNhan, ThuCoNha,
+               ThuKhongDoiRiuDuoc, ThuKienNhan, ThuDuMuc,
                ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh,
                ThuThienCam, ThuCheDo, ThuKhongNgu, ThuGiuViec,
-               ThuKhongTrom, ThuRaNgoaiLang }
+               ThuKhongTrom, ThuRaNgoaiLang,
+               ThuDaiTrieuHoi, ThuGiuLang }
 local i = 0
 local function tiep()
     i = i + 1

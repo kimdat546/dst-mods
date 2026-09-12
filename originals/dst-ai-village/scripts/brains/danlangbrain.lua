@@ -24,6 +24,7 @@ local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = require("ailang/sinh_ton")
 local than_thiet = require("ailang/than_thiet")
 local viec = require("ailang/viec")
+local lang = require("ailang/lang")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30
@@ -233,6 +234,27 @@ function DanLangBrain:OnStart()
             RunAway(inst, { tags = { "_combat", "_health" },
                             notags = { "player", "wall", "INLIMBO" } }, 8, 14)),
 
+        -- BẢO VỆ LÀNG: trong bán kính Đài thì CHỦ ĐỘNG đánh quái lạc vào, kể
+        -- cả con đó chưa đụng tới ai. Ngoài làng thì chỉ đánh trả.
+        WhileNode(function()
+            if dan_lang.LaHonMa(inst) then return false end
+            -- ⚠ LO THÂN TRƯỚC KHI GIỮ LÀNG. Chưa có ánh sáng giữa đêm mà đứng
+            --   đánh nhau là chết, và chết thì giữ được gì.
+            --   Không có chốt này thì chỉ cần MỘT con quái lảng vảng trong bán
+            --   kính 60 là dân làng kẹt vĩnh viễn ở nhánh đánh nhau, không bao
+            --   giờ tới được nhánh làm việc — đo được: một con hound cách 30
+            --   làm hỏng cả năm phép kiểm về đuốc và nhặt đồ.
+            local as = nhu_cau.Tim("anh_sang")
+            if as ~= nil and as.can(inst) and not as.du(inst) then return false end
+            local dich = lang.DichTrongLang(inst)
+            if dich == nil then return false end
+            if inst.components.combat ~= nil
+               and inst.components.combat.target == nil then
+                inst.components.combat:SetTarget(dich)
+            end
+            return true
+        end, "Giữ làng", ChaseAndAttack(inst, 15)),
+
         ChaseAndAttack(inst, 10),
 
         IfNode(function() return DangDoi(inst) end, "Đói",
@@ -246,9 +268,23 @@ function DanLangBrain:OnStart()
         --   thấy dân làng đổi rìu↔đuốc liên tục và chặt vài nhát rồi bỏ.
         --   Gom về một node GIỮ LẤY việc xuyên nhiều nhịp thì hết hẳn.
         --   (Mô hình mượn từ GrimWorld, Workshop 3748676443.)
+        -- ⚠ NHU CẦU GẤP phải là NODE RIÊNG, ưu tiên cao hơn node làm việc.
+        --   Không thể để logic chen ngang nằm bên trong hàm sinh hành động:
+        --   `DoAction` giữ trạng thái RUNNING suốt lúc dân làng đi tới mục
+        --   tiêu, và trong lúc đó hàm sinh hành động KHÔNG được gọi lại. Nên
+        --   đêm xuống mà nó đang trên đường đi kiếm đồ làm giáo thì chẳng ai
+        --   bảo nó cầm đuốc — đuốc nằm sẵn trong túi cho tới sáng.
+        --   PriorityNode xét lại từ đầu mỗi 0,5 giây, nên node này cắt ngang
+        --   được việc đang dở. Xong việc tức thì thì lần sau nó tự nhường.
         IfNode(function() return sinh_ton.Giai(inst) == "xong" end,
-            "Vừa lo xong một nhu cầu tức thì", ActionNode(function() end, "xong")),
+            "Lo nhu cầu tức thì", ActionNode(function() end, "xong")),
 
+        -- ⚠ CHỈ gọi sinh_ton.Giai ở MỘT chỗ. Trước đây có thêm một IfNode
+        --   `Giai(inst) == "xong"` ngay trên đây, nên mỗi nhịp Giai chạy HAI
+        --   lần — mà Giai có tác dụng phụ (mặc đồ, chế đồ, trừ nguyên liệu).
+        --   Hậu quả: dân làng chế đuốc rồi lại chế tiếp, và bốn phép kiểm về
+        --   đuốc/nhặt đồ hỏng cùng lúc. viec.HanhDong đã gọi Giai bên trong
+        --   và trả nil khi Giai vừa làm xong một việc tức thì.
         DoAction(inst, function() return viec.HanhDong(inst) end, "làm việc", true),
 
         -- Tối hẳn mà vẫn chưa có sáng: bám lấy đống lửa gần nhất.

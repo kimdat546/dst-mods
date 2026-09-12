@@ -56,6 +56,18 @@ configuration_options =
         default = 3,
     },
     {
+        name = "ban_kinh_lang",
+        label = "Bán kính làng",
+        hover = "Vùng quanh Đài Triệu Hồi mà dân làng coi là nhà: chúng ưu tiên\nđánh quái, dập lửa và cất đồ trong vùng này.",
+        options =
+        {
+            { description = "Nhỏ (40)", data = 40 },
+            { description = "Vừa (60)", data = 60 },
+            { description = "Lớn (80)", data = 80 },
+        },
+        default = 60,
+    },
+    {
         name = "bat_tam_tri",
         label = "Tầng suy nghĩ",
         hover = "Bật thì dân làng hỏi dịch vụ ngoài để chọn mục tiêu và trò chuyện.\nTắt thì chỉ chạy não phản xạ — vẫn làm việc bình thường.",

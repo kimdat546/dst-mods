@@ -109,7 +109,9 @@ function dan_lang.Sinh(hoso)
         che_do   = hoso.che_do,
         ten      = hoso.ten or nen.TEN[math.random(#nen.TEN)],
         tinh_cach = hoso.tinh_cach or "binh_than",
-        nha      = hoso.nha,          -- {x, z} hoặc nil
+        nha      = hoso.nha,          -- {x, z} hoặc nil — LÀ VỊ TRÍ ĐÀI
+        dai      = hoso.dai,          -- GUID của Đài đã triệu hồi ra nó
+        thien_huong = hoso.thien_huong,
         muc_tieu = nil,               -- do tầng suy nghĩ đặt vào
         noi_gi   = nil,
     }
@@ -132,12 +134,10 @@ function dan_lang.Sinh(hoso)
     end
     inst.Transform:SetPosition(x or 0, y or 0, z or 0)
 
-    -- Nhà mặc định là chỗ được sinh ra. Không có nhà thì cây hành vi cũ cho
-    -- dân làng BÁM THEO NGƯỜI CHƠI — người chơi không muốn vậy, họ muốn dân
-    -- làng sống quanh làng của mình.
-    if inst.ailang.nha == nil then
-        inst.ailang.nha = { x or 0, z or 0 }
-    end
+    -- ⚠ KHÔNG tự đặt nhà. Nhà của dân làng LÀ ĐÀI TRIỆU HỒI, không phải chỗ
+    --   nó tình cờ được sinh ra. Chưa có Đài thì chưa có nhà, và không có nhà
+    --   thì nó bám theo người chơi — đó chính là đời sống DU MỤC đầu game mà
+    --   người chơi muốn. Xem scripts/prefabs/ailang_dai.lua.
 
     if hoso.mau and inst.components.health then
         -- Dựng lại tối thiểu 30% chứ không phải 10%: dân làng hồi sinh với
@@ -368,6 +368,8 @@ function dan_lang.ChupHoSo(inst)
         nhan_vat  = inst.prefab,
         tinh_cach = inst.ailang.tinh_cach,
         nha       = inst.ailang.nha,
+        dai       = inst.ailang.dai,
+        thien_huong = inst.ailang.thien_huong,
         vi_tri    = { x, z },
         la_hon_ma = inst.ailang.la_hon_ma,
         noi_chet  = inst.ailang.noi_chet,

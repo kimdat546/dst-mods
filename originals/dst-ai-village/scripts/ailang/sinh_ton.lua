@@ -119,9 +119,12 @@ function sinh_ton.DiKiem(inst, nguyen_lieu, bo_qua_fn, tam)
     if hd == nil then return nil end
     local hanh_dong = hd()
 
-    if (nguon.hd == "CHOP" or nguon.hd == "MINE")
-       and not CamDungCu(inst, hanh_dong) then
-        return nil          -- không có dụng cụ thì thôi, tụt bậc khác
+    if nguon.hd == "CHOP" or nguon.hd == "MINE" then
+        -- Đêm mà chỉ có đuốc cầm tay thì thôi, để mai làm.
+        if nhu_cau.KhongRanhTay(inst) then return nil end
+        if not CamDungCu(inst, hanh_dong) then
+            return nil      -- không có dụng cụ thì thôi, tụt bậc khác
+        end
     end
 
     local muc = FindEntity(inst, TAM_KIEM, function(v)
@@ -241,6 +244,15 @@ function sinh_ton.ConThieuGi(inst)
         end
     end
     return ra
+end
+
+-- Có nhu cầu GẤP nào chưa thoả không (ánh sáng / đồ ăn / hồi máu).
+-- Không gây tác dụng phụ — dùng để quyết định có chen ngang việc đang làm.
+function sinh_ton.CoNhuCauGap(inst)
+    for _, n in ipairs(sinh_ton.ConThieuGi(inst)) do
+        if n.gap then return n end
+    end
+    return nil
 end
 
 function sinh_ton.NhuCauCapThiet(inst)

@@ -70,6 +70,21 @@ function nhu_cau.MonPhatSang(mon)
            or nhu_cau.PHAT_SANG[mon.prefab] == true
 end
 
+-- ⚠ Ban đêm mà nguồn sáng DUY NHẤT là đuốc cầm tay thì ĐỪNG cầm dụng cụ lên:
+--   đổi tay là mất sáng, và mất sáng giữa đêm là chết.
+--
+--   Chốt này phải dùng ở MỌI chỗ có thể trang bị dụng cụ. Bản đầu chỉ đặt
+--   trong viec.lua mà quên sinh_ton.DiKiem, nên nhu cầu "nhà" đi kiếm gỗ vẫn
+--   cầm rìu lên giữa đêm và giành mất tay cầm đuốc.
+function nhu_cau.KhongRanhTay(inst)
+    if not TheWorld.state.isnight then return false end
+    local tui = inst.components.inventory
+    if tui == nil then return false end
+    -- Có đèn đội đầu thì rảnh tay, làm bình thường.
+    if nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HEAD)) then return false end
+    return nhu_cau.MonPhatSang(tui:GetEquippedItem(EQUIPSLOTS.HANDS))
+end
+
 -- ── tiện ích chung ──────────────────────────────────────────────────────
 
 local O_TRANG_BI = { "hands", "head", "body" }
@@ -147,11 +162,18 @@ function nhu_cau.ChonMonAn(inst)
 end
 
 -- ── bảng nhu cầu, ưu tiên từ trên xuống ─────────────────────────────────
+--
+-- `gap = true` nghĩa là nhu cầu này được CHEN NGANG việc đang làm dở.
+--
+-- ⚠ Chỉ ba nhu cầu đầu được chen. vũ khí / giáp / nhà thì `can` luôn trả true
+--   nên nếu cho chúng chen, dân làng sẽ bỏ việc mỗi nhịp và chẳng làm xong
+--   gì — đúng cái bệnh mà bản gom-một-node sinh ra để chữa.
 
 nhu_cau.DANH_SACH = {
     {
         ma  = "anh_sang",
         ten = "ánh sáng",
+        gap = true,
         -- Chập tối đã lo, không đợi tối hẳn mới cuống.
         can = function() return TheWorld.state.isdusk or TheWorld.state.isnight end,
         du  = function(inst)
@@ -171,6 +193,7 @@ nhu_cau.DANH_SACH = {
     {
         ma  = "do_an",
         ten = "đồ ăn",
+        gap = true,
         -- ⚠ Ngưỡng này phải KHỚP với DOI_THI_AN trong danlangbrain. Lệch nhau
         --   thì dân làng "đang lo đồ ăn" mà không chịu ăn món đang cầm.
         can = function(inst)
@@ -186,6 +209,7 @@ nhu_cau.DANH_SACH = {
     {
         ma  = "hoi_mau",
         ten = "hồi máu",
+        gap = true,
         can = function(inst)
             local h = inst.components.health
             return h ~= nil and h:GetPercent() < 0.5

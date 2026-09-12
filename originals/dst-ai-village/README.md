@@ -259,6 +259,23 @@ cả thế giới** — entity ngủ thì không chạy não. Đã đối chứn
 nó cũng ngủ, cũng đứng im y hệt. Phần đi lại, chặt cây, đánh nhau phải vào game
 thật mới xem được.
 
+## Bẫy lớn nhất của behaviour tree: DoAction giữ RUNNING
+
+⚠ **Logic "chen ngang" KHÔNG được nằm bên trong hàm sinh hành động.**
+
+`DoAction` giữ trạng thái `RUNNING` suốt lúc dân làng đi tới mục tiêu, và
+trong khoảng đó **hàm sinh hành động không được gọi lại**. Nên nhu cầu gấp
+kiểm tra bên trong hàm đó sẽ không bao giờ chạy: đêm xuống mà dân làng đang
+trên đường đi kiếm đồ làm giáo thì chẳng ai bảo nó cầm đuốc — đuốc nằm sẵn
+trong túi cho tới sáng.
+
+Cách đúng: nhu cầu gấp là **node riêng, ưu tiên cao hơn**. `PriorityNode` xét
+lại từ đầu mỗi 0,5 giây nên nó cắt ngang được việc đang dở, và khi xong việc
+tức thì thì tự nhường lại.
+
+Mất khá nhiều vòng mới tìm ra, vì gọi thẳng `sinh_ton.Giai` thì **luôn đúng** —
+lỗi chỉ hiện khi đi qua cây hành vi.
+
 ## Một việc, một chủ sở hữu
 
 Mọi lao động đi qua **một node duy nhất** trong cây hành vi
