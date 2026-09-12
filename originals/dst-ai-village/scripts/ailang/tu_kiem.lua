@@ -1128,7 +1128,22 @@ end
 local function ThuHonMaDiDuoc(tiep)
     local gx, gz = Goc()
     local e = DanLangSach(gx, gz)
+    -- ⚠ RỜI TRẠNG THÁI CHẾT PHẢI ĐI ĐÚNG LỐI. SGwilson.lua:3839 có
+    --   `assert(false, "Left death state.")` ngay trong onexit — gọi thẳng
+    --   sg:GoToState("idle") là ném LỖI CỨNG mỗi lần hồn ma cử động, nhật ký
+    --   ngập stack traceback. Đo trên server: lỗi nổ đúng lúc An hồi sinh và
+    --   bắt đầu đi kiếm cỏ. Lối hợp lệ là cờ `statemem.vinesaving`.
+    local loi_truoc = 0
+    local print_that = print
+    print = function(...)
+        local d = tostring((...))
+        if d:find("Left death state") then loi_truoc = loi_truoc + 1 end
+        return print_that(...)
+    end
     dan_lang.ThanhHonMa(e)
+    print = print_that
+    KT("rời trạng thái chết KHÔNG ném lỗi \"Left death state\"",
+       loi_truoc == 0, "số lỗi=" .. loi_truoc)
     KT("thành hồn ma thì RỜI trạng thái chết (đi lại được)",
        e.sg == nil or e.sg.currentstate == nil or e.sg.currentstate.name ~= "death",
        "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
