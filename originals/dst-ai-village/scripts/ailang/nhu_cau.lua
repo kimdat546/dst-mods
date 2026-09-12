@@ -376,6 +376,20 @@ nhu_cau.DANH_SACH = {
                 return ins ~= nil and ins.type == SEASONS.SUMMER
                    and ins:GetInsulation() > 0
             end) ~= nil then return true end
+            -- ⚠ ĐỨNG TRONG BÓNG CÂY LÀ ĐỦ MÁT, và nó KHÔNG TỐN GÌ CẢ. Đây là
+            --   lời giải mùa hè rẻ nhất, tìm ra bằng cách soi vì sao ba dân
+            --   làng có đồ đạc GIỐNG HỆT nhau mà nhiệt độ lệch hẳn:
+            --       An 64 độ, Binh 64 độ  (đứng dưới tán cây)
+            --       Cuong 83 độ           -> tụt dần rồi CHẾT
+            --   temperature.lua: `sheltered` và nhiệt trên 63 thì kéo mạnh về
+            --   TREE_SHADE_COOLER = 45. Vì thế An/Binh ghim đúng ở 64-65.
+            --
+            -- ⚠ Và phải tính là "đủ", không chỉ là hành vi cứu nguy. Nếu để
+            --   "mát" mãi chưa thoả thì nó CHEN NGANG mọi việc khác từng nhịp
+            --   một (xếp hạng 4, trên nhà/xưởng/giáp) và dân làng không làm
+            --   xong được gì — đúng bệnh đã chữa cho nhu cầu ánh sáng.
+            local che = inst.components.sheltered
+            if che ~= nil and che.sheltered then return true end
             -- Đứng cạnh lửa lạnh đang cháy cũng là mát, y như đứng cạnh lửa
             -- trại thì coi là có sáng.
             return FindEntity(inst, 10, function(v)

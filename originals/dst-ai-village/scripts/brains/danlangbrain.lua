@@ -177,6 +177,18 @@ end
 
 -- ── ánh sáng ────────────────────────────────────────────────────────────
 
+-- ⚠ 66 chứ không phải 70. Ngưỡng quá nhiệt của DST là 70, nhưng đi tới gốc
+--   cây cũng mất thời gian — đợi chạm 70 mới đi là đã mất máu trên đường.
+local NONG_THI_TRU = 66
+local BO_QUA_BONG_RAM = { "FX", "NOCLICK", "DECOR", "INLIMBO", "stump", "burnt" }
+
+local function ViTriBongRam(inst)
+    local cay = FindEntity(inst, 40, nil, { "shelter" }, BO_QUA_BONG_RAM)
+    if cay == nil then return nil end
+    local x, _, z = cay.Transform:GetWorldPosition()
+    return Vector3(x, 0, z)
+end
+
 local function ToiHan()
     return TheWorld.state.isnight
 end
@@ -296,6 +308,31 @@ function DanLangBrain:OnStart()
         --   Chỉ cần BỎ việc là đủ: nhịp sau node làm việc thành READY, gọi lại
         --   viec.HanhDong, và chính nó gọi Giai (một lần) để mặc/chế thứ đang
         --   thiếu. Trễ nửa giây, đổi lấy việc không còn chế đồ trùng lặp.
+        -- NÓNG QUÁ THÌ VÀO BÓNG CÂY.
+        --
+        -- ⚠ Lời giải mùa hè rẻ nhất, và nó KHÔNG TỐN GÌ CẢ. Tìm ra bằng cách
+        --   soi vì sao ba dân làng có đồ đạc GIỐNG HỆT nhau mà nhiệt độ lệch
+        --   hẳn: An và Binh 64 độ (đứng dưới tán cây), Cuong 83 độ rồi CHẾT.
+        --   temperature.lua: `sheltered` và nhiệt trên
+        --   TREE_SHADE_COOLING_THRESHOLD (63) thì kéo mạnh về TREE_SHADE_COOLER
+        --   (45) — nên An/Binh ghim đúng ở 64-65 suốt cả ngày hè 84 độ.
+        --
+        --   sheltered.lua đo bằng CountEntities bán kính 2 quanh chân, tag
+        --   "shelter", loại trừ stump/burnt. Làng nằm giữa rừng nên chỗ nào
+        --   cũng có cây.
+        --
+        -- ⚠ Điều kiện gồm cả `chưa ở trong bóng râm`, và đó cũng là VAN AN
+        --   TOÀN: cây có va chạm nên Leash có thể không bao giờ tới đúng cự ly
+        --   đặt ra, nhưng chỉ cần vào trong bán kính 2 là `sheltered` bật lên
+        --   và cả nhánh tự nhường lượt.
+        WhileNode(function()
+            local t = inst.components.temperature
+            if t == nil or t:GetCurrent() < NONG_THI_TRU then return false end
+            local che = inst.components.sheltered
+            return che == nil or not che.sheltered
+        end, "Nóng quá thì vào bóng cây",
+            Leash(inst, function() return ViTriBongRam(inst) end, 1.8, 1.2)),
+
         -- ĐÊM THÌ VỀ BÊN LỬA CỦA LÀNG.
         --
         -- ⚠ PHẢI nằm TRÊN node làm việc. Bản trước để nó ở dưới cùng, nên nó
