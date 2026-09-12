@@ -1939,6 +1939,62 @@ local function ThuNghiNhuCau(tiep)
     tiep()
 end
 
+-- ── gom đủ rồi thì DỪNG GOM ─────────────────────────────────────────────
+--
+-- ⚠ Việc bám dai là thứ đã chữa cảnh "chặt vài nhát rồi bỏ sang cây khác",
+--   nhưng nó KHÔNG BIẾT LÚC NÀO NÊN BUÔNG. Đo trên server: Cuong gom được 14
+--   bó cỏ (mũ chống nóng cần 12), CanBuild=true, thiếu=0 — mà vẫn ôm việc hái
+--   cỏ và đứng im ở đó suốt nhiều phút. Bộ giải không bao giờ chạy lại để tới
+--   bước CHẾ, nên nó hái cỏ mãi trong khi cái mũ đã nằm trong tầm tay.
+local function ThuGomDuThiDung(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local mat = nc.Tim("mat_me")
+    local tui = e.components.inventory
+    tui:DropEverything()
+    -- ⚠ Phải thoả ÁNH SÁNG trước: nó hạng 1 và `gap`, không thoả thì nó chen
+    --   ngang việc "mát" (hạng 4) và bài kiểm đo nhầm thứ — đã hỏng đúng vậy
+    --   với "việc=ánh sáng", mà đó chính là bộ giải chạy ĐÚNG.
+    tui:GiveItem(SpawnPrefab("torch"))
+    e.components.temperature:SetTemperature(68)
+
+    KT("chưa có cỏ thì CHƯA chế được mũ",
+       not st.ChePDuocRoi(e, mat))
+
+    -- Ôm sẵn một việc gom cỏ cho nhu cầu "mát", đúng cảnh đã gặp.
+    local bui = SpawnPrefab("grass")
+    bui.Transform:SetPosition(gx + 4, 0, gz)
+    e.ailang.viec = { vi_sao = "mát", muc_tieu = bui,
+                      hanh_dong = ACTIONS.PICK }
+    e.ailang.viec_tu = GetTime()
+    vi.HanhDong(e)
+    KT("chưa đủ cỏ thì cứ ôm việc gom mà làm tiếp",
+       e.ailang.viec ~= nil and e.ailang.viec.vi_sao == "mát",
+       "việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao))
+
+    -- Giờ cho đủ nguyên liệu: phải BUÔNG việc gom để còn đi chế.
+    for _ = 1, 14 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+    KT("đủ 12 bó cỏ thì chế được mũ", st.ChePDuocRoi(e, mat))
+    e.ailang.viec = { vi_sao = "mát", muc_tieu = bui,
+                      hanh_dong = ACTIONS.PICK }
+    e.ailang.viec_tu = GetTime()
+    vi.HanhDong(e)
+    KT("đủ nguyên liệu rồi thì BUÔNG việc gom, để còn đi chế",
+       e.ailang.viec == nil or e.ailang.viec.vi_sao ~= "mát"
+       or e.ailang.viec.hanh_dong ~= ACTIONS.PICK,
+       "việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao)
+       .. "/" .. tostring(e.ailang.viec and e.ailang.viec.hanh_dong
+                          and e.ailang.viec.hanh_dong.id))
+
+    e.components.temperature:SetTemperature(20)
+    bui:Remove()
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1955,7 +2011,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuChongNong, ThuBongCay, ThuXuong,
                ThuLoThanTruoc,
                ThuUuTienThangKhoangCach, ThuBoTayThiThoi,
-               ThuNghiNhuCau }
+               ThuNghiNhuCau, ThuGomDuThiDung }
 local i = 0
 local function tiep()
     i = i + 1
