@@ -279,6 +279,36 @@ nhu_cau.DANH_SACH = {
         kiem = { "berries", "carrot" },
     },
     {
+        ma  = "dung_cu",
+        ten = "dụng cụ",
+        -- ⚠ THIẾU NHU CẦU NÀY LÀ CHẾT. Rìu nằm trong bộ đồ khởi đầu, nhưng
+        --   chết một lần là rơi hết — và KHÔNG nhu cầu nào biết chế lại rìu.
+        --   Đo được trên server: hai dân làng túi rỗng cho `DiKiem("log")` trả
+        --   nil ở CẢ hai bán kính trong khi có 12 cây chặt được trong vòng 30,
+        --   chỉ vì không có rìu. Không gỗ thì không lửa trại, không lửa trại
+        --   thì chết đêm, chết lại rơi rìu — vòng xoáy khép kín.
+        --
+        --   Rìu chế được ngay từ tay trắng: twigs×1 flint×1, tech 0, không cần
+        --   máy khoa học. Đá lửa nhặt được dưới đất (đo: 7 mảnh trong vòng
+        --   120), nên không kẹt vòng "phải có cuốc mới có đá lửa".
+        --
+        -- ⚠ ĐỨNG TRÊN "nhà": rìu là ĐIỀU KIỆN của đống lửa, không phải thứ
+        --   cạnh tranh với nó.
+        can = function() return true end,
+        du  = function(inst)
+            local function la_riu(m)
+                return m.components.tool ~= nil
+                   and m.components.tool:CanDoAction(ACTIONS.CHOP)
+            end
+            return DuyetTui(inst, la_riu) ~= nil
+                or DuyetTrangBi(inst, la_riu) ~= nil
+        end,
+        -- Không tự cầm lên: viec.lua và sinh_ton.DiKiem tự trang bị đúng lúc
+        -- cần, còn lúc khác thì để tay trống mà cầm đuốc.
+        mac_khi = function() return false end,
+        bac = { { mon = "axe" } },
+    },
+    {
         ma  = "nha",
         ten = "nhà",
         -- ⚠ ĐỨNG TRƯỚC vũ khí và giáp. Đống lửa quan trọng hơn cái áo cỏ:
@@ -294,10 +324,20 @@ nhu_cau.DANH_SACH = {
         du  = function(inst)
             local nha = inst.ailang ~= nil and inst.ailang.nha or nil
             if nha == nil then return false end
-            -- Có nhà rồi thì phải có bếp lửa ở đó mới tính là xong.
-            return FindEntity(inst, 40, nil, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil
+            -- Có nhà rồi thì phải có bếp lửa Ở ĐÓ mới tính là xong.
+            --
+            -- ⚠ FindEntity quét quanh CHÂN dân làng, không quanh nhà. Bản
+            --   trước dùng nó nên một dân làng đứng cách nhà 51 mà cạnh lửa
+            --   của ai đó là coi như "nhà xong" — trong khi làng vẫn tối om.
+            return #TheSim:FindEntities(nha[1], 0, nha[2], 40,
+                       { "campfire" }, { "INLIMBO", "burnt" }) > 0
         end,
-        bac = { { mon = "firepit", dat_xuong = true }, { mon = "campfire", dat_xuong = true } },
+        -- `o_nha`: dựng Ở LÀNG chứ không dưới chân — xem chú thích trong
+        -- sinh_ton.GiaiMot. Đây là bếp lửa CHUNG, không phải lửa khẩn cấp.
+        bac = {
+            { mon = "firepit",  dat_xuong = true, o_nha = true },
+            { mon = "campfire", dat_xuong = true, o_nha = true },
+        },
     },
     {
         ma  = "hoi_nao",
@@ -335,7 +375,35 @@ nhu_cau.DANH_SACH = {
         end,
         bac = { { mon = "armorwood" }, { mon = "armorgrass" } },
     },
+    {
+        ma  = "cuoc",
+        ten = "cuốc",
+        -- Thấp nhất bảng: không có cuốc thì chỉ chậm, không chết. Nhưng có thì
+        -- mở ra đá / đá lửa / vàng — tức là bếp lửa (firepit) và máy khoa học.
+        can = function() return true end,
+        du  = function(inst)
+            local function la_cuoc(m)
+                return m.components.tool ~= nil
+                   and m.components.tool:CanDoAction(ACTIONS.MINE)
+            end
+            return DuyetTui(inst, la_cuoc) ~= nil
+                or DuyetTrangBi(inst, la_cuoc) ~= nil
+        end,
+        mac_khi = function() return false end,
+        bac = { { mon = "pickaxe" } },   -- twigs×2 flint×2, tech 0
+    },
 }
+
+-- Thứ hạng ưu tiên của một nhu cầu theo TÊN HIỂN THỊ, để so bề nặng nhẹ giữa
+-- việc đang làm và nhu cầu vừa nổi lên. Trả nil nếu tên đó không phải nhu cầu
+-- (việc thường: nhặt / hái / chặt / đào).
+function nhu_cau.ChiSo(ten)
+    if ten == nil then return nil end
+    for i, n in ipairs(nhu_cau.DANH_SACH) do
+        if n.ten == ten then return i end
+    end
+    return nil
+end
 
 function nhu_cau.Tim(ma)
     for _, n in ipairs(nhu_cau.DANH_SACH) do

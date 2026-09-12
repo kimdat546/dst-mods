@@ -234,6 +234,12 @@ local function ThoaHetNhuCau(e)
         local mon = SpawnPrefab(m)
         if mon ~= nil then tui:GiveItem(mon) tui:Equip(mon) end
     end
+    -- Rìu và cuốc: nằm TRONG TÚI chứ không trang bị, đúng như nhu cầu
+    -- "dụng cụ"/"cuốc" mong đợi (mac_khi trả false để khỏi vướng tay cầm đuốc).
+    for _, m in ipairs({ "axe", "pickaxe" }) do
+        local mon = SpawnPrefab(m)
+        if mon ~= nil then tui:GiveItem(mon) end
+    end
     tui:GiveItem(SpawnPrefab("carrot"))
     local x, y, z = e.Transform:GetWorldPosition()
     e.ailang.nha = { x, z }
@@ -1014,6 +1020,157 @@ local function ThuGiuLang(tiep)
     tiep()
 end
 
+-- ── mất rìu thì phải CHẾ LẠI được ───────────────────────────────────────
+--
+-- ⚠ Đây là bài kiểm của vòng xoáy tử thần đã làm cả làng chết đi chết lại.
+--   Chết một lần là rơi sạch đồ, kể cả cây rìu trong bộ khởi đầu. Trước khi có
+--   nhu cầu "dụng cụ" thì KHÔNG nhu cầu nào biết chế lại rìu, nên dân làng tay
+--   trắng không bao giờ chặt được gỗ nữa — dù đứng giữa rừng. Đo trên server:
+--   `DiKiem("log")` trả nil ở CẢ hai bán kính với 12 cây chặt được trong vòng
+--   30. Không gỗ -> không lửa trại -> chết đêm -> lại rơi rìu.
+local function ThuMatRiu(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local tui = e.components.inventory
+    tui:DropEverything()
+
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(gx + 6, 0, gz)
+
+    KT("tay trắng thì KHÔNG chặt nổi cây dù cây ngay cạnh",
+       st.DiKiem(e, "log", nil, 30) == nil)
+
+    local dc = nc.Tim("dung_cu")
+    KT("có nhu cầu \"dụng cụ\" trong bảng", dc ~= nil)
+    KT("tay trắng thì nhu cầu dụng cụ CHƯA thoả",
+       dc ~= nil and not dc.du(e))
+    KT("dụng cụ xếp TRÊN nhà (rìu là điều kiện của đống lửa)",
+       nc.ChiSo("dụng cụ") < nc.ChiSo("nhà"),
+       "dụng cụ=" .. tostring(nc.ChiSo("dụng cụ")) .. " nhà=" .. tostring(nc.ChiSo("nhà")))
+
+    -- Cho đúng nguyên liệu chế rìu rồi bắt nó tự chế.
+    tui:GiveItem(SpawnPrefab("twigs"))
+    tui:GiveItem(SpawnPrefab("flint"))
+    KT("có cành + đá lửa thì chế được rìu",
+       e.components.builder:CanBuild("axe"))
+    st.Giai(e)
+    KT("dân làng TỰ chế lại rìu khi mất rìu", dc ~= nil and dc.du(e),
+       "túi=" .. TenCua(nc.CoTrongTui(e, "axe")))
+    KT("có rìu rồi thì chặt được cây ngay cạnh",
+       st.DiKiem(e, "log", nil, 30) ~= nil)
+
+    cay:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── hồn ma phải ĐI ĐƯỢC ─────────────────────────────────────────────────
+--
+-- ⚠ Trạng thái "death" của stategraph là trạng thái CUỐI: không lối ra, và bỏ
+--   qua mọi lệnh di chuyển. Đo trên server: cả ba hồn ma có sg="death", não
+--   vẫn chạy đúng nhánh hồn ma và vẫn ra lệnh đi tới Đài cách 51 đơn vị — mà
+--   thân thể không nhích một bước suốt nhiều ngày. Người chơi chỉ thấy xác
+--   nằm ì. Hồi sinh cũng vậy: không rời "death" thì được cái xác biết nói.
+local function ThuHonMaDiDuoc(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    dan_lang.ThanhHonMa(e)
+    KT("thành hồn ma thì RỜI trạng thái chết (đi lại được)",
+       e.sg == nil or e.sg.currentstate == nil or e.sg.currentstate.name ~= "death",
+       "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
+    KT("thành hồn ma thì bỏ luôn việc đang làm dở",
+       e.ailang.viec == nil)
+
+    local bia = SpawnPrefab("resurrectionstatue")
+    if bia ~= nil then bia.Transform:SetPosition(gx + 1, 0, gz) end
+    dan_lang.HoiSinh(e)
+    KT("hồi sinh thì cũng RỜI trạng thái chết",
+       e.sg == nil or e.sg.currentstate == nil or e.sg.currentstate.name ~= "death",
+       "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
+    if bia ~= nil then bia:Remove() end
+    e:Remove()
+    tiep()
+end
+
+-- ── chen ngang theo THỨ HẠNG, không theo tên ────────────────────────────
+--
+-- ⚠ `sinh_ton.Giai` duyệt HẾT bảng nhu cầu, nên khi nhu cầu gấp giải không nổi
+--   ở bán kính gần, nó trả về việc của một nhu cầu THẤP HƠN. Bản trước so nhãn
+--   việc với nhãn nhu cầu gấp, thấy lệch là vứt việc — mỗi 0,5 giây một lần,
+--   mãi mãi. Dân làng nhận đi nhận lại cùng một việc và không chặt xong cây
+--   nào. Đo được: dang_lo="hồi máu" trong khi nhu cầu gấp là "ánh sáng".
+local function ThuChenTheoHang(tiep)
+    local nc = require("ailang/nhu_cau")
+    KT("thứ hạng nhu cầu tra được theo tên",
+       nc.ChiSo("ánh sáng") == 1 and nc.ChiSo("nhà") ~= nil,
+       "ánh sáng=" .. tostring(nc.ChiSo("ánh sáng")))
+    KT("việc thường KHÔNG có thứ hạng (để nhu cầu nào cũng chen được)",
+       nc.ChiSo("chặt cây") == nil and nc.ChiSo("hái lượm") == nil)
+    KT("ánh sáng NẶNG HƠN nhà", nc.ChiSo("ánh sáng") < nc.ChiSo("nhà"))
+
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    -- Đang làm việc của nhu cầu NẶNG hơn thứ vừa nổi lên -> phải GIỮ.
+    -- ⚠ Việc giả vẫn phải có `hanh_dong` thật: viec.HanhDong dựng
+    --   BufferedAction từ nó, và BufferedAction nil action là nổ ngay.
+    e.ailang.viec = { vi_sao = "ánh sáng", muc_tieu = nil,
+                      hanh_dong = ACTIONS.EQUIP, mon = SpawnPrefab("torch") }
+    e.components.inventory:GiveItem(e.ailang.viec.mon)
+    e.ailang.viec_tu = GetTime()
+    vi.HanhDong(e)
+    KT("nhu cầu nhẹ hơn KHÔNG cướp được việc đang làm",
+       e.ailang.viec ~= nil and e.ailang.viec.vi_sao == "ánh sáng",
+       "việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao))
+    e:Remove()
+    tiep()
+end
+
+-- ── nuôi lửa cho khỏi tắt giữa đêm ──────────────────────────────────────
+--
+-- ⚠ Lửa trại KHÔNG cháy mãi: hết nhiên liệu là nó nhả tro rồi BIẾN MẤT HẲN
+--   (campfire.lua: accepting=false, thêm tag NOCLICK, ErodeAway sau 1 giây).
+--   Tắt giữa đêm là lúc tệ nhất — dân làng đang bị cấm cầm rìu nên không đi
+--   chặt gỗ mới được. Phải nuôi lửa từ lúc còn sáng.
+local function ThuTiepLua(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    -- ⚠ PHẢI thoả hết nhu cầu trước. Tiếp lửa là VIỆC THƯỜNG, mà viec.NhanViec
+    --   xét nhu cầu sinh tồn xong mới tới việc thường — còn thiếu cái giáp là
+    --   nó đi gom cỏ chứ không ngó tới đống lửa. Đã hỏng oan với "việc=giáp".
+    local lo = ThoaHetNhuCau(e)
+    local tui = e.components.inventory
+
+    lo.components.fueled:SetPercent(0.2)
+    KT("lửa gần tàn mà không có củi thì KHÔNG nhận việc tiếp lửa",
+       (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL,
+       "việc=" .. tostring((vi.NhanViec(e) or {}).vi_sao))
+
+    tui:GiveItem(SpawnPrefab("log"))
+    vi.BoViec(e)
+    local v = vi.NhanViec(e)
+    KT("lửa gần tàn + có gỗ thì đi tiếp lửa",
+       v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL and v.muc_tieu == lo,
+       "việc=" .. tostring(v and v.vi_sao))
+    KT("ném GỖ vào lửa, không ném đuốc",
+       v ~= nil and v.mon ~= nil and v.mon.prefab == "log",
+       "ném=" .. TenCua(v and v.mon))
+
+    lo.components.fueled:SetPercent(0.95)
+    vi.BoViec(e)
+    KT("lửa còn đầy thì thôi, không phí củi",
+       (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL)
+
+    lo:Remove()
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1023,7 +1180,9 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh,
                ThuThienCam, ThuCheDo, ThuKhongNgu, ThuGiuViec,
                ThuKhongTrom, ThuRaNgoaiLang,
-               ThuDaiTrieuHoi, ThuGiuLang }
+               ThuDaiTrieuHoi, ThuGiuLang,
+               ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
+               ThuTiepLua }
 local i = 0
 local function tiep()
     i = i + 1

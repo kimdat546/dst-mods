@@ -171,6 +171,60 @@ local function ViecDapLua(inst)
     return { muc_tieu = chay, hanh_dong = ACTIONS.EXTINGUISH, vi_sao = "dập lửa" }
 end
 
+-- ── tiếp lửa cho đống lửa của làng ──────────────────────────────────────
+--
+-- ⚠ Lửa trại KHÔNG cháy mãi. Dựng xong là xong chuyện một đêm, nhưng hết
+--   nhiên liệu thì nó tắt và làng lại tối — mà lúc đó thường là giữa đêm, đúng
+--   lúc dân làng bị cấm cầm rìu nên không đi chặt gỗ mới được. Phải nuôi lửa
+--   TỪ LÚC CÒN SÁNG, y như người chơi thật ném gỗ vào bếp trước khi đi ngủ.
+--
+--   Nhu cầu "nhà" chỉ lo có/không có đống lửa; giữ cho nó cháy là việc thường,
+--   nên nhu cầu gấp vẫn chen ngang được (lo thân trước, nuôi lửa sau).
+local NGUONG_TIEP  = 0.5   -- dưới nửa bình thì thêm củi
+local GIU_LAM_DUOC = 4     -- chừa lại bấy nhiêu cỏ/cành để còn làm đuốc
+
+-- ⚠ ĐỪNG ném đuốc vào lửa. Đuốc có `fueled` (nhận nhiên liệu) chứ không có
+--   `fuel` (làm nhiên liệu), nên lọc theo `fuel` là đã loại đúng. Vẫn chặn
+--   thêm đồ trang bị và dụng cụ cho chắc — mất rìu là mất đường kiếm gỗ.
+local function LaCui(m)
+    return m.components.fuel ~= nil
+       and m.components.fuel.fueltype == FUELTYPE.BURNABLE
+       and m.components.equippable == nil
+       and m.components.tool == nil
+end
+
+local function ViecTiepLua(inst)
+    local tam = lang.Tam(inst)
+    if tam == nil then return nil end
+    local lo = FindEntity(inst, lang.BanKinh(inst), function(v)
+        return v.components.fueled ~= nil
+           and v.components.fueled.accepting
+           and v.components.fueled:GetPercent() < NGUONG_TIEP
+           and v.components.burnable ~= nil
+           and v.components.burnable:IsBurning()
+           and lang.ThucTheTrongLang(inst, v)
+    end, { "campfire" }, { "INLIMBO", "burnt" })
+    if lo == nil then return nil end
+
+    -- Gỗ trước: cháy lâu nhất và không dùng vào việc gì khác cấp bách.
+    local cui = nhu_cau.DuyetTui(inst, function(m)
+        return m.prefab == "log" and LaCui(m)
+    end)
+    -- Hết gỗ thì mới động tới cỏ/cành, và phải còn dư mới được đốt.
+    if cui == nil then
+        cui = nhu_cau.DuyetTui(inst, function(m)
+            if not LaCui(m) then return false end
+            local n = m.components.stackable ~= nil
+                      and m.components.stackable:StackSize() or 1
+            return n > GIU_LAM_DUOC
+        end)
+    end
+    if cui == nil then return nil end
+
+    return { muc_tieu = lo, hanh_dong = ACTIONS.ADDFUEL, mon = cui,
+             vi_sao = "tiếp lửa" }
+end
+
 -- Túi đầy thì mang đồ về rương trong làng, khỏi đứng ngây.
 local function ViecCatDo(inst)
     local tui = inst.components.inventory
@@ -202,6 +256,7 @@ function viec.NhanViec(inst)
     end
 
     return ViecDapLua(inst)
+        or ViecTiepLua(inst)
         or ViecCatDo(inst)
         or ViecNhat(inst)
         or ViecHai(inst)
@@ -261,9 +316,21 @@ function viec.HanhDong(inst)
     --   giờ giành được lượt: đêm xuống, đuốc nằm sẵn trong túi, mà nó vẫn đi
     --   kiếm đồ làm giáo cho tới sáng.
     --   So theo NHÃN việc: đang làm đúng việc gấp đó thì để yên, khác thì bỏ.
+    -- ⚠ So bằng THỨ HẠNG, không bằng TÊN. Bản trước bỏ việc hễ nhãn việc khác
+    --   nhãn nhu cầu gấp, mà `sinh_ton.Giai` duyệt HẾT bảng nhu cầu: nhu cầu
+    --   gấp giải không nổi ở bán kính gần thì nó trả về việc của một nhu cầu
+    --   THẤP HƠN. Thế là mỗi nhịp 0,5 giây lại thấy "nhãn lệch" và vứt việc —
+    --   dân làng đứng nhận đi nhận lại cùng một việc, không bao giờ chặt xong
+    --   một cây nào. Đo được: dang_lo="hồi máu" trong khi nhu cầu gấp là
+    --   "ánh sáng".
+    --   Luật đúng: chỉ bỏ việc khi nhu cầu vừa nổi lên NẶNG HƠN thứ đang làm.
     local gap = sinh_ton.CoNhuCauGap(inst)
-    if a.viec ~= nil and gap ~= nil and a.viec.vi_sao ~= gap.ten then
-        a.viec = nil
+    if a.viec ~= nil and gap ~= nil then
+        local hang_gap  = nhu_cau.ChiSo(gap.ten)
+        local hang_viec = nhu_cau.ChiSo(a.viec.vi_sao)   -- nil = việc thường
+        if hang_viec == nil or (hang_gap ~= nil and hang_gap < hang_viec) then
+            a.viec = nil
+        end
     end
 
     if a.viec ~= nil and viec.ConHopLe(inst, a.viec) then
