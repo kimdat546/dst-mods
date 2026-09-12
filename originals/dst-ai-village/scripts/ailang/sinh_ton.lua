@@ -178,6 +178,18 @@ local function GiaiMot(inst, n, tam)
             local ok = nen.thu("chế " .. bac.mon, function()
                 if bac.dat_xuong then
                     local x, y, z = inst.Transform:GetWorldPosition()
+                    -- ⚠ ĐỐNG LỬA CỦA LÀNG phải đặt Ở LÀNG, không đặt dưới chân.
+                    --   Đo trên server: dân làng dựng lửa tại chỗ nó đang đứng,
+                    --   cách nhà hơn 40, nên `nha.du` đếm quanh nhà không thấy
+                    --   gì — và chúng dựng lại, dựng mãi, đốt sạch gỗ vừa chặt
+                    --   mà làng vẫn tối. Nhật ký cho thấy lua=1 mà cả ba vẫn
+                    --   báo dang_lam="nhà".
+                    --   Lửa khẩn cấp của nhu cầu ÁNH SÁNG thì ngược lại: phải
+                    --   nhóm ngay dưới chân, nên chỉ bậc nào ghi `o_nha` mới
+                    --   dời về làng.
+                    local nha = bac.o_nha and inst.ailang ~= nil
+                                and inst.ailang.nha or nil
+                    if nha ~= nil then x, z = nha[1] + 4, nha[2] + 4 end
                     b:DoBuild(bac.mon, Vector3(x + 2, y, z))
                 else
                     b:DoBuild(bac.mon)

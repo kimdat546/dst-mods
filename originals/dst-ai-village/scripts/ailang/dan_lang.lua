@@ -302,6 +302,25 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     -- được không.
     inst:AddTag("playerghost")
 
+    -- ⚠ PHẢI ĐẨY STATEGRAPH RA KHỎI "death", nếu không hồn ma NẰM LIỆT vĩnh
+    --   viễn. Trạng thái "death" là trạng thái cuối: nó không có lối ra và bỏ
+    --   qua mọi lệnh di chuyển. Đo trên server: cả ba hồn ma có sg="death",
+    --   não vẫn chạy đúng nhánh hồn ma (idx=1) và vẫn ra lệnh Leash tới Đài
+    --   cách 51 đơn vị — mà thân thể không nhích một bước suốt nhiều ngày.
+    --   Người chơi thì thấy "xác nằm đó mãi", không hiểu vì sao.
+    --
+    --   Hồn ma DST thật đi qua stategraph người-chơi-hồn-ma, thứ mình không
+    --   dùng được (cần HUD phía client). Nên chỉ cần trả về "idle": thân thể
+    --   nhận lệnh đi lại bình thường, còn "đã chết" giữ bằng cờ la_hon_ma.
+    if inst.sg ~= nil then
+        nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
+    end
+
+    -- Bỏ việc đang làm dở. Chết rồi thì không còn đi chặt cây nữa, và giữ lại
+    -- thì lúc hồi sinh nó bám tiếp một mục tiêu đã cũ mấy ngày.
+    a.viec, a.viec_tu, a.viec_moc = nil, nil, nil
+    a.dang_lam = nil
+
     -- ⚠ KHÔNG dựa vào đường hồi sinh nội bộ của engine — nó gắn với phiên
     --   người chơi thật. `trader` do than_thiet gắn sẵn cho MỌI dân làng nhận
     --   luôn cả đồ hồi sinh khi đang là hồn ma, nên ở đây không cần làm gì.
@@ -361,6 +380,14 @@ function dan_lang.HoiSinh(inst)
     if inst.AnimState ~= nil then
         inst.AnimState:SetMultColour(1, 1, 1, 1)
     end
+
+    -- ⚠ Cũng phải đẩy ra khỏi "death" — xem chú thích trong ThanhHonMa. Hồi
+    --   sinh mà vẫn kẹt trạng thái chết thì được cái xác biết nói, không biết đi.
+    if inst.sg ~= nil then
+        nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
+    end
+    a.viec, a.viec_tu, a.viec_moc = nil, nil, nil
+    a.dang_lam = nil
 
     -- Quay lại chỗ chết nhặt đồ. Nhánh "nhặt" của cây hành vi lo phần còn lại.
     a.ve_nhat_do = a.noi_chet
