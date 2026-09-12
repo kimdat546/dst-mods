@@ -1572,9 +1572,11 @@ local function ThuBongCay(tiep)
     local gx, gz = Goc()
     local e = DanLangSach(gx, gz)
     local nc = require("ailang/nhu_cau")
+    local la = require("ailang/lang")
     local mat = nc.Tim("mat_me")
+    local t = e.components.temperature
     e.components.inventory:DropEverything()
-    e.components.temperature:SetTemperature(68)
+    t:SetTemperature(68)
 
     local che = e.components.sheltered
     KT("dân làng có bộ phận nhận biết bóng râm", che ~= nil)
@@ -1594,8 +1596,7 @@ local function ThuBongCay(tiep)
     -- ⚠ Bóng râm là chỗ TRÚ TẠM, KHÔNG tính là "đã mát". Dân làng phải rời gốc
     --   cây mới làm được việc, và mỗi vòng ra-vào lại nhích qua mốc 70 một
     --   nhịp — đo được nhiệt ổn định 67-71 mà máu vẫn tụt 99% -> 93% -> 80%.
-    --   Coi bóng râm là đủ thì chúng KHÔNG BAO GIỜ chế cái mũ và cứ rỉ máu
-    --   suốt mùa hè.
+    --   Coi bóng râm là đủ thì chúng KHÔNG BAO GIỜ chế cái mũ.
     if che ~= nil then che.sheltered = true end
     KT("đứng dưới tán cây vẫn CHƯA tính là đủ mát (còn phải lo cái mũ)",
        mat ~= nil and not mat.du(e))
@@ -1604,35 +1605,55 @@ local function ThuBongCay(tiep)
     e.components.inventory:Equip(mu)
     KT("đội mũ cỏ vào thì mới thật sự đủ", mat ~= nil and mat.du(e))
 
-    -- ⚠ TRỄ NGƯỠNG. Không có nó thì nhánh bóng cây nhả lượt NGAY khi vừa chạm
-    --   bóng râm, node làm việc lôi đi trước khi kịp nguội, rồi lại nóng, lại
-    --   quay vào — đo được máu 85% -> 77% -> 72% trong khi nhiệt lẩn quẩn
-    --   67-70. Mức nhả cũng không được đặt dưới 63, vì bóng cây chỉ hạ nhiệt
-    --   khi đang TRÊN ngưỡng đó; đòi xuống thấp hơn là đứng dưới gốc cây mãi.
-    local nao = Brain(e)
-    nao:OnStart()
+    -- ⚠ Kiểm THẲNG lang.CanTruNong, ĐỪNG tick não rồi soi inst.ailang. Cây
+    --   hành vi TỰ GHI ĐÈ `a.viec` và `a.dang_lo` mỗi nhịp, nên mọi giá trị
+    --   bài kiểm đặt vào đó đều bay mất ngay nhịp sau — đã hỏng hai lần liền
+    --   với "trú=true" trong khi mã chạy đúng.
     e.ailang.tru_nong = nil
-    e.components.temperature:SetTemperature(67)
-    Nhip(nao, 2, function()
-        KT("nóng 67 độ thì bật chế độ đi trú", e.ailang.tru_nong == true)
-        e.components.temperature:SetTemperature(66)
-        Nhip(nao, 2, function()
-            KT("mới xuống 66 thì CHƯA nhả — không thì rung quanh mốc 70",
-               e.ailang.tru_nong == true)
-            e.components.temperature:SetTemperature(64)
-            Nhip(nao, 2, function()
-                KT("xuống 64 rồi mới nhả, quay lại làm việc",
-                   e.ailang.tru_nong == nil)
-                if che ~= nil then che.sheltered = false end
-                e.components.temperature:SetTemperature(20)
-                cay:Remove()
-                e:Remove()
-                tiep()
-            end)
-        end)
-    end)
-end
+    e.ailang.viec = nil
+    t:SetTemperature(67)
+    KT("nóng 67 độ thì bật chế độ đi trú",
+       la.CanTruNong(e, 66, 65) == true)
+    t:SetTemperature(66)
+    KT("mới xuống 66 thì CHƯA nhả — không thì rung quanh mốc 70",
+       la.CanTruNong(e, 66, 65) == true)
+    t:SetTemperature(64)
+    KT("xuống 64 rồi mới nhả, quay lại làm việc",
+       la.CanTruNong(e, 66, 65) == nil)
 
+    -- ⚠ ĐỪNG CHẶN ĐÚNG VIỆC SẼ CHẤM DỨT TÌNH TRẠNG CẤP CỨU. Đo trên server:
+    --   dân làng báo lo "mát" suốt hàng chục nhịp mà số cỏ trong túi KHÔNG HỀ
+    --   TĂNG — cỏ ở cách 110 đơn vị, vừa rời bóng cây là nhiệt vượt 66 trong
+    --   vài giây, nhánh trú lôi về, nhả ở 65, đi tiếp, lại bị lôi về. Nó KHÔNG
+    --   BAO GIỜ đi nổi tới nơi, và cứ thế mất máu 99% -> 51%.
+    e.ailang.tru_nong = nil
+    e.ailang.viec = { vi_sao = "mát" }
+    t:SetTemperature(67)
+    local kq = la.CanTruNong(e, 66, 65)
+    KT("đang đi lo chính chuyện chống nóng thì 67 độ CHƯA kéo về",
+       kq == nil,
+       "trú=" .. tostring(kq)
+       .. " | việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao)
+       .. " | nhiệt=" .. string.format("%.1f", t:GetCurrent())
+       .. " | ngưỡng quá nhiệt=" .. tostring(TUNING.OVERHEAT_TEMP))
+    t:SetTemperature(71)
+    KT("nhưng chạm mức quá nhiệt thật thì vẫn kéo về",
+       la.CanTruNong(e, 66, 65) == true)
+
+    e.ailang.tru_nong = nil
+    e.ailang.viec = { vi_sao = "nhà" }
+    t:SetTemperature(67)
+    KT("việc khác thì 67 độ là kéo về ngay",
+       la.CanTruNong(e, 66, 65) == true)
+
+    e.ailang.tru_nong = nil
+    e.ailang.viec = nil
+    if che ~= nil then che.sheltered = false end
+    t:SetTemperature(20)
+    cay:Remove()
+    e:Remove()
+    tiep()
+end
 
 -- ── một cái máy mở khoá cả một tầng ─────────────────────────────────────
 --

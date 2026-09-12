@@ -111,6 +111,45 @@ function lang.LoThanTruoc(inst, nong_tu)
     return false
 end
 
+-- ── có nên bỏ việc mà đi trú nóng không ─────────────────────────────────
+--
+-- Trả về trạng thái trú nóng MỚI (true = đang trú, nil = cứ làm việc). Tự nhớ
+-- trạng thái cũ trong inst.ailang.tru_nong.
+--
+-- ⚠ PHẢI CÓ TRỄ NGƯỠNG. Không thì dân làng RUNG quanh mốc 70 và mất máu đều:
+--   vào bóng cây xong là nhánh nhả lượt NGAY, node làm việc lôi đi trước khi
+--   kịp nguội, rồi lại nóng, lại quay vào. Đo được máu 85% -> 77% -> 72%
+--   trong khi nhiệt lẩn quẩn 67-70.
+--
+-- ⚠ Mức nhả KHÔNG được đặt dưới 63: bóng cây chỉ hạ nhiệt khi đang TRÊN
+--   TREE_SHADE_COOLING_THRESHOLD (63), nên đòi xuống 58 là dân làng đứng dưới
+--   gốc cây tới sáng mà không bao giờ đạt.
+--
+-- ⚠ VÀ ĐỪNG CHẶN ĐÚNG VIỆC SẼ CHẤM DỨT TÌNH TRẠNG CẤP CỨU. Đo trên server:
+--   dân làng báo lo "mát" suốt hàng chục nhịp mà số cỏ trong túi KHÔNG HỀ
+--   TĂNG — cỏ ở cách 110 đơn vị, vừa rời bóng cây là nhiệt vượt 66 trong vài
+--   giây, nhánh trú lôi về, nhả ở 65, đi tiếp, lại bị lôi về. Nó KHÔNG BAO GIỜ
+--   đi nổi tới nơi, và cứ thế mất máu 99% -> 51%.
+--
+-- ⚠ Đọc nhãn của VIỆC ĐANG GIỮ (`viec.vi_sao`), đừng đọc `dang_lo`: `dang_lo`
+--   bị sinh_ton.Giai ghi đè MỖI NHỊP nên tới lúc xét thì đã thành thứ khác.
+function lang.CanTruNong(inst, nong_tu, da_nguoi)
+    local a = inst.ailang
+    local t = inst.components.temperature
+    if a == nil or t == nil then return nil end
+
+    local nhiet = t:GetCurrent()
+    local lo_mat = a.viec ~= nil and a.viec.vi_sao == "mát"
+    local nguong = lo_mat and (TUNING.OVERHEAT_TEMP or 70) or (nong_tu or 66)
+
+    if nhiet >= nguong then
+        a.tru_nong = true
+    elseif nhiet <= (da_nguoi or 65) then
+        a.tru_nong = nil
+    end
+    return a.tru_nong
+end
+
 -- ── kẻ địch lạc vào làng ────────────────────────────────────────────────
 --
 -- Đây là điểm khác với việc tự vệ thường: trong làng thì dân làng CHỦ ĐỘNG
