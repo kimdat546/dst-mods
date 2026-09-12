@@ -430,6 +430,21 @@ function viec.HanhDong(inst)
         end
     end
 
+    -- ⚠ GOM ĐỦ RỒI THÌ DỪNG GOM. Việc bám dai là thứ đã chữa cảnh "chặt vài
+    --   nhát rồi bỏ sang cây khác", nhưng nó không biết lúc nào nên buông:
+    --   đo trên server, Cuong gom được 14 bó cỏ (mũ chống nóng cần 12),
+    --   CanBuild=true, mà vẫn ôm việc hái cỏ và đứng im ở đó — bộ giải không
+    --   bao giờ chạy lại để tới bước CHẾ. Nó hái cỏ suốt trong khi cái mũ đã
+    --   nằm trong tầm tay.
+    if a.viec ~= nil then
+        for _, n in ipairs(nhu_cau.DANH_SACH) do
+            if n.ten == a.viec.vi_sao and sinh_ton.ChePDuocRoi(inst, n) then
+                a.viec = nil
+                break
+            end
+        end
+    end
+
     if a.viec ~= nil and viec.ConHopLe(inst, a.viec) then
         local v = a.viec
         inst.ailang.dang_lam = v.vi_sao

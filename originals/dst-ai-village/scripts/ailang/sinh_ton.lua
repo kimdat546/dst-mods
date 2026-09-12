@@ -193,6 +193,14 @@ local function SoatTienTrien(inst, n)
 
     local con = TongConThieu(inst, n)
     if con == nil then return false end
+    -- ⚠ ĐỦ NGUYÊN LIỆU RỒI thì KHÔNG phải là đứng im — nó đang chờ tới lượt
+    --   chế, và cho nghỉ lúc này là vứt đi đúng công sức vừa gom xong. Đo trên
+    --   server: Cuong gom được 14 bó cỏ (mũ cần 12), thiếu=0, CanBuild=true —
+    --   cho nghỉ ở trạng thái đó là phí cả buổi hái cỏ.
+    if con <= 0 then
+        if inst.ailang.moc_tien ~= nil then inst.ailang.moc_tien[n.ten] = nil end
+        return false
+    end
 
     local m = a.moc_tien[n.ten]
     if m == nil or m.con ~= con then
@@ -308,6 +316,17 @@ local function GiaiMot(inst, n, tam)
     end
 
     return nil
+end
+
+-- Nhu cầu này đã đủ nguyên liệu để chế chưa (bậc nào cũng được)?
+function sinh_ton.ChePDuocRoi(inst, n)
+    local b = inst.components.builder
+    if b == nil or n == nil then return false end
+    for _, bac in ipairs(n.bac or {}) do
+        local ok, duoc = pcall(b.CanBuild, b, bac.mon)
+        if ok and duoc then return true end
+    end
+    return false
 end
 
 -- ── điểm vào ────────────────────────────────────────────────────────────
