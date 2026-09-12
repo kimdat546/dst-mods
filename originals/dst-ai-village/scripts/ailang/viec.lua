@@ -243,21 +243,46 @@ end
 
 -- Nhu cầu trước, việc thường sau. sinh_ton trả về "xong" khi nó vừa làm một
 -- việc tức thì (mặc/chế), lúc đó chưa cần đi đâu cả.
-function viec.NhanViec(inst)
-    local kq = sinh_ton.Giai(inst)
-    if kq == "xong" then return nil end
-    if kq ~= nil and kq.action ~= nil then
-        return {
-            muc_tieu  = kq.target,
-            hanh_dong = kq.action,
-            mon       = kq.invobject,
-            vi_sao    = inst.ailang.dang_lo or "nhu cầu",
-        }
-    end
+-- ⚠ GIỮ LÀNG phải chen GIỮA hai lượt nhu cầu, không xếp sau tất cả.
+--   "vũ khí" và "giáp" có `can` luôn trả true, nên hễ quanh đó còn một bụi cỏ
+--   là sinh_ton.Giai LUÔN trả về việc — và NhanViec không bao giờ xuống tới
+--   dập lửa hay tiếp lửa. Đo trên server: lửa của làng tụt còn 17% nhiên liệu
+--   trong khi cả ba dân làng đứng hái cỏ làm áo giáp. Lửa tắt là chết đêm,
+--   còn thiếu áo giáp thì chỉ đau hơn.
+--
+--   Thứ tự đúng:
+--     1. nhu cầu GẤP (ánh sáng, đồ ăn, hồi máu, nhà)
+--     2. giữ làng   (dập cháy, nuôi lửa)
+--     3. nhu cầu còn lại (dụng cụ, hồi não, vũ khí, giáp, cuốc)
+--     4. việc thường (cất đồ, nhặt, hái, chặt, đào)
+local function TuNhuCau(inst, kq)
+    if kq == nil or kq == "xong" or kq.action == nil then return nil end
+    return {
+        muc_tieu  = kq.target,
+        hanh_dong = kq.action,
+        mon       = kq.invobject,
+        vi_sao    = inst.ailang.dang_lo or "nhu cầu",
+    }
+end
 
-    return ViecDapLua(inst)
-        or ViecTiepLua(inst)
-        or ViecCatDo(inst)
+local function LaGap(n)    return n.gap == true end
+local function KhongGap(n) return n.gap ~= true end
+
+function viec.NhanViec(inst)
+    local kq = sinh_ton.Giai(inst, LaGap)
+    if kq == "xong" then return nil end
+    local v = TuNhuCau(inst, kq)
+    if v ~= nil then return v end
+
+    v = ViecDapLua(inst) or ViecTiepLua(inst)
+    if v ~= nil then return v end
+
+    kq = sinh_ton.Giai(inst, KhongGap)
+    if kq == "xong" then return nil end
+    v = TuNhuCau(inst, kq)
+    if v ~= nil then return v end
+
+    return ViecCatDo(inst)
         or ViecNhat(inst)
         or ViecHai(inst)
         or ViecLamViec(inst, ACTIONS.CHOP, "CHOP_workable", "chặt cây")

@@ -1180,6 +1180,57 @@ local function ThuTiepLua(tiep)
     tiep()
 end
 
+-- ── giữ làng phải thắng nhu cầu không gấp ───────────────────────────────
+--
+-- ⚠ "vũ khí" và "giáp" có `can` luôn trả true, nên hễ quanh đó còn một bụi cỏ
+--   là sinh_ton.Giai LUÔN trả về việc — và viec.NhanViec không bao giờ xuống
+--   tới dập lửa hay tiếp lửa. Đo trên server: lửa của làng tụt còn 17% nhiên
+--   liệu rồi TẮT HẲN trong khi cả ba dân làng đứng hái cỏ làm áo giáp. Chập
+--   tối hôm đó nhật ký ghi lua=0.
+local function ThuGiuLangTruocGiap(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    local st = require("ailang/sinh_ton")
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    local lo = ThoaHetNhuCau(e)
+    local tui = e.components.inventory
+
+    -- Cởi giáp ra: giờ "giáp" chưa thoả và quanh đây đầy cỏ, đúng cảnh đã gặp.
+    local giap = tui:GetEquippedItem(EQUIPSLOTS.BODY)
+    if giap ~= nil then tui:DropItem(giap) giap:Remove() end
+    SpawnPrefab("grass").Transform:SetPosition(gx + 3, 0, gz)
+    KT("dựng đúng cảnh: giáp CHƯA thoả",
+       #st.ConThieuGi(e, function(n) return n.ma == "giap" end) == 1)
+
+    lo.components.fueled:SetPercent(0.2)
+    tui:GiveItem(SpawnPrefab("log"))
+    vi.BoViec(e)
+    local v = vi.NhanViec(e)
+    KT("nuôi lửa của làng THẮNG việc đi hái cỏ làm giáp",
+       v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL,
+       "việc=" .. tostring(v and v.vi_sao))
+
+    -- Nhưng nhu cầu GẤP thì vẫn phải thắng việc nuôi lửa.
+    lo.components.fueled:SetPercent(0.2)
+    for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
+        local m = tui:GetEquippedItem(o)
+        if m ~= nil then tui:DropItem(m) m:Remove() end
+    end
+    local duoc = require("ailang/nhu_cau").CoTrongTui(e, "torch")
+    if duoc ~= nil then duoc:Remove() end
+    lo:Remove()                      -- mất luôn chỗ trú sáng
+    vi.BoViec(e)
+    local v2 = vi.NhanViec(e)
+    KT("nhưng nhu cầu GẤP vẫn thắng việc nuôi lửa",
+       v2 == nil or v2.hanh_dong ~= ACTIONS.ADDFUEL,
+       "việc=" .. tostring(v2 and v2.vi_sao))
+
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1191,7 +1242,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuKhongTrom, ThuRaNgoaiLang,
                ThuDaiTrieuHoi, ThuGiuLang,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
-               ThuTiepLua }
+               ThuTiepLua, ThuGiuLangTruocGiap }
 local i = 0
 local function tiep()
     i = i + 1
