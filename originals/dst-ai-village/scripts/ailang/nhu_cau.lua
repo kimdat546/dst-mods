@@ -66,6 +66,9 @@ nhu_cau.PHAT_SANG = { minerhat = true, nightstick = true }
 --   tối, đuốc cháy hết đúng lúc vào đêm, và cả ba chết với tay không.
 local SAP_TAT = 0.25
 
+-- Trên mức này thì khỏi lo cây tiếp theo; dưới thì phải có đồ dự phòng.
+local DU_LAU = 0.5
+
 function nhu_cau.MonPhatSang(mon)
     if mon == nil then return false end
     if mon.components.fueled ~= nil
@@ -201,6 +204,24 @@ function nhu_cau.ChonMonAn(inst)
     return tot, diem_tot
 end
 
+-- ⚠ VŨ KHÍ VÀ GIÁP LÀ VIỆC CỦA LÚC ĐÃ YÊN THÂN, không phải việc ngày đầu.
+--   Áo cỏ tốn MƯỜI bó cỏ, mà đuốc chỉ tốn hai. `can` của chúng luôn trả true
+--   nên ba dân làng vặt sạch cỏ trong bán kính làng để làm áo — rồi tới chập
+--   tối thì đứng TAY KHÔNG với đúng 1 bó cỏ, không đủ làm nổi một cây đuốc.
+--   Đo trên server: cả ba vào đêm tay không, kẹt ở cu1 nhiều nhịp liền vì
+--   quanh làng không còn bụi cỏ nào chưa hái.
+--
+--   Người chơi thật cũng vậy: lo lửa và đồ ăn trước, áo giáp tính sau.
+local function DaYenThan(inst)
+    for _, ma in ipairs({ "anh_sang", "nha" }) do
+        local n = nhu_cau.Tim(ma)
+        if n == nil then return false end
+        local ok, du = pcall(n.du, inst)
+        if not ok or not du then return false end
+    end
+    return true
+end
+
 -- ── bảng nhu cầu, ưu tiên từ trên xuống ─────────────────────────────────
 --
 -- `gap = true` nghĩa là nhu cầu này được CHEN NGANG việc đang làm dở.
@@ -224,7 +245,20 @@ nhu_cau.DANH_SACH = {
         du  = function(inst)
             -- Ban đêm thì phải CẦM TRÊN TAY mới tính; ban ngày để trong túi
             -- là đủ, khỏi vướng tay làm việc.
-            if DuyetTrangBi(inst, nhu_cau.MonPhatSang) ~= nil then return true end
+            -- ⚠ ĐANG CẦM ĐUỐC CHƯA CHẮC LÀ ĐỦ. Đuốc cháy hao liên tục, nên
+            --   "đủ" phải tính cả CÂY TIẾP THEO. Đo trên server: chập tối, An
+            --   và Cuong đứng TAY KHÔNG với đúng 1 bó cỏ trong túi — đuốc vừa
+            --   tắt, mà làm cây mới cần 2 cỏ. Ngưỡng 25% cho lead time trên
+            --   giấy nhưng ngoài thực địa thì không kịp gom nguyên liệu.
+            --   Giờ: còn trên nửa bình thì yên tâm; dưới nửa thì phải có cây
+            --   dự phòng trong túi mới coi là đủ.
+            local tay = DuyetTrangBi(inst, nhu_cau.MonPhatSang)
+            if tay ~= nil then
+                local f = tay.components.fueled
+                if f == nil or f:GetPercent() > DU_LAU then return true end
+                if DuyetTui(inst, nhu_cau.MonPhatSang) ~= nil then return true end
+                return false
+            end
             -- Đứng cạnh đống lửa đang cháy cũng là có sáng.
             if FindEntity(inst, 10, function(v)
                    return v.components.burnable ~= nil
@@ -379,7 +413,7 @@ nhu_cau.DANH_SACH = {
     {
         ma  = "vu_khi",
         ten = "vũ khí",
-        can = function() return true end,
+        can = DaYenThan,
         du  = function(inst)
             return DuyetTrangBi(inst, function(m)
                 return m.components.weapon ~= nil
@@ -391,7 +425,7 @@ nhu_cau.DANH_SACH = {
     {
         ma  = "giap",
         ten = "giáp",
-        can = function() return true end,
+        can = DaYenThan,
         du  = function(inst)
             return DuyetTrangBi(inst, function(m)
                 return m.components.armor ~= nil

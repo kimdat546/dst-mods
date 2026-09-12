@@ -1231,6 +1231,32 @@ local function ThuGiuLangTruocGiap(tiep)
     tiep()
 end
 
+-- ── vũ khí và giáp là việc của lúc đã yên thân ──────────────────────────
+--
+-- ⚠ Áo cỏ tốn MƯỜI bó cỏ, đuốc chỉ tốn hai. Khi `can` của giáp luôn trả true,
+--   ba dân làng vặt sạch cỏ quanh làng để làm áo — rồi tới chập tối thì đứng
+--   TAY KHÔNG với đúng 1 bó cỏ. Đo được: cả ba vào đêm tay không, kẹt ở cu1
+--   nhiều nhịp liền vì quanh làng không còn bụi cỏ nào chưa hái.
+local function ThuGiapSauCung(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local st = require("ailang/sinh_ton")
+    local giap, vu_khi = nc.Tim("giap"), nc.Tim("vu_khi")
+    e.components.inventory:DropEverything()
+
+    KT("chưa có lửa, chưa có sáng thì KHÔNG lo giáp", not giap.can(e))
+    KT("chưa yên thân thì cũng KHÔNG lo vũ khí", not vu_khi.can(e))
+    KT("và giáp KHÔNG nằm trong danh sách phải lo",
+       #st.ConThieuGi(e, function(n) return n.ma == "giap" end) == 0)
+
+    -- Yên thân: có đuốc đầy trong tay và có lửa ở làng.
+    ThoaHetNhuCau(e)
+    KT("đã có lửa và có sáng thì MỚI lo giáp", giap.can(e))
+    e:Remove()
+    tiep()
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -1242,7 +1268,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuKhongTrom, ThuRaNgoaiLang,
                ThuDaiTrieuHoi, ThuGiuLang,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
-               ThuTiepLua, ThuGiuLangTruocGiap }
+               ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung }
 local i = 0
 local function tiep()
     i = i + 1

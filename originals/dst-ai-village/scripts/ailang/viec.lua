@@ -225,6 +225,42 @@ local function ViecTiepLua(inst)
              vi_sao = "tiếp lửa" }
 end
 
+-- ⚠ PHẢI CÓ CỦI DỰ TRỮ, không chỉ đủ dùng. Lửa trại mới dựng chỉ cháy được
+--   (đêm + chập tối) × 0,75 — KHÔNG đủ một đêm. Mà dân làng chỉ chặt đúng 2
+--   khúc gỗ mỗi lần nhu cầu "nhà" đòi, không bao giờ có dư, nên tới lúc lửa
+--   cần thêm củi thì trong túi trống trơn. Đo trên server: chập tối lua=0 hai
+--   đêm liền, dù cả ba đều cầm rìu và quanh làng đầy cây.
+--
+--   Xếp CHUNG với dập lửa và nuôi lửa, tức trên "vũ khí"/"giáp": củi giữ mạng
+--   cả làng qua đêm, còn áo cỏ thì chỉ đỡ đau.
+local DU_CUI = 4
+
+local function ViecGomCui(inst)
+    if lang.Tam(inst) == nil then return nil end
+    local tui = inst.components.inventory
+    if tui == nil or tui:IsFull() then return nil end
+
+    local n = 0
+    nhu_cau.DuyetTui(inst, function(m)
+        if m.prefab == "log" then
+            n = n + (m.components.stackable ~= nil
+                     and m.components.stackable:StackSize() or 1)
+        end
+        return false
+    end)
+    if n >= DU_CUI then return nil end
+
+    if nhu_cau.KhongRanhTay(inst) then return nil end
+    if not CamDungCu(inst, ACTIONS.CHOP) then return nil end
+    local cay = Tim(inst, "CHOP_workable", function(v)
+        return v.components.workable ~= nil
+           and v.components.workable:CanBeWorked()
+           and v.components.workable:GetWorkAction() == ACTIONS.CHOP
+    end)
+    if cay == nil then return nil end
+    return { muc_tieu = cay, hanh_dong = ACTIONS.CHOP, vi_sao = "gom củi" }
+end
+
 -- Túi đầy thì mang đồ về rương trong làng, khỏi đứng ngây.
 local function ViecCatDo(inst)
     local tui = inst.components.inventory
@@ -252,7 +288,7 @@ end
 --
 --   Thứ tự đúng:
 --     1. nhu cầu GẤP (ánh sáng, đồ ăn, hồi máu, nhà)
---     2. giữ làng   (dập cháy, nuôi lửa)
+--     2. giữ làng   (dập cháy, nuôi lửa, gom củi dự trữ)
 --     3. nhu cầu còn lại (dụng cụ, hồi não, vũ khí, giáp, cuốc)
 --     4. việc thường (cất đồ, nhặt, hái, chặt, đào)
 local function TuNhuCau(inst, kq)
@@ -274,7 +310,7 @@ function viec.NhanViec(inst)
     local v = TuNhuCau(inst, kq)
     if v ~= nil then return v end
 
-    v = ViecDapLua(inst) or ViecTiepLua(inst)
+    v = ViecDapLua(inst) or ViecTiepLua(inst) or ViecGomCui(inst)
     if v ~= nil then return v end
 
     kq = sinh_ton.Giai(inst, KhongGap)
