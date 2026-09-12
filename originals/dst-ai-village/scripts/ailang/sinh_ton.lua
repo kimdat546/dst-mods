@@ -246,13 +246,16 @@ end
 -- ── điểm vào ────────────────────────────────────────────────────────────
 
 -- Mọi nhu cầu đang cần mà chưa thoả, ưu tiên cao nhất trước.
-function sinh_ton.ConThieuGi(inst)
+-- `loc` (tuỳ chọn): chỉ xét những nhu cầu mà loc(n) trả true.
+function sinh_ton.ConThieuGi(inst, loc)
     local ra = {}
     for _, n in ipairs(nhu_cau.DANH_SACH) do
-        local ok_can, can = pcall(n.can, inst)
-        local ok_du, du   = pcall(n.du, inst)
-        if ok_can and can and ok_du and not du then
-            table.insert(ra, n)
+        if loc == nil or loc(n) then
+            local ok_can, can = pcall(n.can, inst)
+            local ok_du, du   = pcall(n.du, inst)
+            if ok_can and can and ok_du and not du then
+                table.insert(ra, n)
+            end
         end
     end
     return ra
@@ -276,8 +279,12 @@ end
 --   một nhu cầu KHÔNG GIẢI ĐƯỢC chặn đứng mọi nhu cầu bên dưới, mãi mãi. Đo
 --   trên server thật: dân làng não 0%, hoi_nao không giải nổi vì quanh đó
 --   không có hoa, và thế là vu_khi / giap / nha KHÔNG BAO GIỜ được xét tới.
-function sinh_ton.Giai(inst)
-    local ds = sinh_ton.ConThieuGi(inst)
+-- ⚠ `loc` chia bảng nhu cầu thành HAI LƯỢT, và hai lượt đó KHÔNG ĐƯỢC GIẪM
+--   LÊN NHAU: Giai có tác dụng phụ (mặc đồ, chế đồ, trừ nguyên liệu), gọi lại
+--   cùng một nhu cầu là chế lặp. viec.NhanViec gọi đúng hai lần với hai bộ lọc
+--   bù nhau (gap / không gap), nên mỗi nhu cầu được xét đúng một lần.
+function sinh_ton.Giai(inst, loc)
+    local ds = sinh_ton.ConThieuGi(inst, loc)
     if #ds == 0 then
         if inst.ailang ~= nil then inst.ailang.dang_lo = nil end
         return nil
