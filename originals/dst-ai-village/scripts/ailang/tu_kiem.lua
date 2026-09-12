@@ -1542,6 +1542,50 @@ local function ThuChongNong(tiep)
     tiep()
 end
 
+-- ── bóng cây: lời giải mùa hè không tốn gì ──────────────────────────────
+--
+-- ⚠ Tìm ra bằng cách soi một điều bất thường: ba dân làng có ĐỒ ĐẠC GIỐNG HỆT
+--   NHAU mà nhiệt độ lệch hẳn — An và Binh 64 độ trong khi môi trường 84, còn
+--   Cuong 83 độ rồi CHẾT. Khác biệt duy nhất là CHỖ ĐỨNG.
+--   temperature.lua: `sheltered` và nhiệt trên TREE_SHADE_COOLING_THRESHOLD
+--   (63) thì kéo mạnh về TREE_SHADE_COOLER (45) — nên hai đứa kia ghim đúng
+--   ngay trên 63. Rời bóng cây đi chặt gỗ là nhảy lên 75 rồi 81 rồi chết.
+--   sheltered.lua đo bằng CountEntities bán kính 2, tag "shelter", trừ stump.
+local function ThuBongCay(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local mat = nc.Tim("mat_me")
+    e.components.inventory:DropEverything()
+    e.components.temperature:SetTemperature(68)
+
+    local che = e.components.sheltered
+    KT("dân làng có bộ phận nhận biết bóng râm", che ~= nil)
+    KT("ngưỡng mát của DST đúng như đã đo",
+       TUNING.TREE_SHADE_COOLING_THRESHOLD == 63
+       and TUNING.TREE_SHADE_COOLER == 45,
+       "ngưỡng=" .. tostring(TUNING.TREE_SHADE_COOLING_THRESHOLD)
+       .. " kéo về=" .. tostring(TUNING.TREE_SHADE_COOLER))
+
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(gx + 30, 0, gz)
+    KT("cây thông mang tag shelter", cay:HasTag("shelter"))
+
+    if che ~= nil then che.sheltered = false end
+    KT("đứng xa cây thì CHƯA mát", mat ~= nil and not mat.du(e))
+
+    if che ~= nil then che.sheltered = true end
+    KT("đứng dưới tán cây thì tính là ĐÃ MÁT (khỏi tốn 12 bó cỏ làm mũ)",
+       mat ~= nil and mat.du(e))
+
+    if che ~= nil then che.sheltered = false end
+    e.components.temperature:SetTemperature(20)
+    cay:Remove()
+    e:Remove()
+    tiep()
+end
+
+
 -- ── một cái máy mở khoá cả một tầng ─────────────────────────────────────
 --
 -- ⚠ researchlab là TECH 0 (goldnugget×1 log×4 rocks×4) nên dân làng tự dựng
@@ -1623,7 +1667,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
                ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
                ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat,
-               ThuChongNong, ThuXuong }
+               ThuChongNong, ThuBongCay, ThuXuong }
 local i = 0
 local function tiep()
     i = i + 1
