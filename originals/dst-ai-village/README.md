@@ -314,8 +314,20 @@ BÁO, không phải nhánh `if` lồng nhau. Thêm nhu cầu mới chỉ là th�
 Thứ tự ưu tiên:
 
 ```
-ánh sáng > đồ ăn > hồi máu > hồi não > vũ khí > giáp > nhà
+ánh sáng > đồ ăn > hồi máu > dụng cụ > nhà > hồi não > vũ khí > giáp > cuốc
 ```
+
+Thứ tự này là thứ đã trả giá đắt nhất để tìm ra, nên chép lại lý do:
+
+- **dụng cụ (rìu) đứng trên nhà.** Rìu là ĐIỀU KIỆN của đống lửa, không phải
+  thứ cạnh tranh với nó. Bản trước không có nhu cầu này, nên dân làng chết một
+  lần là rơi mất rìu và **không bao giờ chặt được gỗ nữa** — dù đứng giữa
+  rừng. Đo tại chỗ: `DiKiem("log")` trả nil ở cả hai bán kính trong khi có 12
+  cây chặt được trong vòng 30. Không gỗ → không lửa → chết đêm → lại rơi rìu.
+- **nhà đứng trên vũ khí và giáp.** Không có lửa thì chết đêm; không có giáp
+  thì chỉ đau hơn. Để "nhà" ở cuối bảng là giáp/vũ khí luôn chen trước và dân
+  làng không dựng nổi đống lửa nào.
+- **cuốc ở cuối.** Không có cuốc thì chỉ chậm, không chết.
 
 Với nhu cầu cấp thiết nhất chưa thoả, `sinh_ton.lua` đi ba nước:
 
@@ -324,7 +336,7 @@ Với nhu cầu cấp thiết nhất chưa thoả, `sinh_ton.lua` đi ba nước
 3. Không bậc nào làm ngay được thì **đi kiếm nguyên liệu còn thiếu** cho bậc
    rẻ nhất — đây là chỗ dân làng trông "biết tính" thay vì đi lang thang
 
-Ví dụ ánh sáng có ba bậc `minerhat` → `lantern` → `torch`. Đầu game
+Ví dụ ánh sáng có bốn bậc `minerhat` → `lantern` → `torch` → `campfire`. Đầu game
 `builder:CanBuild` trả false cho hai bậc trên vì thiếu Máy Giả Kim, nên tự tụt
 xuống đuốc; thiếu cỏ thì đi tìm bụi cỏ, thiếu cành thì tìm bụi cây con.
 
@@ -338,6 +350,29 @@ xuống đuốc; thiếu cỏ thì đi tìm bụi cỏ, thiếu cành thì tìm 
 
 `builder:CanBuild` tự xét cấp công nghệ nên **bậc cao tự rụng khi chưa đủ đồ
 nghề**. Không phải viết điều kiện tay.
+
+### Nuôi lửa
+
+Lửa trại **không cháy mãi**: hết nhiên liệu là nó nhả tro rồi biến mất hẳn
+(`campfire.lua` đặt `accepting = false`, thêm tag `NOCLICK`, rồi `ErodeAway`).
+Tệ nhất là nó tắt giữa đêm — đúng lúc dân làng bị cấm cầm rìu nên không đi
+chặt gỗ mới được.
+
+Nên "tiếp lửa" là một VIỆC THƯỜNG trong `viec.lua`, xếp ngay sau dập lửa: dưới
+nửa bình thì ném củi vào, ưu tiên gỗ, chừa lại 4 cỏ/cành để còn làm đuốc. Để
+là việc thường (chứ không phải nhu cầu) vì nhu cầu gấp vẫn phải chen ngang
+được — lo thân trước, nuôi lửa sau.
+
+### Đống lửa của làng đặt ở LÀNG
+
+Bậc `campfire`/`firepit` của nhu cầu **nhà** mang cờ `o_nha`, nên dựng cạnh
+Đài Triệu Hồi chứ không dựng dưới chân. Bản trước dựng tại chỗ đứng, thường
+cách nhà hơn 40, nên `nha.du` quét quanh nhà không thấy gì và dân làng **dựng
+lại, dựng mãi**, đốt sạch gỗ vừa chặt mà làng vẫn tối. Nhật ký bắt tại trận:
+`lua=1` mà cả ba vẫn báo `dang_lam="nhà"`.
+
+Ngược lại, bậc `campfire` của nhu cầu **ánh sáng** KHÔNG mang cờ đó — đó là
+lửa khẩn cấp, phải nhóm ngay dưới chân, ở đâu cũng được.
 
 ### Nguyên liệu lấy từ đâu
 

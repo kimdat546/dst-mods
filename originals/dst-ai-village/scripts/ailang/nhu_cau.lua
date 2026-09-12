@@ -101,6 +101,30 @@ function nhu_cau.KhongRanhTay(inst)
     return true
 end
 
+-- ⚠ ĐUỐC CHÁY KHI CẦM TRÊN TAY. Cầm từ sáng tới tối là tới đêm nó tắt ngóm —
+--   đúng lúc cần nhất. Đo được: dân làng cầm đuốc suốt cả ngày chỉ để đi hái
+--   cỏ, việc chẳng cần tay nào cả.
+--
+--   Nên hễ chưa tới lúc phải cầm (ban ngày, hoặc chập tối mà đứng cạnh lửa)
+--   thì CẤT ĐI. Chỉ đụng tới món cầm tay có nhiên liệu; mũ thợ mỏ đội đầu
+--   không vướng việc gì nên để yên.
+function nhu_cau.CatNguonSang(inst)
+    local tui = inst.components.inventory
+    if tui == nil then return false end
+    local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if tay == nil or tay.components.fueled == nil then return false end
+    if not nhu_cau.MonPhatSang(tay) then return false end
+
+    local n = nhu_cau.Tim("anh_sang")
+    if n == nil or n.mac_khi == nil or n.mac_khi(inst) then return false end
+
+    local go = tui:Unequip(EQUIPSLOTS.HANDS)
+    if go ~= nil then tui:GiveItem(go) end
+    nen.doi(inst, tostring(inst.ailang and inst.ailang.ten),
+            "cất", tay.prefab, "đi cho khỏi cháy phí")
+    return true
+end
+
 -- ── tiện ích chung ──────────────────────────────────────────────────────
 
 local O_TRANG_BI = { "hands", "head", "body" }

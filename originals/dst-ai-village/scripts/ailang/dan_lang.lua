@@ -225,6 +225,19 @@ function dan_lang.Sinh(hoso)
     -- Thiện cảm và chế độ đi theo, mượn mô hình Wurt ↔ merm.
     require("ailang/than_thiet").GanVaoDanLang(inst)
 
+    -- ⚠ CẤT ĐUỐC ĐI phải là việc ĐỊNH KỲ, không nhét vào cây hành vi.
+    --   Đuốc cháy hao ngay trên tay, nên cầm suốt ngày là tới đêm tắt ngóm —
+    --   đúng lúc cần nhất. Nhưng chỗ duy nhất trong cây hành vi có thể cất nó
+    --   (viec.HanhDong) CHỈ chạy khi node làm việc rảnh, mà nó bận đi bộ tới
+    --   mục tiêu gần như cả ngày — `DoAction` giữ RUNNING suốt quãng đường đó.
+    --   Đo được: sang ngày rồi dân làng vẫn cầm nguyên cây đuốc đi hái cỏ.
+    --   Việc định kỳ thì chạy bất kể cây hành vi đang kẹt ở đâu.
+    inst:DoPeriodicTask(2, function()
+        if inst:IsValid() and not dan_lang.LaHonMa(inst) then
+            nen.thu("cất nguồn sáng", require("ailang/nhu_cau").CatNguonSang, inst)
+        end
+    end)
+
     local brain = require("brains/danlangbrain")
     inst:SetBrain(brain)
     inst:RestartBrain()

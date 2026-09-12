@@ -290,8 +290,19 @@ function DanLangBrain:OnStart()
         end, "Đi quá xa nhà",
             Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
 
-        IfNode(function() return sinh_ton.Giai(inst) == "xong" end,
-            "Lo nhu cầu tức thì", ActionNode(function() end, "xong")),
+        -- CHEN NGANG việc đang chạy dở khi có nhu cầu gấp NẶNG HƠN nó.
+        --
+        -- ⚠ Phép thử ở đây phải SẠCH (không tác dụng phụ). Bản trước dùng
+        --   `sinh_ton.Giai(inst) == "xong"` — mà Giai mặc đồ, chế đồ, trừ
+        --   nguyên liệu — nên cộng với lần gọi bên trong viec.HanhDong là Giai
+        --   chạy HAI LẦN mỗi nhịp. Đúng cái bẫy chú thích ngay dưới đã ghi.
+        --
+        --   Chỉ cần BỎ việc là đủ: nhịp sau node làm việc thành READY, gọi lại
+        --   viec.HanhDong, và chính nó gọi Giai (một lần) để mặc/chế thứ đang
+        --   thiếu. Trễ nửa giây, đổi lấy việc không còn chế đồ trùng lặp.
+        IfNode(function() return viec.CanChenNgang(inst) end,
+            "Chen nhu cầu gấp",
+            ActionNode(function() viec.BoViec(inst) end, "bỏ việc đang làm")),
 
         -- ⚠ CHỈ gọi sinh_ton.Giai ở MỘT chỗ. Trước đây có thêm một IfNode
         --   `Giai(inst) == "xong"` ngay trên đây, nên mỗi nhịp Giai chạy HAI

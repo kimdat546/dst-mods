@@ -264,6 +264,24 @@ function viec.NhanViec(inst)
         or ViecLamViec(inst, ACTIONS.MINE, "MINE_workable", "đào đá")
 end
 
+-- ── có nên bỏ việc đang làm không ───────────────────────────────────────
+--
+-- ⚠ KHÔNG GÂY TÁC DỤNG PHỤ. Cây hành vi cần một phép thử để quyết có chen
+--   ngang việc đang chạy dở hay không, và nó chạy mỗi 0,5 giây. Bản trước
+--   dùng thẳng `sinh_ton.Giai(inst) == "xong"` làm phép thử đó — mà Giai MẶC
+--   ĐỒ, CHẾ ĐỒ, TRỪ NGUYÊN LIỆU. Cộng với lần gọi bên trong viec.HanhDong là
+--   Giai chạy HAI LẦN mỗi nhịp, mỗi lần đều có thể chế thêm một món. Nhật ký
+--   in "đi kiếm log" bốn lần mỗi giây cho mỗi dân làng chính là dấu vết đó.
+function viec.CanChenNgang(inst)
+    local a = So(inst)
+    if a.viec == nil then return false end
+    local gap = sinh_ton.CoNhuCauGap(inst)
+    if gap == nil then return false end
+    local hang_gap  = nhu_cau.ChiSo(gap.ten)
+    local hang_viec = nhu_cau.ChiSo(a.viec.vi_sao)
+    return hang_viec == nil or (hang_gap ~= nil and hang_gap < hang_viec)
+end
+
 -- ── việc đang làm còn dùng được không ───────────────────────────────────
 
 function viec.ConHopLe(inst, v)

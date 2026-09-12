@@ -573,9 +573,18 @@ local function ThuKhongDoiRiuDuoc(tiep)
         DoiPha("day", function()
         Nhip(nao, 8, function()
             local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
-            KT("sang ngày thì mới cầm rìu đi chặt",
-               tay2 ~= nil and tay2.prefab == "axe",
-               "đang cầm=" .. tostring(tay2 and tay2.prefab))
+            -- ⚠ Kỳ vọng ĐÚNG ở đây KHÔNG phải "cầm rìu". Sang ngày, việc
+            --   hợp lý có thể là đi hái cỏ cho đống lửa — việc đó không cần
+            --   tay nào cả. Thứ BẮT BUỘC là BỎ ĐUỐC XUỐNG: đuốc cháy hao ngay
+            --   trên tay, cầm suốt ngày thì tới đêm là tắt ngóm, đúng lúc cần
+            --   nhất. Đo được: dân làng cầm đuốc cả ngày chỉ để đi hái cỏ.
+            KT("sang ngày thì BỎ ĐUỐC XUỐNG (khỏi cháy phí tới đêm)",
+               tay2 == nil or tay2.prefab ~= "torch",
+               "đang cầm=" .. tostring(tay2 and tay2.prefab)
+               .. " việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao))
+            KT("bỏ xuống là CẤT VÀO TÚI, không vứt đi",
+               require("ailang/nhu_cau").CoTrongTui(e, "torch") ~= nil
+               or (tay2 ~= nil and tay2.prefab == "torch"))
             tiep()
         end)
         end)

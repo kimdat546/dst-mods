@@ -224,8 +224,8 @@ local function GiaiMot(inst, n, tam)
         for _, t in ipairs(thieu or {}) do
             local hd = sinh_ton.DiKiem(inst, t[1], nil, tam)
             if hd ~= nil then
-                nen.chitiet(tostring(inst.ailang.ten), "đi kiếm", t[1],
-                            "(thiếu " .. t[2] .. ") cho", re_nhat.mon)
+                nen.doi(inst, tostring(inst.ailang.ten), "đi kiếm", t[1],
+                        "(thiếu " .. t[2] .. ") cho", re_nhat.mon)
                 return hd
             end
         end
@@ -235,7 +235,7 @@ local function GiaiMot(inst, n, tam)
     for _, ng in ipairs(n.kiem or {}) do
         local hd = sinh_ton.DiKiem(inst, ng, nil, tam)
         if hd ~= nil then
-            nen.chitiet(tostring(inst.ailang.ten), "đi kiếm", ng, "cho", n.ten)
+            nen.doi(inst, tostring(inst.ailang.ten), "đi kiếm", ng, "cho", n.ten)
             return hd
         end
     end
