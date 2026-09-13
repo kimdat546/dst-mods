@@ -2028,6 +2028,73 @@ local function ThuGomDuThiDung(tiep)
     tiep()
 end
 
+-- ── hồn ma không được kẹt trạng thái chết ───────────────────────────────
+--
+-- ⚠ Đẩy sang "idle" NGAY TRONG sự kiện "death" là VÔ ÍCH: stategraph xử lý sự
+--   kiện của chính nó SAU đó và đưa ngược về "death". Đo trên server sau một
+--   lượt chạy dài: cả ba nằm làm hồn ma từ ngày 60 tới NGÀY 102 với sg="death",
+--   trong khi não vẫn chạy đúng nhánh hồn ma và vẫn ra lệnh đi tới Đài CÁCH
+--   ĐÚNG 28 ĐƠN VỊ. Làng chết là mất hẳn.
+local function ThuHonMaKhongLiet(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    dan_lang.ThanhHonMa(e)
+
+    -- Giả lập đúng cảnh đã gặp: có thứ đẩy nó về "death" sau khi mình gỡ ra.
+    --
+    -- ⚠ PHẢI đặt `deathcause` trước. SGwilson.lua:3593 có
+    --   `assert(inst.deathcause ~= nil, "Entered death state without cause.")`
+    --   — đẩy vào trạng thái chết mà không khai lý do là ném lỗi cứng, và bộ
+    --   tự kiểm DỪNG GIỮA CHỪNG. Đã hỏng đúng vậy ở lần chạy trước.
+    e.deathcause = e.deathcause or "thu nghiem"
+    if e.sg ~= nil then e.sg:GoToState("death") end
+    KT("dựng đúng cảnh: hồn ma đang kẹt trạng thái chết",
+       e.sg ~= nil and e.sg.currentstate ~= nil
+       and e.sg.currentstate.name == "death")
+
+    -- Nhịp tự chữa phải gỡ nó ra trong vòng vài giây.
+    e:DoTaskInTime(2.5, function()
+        KT("nhịp tự chữa gỡ hồn ma khỏi trạng thái chết",
+           e.sg == nil or e.sg.currentstate == nil
+           or e.sg.currentstate.name ~= "death",
+           "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
+        e:Remove()
+        tiep()
+    end)
+end
+
+-- ── trời tối thì bỏ dụng cụ xuống ───────────────────────────────────────
+--
+-- ⚠ Luật "đêm không cầm dụng cụ" mới chỉ chặn việc NHẬN thêm việc cần dụng cụ,
+--   chứ không gỡ cây rìu đã cầm từ ban ngày. Đo trên server: hai dân làng chết
+--   giữa đêm với `tay = axe`. Rìu trong tay còn chiếm mất ô mà đuốc cần.
+local function ThuCatDungCuKhiToi(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local tui = e.components.inventory
+    tui:DropEverything()
+    local riu = SpawnPrefab("axe")
+    tui:GiveItem(riu) tui:Equip(riu)
+
+    TheWorld:PushEvent("ms_setphase", "day")
+    DoiPha("day", function()
+        KT("ban ngày thì cứ cầm rìu mà làm",
+           not dan_lang.CatDungCuKhiToi(e)
+           and tui:GetEquippedItem(EQUIPSLOTS.HANDS) ~= nil)
+
+        DoiPha("night", function()
+            KT("trời tối thì BỎ RÌU XUỐNG, trả ô tay cho cây đuốc",
+               dan_lang.CatDungCuKhiToi(e),
+               "tay=" .. tostring(tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+                                  and tui:GetEquippedItem(EQUIPSLOTS.HANDS).prefab))
+            KT("và rìu vào TÚI chứ không vứt đi",
+               require("ailang/nhu_cau").CoTrongTui(e, "axe") ~= nil)
+            e:Remove()
+            DoiPha("day", function() tiep() end)
+        end)
+    end)
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -2044,7 +2111,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuChongNong, ThuBongCay, ThuXuong,
                ThuLoThanTruoc,
                ThuUuTienThangKhoangCach, ThuBoTayThiThoi,
-               ThuNghiNhuCau, ThuGomDuThiDung }
+               ThuNghiNhuCau, ThuGomDuThiDung,
+               ThuHonMaKhongLiet, ThuCatDungCuKhiToi }
 local i = 0
 local function tiep()
     i = i + 1

@@ -100,6 +100,41 @@ local function DungLaiTui(inst, tui_hs)
 end
 
 -- Sinh một dân làng. `hoso` là bảng đã lưu (hoặc nil để tạo mới).
+-- ⚠ RỜI TRẠNG THÁI "death" PHẢI ĐI ĐÚNG LỐI, không gọi thẳng GoToState.
+--   SGwilson.lua:3839 có một `assert(false, "Left death state.")` ngay trong
+--   onexit của trạng thái chết — gọi thẳng GoToState("idle") là ném LỖI CỨNG
+--   mỗi lần hồn ma cử động, và nhật ký ngập stack traceback.
+--
+--   Nhưng chính đoạn assert đó cũng cho biết hai lối thoát HỢP LỆ:
+--       if inst.sg.statemem.vinesaving then return
+--       elseif inst.components.revivablecorpse == nil then assert(false, ...)
+--   `vinesaving` là cờ game dùng cho pha Winona được dây leo cứu. Bật nó lên
+--   thì onexit thoát sớm, không chạm tới assert.
+local function RoiTrangThaiChet(inst)
+    if inst.sg == nil or not inst:IsValid() then return end
+    if inst.sg.currentstate ~= nil and inst.sg.currentstate.name == "death" then
+        inst.sg.statemem.vinesaving = true
+    end
+    nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
+end
+
+-- ⚠ PHẢI HOÃN MỘT NHỊP. Gọi thẳng trong sự kiện "death" là VÔ ÍCH: mình đẩy
+--   sang "idle" xong thì stategraph mới xử lý sự kiện của chính nó và đưa
+--   ngược về "death". Đo trên server sau một lượt chạy dài: cả ba nằm làm hồn
+--   ma từ ngày 60 tới ngày 102 với sg="death", trong khi não vẫn chạy đúng
+--   nhánh hồn ma và vẫn ra lệnh đi tới Đài CÁCH ĐÚNG 28 ĐƠN VỊ. Làng chết là
+--   mất hẳn, không bao giờ hồi sinh.
+--
+-- ⚠ Và phải TỰ CHỮA định kỳ, đừng tin một lần đẩy là xong. Bất cứ thứ gì đẩy
+--   chúng về "death" sau đó — sự kiện muộn, mod khác, lần chết kế tiếp — đều
+--   làm hồn ma liệt lại.
+local function GoRaKhoiTrangThaiChet(inst)
+    RoiTrangThaiChet(inst)
+    inst:DoTaskInTime(0, function()
+        if inst:IsValid() then RoiTrangThaiChet(inst) end
+    end)
+end
+
 function dan_lang.Sinh(hoso)
     hoso = hoso or {}
 
@@ -283,7 +318,16 @@ function dan_lang.Sinh(hoso)
         inst:ListenForEvent(sk, function() dan_lang.CapNhatDen(inst) end)
     end
     inst:DoPeriodicTask(1, function()
-        if inst:IsValid() then nen.thu("cập nhật đèn", dan_lang.CapNhatDen, inst) end
+        if not inst:IsValid() then return end
+        nen.thu("cập nhật đèn", dan_lang.CapNhatDen, inst)
+        -- Hồn ma mà vẫn kẹt trạng thái chết thì gỡ ra — xem chú thích ở
+        -- GoRaKhoiTrangThaiChet.
+        if dan_lang.LaHonMa(inst) and inst.sg ~= nil
+           and inst.sg.currentstate ~= nil
+           and inst.sg.currentstate.name == "death" then
+            nen.thu("gỡ hồn ma khỏi trạng thái chết", RoiTrangThaiChet, inst)
+        end
+        nen.thu("cất dụng cụ khi trời tối", dan_lang.CatDungCuKhiToi, inst)
     end)
     dan_lang.CapNhatDen(inst)
 
@@ -324,23 +368,6 @@ local KEU = {
     "Đồ của tôi vẫn còn ở chỗ tôi ngã xuống.",
 }
 
--- ⚠ RỜI TRẠNG THÁI "death" PHẢI ĐI ĐÚNG LỐI, không gọi thẳng GoToState.
---   SGwilson.lua:3839 có một `assert(false, "Left death state.")` ngay trong
---   onexit của trạng thái chết — gọi thẳng GoToState("idle") là ném LỖI CỨNG
---   mỗi lần hồn ma cử động, và nhật ký ngập stack traceback.
---
---   Nhưng chính đoạn assert đó cũng cho biết hai lối thoát HỢP LỆ:
---       if inst.sg.statemem.vinesaving then return
---       elseif inst.components.revivablecorpse == nil then assert(false, ...)
---   `vinesaving` là cờ game dùng cho pha Winona được dây leo cứu. Bật nó lên
---   thì onexit thoát sớm, không chạm tới assert.
-local function RoiTrangThaiChet(inst)
-    if inst.sg == nil then return end
-    if inst.sg.currentstate ~= nil and inst.sg.currentstate.name == "death" then
-        inst.sg.statemem.vinesaving = true
-    end
-    nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
-end
 
 function dan_lang.ThanhHonMa(inst, noi_chet)
     local a = inst.ailang
@@ -392,7 +419,7 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     --   Hồn ma DST thật đi qua stategraph người-chơi-hồn-ma, thứ mình không
     --   dùng được (cần HUD phía client). Nên chỉ cần trả về "idle": thân thể
     --   nhận lệnh đi lại bình thường, còn "đã chết" giữ bằng cờ la_hon_ma.
-    RoiTrangThaiChet(inst)
+    GoRaKhoiTrangThaiChet(inst)
 
     -- Bỏ việc đang làm dở. Chết rồi thì không còn đi chặt cây nữa, và giữ lại
     -- thì lúc hồi sinh nó bám tiếp một mục tiêu đã cũ mấy ngày.
@@ -461,7 +488,7 @@ function dan_lang.HoiSinh(inst)
 
     -- ⚠ Cũng phải đẩy ra khỏi "death" — xem chú thích trong ThanhHonMa. Hồi
     --   sinh mà vẫn kẹt trạng thái chết thì được cái xác biết nói, không biết đi.
-    RoiTrangThaiChet(inst)
+    GoRaKhoiTrangThaiChet(inst)
     a.viec, a.viec_tu, a.viec_moc = nil, nil, nil
     a.dang_lam = nil
 
@@ -555,6 +582,25 @@ function dan_lang.CapNhatDen(inst)
     inst.Light:SetFalloff(0.7)
     inst.Light:SetColour(d.mau[1], d.mau[2], d.mau[3])
     inst.Light:Enable(true)
+end
+
+-- ⚠ TRỜI TỐI THÌ BỎ DỤNG CỤ XUỐNG. Luật "đêm không cầm dụng cụ" mới chỉ chặn
+--   việc NHẬN thêm việc cần dụng cụ, chứ không gỡ cây rìu đã cầm từ ban ngày.
+--   Đo trên server: hai dân làng chết giữa đêm với `tay = axe`, đúng cái lỗi
+--   tưởng đã vá. Rìu trong tay còn chiếm mất ô mà cây đuốc cần.
+function dan_lang.CatDungCuKhiToi(inst)
+    if dan_lang.LaHonMa(inst) then return false end
+    local nc = require("ailang/nhu_cau")
+    if not nc.KhongRanhTay(inst) then return false end
+    local tui = inst.components.inventory
+    if tui == nil then return false end
+    local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if tay == nil or tay.components.tool == nil then return false end
+    local go = tui:Unequip(EQUIPSLOTS.HANDS)
+    if go ~= nil then tui:GiveItem(go) end
+    nen.doi(inst, tostring(inst.ailang and inst.ailang.ten),
+            "cất", tay.prefab, "vì trời tối")
+    return true
 end
 
 function dan_lang.ChupHoSo(inst)
