@@ -2058,8 +2058,29 @@ local function ThuHonMaKhongLiet(tiep)
            e.sg == nil or e.sg.currentstate == nil
            or e.sg.currentstate.name ~= "death",
            "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
-        e:Remove()
-        tiep()
+
+        -- ⚠ RỜI TRẠNG THÁI CHẾT CHƯA ĐỦ — phải ĐI ĐƯỢC. locomotor.lua:1457
+        --   đọc thẳng health:IsDead() rồi XOÁ ĐÍCH và thoát, nên thực thể mà
+        --   engine coi là đã chết thì mọi lệnh di chuyển rơi vào hư vô. Đo
+        --   trên server: ra lệnh GoToPoint THẲNG tới Đài cách 91 đơn vị, sau 3
+        --   giây hồn ma nhích đúng 0.0 — trong khi sg đã là "idle" và não vẫn
+        --   ra lệnh đi suốt từ ngày 60 tới ngày 102.
+        KT("engine KHÔNG còn coi hồn ma là đã chết (không thì nó liệt)",
+           e.components.health ~= nil and not e.components.health:IsDead(),
+           "máu=" .. tostring(e.components.health and e.components.health.currenthealth))
+        KT("và vẫn bất tử, để Charlie bỏ qua",
+           e.components.health ~= nil and e.components.health:IsInvincible())
+
+        local x, _, z = e.Transform:GetWorldPosition()
+        e.components.locomotor:GoToPoint(Vector3(x + 25, 0, z), nil, true)
+        e:DoTaskInTime(3, function()
+            local nx, _, nz = e.Transform:GetWorldPosition()
+            local da_di = math.sqrt((nx - x) ^ 2 + (nz - z) ^ 2)
+            KT("hồn ma ĐI ĐƯỢC khi được ra lệnh", da_di > 2,
+               "đi được " .. string.format("%.1f", da_di) .. " đơn vị")
+            e:Remove()
+            tiep()
+        end)
     end)
 end
 
