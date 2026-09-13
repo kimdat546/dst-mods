@@ -187,29 +187,45 @@ local function ThuHonMa(tiep)
     dan_lang.ThanhHonMa(e)
     KT("chết thì thành hồn ma, mang notarget, ghi vị trí chết",
        e.ailang.la_hon_ma and e:HasTag("notarget") and e.ailang.noi_chet ~= nil)
+
     local x, y, z = e.Transform:GetWorldPosition()
     local bia = SpawnPrefab("resurrectionstone")
     bia.Transform:SetPosition(x + 2, y, z)
-    Nhip(nao, 4, function()
+
+    -- ⚠ ĐỪNG để bài kiểm phụ thuộc PHA TRỜI. Từ khi hồi sinh có điều kiện an
+    --   toàn (không sống lại giữa đêm để rồi chết ngay), bài này hỏng oan khi
+    --   bài chạy TRƯỚC để lại trạng thái đêm — đo được "pha=night" dù đã đẩy
+    --   ms_setphase("day"). Dựng hẳn đống lửa cạnh bia thì điều kiện an toàn
+    --   thoả bất kể trời ngày hay đêm, và đó cũng chính là cảnh chơi thật:
+    --   hồi sinh bên đống lửa của làng.
+    local lo = SpawnPrefab("campfire")
+    lo.Transform:SetPosition(x + 1, y, z)
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(1) end
+
+    Nhip(nao, 6, function()
         KT("hồn ma tới bia đá thì hồi sinh",
            e.ailang.la_hon_ma == false,
-           "la_hon_ma=" .. tostring(e.ailang.la_hon_ma))
+           "la_hon_ma=" .. tostring(e.ailang.la_hon_ma)
+           .. " | pha=" .. tostring(TheWorld.state.phase)
+           .. " | lửa cháy=" .. tostring(lo.components.burnable ~= nil
+                 and lo.components.burnable:IsBurning()))
         KT("hồi sinh xong bỏ notarget", not e:HasTag("notarget"))
+
         -- Cờ "về nhặt đồ" KHÔNG kiểm ở đây được: bia đá đặt sát chỗ chết nên
         -- cây hành vi thấy đã tới nơi và xoá cờ ngay — đúng như thiết kế.
-        -- Kiểm hợp đồng của HoiSinh() riêng, không lệ thuộc khoảng cách.
         local e2 = dan_lang.Sinh({ ten = "ThuCo", nhan_vat = "wilson" })
         dan_lang.ThanhHonMa(e2, { 9999, 9999 })
         dan_lang.HoiSinh(e2)
         KT("hồi sinh xong đặt cờ quay về chỗ chết nhặt đồ",
-           e2.ailang.ve_nhat_do ~= nil
-           and e2.ailang.ve_nhat_do[1] == 9999)
+           e2.ailang.ve_nhat_do ~= nil and e2.ailang.ve_nhat_do[1] == 9999)
         e2:Remove()
+        lo:Remove()
+        bia:Remove()
         tiep()
     end)
 end
 
--- ── 4. hồn ma KHÔNG đi làm việc ─────────────────────────────────────────
+
 local function ThuHonMaKhongLamViec(tiep)
     local e, nao = DanLangSach(Goc())
     dan_lang.ThanhHonMa(e)
@@ -2116,6 +2132,45 @@ local function ThuCatDungCuKhiToi(tiep)
     end)
 end
 
+-- ── đừng hồi sinh vào đúng thứ vừa giết mình ────────────────────────────
+--
+-- ⚠ Chạy thử ×16 không người trông bắt được vòng lặp vô hạn trong MỘT đêm:
+--       chết -> hồn ma -> bò về Đài -> sống lại 50% máu
+--       -> vẫn đang đêm, không đèn -> Charlie đánh 100 -> chết -> lặp
+--   Đài không có thời gian chờ nên vòng quay mãi, đốt CPU và nhìn như mod
+--   hỏng. Ba dân làng chết/sống lại hàng chục lần trong đêm ngày 6.
+local function ThuKhongHoiSinhVaoChoChet(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local dai = SpawnPrefab("ailang_dai")
+    dai.Transform:SetPosition(gx + 1, 0, gz)
+    e.Transform:SetPosition(gx, 0, gz)
+    e.ailang.nha = { gx, gz }
+    dan_lang.ThanhHonMa(e)
+    e:StopBrain()
+
+    DoiPha("night", function()
+        KT("giữa đêm, không lửa: hồn ma CHỜ chứ không sống lại",
+           dan_lang.LaHonMa(e),
+           "đã sống lại=" .. tostring(not dan_lang.LaHonMa(e)))
+
+        -- Có lửa cạnh Đài thì sống lại được.
+        local lo = SpawnPrefab("campfire")
+        lo.Transform:SetPosition(gx + 2, 0, gz)
+        if lo.components.fueled then lo.components.fueled:SetPercent(1) end
+        KT("dựng đúng cảnh: lửa đang cháy cạnh Đài",
+           lo.components.burnable ~= nil and lo.components.burnable:IsBurning())
+
+        lo:Remove()
+        DoiPha("day", function()
+            KT("sang ngày thì hồi sinh được", dan_lang.HoiSinh(e))
+            dai:Remove()
+            e:Remove()
+            tiep()
+        end)
+    end)
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
@@ -2133,7 +2188,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuLoThanTruoc,
                ThuUuTienThangKhoangCach, ThuBoTayThiThoi,
                ThuNghiNhuCau, ThuGomDuThiDung,
-               ThuHonMaKhongLiet, ThuCatDungCuKhiToi }
+               ThuHonMaKhongLiet, ThuCatDungCuKhiToi,
+               ThuKhongHoiSinhVaoChoChet }
 local i = 0
 local function tiep()
     i = i + 1

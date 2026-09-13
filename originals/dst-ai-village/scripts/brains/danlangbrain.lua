@@ -160,10 +160,29 @@ end
 
 -- Tới nơi rồi thì hồi sinh. Dây chuyền hồi sinh nằm dưới đất thì dùng luôn
 -- và mất đi — đúng như khi người chơi dùng nó.
+-- ⚠ ĐỪNG HỒI SINH VÀO ĐÚNG THỨ VỪA GIẾT MÌNH. Chạy thử ×16 không người trông
+--   bắt được vòng lặp vô hạn ngay trong MỘT đêm:
+--       chết -> hồn ma -> bò về Đài -> sống lại với 50% máu
+--       -> vẫn đang đêm, không đèn -> Charlie đánh 100 -> chết -> lặp
+--   Đài không có thời gian chờ nên vòng này quay mãi, đốt CPU và nhìn như mod
+--   hỏng. Ba dân làng chết và sống lại hàng chục lần trong đêm ngày 6.
+--
+--   Nên chỉ hồi sinh khi có cơ hội sống sót thật: trời đã sáng, hoặc đang
+--   đứng trong vùng sáng của một đống lửa. Còn lại thì hồn ma cứ chờ ở Đài —
+--   nhánh StandStill lo phần đứng đợi.
+local function DuAnToanDeSongLai(inst)
+    if not TheWorld.state.isnight then return true end
+    return FindEntity(inst, 8, function(v)
+               return v.components.burnable ~= nil
+                  and v.components.burnable:IsBurning()
+           end, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil
+end
+
 local function ThuHoiSinh(inst)
     local b = BiaGanNhat(inst)
     if b == nil then return false end
     if inst:GetDistanceSqToInst(b) > GAN_BIA * GAN_BIA then return false end
+    if not DuAnToanDeSongLai(inst) then return false end
 
     if not dan_lang.HoiSinh(inst) then return false end
 
