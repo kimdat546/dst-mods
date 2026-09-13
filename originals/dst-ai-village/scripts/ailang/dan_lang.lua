@@ -384,8 +384,27 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
         inst.components.combat:SetTarget(nil)
         inst.components.combat.defaultdamage = 0
     end
+    -- ⚠ HỒN MA KHÔNG ĐƯỢC ĐỂ ENGINE COI LÀ "ĐÃ CHẾT", nếu không nó KHÔNG BAO
+    --   GIỜ ĐI ĐƯỢC. locomotor.lua:1457 đọc thẳng:
+    --       if self.inst.components.health and self.inst.components.health:IsDead()
+    --           then self:Clear() return end
+    --   Tức là xoá đích rồi thoát — mọi lệnh di chuyển đều rơi vào hư vô.
+    --
+    --   Đo trên server: ra lệnh locomotor:GoToPoint THẲNG tới Đài cách 91 đơn
+    --   vị, sau 3 giây hồn ma nhích đúng 0.0. Không phải lỗi cây hành vi; não
+    --   vẫn chạy đúng nhánh hồn ma suốt từ ngày 60 tới ngày 102.
+    --
+    --   Nên giữ cho nó 1 điểm máu và bất tử: engine thấy còn sống nên cho đi,
+    --   còn ý nghĩa "đã chết" thì mang bằng cờ `la_hon_ma` của mình. Bất tử
+    --   cũng khiến Charlie bỏ qua (Grue:CheckForStart loại thực thể invincible).
+    --
+    -- ⚠ PHẢI bật bất tử TRƯỚC rồi mới nâng máu, không thì có nhịp nó ăn sát
+    --   thương ở giữa hai lệnh.
     if inst.components.health ~= nil then
         inst.components.health:SetInvincible(true)
+        nen.thu("giữ hồn ma khỏi trạng thái chết của engine", function()
+            inst.components.health:SetVal(1, "hon_ma")
+        end)
     end
     -- Đổi sang dáng hồn ma của DST bằng cách thay BUILD, giữ nguyên BANK.
     --
