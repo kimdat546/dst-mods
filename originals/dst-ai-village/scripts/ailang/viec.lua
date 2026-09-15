@@ -22,6 +22,7 @@
 local nen      = require("ailang/nen")
 local nhu_cau  = require("ailang/nhu_cau")
 local kho_lang = require("ailang/kho_lang")
+local ban_ve   = require("ailang/ban_ve")
 local sinh_ton = require("ailang/sinh_ton")
 local lang     = require("ailang/lang")
 
@@ -482,6 +483,35 @@ local function ViecCatDoAn(inst)
              vi_sao = "cất đồ ăn" }
 end
 
+-- ── mang liệu tới bản vẽ ────────────────────────────────────────────────
+--
+-- ⚠ ĐÂY LÀ VIỆC CỦA CẢ LÀNG, nên nó nằm ở bậc giữ làng chứ không nằm trong
+--   nhu cầu của riêng ai. Nhu cầu quyết định dựng gì và đặt bản vẽ xuống; từ
+--   đó trở đi thì ai rảnh cũng mang liệu tới được, và đó chính là điều khiến
+--   ba người mỗi người 2 khúc gỗ dựng nổi thứ cần 4 khúc.
+local function ViecGopBanVe(inst)
+    local bv, thieu = ban_ve.DangThieu(inst)
+    if bv == nil then return nil end
+
+    -- Có sẵn trong túi thì mang qua luôn.
+    local mon = nhu_cau.DuyetTui(inst, function(m) return m.prefab == thieu end)
+    if mon ~= nil then
+        return { muc_tieu = bv, hanh_dong = ACTIONS.GIVE, mon = mon,
+                 vi_sao = "góp bản vẽ" }
+    end
+
+    -- Không có thì đi kiếm. Dùng lại đúng đường kiếm liệu của nhu cầu, nên
+    -- bảng NGUON và luật "đêm không cầm rìu" vẫn được tôn trọng.
+    -- ⚠ KHÔNG đi qua kho_lang.ViecConCan: đây không phải chặt vu vơ, mà là
+    --   nguyên liệu cho một công trình đã quyết dựng. Trần thu gom chỉ chặn
+    --   việc tự phát.
+    local hd = sinh_ton.DiKiem(inst, thieu)
+    if hd == nil then return nil end
+    return { muc_tieu = hd.target, hanh_dong = hd.action, mon = hd.invobject,
+             vi_sao = "góp bản vẽ" }
+end
+
+viec.ViecGopBanVe = ViecGopBanVe
 viec.ViecNauChin  = ViecNauChin
 viec.ViecThuBay   = ViecThuBay
 viec.ViecDatBay   = ViecDatBay
@@ -533,7 +563,7 @@ function viec.NhanViec(inst)
     --   bẫy (gieo cho ngày mai) > cất kho (chống hỏng).
     v = ViecDapLua(inst) or ViecTiepLua(inst) or ViecGomCui(inst)
          or ViecThuBay(inst) or ViecNauChin(inst) or ViecDatBay(inst)
-         or ViecCatDoAn(inst)
+         or ViecCatDoAn(inst) or ViecGopBanVe(inst)
     if v ~= nil then return v end
 
     kq = sinh_ton.Giai(inst, KhongGap)

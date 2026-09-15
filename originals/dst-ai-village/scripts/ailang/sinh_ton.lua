@@ -13,6 +13,7 @@
 
 local nen      = require("ailang/nen")
 local nhu_cau  = require("ailang/nhu_cau")
+local ban_ve   = require("ailang/ban_ve")
 
 local sinh_ton = {}
 
@@ -287,6 +288,27 @@ local function GiaiMot(inst, n, tam)
                     end
                 end
                 return "xong"
+            end
+        end
+    end
+
+    -- 2b. CÔNG TRÌNH LỚN TỰ MÌNH KHÔNG DỰNG NỔI: đặt BẢN VẼ cho cả làng góp.
+    --
+    -- ⚠ Đây là chỗ gỡ giới hạn nặng nhất của mô hình "mỗi người tự lo".
+    --   `builder:DoBuild` đòi MỘT người cầm đủ cả bộ, nên Máy Khoa Học (vàng 1
+    --   + gỗ 4 + đá 4) không bao giờ lên khi ba dân làng mỗi đứa ôm một phần.
+    --   Đo được: vàng 3, đá 6 nằm rải trong túi nhiều người, máy vẫn không lên.
+    --
+    -- ⚠ Chỉ công trình ĐÁNG chờ mới dùng bản vẽ (xem ban_ve.DUNG_BAN_VE). Đống
+    --   lửa khẩn cấp thì không: cần nó là cần NGAY, chờ người khác mang gỗ tới
+    --   là chết đêm.
+    for _, bac in ipairs(n.bac or {}) do
+        if bac.dat_xuong and ban_ve.Dung(bac.mon) then
+            local bv = ban_ve.Dat(inst, bac.mon)
+            if bv ~= nil then
+                -- Có bản vẽ rồi thì việc mang liệu là của tầng việc, không
+                -- phải của nhu cầu. Nhu cầu này coi như đã có đường đi.
+                return nil
             end
         end
     end

@@ -20,6 +20,7 @@ local MO_DUN = {
     "ailang/nhu_cau",
     "ailang/sinh_ton",
     "ailang/viec",
+    "ailang/ban_ve",
     "ailang/hanh_dong",
     "ailang/kho_lang",
     "ailang/muc_tieu",

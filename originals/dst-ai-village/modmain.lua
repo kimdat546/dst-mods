@@ -15,7 +15,7 @@ GLOBAL.AILANG_CAUHINH = {
     ban_kinh_lang = GetModConfigData("ban_kinh_lang") or 60,
 }
 
-PrefabFiles = { "ailang_dai" }
+PrefabFiles = { "ailang_dai", "ailang_banve" }
 
 local nen      = GLOBAL.require("ailang/nen")
 local dan_lang = GLOBAL.require("ailang/dan_lang")

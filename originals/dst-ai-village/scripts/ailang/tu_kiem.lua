@@ -38,7 +38,8 @@ end
 
 for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/than_thiet",
                      "ailang/lang", "ailang/nhu_cau", "ailang/sinh_ton", "ailang/viec",
-                     "ailang/hanh_dong", "ailang/kho_lang", "ailang/muc_tieu",
+                     "ailang/ban_ve", "ailang/hanh_dong", "ailang/kho_lang",
+                     "ailang/muc_tieu",
                      "ailang/lenh", "brains/danlangbrain" }) do
     package.loaded[m] = nil
 end
@@ -2908,6 +2909,146 @@ local function ThuTranThuGom(tiep)
     end)
 end
 
+
+-- ── 49. bản vẽ công trình: cả làng góp liệu ─────────────────────────────
+--
+-- ⚠ BÀI NÀY CANH GIỚI HẠN NẶNG NHẤT CỦA MÔ HÌNH "MỖI NGƯỜI TỰ LO".
+--   `builder:DoBuild` đòi MỘT người cầm ĐỦ CẢ bộ nguyên liệu. Máy Khoa Học cần
+--   vàng 1 + gỗ 4 + đá 4, nên ba dân làng mỗi đứa ôm một phần thì KHÔNG BAO
+--   GIỜ dựng nổi dù cộng lại thừa. Đo trên server ngày 15/09: vàng 3, đá 6 nằm
+--   rải trong túi nhiều người, máy vẫn không lên.
+--   (Mẫu mượn từ grim_blueprint.lua của GrimWorld.)
+local function ThuBanVe(tiep)
+    local ban_ve = require("ailang/ban_ve")
+    local vi = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    TheWorld:PushEvent("ms_setphase", "day")
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+
+    KT("lửa trại KHÔNG dùng bản vẽ (cần là cần ngay)",
+       not ban_ve.Dung("campfire"))
+    KT("Máy Khoa Học thì có", ban_ve.Dung("researchlab"))
+
+    local bv = ban_ve.Dat(e, "researchlab")
+    KT("đặt được bản vẽ ở làng", bv ~= nil and bv:IsValid())
+    KT("và tìm lại được nó", ban_ve.Tim(e, "researchlab") == bv)
+
+    -- ⚠ MỘT BẢN VẼ MỘT LÚC. Cho đặt nhiều thì làng chia liệu ra khắp nơi và
+    --   không cái nào xong — đúng bệnh mà bản vẽ sinh ra để chữa.
+    KT("không đặt bản vẽ thứ hai khi đang còn dở",
+       ban_ve.Dat(e, "treasurechest") == nil)
+
+    -- ⚠ Bản vẽ KHÔNG được tính là công trình đã xong, không thì làng tưởng đã
+    --   có xưởng và chẳng ai mang liệu tới nữa.
+    local nc = require("ailang/nhu_cau")
+    KT("bản vẽ CHƯA xong thì nhu cầu xưởng vẫn còn thiếu",
+       not nc.Tim("xuong").du(e))
+
+    local thieu_bv, thieu, con = ban_ve.DangThieu(e)
+    KT("bản vẽ báo được đang thiếu gì",
+       thieu_bv == bv and thieu ~= nil and con > 0,
+       "thiếu=" .. tostring(thieu) .. " x" .. tostring(con))
+
+    -- Cầm sẵn thứ đang thiếu thì nhận việc mang qua.
+    local tui = e.components.inventory
+    tui:GiveItem(SpawnPrefab(thieu))
+    local v = vi.ViecGopBanVe(e)
+    KT("có sẵn thứ đang thiếu thì đi góp ngay",
+       v ~= nil and v.hanh_dong == ACTIONS.GIVE and v.muc_tieu == bv,
+       "việc=" .. tostring(v and v.vi_sao))
+
+    -- ⚠ ĐÂY LÀ PHÉP KIỂM CHÍNH: HAI NGƯỜI, MỖI NGƯỜI MỘT PHẦN.
+    --   Không ai đủ để tự dựng, nhưng góp chung thì công trình lên.
+    local e2 = dan_lang.Sinh({ ten = "NguoiGop", nhan_vat = "wilson",
+                              vi_tri = { x + 2, z } })
+    e2:StopBrain()
+    e2.ailang.nha = { x, z }
+
+    KT("dựng đúng cảnh: KHÔNG ai tự chế nổi Máy Khoa Học",
+       not e.components.builder:CanBuild("researchlab")
+       and not e2.components.builder:CanBuild("researchlab"))
+
+    -- Chia đôi bảng giá cho hai người, rồi cho cả hai cùng góp.
+    local nguoi, i = { e, e2 }, 0
+    for prefab, can in pairs(bv.banve.can) do
+        for _ = 1, can - (bv.banve.da_gop[prefab] or 0) do
+            i = i + 1
+            local ai = nguoi[(i % 2) + 1]
+            local mon = SpawnPrefab(prefab)
+            if mon ~= nil and bv:IsValid() then
+                ai.components.inventory:GiveItem(mon)
+                bv.components.trader:AcceptGift(ai, mon)
+            end
+        end
+    end
+
+    local may = FindEntity(e, 30, function(w)
+        return w.prefab == "researchlab"
+    end, nil, { "INLIMBO" })
+    KT("hai người góp chung thì Máy Khoa Học ĐƯỢC DỰNG",
+       may ~= nil, "thấy máy=" .. TenCua(may))
+    KT("góp đủ rồi thì bản vẽ biến mất", not bv:IsValid())
+    KT("và nhu cầu xưởng coi như xong",
+       may ~= nil and nc.Tim("xuong").du(e))
+
+    if may ~= nil and may:IsValid() then may:Remove() end
+    e2:Remove()
+    tiep()
+end
+
+
+-- ── 50. một lượt đưa là đủ, và không lấy thừa ───────────────────────────
+--
+-- ⚠ `trader:AcceptGift` MẶC ĐỊNH CHỈ LẤY MỘT MÓN (`count = count or 1`), mà
+--   ACTIONS.GIVE không truyền `count` được. Để nguyên thì bản vẽ cần 4 khúc gỗ
+--   là bốn lượt đi lại. Nên bản vẽ tự moi thêm trong túi người đưa cho đủ —
+--   nhưng CHỈ phần còn thiếu, không được vét sạch túi người ta.
+local function ThuBanVeTraDu(tiep)
+    local ban_ve = require("ailang/ban_ve")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+
+    local bv = ban_ve.Dat(e, "treasurechest")
+    KT("dựng đúng cảnh: có bản vẽ rương", bv ~= nil and bv:IsValid())
+
+    local thieu, con = bv.ConThieu(bv)
+    local tui = e.components.inventory
+    local chong = SpawnPrefab(thieu)
+    local du = 6
+    if chong.components.stackable ~= nil then
+        chong.components.stackable:SetStackSize(con + du)
+    else
+        du = 0
+    end
+    tui:GiveItem(chong)
+    bv.components.trader:AcceptGift(e, chong)
+
+    local con_lai = 0
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m.prefab == thieu then
+            con_lai = con_lai + (m.components.stackable ~= nil
+                                 and m.components.stackable:StackSize() or 1)
+        end
+    end
+    KT("một lượt đưa là góp đủ, không phải đi lại nhiều lần",
+       bv.banve.da_gop[thieu] == con,
+       "đã góp " .. tostring(bv.banve.da_gop[thieu]) .. "/" .. tostring(con))
+    KT("và chỉ lấy phần còn thiếu, không vét sạch túi",
+       du == 0 or con_lai == du,
+       "thiếu " .. tostring(con) .. ", đưa " .. tostring(con + du)
+       .. ", còn lại " .. tostring(con_lai) .. " (mong " .. tostring(du) .. ")")
+
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+    local ruong = FindEntity(e, 30, function(w) return w.prefab == "treasurechest" end,
+                             nil, { "INLIMBO" })
+    if ruong ~= nil then ruong:Remove() end
+    tiep()
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -2928,7 +3069,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuKhongHoiSinhVaoChoChet,
                ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang,
                ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe,
-               ThuVongKhoaCui, ThuTranThuGom }
+               ThuVongKhoaCui, ThuTranThuGom,
+               ThuBanVe, ThuBanVeTraDu }
 local i = 0
 local function tiep()
     i = i + 1
