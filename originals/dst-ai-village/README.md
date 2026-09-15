@@ -929,15 +929,37 @@ hiển thị**.
 
 ## Còn phải làm
 
-- ~~Vào game thật xem dân làng có thật sự đi lại và làm việc không.~~ Đã xác
-  nhận 11/09/2026: đi lại, nhặt đồ, thu thập tài nguyên đều chạy.
-- Nồi (`cookpot`) — gấp bốn giá trị đồ ăn (thịt viên 62,5 calo, giữ 10 ngày).
-  Kẹt ở `charcoal`×6: than chỉ ra từ cây bị ĐỐT, nên cần động từ "châm lửa đốt
-  cây" mà bảng nhu cầu chưa có.
-- Trí nhớ dài hạn cho tầng suy nghĩ (giờ mỗi nhịp là một lần hỏi độc lập).
-- Chủ động gom cỏ và cành BAN NGÀY để chắc chắn có nguyên liệu làm đuốc. Giờ
-  chúng chỉ nhặt được gì thì nhặt, gặp đêm mà tay trắng thì vẫn kẹt.
+**Chưa kiểm được, cần người:**
+
+- **Chạy thử tầng suy nghĩ với khoá Gemini thật.** Cả kênh AI đã kiểm kỹ ở
+  phía mod (đặt mục tiêu, soát lệnh sai, báo ngược lý do, từ điển ghi ra đĩa),
+  nhưng **chưa một lần nào có LLM thật ở đầu kia**. Ba bộ não Python nạp được
+  và bộ luật chạy đúng; phần Gemini mới chỉ kiểm bằng dữ liệu giả.
+- **Nút mở túi hàng của dân làng** — UI phía client, server headless không
+  kiểm được. Cần vào game bấm thử.
+- **Dân làng tự dựng Máy Khoa Học trong một lượt tự phát.** Bốn thứ chặn cứng
+  đã sửa và có phép kiểm canh, nhưng world ở `tools/test/data` đã bị hàng chục
+  lượt thử vét sạch cỏ và cành quanh làng, nên `ánh sáng` chiếm lượt vĩnh viễn.
+  Phải dựng world mới hoặc vào game thật.
+- **Sống qua nhiều chu kỳ ngày–đêm liên tiếp** (mới xác nhận một chu kỳ).
+
+**Còn thiếu trong mod:**
+
+- **Nồi (`cookpot`)** — bước nhân giá trị đồ ăn lớn nhất còn lại (thịt viên
+  62,5 calo, giữ 10 ngày). Kẹt ở `charcoal`×6: than chỉ ra từ cây bị **đốt**,
+  nên cần động từ "châm lửa đốt cây" — và phải tính chuyện cháy lan trước.
+- **Nghề nghiệp.** Mọi dân làng dùng chung một bảng nhu cầu nên cả ba luôn lo
+  cùng một thứ cùng lúc (đã thấy: cả ba cùng "gom củi" 11 lượt liền). GrimWorld
+  giải bằng bảng ưu tiên theo nghề, cố ý không để phẳng.
+- **Chủ động gom cỏ và cành ban ngày** để chắc chắn có liệu làm đuốc. Giờ chỉ
+  nhặt được gì thì nhặt, gặp đêm tay trắng là kẹt — và đó chính là thứ đã làm
+  ba lượt thử Máy Khoa Học tắc.
+- **Trí nhớ dài hạn cho tầng suy nghĩ** (giờ mỗi nhịp là một lần hỏi độc lập).
 - `modicon.tex/.xml` (đang cảnh báo lúc nạp, vô hại).
-- Nghề nghiệp: hiện mọi dân làng dùng chung một cây hành vi.
-- Trí nhớ dài hạn cho tầng suy nghĩ (giờ mỗi nhịp là một lần hỏi độc lập).
 - Nối với ý "thủ thành" trong `docs/plans/2026-09-09-huong-phat-trien-server.md`.
+
+**Còn đáng học từ GrimWorld** (xem
+`docs/dst-knowledge/analysis/refmods/3748676443-grimworld.md`): chọn kho bằng
+điểm, sự kiện thương nhân đổi hàng (lối thoát cho vàng và `gears`),
+`Immune`/`Prefers` trong mô hình giá trị đồ ăn, `FindFire` trả về cả lửa tắt
+đáng nhóm lại.
