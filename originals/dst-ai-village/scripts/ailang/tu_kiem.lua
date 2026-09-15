@@ -2328,7 +2328,54 @@ local function ThuMucTieu(tiep)
            e.ailang.muc_tieu == nil,
            "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
 
+        -- ⚠ ĐÀO VÀ CHẶT LÀM RƠI ĐỒ XUỐNG ĐẤT, KHÔNG BỎ VÀO TÚI. Đo trên server
+        --   thật: lệnh ba bước "MINE rock2 ×6 -> CHOP ×8 -> chế researchlab"
+        --   chạy hết hai bước đầu ĐÚNG, rồi bước chế báo "chưa đủ nguyên liệu"
+        --   với vàng=0 đá=0 gỗ=0 — tất cả nằm ngay dưới chân, không ai nhặt.
+        muc_tieu.Dat(e, { hanh_dong = "MINE", nham = "rock1", dung = "pickaxe", lan = 9 })
+        local x2, y2, z2 = e.Transform:GetWorldPosition()
+        local roi = SpawnPrefab("goldnugget")
+        roi.Transform:SetPosition(x2 + 2, y2, z2)
+        local hd = muc_tieu.HanhDong(e)
+        KT("đang đào mà có đồ rơi quanh chân thì NHẶT trước",
+           hd ~= nil and hd.action == ACTIONS.PICKUP and hd.target == roi,
+           "hành động=" .. tostring(hd and hd.action and hd.action.id))
+        KT("nhặt KHÔNG tính vào số lượt phải làm",
+           e.ailang.muc_tieu ~= nil and e.ailang.muc_tieu.lan == 9,
+           "lan=" .. tostring(e.ailang.muc_tieu and e.ailang.muc_tieu.lan))
+        roi:Remove()
+        muc_tieu.Bo(e, nil)
+
+        -- ⚠ `lan` ĐẾM CÂY ĐỔ, KHÔNG ĐẾM NHÁT RÌU. ACTIONS.CHOP trả true cho
+        --   MỖI NHÁT, mà hạ một cây thông cần khoảng mười nhát. Đo trên server:
+        --   bước "CHOP ×8" chạy đủ tám lượt, KHÔNG cây nào đổ, gỗ=0.
+        -- ⚠ DỌN CÂY CŨ TRƯỚC. Bài phía trên đã dựng một cây, và bộ tìm mục
+        --   tiêu có thể nhắm vào CÂY ĐÓ — thế là đo trên một cây trong khi
+        --   đang xoá một cây khác, và kết quả vô nghĩa. Đã hỏng đúng vậy.
         if cay:IsValid() then cay:Remove() end
+        local cay2 = SpawnPrefab("evergreen")
+        cay2.Transform:SetPosition(x2 + 3, y2, z2)
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 4 })
+        local hc = muc_tieu.HanhDong(e)
+        KT("dựng đúng cảnh: có hành động chặt nhắm vào cây",
+           hc ~= nil and hc.action == ACTIONS.CHOP and hc.target == cay2,
+           "hành động=" .. tostring(hc and hc.action and hc.action.id)
+           .. " mục tiêu=" .. TenCua(hc and hc.target))
+        if hc ~= nil then hc:Succeed() end
+        KT("một nhát mà cây chưa đổ thì CHƯA trừ lượt",
+           e.ailang.muc_tieu ~= nil and e.ailang.muc_tieu.lan == 4,
+           "lan=" .. tostring(e.ailang.muc_tieu and e.ailang.muc_tieu.lan))
+
+        -- Hạ hẳn cây rồi thì mới tính một lượt.
+        local hc2 = muc_tieu.HanhDong(e)
+        if cay2:IsValid() then cay2:Remove() end
+        if hc2 ~= nil then hc2:Succeed() end
+        -- (mục tiêu bị xoá giữa chừng = cây đổ, đúng cảnh cần đo)
+        KT("cây đổ hẳn rồi thì mới trừ một lượt",
+           e.ailang.muc_tieu ~= nil and e.ailang.muc_tieu.lan == 3,
+           "lan=" .. tostring(e.ailang.muc_tieu and e.ailang.muc_tieu.lan))
+        muc_tieu.Bo(e, nil)
+
         if lua ~= nil and lua:IsValid() then lua:Remove() end
         tiep()
     end)
