@@ -43,6 +43,28 @@ local BO_CUOC = 6
 -- tiến được bước nào thì buông.
 local BO_CUOC_GIAY = 180
 
+-- ⚠ ĐÀO VÀ CHẶT KHÔNG BỎ ĐỒ VÀO TÚI — NÓ RƠI XUỐNG ĐẤT. Đây là thứ làm cả một
+--   mục tiêu ba bước chạy xong mà chẳng được gì. Đo trên server thật:
+--
+--     lệnh: MINE rock2 ×6  ->  CHOP ×8  ->  chế researchlab
+--     kết quả: bước 1 xong, bước 2 xong, bước 3 "chưa đủ nguyên liệu",
+--              mà vàng=0 đá=0 gỗ=0.
+--
+--   Cả hai bước đầu đều LÀM ĐÚNG. Vàng và gỗ nằm ngay dưới chân, chỉ là không
+--   ai nhặt. Chính sách mặc định có việc nhặt đồ, nhưng nó nằm dưới và lúc đó
+--   dân làng đang lo cái bụng.
+--
+--   Nên tầng này tự nhặt: còn đồ rơi quanh chân thì nhặt trước, và KHÔNG tính
+--   vào `lan` — nhặt không phải là một lượt làm việc.
+local TAM_NHAT = 8
+
+local HANH_DONG_ROI_DO = {
+    [ACTIONS.CHOP]   = true,
+    [ACTIONS.MINE]   = true,
+    [ACTIONS.HAMMER] = true,
+    [ACTIONS.DIG]    = true,
+}
+
 -- Lấy bước đang phải làm của mục tiêu hiện tại.
 local function BuocHienTai(inst)
     local a = inst.ailang
@@ -70,6 +92,19 @@ function muc_tieu.Bo(inst, vi_sao)
     a.muc_tieu_hong = 0
     a.muc_tieu_tu = nil
     a.muc_tieu_loi = vi_sao
+end
+
+-- ⚠ `lan` ĐẾM MỤC TIÊU LÀM XONG, KHÔNG ĐẾM NHÁT CHÉM. ACTIONS.CHOP trả true
+--   cho MỖI NHÁT, nên bản đầu "CHOP ×8" nghĩa là tám nhát rìu — mà hạ một cây
+--   thông cần khoảng mười nhát. Đo trên server: bước chặt chạy đủ tám lượt,
+--   KHÔNG cây nào đổ, gỗ=0, rồi bước chế báo thiếu nguyên liệu.
+--
+--   Tầng suy nghĩ (và người viết lệnh tay) hiểu "×8" là tám CÂY. Nên nhát nào
+--   chưa hạ được mục tiêu thì tính là có tiến triển, không tính là một lượt.
+local function ChuaHaDuoc(act, muc)
+    if muc == nil or not muc:IsValid() then return false end
+    local w = muc.components.workable
+    return w ~= nil and w:CanBeWorked()
 end
 
 -- Xong một bước: sang bước sau, hoặc xong cả mục tiêu.
@@ -128,6 +163,20 @@ end
 
 -- Sinh hành động cho cây hành vi. Trả nil khi không có mục tiêu, hoặc khi vừa
 -- làm xong một việc tức thì (chế đồ) — nhịp sau cây sẽ gọi lại.
+-- Có đồ vừa rơi quanh chân không? Trả về hành động nhặt, hoặc nil.
+local function NhatDoVuaRoi(inst)
+    local tui = inst.components.inventory
+    if tui == nil or tui:IsFull() then return nil end
+    local mon = FindEntity(inst, TAM_NHAT, function(v)
+        return v.components.inventoryitem ~= nil
+           and v.components.inventoryitem.canbepickedup
+           and not v.components.inventoryitem:IsHeld()
+           and v:IsOnValidGround()
+    end, { "_inventoryitem" }, { "INLIMBO", "NOCLICK", "catchable", "fire", "irreplaceable" })
+    if mon == nil then return nil end
+    return BufferedAction(inst, mon, ACTIONS.PICKUP)
+end
+
 function muc_tieu.HanhDong(inst)
     local buoc = BuocHienTai(inst)
     if buoc == nil then return nil end
@@ -135,6 +184,21 @@ function muc_tieu.HanhDong(inst)
     if QuaLau(inst) then
         muc_tieu.Bo(inst, "quá " .. BO_CUOC_GIAY .. " giây không tiến được bước nào")
         return nil
+    end
+
+    -- Vừa đào/chặt xong thì nhặt chiến lợi phẩm trước đã.
+    -- (`act` dùng lại ở dưới để biết đây có phải việc bào mòn không.)
+    local act = buoc.hanh_dong ~= nil and hanh_dong.Tra(buoc.hanh_dong) or nil
+    if act ~= nil and HANH_DONG_ROI_DO[act] then
+        local nhat = NhatDoVuaRoi(inst)
+        if nhat ~= nil then
+            -- Nhặt được là có tiến triển: đặt lại đồng hồ bỏ cuộc.
+            nhat:AddSuccessAction(function()
+                local a = inst.ailang
+                if a ~= nil then a.muc_tieu_tu = GetTime() end
+            end)
+            return nhat
+        end
     end
 
     local ra, loi = hanh_dong.Chay(inst, buoc)
@@ -150,7 +214,17 @@ function muc_tieu.HanhDong(inst)
     end
 
     -- Đếm thành/bại qua chính BufferedAction, vì cây hành vi không báo lại.
-    ra:AddSuccessAction(function() nen.thu("xong bước mục tiêu", XongMotBuoc, inst) end)
+    local muc = ra.target
+    ra:AddSuccessAction(function()
+        -- Mục tiêu còn đứng đó và còn làm được nữa: mới là một nhát, chưa
+        -- phải một lượt. Ghi nhận tiến triển rồi thôi.
+        if HANH_DONG_ROI_DO[act] and ChuaHaDuoc(act, muc) then
+            local a = inst.ailang
+            if a ~= nil then a.muc_tieu_tu = GetTime() end
+            return
+        end
+        nen.thu("xong bước mục tiêu", XongMotBuoc, inst)
+    end)
     ra:AddFailAction(function()
         nen.thu("bước mục tiêu bị từ chối", TuChoiMotLan, inst, "hành động bị từ chối")
     end)
