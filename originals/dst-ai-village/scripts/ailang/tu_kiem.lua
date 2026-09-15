@@ -2284,13 +2284,38 @@ local function ThuMucTieu(tiep)
            .. " cây " .. tostring(con_lai) .. "->" .. tostring(con)
            .. " lỗi=" .. tostring(e.ailang.muc_tieu_loi))
 
-        -- Hỏng liên tiếp thì bỏ cuộc, không quay vòng vô tận.
+        -- Hỏng LÚC TÍNH (không thấy mục tiêu) thì đếm, đủ số là bỏ cuộc.
         muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "beefalo", dung = "axe" })
         for _ = 1, 8 do muc_tieu.HanhDong(e) end
-        KT("hỏng liên tiếp thì bỏ mục tiêu chứ không quay vòng",
+        KT("hỏng lúc TÍNH liên tiếp thì bỏ mục tiêu chứ không quay vòng",
            e.ailang.muc_tieu == nil,
            "còn=" .. tostring(e.ailang.muc_tieu ~= nil)
            .. " hỏng=" .. tostring(e.ailang.muc_tieu_hong))
+
+        -- ⚠ NHƯNG ENGINE TỪ CHỐI THÌ ĐỪNG ĐẾM. Kiểm trên server thật bắt được
+        --   cảnh dân làng đang CHOP đúng lệnh, mục tiêu vẫn còn, mà muc_tieu_loi
+        --   đã là "hành động bị từ chối" — cây vừa đổ, hoặc một phản xạ giữ
+        --   mạng cắt ngang. Gộp hai loại thì sáu lần chập tối là một mục tiêu
+        --   hoàn toàn đúng bị vứt oan.
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 99 })
+        for _ = 1, 10 do
+            local ba = muc_tieu.HanhDong(e)
+            if ba ~= nil then ba:Fail() end
+        end
+        KT("engine từ chối nhiều lần thì VẪN GIỮ mục tiêu",
+           e.ailang.muc_tieu ~= nil,
+           "còn=" .. tostring(e.ailang.muc_tieu ~= nil)
+           .. " hỏng=" .. tostring(e.ailang.muc_tieu_hong))
+        KT("nhưng vẫn ghi lại lý do để báo ngược lên",
+           e.ailang.muc_tieu_loi ~= nil,
+           "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+        -- Van chặn vòng lặp vô tận là ĐỒNG HỒ, không phải bộ đếm.
+        e.ailang.muc_tieu_tu = GetTime() - 1000
+        muc_tieu.HanhDong(e)
+        KT("ôm mãi một mục tiêu không tiến được thì hết giờ là buông",
+           e.ailang.muc_tieu == nil,
+           "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
 
         if cay:IsValid() then cay:Remove() end
         if lua ~= nil and lua:IsValid() then lua:Remove() end

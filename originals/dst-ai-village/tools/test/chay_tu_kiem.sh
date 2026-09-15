@@ -4,6 +4,11 @@
 #   ./tools/test/chay_tu_kiem.sh          # dựng lại server sạch rồi kiểm
 #   ./tools/test/chay_tu_kiem.sh --nhanh  # dùng lại server đang chạy
 #
+# ⚠ ĐỪNG dùng --nhanh sau khi vừa thọc tay vào thế giới qua console. Nó dùng
+#   lại NGUYÊN thế giới đó, và bài kiểm nào giả định cảnh sạch sẽ hỏng oan.
+#   Đã gặp: sau một lượt đặt mục tiêu bằng tay, bài "giữa đêm có nguyên liệu
+#   thì chế và cầm đuốc" chuyển sang HỎNG, rồi dựng lại sạch là ĐẠT ngay.
+#
 # ⚠ MẶC ĐỊNH PHẢI DỰNG LẠI CONTAINER. Bản đầu dùng lại container đang chạy cho
 #   nhanh, và đúng một lần đó đã để lọt lỗi chí mạng: mã mới vi phạm strict
 #   globals làm mod KHÔNG NẠP ĐƯỢC và cả world không khởi động, nhưng container
