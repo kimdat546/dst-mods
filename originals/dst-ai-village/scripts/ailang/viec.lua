@@ -192,6 +192,13 @@ end
 --   một đứa đứng tay không trong bóng tối.
 --   Ban ngày thì nửa bình là đủ (còn cả ngày để nạp thêm); chập tối trở đi thì
 --   nạp tới gần đầy, y như người chơi ném hết củi vào bếp trước khi trời sập.
+-- ⚠ Khai báo TRƯỚC ViecTiepLua vì hàm đó đọc nó. strict.lua biến
+--   biến-chưa-khai-báo thành lỗi cứng làm cả world không khởi động được.
+local DU_CUI = 4
+
+-- Dưới mức này là lửa sắp tắt: đốt cả củi dự trữ, không kể giờ giấc.
+local NGUY_LUA = 0.35
+
 local NGUONG_NGAY = 0.5
 local NGUONG_TOI  = 0.95
 local GIU_LAM_DUOC = 4     -- chừa lại bấy nhiêu cỏ/cành để còn làm đuốc
@@ -225,8 +232,32 @@ local function ViecTiepLua(inst)
     if lo == nil then return nil end
 
     -- Gỗ trước: cháy lâu nhất và không dùng vào việc gì khác cấp bách.
+    --
+    -- ⚠ NHƯNG BAN NGÀY PHẢI CHỪA DỰ TRỮ, KHÔNG THÌ CẢ LÀNG KHOÁ CỨNG. Bản
+    --   trước ném bằng hết gỗ vào lửa, rồi ViecGomCui thấy còn 0 khúc (dưới
+    --   DU_CUI) lại đẩy đi chặt, chặt xong lại ném vào lửa — vòng khép kín.
+    --   Mà bậc giữ làng nằm TRÊN các nhu cầu không gấp, nên chừng nào "gom củi"
+    --   chưa xong thì lượt KHÔNG BAO GIỜ xuống tới "cuốc", "xưởng", "kho".
+    --
+    --   Đo trên server: ba dân làng, ba tảng đá vàng đặt sẵn trong tầm, cuốc
+    --   trong tay — 4 lần soi liên tiếp vẫn vang=0 da=0 gỗ=0, cả ba "gom củi",
+    --   đá vàng không sứt một mảnh. Đúng thứ đã chặn việc dựng Máy Khoa Học.
+    --
+    -- ⚠ Nhưng điều kiện KHÔNG PHẢI là giờ trong ngày — là LỬA NGUY ĐẾN ĐÂU.
+    --   Bản sửa đầu khoá theo giờ, và ba bài kiểm cũ hỏng ngay: lửa còn 20%
+    --   giữa ban ngày mà dân làng ôm củi đứng nhìn. Giữ dự trữ chỉ có nghĩa
+    --   khi lửa còn sống khoẻ; lửa sắp tắt thì ném hết vào, giờ nào cũng vậy.
+    --
+    --   Nên: đốt cả dự trữ khi (chập tối trở đi) HOẶC (lửa dưới mức nguy).
+    --   Còn lại thì chỉ đốt phần dư — và đó là chỗ vòng khoá bị cắt.
+    local dot_ca_du_tru = TheWorld.state.isdusk or TheWorld.state.isnight
+        or lo.components.fueled:GetPercent() < NGUY_LUA
     local cui = nhu_cau.DuyetTui(inst, function(m)
-        return m.prefab == "log" and LaCui(m)
+        if m.prefab ~= "log" or not LaCui(m) then return false end
+        if dot_ca_du_tru then return true end
+        local n = m.components.stackable ~= nil
+                  and m.components.stackable:StackSize() or 1
+        return n > DU_CUI
     end)
     -- Hết gỗ thì mới động tới cỏ/cành, và phải còn dư mới được đốt.
     if cui == nil then
@@ -251,7 +282,7 @@ end
 --
 --   Xếp CHUNG với dập lửa và nuôi lửa, tức trên "vũ khí"/"giáp": củi giữ mạng
 --   cả làng qua đêm, còn áo cỏ thì chỉ đỡ đau.
-local DU_CUI = 4
+--   (DU_CUI khai báo phía trên, vì ViecTiepLua cũng đọc nó.)
 
 local function ViecGomCui(inst)
     if lang.Tam(inst) == nil then return nil end

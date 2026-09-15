@@ -175,9 +175,20 @@ local function ThuDem(tiep)
     end
     Nhip(nao, 4, function()
         local sau = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+        -- ⚠ Bài này từng chập chờn khoảng 50% và chẩn đoán trơ trọi
+        --   "đang cầm=nil" không đủ để lần ra. Kể luôn trong túi có gì, đang
+        --   lo nhu cầu nào, đang làm việc gì, và giờ là mấy.
+        local o = {}
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil then table.insert(o, m.prefab) end
+        end
         KT("giữa đêm có nguyên liệu thì chế và cầm đuốc",
            sau ~= nil and sau.prefab == "torch",
-           "đang cầm=" .. tostring(sau and sau.prefab))
+           "đang cầm=" .. tostring(sau and sau.prefab)
+           .. " | túi=" .. table.concat(o, ",")
+           .. " | lo=" .. tostring(e.ailang.dang_lo)
+           .. " | làm=" .. tostring(e.ailang.dang_lam)
+           .. " | pha=" .. tostring(TheWorld.state.phase))
         tiep()
     end)
 end
@@ -2648,6 +2659,94 @@ local function ThuDuongKinhTe(tiep)
     tiep()
 end
 
+
+-- ── 47. vòng khoá củi ───────────────────────────────────────────────────
+--
+-- ⚠ BÀI NÀY CANH ĐÚNG THỨ ĐÃ CHẶN VIỆC DỰNG MÁY KHOA HỌC. Bản trước ném BẰNG
+--   HẾT gỗ vào lửa, rồi ViecGomCui thấy còn 0 khúc (dưới DU_CUI) lại đẩy đi
+--   chặt, chặt xong lại ném vào lửa — vòng khép kín. Mà bậc giữ làng nằm TRÊN
+--   các nhu cầu không gấp, nên chừng nào "gom củi" chưa xong thì lượt KHÔNG
+--   BAO GIỜ xuống tới "cuốc", "xưởng", "kho".
+--
+--   Đo trên server thật: ba dân làng, ba tảng đá vàng đặt sẵn trong tầm, cuốc
+--   trong tay — bốn lần soi liên tiếp vẫn vang=0 da=0 gỗ=0, cả ba "gom củi",
+--   đá vàng không sứt một mảnh.
+local function ThuVongKhoaCui(tiep)
+    local viec = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local tui = e.components.inventory
+
+    local lo = SpawnPrefab("campfire")
+    lo.Transform:SetPosition(x + 2, y, z)
+    -- ⚠ 0,45 là cố ý: DƯỚI ngưỡng tiếp lửa ban ngày (0,5) nên việc có kích
+    --   hoạt, nhưng TRÊN mức nguy (0,35) nên dự trữ vẫn được giữ. Đặt 0,3 là
+    --   rơi vào vùng nguy và bài kiểm đo nhầm thứ khác.
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(0.45) end
+
+    local pha_cu = TheWorld.state.phase
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    -- Ít hơn dự trữ: ban ngày thì GIỮ LẠI, đừng ném vào lửa.
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("log")) end
+    KT("lửa còn khoẻ, ban ngày, củi dưới mức dự trữ thì KHÔNG đốt",
+       viec.ViecTiepLua(e) == nil,
+       "việc=" .. tostring((viec.ViecTiepLua(e) or {}).vi_sao))
+
+    -- Dư ra thì mới đốt.
+    for _ = 1, 5 do tui:GiveItem(SpawnPrefab("log")) end
+    local v = viec.ViecTiepLua(e)
+    KT("củi dư ra ngoài dự trữ thì mới tiếp lửa",
+       v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL,
+       "việc=" .. tostring(v and v.vi_sao))
+
+    -- ⚠ Chập tối thì ĐỐT SẠCH. Dự trữ sinh ra chính là để dành cho đêm; giữ
+    --   khư khư lúc đó là để lửa tắt giữa đêm với một túi đầy củi.
+    -- Gom rồi mới xoá: xoá ngay trong vòng pairs là sửa bảng đang duyệt.
+    local bo = {}
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m.prefab == "log" then table.insert(bo, m) end
+    end
+    for _, m in ipairs(bo) do m:Remove() end
+
+    -- ⚠ LỬA SẮP TẮT THÌ ĐỐT NGAY, GIỜ NÀO CŨNG VẬY. Bản sửa đầu khoá theo giờ
+    --   trong ngày, và ba bài kiểm cũ hỏng ngay: lửa còn 20% giữa ban ngày mà
+    --   dân làng ôm củi đứng nhìn.
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(0.15) end
+    tui:GiveItem(SpawnPrefab("log"))
+    local vn = viec.ViecTiepLua(e)
+    KT("lửa sắp tắt thì đốt cả dự trữ dù đang giữa ban ngày",
+       vn ~= nil and vn.hanh_dong == ACTIONS.ADDFUEL,
+       "việc=" .. tostring(vn and vn.vi_sao))
+
+    -- ⚠ ĐỢI MỘT NHỊP SAU KHI ĐỔI GIỜ. `TheWorld.state.isdusk` là biến trạng
+    --   thái mạng, component đồng hồ cập nhật ở khung SAU `ms_setphase` — đọc
+    --   ngay trong cùng khung thì vẫn thấy "ngày", và bài kiểm hỏng oan với
+    --   "việc=nil" trong khi mã hoàn toàn đúng. Mọi bài đổi giờ khác đều đi
+    --   qua Nhip (0,6 giây) nên chưa ai dẫm phải.
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(0.6) end
+    TheWorld:PushEvent("ms_setphase", "dusk")
+    TheWorld:DoTaskInTime(0.6, function()
+        local bo2 = {}
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil and m.prefab == "log" then table.insert(bo2, m) end
+        end
+        for _, m in ipairs(bo2) do m:Remove() end
+        tui:GiveItem(SpawnPrefab("log"))
+
+        local vt = viec.ViecTiepLua(e)
+        KT("chập tối thì đốt cả củi dự trữ, không giữ khư khư",
+           vt ~= nil and vt.hanh_dong == ACTIONS.ADDFUEL,
+           "việc=" .. tostring(vt and vt.vi_sao)
+           .. " pha=" .. tostring(TheWorld.state.phase))
+
+        lo:Remove()
+        TheWorld:PushEvent("ms_setphase", pha_cu)
+        tiep()
+    end)
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -2667,7 +2766,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuHonMaKhongLiet, ThuCatDungCuKhiToi,
                ThuKhongHoiSinhVaoChoChet,
                ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang,
-               ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe }
+               ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe,
+               ThuVongKhoaCui }
 local i = 0
 local function tiep()
     i = i + 1
