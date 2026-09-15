@@ -249,10 +249,14 @@ end
 --   dựa vào khuôn này hỏng theo kiểu khó đoán. Đã gặp thật khi thêm "xưởng":
 --   bài "thấy đồ dưới đất thì đi nhặt" chuyển sang HỎNG với "hành động=MINE",
 --   vì dân làng đi đào đá làm Máy Khoa Học thay vì nhặt món trước mặt.
+local function nhu_cau_mod() return require("ailang/nhu_cau") end
+
 local MAY_THU   -- máy khoa học của khuôn, dọn ở lần gọi sau
+local RUONG_THU -- rương của khuôn, dọn ở lần gọi sau
 
 local function ThoaHetNhuCau(e)
     if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
+    if RUONG_THU ~= nil and RUONG_THU:IsValid() then RUONG_THU:Remove() end
     local tui = e.components.inventory
     -- ⚠ ĐUỐC PHẢI TRANG BỊ SAU CÙNG. Giáo cũng chiếm Ô TAY, nên trang bị nó
     --   sau đuốc là đẩy đuốc vào túi — và từ khi bỏ lối thoát "đứng cạnh lửa
@@ -278,6 +282,16 @@ local function ThoaHetNhuCau(e)
     lua.Transform:SetPosition(x + 5, y, z)
     MAY_THU = SpawnPrefab("researchlab")
     if MAY_THU ~= nil then MAY_THU.Transform:SetPosition(x + 7, y, z) end
+    -- ⚠ Hai nhu cầu kinh tế mới cũng phải thoả, không thì mọi bài dựa vào
+    --   khuôn này hỏng theo kiểu khó đoán — đúng như đã dính khi thêm "xưởng".
+    --   "dự trữ" cần đủ bẫy, "kho" cần một cái rương ở làng.
+    -- Bẫy không chồng đống được (finiteuses), nên phải đưa từng cái một.
+    for _ = 1, nhu_cau_mod().DU_BAY do
+        local bay = SpawnPrefab("trap")
+        if bay ~= nil then tui:GiveItem(bay) end
+    end
+    RUONG_THU = SpawnPrefab("treasurechest")
+    if RUONG_THU ~= nil then RUONG_THU.Transform:SetPosition(x + 9, y, z) end
     return lua
 end
 
@@ -2366,6 +2380,18 @@ local function ThuKhoLang(tiep)
 
     -- Câu hỏi người dùng đặt ra: đủ ăn + đủ thuốc + đủ vũ khí thì đi đánh được.
     KT("thiếu vũ khí thì CHƯA đủ sức đánh", not co_thuoc.du_suc_danh)
+
+    -- ⚠ Rìu và cuốc CÓ component `weapon` trong DST. Đếm thô thì cả làng "đủ
+    --   vũ khí" ngay ngày đầu và du_suc_danh bật lên dù chẳng ai có giáo.
+    tui:GiveItem(SpawnPrefab("axe"))
+    tui:GiveItem(SpawnPrefab("pickaxe"))
+    local co_dung_cu = kho_lang.Kiem()
+    KT("rìu và cuốc KHÔNG được tính là vũ khí",
+       co_dung_cu.vu_khi == co_thuoc.vu_khi,
+       "vũ khí trước=" .. tostring(co_thuoc.vu_khi)
+       .. " sau=" .. tostring(co_dung_cu.vu_khi))
+    KT("nhưng chúng được đếm đúng vào rìu và cuốc",
+       co_dung_cu.riu > co_thuoc.riu and co_dung_cu.cuoc > co_thuoc.cuoc)
     for _ = 1, 20 do tui:GiveItem(SpawnPrefab("meatballs")) end
     for _ = 1, 3 do tui:GiveItem(SpawnPrefab("healingsalve")) end
     tui:GiveItem(SpawnPrefab("spear"))
@@ -2383,6 +2409,215 @@ local function ThuKhoLang(tiep)
     KT("bản gọn gửi cho tầng suy nghĩ JSON hoá được",
        ok_json and gon ~= nil and gon.mon == nil,
        "có bảng mon=" .. tostring(gon ~= nil and gon.mon ~= nil))
+
+    ruong:Remove()
+    tiep()
+end
+
+
+-- ── 44. nguồn vàng ──────────────────────────────────────────────────────
+--
+-- ⚠ Bài này canh MỘT DÒNG BẢNG TRA đã chặn cả tech 1. Bản trước để goldnugget
+--   nhắm mọi thứ MINE_workable, nên dân làng đập tảng đá thường mãi mà không
+--   bao giờ ra vàng — mà Máy Khoa Học cần đúng một cục. Bảng rơi trong
+--   scripts/prefabs/rocks.lua: rock1 KHÔNG cho vàng, chỉ rock2 mới cho.
+local function ThuNguonVang(tiep)
+    local nhu_cau = require("ailang/nhu_cau")
+    local sinh_ton = require("ailang/sinh_ton")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.components.inventory:GiveItem(SpawnPrefab("pickaxe"))
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    KT("bảng tra ghim vàng vào đúng tảng đá vàng",
+       nhu_cau.NGUON.goldnugget.prefab == "rock2",
+       "prefab=" .. tostring(nhu_cau.NGUON.goldnugget.prefab))
+
+    -- Chỉ có đá THƯỜNG: đi kiếm vàng phải trả nil, chứ không đập bừa.
+    local thuong = SpawnPrefab("rock1")
+    thuong.Transform:SetPosition(x + 4, y, z)
+    KT("chỉ có đá thường thì KHÔNG đi đập bừa để tìm vàng",
+       sinh_ton.DiKiem(e, "goldnugget") == nil)
+    KT("nhưng vẫn đào được đá thường khi cần đá",
+       sinh_ton.DiKiem(e, "rocks") ~= nil)
+
+    -- Có đá vàng thì phải nhắm ĐÚNG nó.
+    local vang = SpawnPrefab("rock2")
+    vang.Transform:SetPosition(x + 6, y, z)
+    local hd = sinh_ton.DiKiem(e, "goldnugget")
+    KT("có đá vàng thì nhắm đúng tảng đá vàng",
+       hd ~= nil and hd.target == vang and hd.action == ACTIONS.MINE,
+       "mục tiêu=" .. TenCua(hd and hd.target))
+
+    thuong:Remove() vang:Remove()
+    tiep()
+end
+
+
+-- ── 45. kinh tế đồ ăn: nấu, bẫy, cất kho ────────────────────────────────
+--
+-- ⚠ Đây là phần thay cho bài toán lương thực KHÔNG CÓ LỜI GIẢI của bản trước:
+--   ba dân làng đốt 225 calo/ngày, một bụi berry cho 0,33 quả/ngày — cần
+--   khoảng 70 bụi. Nấu chín, bẫy thỏ và rương là ba lời giải thật.
+local function ThuKinhTeDoAn(tiep)
+    local viec = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local x, y, z = e.Transform:GetWorldPosition()
+    local tui = e.components.inventory
+    e.ailang.nha = { x, z }
+
+    -- NẤU CHÍN: có thịt sống + lửa đang cháy thì phải đem nướng.
+    KT("chưa có lửa thì không nhận việc nấu", viec.ViecNauChin(e) == nil)
+    local thit = SpawnPrefab("smallmeat")
+    tui:GiveItem(thit)
+    local lua = SpawnPrefab("campfire")
+    lua.Transform:SetPosition(x + 3, y, z)
+    if lua.components.fueled ~= nil then lua.components.fueled:SetPercent(1) end
+    local v = viec.ViecNauChin(e)
+    KT("có thịt sống và lửa cháy thì đem nướng",
+       v ~= nil and v.hanh_dong == ACTIONS.COOK and v.muc_tieu == lua
+       and v.mon == thit,
+       "việc=" .. tostring(v and v.vi_sao))
+    thit:Remove()
+    KT("hết đồ sống thì thôi nấu", viec.ViecNauChin(e) == nil)
+
+    -- ⚠ MỘT quả berry thì ĐỪNG cuốc bộ về lửa. Nướng thịt được +12,5 calo,
+    --   nướng berry chỉ +3,1 — mà quãng đường thì như nhau, và lửa nướng từng
+    --   món một. Không phân biệt thì dân làng hái một quả là chạy về nướng,
+    --   rồi quay ra hái quả nữa, cả ngày đi đi về về.
+    local mot_qua = SpawnPrefab("berries")
+    tui:GiveItem(mot_qua)
+    KT("một quả rau sống thì KHÔNG bỏ việc chạy về lửa nướng",
+       viec.ViecNauChin(e) == nil)
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("berries")) end
+    local vr = viec.ViecNauChin(e)
+    KT("gom đủ mấy quả rồi thì nướng một thể",
+       vr ~= nil and vr.hanh_dong == ACTIONS.COOK,
+       "việc=" .. tostring(vr and vr.vi_sao))
+
+    -- Nhưng thịt thì MỘT miếng cũng đáng đi.
+    local thit2 = SpawnPrefab("smallmeat")
+    tui:GiveItem(thit2)
+    local vm = viec.ViecNauChin(e)
+    KT("có thịt thì ưu tiên nướng thịt trước rau",
+       vm ~= nil and vm.mon == thit2,
+       "món=" .. TenCua(vm and vm.mon))
+    for _, m in ipairs({ mot_qua, thit2 }) do
+        if m:IsValid() then m:Remove() end
+    end
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m.prefab == "berries" then m:Remove() end
+    end
+
+    -- ĐẶT BẪY: bẫy trong túi + hang thỏ chưa có bẫy.
+    KT("chưa có bẫy trong túi thì không đi đặt", viec.ViecDatBay(e) == nil)
+    local bay = SpawnPrefab("trap")
+    tui:GiveItem(bay)
+    KT("có bẫy nhưng không có hang thỏ thì cũng thôi", viec.ViecDatBay(e) == nil)
+
+    local hang = SpawnPrefab("rabbithole")
+    hang.Transform:SetPosition(x + 5, y, z)
+    local vb = viec.ViecDatBay(e)
+    KT("có bẫy và hang thỏ trống thì đi đặt",
+       vb ~= nil and vb.hanh_dong == ACTIONS.DROP and vb.mon == bay,
+       "việc=" .. tostring(vb and vb.vi_sao))
+    KT("và thả ĐÚNG lên miệng hang, không thả dưới chân mình",
+       vb ~= nil and vb.diem ~= nil
+       and math.abs(vb.diem.x - (x + 5)) < 0.5,
+       "điểm=" .. tostring(vb and vb.diem))
+
+    -- ⚠ Hang ĐÃ CÓ BẪY thì thôi. Không xét thì cả làng chồng bẫy lên một hang
+    --   trong khi mười hang khác bỏ trống.
+    local bay_dat = SpawnPrefab("trap")
+    bay_dat.Transform:SetPosition(x + 5, y, z)
+    KT("hang đã có bẫy rồi thì không đặt chồng lên",
+       viec.ViecDatBay(e) == nil)
+
+    -- THU BẪY: chỉ thu bẫy đã sập và có đồ.
+    KT("bẫy chưa sập thì chưa có gì để thu", viec.ViecThuBay(e) == nil)
+    if bay_dat.components.trap ~= nil then
+        bay_dat.components.trap.issprung = true
+        bay_dat.components.trap.lootprefabs = { "smallmeat" }
+    end
+    local vt = viec.ViecThuBay(e)
+    KT("bẫy sập và có đồ thì đi thu",
+       vt ~= nil and vt.hanh_dong == ACTIONS.CHECKTRAP and vt.muc_tieu == bay_dat,
+       "việc=" .. tostring(vt and vt.vi_sao))
+
+    -- CẤT KHO: dư đồ ăn thì cất, kể cả khi túi CHƯA đầy.
+    -- ⚠ Phải là HAI LOẠI. Năm củ cà rốt dồn hết vào MỘT ô, mà cất thì cất
+    --   nguyên chồng — dân làng đem đi hết rồi còn tay không. Việc cất cố ý
+    --   đợi tới khi có món thứ hai.
+    for _ = 1, 4 do tui:GiveItem(SpawnPrefab("carrot")) end
+    tui:GiveItem(SpawnPrefab("berries"))
+    KT("chưa có rương thì có dư cũng chẳng cất được",
+       viec.ViecCatDoAn(e) == nil)
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 2, y, z)
+    local vc = viec.ViecCatDoAn(e)
+    KT("dư đồ ăn và có rương thì cất bớt dù túi CHƯA đầy",
+       vc ~= nil and vc.hanh_dong == ACTIONS.STORE and vc.muc_tieu == ruong,
+       "việc=" .. tostring(vc and vc.vi_sao) .. " túi đầy=" .. tostring(tui:IsFull()))
+    -- ⚠ ĐỪNG khẳng định CỤ THỂ cất món nào. Cà rốt và berry đều tươi 100%,
+    --   thứ tự sắp xếp giữa hai món hoà nhau là tuỳ bộ sort — bám vào tên món
+    --   là bài kiểm hỏng ngẫu nhiên. Tính chất cần giữ: cất một ô, còn lại ít
+    --   nhất một ô đồ ăn trong người.
+    local con_an = 0
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m ~= (vc and vc.mon) and m.components.edible ~= nil
+           and m.components.edible.foodtype ~= FOODTYPE.INEDIBLE then
+            con_an = con_an + 1
+        end
+    end
+    KT("cất xong vẫn còn đồ ăn trong người, không cất sạch",
+       vc ~= nil and vc.mon ~= nil and con_an >= 1,
+       "còn lại " .. tostring(con_an) .. " ô đồ ăn")
+
+    lua:Remove() hang:Remove() bay_dat:Remove() ruong:Remove()
+    tiep()
+end
+
+
+-- ── 46. bảng nhu cầu có đường kinh tế ───────────────────────────────────
+local function ThuDuongKinhTe(tiep)
+    local nhu_cau = require("ailang/nhu_cau")
+    local e = DanLangSach(Goc())
+    local x, _, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+
+    local du_tru = nhu_cau.Tim("du_tru")
+    local kho    = nhu_cau.Tim("kho_chua")
+    KT("bảng nhu cầu có mục dự trữ (bẫy thỏ)", du_tru ~= nil)
+    KT("bảng nhu cầu có mục kho (rương)", kho ~= nil)
+
+    -- ⚠ Thứ tự mới phải giữ đúng: sống qua đêm trước, kinh tế sau, đánh nhau
+    --   sau cùng. Đảo thứ tự là quay lại cảnh dân làng đan bẫy trong bóng tối.
+    KT("dự trữ xếp DƯỚI nhà và ánh sáng",
+       nhu_cau.ChiSo("dự trữ") > nhu_cau.ChiSo("nhà")
+       and nhu_cau.ChiSo("dự trữ") > nhu_cau.ChiSo("ánh sáng"),
+       "dự trữ=" .. tostring(nhu_cau.ChiSo("dự trữ"))
+       .. " nhà=" .. tostring(nhu_cau.ChiSo("nhà")))
+    KT("dự trữ xếp TRÊN vũ khí và giáp",
+       nhu_cau.ChiSo("dự trữ") < nhu_cau.ChiSo("vũ khí")
+       and nhu_cau.ChiSo("dự trữ") < nhu_cau.ChiSo("giáp"))
+    KT("dự trữ KHÔNG chen ngang (đầu tư, không phải cứu hoả)",
+       du_tru.gap ~= true)
+
+    KT("chưa có bẫy nào thì dự trữ CHƯA đủ", not du_tru.du(e))
+    -- ⚠ Bẫy có `finiteuses` nên KHÔNG chồng đống được — mỗi cái một ô túi.
+    --   Bản đầu của bài này gọi SetStackSize(4) và nó lặng lẽ không làm gì.
+    for _ = 1, nhu_cau.DU_BAY do
+        e.components.inventory:GiveItem(SpawnPrefab("trap"))
+    end
+    KT("đủ bẫy trong túi thì dự trữ coi là đủ", du_tru.du(e),
+       "cần=" .. tostring(nhu_cau.DU_BAY))
+
+    KT("chưa có rương thì nhu cầu kho CHƯA đủ", not kho.du(e))
+    local ruong = SpawnPrefab("treasurechest")
+    local y = 0
+    ruong.Transform:SetPosition(x + 2, y, z)
+    KT("dựng rương ở làng thì nhu cầu kho xong", kho.du(e))
 
     ruong:Remove()
     tiep()
@@ -2406,7 +2641,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuNghiNhuCau, ThuGomDuThiDung,
                ThuHonMaKhongLiet, ThuCatDungCuKhiToi,
                ThuKhongHoiSinhVaoChoChet,
-               ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang }
+               ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang,
+               ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe }
 local i = 0
 local function tiep()
     i = i + 1
@@ -2415,6 +2651,7 @@ local function tiep()
     else
         TraLaiGio()
         if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
+        if RUONG_THU ~= nil and RUONG_THU:IsValid() then RUONG_THU:Remove() end
         KhoiPhucLang()
         print(string.format("[TU-KIEM] ===== XONG: %d đạt, %d hỏng =====", dat, hong))
     end

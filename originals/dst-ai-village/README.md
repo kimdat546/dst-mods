@@ -64,6 +64,10 @@ Hai tầng tách hẳn nhau, và đó là điểm chính:
 - **Tầng suy nghĩ** chỉ **đặt mục tiêu** (`inst.ailang.muc_tieu`) và **câu
   thoại**. Nó không điều khiển từng bước đi, nên độ trễ vài giây không sao.
 
+> ⚠ Tới 15/09/2026, `muc_tieu` vẫn là **một ống dẫn ra hư không**: `cau_noi`
+> gán nó, `dan_lang` xoá nó lúc chết, và **không một dòng nào đọc**. Giờ nó đã
+> cắm vào thế giới — xem mục *Tầng động từ* bên dưới.
+
 Đi bằng **file** chứ không phải HTTP, vì `QueryServer` đã chết (xem bảng trên).
 `TheSim:SetPersistentString` / `GetPersistentString` thì chạy tốt, đã kiểm cả
 hai chiều kể cả tiếng Việt có dấu. `io.open` **không dùng được** — DST chặn,
@@ -308,6 +312,92 @@ hồn ma > cháy > máu thấp > đánh trả > đói
        > theo chân chủ > về nhà > về nhặt đồ > lang thang
 ```
 
+## Tầng động từ — cách AI ra lệnh cho dân làng
+
+`scripts/ailang/hanh_dong.lua` phơi **thẳng bảng `ACTIONS` của DST** (~200
+động từ) và `AllRecipes` ra dưới dạng dữ liệu. Một mệnh lệnh là một bảng:
+
+```lua
+{ hanh_dong = "SHAVE", nham = "beefalo", dung = "razor" }
+{ hanh_dong = "MINE",  nham = "rock2",   dung = "pickaxe", lan = 4, tam = 60 }
+{ che = "researchlab", dat_xuong = true }
+{ buoc = { { che = "trap" },
+           { hanh_dong = "DROP", nham = "rabbithole", dung = "trap" } } }
+```
+
+| trường | nghĩa |
+|---|---|
+| `hanh_dong` | tên trong `ACTIONS`, không phân biệt hoa thường |
+| `nham` | tên prefab (`"beefalo"`) **hoặc** tag (`"CHOP_workable"`) |
+| `dung` | prefab món cần cầm — tự tìm trong túi và trang bị |
+| `lan` | lặp bấy nhiêu lượt |
+| `tam` | bán kính tìm, mặc định 30 |
+| `che` | tên công thức, thay cho `hanh_dong` |
+| `dat_xuong` | công thức này là công trình, đặt xuống đất |
+| `buoc` | danh sách mệnh lệnh làm lần lượt |
+
+**Vì sao không viết tay từng động từ.** Chép lại một thứ đã có, và chép mãi
+cũng không đủ — người chơi sẽ luôn nghĩ ra tình huống chưa lường. "Cạo lông
+bò" không cần một dòng mã riêng nào.
+
+**Vị trí trong cây hành vi** là cả thiết kế:
+
+```
+giữ mạng (hồn ma, cháy, máu thấp, giữ làng, đói, quá nóng, đêm về lửa)
+   > MỤC TIÊU TỪ TẦNG SUY NGHĨ
+      > chính sách mặc định (bảng nhu cầu + việc thường)
+```
+
+Đặt cao hơn thì Gemini bảo đi đào đá giữa đêm và dân làng đi thật, bỏ đuốc
+lại — kênh trễ vài giây, nó không thấy con ếch đang cắn. Đặt thấp hơn node
+làm việc thì không bao giờ tới lượt, vì `DoAction` giữ `RUNNING` suốt quãng
+đường đi (xem mục *Bẫy lớn nhất của behaviour tree*).
+
+Lệnh sai bị **soát ngay lúc nhận** và lý do được gửi ngược trong
+`muc_tieu_loi` của nhịp sau. Nuốt lỗi thì tầng suy nghĩ ra lệnh sai mãi mà
+không biết vì sao — nó không nhìn thấy log server.
+
+Thử tay:
+
+```lua
+c_ailang_muctieu("An", { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 3 })
+c_ailang_muctieu("An", { che = "researchlab", dat_xuong = true })
+c_ailang_muctieu("An")     -- xoá mục tiêu
+```
+
+Mod ghi toàn bộ từ vựng ra `<save>/ailang_tudien.json` lúc khởi động, để dịch
+vụ ngoài biết nó ra lệnh được những gì.
+
+**Một khác biệt đáng để ý:** chính sách mặc định chỉ tìm đồ **trong bán kính
+làng** (`sinh_ton.DiKiem` lọc qua `lang.TrongLang`), còn mục tiêu từ tầng suy
+nghĩ thì **không bị bó** — `tam` muốn bao nhiêu cũng được. Nên khi làng cạn
+thứ gì đó tại chỗ, đó đúng là việc của tầng suy nghĩ: nó thấy `nut_that` là
+"thiếu vàng cho máy khoa học", biết quanh làng không có mỏ vàng nào, và gửi
+lệnh đi xa lấy về. Bảng nhu cầu một mình thì chỉ biết ghi nhận "bó tay" rồi
+nghỉ.
+
+## Kiểm kê làng — để AI ra chiến lược
+
+`scripts/ailang/kho_lang.lua` gom **cả làng** (túi + đồ mặc + túi hàng +
+rương) và quy về thứ quyết định được, rồi gửi kèm trong mỗi gói hỏi:
+
+| trường | nghĩa |
+|---|---|
+| `ngay_an` | dự trữ ăn được mấy ngày cho cả làng |
+| `mau_hoi` | tổng máu hồi được đang cầm |
+| `cap_may` | cấp công nghệ cao nhất làng có |
+| `sap_hong` | số món dưới 25% độ tươi |
+| `du_an` / `du_thuoc` / `du_vu_khi` / `du_giap` | đủ hay chưa |
+| `du_suc_danh` | đủ ăn + đủ thuốc + đủ vũ khí + máu ≥ 70% |
+| `nut_that` | thứ **đầu tiên** đang chặn làng |
+
+**Đếm số món thì không trả lời được "đủ ăn chưa".** "Có 12 berry" nghe như no;
+quy ra thì là 112 calo, chưa nổi một ngày cho một người. Và nhìn riêng túi
+từng người thì ba người mỗi người hai quả trông như sắp chết đói trong khi
+rương đầy thịt viên.
+
+Xem bằng `c_ailang_chienluoc`.
+
 ## Bảng nhu cầu sinh tồn
 
 Dân làng quyết định làm gì bằng `scripts/ailang/nhu_cau.lua` — một bảng KHAI
@@ -316,8 +406,8 @@ BÁO, không phải nhánh `if` lồng nhau. Thêm nhu cầu mới chỉ là th�
 Thứ tự ưu tiên:
 
 ```
-ánh sáng > đồ ăn > hồi máu > mát > dụng cụ > nhà > xưởng
-         > hồi não > vũ khí > giáp > cuốc
+ánh sáng > đồ ăn > hồi máu > mát > dụng cụ > cuốc > nhà > dự trữ > xưởng > kho
+         > hồi não > vũ khí > giáp
 ```
 
 Thứ tự này là thứ đã trả giá đắt nhất để tìm ra, nên chép lại lý do:
@@ -327,6 +417,12 @@ Thứ tự này là thứ đã trả giá đắt nhất để tìm ra, nên ché
   lần là rơi mất rìu và **không bao giờ chặt được gỗ nữa** — dù đứng giữa
   rừng. Đo tại chỗ: `DiKiem("log")` trả nil ở cả hai bán kính trong khi có 12
   cây chặt được trong vòng 30. Không gỗ → không lửa → chết đêm → lại rơi rìu.
+- **cuốc đứng cạnh rìu, không đứng cuối bảng.** Lý do cũ là "không có cuốc
+  thì chỉ chậm, không chết" — đúng vào lúc chưa có gì trong bảng cần đá. Giờ
+  đào là **nút thắt của cả nền kinh tế**: cuốc → đá + vàng → Máy Khoa Học →
+  rương, nồi, giáo, giáp gỗ, lửa lạnh. Để cuối bảng thì `xưởng` cứ thử dựng
+  máy, không kiếm nổi vàng vì tay không cuốc, bị ghi **bó tay** rồi cho nghỉ —
+  mà nhu cầu gỡ được nút đó lại nằm sau bốn nhu cầu khác.
 - **nhà đứng trên vũ khí và giáp.** Không có lửa thì chết đêm; không có giáp
   thì chỉ đau hơn. Để "nhà" ở cuối bảng là giáp/vũ khí luôn chen trước và dân
   làng không dựng nổi đống lửa nào.
@@ -575,6 +671,52 @@ lửa khẩn cấp, phải nhóm ngay dưới chân, ở đâu cũng được.
 Bản đầu ăn bất cứ thứ gì nên dân làng tự đầu độc mình bằng đúng con nấm vừa
 hái. Giờ chấm điểm `no + máu×3 + não×2`, chỉ đụng món hại khi đói dưới 15%.
 
+## Kinh tế đồ ăn — vì sao cả làng từng chết sạch
+
+Chạy server chỉ có NPC ở tốc độ tối đa, đo được:
+
+| | kết quả |
+|---|---|
+| không có Đài triệu hồi | chết ngày 2, và ở lại chết |
+| có Đài triệu hồi | khoẻ tới ngày 8; từ ngày 9 chết mỗi đêm; ngày 16 là 95 lượt chết, còn 10% máu |
+
+Truy ra thì **không phải lỗi hành vi nào cả** — là bài toán lương thực không
+có lời giải:
+
+- Ba dân làng đốt **225 calo/ngày** (bụng 150, đốt 75/ngày mỗi người).
+- Một quả berry cho **9,375 calo**. Một bụi ra 3 quả rồi **chết**, mọc lại mất
+  3 ngày → **0,33 quả/ngày/bụi**.
+- Muốn nuôi ba người chỉ bằng berry thì cần **khoảng 70 bụi** trong bán kính
+  làng. Không bản đồ nào có.
+
+Cộng thêm một dòng bảng tra: `goldnugget` nhắm mọi thứ mang tag
+`MINE_workable`, nên dân làng **đập tảng đá thường mãi mà không bao giờ ra
+vàng** — trong khi Máy Khoa Học cần đúng một cục. Bảng rơi trong
+`scripts/prefabs/rocks.lua` nói thẳng: `rock1` → đá + diêm tiêu + đá lửa,
+**không có vàng**; chỉ `rock2` mới cho. Không có máy thì không có rương,
+không nồi, không giáo, không lửa lạnh — cả nền kinh tế tech 1 chết ở một dòng.
+
+Lời giải là ba thứ người chơi thật vẫn làm, nay nằm trong `viec.lua`:
+
+1. **Nấu chín** — thịt nhỏ 12,5 → 25 calo, đồng hồ hỏng được đặt lại. Không
+   tốn nguyên liệu nào, chỉ cần đứng cạnh lửa của làng.
+2. **Bẫy thỏ** — nguồn thịt **tái tạo**, tech 0 (`twigs`×2 `cutgrass`×6, 8
+   lượt dùng). Đặt **đúng lên miệng hang**, và chỉ vào hang chưa có bẫy.
+3. **Cất rương** — đồ ăn để đất hỏng **nhanh gấp rưỡi** (ngoài trời ×1,5,
+   rương ×1,0, tủ lạnh ×0,5). Cất từ khi túi chưa đầy, chứ đợi đầy là đã phí.
+
+Bốn việc này nằm **cùng bậc với giữ làng**, tức là trên các nhu cầu không
+gấp. Để xuống dưới cùng thì không bao giờ tới lượt: `vũ khí` và `giáp` có
+`can` luôn trả true, nên hễ quanh đó còn một bụi cỏ là bộ giải luôn có việc
+trả về — đúng cái bệnh đã làm lửa của làng tụt còn 17% trong khi cả ba đứng
+hái cỏ làm áo giáp.
+
+Chi tiết số liệu: `docs/dst-knowledge/analysis/dst-kinh-te-sinh-ton.md`.
+
+**Tủ lạnh thì cố ý KHÔNG đưa vào.** `icebox` cần `gears`, mà gears chỉ rơi từ
+người máy ở Ruộng Bàn Cờ — dân làng đánh không lại. Bắt chúng đi săn gears là
+bắt đi chết. Người chơi có sẵn thì cứ đưa tay.
+
 ## Thiện cảm và chế độ — mượn mô hình Wurt ↔ merm
 
 Wurt cho merm ăn thì merm kết thân và đi theo. Dân làng ở đây cũng vậy.
@@ -726,7 +868,10 @@ hiển thị**.
 
 - ~~Vào game thật xem dân làng có thật sự đi lại và làm việc không.~~ Đã xác
   nhận 11/09/2026: đi lại, nhặt đồ, thu thập tài nguyên đều chạy.
-- Tự chữa thương. Hiện dân làng không có cách nào hồi máu ngoài ăn.
+- Nồi (`cookpot`) — gấp bốn giá trị đồ ăn (thịt viên 62,5 calo, giữ 10 ngày).
+  Kẹt ở `charcoal`×6: than chỉ ra từ cây bị ĐỐT, nên cần động từ "châm lửa đốt
+  cây" mà bảng nhu cầu chưa có.
+- Trí nhớ dài hạn cho tầng suy nghĩ (giờ mỗi nhịp là một lần hỏi độc lập).
 - Chủ động gom cỏ và cành BAN NGÀY để chắc chắn có nguyên liệu làm đuốc. Giờ
   chúng chỉ nhặt được gì thì nhặt, gặp đêm mà tay trắng thì vẫn kẹt.
 - `modicon.tex/.xml` (đang cảnh báo lúc nạp, vô hại).

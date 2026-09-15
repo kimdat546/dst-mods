@@ -14,8 +14,8 @@ import os
 import urllib.error
 import urllib.request
 
-from . import MUC_TIEU, luat
-from .gemini import HE_THONG
+from . import luat
+from .gemini import HE_THONG, loc
 
 URL = os.environ.get("AILANG_URL", "http://127.0.0.1:11434/v1/chat/completions")
 MODEL = os.environ.get("AILANG_MODEL", "qwen2.5:3b")
@@ -27,6 +27,7 @@ def nghi(goi):
         "troi": goi.get("troi"),
         "ngay": goi.get("ngay"),
         "mua": goi.get("mua"),
+        "kho": goi.get("kho"),
         "dan_lang": goi.get("dan_lang", []),
     }
     than = {
@@ -52,13 +53,4 @@ def nghi(goi):
               flush=True)
         return luat.nghi(goi)
 
-    hop_le = {d["ma"] for d in goi.get("dan_lang", [])}
-    sach = []
-    for y in ra:
-        if y.get("ma") not in hop_le:
-            continue
-        if y.get("muc_tieu") not in MUC_TIEU:
-            y["muc_tieu"] = None
-        sach.append({"ma": y["ma"], "muc_tieu": y.get("muc_tieu"),
-                     "noi_gi": y.get("noi_gi")})
-    return sach or luat.nghi(goi)
+    return loc(ra, goi) or luat.nghi(goi)
