@@ -2995,6 +2995,24 @@ local function ThuBanVe(tiep)
 
     if may ~= nil and may:IsValid() then may:Remove() end
     e2:Remove()
+
+    -- ⚠ KHÂU NỐI: chính NHU CẦU phải tự đặt bản vẽ, chứ không phải chờ ai gọi
+    --   tay. Đây là chỗ sinh_ton.GiaiMot được sửa, và nếu nó không chạy thì cả
+    --   cơ chế bản vẽ nằm im — dân làng quay lại cảnh mỗi người ôm một phần và
+    --   Máy Khoa Học không bao giờ lên.
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, nil, { "INLIMBO" })) do
+        if v:HasTag("prototyper") then v:Remove() end
+    end
+    local st = require("ailang/sinh_ton")
+    KT("dựng đúng cảnh: chưa có xưởng và chưa có bản vẽ nào",
+       not nc.Tim("xuong").du(e) and ban_ve.Tim(e, nil) == nil)
+    st.Giai(e, function(n) return n.ma == "xuong" end)
+    KT("nhu cầu xưởng TỰ đặt bản vẽ khi một mình không dựng nổi",
+       ban_ve.Tim(e, "researchlab") ~= nil,
+       "bản vẽ=" .. TenCua(ban_ve.Tim(e, nil)))
+
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
     tiep()
 end
 
