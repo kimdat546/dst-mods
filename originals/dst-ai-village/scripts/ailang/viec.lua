@@ -21,6 +21,7 @@
 
 local nen      = require("ailang/nen")
 local nhu_cau  = require("ailang/nhu_cau")
+local kho_lang = require("ailang/kho_lang")
 local sinh_ton = require("ailang/sinh_ton")
 local lang     = require("ailang/lang")
 
@@ -126,10 +127,16 @@ end
 -- ⚠ ĐỪNG gom vô hạn một thứ. Đo trên server: một dân làng ôm 20 bó cỏ mà
 --   vẫn đi hái cỏ tiếp, trong khi thứ nó THIẾU là cành cây. Gom quá mức vừa
 --   phí công vừa làm đầy túi.
+-- Còn giữ trần TÚI RIÊNG cho những thứ không có trong bảng trần của làng:
+-- một dân làng ôm 20 cái gì đó là quá đủ, khỏi nhặt thêm cho đầy túi.
 local DU_ROI = 20
 
+-- ⚠ ĐẾM CẢ LÀNG TRƯỚC, RỒI MỚI TỚI TÚI RIÊNG. Bản đầu chỉ nhìn túi của chính
+--   người đang hái, nên ba dân làng mỗi đứa ôm 19 quả berry mà không ai thấy
+--   làng đang có 57 quả — và cả ba vẫn hái tiếp. Xem kho_lang.TRAN.
 local function DaDuChua(inst, san_pham)
     if san_pham == nil then return false end
+    if kho_lang.DaDu(san_pham) then return true end
     local n = 0
     nhu_cau.DuyetTui(inst, function(m)
         if m.prefab == san_pham then
@@ -159,6 +166,10 @@ end
 
 local function ViecLamViec(inst, hanh_dong, tag, nhan)
     if nhu_cau.KhongRanhTay(inst) then return nil end
+    -- ⚠ Đủ rồi thì thôi. Đây là việc TỰ PHÁT (chặt/đào vu vơ khi rảnh), nên
+    --   trần kho của làng áp được. Nhu cầu đi qua sinh_ton.DiKiem, không qua
+    --   đây, nên vẫn kiếm được gỗ để dựng Máy Khoa Học dù kho đã đầy gỗ.
+    if not kho_lang.ViecConCan(hanh_dong) then return nil end
     if not CamDungCu(inst, hanh_dong) then return nil end
     local muc = Tim(inst, tag, function(v)
         return v.components.workable ~= nil
@@ -298,6 +309,10 @@ local function ViecGomCui(inst)
         return false
     end)
     if n >= DU_CUI then return nil end
+    -- ⚠ DU_CUI là củi RIÊNG của người này mang theo để nuôi lửa; trần của làng
+    --   là chuyện khác và cũng phải xét. Không xét thì kho đầy 200 khúc gỗ mà
+    --   cả ba vẫn đi chặt vì túi ai cũng dưới 4.
+    if kho_lang.DaDu("log") then return nil end
 
     if nhu_cau.KhongRanhTay(inst) then return nil end
     if not CamDungCu(inst, ACTIONS.CHOP) then return nil end
