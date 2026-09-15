@@ -74,7 +74,13 @@ local function Cong(bk, mon)
         bk.sap_hong = bk.sap_hong + n
     end
 
-    if mon.components.weapon ~= nil and mon.components.projectile == nil then
+    -- ⚠ ĐỪNG ĐẾM DỤNG CỤ LÀ VŨ KHÍ. Rìu và cuốc trong DST đều có component
+    --   `weapon` (axe.lua, pickaxe.lua — TUNING.AXE_DAMAGE / PICK_DAMAGE), nên
+    --   đếm thô là cả làng "đủ vũ khí" ngay từ ngày đầu và `du_suc_danh` bật
+    --   lên trong khi chẳng ai có cây giáo nào. Cầm rìu đi đánh là đường cùng,
+    --   không phải trang bị. Rìu/cuốc đã được đếm riêng ở dưới.
+    if mon.components.weapon ~= nil and mon.components.tool == nil
+       and mon.components.projectile == nil then
         bk.vu_khi = bk.vu_khi + n
     end
     if mon.components.armor ~= nil then

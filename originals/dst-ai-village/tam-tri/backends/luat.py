@@ -3,49 +3,76 @@
 Đây là bộ mặc định và cũng là lưới an toàn: Gemini hết quota hay model local
 chết thì đổi sang bộ này, dân làng vẫn có mục tiêu hợp lý.
 
-Không thay thế được cái mà LLM làm được (nói chuyện, mục tiêu dài hơi), nhưng
-cho việc "chọn làm gì bây giờ" thì luật đơn giản đã đủ tốt — và đó cũng đúng
-là mức mà FAtiMA trong hai mod cũ đạt tới, chỉ khác là nó cần một app C#
-Windows 12 MB để làm.
+⚠ BỘ NÀY LÁI CHIẾN LƯỢC, KHÔNG LÁI PHẢN XẠ. Đói, tối, cháy, bị đánh — cây
+  hành vi trong mod tự lo hết và lo nhanh hơn (0,5 giây một nhịp, trong khi
+  kênh này trễ vài giây). Bảo dân làng "đi ăn" từ đây là thừa, và tệ hơn là
+  giành lượt với thứ đã làm tốt hơn.
+
+  Việc của bộ này là thứ cây hành vi KHÔNG tự nghĩ ra: nhìn kho của cả làng,
+  thấy nút thắt, rồi dồn người vào đúng chỗ tắc. Mod đã tính sẵn nút thắt đó
+  trong `kho.nut_that` — ở đây chỉ dịch nó thành mệnh lệnh.
 """
 
-CAY = ("evergreen", "deciduoustree", "twiggytree", "marsh_tree", "mushtree")
-DA = ("rock", "boulder", "flint", "moonglass")
-HAI_DUOC = ("berrybush", "sapling", "grass", "reeds", "carrot", "flower")
+# Nút thắt -> mệnh lệnh gỡ nút. Khớp theo chuỗi con, xem kho_lang.NutThat.
+GO_NUT = (
+    ("thiếu rìu",       {"che": "axe"}),
+    ("thiếu cuốc",      {"che": "pickaxe"}),
+    ("thiếu vàng",      {"hanh_dong": "MINE", "nham": "rock2",
+                         "dung": "pickaxe", "lan": 4, "tam": 60}),
+    ("thiếu đá",        {"hanh_dong": "MINE", "nham": "rock1",
+                         "dung": "pickaxe", "lan": 4, "tam": 60}),
+    ("thiếu gỗ",        {"hanh_dong": "CHOP", "nham": "CHOP_workable",
+                         "dung": "axe", "lan": 6, "tam": 60}),
+    ("chưa dựng máy",   {"che": "researchlab", "dat_xuong": True}),
+    ("chưa có rương",   {"che": "treasurechest", "dat_xuong": True}),
+)
 
-# ⚠ So khớp CHÍNH XÁC, đừng dùng `"axe" in tren_tay` — "pickaxe" cũng chứa
-#   "axe", nên cuốc bị nhận nhầm thành rìu và dân làng bị bảo đi chặt cây.
-RIU = ("axe", "goldenaxe", "multitool_axe_pickaxe")
-CUOC = ("pickaxe", "goldenpickaxe", "multitool_axe_pickaxe")
+# Chưa đủ ăn thì gieo bẫy: nguồn thịt TÁI TẠO, tech 0. Xem
+# docs/dst-knowledge/analysis/dst-kinh-te-sinh-ton.md — hái berry không đủ
+# nuôi ba người, cần khoảng 70 bụi.
+DAT_BAY = {"buoc": [
+    {"che": "trap"},
+    {"hanh_dong": "DROP", "nham": "rabbithole", "dung": "trap", "tam": 60},
+]}
+
+# Đủ ăn, đủ thuốc, đủ vũ khí rồi thì mới nghĩ tới đánh nhau.
+DI_SAN = {"hanh_dong": "ATTACK", "nham": "rabbit", "tam": 40}
 
 
-def _co(quanh, tu_khoa):
-    return any(any(k in mon for k in tu_khoa) for mon in quanh)
+def _cau_noi(d, kho, dau_tien):
+    doi, mau = d.get("doi", 100), d.get("mau", 100)
+    if doi < 30:
+        return "Đói quá."
+    if mau < 40:
+        return "Đau quá, để tôi nghỉ chút."
+    # Chỉ MỘT người kể chuyện làng. Cả ba cùng đọc một câu là thành tụng kinh.
+    if dau_tien and kho and kho.get("nut_that"):
+        return "Làng mình đang " + kho["nut_that"] + "."
+    return None
 
 
 def nghi(goi):
+    kho = goi.get("kho") or {}
+    nut = kho.get("nut_that")
+
+    chung = None
+    if nut:
+        for khoa, lenh in GO_NUT:
+            if khoa in nut:
+                chung = lenh
+                break
+        if chung is None and "đói" in nut:
+            chung = DAT_BAY
+    elif not kho.get("du_an"):
+        chung = DAT_BAY
+    elif kho.get("du_suc_danh"):
+        chung = DI_SAN
+
     ra = []
-    troi_toi = goi.get("troi") in ("đêm", "hoàng hôn")
-
-    for d in goi.get("dan_lang", []):
-        quanh = d.get("quanh", [])
-        muc_tieu, noi_gi = None, None
-
-        if d.get("doi", 100) < 40:
-            muc_tieu = "AN"
-            noi_gi = "Đói quá, ăn cái đã."
-        elif d.get("mau", 100) < 40:
-            noi_gi = "Đau quá, để tôi nghỉ chút."
-        elif troi_toi:
-            muc_tieu = "NHAT"
-        elif _co(quanh, CAY) and d.get("tren_tay") in RIU:
-            muc_tieu = "CHAT"
-        elif _co(quanh, DA) and d.get("tren_tay") in CUOC:
-            muc_tieu = "DAO"
-        elif _co(quanh, HAI_DUOC):
-            muc_tieu = "HAI"
-        else:
-            muc_tieu = "NHAT"
-
-        ra.append({"ma": d["ma"], "muc_tieu": muc_tieu, "noi_gi": noi_gi})
+    for i, d in enumerate(goi.get("dan_lang", [])):
+        # ⚠ ĐỪNG dồn CẢ LÀNG vào một việc. Ba người cùng đi đào một tảng đá
+        #   thì hai người đứng nhìn. Cho một người ở nhà lo việc thường —
+        #   cây hành vi mặc định vẫn chạy khi muc_tieu là None.
+        mt = chung if (chung is not None and i < max(1, len(goi.get("dan_lang", [])) - 1)) else None
+        ra.append({"ma": d["ma"], "muc_tieu": mt, "noi_gi": _cau_noi(d, kho, i == 0)})
     return ra

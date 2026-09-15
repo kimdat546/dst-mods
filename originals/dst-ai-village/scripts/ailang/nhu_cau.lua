@@ -49,8 +49,18 @@ nhu_cau.NGUON = {
     log        = { hd = "CHOP", tag = "CHOP_workable" },
     rocks      = { hd = "MINE", tag = "MINE_workable" },
     flint      = { hd = "MINE", tag = "MINE_workable" },
-    goldnugget = { hd = "MINE", tag = "MINE_workable" },
-    nitre      = { hd = "MINE", tag = "MINE_workable" },
+    -- ⚠ VÀNG CHỈ RA TỪ rock2, VÀ ĐÂY LÀ THỨ ĐÃ CHẶN CẢ TECH 1. Bản trước để
+    --   goldnugget nhắm mọi thứ mang tag MINE_workable, nên dân làng đập tảng
+    --   đá thường (rock1) hết lượt này tới lượt khác và KHÔNG BAO GIỜ ra vàng
+    --   — mà Máy Khoa Học cần đúng 1 cục. Không có máy thì không có rope,
+    --   không nồi, không rương, không giáo, không lửa lạnh: cả nền kinh tế
+    --   tech 1 chết ở một dòng bảng tra.
+    --
+    --   Bảng rơi trong scripts/prefabs/rocks.lua nói thẳng:
+    --       rock1 -> rocks×3, nitre, flint        (KHÔNG có vàng)
+    --       rock2 -> rocks×3, goldnugget, flint
+    goldnugget = { hd = "MINE", tag = "MINE_workable", prefab = "rock2" },
+    nitre      = { hd = "MINE", tag = "MINE_workable", prefab = "rock1" },
 }
 
 -- ── món nào phát sáng ───────────────────────────────────────────────────
@@ -60,6 +70,10 @@ nhu_cau.NGUON = {
 --   inst.Light phía server là nil cho TẤT CẢ — ánh sáng là thứ client vẽ.
 --   Nên phải vừa xét tag vừa có danh sách trắng.
 nhu_cau.PHAT_SANG = { minerhat = true, nightstick = true }
+
+-- Bấy nhiêu cái bẫy thì coi như làng đủ nguồn thịt. Mỗi bẫy 8 lượt dùng, một
+-- lượt ra một con thỏ (25 calo nướng chín) — bốn bẫy nuôi được ba người.
+nhu_cau.DU_BAY = 4
 
 -- ⚠ Đuốc dưới 25% nhiên liệu coi như KHÔNG còn là nguồn sáng, để dân làng
 --   kịp làm cây mới TRƯỚC khi tắt. Đo trên server: chúng cầm đuốc từ chập
@@ -444,6 +458,34 @@ nhu_cau.DANH_SACH = {
         bac = { { mon = "axe" } },
     },
     {
+        ma  = "cuoc",
+        ten = "cuốc",
+        -- ⚠ ĐÃ CHUYỂN TỪ CUỐI BẢNG LÊN ĐÂY. Lý do cũ ghi "không có cuốc thì
+        --   chỉ chậm, không chết" — đúng vào lúc chưa có gì trong bảng cần đá.
+        --   Giờ thì ĐÀO LÀ NÚT THẮT của cả nền kinh tế:
+        --       cuốc -> đá + vàng -> Máy Khoa Học
+        --                          -> rương, nồi, giáo, giáp gỗ, lửa lạnh
+        --   Để nó cuối bảng thì "xưởng" cứ thử dựng máy, không kiếm nổi vàng
+        --   vì tay không có cuốc, bị ghi bó tay rồi cho nghỉ — mà nhu cầu giải
+        --   được nút đó lại nằm sau bốn nhu cầu khác. Đúng vòng luẩn quẩn đã
+        --   làm làng chết từ ngày 9.
+        --
+        --   Cùng lý lẽ với rìu ngay trên: cuốc là ĐIỀU KIỆN, không phải thứ
+        --   cạnh tranh. Và nó rẻ — twigs×2 flint×2, tech 0, đá lửa nhặt được
+        --   dưới đất nên không kẹt vòng "phải có cuốc mới có đá lửa".
+        can = function() return true end,
+        du  = function(inst)
+            local function la_cuoc(m)
+                return m.components.tool ~= nil
+                   and m.components.tool:CanDoAction(ACTIONS.MINE)
+            end
+            return DuyetTui(inst, la_cuoc) ~= nil
+                or DuyetTrangBi(inst, la_cuoc) ~= nil
+        end,
+        mac_khi = function() return false end,
+        bac = { { mon = "pickaxe" } },
+    },
+    {
         ma  = "nha",
         ten = "nhà",
         -- ⚠ ĐỨNG TRƯỚC vũ khí và giáp. Đống lửa quan trọng hơn cái áo cỏ:
@@ -475,6 +517,47 @@ nhu_cau.DANH_SACH = {
         },
     },
     {
+        ma  = "du_tru",
+        ten = "dự trữ",
+        -- ⚠ NHU CẦU NÀY LÀ LỜI GIẢI CHO CÁI CHẾT HÀNG LOẠT. Bảng nhu cầu cũ
+        --   chỉ có "đồ ăn", và nó chỉ bật khi bụng đã xuống dưới 50% — tức là
+        --   luôn CHỮA CHÁY, không bao giờ TÍCH TRỮ. Đo trên server chạy nhanh:
+        --   khoẻ tới ngày 8, rồi chết mỗi đêm, tới ngày 16 là 95 lượt chết.
+        --
+        --   Và hái berry thì không cứu được: một bụi cho 3 quả rồi chết, mọc
+        --   lại 3 ngày, tức 0,33 quả/ngày/bụi trong khi ba dân làng đốt 225
+        --   calo/ngày — cần khoảng 70 bụi. Không bản đồ nào có.
+        --
+        --   Bẫy thỏ thì TÁI TẠO: twigs×2 cutgrass×6, tech 0, 8 lượt dùng, đặt
+        --   lên miệng hang là thỏ tự vào. Hang thỏ có khắp đồng cỏ và KHÔNG
+        --   cạn. Đây là thứ người chơi thật sống bằng trong tuần đầu.
+        --
+        -- ⚠ KHÔNG `gap`. Đây là đầu tư cho ngày mai, không phải cứu hôm nay;
+        --   cho nó chen ngang thì dân làng bỏ cả đuốc lẫn lửa để đi đan bẫy.
+        can = function() return true end,
+        du  = function(inst)
+            local n = 0
+            -- Bẫy trong túi tính là dự trữ, bẫy đã đặt xuống cũng vậy.
+            -- ⚠ Bẫy KHÔNG chồng đống được: trap.lua gắn `finiteuses` (8 lượt)
+            --   nên mỗi cái chiếm một ô túi riêng. Đếm theo chồng là đếm đúng
+            --   một cái dù túi có bốn.
+            local tui = inst.components.inventory
+            if tui ~= nil then
+                for _, m in pairs(tui.itemslots or {}) do
+                    if m ~= nil and m.prefab == "trap" then n = n + 1 end
+                end
+            end
+            local nha = inst.ailang ~= nil and inst.ailang.nha or nil
+            if nha ~= nil then
+                n = n + #TheSim:FindEntities(nha[1], 0, nha[2], 40,
+                            { "trap" }, { "INLIMBO" })
+            end
+            return n >= nhu_cau.DU_BAY
+        end,
+        mac_khi = function() return false end,
+        bac = { { mon = "trap" } },   -- twigs×2 cutgrass×6, tech 0
+    },
+    {
         ma  = "xuong",
         ten = "xưởng",
         -- ⚠ MỘT CÁI MÁY MỞ KHOÁ CẢ MỘT TẦNG. researchlab là TECH 0
@@ -502,6 +585,31 @@ nhu_cau.DANH_SACH = {
                        { "INLIMBO", "burnt" }, { "prototyper" }) > 0
         end,
         bac = { { mon = "researchlab", dat_xuong = true, o_nha = true } },
+    },
+    {
+        ma  = "kho_chua",
+        ten = "kho",
+        -- ⚠ ĐỒ ĂN ĐỂ ĐẤT HỎNG NHANH GẤP RƯỠI. perishable.lua nhân hệ số theo
+        --   chỗ cất: ngoài trời ×1,5 — rương ×1,0 — tủ lạnh ×0,5. Mang thịt về
+        --   rồi quăng dưới chân là đã phí một phần ba trước khi kịp ăn.
+        --
+        --   Rương là tech 1 (boards×3 <- log×4), nên nó tự rụng khi chưa có
+        --   Máy Khoa Học và tự sống dậy khi có — builder:CanBuild lo phần đó.
+        --
+        -- ⚠ Tủ lạnh thì KHÔNG đưa vào. icebox cần gears, mà gears chỉ rơi từ
+        --   người máy ở Ruộng Bàn Cờ — dân làng đánh không lại, và bắt chúng
+        --   đi săn gears là bắt đi chết. Người dùng có đồ thì cứ đưa tay.
+        can = function() return true end,
+        du  = function(inst)
+            local nha = inst.ailang ~= nil and inst.ailang.nha or nil
+            if nha == nil then return false end
+            for _, v in ipairs(TheSim:FindEntities(nha[1], 0, nha[2], 40,
+                    { "structure" }, { "INLIMBO", "burnt" })) do
+                if v.components.container ~= nil then return true end
+            end
+            return false
+        end,
+        bac = { { mon = "treasurechest", dat_xuong = true, o_nha = true } },
     },
     {
         ma  = "hoi_nao",
@@ -538,23 +646,6 @@ nhu_cau.DANH_SACH = {
             end) ~= nil
         end,
         bac = { { mon = "armorwood" }, { mon = "armorgrass" } },
-    },
-    {
-        ma  = "cuoc",
-        ten = "cuốc",
-        -- Thấp nhất bảng: không có cuốc thì chỉ chậm, không chết. Nhưng có thì
-        -- mở ra đá / đá lửa / vàng — tức là bếp lửa (firepit) và máy khoa học.
-        can = function() return true end,
-        du  = function(inst)
-            local function la_cuoc(m)
-                return m.components.tool ~= nil
-                   and m.components.tool:CanDoAction(ACTIONS.MINE)
-            end
-            return DuyetTui(inst, la_cuoc) ~= nil
-                or DuyetTrangBi(inst, la_cuoc) ~= nil
-        end,
-        mac_khi = function() return false end,
-        bac = { { mon = "pickaxe" } },   -- twigs×2 flint×2, tech 0
     },
 }
 
