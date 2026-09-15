@@ -14,11 +14,14 @@
 
 local nen = require("ailang/nen")
 local dan_lang = require("ailang/dan_lang")
+local kho_lang = require("ailang/kho_lang")
+local muc_tieu = require("ailang/muc_tieu")
 
 local cau_noi = {}
 
 local TEP_HOI = "ailang_hoi.json"
 local TEP_DAP = "ailang_dap.json"
+local TEP_TU_DIEN = "ailang_tudien.json"
 
 local SO_QUANH = 6     -- kể tối đa bấy nhiêu loại vật quanh mình
 
@@ -69,6 +72,9 @@ local function ChupMot(inst)
         vi_tri    = { math.floor(x), math.floor(z) },
         tren_tay  = tren_tay ~= nil and tren_tay.prefab or nil,
         muc_tieu  = a.muc_tieu,
+        -- Lỗi của lệnh lần trước. Nuốt đi thì tầng suy nghĩ ra lệnh sai mãi
+        -- mà không biết vì sao — nó không nhìn thấy log server.
+        muc_tieu_loi = a.muc_tieu_loi,
         quanh     = QuanhMinh(inst),
         nguoi_gan = nguoi_gan ~= nil and {
             ten = nguoi_gan.name,
@@ -90,6 +96,9 @@ function cau_noi.Hoi()
         mua    = TheWorld.state.season,
         troi   = TheWorld.state.isnight and "đêm" or (TheWorld.state.isdusk and "hoàng hôn" or "ngày"),
         dan_lang = {},
+        -- Bản kiểm kê CẢ LÀNG. Nhìn riêng túi từng người thì không trả lời
+        -- được "đủ ăn chưa" — xem kho_lang.lua.
+        kho    = kho_lang.BanGon(),
     }
     for _, e in ipairs(ds) do
         local ok, hs = pcall(ChupMot, e)
@@ -121,7 +130,13 @@ function cau_noi.NgheTraLoi()
             local e = theo_ma[y.ma]
             if e ~= nil then
                 if y.muc_tieu ~= nil then
-                    e.ailang.muc_tieu = y.muc_tieu
+                    -- ⚠ Soát TRƯỚC khi nhận. Gán thẳng như bản cũ thì một lệnh
+                    --   sai (động từ không có, công thức viết nhầm) nằm lì
+                    --   trong đầu dân làng và hỏng im lặng mỗi nhịp.
+                    local ok, loi = muc_tieu.Dat(e, y.muc_tieu)
+                    if not ok then
+                        nen.chitiet("mục tiêu bị từ chối cho", tostring(y.ma), "—", tostring(loi))
+                    end
                 end
                 if y.noi_gi ~= nil and y.noi_gi ~= "" and e.components.talker ~= nil then
                     e.components.talker:Say(y.noi_gi)
@@ -133,8 +148,37 @@ function cau_noi.NgheTraLoi()
     end)
 end
 
+-- Ghi TỪ ĐIỂN ra đĩa: tầng suy nghĩ đọc để biết nó ra lệnh được những gì.
+--
+-- ⚠ Không nhét vào gói hỏi mỗi nhịp — bảng ACTIONS có khoảng 200 mục và danh
+--   sách công thức còn dài hơn, gửi lại mỗi 15 giây là phí cả đĩa lẫn token.
+--   Nó gần như không đổi, nên ghi một lần lúc bật.
+function cau_noi.GhiTuDien()
+    local dong_tu, cong_thuc = {}, {}
+    for ten in pairs(ACTIONS) do table.insert(dong_tu, ten) end
+    for ten in pairs(AllRecipes) do table.insert(cong_thuc, ten) end
+    table.sort(dong_tu)
+    table.sort(cong_thuc)
+
+    TheSim:SetPersistentString(TEP_TU_DIEN, json.encode({
+        dong_tu   = dong_tu,
+        cong_thuc = cong_thuc,
+        mau_lenh  = {
+            { hanh_dong = "CHOP",  nham = "evergreen", dung = "axe", lan = 5 },
+            { hanh_dong = "SHAVE", nham = "beefalo",   dung = "razor" },
+            { che = "researchlab", dat_xuong = true },
+            { buoc = {
+                { hanh_dong = "MINE", nham = "rock1", dung = "pickaxe", lan = 4 },
+                { che = "researchlab", dat_xuong = true },
+            } },
+        },
+    }), false)
+    nen.log("ghi từ điển:", #dong_tu, "động từ,", #cong_thuc, "công thức")
+end
+
 function cau_noi.Bat(nhip)
     nhip = nhip or 15
+    nen.thu("ghi từ điển", cau_noi.GhiTuDien)
     TheWorld:DoPeriodicTask(nhip, function()
         nen.thu("hỏi tầng suy nghĩ", cau_noi.Hoi)
         nen.thu("nghe trả lời", cau_noi.NgheTraLoi)

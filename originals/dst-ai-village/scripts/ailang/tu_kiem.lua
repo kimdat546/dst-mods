@@ -38,6 +38,7 @@ end
 
 for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/than_thiet",
                      "ailang/lang", "ailang/nhu_cau", "ailang/sinh_ton", "ailang/viec",
+                     "ailang/hanh_dong", "ailang/kho_lang", "ailang/muc_tieu",
                      "ailang/lenh", "brains/danlangbrain" }) do
     package.loaded[m] = nil
 end
@@ -2172,6 +2173,221 @@ local function ThuKhongHoiSinhVaoChoChet(tiep)
 end
 
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
+
+-- ── 40. tầng động từ chung ──────────────────────────────────────────────
+--
+-- ⚠ Bài này kiểm CÁI CỔNG, không kiểm từng động từ. Cả điểm của hanh_dong.lua
+--   là không phải viết tay 200 động từ; kiểm từng cái là quay lại đúng thứ nó
+--   thay thế. Cần biết là: tên có thật thì ra BufferedAction đúng động từ đúng
+--   mục tiêu, tên bịa thì trả nil KÈM LÝ DO ĐỌC ĐƯỢC.
+local function ThuDongTu(tiep)
+    local hanh_dong = require("ailang/hanh_dong")
+    local e, nao = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+
+    KT("động từ có thật thì tra được", hanh_dong.Tra("CHOP") == ACTIONS.CHOP)
+    KT("tra không phân biệt hoa thường", hanh_dong.Tra("chop") == ACTIONS.CHOP)
+    local a, loi = hanh_dong.Tra("BAY_LEN_TROI")
+    KT("động từ bịa thì trả nil kèm lý do",
+       a == nil and type(loi) == "string" and loi:find("BAY_LEN_TROI") ~= nil,
+       "lý do=" .. tostring(loi))
+
+    -- Lệnh đủ: có cây, có rìu trong túi.
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(x + 4, y, z)
+    e.components.inventory:GiveItem(SpawnPrefab("axe"))
+
+    local ba, vs = hanh_dong.Chay(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe" })
+    KT("lệnh đủ liệu thì sinh ra hành động đúng",
+       ba ~= nil and ba.action == ACTIONS.CHOP and ba.target == cay,
+       "lý do=" .. tostring(vs) .. " động từ=" .. tostring(ba and ba.action and ba.action.id))
+    KT("lệnh có `dung` thì tự cầm món lên",
+       e.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS) ~= nil
+       and e.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS).prefab == "axe")
+
+    -- Nhắm bằng TAG cũng phải chạy, không chỉ bằng tên prefab.
+    local ba2 = hanh_dong.Chay(e, { hanh_dong = "CHOP", nham = "CHOP_workable", dung = "axe" })
+    KT("nhắm bằng tag cũng tìm được mục tiêu",
+       ba2 ~= nil and ba2.target == cay,
+       "mục tiêu=" .. TenCua(ba2 and ba2.target))
+
+    -- Thiếu món thì phải nói THIẾU GÌ, không im lặng.
+    local _, vs3 = hanh_dong.Chay(e, { hanh_dong = "SHAVE", nham = "evergreen", dung = "razor" })
+    KT("thiếu món thì báo đúng món thiếu",
+       vs3 ~= nil and vs3:find("razor") ~= nil, "lý do=" .. tostring(vs3))
+
+    -- Không thấy mục tiêu thì cũng phải nói rõ.
+    local _, vs4 = hanh_dong.Chay(e, { hanh_dong = "CHOP", nham = "beefalo", dung = "axe" })
+    KT("không thấy mục tiêu thì báo rõ",
+       vs4 ~= nil and vs4:find("beefalo") ~= nil, "lý do=" .. tostring(vs4))
+
+    cay:Remove()
+    tiep()
+end
+
+
+-- ── 41. mục tiêu của tầng suy nghĩ ──────────────────────────────────────
+--
+-- ⚠ Đây là bài quan trọng nhất của đợt này. Trước bản này `muc_tieu` được GÁN
+--   ở cau_noi, được XOÁ ở dan_lang, và KHÔNG MỘT DÒNG NÀO ĐỌC — một cái ống
+--   dẫn ra hư không. Bài kiểm phải đo tới tận cây hành vi, không dừng ở chỗ
+--   "đã gán được".
+local function ThuMucTieu(tiep)
+    local muc_tieu = require("ailang/muc_tieu")
+    local e, nao = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local lua = ThoaHetNhuCau(e)
+    local x, y, z = e.Transform:GetWorldPosition()
+
+    -- Lệnh sai bị chặn NGAY, không nằm lì trong đầu dân làng.
+    local ok, loi = muc_tieu.Dat(e, { hanh_dong = "KHONG_CO_DONG_TU_NAY" })
+    KT("mục tiêu sai bị từ chối ngay lúc nhận",
+       not ok and e.ailang.muc_tieu == nil, "lý do=" .. tostring(loi))
+    KT("từ chối xong vẫn giữ lý do để báo ngược lên",
+       e.ailang.muc_tieu_loi ~= nil and e.ailang.muc_tieu_loi ~= "")
+
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(x + 5, y, z)
+
+    -- ⚠ ĐẶT `lan` THẬT CAO. Bản đầu để lan=2 và bài này HỎNG với "hành động=nil,
+    --   lỗi=nil" — nhìn y như cây hành vi không đọc mục tiêu. Thật ra nó đọc
+    --   ĐÚNG và chạy quá tốt: trong 5 nhịp dân làng bổ được hai nhát, mục tiêu
+    --   HOÀN THÀNH rồi tự xoá, nên lúc đo thì chẳng còn gì. Lỗi nằm ở bài kiểm.
+    local ok2 = muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 99 })
+    KT("mục tiêu hợp lệ thì nhận", ok2 and e.ailang.muc_tieu ~= nil)
+
+    local con_lai = cay.components.workable ~= nil and cay.components.workable.workleft or 0
+    Nhip(nao, 5, function()
+        -- Đo tới CÂY HÀNH VI: nó có thật sự rẽ sang mục tiêu không.
+        -- Khẳng định theo KẾT QUẢ chứ không theo khoảnh khắc — GetBufferedAction
+        -- trả nil ngay giữa hai nhát bổ. Cái cây có mẻ đi là đủ bằng chứng.
+        local ba = e:GetBufferedAction()
+        local con = cay:IsValid() and cay.components.workable ~= nil
+                    and cay.components.workable.workleft or -1
+        KT("cây hành vi CÓ đọc mục tiêu và đi làm",
+           (ba ~= nil and ba.action == ACTIONS.CHOP) or con < con_lai,
+           "hành động=" .. tostring(ba and ba.action and ba.action.id)
+           .. " cây " .. tostring(con_lai) .. "->" .. tostring(con)
+           .. " lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+        -- Hỏng liên tiếp thì bỏ cuộc, không quay vòng vô tận.
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "beefalo", dung = "axe" })
+        for _ = 1, 8 do muc_tieu.HanhDong(e) end
+        KT("hỏng liên tiếp thì bỏ mục tiêu chứ không quay vòng",
+           e.ailang.muc_tieu == nil,
+           "còn=" .. tostring(e.ailang.muc_tieu ~= nil)
+           .. " hỏng=" .. tostring(e.ailang.muc_tieu_hong))
+
+        if cay:IsValid() then cay:Remove() end
+        if lua ~= nil and lua:IsValid() then lua:Remove() end
+        tiep()
+    end)
+end
+
+
+-- ── 42. mục tiêu nhiều bước ─────────────────────────────────────────────
+local function ThuMucTieuNhieuBuoc(tiep)
+    local muc_tieu = require("ailang/muc_tieu")
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+
+    -- Hai bước chế đồ: chế xong bước một thì PHẢI tự sang bước hai.
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("twigs")) end
+    for _ = 1, 12 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+
+    local ok = muc_tieu.Dat(e, { buoc = {
+        { che = "torch" },
+        { che = "strawhat" },
+    } })
+    KT("nhận được mục tiêu nhiều bước", ok and e.ailang.muc_tieu_i == 1)
+
+    muc_tieu.HanhDong(e)
+    KT("chế xong bước một thì sang bước hai",
+       e.ailang.muc_tieu_i == 2,
+       "bước=" .. tostring(e.ailang.muc_tieu_i)
+       .. " lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+    muc_tieu.HanhDong(e)
+    KT("làm hết các bước thì xoá mục tiêu",
+       e.ailang.muc_tieu == nil,
+       "còn bước=" .. tostring(e.ailang.muc_tieu_i)
+       .. " lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+    tiep()
+end
+
+
+-- ── 43. kiểm kê toàn làng ───────────────────────────────────────────────
+--
+-- ⚠ Đo bằng NGÀY ĂN chứ không bằng số món. "có 12 berry" không quyết định được
+--   gì; "được 0,4 ngày" thì quyết định được ngay. Và phải gom cả rương — nhìn
+--   riêng túi từng người thì ba người mỗi người hai quả trông như sắp chết đói
+--   trong khi rương đầy thịt viên.
+local function ThuKhoLang(tiep)
+    local kho_lang = require("ailang/kho_lang")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    local tui = e.components.inventory
+
+    local truoc = kho_lang.Kiem()
+    KT("kiểm kê đếm đúng số dân", truoc.so_dan == 1, "đếm=" .. tostring(truoc.so_dan))
+
+    -- Một suất thịt viên = 62,5 calo, đủ 0,8 ngày cho một người (đốt 75/ngày).
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("meatballs")) end
+    local sau = kho_lang.Kiem()
+    KT("đồ ăn trong túi được quy ra ngày ăn",
+       sau.ngay_an > truoc.ngay_an and sau.ngay_an >= 2 and sau.ngay_an <= 3,
+       "ngày ăn=" .. tostring(sau.ngay_an) .. " calo=" .. tostring(sau.calo))
+
+    -- Rương của làng cũng là kho. Đây là chỗ bản cũ nhìn không thấy.
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 3, y, z)
+    ruong.components.container:GiveItem(SpawnPrefab("meatballs"))
+    local co_ruong = kho_lang.Kiem()
+    KT("đồ trong rương của làng cũng được tính",
+       co_ruong.calo > sau.calo,
+       "calo trước=" .. tostring(sau.calo) .. " sau=" .. tostring(co_ruong.calo))
+    KT("thấy công trình của làng và suy ra cấp máy",
+       co_ruong.cong_trinh.treasurechest ~= nil)
+
+    -- Thuốc men đếm riêng máu hồi được, không lẫn vào calo.
+    tui:GiveItem(SpawnPrefab("healingsalve"))
+    local co_thuoc = kho_lang.Kiem()
+    KT("thuốc được quy ra máu hồi được",
+       co_thuoc.mau_hoi > co_ruong.mau_hoi,
+       "máu hồi=" .. tostring(co_thuoc.mau_hoi))
+
+    -- Nút thắt phải chỉ đúng thứ ĐẦU TIÊN đang chặn, không kể lể tất cả.
+    KT("có nút thắt khi làng còn thiếu thứ gì đó",
+       co_thuoc.nut_that ~= nil, "nút thắt=" .. tostring(co_thuoc.nut_that))
+    KT("chưa có rìu thì nút thắt chính là rìu",
+       co_thuoc.riu == 0 and co_thuoc.nut_that:find("rìu") ~= nil,
+       "rìu=" .. tostring(co_thuoc.riu) .. " nút=" .. tostring(co_thuoc.nut_that))
+
+    -- Câu hỏi người dùng đặt ra: đủ ăn + đủ thuốc + đủ vũ khí thì đi đánh được.
+    KT("thiếu vũ khí thì CHƯA đủ sức đánh", not co_thuoc.du_suc_danh)
+    for _ = 1, 20 do tui:GiveItem(SpawnPrefab("meatballs")) end
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("healingsalve")) end
+    tui:GiveItem(SpawnPrefab("spear"))
+    local san_sang = kho_lang.Kiem()
+    KT("đủ ăn + đủ thuốc + đủ vũ khí + đủ máu thì đi đánh được",
+       san_sang.du_suc_danh,
+       string.format("ăn=%s(%.1f) thuốc=%s(%d) vũ khí=%s(%d) máu=%d",
+           tostring(san_sang.du_an), san_sang.ngay_an,
+           tostring(san_sang.du_thuoc), san_sang.mau_hoi,
+           tostring(san_sang.du_vu_khi), san_sang.vu_khi, san_sang.mau_tb))
+
+    -- Bản gọn gửi cho tầng suy nghĩ phải JSON hoá được, không kèm entity.
+    local gon = kho_lang.BanGon()
+    local ok_json = pcall(json.encode, gon)
+    KT("bản gọn gửi cho tầng suy nghĩ JSON hoá được",
+       ok_json and gon ~= nil and gon.mon == nil,
+       "có bảng mon=" .. tostring(gon ~= nil and gon.mon ~= nil))
+
+    ruong:Remove()
+    tiep()
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -2189,7 +2405,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuUuTienThangKhoangCach, ThuBoTayThiThoi,
                ThuNghiNhuCau, ThuGomDuThiDung,
                ThuHonMaKhongLiet, ThuCatDungCuKhiToi,
-               ThuKhongHoiSinhVaoChoChet }
+               ThuKhongHoiSinhVaoChoChet,
+               ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang }
 local i = 0
 local function tiep()
     i = i + 1

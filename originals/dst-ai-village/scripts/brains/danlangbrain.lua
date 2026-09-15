@@ -24,6 +24,7 @@ local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = require("ailang/sinh_ton")
 local than_thiet = require("ailang/than_thiet")
 local viec = require("ailang/viec")
+local muc_tieu = require("ailang/muc_tieu")
 local lang = require("ailang/lang")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
@@ -421,6 +422,19 @@ function DanLangBrain:OnStart()
         --   Hậu quả: dân làng chế đuốc rồi lại chế tiếp, và bốn phép kiểm về
         --   đuốc/nhặt đồ hỏng cùng lúc. viec.HanhDong đã gọi Giai bên trong
         --   và trả nil khi Giai vừa làm xong một việc tức thì.
+        -- MỤC TIÊU DO TẦNG SUY NGHĨ ĐẶT — trên việc thường, dưới mọi phản xạ.
+        --
+        -- ⚠ Vị trí này là cả thiết kế. Đặt CAO hơn thì Gemini bảo đi đào đá
+        --   giữa đêm và dân làng đi thật, bỏ đuốc lại — tầng suy nghĩ có độ
+        --   trễ vài giây, nó không thấy con ếch đang cắn hay cây đuốc sắp tàn.
+        --   Đặt THẤP hơn node làm việc thì không bao giờ tới lượt: DoAction
+        --   giữ RUNNING suốt quãng đường đi, đúng cái bẫy đã dính ba lần với
+        --   nhánh về nhà, nhánh về bên lửa và nhánh nóng quá.
+        --
+        --   Nên: giữ mạng > mục tiêu chiến lược > chính sách mặc định.
+        DoAction(inst, function() return muc_tieu.HanhDong(inst) end,
+                 "mục tiêu tầng suy nghĩ", true),
+
         DoAction(inst, function() return viec.HanhDong(inst) end, "làm việc", true),
 
         -- ĐI THEO CHỦ khi được đặt chế độ "theo chân" và đủ thiện cảm.
