@@ -328,6 +328,11 @@ function dan_lang.Sinh(hoso)
             nen.thu("gỡ hồn ma khỏi trạng thái chết", RoiTrangThaiChet, inst)
         end
         nen.thu("cất dụng cụ khi trời tối", dan_lang.CatDungCuKhiToi, inst)
+        -- ⚠ Soát hạn mục tiêu PHẢI ở đây, không ở trong cây hành vi. DoAction
+        --   giữ RUNNING suốt quãng đường đi, nên hàm sinh hành động không được
+        --   gọi lại — dân làng kẹt cứng vào vật cản vẫn ôm mục tiêu mãi. Xem
+        --   muc_tieu.SoatHan.
+        nen.thu("soát hạn mục tiêu", require("ailang/muc_tieu").SoatHan, inst)
     end)
     dan_lang.CapNhatDen(inst)
 

@@ -2328,6 +2328,18 @@ local function ThuMucTieu(tiep)
            e.ailang.muc_tieu == nil,
            "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
 
+        -- ⚠ VÀ PHẢI BUÔNG ĐƯỢC KỂ CẢ KHI CÂY HÀNH VI KHÔNG GỌI TỚI. DoAction
+        --   giữ RUNNING suốt quãng đường đi, nên HanhDong không được gọi lại.
+        --   Đo trên server: dân làng cách tảng đá 3 đơn vị, cầm cuốc, đã phát
+        --   lệnh MINE, trạng thái "run" — mà 8 giây đi được 0,0 đơn vị, kẹt
+        --   cứng vào vật cản, và ôm mục tiêu 264 giây mà không buông.
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 9 })
+        e.ailang.muc_tieu_tu = GetTime() - 1000
+        muc_tieu.SoatHan(e)
+        KT("kẹt cứng không gọi tới cây hành vi thì nhịp định kỳ vẫn buông được",
+           e.ailang.muc_tieu == nil,
+           "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
         -- ⚠ ĐÀO VÀ CHẶT LÀM RƠI ĐỒ XUỐNG ĐẤT, KHÔNG BỎ VÀO TÚI. Đo trên server
         --   thật: lệnh ba bước "MINE rock2 ×6 -> CHOP ×8 -> chế researchlab"
         --   chạy hết hai bước đầu ĐÚNG, rồi bước chế báo "chưa đủ nguyên liệu"

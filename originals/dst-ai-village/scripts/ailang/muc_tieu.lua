@@ -161,6 +161,26 @@ local function QuaLau(inst)
     return GetTime() - a.muc_tieu_tu > BO_CUOC_GIAY
 end
 
+-- ⚠ ĐỒNG HỒ BỎ CUỘC PHẢI ĐƯỢC SOÁT TỪ BÊN NGOÀI CÂY HÀNH VI.
+--
+--   Bản đầu chỉ soát trong HanhDong, và nó hỏng đúng vào lúc cần nhất: DoAction
+--   GIỮ TRẠNG THÁI RUNNING suốt quãng đường dân làng đi tới mục tiêu, nên hàm
+--   sinh hành động KHÔNG được gọi lại — tức là đồng hồ không bao giờ được xem.
+--
+--   Đo trên server: dân làng cách tảng đá 3 đơn vị, cầm cuốc, đã phát lệnh
+--   MINE, trạng thái "run" — mà 8 giây đi được 0,0 đơn vị. Kẹt cứng vào vật
+--   cản. Nó ôm mục tiêu như thế 264 giây (quá xa mức 180) mà không buông, vì
+--   không ai gọi tới chỗ soát.
+--
+--   Nên chỗ soát dời ra nhịp định kỳ của dan_lang — chỗ luôn chạy bất kể cây
+--   hành vi đang kẹt ở đâu.
+function muc_tieu.SoatHan(inst)
+    if inst == nil or inst.ailang == nil or inst.ailang.muc_tieu == nil then return end
+    if QuaLau(inst) then
+        muc_tieu.Bo(inst, "quá " .. BO_CUOC_GIAY .. " giây không tiến được bước nào")
+    end
+end
+
 -- Sinh hành động cho cây hành vi. Trả nil khi không có mục tiêu, hoặc khi vừa
 -- làm xong một việc tức thì (chế đồ) — nhịp sau cây sẽ gọi lại.
 -- Có đồ vừa rơi quanh chân không? Trả về hành động nhặt, hoặc nil.
