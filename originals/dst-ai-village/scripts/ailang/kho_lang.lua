@@ -98,6 +98,33 @@ local function GomHopChua(bk, c)
     for _, mon in pairs(c.slots or {}) do Cong(bk, mon) end
 end
 
+-- ⚠ ĐỒ RƠI TRÊN ĐẤT TRONG LÀNG CŨNG LÀ KHO. Bản đầu chỉ đếm túi + đồ mặc +
+--   túi hàng + rương, và cái lỗ đó làm bản kiểm kê nói dối đúng lúc quan
+--   trọng nhất: đào vỡ ba tảng đá vàng xong, vàng nằm ngay dưới chân mà bảng
+--   vẫn báo `vang=0`. Tôi đã đi chẩn đoán nhầm nguyên một vòng vì con số đó.
+--
+--   Mượn từ GrimWorld (Workshop 3748676443): `GrimColony:ColonyStock` quét một
+--   lượt `_inventoryitem` trong bán kính làng RỒI MỚI cộng các rương. Nền đất
+--   của làng chính là một cái kho, và người chơi thật cũng dùng nó như vậy.
+--   Xem docs/dst-knowledge/analysis/refmods/3748676443-grimworld.md
+local BO_QUA_DUOI_DAT = {
+    "INLIMBO", "NOCLICK", "FX", "fire", "smolder", "burnt", "catchable",
+    "irreplaceable", "heavy", "trap", "minesprung",
+}
+
+local function GomDuoiDat(bk, tam, ban_kinh)
+    for _, v in ipairs(TheSim:FindEntities(tam[1], 0, tam[2], ban_kinh,
+            { "_inventoryitem" }, BO_QUA_DUOI_DAT)) do
+        local ii = v.components.inventoryitem
+        -- ⚠ Đồ đang có người cầm thì BỎ QUA — đã đếm ở vòng túi rồi. Không xét
+        --   thì mọi món trong tay dân làng bị đếm hai lần và "ngày ăn" tăng
+        --   gấp đôi một cách âm thầm.
+        if ii ~= nil and not ii:IsHeld() and not v:IsInLimbo() then
+            Cong(bk, v)
+        end
+    end
+end
+
 -- ── điểm vào ────────────────────────────────────────────────────────────
 
 -- Kiểm kê cả làng. Trả về một bảng phẳng, JSON hoá được để gửi cho tầng
@@ -140,6 +167,7 @@ function kho_lang.Kiem()
         if tam ~= nil then ban_kinh = lang.BanKinh(e) break end
     end
     if tam ~= nil then
+        GomDuoiDat(bk, tam, ban_kinh)
         for _, v in ipairs(TheSim:FindEntities(tam[1], 0, tam[2], ban_kinh,
                 nil, { "INLIMBO", "burnt" })) do
             local cap = kho_lang.CONG_TRINH[v.prefab]
@@ -195,6 +223,74 @@ function kho_lang.NutThat(bk)
     if not bk.du_vu_khi                     then return "chưa đủ vũ khí" end
     if not bk.du_giap                       then return "chưa đủ giáp" end
     return nil
+end
+
+-- ── trần thu gom ────────────────────────────────────────────────────────
+--
+-- ⚠ ĐỦ RỒI THÌ THÔI GOM — VÀ PHẢI ĐẾM CẢ LÀNG, KHÔNG ĐẾM RIÊNG TỪNG TÚI.
+--   Trước đây mấy con số này nằm rải rác và mỗi chỗ một kiểu: DU_CUI=4 trong
+--   việc gom củi, DU_ROI=20 trong việc hái, GIU_LAM_DUOC=4 trong việc tiếp
+--   lửa — và tất cả đều chỉ nhìn túi CỦA MỘT NGƯỜI. Ba dân làng mỗi đứa ôm 19
+--   quả berry thì không ai thấy làng đang có 57 quả.
+--
+--   Mượn từ GrimWorld (Workshop 3748676443): bảng `worklimits` + `ResourceCapped`
+--   + `AutoWorkAllowed`, cộng bảng `WORK_ACTION_PRODUCT` nói mỗi việc đẻ ra cái
+--   gì. Xem docs/dst-knowledge/analysis/refmods/3748676443-grimworld.md
+--
+-- ⚠ TRẦN CHỈ CHẶN VIỆC TỰ PHÁT, KHÔNG CHẶN NHU CẦU. Dân làng cần 4 khúc gỗ để
+--   dựng Máy Khoa Học thì vẫn phải đi chặt, dù kho đã chạm trần gỗ. GrimWorld
+--   cũng tách đúng ranh giới này: lệnh người chơi ra thì trần không áp. Nên
+--   `sinh_ton.DiKiem` (đường của nhu cầu) KHÔNG gọi tới đây.
+kho_lang.TRAN = {
+    log        = 40,
+    rocks      = 40,
+    cutgrass   = 40,
+    twigs      = 40,
+    flint      = 20,
+    berries    = 20,
+    goldnugget = 12,
+    nitre      = 10,
+    petals     = 20,
+}
+
+-- Việc này đẻ ra cái gì. Chỉ những việc có MỘT sản phẩm rõ ràng mới chặn được.
+kho_lang.SAN_PHAM_VIEC = {
+    CHOP = "log",
+    MINE = "rocks",
+}
+
+-- ⚠ Kiểm kê quét cả bán kính làng nên KHÔNG rẻ, mà bộ chọn việc gọi nó mỗi
+--   nửa giây cho từng dân làng. Nhớ đệm 1 giây, y như ColonyStockCached.
+local dem_cache, dem_cache_t
+
+function kho_lang.KiemDem()
+    local gio = GetTime()
+    if dem_cache == nil or gio - (dem_cache_t or 0) > 1 then
+        local ok, bk = pcall(kho_lang.Kiem)
+        dem_cache   = ok and bk or nil
+        dem_cache_t = gio
+    end
+    return dem_cache
+end
+
+function kho_lang.XoaDem()
+    dem_cache, dem_cache_t = nil, nil
+end
+
+-- Kho của làng đã đủ `prefab` chưa?
+function kho_lang.DaDu(prefab)
+    local tran = prefab ~= nil and kho_lang.TRAN[prefab] or nil
+    if tran == nil then return false end
+    local bk = kho_lang.KiemDem()
+    if bk == nil then return false end
+    return (bk.mon[prefab] or 0) >= tran
+end
+
+-- Việc TỰ PHÁT này còn đáng làm không? Việc không rõ sản phẩm thì luôn cho làm.
+function kho_lang.ViecConCan(hanh_dong)
+    local ten = hanh_dong ~= nil and hanh_dong.id or nil
+    local sp = ten ~= nil and kho_lang.SAN_PHAM_VIEC[ten] or nil
+    return sp == nil or not kho_lang.DaDu(sp)
 end
 
 -- Bản gọn để nhét vào gói hỏi — bỏ bảng `mon` dài dòng đi.

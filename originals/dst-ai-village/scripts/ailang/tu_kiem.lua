@@ -2498,6 +2498,31 @@ local function ThuKhoLang(tiep)
            tostring(san_sang.du_thuoc), san_sang.mau_hoi,
            tostring(san_sang.du_vu_khi), san_sang.vu_khi, san_sang.mau_tb))
 
+    -- ⚠ ĐỒ RƠI TRÊN ĐẤT TRONG LÀNG CŨNG PHẢI ĐƯỢC TÍNH. Bản đầu bỏ sót, và cái
+    --   lỗ đó làm bản kiểm kê nói dối đúng lúc quan trọng nhất: đào vỡ ba tảng
+    --   đá vàng xong, vàng nằm ngay dưới chân mà bảng vẫn báo vang=0.
+    --   (Mượn mô hình ColonyStock của GrimWorld.)
+    local truoc_dat = kho_lang.Kiem()
+    local vang = SpawnPrefab("goldnugget")
+    vang.Transform:SetPosition(x + 4, y, z)
+    local sau_dat = kho_lang.Kiem()
+    KT("vàng rơi dưới đất trong làng vẫn được tính vào kho",
+       (sau_dat.goldnugget or 0) > (truoc_dat.goldnugget or 0),
+       "trước=" .. tostring(truoc_dat.goldnugget) .. " sau=" .. tostring(sau_dat.goldnugget))
+
+    -- ⚠ Nhưng ĐỒ ĐANG CẦM thì đừng đếm hai lần. Vòng túi đã đếm rồi; không xét
+    --   `IsHeld` thì mọi món trong tay bị cộng đôi và "ngày ăn" tăng gấp đôi
+    --   một cách âm thầm.
+    local truoc_cam = kho_lang.Kiem()
+    local cu = SpawnPrefab("carrot")
+    tui:GiveItem(cu)
+    local sau_cam = kho_lang.Kiem()
+    KT("đồ trong túi KHÔNG bị đếm hai lần",
+       sau_cam.calo - truoc_cam.calo <= cu.components.edible.hungervalue + 0.01,
+       "chênh calo=" .. tostring(sau_cam.calo - truoc_cam.calo)
+       .. " (một củ = " .. tostring(cu.components.edible.hungervalue) .. ")")
+    vang:Remove()
+
     -- Bản gọn gửi cho tầng suy nghĩ phải JSON hoá được, không kèm entity.
     local gon = kho_lang.BanGon()
     local ok_json = pcall(json.encode, gon)
@@ -2806,6 +2831,83 @@ local function ThuVongKhoaCui(tiep)
     end)
 end
 
+
+-- ── 48. trần thu gom của cả làng ────────────────────────────────────────
+--
+-- ⚠ Đủ rồi thì thôi gom — VÀ PHẢI ĐẾM CẢ LÀNG. Trước đây mấy con số này nằm
+--   rải rác mỗi chỗ một kiểu (DU_CUI=4, DU_ROI=20, GIU_LAM_DUOC=4) và tất cả
+--   đều chỉ nhìn túi CỦA MỘT NGƯỜI: ba dân làng mỗi đứa ôm 19 quả berry thì
+--   không ai thấy làng đang có 57 quả, và cả ba vẫn hái tiếp.
+--   (Mượn worklimits/ResourceCapped/AutoWorkAllowed của GrimWorld.)
+local function ThuTranThuGom(tiep)
+    local kho_lang = require("ailang/kho_lang")
+    local sinh_ton = require("ailang/sinh_ton")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    kho_lang.XoaDem()
+    KT("kho trống thì chưa chạm trần gỗ", not kho_lang.DaDu("log"))
+    KT("và việc chặt cây vẫn còn đáng làm",
+       kho_lang.ViecConCan(ACTIONS.CHOP))
+
+    -- Đổ đủ trần vào RƯƠNG của làng, không nhét túi ai cả: trần là của LÀNG.
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 3, y, z)
+    local con = kho_lang.TRAN.log
+    while con > 0 do
+        local go = SpawnPrefab("log")
+        local n = math.min(con, go.components.stackable ~= nil
+                                and go.components.stackable.maxsize or 1)
+        if go.components.stackable ~= nil then go.components.stackable:SetStackSize(n) end
+        ruong.components.container:GiveItem(go)
+        con = con - n
+    end
+
+    kho_lang.XoaDem()
+    KT("đổ đủ trần vào rương thì làng coi là đã đủ gỗ",
+       kho_lang.DaDu("log"),
+       "gỗ=" .. tostring((kho_lang.Kiem().mon or {}).log) ..
+       " trần=" .. tostring(kho_lang.TRAN.log))
+    KT("và việc chặt cây TỰ PHÁT thôi không đáng làm nữa",
+       not kho_lang.ViecConCan(ACTIONS.CHOP))
+
+    -- ⚠ NHƯNG TRẦN KHÔNG ĐƯỢC CHẶN NHU CẦU. Dân làng cần 4 khúc gỗ dựng Máy
+    --   Khoa Học thì vẫn phải đi chặt, dù kho đã đầy gỗ — đường của nhu cầu đi
+    --   qua sinh_ton.DiKiem chứ không qua bộ chọn việc. Đây là ranh giới
+    --   GrimWorld cũng tách: lệnh ra thì trần không áp.
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(x + 5, y, z)
+    e.components.inventory:GiveItem(SpawnPrefab("axe"))
+
+    -- ⚠ ĐỢI MỘT NHỊP SAU `ms_setphase`. `TheWorld.state` là biến trạng thái
+    --   mạng, đồng hồ cập nhật ở khung SAU — đọc ngay trong cùng khung thì vẫn
+    --   thấy giờ CŨ. Bài trước để lại giờ chập tối, mà chập tối thì
+    --   `nhu_cau.KhongRanhTay` cấm cầm rìu nên DiKiem trả nil, và bài này hỏng
+    --   oan với "hành động=nil" trong khi trần hoàn toàn không dính dáng.
+    --   Đã dẫm đúng cái bẫy này ở bài vòng khoá củi.
+    TheWorld:DoTaskInTime(0.6, function()
+        KT("dựng đúng cảnh: đang ban ngày nên rảnh tay cầm rìu",
+           not require("ailang/nhu_cau").KhongRanhTay(e),
+           "pha=" .. tostring(TheWorld.state.phase))
+
+        local hd = sinh_ton.DiKiem(e, "log")
+        KT("trần KHÔNG chặn nhu cầu đi kiếm gỗ",
+           hd ~= nil and (hd.action == ACTIONS.CHOP or hd.action == ACTIONS.PICKUP),
+           "hành động=" .. tostring(hd and hd.action and hd.action.id)
+           .. " pha=" .. tostring(TheWorld.state.phase))
+
+        -- Việc không rõ sản phẩm thì không bao giờ bị chặn.
+        KT("việc không rõ sản phẩm thì luôn còn đáng làm",
+           kho_lang.ViecConCan(ACTIONS.PICKUP) and kho_lang.ViecConCan(ACTIONS.PICK))
+
+        cay:Remove() ruong:Remove()
+        kho_lang.XoaDem()
+        tiep()
+    end)
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -2826,7 +2928,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuKhongHoiSinhVaoChoChet,
                ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang,
                ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe,
-               ThuVongKhoaCui }
+               ThuVongKhoaCui, ThuTranThuGom }
 local i = 0
 local function tiep()
     i = i + 1
