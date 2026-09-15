@@ -389,4 +389,65 @@ function lenh.Bang()
     Bao("Cho ăn để tăng thân (thả đồ ăn lên dân làng). Đánh nó thì mất thân.")
 end
 
+-- Bản CHIẾN LƯỢC — cùng dữ liệu tầng suy nghĩ nhận được, in ra cho người đọc.
+--
+-- Khác c_ailang_kho ở chỗ kho kể TỪNG MÓN, còn cái này trả lời mấy câu quyết
+-- định được: đủ ăn mấy ngày, đủ thuốc chưa, đủ sức đi đánh chưa, đang tắc ở đâu.
+function lenh.ChienLuoc()
+    local kho_lang = require("ailang/kho_lang")
+    local bk = kho_lang.Kiem()
+    if bk.so_dan == 0 then
+        Bao("không có dân làng nào — mod đã bật ở tab SERVER MODS chưa?")
+        return
+    end
+
+    local function co(b) return b and "có" or "CHƯA" end
+
+    Bao("── chiến lược của làng ──  (" .. bk.so_dan .. " dân)")
+    Bao(string.format("ăn     %.1f ngày (%d calo)   %s", bk.ngay_an, bk.calo, co(bk.du_an)))
+    Bao(string.format("thuốc  %d máu hồi được       %s", bk.mau_hoi, co(bk.du_thuoc)))
+    Bao(string.format("người  máu %d%%  đói %d%%  tinh thần %d%%",
+        bk.mau_tb, bk.doi_tb, bk.than_tb))
+    Bao(string.format("đánh   %d vũ khí, %d giáp, %d rìu, %d cuốc",
+        bk.vu_khi, bk.giap, bk.riu, bk.cuoc))
+
+    local ct = {}
+    for ten, n in pairs(bk.cong_trinh) do table.insert(ct, ten .. "x" .. n) end
+    table.sort(ct)
+    Bao("nhà    cấp máy " .. bk.cap_may
+        .. (#ct > 0 and ("  |  " .. table.concat(ct, ", ")) or "  |  chưa có công trình nào"))
+
+    local nl = {}
+    for _, ten in ipairs(kho_lang.NGUYEN_LIEU) do
+        local n = bk.mon[ten] or 0
+        if n > 0 then table.insert(nl, TenMon(ten) .. " " .. n) end
+    end
+    if #nl > 0 then Bao("liệu   " .. table.concat(nl, ", ")) end
+    if bk.sap_hong > 0 then Bao("⚠ " .. bk.sap_hong .. " món SẮP HỎNG") end
+
+    Bao(bk.du_suc_danh and "→ đủ ăn, đủ thuốc, đủ vũ khí: ĐI ĐÁNH ĐƯỢC"
+                       or ("→ nút thắt: " .. tostring(bk.nut_that or "không rõ")))
+    return bk
+end
+
+-- Đặt mục tiêu bằng tay — để thử đúng cái tầng suy nghĩ sẽ gửi xuống.
+--
+--   c_ailang_muctieu("An", { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 3 })
+--   c_ailang_muctieu("An", { che = "researchlab", dat_xuong = true })
+--   c_ailang_muctieu("An")                       -- xoá mục tiêu
+function lenh.MucTieu(ten, mt)
+    local muc_tieu = require("ailang/muc_tieu")
+    local ds = TimTheoTen(ten)
+    if #ds == 0 then Bao("không tìm thấy dân làng nào") return end
+    local n = 0
+    for _, e in ipairs(ds) do
+        local ok, loi = muc_tieu.Dat(e, mt)
+        if ok then n = n + 1
+        else Bao(e.ailang.ten .. ": " .. tostring(loi)) end
+    end
+    Bao(mt == nil and ("đã xoá mục tiêu của " .. n .. " dân làng")
+                   or ("đã đặt mục tiêu cho " .. n .. " dân làng"))
+    return n
+end
+
 return lenh

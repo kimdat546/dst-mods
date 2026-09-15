@@ -63,14 +63,20 @@ echo "✓ mod nạp sạch, dân làng đã sinh"
 #   chết ngay lúc khởi tạo với "create mountpoint ...: read-only file system".
 LUA='package.loaded["ailang/tu_kiem"] = nil local ok, err = pcall(require, "ailang/tu_kiem") if not ok then print("[TU-KIEM] LOI NAP: " .. tostring(err)) end'
 
+# ⚠ ĐẾM SỐ LẦN CHẠY, đừng chỉ cắt log theo mốc thời gian. `docker logs --since`
+#   chỉ chính xác tới GIÂY và lệch theo đồng hồ host, nên vòng chờ dưới đây
+#   từng khớp ngay vào dòng XONG của LẦN CHẠY TRƯỚC rồi in kết quả cũ ra như
+#   thể là kết quả mới. Đã đọc nhầm một lượt vì đúng chuyện này.
+XONG_CU=$(docker logs "$CT" 2>&1 | grep -ac 'TU-KIEM.*XONG' || true)
 MOC=$(date -u +%Y-%m-%dT%H:%M:%S)
 docker exec --privileged -u root -e DST_LUA="$LUA" "$CT" sh -c '
 for p in /proc/[0-9]*; do c=$(cat "$p/comm" 2>/dev/null); case "$c" in *dontstarve*) gp=${p#/proc/}; break;; esac; done
 [ -n "$gp" ] && printf "%s\n" "$DST_LUA" > /proc/$gp/fd/0'
 
 echo "… chờ chạy xong"
-for _ in $(seq 1 40); do
-    docker logs --since "$MOC" "$CT" 2>&1 | grep -qa 'TU-KIEM.*XONG' && break
+for _ in $(seq 1 60); do
+    n=$(docker logs "$CT" 2>&1 | grep -ac 'TU-KIEM.*XONG' || true)
+    [[ "$n" -gt "$XONG_CU" ]] && break
     sleep 3
 done
 
