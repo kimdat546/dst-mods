@@ -53,7 +53,7 @@ MỆNH LỆNH LÀ DỮ LIỆU, ánh thẳng vào bảng ACTIONS của DST:
              game, không giới hạn ở danh sách này.
   nham       tên prefab ("beefalo", "rock2") HOẶC tag ("CHOP_workable")
   dung       prefab món cần cầm; dân làng tự moi trong túi ra cầm
-  lan        lặp bấy nhiêu lượt
+  lan        làm bấy nhiêu MỤC TIÊU (cây đổ, đá vỡ), không phải bấy nhiêu nhát
   tam        bán kính tìm, mặc định 30, tối đa nên để 60
   che        tên công thức, thay cho hanh_dong
   dat_xuong  true nếu công thức đó là công trình
@@ -66,6 +66,7 @@ MẤY ĐIỀU ĐÃ ĐO ĐƯỢC TRONG GAME, dùng mà quyết:
   calo/ngày, tức cần khoảng 70 bụi. Nguồn thịt tái tạo là BẪY THỎ
   (che "trap", tech 0) đặt lên "rabbithole".
 - Nấu chín gấp đôi calo và không tốn nguyên liệu nào.
+- Đào và chặt làm đồ RƠI XUỐNG ĐẤT; dân làng tự nhặt, không cần bạn ra lệnh.
 
 Trường "kho" trong dữ liệu là kiểm kê CẢ LÀNG, đã quy sẵn: ngay_an (dự trữ ăn
 được mấy ngày), mau_hoi, cap_may, du_an/du_thuoc/du_vu_khi/du_giap,

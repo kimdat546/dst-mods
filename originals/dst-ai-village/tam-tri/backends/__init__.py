@@ -21,7 +21,9 @@ Trả về danh sách {"ma": ..., "muc_tieu": ..., "noi_gi": ...}.
       hanh_dong  tên trong ACTIONS (không phân biệt hoa thường)
       nham       tên prefab ("beefalo") hoặc tag ("CHOP_workable")
       dung       prefab món cần cầm; mod tự tìm trong túi và cầm lên
-      lan        lặp bấy nhiêu lần rồi thôi
+      lan        làm bấy nhiêu MỤC TIÊU (cây đổ, đá vỡ) rồi thôi — KHÔNG phải
+                 bấy nhiêu nhát. Đào/chặt làm rơi đồ xuống đất, dân làng tự
+                 nhặt, và lần nhặt đó không tính vào `lan`.
       tam        bán kính tìm mục tiêu, mặc định 30
       che        tên công thức (thay cho hanh_dong)
       dat_xuong  công thức này là công trình, đặt xuống đất

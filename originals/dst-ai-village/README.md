@@ -330,11 +330,21 @@ hồn ma > cháy > máu thấp > đánh trả > đói
 | `hanh_dong` | tên trong `ACTIONS`, không phân biệt hoa thường |
 | `nham` | tên prefab (`"beefalo"`) **hoặc** tag (`"CHOP_workable"`) |
 | `dung` | prefab món cần cầm — tự tìm trong túi và trang bị |
-| `lan` | lặp bấy nhiêu lượt |
+| `lan` | làm bấy nhiêu **mục tiêu**, không phải bấy nhiêu nhát |
 | `tam` | bán kính tìm, mặc định 30 |
 | `che` | tên công thức, thay cho `hanh_dong` |
 | `dat_xuong` | công thức này là công trình, đặt xuống đất |
 | `buoc` | danh sách mệnh lệnh làm lần lượt |
+
+Hai điều đã phải trả giá để biết:
+
+- **`lan` đếm MỤC TIÊU LÀM XONG, không đếm nhát chém.** `ACTIONS.CHOP` trả
+  `true` cho *mỗi nhát*, mà hạ một cây thông cần khoảng mười nhát. Bản đầu
+  chạy `CHOP ×8` đủ tám lượt mà **không cây nào đổ**, gỗ = 0.
+- **Đào và chặt làm rơi đồ xuống đất, không bỏ vào túi.** Chuỗi
+  `MINE rock2 ×6 → CHOP ×8 → chế researchlab` chạy đúng hai bước đầu rồi báo
+  "chưa đủ nguyên liệu" với vàng = 0 — tất cả nằm ngay dưới chân. Tầng mục
+  tiêu giờ **tự nhặt** trước khi làm tiếp, và lần nhặt đó không tính vào `lan`.
 
 **Vì sao không viết tay từng động từ.** Chép lại một thứ đã có, và chép mãi
 cũng không đủ — người chơi sẽ luôn nghĩ ra tình huống chưa lường. "Cạo lông
@@ -352,6 +362,15 @@ giữ mạng (hồn ma, cháy, máu thấp, giữ làng, đói, quá nóng, đê
 lại — kênh trễ vài giây, nó không thấy con ếch đang cắn. Đặt thấp hơn node
 làm việc thì không bao giờ tới lượt, vì `DoAction` giữ `RUNNING` suốt quãng
 đường đi (xem mục *Bẫy lớn nhất của behaviour tree*).
+
+Có **hai loại hỏng** và chúng được đếm khác nhau: hỏng lúc *tính* (không thấy
+mục tiêu, thiếu món, động từ không có) là lệnh sai — sáu lần là bỏ; hỏng lúc
+*làm* (engine từ chối vì cây vừa đổ, hoặc một phản xạ cắt ngang) chỉ ghi lý do,
+vì gộp lại thì sáu lần cắt ngang lúc chập tối là một mục tiêu đúng bị vứt oan.
+Van chặn ôm mãi là **đồng hồ 180 giây**, và nó được soát ở nhịp định kỳ của
+`dan_lang` chứ **không** trong cây hành vi — `DoAction` giữ `RUNNING` suốt
+quãng đường đi, nên đặt trong đó là đúng lúc dân làng kẹt cứng thì không ai
+xem đồng hồ. Đã đo: kẹt vật cản, cách mục tiêu 3 đơn vị, 8 giây đi được 0,0.
 
 Lệnh sai bị **soát ngay lúc nhận** và lý do được gửi ngược trong
 `muc_tieu_loi` của nhịp sau. Nuốt lỗi thì tầng suy nghĩ ra lệnh sai mãi mà
