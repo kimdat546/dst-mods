@@ -395,6 +395,40 @@ thứ gì đó tại chỗ, đó đúng là việc của tầng suy nghĩ: nó t
 lệnh đi xa lấy về. Bảng nhu cầu một mình thì chỉ biết ghi nhận "bó tay" rồi
 nghỉ.
 
+## Bản vẽ công trình — cả làng góp liệu
+
+`builder:DoBuild` của DST đòi **một** người cầm **đủ cả** bộ nguyên liệu. Máy
+Khoa Học cần vàng 1 + gỗ 4 + đá 4, nên ba dân làng mỗi đứa ôm một phần thì
+**không bao giờ** dựng nổi dù cộng lại thừa. Đo trên server: vàng 3, đá 6 nằm
+rải trong túi nhiều người, máy vẫn không lên. Đó không phải lỗi hành vi — là
+trần của mô hình "mỗi người tự lo".
+
+Lời giải mượn từ GrimWorld: đặt một **bản vẽ** (`ailang_banve`) kèm bảng giá,
+ai rảnh thì mang liệu tới, đủ thì nó thành công trình thật.
+
+```
+nhu cầu   quyết ĐỊNH DỰNG GÌ, đặt bản vẽ khi tự mình không đủ
+việc      lo MANG LIỆU TỚI — việc của cả làng, xếp cùng bậc giữ làng
+```
+
+| quyết định | vì sao |
+|---|---|
+| giao liệu bằng `trader` + `ACTIONS.GIVE` | DST có sẵn `constructionsite` nhưng nó dính chặt vào UI người chơi (cần `constructionbuilderuidata` trên người làm); dân làng không có UI |
+| bản vẽ **không** mang tag của thứ nó sắp thành | bản vẽ Máy Khoa Học mà mang `prototyper` thì `xuong.du` báo làng đã có xưởng, và không ai mang liệu tới nữa |
+| **một** bản vẽ một lúc | cho đặt nhiều thì làng chia liệu ra khắp nơi và không cái nào xong — đúng bệnh nó sinh ra để chữa, chỉ đổi chỗ chia |
+| chỉ công trình **đáng chờ** mới dùng bản vẽ | đống lửa khẩn cấp thì không: cần nó là cần **ngay**, chờ người khác mang gỗ tới là chết đêm |
+
+Hai cái bẫy đã trả giá:
+
+- **Tên file hoạt ảnh phải đúng từng chữ.** Viết `pigman_house` (tên prefab con
+  heo) thay vì `pig_house` (tên file anim) làm **cả server không khởi động
+  nổi** — không `MOD ERROR`, không dòng lỗi nào, world chỉ đơn giản không bao
+  giờ nạp xong và bộ kiểm treo tới hết giờ.
+- **`trader:AcceptGift` mặc định chỉ lấy MỘT món** (`count = count or 1`),
+  không nuốt cả chồng. Mà `ACTIONS.GIVE` không truyền `count` được, nên bản vẽ
+  tự moi thêm trong túi người đưa cho đủ phần còn thiếu — một lượt đưa là xong,
+  và không vét sạch túi người ta.
+
 ## Kiểm kê làng — để AI ra chiến lược
 
 `scripts/ailang/kho_lang.lua` gom **cả làng** (túi + đồ mặc + túi hàng +
@@ -409,6 +443,16 @@ rương) và quy về thứ quyết định được, rồi gửi kèm trong m�
 | `du_an` / `du_thuoc` / `du_vu_khi` / `du_giap` | đủ hay chưa |
 | `du_suc_danh` | đủ ăn + đủ thuốc + đủ vũ khí + máu ≥ 70% |
 | `nut_that` | thứ **đầu tiên** đang chặn làng |
+
+Kho tính **cả đồ rơi trên đất trong bán kính làng**, không chỉ túi và rương —
+nền đất của làng cũng là một cái kho, và người chơi thật cũng dùng nó như vậy.
+Bỏ sót chỗ này thì bảng nói dối đúng lúc quan trọng nhất: đào vỡ ba tảng đá
+vàng xong, vàng nằm ngay dưới chân mà bảng vẫn báo `vang = 0`.
+
+Đi kèm là **trần thu gom** (`kho_lang.TRAN`): đủ rồi thì thôi gom, và **đếm cả
+làng** chứ không đếm riêng từng túi — ba dân làng mỗi đứa ôm 19 quả berry thì
+không ai thấy làng đang có 57 quả. Trần chỉ chặn việc **tự phát**; nhu cầu đi
+qua `sinh_ton.DiKiem` nên vẫn kiếm được gỗ để dựng Máy Khoa Học dù kho đầy gỗ.
 
 **Đếm số món thì không trả lời được "đủ ăn chưa".** "Có 12 berry" nghe như no;
 quy ra thì là 112 calo, chưa nổi một ngày cho một người. Và nhìn riêng túi
