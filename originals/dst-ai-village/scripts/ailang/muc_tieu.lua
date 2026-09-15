@@ -23,8 +23,25 @@ local hanh_dong = require("ailang/hanh_dong")
 
 local muc_tieu = {}
 
--- Hỏng liên tiếp bấy nhiêu lần thì bỏ cuộc, khỏi quay vòng vô ích.
+-- ⚠ HAI LOẠI HỎNG, ĐỪNG GỘP. Kiểm trên server thật bắt được: dân làng đang
+--   CHOP đúng như lệnh, mục tiêu vẫn còn, mà `muc_tieu_loi` đã là "hành động
+--   bị từ chối".
+--
+--     * hỏng lúc TÍNH  — Chay() không dựng nổi hành động: không thấy mục tiêu,
+--       không có món cần dùng, động từ không tồn tại. Đây là lệnh SAI, đếm đủ
+--       vài lần là bỏ, và báo ngược lên cho tầng suy nghĩ sửa.
+--     * hỏng lúc LÀM   — engine từ chối hành động đã phát ra. Chuyện này xảy
+--       ra suốt trong lúc chạy bình thường: cây vừa đổ, ai đó chặt mất, hoặc
+--       một phản xạ giữ mạng cắt ngang. Đếm nó vào cùng một sổ thì sáu lần
+--       chập tối là một mục tiêu HOÀN TOÀN ĐÚNG bị vứt.
+--
+--   Nên: chỉ hỏng-lúc-tính mới đếm. Hỏng-lúc-làm chỉ ghi lý do.
 local BO_CUOC = 6
+
+-- Nhưng cũng đừng ôm mãi một mục tiêu không bao giờ xong. `{EAT, rock1}` tính
+-- được, phát ra được, và bị từ chối tới muôn đời. Quá bấy nhiêu giây không
+-- tiến được bước nào thì buông.
+local BO_CUOC_GIAY = 180
 
 -- Lấy bước đang phải làm của mục tiêu hiện tại.
 local function BuocHienTai(inst)
@@ -51,6 +68,7 @@ function muc_tieu.Bo(inst, vi_sao)
     a.muc_tieu   = nil
     a.muc_tieu_i = nil
     a.muc_tieu_hong = 0
+    a.muc_tieu_tu = nil
     a.muc_tieu_loi = vi_sao
 end
 
@@ -59,6 +77,7 @@ local function XongMotBuoc(inst)
     local a = inst.ailang
     if a == nil or a.muc_tieu == nil then return end
     a.muc_tieu_hong = 0
+    a.muc_tieu_tu   = GetTime()   -- có tiến triển, tính lại từ đầu
 
     local buoc = BuocHienTai(inst)
     if buoc == nil then return end
@@ -82,6 +101,7 @@ local function XongMotBuoc(inst)
     end
 end
 
+-- Hỏng lúc TÍNH: lệnh sai, đếm vào sổ.
 local function HongMotLan(inst, vi_sao)
     local a = inst.ailang
     if a == nil then return end
@@ -92,11 +112,30 @@ local function HongMotLan(inst, vi_sao)
     end
 end
 
+-- Hỏng lúc LÀM: chỉ ghi lý do, không đếm. Cái van chặn vòng lặp vô tận ở đây
+-- là đồng hồ BO_CUOC_GIAY, xem QuaLau.
+local function TuChoiMotLan(inst, vi_sao)
+    local a = inst.ailang
+    if a == nil then return end
+    a.muc_tieu_loi = vi_sao
+end
+
+local function QuaLau(inst)
+    local a = inst.ailang
+    if a == nil or a.muc_tieu_tu == nil then return false end
+    return GetTime() - a.muc_tieu_tu > BO_CUOC_GIAY
+end
+
 -- Sinh hành động cho cây hành vi. Trả nil khi không có mục tiêu, hoặc khi vừa
 -- làm xong một việc tức thì (chế đồ) — nhịp sau cây sẽ gọi lại.
 function muc_tieu.HanhDong(inst)
     local buoc = BuocHienTai(inst)
     if buoc == nil then return nil end
+
+    if QuaLau(inst) then
+        muc_tieu.Bo(inst, "quá " .. BO_CUOC_GIAY .. " giây không tiến được bước nào")
+        return nil
+    end
 
     local ra, loi = hanh_dong.Chay(inst, buoc)
 
@@ -113,7 +152,7 @@ function muc_tieu.HanhDong(inst)
     -- Đếm thành/bại qua chính BufferedAction, vì cây hành vi không báo lại.
     ra:AddSuccessAction(function() nen.thu("xong bước mục tiêu", XongMotBuoc, inst) end)
     ra:AddFailAction(function()
-        nen.thu("hỏng bước mục tiêu", HongMotLan, inst, "hành động bị từ chối")
+        nen.thu("bước mục tiêu bị từ chối", TuChoiMotLan, inst, "hành động bị từ chối")
     end)
     return ra
 end
@@ -143,6 +182,7 @@ function muc_tieu.Dat(inst, mt)
     a.muc_tieu      = mt
     a.muc_tieu_i    = 1
     a.muc_tieu_hong = 0
+    a.muc_tieu_tu   = GetTime()
     a.muc_tieu_loi  = nil
     nen.chitiet(tostring(a.ten), "nhận mục tiêu", #ds, "bước")
     return true
