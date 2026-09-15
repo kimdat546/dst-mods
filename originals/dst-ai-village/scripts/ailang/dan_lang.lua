@@ -50,12 +50,21 @@ local function ChupTui(inst)
         return { mon.prefab, n }
     end
 
-    local ra = { tui_do = {}, tren_nguoi = {} }
+    local ra = { tui_do = {}, tren_nguoi = {}, tui_hang = {} }
     for _, mon in pairs(tui.itemslots or {}) do
         table.insert(ra.tui_do, mo_ta(mon))
     end
     for o, mon in pairs(tui.equipslots or {}) do
         ra.tren_nguoi[o] = mo_ta(mon)
+    end
+    -- ⚠ Túi hàng PHẢI vào hồ sơ. Dân làng có persists = false nên thứ được lưu
+    --   cùng world là hồ sơ này, không phải entity — quên chép túi hàng là đồ
+    --   người chơi gửi vào đó bốc hơi sau mỗi lần restart.
+    local hang = inst.components.container
+    if hang ~= nil then
+        for _, mon in pairs(hang.slots or {}) do
+            table.insert(ra.tui_hang, mo_ta(mon))
+        end
     end
     return ra
 end
@@ -81,9 +90,51 @@ local function DungLaiTui(inst, tui_hs)
         local mon = tao(m)
         if mon ~= nil then tui:GiveItem(mon) tui:Equip(mon) end
     end
+    local hang = inst.components.container
+    if hang ~= nil then
+        for _, m in ipairs(tui_hs.tui_hang or {}) do
+            local mon = tao(m)
+            if mon ~= nil then hang:GiveItem(mon) end
+        end
+    end
 end
 
 -- Sinh một dân làng. `hoso` là bảng đã lưu (hoặc nil để tạo mới).
+-- ⚠ RỜI TRẠNG THÁI "death" PHẢI ĐI ĐÚNG LỐI, không gọi thẳng GoToState.
+--   SGwilson.lua:3839 có một `assert(false, "Left death state.")` ngay trong
+--   onexit của trạng thái chết — gọi thẳng GoToState("idle") là ném LỖI CỨNG
+--   mỗi lần hồn ma cử động, và nhật ký ngập stack traceback.
+--
+--   Nhưng chính đoạn assert đó cũng cho biết hai lối thoát HỢP LỆ:
+--       if inst.sg.statemem.vinesaving then return
+--       elseif inst.components.revivablecorpse == nil then assert(false, ...)
+--   `vinesaving` là cờ game dùng cho pha Winona được dây leo cứu. Bật nó lên
+--   thì onexit thoát sớm, không chạm tới assert.
+local function RoiTrangThaiChet(inst)
+    if inst.sg == nil or not inst:IsValid() then return end
+    if inst.sg.currentstate ~= nil and inst.sg.currentstate.name == "death" then
+        inst.sg.statemem.vinesaving = true
+    end
+    nen.thu("rời trạng thái chết", function() inst.sg:GoToState("idle") end)
+end
+
+-- ⚠ PHẢI HOÃN MỘT NHỊP. Gọi thẳng trong sự kiện "death" là VÔ ÍCH: mình đẩy
+--   sang "idle" xong thì stategraph mới xử lý sự kiện của chính nó và đưa
+--   ngược về "death". Đo trên server sau một lượt chạy dài: cả ba nằm làm hồn
+--   ma từ ngày 60 tới ngày 102 với sg="death", trong khi não vẫn chạy đúng
+--   nhánh hồn ma và vẫn ra lệnh đi tới Đài CÁCH ĐÚNG 28 ĐƠN VỊ. Làng chết là
+--   mất hẳn, không bao giờ hồi sinh.
+--
+-- ⚠ Và phải TỰ CHỮA định kỳ, đừng tin một lần đẩy là xong. Bất cứ thứ gì đẩy
+--   chúng về "death" sau đó — sự kiện muộn, mod khác, lần chết kế tiếp — đều
+--   làm hồn ma liệt lại.
+local function GoRaKhoiTrangThaiChet(inst)
+    RoiTrangThaiChet(inst)
+    inst:DoTaskInTime(0, function()
+        if inst:IsValid() then RoiTrangThaiChet(inst) end
+    end)
+end
+
 function dan_lang.Sinh(hoso)
     hoso = hoso or {}
 
@@ -146,6 +197,27 @@ function dan_lang.Sinh(hoso)
         inst.components.health:SetPercent(math.max(0.3, hoso.mau))
     end
 
+    -- ⚠ TÚI HÀNG là container RIÊNG, không phải túi đồ của dân làng.
+    --   Người chơi muốn "lấy đồ trong đó ra", mà túi đồ của một prefab người
+    --   chơi thì không mở được — nên gắn thêm hẳn một container lên chính
+    --   entity, đúng cách Chester và Glommer làm. Trỏ chuột vào dân làng là
+    --   có nút mở.
+    --
+    -- ⚠ Đây là HỘP MỘT CHIỀU, cố ý. inventory:GetOverflowContainer chỉ nhìn
+    --   món đang mặc ở ô BODY, nên đồ trong túi hàng KHÔNG dùng để chế đồ
+    --   được. Vì vậy dân làng chỉ dồn vào đây thứ nó không cần để sống — xem
+    --   KHONG_CAT bên dưới.
+    if inst.components.container == nil then
+        inst:AddComponent("container")
+        nen.thu("dựng túi hàng", function()
+            require("containers").widgetsetup(inst.components.container, "backpack")
+        end)
+        inst.components.container.canbeopened = true
+    end
+
+    -- ⚠ PHẢI gắn túi hàng TRƯỚC khi dựng lại đồ. Bản đầu gắn ở cuối hàm, nên
+    --   lúc DungLaiTui chạy thì inst.components.container còn nil và toàn bộ
+    --   đồ người chơi gửi vào túi hàng BỐC HƠI sau mỗi lần restart.
     nen.thu("dựng lại túi đồ", DungLaiTui, inst, hoso.tui)
 
     -- ⚠ Dân làng MỚI được bộ đồ khởi đầu. Không có nó thì triệu hồi lúc trời
@@ -225,6 +297,45 @@ function dan_lang.Sinh(hoso)
     -- Thiện cảm và chế độ đi theo, mượn mô hình Wurt ↔ merm.
     require("ailang/than_thiet").GanVaoDanLang(inst)
 
+    -- ⚠ CẤT ĐUỐC ĐI phải là việc ĐỊNH KỲ, không nhét vào cây hành vi.
+    --   Đuốc cháy hao ngay trên tay, nên cầm suốt ngày là tới đêm tắt ngóm —
+    --   đúng lúc cần nhất. Nhưng chỗ duy nhất trong cây hành vi có thể cất nó
+    --   (viec.HanhDong) CHỈ chạy khi node làm việc rảnh, mà nó bận đi bộ tới
+    --   mục tiêu gần như cả ngày — `DoAction` giữ RUNNING suốt quãng đường đó.
+    --   Đo được: sang ngày rồi dân làng vẫn cầm nguyên cây đuốc đi hái cỏ.
+    --   Việc định kỳ thì chạy bất kể cây hành vi đang kẹt ở đâu.
+    inst:DoPeriodicTask(2, function()
+        if inst:IsValid() and not dan_lang.LaHonMa(inst) then
+            nen.thu("cất nguồn sáng", require("ailang/nhu_cau").CatNguonSang, inst)
+            nen.thu("dồn đồ dư vào túi hàng", dan_lang.CatVaoTuiHang, inst)
+        end
+    end)
+
+    -- ⚠ Đèn phải cập nhật NHANH, không đợi nhịp 2 giây. Đo được: Charlie ra
+    --   đòn đầu tiên chỉ 3 giây sau khi vào đêm. Nên bắt thẳng sự kiện mặc/cởi
+    --   đồ, và giữ thêm một nhịp 1 giây để bắt lúc đuốc cháy hết.
+    for _, sk in ipairs({ "equip", "unequip" }) do
+        inst:ListenForEvent(sk, function() dan_lang.CapNhatDen(inst) end)
+    end
+    inst:DoPeriodicTask(1, function()
+        if not inst:IsValid() then return end
+        nen.thu("cập nhật đèn", dan_lang.CapNhatDen, inst)
+        -- Hồn ma mà vẫn kẹt trạng thái chết thì gỡ ra — xem chú thích ở
+        -- GoRaKhoiTrangThaiChet.
+        if dan_lang.LaHonMa(inst) and inst.sg ~= nil
+           and inst.sg.currentstate ~= nil
+           and inst.sg.currentstate.name == "death" then
+            nen.thu("gỡ hồn ma khỏi trạng thái chết", RoiTrangThaiChet, inst)
+        end
+        nen.thu("cất dụng cụ khi trời tối", dan_lang.CatDungCuKhiToi, inst)
+        -- ⚠ Soát hạn mục tiêu PHẢI ở đây, không ở trong cây hành vi. DoAction
+        --   giữ RUNNING suốt quãng đường đi, nên hàm sinh hành động không được
+        --   gọi lại — dân làng kẹt cứng vào vật cản vẫn ôm mục tiêu mãi. Xem
+        --   muc_tieu.SoatHan.
+        nen.thu("soát hạn mục tiêu", require("ailang/muc_tieu").SoatHan, inst)
+    end)
+    dan_lang.CapNhatDen(inst)
+
     local brain = require("brains/danlangbrain")
     inst:SetBrain(brain)
     inst:RestartBrain()
@@ -262,6 +373,7 @@ local KEU = {
     "Đồ của tôi vẫn còn ở chỗ tôi ngã xuống.",
 }
 
+
 function dan_lang.ThanhHonMa(inst, noi_chet)
     local a = inst.ailang
     if a == nil or a.la_hon_ma then return end
@@ -277,8 +389,27 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
         inst.components.combat:SetTarget(nil)
         inst.components.combat.defaultdamage = 0
     end
+    -- ⚠ HỒN MA KHÔNG ĐƯỢC ĐỂ ENGINE COI LÀ "ĐÃ CHẾT", nếu không nó KHÔNG BAO
+    --   GIỜ ĐI ĐƯỢC. locomotor.lua:1457 đọc thẳng:
+    --       if self.inst.components.health and self.inst.components.health:IsDead()
+    --           then self:Clear() return end
+    --   Tức là xoá đích rồi thoát — mọi lệnh di chuyển đều rơi vào hư vô.
+    --
+    --   Đo trên server: ra lệnh locomotor:GoToPoint THẲNG tới Đài cách 91 đơn
+    --   vị, sau 3 giây hồn ma nhích đúng 0.0. Không phải lỗi cây hành vi; não
+    --   vẫn chạy đúng nhánh hồn ma suốt từ ngày 60 tới ngày 102.
+    --
+    --   Nên giữ cho nó 1 điểm máu và bất tử: engine thấy còn sống nên cho đi,
+    --   còn ý nghĩa "đã chết" thì mang bằng cờ `la_hon_ma` của mình. Bất tử
+    --   cũng khiến Charlie bỏ qua (Grue:CheckForStart loại thực thể invincible).
+    --
+    -- ⚠ PHẢI bật bất tử TRƯỚC rồi mới nâng máu, không thì có nhịp nó ăn sát
+    --   thương ở giữa hai lệnh.
     if inst.components.health ~= nil then
         inst.components.health:SetInvincible(true)
+        nen.thu("giữ hồn ma khỏi trạng thái chết của engine", function()
+            inst.components.health:SetVal(1, "hon_ma")
+        end)
     end
     -- Đổi sang dáng hồn ma của DST bằng cách thay BUILD, giữ nguyên BANK.
     --
@@ -301,6 +432,23 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     -- Tag "playerghost" là thứ các vật phẩm hồi sinh soi vào để biết có dùng
     -- được không.
     inst:AddTag("playerghost")
+
+    -- ⚠ PHẢI ĐẨY STATEGRAPH RA KHỎI "death", nếu không hồn ma NẰM LIỆT vĩnh
+    --   viễn. Trạng thái "death" là trạng thái cuối: nó không có lối ra và bỏ
+    --   qua mọi lệnh di chuyển. Đo trên server: cả ba hồn ma có sg="death",
+    --   não vẫn chạy đúng nhánh hồn ma (idx=1) và vẫn ra lệnh Leash tới Đài
+    --   cách 51 đơn vị — mà thân thể không nhích một bước suốt nhiều ngày.
+    --   Người chơi thì thấy "xác nằm đó mãi", không hiểu vì sao.
+    --
+    --   Hồn ma DST thật đi qua stategraph người-chơi-hồn-ma, thứ mình không
+    --   dùng được (cần HUD phía client). Nên chỉ cần trả về "idle": thân thể
+    --   nhận lệnh đi lại bình thường, còn "đã chết" giữ bằng cờ la_hon_ma.
+    GoRaKhoiTrangThaiChet(inst)
+
+    -- Bỏ việc đang làm dở. Chết rồi thì không còn đi chặt cây nữa, và giữ lại
+    -- thì lúc hồi sinh nó bám tiếp một mục tiêu đã cũ mấy ngày.
+    a.viec, a.viec_tu, a.viec_moc = nil, nil, nil
+    a.dang_lam = nil
 
     -- ⚠ KHÔNG dựa vào đường hồi sinh nội bộ của engine — nó gắn với phiên
     --   người chơi thật. `trader` do than_thiet gắn sẵn cho MỌI dân làng nhận
@@ -362,6 +510,12 @@ function dan_lang.HoiSinh(inst)
         inst.AnimState:SetMultColour(1, 1, 1, 1)
     end
 
+    -- ⚠ Cũng phải đẩy ra khỏi "death" — xem chú thích trong ThanhHonMa. Hồi
+    --   sinh mà vẫn kẹt trạng thái chết thì được cái xác biết nói, không biết đi.
+    GoRaKhoiTrangThaiChet(inst)
+    a.viec, a.viec_tu, a.viec_moc = nil, nil, nil
+    a.dang_lam = nil
+
     -- Quay lại chỗ chết nhặt đồ. Nhánh "nhặt" của cây hành vi lo phần còn lại.
     a.ve_nhat_do = a.noi_chet
     nen.log("dân làng", tostring(a.ten), "đã hồi sinh — quay lại chỗ chết nhặt đồ")
@@ -373,6 +527,106 @@ function dan_lang.LaHonMa(inst)
 end
 
 -- Chụp lại trạng thái để lưu vào world.
+-- ⚠ ĐỪNG dồn thứ dân làng cần để SỐNG. Bốn món này là nguyên liệu của đuốc
+--   (cỏ + cành), lửa trại (cỏ + gỗ) và rìu (cành + đá lửa) — cất đi là tự chặt
+--   đường sống của mình. Còn lại thì dồn tuốt.
+local KHONG_CAT = {
+    cutgrass = true, twigs = true, log = true, flint = true,
+}
+
+-- Dồn một món đồ dư sang túi hàng. CHỈ khi túi chính đã đầy — lúc đó dân làng
+-- vốn đứng ngây không nhặt được gì nữa.
+function dan_lang.CatVaoTuiHang(inst)
+    local tui = inst.components.inventory
+    local hang = inst.components.container
+    if tui == nil or hang == nil or not tui:IsFull() or hang:IsFull() then
+        return false
+    end
+    for _, mon in pairs(tui.itemslots or {}) do
+        if mon ~= nil and not KHONG_CAT[mon.prefab]
+           and mon.components.equippable == nil
+           and mon.components.tool == nil
+           and hang:CanTakeItemInSlot(mon) then
+            local go = tui:RemoveItem(mon, true)
+            if go ~= nil and hang:GiveItem(go) then
+                nen.doi(inst, tostring(inst.ailang and inst.ailang.ten),
+                        "dồn", go.prefab, "sang túi hàng")
+                return true
+            end
+            if go ~= nil then tui:GiveItem(go) end   -- không vào được thì trả lại
+        end
+    end
+    return false
+end
+
+-- ── ánh sáng THẬT ───────────────────────────────────────────────────────
+--
+-- ⚠ ĐUỐC KHÔNG PHÁT SÁNG PHÍA SERVER. Đây là thứ đã giết cả làng hết đêm này
+--   tới đêm khác, và mọi bản vá trước đều vá nhầm chỗ.
+--
+--   Đo trực tiếp trên server chuyên dụng, giữa đêm, cách mọi đống lửa 40 đơn
+--   vị, tay CẦM ĐUỐC ĐANG CHÁY:
+--       ánh sáng tại chỗ đứng = 0.000  ->  sự kiện "enterdark"  ->  Charlie
+--   Trong khi đứng cạnh lửa trại thì = 0.871 và Charlie cấp miễn nhiễm "light".
+--   Nhật ký trận chết còn ghi rõ: Binh chết với `tay = torch` trên tay.
+--
+--   Lý do nằm trong torch.lua: `onequip` sinh một FX tên `torchfire` rồi gọi
+--   `fx:AttachLightTo(owner)`. FX là thứ CLIENT VẼ — trên server chuyên dụng
+--   nó không tạo nguồn sáng nào. Lửa trại thì khác: nó là thực thể thật trong
+--   thế giới nên có ánh sáng thật, và đó là lý do DUY NHẤT dân làng từng sống
+--   sót đêm nào.
+--
+--   May là prefab người chơi có sẵn `inst.Light` (player_common.lua dựng nó
+--   rồi Enable(false), để dành cho hiệu ứng bị điện giật). Bật nó lên là dân
+--   làng có ánh sáng THẬT: đo được 0.739 và Charlie chuyển sang miễn nhiễm
+--   "light" ngay nhịp sau.
+local DEN = {
+    torch      = { r = 3.0, i = 0.80, mau = { 180 / 255, 195 / 255, 150 / 255 } },
+    lantern    = { r = 4.0, i = 0.85, mau = { 180 / 255, 195 / 255, 150 / 255 } },
+    minerhat   = { r = 3.5, i = 0.80, mau = { 180 / 255, 195 / 255, 150 / 255 } },
+    nightstick = { r = 3.0, i = 0.80, mau = { 150 / 255, 150 / 255, 255 / 255 } },
+}
+local DEN_MAC_DINH = { r = 3.0, i = 0.80, mau = { 180 / 255, 195 / 255, 150 / 255 } }
+
+function dan_lang.CapNhatDen(inst)
+    if inst.Light == nil or not inst:IsValid() then return end
+    if dan_lang.LaHonMa(inst) then inst.Light:Enable(false) return end
+    local nc = require("ailang/nhu_cau")
+    -- ⚠ Dùng DangChayThat, KHÔNG dùng MonPhatSang: cây đuốc 20% vẫn đang cháy
+    --   và vẫn cứu mạng, chỉ là không còn đủ để yên tâm. Lấy ngưỡng kế hoạch
+    --   (25%) đi tắt đèn thật là tự đẩy chúng vào bóng tối.
+    local mon = nc.DuyetTrangBi(inst, nc.DangChayThat)
+    if mon == nil then
+        inst.Light:Enable(false)
+        return
+    end
+    local d = DEN[mon.prefab] or DEN_MAC_DINH
+    inst.Light:SetRadius(d.r)
+    inst.Light:SetIntensity(d.i)
+    inst.Light:SetFalloff(0.7)
+    inst.Light:SetColour(d.mau[1], d.mau[2], d.mau[3])
+    inst.Light:Enable(true)
+end
+
+-- ⚠ TRỜI TỐI THÌ BỎ DỤNG CỤ XUỐNG. Luật "đêm không cầm dụng cụ" mới chỉ chặn
+--   việc NHẬN thêm việc cần dụng cụ, chứ không gỡ cây rìu đã cầm từ ban ngày.
+--   Đo trên server: hai dân làng chết giữa đêm với `tay = axe`, đúng cái lỗi
+--   tưởng đã vá. Rìu trong tay còn chiếm mất ô mà cây đuốc cần.
+function dan_lang.CatDungCuKhiToi(inst)
+    if dan_lang.LaHonMa(inst) then return false end
+    local nc = require("ailang/nhu_cau")
+    if not nc.KhongRanhTay(inst) then return false end
+    local tui = inst.components.inventory
+    if tui == nil then return false end
+    local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+    if tay == nil or tay.components.tool == nil then return false end
+    local go = tui:Unequip(EQUIPSLOTS.HANDS)
+    if go ~= nil then tui:GiveItem(go) end
+    nen.doi(inst, tostring(inst.ailang and inst.ailang.ten),
+            "cất", tay.prefab, "vì trời tối")
+    return true
+end
+
 function dan_lang.ChupHoSo(inst)
     if inst == nil or not inst:IsValid() or inst.ailang == nil then return nil end
     local x, _, z = inst.Transform:GetWorldPosition()

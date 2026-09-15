@@ -20,6 +20,9 @@ local MO_DUN = {
     "ailang/nhu_cau",
     "ailang/sinh_ton",
     "ailang/viec",
+    "ailang/hanh_dong",
+    "ailang/kho_lang",
+    "ailang/muc_tieu",
     "ailang/cau_noi",
     "ailang/lenh",
     "brains/danlangbrain",
@@ -87,6 +90,9 @@ function nap_lai.DangKyLenh()
     rawset(_G, "c_ailang_giet",   goi("Giet"))
     rawset(_G, "c_ailang_goi",    goi("Goi"))
     rawset(_G, "c_ailang_bang",   goi("Bang"))
+    rawset(_G, "c_ailang_kho",    goi("Kho"))
+    rawset(_G, "c_ailang_chienluoc", goi("ChienLuoc"))
+    rawset(_G, "c_ailang_muctieu", goi("MucTieu"))
     rawset(_G, "c_ailang_theo",   goi("Theo"))
     rawset(_G, "c_ailang_onha",   goi("ONha"))
     rawset(_G, "c_ailang_tudo",   goi("TuDo"))
