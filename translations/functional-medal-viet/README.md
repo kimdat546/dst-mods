@@ -83,8 +83,40 @@ Montfluv (`translation_es/` cho thấy tác giả đó nhận đóng góp), nên
 
 Dùng riêng trong nhóm thì không vướng gì.
 
-## Tiến độ
+## Tiến độ — 856/856 (100%)
 
-Xem `tools/build.py` in ra khi dựng. Bảng thuật ngữ bám theo bản dịch game gốc
-trong `translations/dst-tieng-viet/vietnamese.po` (Đá cẩm thạch, Nhân Sâm,
-Củ Thịt, Ong Chúa, Ngọc Lam, Đạn, Bẫy, Ba Lô, Rương…).
+| | |
+|---|---|
+| 386 | tên vật phẩm |
+| 166 | mô tả công thức |
+| 304 | lời nhân vật khi soi đồ |
+
+Bảng thuật ngữ bám theo bản dịch game gốc trong
+`translations/dst-tieng-viet/vietnamese.po`: Đá cẩm thạch, Nhân Sâm, Củ Thịt,
+Ong Chúa, Ngọc Lam/Lục, Pha Lê Trăng, Vợt côn trùng, Xẻng, Ba Lô, Rương, và
+tên rau quả.
+
+Thuật ngữ riêng của mod, giữ nhất quán xuyên suốt:
+
+| gốc | Việt |
+|---|---|
+| 勋章 | Huân chương |
+| 时空 | Thời Không |
+| 本源 | Bản Nguyên |
+| 蓝晶 / 红晶 | Lam Tinh / Hồng Tinh |
+| 凋零 | Điêu Linh |
+
+Thành ngữ Trung dịch theo **nghĩa** sang thành ngữ Việt tương đương chứ không
+dịch chữ: 熟能生巧 → *Trăm hay không bằng tay quen*, 只要功夫深铁杵磨成针 →
+*Có công mài sắt có ngày nên kim*, 沉默是金 → *Im lặng là vàng*.
+
+⚠ Một chỗ **cố ý lệch** với `.po` cũ: ở đó `Hammer` dịch là "Đập" (động từ),
+danh từ phải là **"Búa"**. Mod này dùng "Búa Pha Lê Trăng". Đáng xem lại bên
+`dst-tieng-viet`.
+
+## Kiểm tự động khi dựng
+
+`tools/build.py` từ chối dựng nếu **placeholder lệch**. Chuỗi gốc có
+`{medal}` `{level}` `{food}` `{product}` `{item}` `{chest}` `{backpack}`
+`{trap}`; dịch đánh rơi hoặc viết sai thì người chơi thấy nguyên chữ `{food}`
+giữa câu. Hiện **0 lỗi trên 856 chuỗi**, 0 chuỗi còn sót chữ Hán, 0 chuỗi rỗng.
