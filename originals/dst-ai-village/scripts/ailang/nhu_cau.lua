@@ -208,12 +208,28 @@ nhu_cau.CoTrongTui = CoTrongTui
 
 local SAP_LA = 0.15   -- dưới mức này thì ăn gì cũng được, miễn sống
 
+-- ⚠ HỎI CHÍNH NHÂN VẬT, ĐỪNG ĐỌC THẲNG SỐ TRÊN MÓN ĂN. `edible.healthvalue`
+--   là giá trị GỐC; từng nhân vật lại đọc nó khác nhau — WX-78 ăn đồ thiu
+--   không sao, Wigfrid chỉ ăn thịt, Webber ăn được đồ quái. `edible:GetHealth
+--   (eater)` và `:GetSanity(eater)` đã tính sẵn phần đó.
+--
+-- ⚠ Và có nhân vật MIỄN NHIỄM hẳn tác dụng phụ (`eater:DoFoodEffects` trả
+--   false, ví dụ lúc là hồn ma hoặc mấy nhân vật đặc biệt). Với họ thì món
+--   "hại" chẳng hại gì, chỉ còn phần no — chê nó là chê oan một bữa ăn.
+--   (Mượn GrimCook.Immune / ItemCost của GrimWorld.)
 function nhu_cau.ChamDiemAn(inst, mon)
     local ed = mon.components.edible
     if ed == nil then return nil end
-    local mau  = ed.healthvalue or 0
-    local nao  = ed.sanityvalue or 0
-    local no   = ed.hungervalue or 0
+
+    local an = inst.components.eater
+    local mien_nhiem = an ~= nil and an.DoFoodEffects ~= nil
+                       and not an:DoFoodEffects(mon)
+
+    local no = ed.GetHunger ~= nil and ed:GetHunger(inst) or (ed.hungervalue or 0)
+    if mien_nhiem then return no end
+
+    local mau = ed.GetHealth ~= nil and ed:GetHealth(inst) or (ed.healthvalue or 0)
+    local nao = ed.GetSanity ~= nil and ed:GetSanity(inst) or (ed.sanityvalue or 0)
     -- No là thứ đang cần; máu và não tính nặng hơn vì mất thì khó lấy lại.
     return no + mau * 3 + nao * 2
 end

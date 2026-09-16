@@ -181,15 +181,85 @@ end
 
 -- ── chỗ cất đồ trong làng ───────────────────────────────────────────────
 
+-- ⚠ CHỌN KHO BẰNG ĐIỂM, KHÔNG PHẢI "RƯƠNG ĐẦU TIÊN CHỨA ĐƯỢC". Bản trước lấy
+--   bừa cái nào nhận được là nhét vào, nên thịt có thể nằm trong rương gỗ
+--   trong khi tủ lạnh ngay bên cạnh còn trống — mà perishable.lua nhân hệ số
+--   hỏng theo chỗ cất: ngoài trời ×1,5, rương ×1,0, tủ lạnh ×0,5.
+--
+--   Bảng điểm mượn từ GrimWorld (GrimColony:ChooseStorageDest):
+--       đồ hỏng được -> tủ lạnh 200, rương thường 50
+--       đồ không hỏng -> rương thường 100, tủ lạnh CẤM (để dành chỗ lạnh)
+--       rương đã có sẵn cùng loại: +30 (gộp chồng, đỡ xé ô)
+--       bằng điểm thì chọn cái gần người mang hơn
+local DIEM_LANH_HONG   = 200
+local DIEM_RUONG_HONG  = 50
+local DIEM_RUONG_THUONG = 100
+local DIEM_GOP_CHONG   = 30
+
+local function LaKhoLanh(v)
+    return v:HasTag("fridge") or v:HasTag("saltbox")
+end
+
+local function CoSanCungLoai(c, mon)
+    if mon == nil then return false end
+    for _, m in pairs(c.slots or {}) do
+        if m ~= nil and m.prefab == mon.prefab then return true end
+    end
+    return false
+end
+
 function lang.RuongTrongLang(inst, mon)
     local tam = lang.Tam(inst)
     if tam == nil then return nil end
-    return FindEntity(inst, lang.BanKinh(inst), function(v)
+    local hong = mon ~= nil and mon.components.perishable ~= nil
+
+    local tot, diem_tot, xa_tot = nil, -1, math.huge
+    for _, v in ipairs(TheSim:FindEntities(tam[1], 0, tam[2], lang.BanKinh(inst),
+            { "structure" }, { "INLIMBO", "burnt", "fire" })) do
         local c = v.components.container
-        if c == nil or not lang.ThucTheTrongLang(inst, v) then return false end
-        if c:IsFull() then return false end
-        return mon == nil or c:CanTakeItemInSlot(mon)
-    end, { "structure" }, { "INLIMBO", "burnt", "fire" })
+        if c ~= nil and not c:IsFull() and lang.ThucTheTrongLang(inst, v)
+           and (mon == nil or c:CanTakeItemInSlot(mon)) then
+            local lanh = LaKhoLanh(v)
+            local diem, dung = 0, true
+            if hong then
+                diem = lanh and DIEM_LANH_HONG or DIEM_RUONG_HONG
+            elseif lanh then
+                dung = false      -- chỗ lạnh để dành cho đồ hỏng được
+            else
+                diem = DIEM_RUONG_THUONG
+            end
+            if dung then
+                if CoSanCungLoai(c, mon) then diem = diem + DIEM_GOP_CHONG end
+                local xa = inst:GetDistanceSqToInst(v)
+                if diem > diem_tot or (diem == diem_tot and xa < xa_tot) then
+                    tot, diem_tot, xa_tot = v, diem, xa
+                end
+            end
+        end
+    end
+    return tot
+end
+
+-- ⚠ LỬA ĐÃ TẮT VẪN NHÓM LẠI ĐƯỢC, và rẻ hơn dựng mới. `firepit` không biến
+--   mất khi hết củi (chỉ `campfire` mới tan thành tro), nên làng thường có một
+--   cái bếp nguội đứng đó mà KHÔNG AI ĐỔ CỦI VÀO: ViecTiepLua đòi
+--   `burnable:IsBurning()` nên bỏ qua sạch. Ném củi vào là nó cháy lại.
+--   (GrimCook.FindFire của GrimWorld trả về cả hai: lửa đang cháy gần nhất,
+--   và lửa nguội gần nhất đáng nhóm lại.)
+function lang.LuaTatCuaLang(inst)
+    local tam = lang.Tam(inst)
+    if tam == nil then return nil end
+    local gan, d_gan = nil, nil
+    for _, v in ipairs(TheSim:FindEntities(tam[1], 0, tam[2], lang.BanKinh(inst),
+            { "campfire" }, { "INLIMBO", "burnt" })) do
+        local f = v.components.fueled
+        local b = v.components.burnable
+        if f ~= nil and f.accepting and b ~= nil and not b:IsBurning() then
+            local d = inst:GetDistanceSqToInst(v)
+            if gan == nil or d < d_gan then gan, d_gan = v, d end
+        end
+    end
+    return gan
 end
 
 return lang
