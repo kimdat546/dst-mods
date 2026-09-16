@@ -265,10 +265,12 @@ local function nhu_cau_mod() return require("ailang/nhu_cau") end
 
 local MAY_THU   -- máy khoa học của khuôn, dọn ở lần gọi sau
 local RUONG_THU -- rương của khuôn, dọn ở lần gọi sau
+local NOI_THU   -- nồi của khuôn, dọn ở lần gọi sau
 
 local function ThoaHetNhuCau(e)
     if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
     if RUONG_THU ~= nil and RUONG_THU:IsValid() then RUONG_THU:Remove() end
+    if NOI_THU ~= nil and NOI_THU:IsValid() then NOI_THU:Remove() end
     local tui = e.components.inventory
     -- ⚠ ĐUỐC PHẢI TRANG BỊ SAU CÙNG. Giáo cũng chiếm Ô TAY, nên trang bị nó
     --   sau đuốc là đẩy đuốc vào túi — và từ khi bỏ lối thoát "đứng cạnh lửa
@@ -304,6 +306,8 @@ local function ThoaHetNhuCau(e)
     end
     RUONG_THU = SpawnPrefab("treasurechest")
     if RUONG_THU ~= nil then RUONG_THU.Transform:SetPosition(x + 9, y, z) end
+    NOI_THU = SpawnPrefab("cookpot")
+    if NOI_THU ~= nil then NOI_THU.Transform:SetPosition(x + 11, y, z) end
     return lua
 end
 
@@ -3276,6 +3280,183 @@ local function ThuChamDiemAn(tiep)
     tiep()
 end
 
+
+-- ── 55. chế nguyên liệu trung gian ──────────────────────────────────────
+--
+-- ⚠ ĐÂY LÀ MỘT LỖ THẬT, KHÔNG PHẢI TÍNH NĂNG THÊM. `ConThieu` đọc bảng nguyên
+--   liệu MỘT TẦNG, và `NGUON` chỉ có thứ nhặt/chặt/đào được. Nên rương
+--   (boards×3 <- log×4) và nồi (cutstone×3 <- rocks×3) KHÔNG BAO GIỜ dựng nổi:
+--   dân làng đi tìm "boards" mọc dưới đất, tìm mãi không ra, nhu cầu bị ghi bó
+--   tay rồi cho nghỉ. Nằm im từ lúc thêm nhu cầu "kho" tới giờ.
+local function ThuCheTrungGian(tiep)
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local ban_ve = require("ailang/ban_ve")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    TheWorld:PushEvent("ms_setphase", "day")
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+
+    KT("dựng đúng cảnh: boards là ĐỒ CHẾ, không nhặt được dưới đất",
+       AllRecipes["boards"] ~= nil and nc.NGUON["boards"] == nil)
+
+    -- Cho đủ gỗ và một cái máy, rồi bảo nó lo nhu cầu "kho" (cần rương).
+    local may = SpawnPrefab("researchlab")
+    may.Transform:SetPosition(x + 5, y, z)
+    local tui = e.components.inventory
+    local go = SpawnPrefab("log")
+    go.components.stackable:SetStackSize(8)
+    tui:GiveItem(go)
+
+    TheWorld:DoTaskInTime(0.6, function()
+        local truoc = 0
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil and m.prefab == "boards" then
+                truoc = truoc + (m.components.stackable ~= nil
+                                 and m.components.stackable:StackSize() or 1)
+            end
+        end
+        KT("dựng đúng cảnh: chưa có tấm ván nào", truoc == 0)
+
+        -- Bản vẽ đứng chắn ở bước 2b, nên tạm cấm bản vẽ để đo đúng bước 3a.
+        local cu = ban_ve.DUNG_BAN_VE.treasurechest
+        ban_ve.DUNG_BAN_VE.treasurechest = nil
+        st.Giai(e, function(n) return n.ma == "kho_chua" end)
+        ban_ve.DUNG_BAN_VE.treasurechest = cu
+
+        local sau = 0
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil and m.prefab == "boards" then
+                sau = sau + (m.components.stackable ~= nil
+                             and m.components.stackable:StackSize() or 1)
+            end
+        end
+        KT("có gỗ thì tự CHẾ tấm ván, không đi tìm ván dưới đất",
+           sau > truoc, "ván trước=" .. truoc .. " sau=" .. sau)
+
+        may:Remove()
+        for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+        tiep()
+    end)
+end
+
+
+-- ── 56. nồi và đường lấy than ───────────────────────────────────────────
+--
+-- ⚠ THAN KHÔNG NHẶT ĐƯỢC DƯỚI ĐẤT — chỉ ra từ cây bị ĐỐT rồi chặt
+--   (evergreens.lua: chop_down_burnt_tree gọi SpawnLootPrefab("charcoal")).
+--   Và lửa thì LAN: làng cháy là mất sạch, nên việc đốt có ba chốt an toàn.
+local function ThuLayThan(tiep)
+    local vi = require("ailang/viec")
+    local nc = require("ailang/nhu_cau")
+    local kho_lang = require("ailang/kho_lang")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local mua_cu = TheWorld.state.season
+    TheWorld:PushEvent("ms_setphase", "day")
+    TheWorld:PushEvent("ms_setseason", "autumn")
+
+    -- ⚠ DỌN NỒI VÀ THAN CŨ. Khuôn ThoaHetNhuCau dựng một cái nồi và chỉ xoá nó
+    --   ở LẦN GỌI SAU, nên nó còn đứng đó khi bài này chạy — mà có nồi rồi thì
+    --   ViecLayThan thôi luôn (đốt rừng làm gì nữa). Đã hỏng oan đúng vậy.
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, nil, { "INLIMBO" })) do
+        if v.prefab == "cookpot" or v.prefab == "charcoal" then v:Remove() end
+    end
+
+    KT("bảng nhu cầu có mục nồi", nc.Tim("noi") ~= nil)
+    KT("nồi xếp SAU xưởng và kho (cần tech 1 mới chế được)",
+       nc.ChiSo("nồi") > nc.ChiSo("xưởng") and nc.ChiSo("nồi") > nc.ChiSo("kho"))
+
+    local tui = e.components.inventory
+    local duoc = SpawnPrefab("torch")
+    tui:GiveItem(duoc) tui:Equip(duoc)
+    tui:GiveItem(SpawnPrefab("axe"))
+
+    TheWorld:DoTaskInTime(0.6, function()
+        kho_lang.XoaDem()
+        -- ⚠ CÂY GẦN LÀNG THÌ KHÔNG ĐỐT. Lửa lan tới nhà là mất sạch.
+        local gan = SpawnPrefab("evergreen")
+        gan.Transform:SetPosition(x + 6, y, z)
+        KT("cây sát làng thì KHÔNG châm lửa",
+           vi.ViecLayThan(e) == nil,
+           "việc=" .. tostring((vi.ViecLayThan(e) or {}).vi_sao))
+
+        -- Cây đủ xa thì mới đốt.
+        -- ⚠ 35 là cố ý: NGOÀI mức 30 (sát làng thì cấm) nhưng TRONG mức 45
+        --   (xa hơn thì dân làng bị dây trói về nhà lôi lại giữa đường).
+        local xa = SpawnPrefab("evergreen")
+        xa.Transform:SetPosition(x + 35, y, z)
+        local bk = kho_lang.Kiem()
+        local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+        -- ⚠ CÂY CHỈ CÓ `burnable` KHI NÓ THỨC. evergreens.lua gắn nó trong
+        --   OnEntityWake và GỠ RA trong OnEntitySleep để đỡ tốn — mà server
+        --   chuyên dụng không có client thì gần như mọi thứ đều ngủ. Lọc cây
+        --   theo `components.burnable` là loại sạch mọi cái cây.
+        KT("cây đang ngủ thì CHƯA có burnable — đừng lọc theo nó",
+           xa.components.burnable == nil,
+           "burnable=" .. tostring(xa.components.burnable ~= nil))
+        local v = vi.ViecLayThan(e)
+        KT("cây đủ xa thì châm lửa lấy than",
+           v ~= nil and v.hanh_dong == ACTIONS.LIGHT and v.muc_tieu == xa,
+           "việc=" .. tostring(v and v.vi_sao)
+           .. " | nồi=" .. tostring(bk.cong_trinh and bk.cong_trinh.cookpot)
+           .. " than=" .. tostring(bk.mon and bk.mon.charcoal)
+           .. " tay=" .. tostring(tay and tay.prefab)
+           .. " lighter=" .. tostring(tay ~= nil and tay.components.lighter ~= nil)
+           .. " mùa=" .. tostring(TheWorld.state.season)
+           .. " túi=" .. (function()
+                  local o = {}
+                  for _, m in pairs(tui.itemslots or {}) do
+                      if m ~= nil then
+                          table.insert(o, m.prefab .. (m.components.lighter ~= nil and "*" or ""))
+                      end
+                  end
+                  return table.concat(o, ",")
+              end)()
+           .. " xa=" .. tostring(math.floor(math.sqrt(e:GetDistanceSqToInst(xa)))))
+
+        -- ⚠ MÙA HÈ THÌ TUYỆT ĐỐI KHÔNG. Mùa đó đồ tự bốc cháy sẵn rồi.
+        TheWorld:PushEvent("ms_setseason", "summer")
+        TheWorld:DoTaskInTime(0.6, function()
+            KT("mùa hè thì KHÔNG đốt cây, dù có cần than",
+               vi.ViecLayThan(e) == nil,
+               "mùa=" .. tostring(TheWorld.state.season))
+            TheWorld:PushEvent("ms_setseason", "autumn")
+
+            TheWorld:DoTaskInTime(0.6, function()
+                -- Cây đã cháy thì chặt lấy than, lúc nào cũng an toàn.
+                gan:Remove() xa:Remove()
+                -- ⚠ Cây đang ngủ KHÔNG có `burnable`, nên gọi thẳng
+                --   `burnable:Ignite()` là NỔ — đã làm sập cả bộ kiểm giữa
+                --   chừng, không in nổi dòng XONG nào. Tự gắn vào trước.
+                local chay = SpawnPrefab("evergreen")
+                chay.Transform:SetPosition(x + 5, y, z)
+                if chay.components.burnable == nil then
+                    pcall(MakeLargeBurnable, chay, 3)
+                end
+                if chay.components.burnable ~= nil then
+                    pcall(function() chay.components.burnable:Ignite() end)
+                end
+                TheWorld:DoTaskInTime(2, function()
+                    -- Cây cháy xong mang tag "burnt" và vẫn chặt được — đó là
+                    -- lúc ra than (evergreens.lua: chop_down_burnt_tree).
+                    local v2 = vi.ViecLayThan(e)
+                    KT("có cây đã cháy thì đi chặt lấy than",
+                       v2 ~= nil and v2.hanh_dong == ACTIONS.CHOP,
+                       "việc=" .. tostring(v2 and v2.vi_sao)
+                       .. " cây_burnt=" .. tostring(chay:IsValid() and chay:HasTag("burnt")))
+                    if chay:IsValid() then chay:Remove() end
+                    TheWorld:PushEvent("ms_setseason", mua_cu)
+                    kho_lang.XoaDem()
+                    tiep()
+                end)
+            end)
+        end)
+    end)
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -3299,7 +3480,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuVongKhoaCui, ThuTranThuGom,
                ThuBanVe, ThuBanVeTraDu,
                ThuGomLieuDem, ThuNgheNghiep,
-               ThuChonKhoVaNhomLua, ThuChamDiemAn }
+               ThuChonKhoVaNhomLua, ThuChamDiemAn,
+               ThuCheTrungGian, ThuLayThan }
 local i = 0
 local function tiep()
     i = i + 1
@@ -3309,6 +3491,7 @@ local function tiep()
         TraLaiGio()
         if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
         if RUONG_THU ~= nil and RUONG_THU:IsValid() then RUONG_THU:Remove() end
+        if NOI_THU ~= nil and NOI_THU:IsValid() then NOI_THU:Remove() end
         KhoiPhucLang()
         print(string.format("[TU-KIEM] ===== XONG: %d đạt, %d hỏng =====", dat, hong))
     end

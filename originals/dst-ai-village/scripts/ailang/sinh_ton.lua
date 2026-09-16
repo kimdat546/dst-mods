@@ -318,12 +318,47 @@ local function GiaiMot(inst, n, tam)
     local re_nhat = n.bac ~= nil and n.bac[#n.bac] or nil
     if re_nhat ~= nil then
         local thieu = sinh_ton.ConThieu(inst, re_nhat.mon)
+
+        -- 3a. Nguyên liệu nào tự nó là ĐỒ CHẾ thì chế ra, đừng đi tìm.
+        --
+        -- ⚠ ĐÂY LÀ MỘT LỖ THẬT, KHÔNG PHẢI TÍNH NĂNG THÊM. `ConThieu` đọc bảng
+        --   nguyên liệu một tầng, và `NGUON` chỉ có thứ NHẶT/CHẶT/ĐÀO được.
+        --   Nên rương (boards×3 <- log×4) và nồi (cutstone×3 <- rocks×3)
+        --   KHÔNG BAO GIỜ dựng nổi: dân làng đi tìm "boards" mọc dưới đất,
+        --   tìm mãi không ra, nhu cầu bị ghi bó tay rồi cho nghỉ.
+        for _, t in ipairs(thieu or {}) do
+            if AllRecipes[t[1]] ~= nil and b ~= nil and b:CanBuild(t[1]) then
+                local ok = nen.thu("chế trung gian " .. t[1], function()
+                    b:DoBuild(t[1])
+                end)
+                if ok then
+                    nen.log(tostring(inst.ailang.ten), "chế", t[1], "để làm",
+                            re_nhat.mon)
+                    return "xong"
+                end
+            end
+        end
+
         for _, t in ipairs(thieu or {}) do
             local hd = sinh_ton.DiKiem(inst, t[1], nil, tam)
             if hd ~= nil then
                 nen.doi(inst, tostring(inst.ailang.ten), "đi kiếm", t[1],
                         "(thiếu " .. t[2] .. ") cho", re_nhat.mon)
                 return hd
+            end
+            -- 3b. Chưa chế được nguyên liệu trung gian thì đi kiếm liệu CỦA NÓ.
+            --     Một tầng nữa là đủ: boards <- log, cutstone <- rocks,
+            --     rope <- cutgrass. Không có công thức nào sâu hơn ở tech 1.
+            if AllRecipes[t[1]] ~= nil then
+                for _, t2 in ipairs(sinh_ton.ConThieu(inst, t[1]) or {}) do
+                    local hd2 = sinh_ton.DiKiem(inst, t2[1], nil, tam)
+                    if hd2 ~= nil then
+                        nen.doi(inst, tostring(inst.ailang.ten), "đi kiếm", t2[1],
+                                "(thiếu " .. t2[2] .. ") để chế", t[1],
+                                "cho", re_nhat.mon)
+                        return hd2
+                    end
+                end
             end
         end
     end

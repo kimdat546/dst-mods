@@ -575,6 +575,114 @@ viec.ViecThuBay   = ViecThuBay
 viec.ViecDatBay   = ViecDatBay
 viec.ViecCatDoAn  = ViecCatDoAn
 
+-- ── lấy than: đốt cây rồi chặt cây cháy ─────────────────────────────────
+--
+-- ⚠ THAN KHÔNG NHẶT ĐƯỢC DƯỚI ĐẤT. Nó chỉ ra từ cây bị ĐỐT rồi chặt
+--   (evergreens.lua: chop_down_burnt_tree gọi SpawnLootPrefab("charcoal")).
+--   Nên nó không nằm trong bảng NGUON được — DiKiem không biết "đốt" là gì,
+--   và quan trọng hơn là không biết đốt ở ĐÂU thì an toàn.
+--
+-- ⚠ LỬA LAN, VÀ LÀNG CHÁY LÀ MẤT SẠCH. Ba chốt an toàn, thiếu cái nào cũng
+--   không đốt:
+--     * KHÔNG đốt vào mùa hè — mùa đó đồ tự bốc cháy, thêm lửa là tự sát
+--     * cây phải ở NGOÀI vùng làng một quãng, để lửa lan không tới nhà
+--     * quanh cây đó không được có công trình nào
+--
+--   Chặt cây đã cháy thì luôn an toàn, làm lúc nào cũng được.
+-- ⚠ BA CON SỐ NÀY PHẢI ĂN KHỚP VỚI NHAU VÀ VỚI DÂY TRÓI VỀ NHÀ. Bản đầu đặt
+--   khoảng cách an toàn = bán kính làng + 25 (tức ~65) trong khi chỉ tìm trong
+--   bán kính 40 — nên KHÔNG BAO GIỜ tìm ra cây nào, việc đốt than chết câm.
+--   Bộ tự kiểm bắt được ngay: "cây đủ xa thì châm lửa" trả việc=nil.
+--
+--   Và kể cả tìm ra thì cũng hỏng: danlangbrain kéo dân làng về khi đi quá 50
+--   đơn vị (VE_NHA_XA), nên cây ở 65 là nó bị lôi về giữa đường.
+--
+--   Đặt lại cho khớp: đốt cây cách tâm làng 30-45, tức NGOÀI vùng ở nhưng vẫn
+--   TRONG dây trói. An toàn thật nằm ở chốt "quanh cây không có công trình".
+local XA_TOI_THIEU = 30   -- cách tâm làng ít nhất bấy nhiêu mới được châm lửa
+local XA_TOI_DA    = 45   -- và không quá bấy nhiêu, để còn về được
+local QUANH_TRONG  = 20   -- quanh cây không được có công trình trong bán kính này
+local DU_THAN      = 6    -- nồi cần 6; gom đủ thì thôi đốt
+
+local function CanThan(inst)
+    local bk = kho_lang.KiemDem()
+    if bk == nil then return false end
+    -- Đã có nồi rồi thì thôi, khỏi đốt rừng cho vui.
+    if bk.cong_trinh ~= nil and bk.cong_trinh.cookpot ~= nil then return false end
+    return (bk.mon.charcoal or 0) < DU_THAN
+end
+
+local function ViecLayThan(inst)
+    if not CanThan(inst) then return nil end
+
+    -- 1. Có cây cháy sẵn thì chặt lấy than — luôn an toàn.
+    --
+    -- ⚠ ĐỪNG DÙNG `Tim` Ở ĐÂY. Danh sách cấm dùng chung của nó (KHONG_LAY) có
+    --   luôn tag "burnt", nên nó loại sạch đúng thứ mình đang tìm — và cây
+    --   cháy thì không bao giờ được chặt, than không bao giờ về. Bộ tự kiểm
+    --   bắt được: cây_burnt=true mà việc=nil.
+    --   `Tim` cũng bó mục tiêu trong vùng làng, trong khi cây đốt lấy than cố
+    --   ý nằm NGOÀI làng (30-45 đơn vị) cho khỏi cháy lan vào nhà.
+    if not nhu_cau.KhongRanhTay(inst) and CamDungCu(inst, ACTIONS.CHOP) then
+        local chay = FindEntity(inst, XA_TOI_DA, function(v)
+            if viec.DangBoQua(inst, v) then return false end
+            return v:HasTag("burnt")
+               and v.components.workable ~= nil
+               and v.components.workable:CanBeWorked()
+               and v.components.workable:GetWorkAction() == ACTIONS.CHOP
+        end, nil, { "INLIMBO", "NOCLICK", "FX", "fire" })
+        if chay ~= nil then
+            return { muc_tieu = chay, hanh_dong = ACTIONS.CHOP,
+                     vi_sao = "lấy than" }
+        end
+    end
+
+    -- 2. Chưa có thì châm lửa một cây — và chỉ khi đủ ba chốt an toàn.
+    if TheWorld.state.season == "summer" then return nil end
+    if TheWorld.state.isdusk or TheWorld.state.isnight then return nil end
+
+    local duoc = nhu_cau.DuyetTui(inst, function(m)
+        return m.components.lighter ~= nil and nhu_cau.DangChayThat(m)
+    end) or nhu_cau.DuyetTrangBi(inst, function(m)
+        return m.components.lighter ~= nil and nhu_cau.DangChayThat(m)
+    end)
+    if duoc == nil then return nil end
+
+    local tam = lang.Tam(inst)
+    if tam == nil then return nil end
+
+    -- ⚠ ĐỪNG LỌC THEO `components.burnable`. Cây chỉ có component đó khi nó
+    --   THỨC: evergreens.lua gắn burnable trong OnEntityWake và GỠ RA trong
+    --   OnEntitySleep, để đỡ tốn. Mà server chuyên dụng không có client thì
+    --   gần như mọi thứ đều ngủ — nên lọc kiểu đó là loại sạch mọi cái cây, và
+    --   việc đốt than chết câm mà nhìn như không tìm ra cây nào.
+    --   Bộ tự kiểm bắt được: burnable=false trên một cây thông vừa sinh ra.
+    --
+    --   Cái cần loại là cây ĐÃ CHÁY RỒI (tag "burnt") và gốc cụt ("stump").
+    --   Còn `burnable` thì cứ để nó xuất hiện lúc dân làng tới nơi.
+    local cay = FindEntity(inst, XA_TOI_DA, function(v)
+        if v.components.burnable ~= nil and v.components.burnable:IsBurning() then
+            return false
+        end
+        if v.components.workable == nil
+           or v.components.workable:GetWorkAction() ~= ACTIONS.CHOP then
+            return false
+        end
+        local x, _, z = v.Transform:GetWorldPosition()
+        local d2 = (x - tam[1]) ^ 2 + (z - tam[2]) ^ 2
+        if d2 < XA_TOI_THIEU * XA_TOI_THIEU then return false end  -- sát làng
+        if d2 > XA_TOI_DA * XA_TOI_DA then return false end        -- ngoài dây trói
+        return #TheSim:FindEntities(x, 0, z, QUANH_TRONG,
+                   { "structure" }, { "INLIMBO", "burnt" }) == 0
+    end, { "CHOP_workable" }, { "INLIMBO", "burnt", "stump", "fire" })
+    if cay == nil then return nil end
+
+    return { muc_tieu = cay, hanh_dong = ACTIONS.LIGHT, mon = duoc,
+             vi_sao = "đốt cây lấy than" }
+end
+
+viec.ViecLayThan = ViecLayThan
+
 -- ── nghề nghiệp ─────────────────────────────────────────────────────────
 --
 -- ⚠ CẢ LÀNG DÙNG CHUNG MỘT BẢNG NHU CẦU NÊN LUÔN LO CÙNG MỘT THỨ CÙNG LÚC.
@@ -595,13 +703,13 @@ viec.ViecCatDoAn  = ViecCatDoAn
 viec.NGHE = {
     -- kiếm ăn: bẫy, nấu, cất kho trước; việc nặng để người khác
     kiem_an = { "ThuBay", "NauChin", "DatBay", "CatDoAn",
-                "GomLieuDem", "GopBanVe", "TiepLua", "GomCui" },
+                "GomLieuDem", "GopBanVe", "TiepLua", "GomCui", "LayThan" },
     -- thợ mỏ: lo công trình và củi; đồ ăn để người khác
-    tho_mo  = { "GopBanVe", "GomCui", "TiepLua",
+    tho_mo  = { "GopBanVe", "LayThan", "GomCui", "TiepLua",
                 "GomLieuDem", "ThuBay", "NauChin", "CatDoAn", "DatBay" },
     -- giữ nhà: lửa và liệu dự trữ trước hết
     giu_nha = { "TiepLua", "GomCui", "GomLieuDem", "CatDoAn",
-                "GopBanVe", "ThuBay", "NauChin", "DatBay" },
+                "GopBanVe", "ThuBay", "NauChin", "DatBay", "LayThan" },
 }
 
 viec.THU_TU_NGHE = { "kiem_an", "tho_mo", "giu_nha" }
@@ -615,6 +723,7 @@ local LAM = {
     GomLieuDem = function(inst) return ViecGomLieuDem(inst) end,
     TiepLua    = function(inst) return ViecTiepLua(inst) end,
     GomCui     = function(inst) return ViecGomCui(inst) end,
+    LayThan    = function(inst) return ViecLayThan(inst) end,
 }
 
 local function ViecGiuLang(inst)

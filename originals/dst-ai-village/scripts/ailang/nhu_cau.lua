@@ -628,6 +628,30 @@ nhu_cau.DANH_SACH = {
         bac = { { mon = "treasurechest", dat_xuong = true, o_nha = true } },
     },
     {
+        ma  = "noi",
+        ten = "nồi",
+        -- ⚠ ĐÂY LÀ BƯỚC NHÂN GIÁ TRỊ ĐỒ ĂN LỚN NHẤT CỦA CẢ TECH 1. Thịt nướng
+        --   25 calo và hỏng nhanh; thịt viên từ nồi 62,5 calo và GIỮ ĐƯỢC 10
+        --   NGÀY. Với ba dân làng đốt 225 calo/ngày thì đó là khác biệt giữa
+        --   chạy ăn từng bữa và có kho dự trữ.
+        --
+        -- ⚠ Kẹt ở `charcoal`×6, và than thì KHÔNG nhặt được dưới đất: chỉ ra
+        --   từ cây bị ĐỐT rồi chặt (evergreens.lua, chop_down_burnt_tree).
+        --   Việc lấy than nằm ở tầng việc (viec.ViecLayThan) chứ không nằm
+        --   trong bảng nguồn, vì nó cần điều kiện an toàn mà DiKiem không biết.
+        can = function() return true end,
+        du  = function(inst)
+            local nha = inst.ailang ~= nil and inst.ailang.nha or nil
+            if nha == nil then return false end
+            for _, v in ipairs(TheSim:FindEntities(nha[1], 0, nha[2], 40,
+                    { "structure" }, { "INLIMBO", "burnt" })) do
+                if v.prefab == "cookpot" then return true end
+            end
+            return false
+        end,
+        bac = { { mon = "cookpot", dat_xuong = true, o_nha = true } },
+    },
+    {
         ma  = "hoi_nao",
         ten = "hồi não",
         can = function(inst)
