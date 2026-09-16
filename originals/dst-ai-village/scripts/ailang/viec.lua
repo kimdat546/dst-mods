@@ -241,6 +241,13 @@ local function ViecTiepLua(inst)
            and v.components.burnable:IsBurning()
            and lang.ThucTheTrongLang(inst, v)
     end, { "campfire" }, { "INLIMBO", "burnt" })
+
+    -- ⚠ KHÔNG CÓ LỬA NÀO ĐANG CHÁY THÌ NHÓM LẠI CÁI ĐÃ TẮT. `firepit` không
+    --   biến mất khi hết củi (chỉ `campfire` mới tan thành tro), nên làng
+    --   thường có một cái bếp nguội đứng đó mà không ai đổ củi vào — điều kiện
+    --   `IsBurning()` ở trên bỏ qua sạch, và dân làng đi dựng lửa MỚI tốn thêm
+    --   2 gỗ trong khi cái cũ chỉ cần một khúc là sống lại.
+    if lo == nil then lo = lang.LuaTatCuaLang(inst) end
     if lo == nil then return nil end
 
     -- Gỗ trước: cháy lâu nhất và không dùng vào việc gì khác cấp bách.
@@ -264,6 +271,7 @@ local function ViecTiepLua(inst)
     --   Còn lại thì chỉ đốt phần dư — và đó là chỗ vòng khoá bị cắt.
     local dot_ca_du_tru = TheWorld.state.isdusk or TheWorld.state.isnight
         or lo.components.fueled:GetPercent() < NGUY_LUA
+        or (lo.components.burnable ~= nil and not lo.components.burnable:IsBurning())
     local cui = nhu_cau.DuyetTui(inst, function(m)
         if m.prefab ~= "log" or not LaCui(m) then return false end
         if dot_ca_du_tru then return true end

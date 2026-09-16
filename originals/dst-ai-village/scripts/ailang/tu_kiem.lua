@@ -3180,6 +3180,102 @@ local function ThuNgheNghiep(tiep)
     tiep()
 end
 
+
+-- ── 53. chọn kho bằng điểm, và nhóm lại lửa đã tắt ──────────────────────
+local function ThuChonKhoVaNhomLua(tiep)
+    local lang = require("ailang/lang")
+    local vi = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local pha_cu = TheWorld.state.phase
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    -- ⚠ ĐỒ HỎNG ĐƯỢC PHẢI VÀO CHỖ LẠNH. perishable.lua nhân hệ số theo chỗ
+    --   cất: ngoài trời ×1,5, rương ×1,0, tủ lạnh ×0,5. Lấy bừa rương đầu tiên
+    --   chứa được thì thịt nằm trong rương gỗ trong khi tủ lạnh ngay bên cạnh
+    --   còn trống.
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 3, y, z)
+    local tu = SpawnPrefab("icebox")
+    tu.Transform:SetPosition(x + 6, y, z)
+
+    local thit = SpawnPrefab("smallmeat")
+    KT("đồ hỏng được thì chọn TỦ LẠNH, dù rương gần hơn",
+       lang.RuongTrongLang(e, thit) == tu,
+       "chọn=" .. TenCua(lang.RuongTrongLang(e, thit)))
+
+    local da = SpawnPrefab("rocks")
+    KT("đồ KHÔNG hỏng thì không chiếm chỗ lạnh",
+       lang.RuongTrongLang(e, da) == ruong,
+       "chọn=" .. TenCua(lang.RuongTrongLang(e, da)))
+
+    -- ⚠ Gộp chồng: rương đã có sẵn cùng loại thì hơn, đỡ xé ô ra khắp nơi.
+    local ruong2 = SpawnPrefab("treasurechest")
+    ruong2.Transform:SetPosition(x + 1, y, z)     -- GẦN HƠN ruong
+    ruong.components.container:GiveItem(SpawnPrefab("rocks"))
+    KT("rương đã có sẵn cùng loại thì hơn rương trống gần hơn",
+       lang.RuongTrongLang(e, da) == ruong,
+       "chọn=" .. TenCua(lang.RuongTrongLang(e, da)))
+
+    thit:Remove() da:Remove() tu:Remove() ruong:Remove() ruong2:Remove()
+
+    -- ⚠ LỬA ĐÃ TẮT VẪN NHÓM LẠI ĐƯỢC. `firepit` không biến mất khi hết củi,
+    --   nên làng thường có một cái bếp nguội mà không ai đổ củi vào —
+    --   ViecTiepLua đòi IsBurning() nên bỏ qua sạch, và dân làng đi dựng lửa
+    --   MỚI tốn thêm 2 gỗ trong khi cái cũ chỉ cần một khúc là sống lại.
+    local bep = SpawnPrefab("firepit")
+    bep.Transform:SetPosition(x + 4, y, z)
+    bep.components.fueled:SetPercent(0)
+    e.components.inventory:GiveItem(SpawnPrefab("log"))
+
+    TheWorld:DoTaskInTime(0.6, function()
+        KT("dựng đúng cảnh: bếp đã tắt hẳn",
+           bep.components.burnable ~= nil and not bep.components.burnable:IsBurning())
+        KT("tìm được lửa đã tắt của làng", lang.LuaTatCuaLang(e) == bep)
+        local v = vi.ViecTiepLua(e)
+        KT("có củi thì đi NHÓM LẠI bếp nguội, không dựng lửa mới",
+           v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL and v.muc_tieu == bep,
+           "việc=" .. tostring(v and v.vi_sao) .. " mục tiêu=" .. TenCua(v and v.muc_tieu))
+        bep:Remove()
+        TheWorld:PushEvent("ms_setphase", pha_cu)
+        tiep()
+    end)
+end
+
+
+-- ── 54. chấm điểm đồ ăn theo CHÍNH nhân vật ─────────────────────────────
+--
+-- ⚠ `edible.healthvalue` là giá trị GỐC; từng nhân vật đọc nó khác nhau.
+--   `edible:GetHealth(eater)` đã tính sẵn phần đó. Và có lúc nhân vật MIỄN
+--   NHIỄM hẳn tác dụng phụ — với họ món "hại" chẳng hại gì, chỉ còn phần no.
+--   (Mượn GrimCook.Immune/ItemCost của GrimWorld.)
+local function ThuChamDiemAn(tiep)
+    local nc = require("ailang/nhu_cau")
+    local e = DanLangSach(Goc())
+
+    local ngon = SpawnPrefab("carrot")
+    local hai  = SpawnPrefab("monstermeat")
+    local d_ngon = nc.ChamDiemAn(e, ngon)
+    local d_hai  = nc.ChamDiemAn(e, hai)
+    KT("món hại bị chấm thấp hơn món lành",
+       d_hai ~= nil and d_ngon ~= nil and d_hai < d_ngon,
+       "hại=" .. tostring(d_hai) .. " lành=" .. tostring(d_ngon))
+
+    -- Miễn nhiễm tác dụng phụ thì món hại chỉ còn phần no.
+    local an = e.components.eater
+    local cu = an.DoFoodEffects
+    an.DoFoodEffects = function() return false end
+    local d_mien = nc.ChamDiemAn(e, hai)
+    an.DoFoodEffects = cu
+    KT("miễn nhiễm tác dụng phụ thì không chê món hại nữa",
+       d_mien ~= nil and d_mien > d_hai,
+       "miễn nhiễm=" .. tostring(d_mien) .. " thường=" .. tostring(d_hai))
+
+    ngon:Remove() hai:Remove()
+    tiep()
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -3202,7 +3298,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe,
                ThuVongKhoaCui, ThuTranThuGom,
                ThuBanVe, ThuBanVeTraDu,
-               ThuGomLieuDem, ThuNgheNghiep }
+               ThuGomLieuDem, ThuNgheNghiep,
+               ThuChonKhoVaNhomLua, ThuChamDiemAn }
 local i = 0
 local function tiep()
     i = i + 1
