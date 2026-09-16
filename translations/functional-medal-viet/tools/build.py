@@ -7,6 +7,7 @@ Sinh ra một thư mục mod hoàn chỉnh trong build/ để rsync vào game ho
 import json
 import pathlib
 import re
+import shutil
 import sys
 
 GOC = pathlib.Path(__file__).resolve().parent.parent
@@ -138,7 +139,7 @@ end)
 
     # ── modinfo ────────────────────────────────────────────────────────
     (RA / "modinfo.lua").write_text(
-        f'''name = "Functional Medal Tiếng Việt"
+        f'''name = "Functional Medal - Đừng Chết Đói :)"
 description = [[Bản dịch tiếng Việt cho mod Functional Medal (能力勋章).
 
 Mod gốc của tác giả 恒子 — chủ đề "trưởng thành": huân chương trao năng lực,
@@ -168,6 +169,9 @@ reign_of_giants_compatible = false
 all_clients_require_mod = false
 client_only_mod = true
 
+icon_atlas = "modicon.xml"
+icon = "modicon.tex"
+
 -- ⚠ PHẢI NHỎ HƠN -10001 (priority của Functional Medal).
 --   scripts/mods.lua:557 sắp mod bằng `apriority > bpriority` cho table.sort,
 --   tức GIẢM DẦN: số LỚN nạp TRƯỚC, số NHỎ nạp SAU. Muốn ghi đè chuỗi của mod
@@ -180,6 +184,21 @@ configuration_options = {{}}
 '''
         , encoding="utf-8",
     )
+
+    # ── ảnh ────────────────────────────────────────────────────────────
+    #
+    # ⚠ modicon.tex/.xml PHẢI nằm cạnh modinfo.lua, không nằm trong thư mục con
+    #   — modinfo trỏ tới chúng bằng tên trần. preview.png thì Workshop đọc,
+    #   game không dùng.
+    thieu = []
+    for ten in ("modicon.tex", "modicon.xml", "preview.png"):
+        nguon_anh = GOC / "assets" / ten
+        if nguon_anh.exists():
+            shutil.copy2(nguon_anh, RA / ten)
+        else:
+            thieu.append(ten)
+    if thieu:
+        print("  ⚠ thiếu ảnh: " + ", ".join(thieu) + " — chạy tools/make_anh.py")
 
     tong = len(nguon)
     print(f"đã dựng {RA}")

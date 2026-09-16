@@ -1,3 +1,8 @@
-# Dựng lại được từ strings_source.json bằng tools/build.py
+# Dựng lại được từ strings_source.json + assets/ bằng tools/build.py
 build/
 upload/
+
+# ⚠ Ảnh nguồn 2048px/2816px (8 MB mỗi cái) — bản đã nén trong assets/
+# (modicon.tex 64 KB, preview.png 987 KB) là đủ để dựng và upload.
+# Cùng lý do đã áp cho than-binh-phu-an-viet/assets/preview_source.png.
+assets/*_source.png
