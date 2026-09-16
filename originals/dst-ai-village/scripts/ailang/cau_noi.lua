@@ -16,6 +16,7 @@ local nen = require("ailang/nen")
 local dan_lang = require("ailang/dan_lang")
 local kho_lang = require("ailang/kho_lang")
 local muc_tieu = require("ailang/muc_tieu")
+local nhat_ky = require("ailang/nhat_ky")
 
 local cau_noi = {}
 
@@ -99,7 +100,15 @@ function cau_noi.Hoi()
         -- Bản kiểm kê CẢ LÀNG. Nhìn riêng túi từng người thì không trả lời
         -- được "đủ ăn chưa" — xem kho_lang.lua.
         kho    = kho_lang.BanGon(),
+        -- ⚠ TRÍ NHỚ DÀI HẠN. Không có hai trường này thì mỗi nhịp là một lần
+        --   hỏi ĐỘC LẬP: tầng suy nghĩ không biết đêm qua ai chết, không biết
+        --   nó đã ra lệnh gì mười nhịp trước, và ra lại đúng lệnh đã hỏng.
+        --   `nhat_ky` là thứ MOD thấy; `ghi_nho` là thứ chính nó viết cho
+        --   mình ở nhịp sau — mod chỉ giữ hộ và trả lại.
+        nhat_ky = nhat_ky.BanGon(),
+        ghi_nho = nhat_ky.GhiNho(),
     }
+    nen.thu("soát đổi thay cho nhật ký", nhat_ky.SoatDoiThay, goi.kho)
     for _, e in ipairs(ds) do
         local ok, hs = pcall(ChupMot, e)
         if ok then table.insert(goi.dan_lang, hs) end
@@ -118,6 +127,11 @@ function cau_noi.NgheTraLoi()
         if not okj or type(dap) ~= "table" or dap.dan_lang == nil then
             nen.chitiet("câu trả lời không đọc được, bỏ qua")
             return
+        end
+
+        -- Ghi nhớ của chính tầng suy nghĩ, giữ nguyên văn cho nhịp sau.
+        if dap.ghi_nho ~= nil then
+            nen.thu("nhận ghi nhớ", nhat_ky.DatGhiNho, dap.ghi_nho)
         end
 
         local theo_ma = {}

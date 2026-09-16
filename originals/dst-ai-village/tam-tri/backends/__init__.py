@@ -1,9 +1,14 @@
 """Các bộ não cắm được. Mỗi bộ chỉ cần một hàm:
 
-    nghi(goi: dict) -> list[dict]
+    nghi(goi: dict) -> (list[dict], str | None)
 
 `goi` là nguyên văn câu hỏi mod gửi sang (xem giao_thuc.doc_hoi).
-Trả về danh sách {"ma": ..., "muc_tieu": ..., "noi_gi": ...}.
+Trả về danh sách {"ma": ..., "muc_tieu": ..., "noi_gi": ...} KÈM ghi nhớ.
+
+⚠ Ghi nhớ là của CẢ TẦNG SUY NGHĨ, không của riêng dân làng nào — nên nó nằm
+  ngoài danh sách chứ không nhét vào từng mục. Mod chỉ giữ hộ và trả lại
+  nguyên văn ở nhịp sau (xem ailang/nhat_ky.lua); nó không đọc hiểu gì cả.
+  Bộ nào không có gì để nhớ thì trả None.
 
 ⚠ MỤC TIÊU KHÔNG CÒN LÀ MỘT TỪ TRONG DANH SÁCH NĂM TỪ. Bản trước dùng enum
   ("CHAT", "DAO", "HAI", "NHAT", "AN") và enum đó có hai vấn đề: nó không bao

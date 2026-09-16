@@ -75,4 +75,6 @@ def nghi(goi):
         #   cây hành vi mặc định vẫn chạy khi muc_tieu là None.
         mt = chung if (chung is not None and i < max(1, len(goi.get("dan_lang", [])) - 1)) else None
         ra.append({"ma": d["ma"], "muc_tieu": mt, "noi_gi": _cau_noi(d, kho, i == 0)})
-    return ra
+    # Não luật không có gì để nhớ: nó quyết lại từ đầu mỗi nhịp, và đó là chủ ý
+    # — nó là lưới an toàn, phải đoán được và không tích trạng thái.
+    return ra, None

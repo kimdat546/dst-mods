@@ -378,6 +378,12 @@ local KEU = {
 }
 
 
+-- Ghi nhật ký mà không kéo theo phụ thuộc vòng: nhat_ky chỉ cần `nen`.
+local function GhiNhatKy(...)
+    local ok, nk = pcall(require, "ailang/nhat_ky")
+    if ok and nk ~= nil then pcall(nk.Ghi, table.concat({ ... }, " ")) end
+end
+
 function dan_lang.ThanhHonMa(inst, noi_chet)
     local a = inst.ailang
     if a == nil or a.la_hon_ma then return end
@@ -385,6 +391,7 @@ function dan_lang.ThanhHonMa(inst, noi_chet)
     local x, _, z = inst.Transform:GetWorldPosition()
     a.noi_chet = noi_chet or { x, z }
     a.la_hon_ma = true
+    GhiNhatKy(tostring(a.ten), "chết")
     a.muc_tieu = nil
 
     -- Quái thôi nhắm vào hồn ma, và hồn ma thôi đánh lại.
@@ -488,6 +495,7 @@ function dan_lang.HoiSinh(inst)
     if a == nil or not a.la_hon_ma then return false end
 
     a.la_hon_ma = false
+    GhiNhatKy(tostring(a.ten), "sống lại")
     inst:RemoveTag("playerghost")
     if inst.components.trader ~= nil then inst:RemoveComponent("trader") end
     -- Trả lại dáng người: chỉ đổi build về, KHÔNG đụng bank (xem chú thích ở
