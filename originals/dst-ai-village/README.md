@@ -931,35 +931,21 @@ hiển thị**.
 
 **Chưa kiểm được, cần người:**
 
-- **Chạy thử tầng suy nghĩ với khoá Gemini thật.** Cả kênh AI đã kiểm kỹ ở
-  phía mod (đặt mục tiêu, soát lệnh sai, báo ngược lý do, từ điển ghi ra đĩa),
-  nhưng **chưa một lần nào có LLM thật ở đầu kia**. Ba bộ não Python nạp được
-  và bộ luật chạy đúng; phần Gemini mới chỉ kiểm bằng dữ liệu giả.
 - **Nút mở túi hàng của dân làng** — UI phía client, server headless không
   kiểm được. Cần vào game bấm thử.
-- **Dân làng tự dựng Máy Khoa Học trong một lượt tự phát.** Bốn thứ chặn cứng
+- **Dân làng tự dựng Máy Khoa Học trong một lượt tự phát.** Năm thứ chặn cứng
   đã sửa và có phép kiểm canh, nhưng world ở `tools/test/data` đã bị hàng chục
-  lượt thử vét sạch cỏ và cành quanh làng, nên `ánh sáng` chiếm lượt vĩnh viễn.
-  Phải dựng world mới hoặc vào game thật.
+  lượt thử vét sạch cỏ và cành quanh làng. Phải dựng world mới hoặc vào game
+  thật.
 - **Sống qua nhiều chu kỳ ngày–đêm liên tiếp** (mới xác nhận một chu kỳ).
 
-**Còn thiếu trong mod:**
+**Cân nhắc, chưa làm:**
 
-- **Nồi (`cookpot`)** — bước nhân giá trị đồ ăn lớn nhất còn lại (thịt viên
-  62,5 calo, giữ 10 ngày). Kẹt ở `charcoal`×6: than chỉ ra từ cây bị **đốt**,
-  nên cần động từ "châm lửa đốt cây" — và phải tính chuyện cháy lan trước.
-- **Nghề nghiệp.** Mọi dân làng dùng chung một bảng nhu cầu nên cả ba luôn lo
-  cùng một thứ cùng lúc (đã thấy: cả ba cùng "gom củi" 11 lượt liền). GrimWorld
-  giải bằng bảng ưu tiên theo nghề, cố ý không để phẳng.
-- **Chủ động gom cỏ và cành ban ngày** để chắc chắn có liệu làm đuốc. Giờ chỉ
-  nhặt được gì thì nhặt, gặp đêm tay trắng là kẹt — và đó chính là thứ đã làm
-  ba lượt thử Máy Khoa Học tắc.
-- **Trí nhớ dài hạn cho tầng suy nghĩ** (giờ mỗi nhịp là một lần hỏi độc lập).
-- `modicon.tex/.xml` (đang cảnh báo lúc nạp, vô hại).
-- Nối với ý "thủ thành" trong `docs/plans/2026-09-09-huong-phat-trien-server.md`.
+- **Thương nhân đổi hàng** (GrimWorld có: `log ×8 → vàng ×3`, `vàng ×8 →
+  gears ×2`). Giá trị còn lại của nó chỉ là mở đường tới **tủ lạnh** — mà tủ
+  lạnh đã bị **cố ý loại** khỏi bảng nhu cầu vì `gears` chỉ rơi từ người máy ở
+  Ruộng Bàn Cờ. Làm nó là đảo một quyết định đã ghi, và là thêm một NPC mới
+  vào thế giới, nên để người chơi quyết chứ không tự làm.
+- `modicon` — cần `ktech` của Don't Starve Mod Tools để chuyển PNG sang `.tex`,
+  máy hiện tại chưa có. Đã gỡ phần khai báo icon rỗng để hết cảnh báo lúc nạp.
 
-**Còn đáng học từ GrimWorld** (xem
-`docs/dst-knowledge/analysis/refmods/3748676443-grimworld.md`): chọn kho bằng
-điểm, sự kiện thương nhân đổi hàng (lối thoát cho vàng và `gears`),
-`Immune`/`Prefers` trong mô hình giá trị đồ ăn, `FindFire` trả về cả lửa tắt
-đáng nhóm lại.
