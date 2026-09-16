@@ -18,7 +18,7 @@ RA = GOC / "build" / "functional-medal-vi"
 #   tức GIẢM DẦN: số LỚN nạp TRƯỚC, số NHỎ nạp SAU. Mình cần nạp SAU mod gốc
 #   thì mới ghi đè được chuỗi của nó, nên phải nhỏ hơn.
 UU_TIEN = -10002
-PHIEN_BAN = "0.1.0"
+PHIEN_BAN = "0.1.1"
 
 
 def thoat_lua(s):
@@ -124,6 +124,18 @@ local function ApDung()
     end
     return n
 end
+
+-- ⚠ `pcall` KHÔNG CÓ trong môi trường mod. DST chỉ cấp cho modmain đúng mấy
+--   thứ này (scripts/mods.lua:369): pairs, ipairs, print, math, table, type,
+--   string, tostring, require, Class, TUNING, GLOBAL, modname, MODROOT.
+--   Mọi thứ khác phải lấy qua GLOBAL.
+--
+--   Bản đầu gọi thẳng `pcall(...)` và nó ném "attempt to call global 'pcall'
+--   (a nil value)" NGAY TRONG AddSimPostInit — tức đúng lúc người chơi vừa vào
+--   world. Triệu chứng nhìn từ server: client vào được rồi rớt sau 12-26 giây,
+--   kèm "[P2P] Connection failed ... error code 4". Không có dòng nào nói là
+--   lỗi mod, nên rất dễ đổ oan cho đường truyền.
+local pcall = GLOBAL.pcall
 
 AddSimPostInit(function()
     local ok, n = pcall(ApDung)

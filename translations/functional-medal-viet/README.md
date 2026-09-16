@@ -143,6 +143,37 @@ dịch chữ: 熟能生巧 → *Trăm hay không bằng tay quen*, 只要功夫�
 danh từ phải là **"Búa"**. Mod này dùng "Búa Pha Lê Trăng". Đáng xem lại bên
 `dst-tieng-viet`.
 
+## ⚠ Bẫy đã mất một lần upload: môi trường mod KHÔNG có `pcall`
+
+DST chỉ cấp cho `modmain` đúng mấy thứ này (`scripts/mods.lua:369`):
+
+```
+pairs  ipairs  print  math  table  type  string  tostring  require  Class
+TUNING  GLOBAL  modname  MODROOT
+```
+
+**Không có `pcall`**, không có `os`, không có `io`. Mọi thứ khác phải lấy qua
+`GLOBAL`.
+
+Bản 0.1.0 gọi thẳng `pcall(...)`. Cú pháp hoàn hảo, `luajit -bl` báo sạch, mod
+lên Workshop trót lọt — rồi ném `attempt to call global 'pcall' (a nil value)`
+**ngay trong `AddSimPostInit`**, tức đúng lúc người chơi vừa vào world.
+
+Nhìn từ log server thì triệu chứng là:
+
+```
+[Join Announcement] <tên>
+... 12-26 giây sau ...
+Connection lost to <ip>
+[P2P] Connection failed ... error code 4 (target user didn't respond)
+```
+
+Không một dòng nào nói là lỗi mod — rất dễ đổ oan cho đường truyền hoặc server.
+
+**Cách chặn:** `tools/thu_modmain.lua` chạy `modmain` trong môi trường giả lập
+dựng đúng theo `mods.lua:369`, và `make_upload.sh` gọi nó trước khi đóng gói.
+Kiểm cú pháp không bắt được loại lỗi này.
+
 ## Kiểm tự động khi dựng
 
 `tools/build.py` từ chối dựng nếu **placeholder lệch**. Chuỗi gốc có
