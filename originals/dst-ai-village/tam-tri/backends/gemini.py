@@ -19,7 +19,11 @@ from . import luat, soat
 
 MODEL = os.environ.get("AILANG_GEMINI_MODEL", "gemini-2.5-flash")
 KHOA = os.environ.get("GEMINI_API_KEY", "")
-HET_GIO = float(os.environ.get("AILANG_HET_GIO", "20"))
+# ⚠ 20 giây LÀ QUÁ NGẮN và đã đo được: gemini-2.5-flash bật "thinking" mặc
+#   định, nên một lượt hỏi làng ba người thường vượt 20 giây và LẦN NÀO CŨNG
+#   timeout — nhìn từ trong game thì y như hết quota, làng cứ chạy bằng não
+#   luật mà không ai biết vì sao.
+HET_GIO = float(os.environ.get("AILANG_HET_GIO", "45"))
 
 URL = ("https://generativelanguage.googleapis.com/v1beta/models/"
        "{model}:generateContent")
@@ -90,7 +94,15 @@ def _goi_gemini(noi_dung: str) -> str:
     than = {
         "systemInstruction": {"parts": [{"text": HE_THONG}]},
         "contents": [{"role": "user", "parts": [{"text": noi_dung}]}],
-        "generationConfig": {"temperature": 0.9, "responseMimeType": "application/json"},
+        "generationConfig": {
+            "temperature": 0.9,
+            "responseMimeType": "application/json",
+            # ⚠ TẮT "THINKING". Việc ở đây là chọn một mệnh lệnh từ bảng dữ
+            #   liệu đã dọn sẵn, không phải giải toán — mà nhịp hỏi chỉ 15
+            #   giây nên độ trễ quan trọng hơn chiều sâu. Bật thinking thì
+            #   phần lớn lượt hỏi timeout và tụt hết về não luật.
+            "thinkingConfig": {"thinkingBudget": 0},
+        },
     }
     yc = urllib.request.Request(
         URL.format(model=MODEL),

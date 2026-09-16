@@ -483,6 +483,56 @@ local function ViecCatDoAn(inst)
              vi_sao = "cất đồ ăn" }
 end
 
+-- ── gom liệu làm đuốc, TỪ LÚC CÒN SÁNG ──────────────────────────────────
+--
+-- ⚠ ĐÂY LÀ THỨ ĐÃ CHẶN CẢ LÀNG KHỎI MỌI TIẾN BỘ. `ánh sáng` là nhu cầu ưu tiên
+--   SỐ MỘT, và đuốc thì cháy hết liên tục — nên hễ quanh làng thiếu cỏ hoặc
+--   cành là nó chiếm lượt VĨNH VIỄN: dân làng gom cả ngày mà không bao giờ đủ
+--   2 cỏ + 2 cành cho một cây đuốc, và không nhu cầu nào phía dưới tới lượt.
+--
+--   Đo trên server: ba lượt thử Máy Khoa Học liên tiếp đều tắc ở đây, cả ba
+--   dân làng báo dang_lam="ánh sáng" suốt 26 lần soi. Soi trực tiếp xác nhận
+--   chúng KHÔNG hề kẹt — đi 17,6 đơn vị trong 8 giây, DiKiem trả về PICK grass
+--   bình thường. Chỉ là cung không bao giờ đuổi kịp cầu.
+--
+--   Lời giải là thứ người chơi thật vẫn làm: gom DƯ cỏ và cành từ lúc còn
+--   sáng, chứ không đợi tới lúc cần mới đi kiếm. Cùng tinh thần với việc gom
+--   củi dự trữ cho đống lửa.
+--
+-- ⚠ CHỈ GOM BAN NGÀY. Chập tối trở đi thì vùng làm việc đã bị bó quanh đống
+--   lửa (lang.LamDuocLucNay) và ra xa là chết — lúc đó có thiếu cũng đành chịu,
+--   đó chính là lý do phải gom trước.
+local LIEU_DEM = { cutgrass = 6, twigs = 6 }   -- mỗi dân làng chừng này
+
+local function ViecGomLieuDem(inst)
+    if TheWorld.state.isdusk or TheWorld.state.isnight then return nil end
+    local tui = inst.components.inventory
+    if tui == nil or tui:IsFull() then return nil end
+    if nhu_cau.KhongRanhTay(inst) then return nil end
+
+    local bk = kho_lang.KiemDem()
+    if bk == nil or bk.so_dan == 0 then return nil end
+
+    for lieu, moi_nguoi in pairs(LIEU_DEM) do
+        local can = moi_nguoi * bk.so_dan
+        -- ⚠ Đừng vượt trần thu gom: hai cơ chế cùng nhắm một thứ mà không nhìn
+        --   nhau thì dân làng gom tới trần rồi bị cái này đẩy đi gom tiếp.
+        local tran = kho_lang.TRAN[lieu]
+        if tran ~= nil and can > tran then can = tran end
+
+        if (bk.mon[lieu] or 0) < can then
+            local hd = sinh_ton.DiKiem(inst, lieu)
+            if hd ~= nil then
+                return { muc_tieu = hd.target, hanh_dong = hd.action,
+                         mon = hd.invobject, vi_sao = "gom liệu cho đêm" }
+            end
+        end
+    end
+    return nil
+end
+
+viec.ViecGomLieuDem = ViecGomLieuDem
+
 -- ── mang liệu tới bản vẽ ────────────────────────────────────────────────
 --
 -- ⚠ ĐÂY LÀ VIỆC CỦA CẢ LÀNG, nên nó nằm ở bậc giữ làng chứ không nằm trong
@@ -564,6 +614,7 @@ function viec.NhanViec(inst)
     v = ViecDapLua(inst) or ViecTiepLua(inst) or ViecGomCui(inst)
          or ViecThuBay(inst) or ViecNauChin(inst) or ViecDatBay(inst)
          or ViecCatDoAn(inst) or ViecGopBanVe(inst)
+         or ViecGomLieuDem(inst)
     if v ~= nil then return v end
 
     kq = sinh_ton.Giai(inst, KhongGap)
