@@ -17,6 +17,7 @@ RA = GOC / "build" / "functional-medal-vi"
 #   tức GIẢM DẦN: số LỚN nạp TRƯỚC, số NHỎ nạp SAU. Mình cần nạp SAU mod gốc
 #   thì mới ghi đè được chuỗi của nó, nên phải nhỏ hơn.
 UU_TIEN = -10002
+PHIEN_BAN = "0.1.0"
 
 
 def thoat_lua(s):
@@ -138,15 +139,25 @@ end)
     # ── modinfo ────────────────────────────────────────────────────────
     (RA / "modinfo.lua").write_text(
         f'''name = "Functional Medal Tiếng Việt"
-description = [[Việt hoá mod Functional Medal (能力勋章) của tác giả 恒子.
+description = [[Bản dịch tiếng Việt cho mod Functional Medal (能力勋章).
 
-Mod CLIENT — chỉ đổi chữ hiện trên máy bạn, không đụng gì tới mod gốc và
-không cần server bật theo. Server không chơi Functional Medal thì mod này
-cũng không gây lỗi gì.
+Mod gốc của tác giả 恒子 — chủ đề "trưởng thành": huân chương trao năng lực,
+kèm hệ nhiệm vụ, gia vị nấu ăn, cây ghép, tượng và đạn ná.
 
-Bật mod gốc ở chế độ tiếng Anh (language_switch = eng).]]
+YÊU CẦU
+- Phải sub và bật mod gốc trước: Functional Medal, Workshop ID 1909182187
+- Trong cấu hình mod gốc để ngôn ngữ = English (language_switch)
+- Mod này là MOD CLIENT, chỉ đổi chữ hiện trên máy bạn
+
+GHI CHÚ
+- Không đụng vào file mod gốc, nên Steam cập nhật mod gốc cũng không mất bản dịch
+- Server không chơi Functional Medal thì mod này cũng không gây lỗi gì
+- Trang chủ mod gốc: guanziheng.com
+
+Tác giả bản dịch: kimdat546
+Mọi công trạng về nội dung mod thuộc về tác giả gốc 恒子.]]
 author = "kimdat546"
-version = "0.1.0"
+version = "{PHIEN_BAN}"
 api_version = 10
 
 dst_compatible = true
@@ -163,7 +174,7 @@ client_only_mod = true
 --   gốc thì phải nạp SAU nó.
 priority = {UU_TIEN}
 
-server_filter_tags = {{"tiếng việt", "vietnamese", "medal"}}
+server_filter_tags = {{"vn", "vietnam", "vietnamese", "medal", "kimdat546"}}
 
 configuration_options = {{}}
 '''
