@@ -18,7 +18,7 @@ RA = GOC / "build" / "functional-medal-vi"
 #   tức GIẢM DẦN: số LỚN nạp TRƯỚC, số NHỎ nạp SAU. Mình cần nạp SAU mod gốc
 #   thì mới ghi đè được chuỗi của nó, nên phải nhỏ hơn.
 UU_TIEN = -10002
-PHIEN_BAN = "0.1.1"
+PHIEN_BAN = "0.1.2"
 
 
 def thoat_lua(s):
@@ -86,8 +86,22 @@ def main():
     )
 
     # ── modmain ────────────────────────────────────────────────────────
+    #
+    # ⚠ NHÚNG THẲNG BẢNG CHUỖI VÀO modmain, KHÔNG `require` FILE RIÊNG.
+    #   Mod Workshop MẶC ĐỊNH BẬT MANIFEST (mods.lua:566 — forcemanifest == nil
+    #   và IsWorkshopMod thì LoadModManifest), và DST chỉ thấy file nằm trong
+    #   manifest. Bản 0.1.0/0.1.1 `require("medal_vi_strings")` chạy ngon khi
+    #   cài local nhưng hỏng khi tải từ Workshop — đúng cái bẫy README của
+    #   montfluv-viet đã ghi: "DST chỉ thấy file có trong đó".
+    #
+    #   Nhúng thẳng thì không còn file thứ hai để tìm, nên xoá luôn cả lớp rủi
+    #   ro. scripts/medal_vi_strings.lua vẫn được sinh ra để dùng lại ở chỗ
+    #   khác, nhưng modmain KHÔNG phụ thuộc vào nó nữa.
+    bang_nhung = "\n".join(
+        f'  ["{k}"] = "{thoat_lua(xong[k]["vi"])}",' for k in sorted(xong)
+    )
     (RA / "modmain.lua").write_text(
-        '''-- Việt hoá Functional Medal (能力勋章) — mod CLIENT, không đụng mod gốc.
+        f'''-- Việt hoá Functional Medal (能力勋章) — mod CLIENT, không đụng mod gốc.
 --
 -- ⚠ VÌ SAO GHI ĐÈ `STRINGS` CHỨ KHÔNG THÊM THƯ MỤC NGÔN NGỮ. Mod gốc hardcode
 --   đúng hai nhánh:
@@ -105,7 +119,9 @@ def main():
 --   có thể đổi bất cứ lúc nào. AddSimPostInit chạy SAU mọi modmain, nên đúng
 --   bất kể thứ tự.
 
-local BANG = require("medal_vi_strings")
+local BANG = {{
+{bang_nhung}
+}}
 
 local function ApDung()
     local n = 0
@@ -113,10 +129,10 @@ local function ApDung()
         -- khoá dạng "NAMES.COOK_CERTIFICATE" hoặc
         -- "CHARACTERS.GENERIC.DESCRIBE.COOK_CERTIFICATE"
         local bang = GLOBAL.STRINGS
-        local phan = {}
+        local phan = {{}}
         for m in string.gmatch(khoa, "[^.]+") do phan[#phan + 1] = m end
         for i = 1, #phan - 1 do
-            bang[phan[i]] = bang[phan[i]] or {}
+            bang[phan[i]] = bang[phan[i]] or {{}}
             bang = bang[phan[i]]
         end
         bang[phan[#phan]] = chu
@@ -183,6 +199,11 @@ client_only_mod = true
 
 icon_atlas = "modicon.xml"
 icon = "modicon.tex"
+
+-- ⚠ TẮT MANIFEST. Mod Workshop mặc định BẬT (mods.lua:566), và khi bật thì DST
+--   chỉ thấy file nằm trong manifest — file nào không có trong đó là "module
+--   not found". Mod này đọc file của chính nó nên phải tắt.
+forcemanifest = false
 
 -- ⚠ PHẢI NHỎ HƠN -10001 (priority của Functional Medal).
 --   scripts/mods.lua:557 sắp mod bằng `apriority > bpriority` cho table.sort,
