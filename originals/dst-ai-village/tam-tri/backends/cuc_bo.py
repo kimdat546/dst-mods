@@ -28,6 +28,8 @@ def nghi(goi):
         "ngay": goi.get("ngay"),
         "mua": goi.get("mua"),
         "kho": goi.get("kho"),
+        "nhat_ky": goi.get("nhat_ky"),
+        "ghi_nho": goi.get("ghi_nho"),
         "dan_lang": goi.get("dan_lang", []),
     }
     than = {
@@ -53,4 +55,7 @@ def nghi(goi):
               flush=True)
         return luat.nghi(goi)
 
-    return loc(ra, goi) or luat.nghi(goi)
+    sach = loc(ra, goi)
+    if not sach:
+        return luat.nghi(goi)
+    return sach, None

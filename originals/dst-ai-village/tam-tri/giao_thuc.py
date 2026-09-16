@@ -43,12 +43,13 @@ def doc_hoi(thu_muc: pathlib.Path):
         return None
 
 
-def ghi_dap(thu_muc: pathlib.Path, dan_lang: list):
+def ghi_dap(thu_muc: pathlib.Path, dan_lang: list, ghi_nho=None):
     """Ghi câu trả lời. Ghi tạm rồi đổi tên để mod không đọc phải file dở."""
     tep = thu_muc / TEP_DAP
     tam = thu_muc / (TEP_DAP + ".tam")
-    tam.write_text(
-        json.dumps({"dan_lang": dan_lang}, ensure_ascii=False),
-        encoding="utf-8",
-    )
+    than = {"dan_lang": dan_lang}
+    # Ghi nhớ của cả tầng suy nghĩ, mod giữ hộ và trả lại ở nhịp sau.
+    if ghi_nho is not None:
+        than["ghi_nho"] = ghi_nho
+    tam.write_text(json.dumps(than, ensure_ascii=False), encoding="utf-8")
     tam.replace(tep)

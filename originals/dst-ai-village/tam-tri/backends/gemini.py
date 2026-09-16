@@ -80,6 +80,14 @@ Khi du_suc_danh là true thì đã đủ ăn đủ thuốc đủ vũ khí: nghĩ
 Nếu nhịp trước lệnh bị từ chối, lý do nằm ở "muc_tieu_loi" của dân làng đó.
 Đọc nó rồi sửa, đừng gửi lại y nguyên.
 
+TRÍ NHỚ. "nhat_ky" là những việc đáng nhớ đã xảy ra (ai chết, dựng xong gì,
+nút thắt đổi lúc nào). "ghi_nho" là ghi chú CHÍNH BẠN viết ở nhịp trước — kế
+hoạch đang theo, điều đã học, thứ đã thử và hỏng. Đọc cả hai trước khi quyết.
+
+Trả thêm trường "ghi_nho" (chuỗi, tối đa ~1500 ký tự) để nhắn lại cho chính
+mình ở nhịp sau. Viết ngắn và cụ thể: đang theo kế hoạch gì, đã thử gì mà
+hỏng. Không đổi gì thì trả lại nguyên văn ghi_nho cũ.
+
 Đừng dồn cả làng vào một việc — chừa ít nhất một người cho việc thường
 (muc_tieu = null). Dân làng đang làm dở việc tốt thì cứ để null.
 
@@ -87,7 +95,7 @@ noi_gi: câu tiếng Việt tối đa 12 từ, hợp tính cách, đa số nhị
 đỡ ồn.
 
 Trả về DUY NHẤT một JSON, không bọc markdown:
-{"dan_lang":[{"ma":"...","muc_tieu":{...}|null,"noi_gi":null}]}"""
+{"dan_lang":[{"ma":"...","muc_tieu":{...}|null,"noi_gi":null}],"ghi_nho":"..."}"""
 
 
 def _goi_gemini(noi_dung: str) -> str:
@@ -143,15 +151,24 @@ def nghi(goi):
         "ngay": goi.get("ngay"),
         "mua": goi.get("mua"),
         "kho": goi.get("kho"),
+        "nhat_ky": goi.get("nhat_ky"),
+        "ghi_nho": goi.get("ghi_nho"),
         "dan_lang": goi.get("dan_lang", []),
     }
     try:
         tho = _goi_gemini(json.dumps(tom_tat, ensure_ascii=False))
-        ra = json.loads(tho).get("dan_lang", [])
+        goi_ve = json.loads(tho)
+        ra = goi_ve.get("dan_lang", [])
+        ghi_nho = goi_ve.get("ghi_nho")
+        if not isinstance(ra, list):
+            ra = []
     except (urllib.error.URLError, OSError, KeyError, IndexError,
             json.JSONDecodeError) as e:
         print(f"[tam-tri] Gemini hỏng ({type(e).__name__}: {e}) — tụt về não luật",
               flush=True)
         return luat.nghi(goi)
 
-    return loc(ra, goi) or luat.nghi(goi)
+    sach = loc(ra, goi)
+    if not sach:
+        return luat.nghi(goi)
+    return sach, (ghi_nho if isinstance(ghi_nho, str) else None)

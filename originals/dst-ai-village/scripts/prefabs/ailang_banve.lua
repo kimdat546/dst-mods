@@ -74,6 +74,11 @@ local function Dung(inst)
     end)
     if not ok then return false end
     nen.log("bản vẽ", bv.cong_thuc, "đã thành công trình")
+    -- Công trình mới là việc đáng nhớ: tầng suy nghĩ cần biết làng vừa lên
+    -- một bậc, không thì nhịp sau nó lại ra lệnh dựng đúng cái vừa xong.
+    pcall(function()
+        require("ailang/nhat_ky").Ghi("dựng xong " .. tostring(bv.cong_thuc))
+    end)
     inst:Remove()
     return true
 end

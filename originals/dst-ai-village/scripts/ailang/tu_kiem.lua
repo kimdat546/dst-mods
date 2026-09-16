@@ -38,7 +38,7 @@ end
 
 for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/than_thiet",
                      "ailang/lang", "ailang/nhu_cau", "ailang/sinh_ton", "ailang/viec",
-                     "ailang/ban_ve", "ailang/hanh_dong", "ailang/kho_lang",
+                     "ailang/ban_ve", "ailang/nhat_ky", "ailang/hanh_dong", "ailang/kho_lang",
                      "ailang/muc_tieu",
                      "ailang/lenh", "brains/danlangbrain" }) do
     package.loaded[m] = nil
@@ -3457,6 +3457,73 @@ local function ThuLayThan(tiep)
     end)
 end
 
+
+-- ── 57. nhật ký làng: trí nhớ dài hạn cho tầng suy nghĩ ─────────────────
+--
+-- ⚠ TRƯỚC BẢN NÀY MỖI NHỊP HỎI LÀ MỘT LẦN HỎI ĐỘC LẬP. Gói hỏi chỉ chụp HIỆN
+--   TẠI, nên tầng suy nghĩ không biết đêm qua ai chết, không biết nó đã ra
+--   lệnh gì mười nhịp trước — và ra lại đúng một lệnh đã hỏng, hỏng lại đúng
+--   cách cũ. `muc_tieu_loi` chỉ cứu được một nhịp.
+local function ThuNhatKy(tiep)
+    local nk = require("ailang/nhat_ky")
+    TheWorld.ailang_nhat_ky = nil     -- bắt đầu từ sổ trắng
+
+    nk.Ghi("thử một")
+    nk.Ghi("thử hai")
+    local ds = nk.BanGon()
+    KT("ghi được việc vào nhật ký", #ds == 2, "số mục=" .. #ds)
+    KT("mỗi mục có kèm ngày", ds[1]:find("ngày") == 1, "mục=" .. tostring(ds[1]))
+
+    -- ⚠ Đừng ghi trùng liên tiếp. "lửa tắt" lặp mười lần trong một phút thì
+    --   nhật ký chỉ còn mỗi nó, và mọi thứ đáng nhớ khác bị đẩy ra ngoài.
+    for _ = 1, 5 do nk.Ghi("thử hai") end
+    ds = nk.BanGon()
+    KT("việc lặp liên tiếp thì gộp lại, không chiếm hết sổ",
+       #ds == 2 and ds[2]:find("x6") ~= nil,
+       "số mục=" .. #ds .. " mục cuối=" .. tostring(ds[2]))
+
+    -- Sổ có trần: quá thì đẩy mục cũ nhất ra.
+    for i = 1, 30 do nk.Ghi("việc " .. i) end
+    ds = nk.BanGon()
+    KT("nhật ký có trần, không phình vô hạn", #ds <= 12, "số mục=" .. #ds)
+
+    -- Ghi nhớ của chính tầng suy nghĩ: mod giữ hộ nguyên văn.
+    KT("chưa có ghi nhớ thì trả nil", nk.GhiNho() == nil or nk.GhiNho() == "")
+    nk.DatGhiNho("đang gom đá làm Máy Khoa Học")
+    KT("giữ nguyên văn ghi nhớ của tầng suy nghĩ",
+       nk.GhiNho() == "đang gom đá làm Máy Khoa Học")
+    nk.DatGhiNho(string.rep("x", 5000))
+    KT("ghi nhớ quá dài thì cắt bớt, không để nó nuốt cả gói hỏi",
+       #nk.GhiNho() <= 2000, "dài=" .. #nk.GhiNho())
+    nk.DatGhiNho(nil)
+    KT("xoá được ghi nhớ", nk.GhiNho() == nil)
+
+    -- Nút thắt đổi là việc đáng nhớ, không ai báo thì tự soát.
+    TheWorld.ailang_nhat_ky = nil
+    nk.SoatDoiThay({ nut_that = "thiếu rìu" })
+    nk.SoatDoiThay({ nut_that = "thiếu rìu" })
+    nk.SoatDoiThay({ nut_that = "thiếu cuốc" })
+    local ds2 = nk.BanGon()
+    KT("nút thắt đổi thì ghi, không đổi thì thôi",
+       #ds2 == 2, "số mục=" .. #ds2)
+
+    -- Chết là việc đáng nhớ nhất.
+    TheWorld.ailang_nhat_ky = nil
+    local e = DanLangSach(Goc())
+    dan_lang.ThanhHonMa(e)
+    local ds3 = nk.BanGon()
+    KT("có người chết thì nhật ký ghi lại",
+       #ds3 >= 1 and ds3[#ds3]:find("chết") ~= nil,
+       "mục=" .. tostring(ds3[#ds3]))
+    dan_lang.HoiSinh(e)
+    local ds4 = nk.BanGon()
+    KT("sống lại cũng ghi",
+       ds4[#ds4]:find("sống lại") ~= nil, "mục=" .. tostring(ds4[#ds4]))
+
+    TheWorld.ailang_nhat_ky = nil
+    tiep()
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -3481,7 +3548,7 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuBanVe, ThuBanVeTraDu,
                ThuGomLieuDem, ThuNgheNghiep,
                ThuChonKhoVaNhomLua, ThuChamDiemAn,
-               ThuCheTrungGian, ThuLayThan }
+               ThuCheTrungGian, ThuLayThan, ThuNhatKy }
 local i = 0
 local function tiep()
     i = i + 1
