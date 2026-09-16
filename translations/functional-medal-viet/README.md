@@ -92,6 +92,9 @@ Dùng để **hiểu cơ chế mà dịch cho đúng**, không phải để ché
 không phụ thuộc. Muốn gộp thì chỉ cần `require` nó trong `AddSimPostInit` của
 mod kia, không phải làm lại gì.
 
+(Bản thân mod này **không** `require` nó — xem bẫy manifest ở trên. File chỉ
+tồn tại cho mục đích dùng lại.)
+
 Hiện để riêng vì: mod gốc vá thường xuyên (1.6.8.1) nên gộp vào là mỗi lần nó
 đổi chuỗi lại phải phát hành lại DST Tiếng Việt cho **toàn bộ** người dùng mod
 đó; và DST Tiếng Việt dịch **game gốc** bằng `.po` + `LoadPOFile` — cơ chế khác
@@ -173,6 +176,30 @@ Không một dòng nào nói là lỗi mod — rất dễ đổ oan cho đườn
 **Cách chặn:** `tools/thu_modmain.lua` chạy `modmain` trong môi trường giả lập
 dựng đúng theo `mods.lua:369`, và `make_upload.sh` gọi nó trước khi đóng gói.
 Kiểm cú pháp không bắt được loại lỗi này.
+
+## ⚠ Bẫy thứ hai: mod Workshop MẶC ĐỊNH BẬT MANIFEST
+
+`scripts/mods.lua:566`:
+
+```lua
+if((mod.modinfo.forcemanifest == nil and IsWorkshopMod(mod.modname)) or ...)
+    ManifestManager:LoadModManifest(mod.modname, mod.modinfo.version)
+```
+
+Khi manifest bật, **DST chỉ thấy file nằm trong manifest** — file nào không có
+là `module not found`. Đây đúng là cái bẫy `montfluv-viet/README.md` đã ghi lại.
+
+Bản 0.1.0/0.1.1 để bảng chuỗi ở `scripts/medal_vi_strings.lua` rồi
+`require` nó. **Cài local thì chạy, tải từ Workshop thì hỏng.**
+
+Chữa ở hai tầng:
+
+1. `forcemanifest = false` trong `modinfo`
+2. **Nhúng thẳng bảng chuỗi vào `modmain.lua`**, bỏ hẳn `require` — không còn
+   file thứ hai để tìm thì không còn cả lớp rủi ro
+
+`scripts/medal_vi_strings.lua` vẫn được sinh ra để dùng lại ở chỗ khác (xem
+mục gộp vào DST Tiếng Việt), nhưng `modmain` **không phụ thuộc vào nó nữa**.
 
 ## Kiểm tự động khi dựng
 
