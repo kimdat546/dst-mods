@@ -32,6 +32,15 @@ while IFS= read -r f; do
 done < <(find "$SRC/build/$MOD" -name '*.lua')
 echo "  ✓ $n file .lua hợp lệ"
 
+echo "▸ Chạy thử modmain trong môi trường giả lập DST…"
+# ⚠ Kiểm cú pháp KHÔNG bắt được việc gọi global mà DST không cấp cho mod.
+#   Đã mất một lần upload vì `pcall` — xem tools/thu_modmain.lua.
+if command -v luajit >/dev/null; then
+    (cd "$SRC" && luajit tools/thu_modmain.lua) | sed 's/^/  /' || exit 1
+else
+    echo "  ⚠ không có luajit — BỎ QUA phép thử quan trọng nhất"
+fi
+
 echo "▸ Kiểm đủ file bắt buộc…"
 for f in modinfo.lua modmain.lua modicon.tex modicon.xml scripts/medal_vi_strings.lua; do
     [[ -f "$SRC/build/$MOD/$f" ]] || { echo "✗ thiếu $f"; exit 1; }
