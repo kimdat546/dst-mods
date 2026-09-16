@@ -6,6 +6,7 @@ Sinh ra một thư mục mod hoàn chỉnh trong build/ để rsync vào game ho
 
 import json
 import pathlib
+import re
 import sys
 
 GOC = pathlib.Path(__file__).resolve().parent.parent
@@ -28,8 +29,32 @@ def thoat_lua(s):
     )
 
 
+def soat_placeholder(nguon):
+    """Placeholder lệch là LỖI HIỂN THỊ THẬT trong game, không phải chuyện nhỏ.
+
+    Chuỗi gốc có {medal}, {level}, {food}, {product}... Dịch mà đánh rơi hoặc
+    viết sai tên thì người chơi thấy nguyên chữ "{food}" giữa câu, hoặc tệ hơn
+    là mất hẳn phần tên món. Rẻ để kiểm, nên kiểm mỗi lần dựng.
+    """
+    loi = []
+    for khoa, v in nguon.items():
+        if not v.get("vi"):
+            continue
+        a = sorted(re.findall(r"\{(\w+)\}", v["en"]))
+        b = sorted(re.findall(r"\{(\w+)\}", v["vi"]))
+        if a != b:
+            loi.append(f"  {khoa}: gốc {a} -> dịch {b}")
+    return loi
+
+
 def main():
     nguon = json.loads((GOC / "strings_source.json").read_text(encoding="utf-8"))
+
+    loi = soat_placeholder(nguon)
+    if loi:
+        print("✗ placeholder lệch — KHÔNG dựng:", file=sys.stderr)
+        print("\n".join(loi), file=sys.stderr)
+        return 1
     xong = {k: v for k, v in nguon.items() if v.get("vi")}
     if not xong:
         print("chưa có chuỗi nào được dịch — không dựng", file=sys.stderr)
