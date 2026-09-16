@@ -43,8 +43,17 @@ reign_of_giants_compatible = false
 all_clients_require_mod = true
 client_only_mod = false
 
-icon_atlas = "modicon.xml"
-icon = "modicon.tex"
+-- ⚠ KHÔNG KHAI BÁO ICON CHỪNG NÀO CHƯA CÓ FILE THẬT. Mod vốn khai
+--   icon_atlas/icon trỏ tới modicon.xml + modicon.tex mà hai file đó CHƯA BAO
+--   GIỜ tồn tại, nên mỗi lần nạp mod là một dòng cảnh báo. Khai một thứ không
+--   có còn tệ hơn là không khai: người đọc log phải đi xác minh xem nó có
+--   nghĩa gì không.
+--
+--   Muốn có icon thì cần `ktech` của Don't Starve Mod Tools chuyển PNG sang
+--   .tex — máy này chưa có. Làm xong ảnh thì đặt modicon.png cạnh modinfo.lua,
+--   chạy ktech, rồi mở lại hai dòng dưới:
+--       icon_atlas = "modicon.xml"
+--       icon = "modicon.tex"
 
 server_filter_tags = { "ai", "npc", "village" }
 
