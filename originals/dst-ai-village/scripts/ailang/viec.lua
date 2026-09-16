@@ -567,6 +567,65 @@ viec.ViecThuBay   = ViecThuBay
 viec.ViecDatBay   = ViecDatBay
 viec.ViecCatDoAn  = ViecCatDoAn
 
+-- ── nghề nghiệp ─────────────────────────────────────────────────────────
+--
+-- ⚠ CẢ LÀNG DÙNG CHUNG MỘT BẢNG NHU CẦU NÊN LUÔN LO CÙNG MỘT THỨ CÙNG LÚC.
+--   Đo trên server: cả ba dân làng báo dang_lam="gom củi" 11 lần soi liên
+--   tiếp, rồi cả ba cùng "ánh sáng" 26 lần liên tiếp. Ba người làm việc của
+--   một người, còn chín việc khác không ai đụng.
+--
+--   GrimWorld gặp đúng chuyện này và chú thích của họ nói thẳng cách chữa:
+--   *"a varied baseline (not a flat wall of 2s) so pawns spread out instead of
+--   clumping"* — mỗi pawn một hồ sơ ưu tiên khác nhau.
+--
+-- ⚠ NHƯNG CHỈ ĐỔI THỨ TỰ VIỆC, KHÔNG ĐỔI BẢNG NHU CẦU. Sinh tồn là sinh tồn:
+--   ánh sáng phải là số một với mọi người, không có nghề nào "ít cần đuốc hơn".
+--   Nghề chỉ nói "khi rảnh thì tôi nghiêng về việc gì".
+--
+-- ⚠ VÀ DẬP LỬA LUÔN ĐỨNG ĐẦU, không nghề nào được xếp sau nó — cháy lan là
+--   mất cả làng.
+viec.NGHE = {
+    -- kiếm ăn: bẫy, nấu, cất kho trước; việc nặng để người khác
+    kiem_an = { "ThuBay", "NauChin", "DatBay", "CatDoAn",
+                "GomLieuDem", "GopBanVe", "TiepLua", "GomCui" },
+    -- thợ mỏ: lo công trình và củi; đồ ăn để người khác
+    tho_mo  = { "GopBanVe", "GomCui", "TiepLua",
+                "GomLieuDem", "ThuBay", "NauChin", "CatDoAn", "DatBay" },
+    -- giữ nhà: lửa và liệu dự trữ trước hết
+    giu_nha = { "TiepLua", "GomCui", "GomLieuDem", "CatDoAn",
+                "GopBanVe", "ThuBay", "NauChin", "DatBay" },
+}
+
+viec.THU_TU_NGHE = { "kiem_an", "tho_mo", "giu_nha" }
+
+local LAM = {
+    ThuBay     = function(inst) return ViecThuBay(inst) end,
+    NauChin    = function(inst) return ViecNauChin(inst) end,
+    DatBay     = function(inst) return ViecDatBay(inst) end,
+    CatDoAn    = function(inst) return ViecCatDoAn(inst) end,
+    GopBanVe   = function(inst) return ViecGopBanVe(inst) end,
+    GomLieuDem = function(inst) return ViecGomLieuDem(inst) end,
+    TiepLua    = function(inst) return ViecTiepLua(inst) end,
+    GomCui     = function(inst) return ViecGomCui(inst) end,
+}
+
+local function ViecGiuLang(inst)
+    -- Cháy nhà thì bỏ hết, nghề nào cũng vậy.
+    local v = ViecDapLua(inst)
+    if v ~= nil then return v end
+
+    local nghe = inst.ailang ~= nil and inst.ailang.nghe or nil
+    local thu_tu = viec.NGHE[nghe] or viec.NGHE.giu_nha
+    for _, ten in ipairs(thu_tu) do
+        local f = LAM[ten]
+        if f ~= nil then
+            v = f(inst)
+            if v ~= nil then return v end
+        end
+    end
+    return nil
+end
+
 -- ── nhận việc ───────────────────────────────────────────────────────────
 
 -- Nhu cầu trước, việc thường sau. sinh_ton trả về "xong" khi nó vừa làm một
@@ -611,10 +670,9 @@ function viec.NhanViec(inst)
     --   Thứ tự trong bậc này theo giá trị trên mỗi giây bỏ ra: thu bẫy (đi tới
     --   bấm một cái, ra thịt) > nấu chín (gấp đôi calo, không tốn gì) > đặt
     --   bẫy (gieo cho ngày mai) > cất kho (chống hỏng).
-    v = ViecDapLua(inst) or ViecTiepLua(inst) or ViecGomCui(inst)
-         or ViecThuBay(inst) or ViecNauChin(inst) or ViecDatBay(inst)
-         or ViecCatDoAn(inst) or ViecGopBanVe(inst)
-         or ViecGomLieuDem(inst)
+    -- Thứ tự trong bậc này tuỳ NGHỀ của từng người, để cả ba không dồn cục
+    -- vào cùng một việc. Xem viec.NGHE.
+    v = ViecGiuLang(inst)
     if v ~= nil then return v end
 
     kq = sinh_ton.Giai(inst, KhongGap)
@@ -622,10 +680,16 @@ function viec.NhanViec(inst)
     v = TuNhuCau(inst, kq)
     if v ~= nil then return v end
 
-    return ViecCatDo(inst)
-        or ViecNhat(inst)
-        or ViecHai(inst)
-        or ViecLamViec(inst, ACTIONS.CHOP, "CHOP_workable", "chặt cây")
+    v = ViecCatDo(inst) or ViecNhat(inst) or ViecHai(inst)
+    if v ~= nil then return v end
+
+    -- Thợ mỏ cầm cuốc đi trước; người khác cầm rìu đi trước. Cũng là để tản
+    -- ra, và để cái cuốc trong làng có người dùng.
+    if inst.ailang ~= nil and inst.ailang.nghe == "tho_mo" then
+        return ViecLamViec(inst, ACTIONS.MINE, "MINE_workable", "đào đá")
+            or ViecLamViec(inst, ACTIONS.CHOP, "CHOP_workable", "chặt cây")
+    end
+    return ViecLamViec(inst, ACTIONS.CHOP, "CHOP_workable", "chặt cây")
         or ViecLamViec(inst, ACTIONS.MINE, "MINE_workable", "đào đá")
 end
 

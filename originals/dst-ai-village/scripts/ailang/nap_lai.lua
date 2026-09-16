@@ -97,6 +97,7 @@ function nap_lai.DangKyLenh()
     rawset(_G, "c_ailang_theo",   goi("Theo"))
     rawset(_G, "c_ailang_onha",   goi("ONha"))
     rawset(_G, "c_ailang_tudo",   goi("TuDo"))
+    rawset(_G, "c_ailang_nghe",   goi("Nghe"))
 
     rawset(_G, "c_ailang_naplai", function()
         local ok, kq = nap_lai.ChayLai()
