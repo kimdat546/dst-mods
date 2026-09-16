@@ -1,0 +1,3 @@
+# Dựng lại được từ strings_source.json bằng tools/build.py
+build/
+upload/
