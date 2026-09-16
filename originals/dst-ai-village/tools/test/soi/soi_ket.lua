@@ -1,0 +1,37 @@
+local ok, err = pcall(function()
+    local dan_lang = require("ailang/dan_lang")
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local e = dan_lang.TatCa()[1]
+    local x, y, z = e.Transform:GetWorldPosition()
+    local co = #TheSim:FindEntities(x, y, z, 40, { "pickable" }, { "INLIMBO" })
+    local ba = e:GetBufferedAction()
+    print("[SOI] ten=" .. tostring(e.ailang.ten)
+          .. " vitri=" .. math.floor(x) .. "," .. math.floor(z)
+          .. " nha=" .. tostring(e.ailang.nha and (math.floor(e.ailang.nha[1]) .. "," .. math.floor(e.ailang.nha[2])))
+          .. " haiduoc_quanh40=" .. co
+          .. " sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name)
+          .. " ba=" .. tostring(ba and ba.action.id)
+          .. " tay=" .. tostring(e.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS)
+                                 and e.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS).prefab))
+    print("[SOI] anhsang_du=" .. tostring(nc.Tim("anh_sang").du(e))
+          .. " botay=" .. tostring(e.ailang.bo_tay and e.ailang.bo_tay["ánh sáng"])
+          .. " pha=" .. tostring(TheWorld.state.phase))
+    local hd = st.DiKiem(e, "cutgrass")
+    print("[SOI] DiKiem(cutgrass)=" .. tostring(hd and hd.action.id)
+          .. " muc=" .. tostring(hd and hd.target and hd.target.prefab))
+    local hd2 = st.DiKiem(e, "twigs")
+    print("[SOI] DiKiem(twigs)=" .. tostring(hd2 and hd2.action.id)
+          .. " muc=" .. tostring(hd2 and hd2.target and hd2.target.prefab))
+    local thieu = st.ConThieu(e, "torch")
+    local mo = {}
+    for _, t in ipairs(thieu or {}) do table.insert(mo, t[1] .. "x" .. t[2]) end
+    print("[SOI] torch con thieu: " .. table.concat(mo, ","))
+    local x0, z0 = x, z
+    TheWorld:DoTaskInTime(8, function()
+        local x1, _, z1 = e.Transform:GetWorldPosition()
+        print("[SOI] sau 8s di duoc " .. string.format("%.1f", math.sqrt((x1-x0)^2 + (z1-z0)^2)))
+        print("[SOI] HET")
+    end)
+end)
+if not ok then print("[SOI] NO: " .. tostring(err)) end
