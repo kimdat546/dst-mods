@@ -48,10 +48,32 @@ kể cả khi tác giả mod gốc đổi `priority` ở bản sau.
 ```bash
 ./tools/extract_strings.py     # rút chuỗi từ mod gốc + cơ chế từ wiki
 # dịch trong strings_source.json (trường "vi")
+./tools/make_anh.py            # assets/*_source.png -> modicon.tex/.xml + preview.png
 ./tools/build.py               # dựng build/functional-medal-vi/
 ./tools/sync_local.sh          # cài vào game để thử
 ./tools/sync_local.sh --clean  # gỡ
+./tools/make_upload.sh         # đóng gói sạch sang upload/ để đẩy Workshop
 ```
+
+### Ảnh
+
+| file | cỡ | việc |
+|---|---|---|
+| `assets/icon_source.png` | 2048² | ảnh nguồn vuông (gitignore, 8 MB) |
+| `assets/preview_source.png` | 2816×1536 | ảnh nguồn ngang (gitignore, 8 MB) |
+| `assets/modicon.tex` + `.xml` | 256² | icon trong menu Mods |
+| `assets/preview.png` | 1024×559 | ảnh trang Workshop |
+
+`make_anh.py` tự hạ chất lượng preview tới khi **lọt dưới 1 MB** — Steam từ
+chối ảnh preview lớn hơn thế. `make_upload.sh` kiểm lại lần nữa trước khi đóng
+gói.
+
+⚠ `modicon.tex/.xml` phải nằm **cạnh `modinfo.lua`**, không nằm trong thư mục
+con — `modinfo` trỏ tới chúng bằng tên trần.
+
+⚠ Dùng `tools/ktex.py` dùng chung ở gốc kho để ghi `.tex`. Chú thích trong đó
+ghi lại một lỗi đắt: `platform` trong header KTEX **phải là 0**, đặt khác thì
+game macOS sập ngay khi mở menu Mods, và không báo là lỗi mod.
 
 `extract_strings.py` **giữ lại bản dịch cũ** khi chạy lại — mod gốc cập nhật
 thì không mất công dịch.
@@ -75,13 +97,20 @@ Hiện để riêng vì: mod gốc vá thường xuyên (1.6.8.1) nên gộp và
 đó; và DST Tiếng Việt dịch **game gốc** bằng `.po` + `LoadPOFile` — cơ chế khác
 hẳn.
 
-## ⚠ Trước khi đăng Workshop
+## Đăng Workshop
 
-**Cần hỏi ý tác giả 恒子.** Mod này không có sẵn thư mục dịch cộng đồng như
-Montfluv (`translation_es/` cho thấy tác giả đó nhận đóng góp), nên không suy ra
-được là họ đồng ý. Trang chủ có mục "作者留言" và nhóm QQ `967226714`.
+```bash
+./tools/make_upload.sh
+```
 
-Dùng riêng trong nhóm thì không vướng gì.
+Rồi mở **Don't Starve Mod Tools → Mod Uploader**, chọn
+`upload/functional-medal-vi`. Mod mới thì để trống ô Workshop ID.
+
+`modinfo` ghi rõ mod gốc (tên, tác giả 恒子, Workshop ID 1909182187, trang chủ
+guanziheng.com) và ghi rõ mọi công trạng nội dung thuộc về tác giả gốc — cùng
+lối với các mod dịch khác trong kho.
+
+Upload xong nhớ điền Workshop ID vào bảng mod trong `README.md` ở gốc kho.
 
 ## Tiến độ — 856/856 (100%)
 
