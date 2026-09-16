@@ -378,8 +378,9 @@ function lenh.Bang()
     for _, e in ipairs(ds) do
         local a = e.ailang
         local tc = than_thiet.Lay(e)
-        Bao(string.format("%-8s %-11s thân %3d/100 %s  máu %d%%  đói %d%%%s",
-            a.ten, than_thiet.CHE_DO[a.che_do or "tu_do"], tc,
+        Bao(string.format("%-8s %-8s %-11s thân %3d/100 %s  máu %d%%  đói %d%%%s",
+            a.ten, tostring(a.nghe or "?"),
+            than_thiet.CHE_DO[a.che_do or "tu_do"], tc,
             tc >= than_thiet.DU_THEO and "(theo được)"
                 or (tc < than_thiet.BO_DI and "(sắp bỏ đi)" or "(chưa đủ thân)"),
             math.floor((e.components.health and e.components.health:GetPercent() or 1) * 100),
@@ -448,6 +449,32 @@ function lenh.MucTieu(ten, mt)
     Bao(mt == nil and ("đã xoá mục tiêu của " .. n .. " dân làng")
                    or ("đã đặt mục tiêu cho " .. n .. " dân làng"))
     return n
+end
+
+-- Đổi nghề. Nghề chỉ đổi THỨ TỰ VIỆC lúc rảnh, không đổi bảng nhu cầu —
+-- sinh tồn thì ai cũng như ai.
+--
+--   c_ailang_nghe("An", "tho_mo")   -- kiem_an | tho_mo | giu_nha
+--   c_ailang_nghe()                 -- xem danh sách nghề
+function lenh.Nghe(ten, nghe)
+    local viec = require("ailang/viec")
+    if nghe == nil then
+        Bao("nghề có thể đặt: " .. table.concat(viec.THU_TU_NGHE, ", "))
+        for _, e in ipairs(dan_lang.TatCa()) do
+            Bao(string.format("  %-8s %s", e.ailang.ten, tostring(e.ailang.nghe)))
+        end
+        return
+    end
+    if viec.NGHE[nghe] == nil then
+        Bao("không có nghề '" .. tostring(nghe) .. "' — chọn: "
+            .. table.concat(viec.THU_TU_NGHE, ", "))
+        return
+    end
+    local ds = TimTheoTen(ten)
+    if #ds == 0 then Bao("không tìm thấy dân làng nào") return end
+    for _, e in ipairs(ds) do e.ailang.nghe = nghe end
+    Bao("đã đổi " .. #ds .. " dân làng sang nghề " .. nghe)
+    return #ds
 end
 
 return lenh

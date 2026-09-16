@@ -160,6 +160,10 @@ function dan_lang.Sinh(hoso)
         che_do   = hoso.che_do,
         ten      = hoso.ten or nen.TEN[math.random(#nen.TEN)],
         tinh_cach = hoso.tinh_cach or "binh_than",
+        -- ⚠ Gán NGHỀ XOAY VÒNG chứ không random. Random thì ba dân làng hoàn
+        --   toàn có thể trúng cùng một nghề — mà nghề sinh ra chính là để
+        --   chúng đừng dồn cục. Xoay vòng thì ba người đầu chắc chắn ba nghề.
+        nghe     = hoso.nghe or dan_lang.NgheTiepTheo(),
         nha      = hoso.nha,          -- {x, z} hoặc nil — LÀ VỊ TRÍ ĐÀI
         dai      = hoso.dai,          -- GUID của Đài đã triệu hồi ra nó
         thien_huong = hoso.thien_huong,
@@ -627,6 +631,16 @@ function dan_lang.CatDungCuKhiToi(inst)
     return true
 end
 
+-- Nghề xoay vòng: xem viec.NGHE cho ý nghĩa từng nghề.
+local dem_nghe = 0
+
+function dan_lang.NgheTiepTheo()
+    local viec = require("ailang/viec")
+    local ds = viec.THU_TU_NGHE
+    dem_nghe = dem_nghe + 1
+    return ds[((dem_nghe - 1) % #ds) + 1]
+end
+
 function dan_lang.ChupHoSo(inst)
     if inst == nil or not inst:IsValid() or inst.ailang == nil then return nil end
     local x, _, z = inst.Transform:GetWorldPosition()
@@ -638,6 +652,7 @@ function dan_lang.ChupHoSo(inst)
         ten       = inst.ailang.ten,
         nhan_vat  = inst.prefab,
         tinh_cach = inst.ailang.tinh_cach,
+        nghe      = inst.ailang.nghe,
         nha       = inst.ailang.nha,
         dai       = inst.ailang.dai,
         thien_huong = inst.ailang.thien_huong,

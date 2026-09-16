@@ -3067,6 +3067,119 @@ local function ThuBanVeTraDu(tiep)
     tiep()
 end
 
+
+-- ── 51. gom liệu làm đuốc từ lúc còn sáng ───────────────────────────────
+--
+-- ⚠ THỨ ĐÃ CHẶN CẢ LÀNG KHỎI MỌI TIẾN BỘ. `ánh sáng` là nhu cầu ưu tiên SỐ
+--   MỘT và đuốc cháy hết liên tục, nên hễ quanh làng thiếu cỏ/cành là nó chiếm
+--   lượt VĨNH VIỄN. Đo trên server: ba lượt thử Máy Khoa Học liên tiếp đều tắc
+--   ở đây, cả ba dân làng báo dang_lam="ánh sáng" suốt 26 lần soi — mà soi
+--   trực tiếp thì chúng chạy bình thường, chỉ là cung không đuổi kịp cầu.
+local function ThuGomLieuDem(tiep)
+    local vi = require("ailang/viec")
+    local kho_lang = require("ailang/kho_lang")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local pha_cu = TheWorld.state.phase
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    for i = 1, 6 do
+        local c = SpawnPrefab("grass")
+        c.Transform:SetPosition(x + 4 + i, y, z + 3)
+    end
+
+    TheWorld:DoTaskInTime(0.6, function()
+        kho_lang.XoaDem()
+        local v = vi.ViecGomLieuDem(e)
+        KT("ban ngày, làng thiếu liệu làm đuốc thì đi gom trước",
+           v ~= nil and v.vi_sao == "gom liệu cho đêm",
+           "việc=" .. tostring(v and v.vi_sao) .. " pha=" .. tostring(TheWorld.state.phase))
+
+        -- ⚠ CHẬP TỐI TRỞ ĐI THÌ THÔI. Vùng làm việc đã bị bó quanh đống lửa,
+        --   ra xa lúc đó là chết — và đó chính là lý do phải gom trước.
+        TheWorld:PushEvent("ms_setphase", "dusk")
+        TheWorld:DoTaskInTime(0.6, function()
+            kho_lang.XoaDem()
+            KT("chập tối thì KHÔNG đi gom liệu nữa",
+               vi.ViecGomLieuDem(e) == nil,
+               "pha=" .. tostring(TheWorld.state.phase))
+
+            -- Đủ liệu rồi thì thôi, khỏi vơ vét mãi.
+            TheWorld:PushEvent("ms_setphase", "day")
+            TheWorld:DoTaskInTime(0.6, function()
+                local ruong = SpawnPrefab("treasurechest")
+                ruong.Transform:SetPosition(x + 2, y, z)
+                for _, lieu in ipairs({ "cutgrass", "twigs" }) do
+                    local m = SpawnPrefab(lieu)
+                    if m.components.stackable ~= nil then
+                        m.components.stackable:SetStackSize(40)
+                    end
+                    ruong.components.container:GiveItem(m)
+                end
+                kho_lang.XoaDem()
+                KT("gom đủ rồi thì thôi, không vơ vét mãi",
+                   vi.ViecGomLieuDem(e) == nil)
+                ruong:Remove()
+                TheWorld:PushEvent("ms_setphase", pha_cu)
+                tiep()
+            end)
+        end)
+    end)
+end
+
+
+-- ── 52. nghề nghiệp: cả làng không dồn cục ──────────────────────────────
+--
+-- ⚠ Đo trên server: cả ba dân làng báo dang_lam="gom củi" 11 lần soi liên
+--   tiếp, rồi cả ba cùng "ánh sáng" 26 lần liên tiếp. Ba người làm việc của
+--   một người. GrimWorld chữa bằng hồ sơ ưu tiên khác nhau cho từng pawn.
+local function ThuNgheNghiep(tiep)
+    local vi = require("ailang/viec")
+    local e = DanLangSach(Goc())
+
+    KT("dân làng mới sinh có nghề", e.ailang.nghe ~= nil
+       and vi.NGHE[e.ailang.nghe] ~= nil,
+       "nghề=" .. tostring(e.ailang.nghe))
+
+    -- ⚠ XOAY VÒNG chứ không random: random thì ba người hoàn toàn có thể trúng
+    --   cùng một nghề, mà nghề sinh ra chính là để chúng đừng dồn cục.
+    local thay = {}
+    local them = {}
+    for i = 1, #vi.THU_TU_NGHE do
+        local d = dan_lang.Sinh({ ten = "Nghe" .. i, nhan_vat = "wilson" })
+        table.insert(them, d)
+        thay[d.ailang.nghe] = true
+    end
+    local dem = 0
+    for _ in pairs(thay) do dem = dem + 1 end
+    KT("sinh liên tiếp thì mỗi người một nghề khác nhau",
+       dem == #vi.THU_TU_NGHE,
+       "thấy " .. dem .. "/" .. #vi.THU_TU_NGHE .. " nghề")
+
+    -- Nghề đổi THỨ TỰ VIỆC, nhưng KHÔNG đổi bảng nhu cầu — sinh tồn thì ai
+    -- cũng như ai.
+    local nc = require("ailang/nhu_cau")
+    KT("nghề KHÔNG đụng tới bảng nhu cầu",
+       nc.ChiSo("ánh sáng") == 1,
+       "ánh sáng hạng " .. tostring(nc.ChiSo("ánh sáng")))
+
+    -- Thứ tự việc của hai nghề phải KHÁC nhau thật.
+    KT("hai nghề có thứ tự việc khác nhau",
+       table.concat(vi.NGHE.kiem_an, ",") ~= table.concat(vi.NGHE.tho_mo, ","))
+
+    -- Mọi nghề phải phủ ĐỦ các việc, không được rơi mất việc nào.
+    local du = true
+    local chuan = #vi.NGHE.giu_nha
+    for ten, ds in pairs(vi.NGHE) do
+        if #ds ~= chuan then du = false end
+    end
+    KT("nghề nào cũng phủ đủ các việc, không rơi mất việc nào", du)
+
+    for _, d in ipairs(them) do d:Remove() end
+    tiep()
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -3088,7 +3201,8 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang,
                ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe,
                ThuVongKhoaCui, ThuTranThuGom,
-               ThuBanVe, ThuBanVeTraDu }
+               ThuBanVe, ThuBanVeTraDu,
+               ThuGomLieuDem, ThuNgheNghiep }
 local i = 0
 local function tiep()
     i = i + 1
