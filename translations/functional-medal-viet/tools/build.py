@@ -178,6 +178,11 @@ YÊU CẦU
 - Trong cấu hình mod gốc để ngôn ngữ = English (language_switch)
 - Mod này là MOD CLIENT, chỉ đổi chữ hiện trên máy bạn
 
+BẢN THỬ NGHIỆM
+Bản đầu, mới dịch xong và chưa được nhiều người chơi thử. Gặp chữ dịch sai,
+chỗ còn tiếng Anh/tiếng Trung, hoặc game bị lỗi khi bật mod thì báo giúp ở
+phần bình luận bên dưới — kèm tên vật phẩm hoặc ảnh chụp càng tốt.
+
 GHI CHÚ
 - Không đụng vào file mod gốc, nên Steam cập nhật mod gốc cũng không mất bản dịch
 - Server không chơi Functional Medal thì mod này cũng không gây lỗi gì
