@@ -70,6 +70,7 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 | Food Buff | `originals/food-buff-hud` | Tự làm | 1.0.0 | kimdat546 | **3774466732** |
 | Thần Binh Phù Ấn | `translations/than-binh-phu-an-viet` | Dịch + phát triển tiếp mod mã nguồn mở | 0.0.3 | kimdat546 | **3792863569** (nguồn: 3096210166) |
 | Montfluv Việt | `translations/montfluv-viet` | Dịch mod 山河表里 bằng **mod client riêng**, KHÔNG fork | 1.1.2 | kimdat546 | **3797940738** (mod nguồn: 3401927745) |
+| AI Làng | `originals/dst-ai-village` | Tự làm — dân làng NPC có não | 0.2.0 (bản thử nghiệm) | kimdat546 | *chưa đăng* |
 | Functional Medal Việt | `translations/functional-medal-viet` | Dịch mod 能力勋章 bằng **mod client riêng** + **bản [Server]** cho chữ do server ghép, KHÔNG fork | 0.2.2 (bản thử, đang nhận góp ý) | kimdat546 | client **3802626143**, server **3809137709** (mod nguồn: 1909182187) |
 
 
