@@ -8,7 +8,7 @@
 --  DST hiện tại (xem README, mục "Vì sao không dùng lại").
 -- ═══════════════════════════════════════════════════════════════════════
 
-name = "AI Làng - Đừng Chết Đói :)"
+name = "AI NPC - Đừng Chết Đói :)"
 description = [[Dân làng NPC tự sống, tự làm việc cùng bạn.
 
 BẢN THỬ NGHIỆM — mod còn mới, dân làng có lúc làm chuyện ngớ ngẩn hoặc chết
