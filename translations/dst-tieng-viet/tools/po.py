@@ -77,9 +77,10 @@ def ghi(duong, dau, muc):
     open(duong, "w", encoding="utf-8").write("\n".join(ra))
 
 
-# Placeholder DST dùng: %s %d %.1f …, {name}.
+# Placeholder DST dùng: %s %d %.1f …, {name}, và mã emoji :redgem: (người chơi gõ
+# y nguyên vào chat — bản cũ từng gõ sai thành :reddem:).
 # ⚠ KHÔNG cho cờ dấu cách (`% s`): "25% sát thương" sẽ bị nhận nhầm là %s.
-_PH = re.compile(r"%[-+#0]*\d*(?:\.\d+)?[sdifgxc]|\{[A-Za-z_][A-Za-z0-9_]*\}")
+_PH = re.compile(r"%[-+#0]*\d*(?:\.\d+)?[sdifgxc]|\{[A-Za-z_][A-Za-z0-9_]*\}|(?<![\w:]):[a-z0-9_]+:(?![\w:])")
 
 
 def placeholder(s):

@@ -1,77 +1,66 @@
-# CLAUDE.md
+# CLAUDE.md — DST Tiếng Việt
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Mod dịch **toàn bộ game Don't Starve Together** sang tiếng Việt. Workshop ID `3683660917`.
+Mod client (`client_only_mod = true`).
 
-## Project Overview
+## Kiến trúc — hai lớp dịch
 
-This is a Vietnamese localization mod for **Don't Starve Together (DST)**, a Klei Entertainment multiplayer survival game. Distributed via Steam Workshop (ID: `3683660917`).
+1. **`vietnamese.po`** (~87.700 khoá, khoá = `msgctxt` kiểu `STRINGS.NAMES.AXE`) — nạp bằng
+   `LoadPOFile()` trong `scripts/main.lua`, rồi `TranslateStringTable(STRINGS)`.
+2. **`scripts/textfix/`** — móc `TextWidget.SetString`, gặp chuỗi TIẾNG ANH có trong bảng thì
+   thay. Bắt được chữ không đi qua `STRINGS` của máy mình, quan trọng nhất là **thoại do server
+   gửi về** (world có hang / server riêng không nạp mod client).
+   - `character_speech.lua` — **SINH TỰ ĐỘNG từ `.po`** bằng `tools/tao_textfix.py`. Đừng sửa tay.
+   - `ngoai_po.lua` — câu KHÔNG có trong `strings.pot` (câu ghép động…). Sửa tay ở đây.
+   - `ui_gamesetup.lua` — chữ màn hình tạo world, sửa tay.
 
-## Commands
+## Quy trình khi game cập nhật
 
-### Quality check (format string errors)
 ```bash
-python3 tools/quality_check.py vietnamese.po --format-only
+# 1. lấy strings.pot mới (game_source/ không version, 234 MB)
+unzip -p ~/"Library/Application Support/Steam/steamapps/common/Don't Starve Together/dontstarve_steam.app/Contents/data/databundles/scripts.zip" \
+    scripts/languages/strings.pot > game_source/strings.pot
+# (chinese_s.po cùng chỗ — tham khảo khi tiếng Anh mơ hồ)
+
+python3 tools/sync_check.py                 # báo: mới / gốc đổi / game bỏ / chưa dịch / placeholder lệch
+python3 tools/xuat_viec.py tu_dien          # viec/tu_dien.tsv — bảng tên chuẩn (NAMES en→vi)
+python3 tools/xuat_viec.py dich 500         # chia việc dịch thành lô viec/dich_*.tsv
+#    → mỗi lô dịch theo viec/HUONG_DAN.md, kết quả viec/<lô>.ra.tsv (khoa<TAB>vi)
+python3 tools/ap_viec.py viec/dich_*.ra.tsv # áp + đồng bộ khoá với game + kiểm placeholder
+./tools/make_upload.sh 2026.10              # sinh textfix, kiểm Lua, dựng upload/dst-tieng-viet
 ```
 
-### Sync check (detect untranslated strings after a game update)
-```bash
-python3 tools/sync_check.py game_source/strings.pot vietnamese.po --output-dir sync_reports/
-```
+`xuat_viec.py` còn các chế độ soát: `soat_names`, `soat_khac` (RECIPE_DESC+ACTIONS),
+`soat_mo_ta` (SCRAPBOOK+SKILLTREE), `soat_skin`, `soat_skin_mo_ta`. `viec/` bị gitignore;
+`viec/HUONG_DAN.md` là quy tắc dịch (giọng nhân vật, bảng chữ bộ sưu tập trang phục…) —
+bản chính giữ ở `tools/HUONG_DAN.md`.
 
-### Upload mod to Steam Workshop
+## Upload
 
-The clean upload directory is `/Users/kimdat546/Desktop/dst-viet-mod/`. It contains only the files needed for Workshop.
+`./tools/make_upload.sh <version>` → Don't Starve Mod Tools → Upload Existing Mod →
+`upload/dst-tieng-viet` → Workshop ID `3683660917`.
 
-**Step 1 — Sync files to the clean upload directory:**
-```bash
-rsync -av \
-  modinfo.lua modmain.lua vietnamese.po \
-  DST_Vietnamese.tex DST_Vietnamese.xml \
-  mod.manifest preview.png \
-  /Users/kimdat546/Desktop/dst-viet-mod/
+⚠ **KHÔNG upload `mod.manifest`**. Mod Workshop mặc định bật manifest (`scripts/mods.lua:566`),
+game chỉ thấy file có trong manifest; manifest cũ thiếu file mới → `module not found`.
+`modinfo.lua` đặt `forcemanifest = false`.
 
-rsync -av --delete scripts/ /Users/kimdat546/Desktop/dst-viet-mod/scripts/
-```
+## Bẫy đã gặp
 
-**Step 2 — Update version in** `/Users/kimdat546/Desktop/dst-viet-mod/modinfo.lua`:
-- `version` → increment (e.g. `"2026.2"` → `"2026.3"`)
-- `description` → update the "Cập nhật lần cuối ngày..." date line
+- **Bộ đọc .po phải chịu được `"` không thoát** — bản cũ có 55 dòng như vậy. Bộ đọc CỦA GAME
+  (`scripts/translator.lua`, mẫu tham lam `"(.*)"`) vẫn đọc đúng, nhưng sai chuẩn .po với công cụ
+  khác. `tools/po.py` đọc được và khi ghi lại thì thoát `\"` — game giải lại đúng (đã chạy thử
+  translator.lua của game trên file: đọc đủ 87.652 mục có nội dung).
+- **Kiểm placeholder: đừng coi `% s` là `%s`** — "25% sát thương" từng bị báo lệch nhầm.
+- **textfix 66k dòng vượt 65.536 hằng số/hàm của LuaJIT** → `tao_textfix.py` chia thành hàm con
+  15k dòng, nối bằng `end)();` (thiếu `;` là lỗi "ambiguous syntax").
+- **Ghi chú người dịch lọt vào game** ("(Chơi chữ với…)") — `ap_viec.py` từ chối dòng có ghi chú.
+- **Chất lượng nền:** phần lớn bản cũ là dịch máy. Đã soát NAMES, RECIPE_DESC, ACTIONS,
+  SCRAPBOOK, SKILLTREE, SKIN_NAMES, SKIN_DESCRIPTIONS (09/2026). **Chưa soát ~62.000 câu thoại
+  nhân vật** (`STRINGS.CHARACTERS.*`) — mẫu 40 câu có ~15% sai hẳn nghĩa.
+- **Font:** 5 font chính của game chỉ có ~326 glyph — có ă â đ à á nhưng THIẾU ơ ư và mọi chữ
+  dấu kép (ạ ả ọ ế ờ ự…) → game lấy từ font dự phòng, lệch kiểu chữ (người chơi đã phản ánh).
 
-**Step 3 — Upload via Don't Starve Mod Tools:**
-1. Steam → Library → **Don't Starve Mod Tools** → Play
-2. Select **Upload Existing Mod**
-3. Choose folder: `/Users/kimdat546/Desktop/dst-viet-mod/`
-4. Enter Workshop ID: `3683660917`
-5. Click **Upload**
+## Không upload
 
-### Get a new strings.pot after a game update
-Extract from: `~/Library/Application Support/Steam/steamapps/common/Don't Starve Together/dontstarve_steam.app/Contents/data/databundles/scripts.zip`
-
-## Architecture
-
-### Translation Pipeline
-
-1. **`modmain.lua`** — Entry point. Sets up `mods.VietnameseLang` global config table and imports `scripts/main.lua`.
-2. **`scripts/main.lua`** — Calls `LoadPOFile("vietnamese.po")` to parse translations into `mods.VietnameseLang.PO`, then applies them to the game's `STRINGS` global via `TranslateStringTable()`.
-3. **`scripts/textfix/init.lua`** — Hooks `TextWidget.SetString()` to intercept dynamic UI text at render time and apply translations not covered by the `.po` file.
-4. **`scripts/textfix/ui_gamesetup.lua`** — Populates the `textfix` lookup table for game mode options, world gen UI, lobby screens.
-5. **`scripts/textfix/character_speech.lua`** — Populates the `textfix` table for character skill trees, speech, and item descriptions (~70k lines).
-
-### Two-layer translation approach
-
-- **Layer 1 (`.po` file):** Covers ~84,968 static game strings loaded at startup via the game's built-in `LoadPOFile()` API.
-- **Layer 2 (`textfix`):** Covers dynamic/runtime UI text that bypasses the PO system, intercepted via a `TextWidget.SetString` hook.
-
-### Key files
-
-| File | Role |
-|---|---|
-| `vietnamese.po` | Main translation database (17.9 MB, 425k lines) |
-| `game_source/strings.pot` | Game's original translation template — reference only, not uploaded |
-| `tools/sync_check.py` | Detects new/changed/removed strings when game updates |
-| `tools/quality_check.py` | Validates format string consistency (`%s`, `{winner}`, etc.) |
-| `sync_reports/` | Output from QA tools — not uploaded to Workshop |
-
-### What NOT to upload to Workshop
-
-`game_source/`, `tools/`, `sync_reports/`, `CLAUDE.md`, and any dev tooling. Only upload the files listed in `README.md`.
+`game_source/`, `tools/`, `sync_reports/`, `viec/`, `CLAUDE.md`, `README.md`, các file
+`phase*_entries.txt`, `scanner.txt`, `new_strings_*.po` (công cụ/dữ liệu làm việc cũ).

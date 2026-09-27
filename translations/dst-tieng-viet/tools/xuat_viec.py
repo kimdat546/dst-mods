@@ -51,6 +51,10 @@ def goi_y(khoa, P, V):
 
 def ghi_lo(ten, dong, co_lo):
     VIEC.mkdir(exist_ok=True)
+    # quy tắc dịch: bản chính ở tools/HUONG_DAN.md (viec/ bị gitignore)
+    hd = GOC / "tools" / "HUONG_DAN.md"
+    if hd.exists() and not (VIEC / "HUONG_DAN.md").exists():
+        (VIEC / "HUONG_DAN.md").write_text(hd.read_text(encoding="utf-8"), encoding="utf-8")
     for f in VIEC.glob(f"{ten}_*.tsv"):
         if not f.name.endswith(".ra.tsv"):
             f.unlink()
