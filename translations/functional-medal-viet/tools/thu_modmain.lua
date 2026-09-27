@@ -100,6 +100,12 @@ local function req(m)
   return loaded[m]
 end
 local DE = req("medal_defs/medal_exam_defs_en")   -- mod gốc nạp trước
+-- Màn đề thi giả: chỉ cần _ctor tạo self.content có SetMultilineTruncatedString,
+-- để kiểm bản vá hạ số ký tự/dòng (xem VaManDeThi).
+local MAN_THI = { _ctor = function(self)
+  self.content = { SetMultilineTruncatedString = function(w, str, dong, rong, ky_tu) w.ky_tu = ky_tu end }
+end }
+loaded["screens/medalexamscreen"] = MAN_THI
 local de_en_1 = DE[1].content
 
 -- GLOBAL trong DST chính là _G, nên nó có pcall/tonumber/... đầy đủ.
@@ -175,9 +181,16 @@ if DE[1].content == de_en_1 then loi = true print("✗ đề thi vẫn là tiế
 if #hd_sai > 0 then loi = true print("✗ " .. #hd_sai .. " ACTIONS lệch: " .. liet(hd_sai)) end
 if #af_sai > 0 then loi = true print("✗ " .. #af_sai .. " ACTIONFAIL chưa dịch: " .. liet(af_sai)) end
 if #bang_sai > 0 then loi = true print("✗ bảng trạng thái bị ghi đè: " .. liet(bang_sai)) end
+local man = {}
+MAN_THI._ctor(man)
+man.content:SetMultilineTruncatedString("x", 6, 250, 40, true, true)
+if not (type(man.content.ky_tu) == "number" and man.content.ky_tu < 40) then
+  loi = true print("✗ màn đề thi chưa được vá: vẫn " .. tostring(man.content.ky_tu) .. " ký tự/dòng")
+end
 if loi then os.exit(1) end
 
 print(string.format("✓ modmain chạy sạch — %d/%d chuỗi, %d/%d dòng đề thi, %d ACTIONS (%d khác tên khoá), %d ACTIONFAIL",
   dung, #VI.strings / 2, thi_dung, #VI.exam / 2, so_cap, so_khac, #AF))
 print("  ví dụ: ACTIONS.MEDALTOOLSORB = " .. tostring(STRINGS.ACTIONS.MEDALTOOLSORB))
 print("  ví dụ: đề 1 = " .. tostring(DE[1].content))
+print("  màn đề thi: 40 → " .. tostring(man.content.ky_tu) .. " ký tự/dòng")

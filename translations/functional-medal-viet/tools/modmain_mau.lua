@@ -123,6 +123,46 @@ local function ApMoc(moc)
     end
 end
 
+-- Màn đề thi: mod gốc xuống dòng theo SỐ KÝ TỰ (40/dòng cho tiếng Anh), không
+-- theo độ rộng: khung chữ cố định 250px nên TextWidget:GetRegionSize() luôn
+-- trả 250 và vòng đo độ rộng trong Text:SetTruncatedString không bao giờ
+-- chạy. Chữ Việt có dấu rộng hơn, 40 ký tự tràn quá 250px và bị KHUNG CHE
+-- (không mất chữ, chỉ không thấy). ~29 ký tự thường là đầy 250px ở cỡ 24 →
+-- hạ còn 26. Câu dài nhất vẫn vừa 6 dòng (build.py kiểm).
+--
+-- ⚠ KHÔNG dùng AddClassPostConstruct: nó require NGAY lúc modmain chạy, mà bản
+--   cài local (tên thư mục "functional-medal-vi…") nạp TRƯỚC mod gốc →
+--   "module not found" là sập. Vá _ctor trong postinit, lúc mọi mod đã nạp.
+local KY_TU_DONG_DE_THI = @@KY_TU_DONG_DE_THI@@
+local function VaManDeThi()
+    if GLOBAL.TheNet and GLOBAL.TheNet:IsDedicated() then return "bỏ qua (dedicated)" end
+    local ok, lop = pcall(require, "screens/medalexamscreen")
+    if not ok or type(lop) ~= "table" or type(lop._ctor) ~= "function" then
+        return "không thấy màn đề thi"
+    end
+    if lop._medal_vi_da_va then return "đã vá" end
+    lop._medal_vi_da_va = true
+    local ctor = lop._ctor
+    lop._ctor = function(self, ...)
+        ctor(self, ...)
+        local nd = self.content
+        if nd and type(nd.SetMultilineTruncatedString) == "function" then
+            local goc = nd.SetMultilineTruncatedString
+            nd.SetMultilineTruncatedString = function(w, str, dong, rong, ky_tu, ...)
+                if type(ky_tu) == "number" and ky_tu > KY_TU_DONG_DE_THI then
+                    ky_tu = KY_TU_DONG_DE_THI
+                end
+                return goc(w, str, dong, rong, ky_tu, ...)
+            end
+        end
+    end
+    return "đã vá"
+end
+local function VaMoc(moc)
+    local ok, kq = pcall(VaManDeThi)
+    print("[medal-vi @@PHIEN_BAN@@] " .. moc .. ": màn đề thi " .. tostring(ok and kq or ("LỖI " .. tostring(kq))))
+end
+
 ApMoc("modmain")
 AddSimPostInit(function() ApMoc("AddSimPostInit") end)
-AddGamePostInit(function() ApMoc("AddGamePostInit") end)
+AddGamePostInit(function() ApMoc("AddGamePostInit"); VaMoc("AddGamePostInit") end)

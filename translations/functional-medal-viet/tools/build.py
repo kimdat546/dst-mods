@@ -16,7 +16,10 @@ RA = GOC / "build" / "functional-medal-vi"
 RA_SV = GOC / "build" / "functional-medal-vi-server"
 
 UU_TIEN = -10002
-PHIEN_BAN = "0.2.0"
+PHIEN_BAN = "0.2.1"
+# Màn đề thi: số ký tự tối đa mỗi dòng (xem VaManDeThi trong modmain_mau.lua).
+KY_TU_DONG_DE_THI = 26
+DONG_DE_THI = 6
 
 # Nhóm chuỗi bị mod gốc COPY đi chỗ khác lúc nạp — xem modmain_mau.lua.
 NHOM_BI_COPY = ("s:MEDAL_ACTIONFAIL_SPEECH/",)
@@ -65,6 +68,24 @@ def main():
         return 1
 
     xong = {k: v for k, v in nguon.items() if v.get("vi")}
+
+    # Câu đề thi phải vừa DONG_DE_THI dòng khi ngắt ở KY_TU_DONG_DE_THI ký tự
+    # (mô phỏng Text:SetMultilineTruncatedString: ngắt ở dấu cách gần nhất).
+    dai = []
+    for k, v in xong.items():
+        if v["loai"] == "exam" and k.endswith(".content"):
+            dong, cur = 1, ""
+            for tu in v["vi"].split(" "):
+                if cur and len(cur) + 1 + len(tu) > KY_TU_DONG_DE_THI:
+                    dong, cur = dong + 1, tu
+                else:
+                    cur = f"{cur} {tu}" if cur else tu
+            if dong > DONG_DE_THI:
+                dai.append(f"  {k}: {dong} dòng > {DONG_DE_THI}")
+    if dai:
+        print("✗ câu đề thi quá dài, sẽ bị cắt — KHÔNG dựng:", file=sys.stderr)
+        print("\n".join(dai), file=sys.stderr)
+        return 1
     if not xong:
         print("chưa có chuỗi nào được dịch — không dựng", file=sys.stderr)
         return 1
@@ -89,6 +110,7 @@ def main():
                   .replace("@@BAN_COPY@@", "\n".join(ban_copy))
                   .replace("@@MA_HANH_DONG@@", "\n".join(
                       f'  {ma} = "{khoa}",' for ma, khoa in sorted(ma_hanh_dong().items())))
+                  .replace("@@KY_TU_DONG_DE_THI@@", str(KY_TU_DONG_DE_THI))
                   .replace("@@PHIEN_BAN@@", PHIEN_BAN))
     assert "@@" not in modmain, "còn chỗ trống chưa điền trong mẫu modmain"
     (RA / "modmain.lua").write_text(modmain, encoding="utf-8")
