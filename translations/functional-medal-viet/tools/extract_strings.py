@@ -1,120 +1,90 @@
 #!/usr/bin/env python3
-"""Rút chuỗi của Functional Medal ra strings_source.json.
+"""Rút MỌI chuỗi của Functional Medal ra strings_source.json.
 
-⚠ VÌ SAO KHÔNG FORK MOD GỐC. Nó hardcode đúng hai nhánh ngôn ngữ:
+⚠ BẢN ĐẦU DÒ BẰNG REGEX VÀ BÁO SAI "100%". Nó chỉ bắt dạng
+  `STRINGS.X.Y = "..."` nên được 856 chuỗi, trong khi file thật sinh ra 1.568 —
+  mọi bảng khai kiểu `STRINGS.X = { ... }` đều lọt lưới. Giờ chạy thẳng file
+  Lua trong hộp cát (tools/rut_chuoi.lua): mod gán gì thì mình thấy nấy.
 
-    if TUNING.MEDAL_LANGUAGE == "ch" then require "lang/medal_strings_ch"
-    else                                require "lang/medal_strings_eng" end
+Hai nguồn:
+  scripts/lang/medal_strings_eng.lua       -> loai "strings"  (bảng STRINGS)
+  scripts/medal_defs/medal_exam_defs_en.lua -> loai "exam"     (49 câu đề thi)
 
-Không có móc mở rộng như Montfluv (mod đó nạp theo tên thư mục nên chỉ cần thêm
-translation_vi/). Nên cách duy nhất không phải fork là GHI ĐÈ `STRINGS` sau khi
-mod gốc đã nạp xong.
-
-⚠ VÀ ĐÓ CŨNG LÀ LÝ DO BẢN DỊCH AN TOÀN KHI SERVER KHÔNG BẬT MOD GỐC. `STRINGS`
-  là bảng toàn cục của game; gán một khoá không ai đọc thì không có gì xảy ra.
-  Không cần kiểm tra mod có tồn tại hay không.
-
-Nguồn đối chiếu:
-  scripts/lang/medal_strings_eng.lua   tiếng Anh (bản mod dùng)
-  scripts/lang/medal_strings_ch.lua    tiếng Trung (bản gốc tác giả viết)
-  wiki/medal_item_data.js              cơ chế từng vật phẩm, tra từ guanziheng.com
+Mỗi mục:
+  p     đường dẫn thô, giữ KIỂU khoá (s:chữ / n:số) — build.py cần để áp đúng
+  en    chuỗi tiếng Anh (bản mod dùng khi language_switch = eng)
+  zh    chuỗi tiếng Trung cùng đường dẫn, nếu có — để đối chiếu nghĩa
+  vi    bản dịch (GIỮ LẠI khi chạy lại)
+  wiki  cơ chế vật phẩm tra từ guanziheng.com, nếu có
 """
 
 import json
 import pathlib
-import re
+import subprocess
 import sys
 
-GOC = pathlib.Path(
+GOC = pathlib.Path(__file__).resolve().parent.parent
+MOD = pathlib.Path(
     "~/Library/Application Support/Steam/steamapps/workshop/content/322330/1909182187"
 ).expanduser()
 
-# Bắt cả ba họ khoá mà mod dùng.
-MAU = re.compile(
-    r'STRINGS\.(NAMES|RECIPE_DESC|CHARACTERS\.GENERIC\.DESCRIBE)\.([A-Z0-9_]+)\s*=\s*(".*?"|\[\[.*?\]\])',
-    re.S,
-)
+
+def rut(che_do, tep):
+    ra = subprocess.run(
+        ["luajit", str(GOC / "tools" / "rut_chuoi.lua"), che_do, str(tep)],
+        capture_output=True, text=True, check=True,
+    ).stdout
+    muc = {}
+    for dong in ra.splitlines():
+        p, _, v = dong.partition("\t")
+        v = v.replace("\\t", "\t").replace("\\n", "\n").replace("\\\\", "\\")
+        muc[p] = v
+    return muc
 
 
-def doc_chuoi(tep):
-    """khoá đầy đủ -> chuỗi. Giữ nguyên thứ tự xuất hiện trong file."""
-    if not tep.exists():
-        return {}
-    noi = tep.read_text(encoding="utf-8", errors="replace")
-    ra = {}
-    for ho, ten, gia in MAU.findall(noi):
-        khoa = f"{ho}.{ten}"
-        v = gia.strip()
-        v = v[2:-2] if v.startswith("[[") else v[1:-1]
-        ra[khoa] = v
-    return ra
-
-
-def doc_wiki(tep):
-    """item_code (viết hoa) -> thông tin cơ chế, để dịch cho đúng nghĩa."""
-    if not tep.exists():
-        return {}
-    noi = tep.read_text(encoding="utf-8-sig", errors="replace")
-    try:
-        ds = json.loads(noi[noi.index("[") : noi.rindex("]") + 1])
-    except ValueError:
-        return {}
-    ra = {}
-    for d in ds:
-        ma = (d.get("item_code") or "").strip().upper()
-        if not ma:
-            continue
-        ra[ma] = {
-            "ten_tq": d.get("item_name", ""),
-            "co_che": d.get("item_function", ""),
-            "nguyen_lieu": d.get("item_cailiao", ""),
-            "ban_cong": d.get("item_zhizuolan", ""),
-            "may": d.get("item_keji", ""),
-        }
+def ten_hien(p, tien_to=""):
+    """s:NAMES/s:X -> NAMES.X ; s:A/n:1 -> A[1]. Khớp khoá cũ của bản đầu."""
+    ra = tien_to
+    for doan in p.split("/"):
+        kieu, _, k = doan.partition(":")
+        if kieu == "n":
+            ra += f"[{k}]"
+        else:
+            ra += ("." if ra else "") + k
     return ra
 
 
 def main():
-    goc = pathlib.Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else GOC
-    lang = goc / "scripts" / "lang"
-    en = doc_chuoi(lang / "medal_strings_eng.lua")
-    ch = doc_chuoi(lang / "medal_strings_ch.lua")
-    if not en:
-        print(f"không đọc được chuỗi trong {lang}", file=sys.stderr)
-        return 1
+    goc = pathlib.Path(sys.argv[1]).expanduser() if len(sys.argv) > 1 else MOD
+    en = rut("strings", goc / "scripts/lang/medal_strings_eng.lua")
+    zh = rut("strings", goc / "scripts/lang/medal_strings_ch.lua")
+    thi = rut("bang", goc / "scripts/medal_defs/medal_exam_defs_en.lua")
 
-    here = pathlib.Path(__file__).resolve().parent.parent
-    wiki = doc_wiki(here / "wiki" / "medal_item_data.js")
+    tep = GOC / "strings_source.json"
+    cu = json.loads(tep.read_text(encoding="utf-8")) if tep.exists() else {}
 
-    cu = {}
-    tep_ra = here / "strings_source.json"
-    if tep_ra.exists():
-        cu = json.loads(tep_ra.read_text(encoding="utf-8"))
+    ra = {}
+    for p, v in en.items():
+        k = ten_hien(p)
+        m = {"loai": "strings", "p": p, "en": v, "zh": zh.get(p, ""),
+             "vi": cu.get(k, {}).get("vi", "")}
+        if "wiki" in cu.get(k, {}):
+            m["wiki"] = cu[k]["wiki"]
+        ra[k] = m
+    for p, v in thi.items():
+        k = ten_hien(p, "EXAM")
+        ra[k] = {"loai": "exam", "p": p, "en": v, "zh": "",
+                 "vi": cu.get(k, {}).get("vi", "")}
 
-    ra, giu = {}, 0
-    for khoa in en:
-        ten = khoa.rsplit(".", 1)[1]
-        muc = {
-            "en": en[khoa],
-            "zh": ch.get(khoa, ""),
-            # ⚠ Giữ lại bản dịch cũ khi chạy lại. Không giữ thì mỗi lần mod gốc
-            #   cập nhật là mất sạch công dịch.
-            "vi": cu.get(khoa, {}).get("vi", ""),
-        }
-        if muc["vi"]:
-            giu += 1
-        w = wiki.get(ten)
-        if w and any(w.values()):
-            muc["wiki"] = w
-        ra[khoa] = muc
-
-    tep_ra.write_text(
-        json.dumps(ra, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
-        encoding="utf-8",
-    )
-    co_wiki = sum(1 for v in ra.values() if "wiki" in v)
-    print(f"{len(ra)} chuỗi ({giu} đã dịch từ trước, {co_wiki} có cơ chế từ wiki)")
-    print(f"-> {tep_ra}")
+    mat = [k for k in cu if cu[k].get("vi") and k not in ra]
+    tep.write_text(json.dumps(ra, ensure_ascii=False, indent=1, sort_keys=True) + "\n",
+                   encoding="utf-8")
+    xong = sum(1 for m in ra.values() if m["vi"])
+    print(f"{len(ra)} chuỗi ({len(en)} STRINGS + {len(thi)} đề thi), đã dịch {xong}")
+    if mat:
+        print(f"⚠ {len(mat)} bản dịch cũ không còn khoá tương ứng (mod gốc đã đổi/bỏ):")
+        for k in mat[:10]:
+            print("   ", k)
     return 0
 
 
