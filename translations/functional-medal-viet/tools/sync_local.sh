@@ -36,5 +36,5 @@ finder_rm "$MODS/$MOD"
 osascript -e "tell application \"Finder\" to duplicate (POSIX file \"$SRC/build/$MOD\" as alias) to (POSIX file \"$MODS\" as alias) with replacing" >/dev/null
 echo "✓ đã cài $MOD"
 echo
-echo "Trong game: Mods → Client Mods → bật \"Functional Medal Tiếng Việt\""
+echo "Trong game: Mods → Client Mods → bật \"Functional Medal - Đừng Chết Đói :)\" (bản LOCAL)"
 echo "Mod gốc (workshop-1909182187) để language_switch = eng."

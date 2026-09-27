@@ -25,7 +25,7 @@ local STRINGS = {
 -- GLOBAL trong DST chính là _G, nên nó có pcall/type/... đầy đủ.
 local GLOBAL = setmetatable({ STRINGS = STRINGS }, { __index = _G })
 
-local hook
+local hooks = {}
 local env = {
   -- lua  (đúng bằng scripts/mods.lua:369, không hơn)
   pairs = pairs, ipairs = ipairs, print = print, math = math, table = table,
@@ -35,7 +35,8 @@ local env = {
   TUNING = {},
   GLOBAL = GLOBAL, modname = "thu", MODROOT = MOD .. "/",
   -- móc mà mod này dùng
-  AddSimPostInit = function(fn) hook = fn end,
+  AddSimPostInit  = function(fn) hooks[#hooks + 1] = fn end,
+  AddGamePostInit = function(fn) hooks[#hooks + 1] = fn end,
 }
 
 local function chet(msg)
@@ -47,10 +48,11 @@ local f = loadfile(MOD .. "/modmain.lua") or chet("không đọc được modmai
 setfenv(f, env)
 local ok, err = pcall(f)
 if not ok then chet("modmain nổ khi nạp: " .. tostring(err)) end
-if hook == nil then chet("modmain không đăng ký AddSimPostInit") end
-
-local ok2, err2 = pcall(hook)
-if not ok2 then chet("AddSimPostInit nổ: " .. tostring(err2)) end
+if #hooks == 0 then chet("modmain không đăng ký móc postinit nào") end
+for i, fn in ipairs(hooks) do
+  local ok2, err2 = pcall(fn)
+  if not ok2 then chet("móc postinit #" .. i .. " nổ: " .. tostring(err2)) end
+end
 
 local function dem(t) local n = 0 for _ in pairs(t) do n = n + 1 end return n end
 local a, b, c = dem(STRINGS.NAMES), dem(STRINGS.RECIPE_DESC),

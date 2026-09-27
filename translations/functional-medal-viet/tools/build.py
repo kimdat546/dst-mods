@@ -18,7 +18,7 @@ RA = GOC / "build" / "functional-medal-vi"
 #   tức GIẢM DẦN: số LỚN nạp TRƯỚC, số NHỎ nạp SAU. Mình cần nạp SAU mod gốc
 #   thì mới ghi đè được chuỗi của nó, nên phải nhỏ hơn.
 UU_TIEN = -10002
-PHIEN_BAN = "0.1.2"
+PHIEN_BAN = "0.1.3"
 
 
 def thoat_lua(s):
@@ -153,14 +153,24 @@ end
 --   lỗi mod, nên rất dễ đổ oan cho đường truyền.
 local pcall = GLOBAL.pcall
 
-AddSimPostInit(function()
+-- ⚠ ÁP Ở CẢ BA MỐC, không chỉ AddSimPostInit. Skill dst-workspace-tools ghi
+--   lại điều đã ĐO: DST xếp thứ tự nạp mod theo TÊN THƯ MỤC chứ không theo
+--   `priority` (thử cả -9999 lẫn 9999). Nên không được dựa vào việc mình nạp
+--   sau mod gốc. Áp lúc nạp modmain, rồi áp lại ở AddSimPostInit và
+--   AddGamePostInit — mốc nào chạy sau mod gốc thì mốc đó thắng. Áp lặp không
+--   hại gì: chỉ là gán lại cùng một giá trị.
+local function ApMoc(moc)
     local ok, n = pcall(ApDung)
     if ok then
-        print("[medal-vi] đã áp " .. tostring(n) .. " chuỗi tiếng Việt")
+        print("[medal-vi {PHIEN_BAN}] " .. moc .. ": đã áp " .. tostring(n) .. " chuỗi tiếng Việt")
     else
-        print("[medal-vi] LỖI khi áp chuỗi: " .. tostring(n))
+        print("[medal-vi {PHIEN_BAN}] " .. moc .. ": LỖI khi áp chuỗi: " .. tostring(n))
     end
-end)
+end
+
+ApMoc("modmain")
+AddSimPostInit(function() ApMoc("AddSimPostInit") end)
+AddGamePostInit(function() ApMoc("AddGamePostInit") end)
 ''',
         encoding="utf-8",
     )
