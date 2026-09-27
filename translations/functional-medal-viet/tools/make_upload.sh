@@ -69,7 +69,7 @@ done
 echo
 echo "✓ Sẵn sàng:"
 echo "    $SRC/upload/$MOD          (client — Workshop 3802626143)"
-echo "    $SRC/upload/$MOD-server   (server — Workshop ID: xem README)"
+echo "    $SRC/upload/$MOD-server   (server — Workshop 3809137709)"
 echo
 echo "Tiếp theo — Don't Starve Mod Tools → Mod Uploader:"
 echo "  1. Chọn từng thư mục trên (upload MỖI BẢN là một Workshop item riêng)"

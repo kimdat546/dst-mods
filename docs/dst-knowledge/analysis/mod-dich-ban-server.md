@@ -73,7 +73,7 @@ Bản server chạy `modmain` trên server **không có giao diện**. Soát:
 
 | Mod | Kiểu hiện tại | Cần bản server? |
 |---|---|---|
-| functional-medal-viet | client + **[Server] đã làm** | xong, chờ upload bản server |
+| functional-medal-viet | client 3802626143 + **[Server] 3809137709** | xong |
 | dang-tien-viet | client (`modimport scripts/main.lua`, có scanner, hook widget) | **Có** — phải tách móc client trước |
 | myth-words-viet | client | **Có** — soát modmain |
 | montfluv-viet | client (`tools/build_client_mod.py`) | **Có** |

@@ -131,13 +131,13 @@ def main():
 - Dịch phần chữ do SERVER tạo ra: câu nhân vật nói, đáp án đề thi,
   thông tin khi rê chuột, thông báo. Mọi người trong server đều thấy tiếng Việt.
 - Giao diện, tên đồ, mô tả thì do máy người chơi vẽ: người chơi bật thêm
-  bản client "Functional Medal - Đừng Chết Đói :)" (không có [Server]).
+  bản client "Functional Medal - Đừng Chết Đói :)" (Workshop ID 3802626143).
 - World có hang động hoặc server riêng thì CẦN bản này; host không hang
   thì chỉ bản client là đủ.
 """ if server else """- Mod này là MOD CLIENT, chỉ đổi chữ hiện trên máy bạn
 - Server có hang động / server riêng: câu nhân vật nói và thông tin khi rê
   chuột do server tạo ra, nên vẫn tiếng Anh — trừ khi chủ server bật thêm
-  bản "Functional Medal - Đừng Chết Đói :) [Server]"
+  bản "Functional Medal - Đừng Chết Đói :) [Server]" (Workshop ID 3809137709)
 """)
         kieu_mod = ("""-- Mod SERVER: chạy trong tiến trình server để chữ server ghép (MedalSay,
 -- getMedalInfo, thông báo) ra tiếng Việt. Người chơi không phải tải.

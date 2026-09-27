@@ -115,7 +115,9 @@ lối với các mod dịch khác trong kho.
 
 Upload xong nhớ điền Workshop ID vào bảng mod trong `README.md` ở gốc kho.
 
-## Bản server — `functional-medal-vi-server`
+## Bản server — `functional-medal-vi-server` (Workshop **3809137709**)
+
+Bản client: Workshop **3802626143**.
 
 Bản client không dịch được chữ do **server** ghép: câu nhân vật nói (vd. đáp án
 đúng khi trả lời sai đề thi), thông tin khi rê chuột (qua RPC `Showinfo`),
