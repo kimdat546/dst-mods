@@ -46,3 +46,7 @@ translations/than-binh-phu-an-viet/logs-crash/
 # data/ là thư mục runtime do container ghi vào.
 translations/than-binh-phu-an-viet/tools/test/test.env
 translations/than-binh-phu-an-viet/tools/test/data/
+
+# File việc tạm khi dịch song song (xuất bằng tools/xuat_viec.py)
+translations/dst-tieng-viet/viec/
+translations/dst-tieng-viet/upload/

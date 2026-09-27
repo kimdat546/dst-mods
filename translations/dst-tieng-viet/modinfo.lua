@@ -18,3 +18,7 @@ server_filter_tags = {"vn", "vietnam", "vietnamese", "viet nam", "datgavl"}
 dst_compatible = true
 all_clients_require_mod = false
 client_only_mod = true
+-- ⚠ Mod Workshop MẶC ĐỊNH bật manifest (scripts/mods.lua:566): game chỉ thấy file
+--   có trong mod.manifest. Manifest cũ không có scripts/textfix/ngoai_po.lua →
+--   "module not found". Mod không cần manifest nên tắt hẳn, và không upload nó.
+forcemanifest = false
