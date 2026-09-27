@@ -16,7 +16,7 @@ RA = GOC / "build" / "functional-medal-vi"
 RA_SV = GOC / "build" / "functional-medal-vi-server"
 
 UU_TIEN = -10002
-PHIEN_BAN = "0.2.1"
+PHIEN_BAN = "0.2.2"
 # Màn đề thi: số ký tự tối đa mỗi dòng (xem VaManDeThi trong modmain_mau.lua).
 KY_TU_DONG_DE_THI = 26
 DONG_DE_THI = 6

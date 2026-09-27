@@ -100,11 +100,18 @@ local function req(m)
   return loaded[m]
 end
 local DE = req("medal_defs/medal_exam_defs_en")   -- mod gốc nạp trước
--- Màn đề thi giả: chỉ cần _ctor tạo self.content có SetMultilineTruncatedString,
--- để kiểm bản vá hạ số ký tự/dòng (xem VaManDeThi).
-local MAN_THI = { _ctor = function(self)
+-- Màn đề thi giả, làm ĐÚNG như mod gốc: hàm tạo dựng self.content rồi GỌI
+-- LUÔN self:LoadExamData() (in câu hỏi 40 ký tự/dòng). v0.2.1 chỉ vá sau hàm
+-- tạo nên lần in đầu lọt qua — bộ thử cũ không mô phỏng lời gọi này nên báo
+-- xanh. Kiểm lần in CUỐI cùng mới là thứ người chơi thấy.
+local MAN_THI = {}
+MAN_THI.LoadExamData = function(self)
+  self.content:SetMultilineTruncatedString("x", 6, 250, 40, true, true)
+end
+MAN_THI._ctor = function(self)
   self.content = { SetMultilineTruncatedString = function(w, str, dong, rong, ky_tu) w.ky_tu = ky_tu end }
-end }
+  self:LoadExamData()
+end
 loaded["screens/medalexamscreen"] = MAN_THI
 local de_en_1 = DE[1].content
 
@@ -181,9 +188,8 @@ if DE[1].content == de_en_1 then loi = true print("✗ đề thi vẫn là tiế
 if #hd_sai > 0 then loi = true print("✗ " .. #hd_sai .. " ACTIONS lệch: " .. liet(hd_sai)) end
 if #af_sai > 0 then loi = true print("✗ " .. #af_sai .. " ACTIONFAIL chưa dịch: " .. liet(af_sai)) end
 if #bang_sai > 0 then loi = true print("✗ bảng trạng thái bị ghi đè: " .. liet(bang_sai)) end
-local man = {}
-MAN_THI._ctor(man)
-man.content:SetMultilineTruncatedString("x", 6, 250, 40, true, true)
+local man = setmetatable({}, { __index = MAN_THI })
+MAN_THI._ctor(man)   -- chỉ dựng, KHÔNG gọi thêm: đúng thứ người chơi thấy khi mở màn
 if not (type(man.content.ky_tu) == "number" and man.content.ky_tu < 40) then
   loi = true print("✗ màn đề thi chưa được vá: vẫn " .. tostring(man.content.ky_tu) .. " ký tự/dòng")
 end

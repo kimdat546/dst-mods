@@ -154,6 +154,12 @@ local function VaManDeThi()
                 end
                 return goc(w, str, dong, rong, ky_tu, ...)
             end
+            -- ⚠ Hàm tạo của mod gốc ĐÃ gọi self:LoadExamData() (in câu hỏi với
+            --   40 ký tự) trước khi tới đây — v0.2.1 quên chỗ này nên vá xong
+            --   mà màn hình không đổi. Nạp lại để câu hỏi đi qua bản vá.
+            if type(self.LoadExamData) == "function" then
+                self:LoadExamData()
+            end
         end
     end
     return "đã vá"
