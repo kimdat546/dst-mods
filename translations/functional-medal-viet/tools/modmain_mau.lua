@@ -27,10 +27,21 @@ local THI = {
 @@THI@@
 }
 
--- Tiếng Anh -> tiếng Việt của những chuỗi bị mod gốc COPY đi chỗ khác lúc nạp:
---   * MEDAL_NEWACTION -> AddAction(id, str) ghi vào STRINGS.ACTIONS[id]
---   * MEDAL_ACTIONFAIL_SPEECH -> chép vào STRINGS.CHARACTERS.*.ACTIONFAIL
--- Sửa bảng nguồn sau khi đã chép là vô ích, phải sửa cả bản chép.
+-- Mod gốc COPY tên hành động lúc nạp: AddAction(id, STRINGS.MEDAL_NEWACTION.X)
+-- ghi vào STRINGS.ACTIONS[id]. Sửa MEDAL_NEWACTION sau đó là vô ích.
+--
+-- ⚠ VÁ THEO MÃ, KHÔNG THEO GIÁ TRỊ TIẾNG ANH. 97 hành động nhưng 27 cái có mã
+--   khác tên khoá, và nhiều khoá khác nhau cùng chữ "Repair" (vá giáp / bổ
+--   sung sức mạnh không gian / bổ sung lông vũ). Thay theo giá trị thì cả ba ra
+--   cùng một bản dịch. Bảng mã -> khoá này rút thẳng từ medal_actions.lua lúc
+--   dựng (tools/build.py).
+local MA_HANH_DONG = {
+@@MA_HANH_DONG@@
+}
+
+-- Thoại lỗi hành động: mod gốc CHÉP MEDAL_ACTIONFAIL_SPEECH vào
+-- STRINGS.CHARACTERS.*.ACTIONFAIL lúc nạp (medal_wipebutt.lua). Đây là câu
+-- dài, không trùng nhau, nên vá theo giá trị là an toàn.
 local BAN_COPY = {
 @@BAN_COPY@@
 }
@@ -73,7 +84,17 @@ local function ApDung()
     for i = 1, #BANG, 2 do
         if Ghi(S, BANG[i], BANG[i + 1]) then n = n + 1 end
     end
-    local c = ThayBanCopy(S.ACTIONS, 1)
+    local c = 0
+    local tenhd = S.MEDAL_NEWACTION
+    if type(S.ACTIONS) == "table" and type(tenhd) == "table" then
+        for ma, khoa in pairs(MA_HANH_DONG) do
+            -- Chỉ thay khi đang là CHUỖI: hành động có strfn dùng BẢNG biến thể.
+            if type(S.ACTIONS[ma]) == "string" and type(tenhd[khoa]) == "string" then
+                S.ACTIONS[ma] = tenhd[khoa]
+                c = c + 1
+            end
+        end
+    end
     for _, nv in pairs(S.CHARACTERS or {}) do
         if type(nv) == "table" then c = c + ThayBanCopy(nv.ACTIONFAIL, 1) end
     end

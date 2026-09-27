@@ -17,7 +17,21 @@ UU_TIEN = -10002
 PHIEN_BAN = "0.2.0"
 
 # Nhóm chuỗi bị mod gốc COPY đi chỗ khác lúc nạp — xem modmain_mau.lua.
-NHOM_BI_COPY = ("s:MEDAL_NEWACTION/", "s:MEDAL_ACTIONFAIL_SPEECH/")
+NHOM_BI_COPY = ("s:MEDAL_ACTIONFAIL_SPEECH/",)
+MOD_GOC = pathlib.Path(
+    "~/Library/Application Support/Steam/steamapps/workshop/content/322330/1909182187"
+).expanduser()
+
+
+def ma_hanh_dong():
+    """id hành động -> khoá MEDAL_NEWACTION, rút từ medal_actions.lua."""
+    s = (MOD_GOC / "scripts/medal_defs/medal_actions.lua").read_text(encoding="utf-8")
+    ra = {}
+    for m in re.finditer(r'id\s*=\s*"([A-Z0-9_]+)"[^{}]*?str\s*=\s*STRINGS\.MEDAL_NEWACTION\.([A-Z0-9_]+)', s, re.S):
+        ra.setdefault(m.group(1), m.group(2))
+    if len(ra) < 50:
+        raise SystemExit(f"✗ chỉ rút được {len(ra)} hành động — mod gốc đổi cấu trúc?")
+    return ra
 
 
 def thoat_lua(s):
@@ -71,6 +85,8 @@ def main():
     modmain = (mau.replace("@@BANG@@", cap("strings"))
                   .replace("@@THI@@", cap("exam"))
                   .replace("@@BAN_COPY@@", "\n".join(ban_copy))
+                  .replace("@@MA_HANH_DONG@@", "\n".join(
+                      f'  {ma} = "{khoa}",' for ma, khoa in sorted(ma_hanh_dong().items())))
                   .replace("@@PHIEN_BAN@@", PHIEN_BAN))
     assert "@@" not in modmain, "còn chỗ trống chưa điền trong mẫu modmain"
     (RA / "modmain.lua").write_text(modmain, encoding="utf-8")
@@ -162,7 +178,7 @@ configuration_options = {{}}
     print(f"đã dựng {RA}")
     print(f"  {len(xong)}/{tong} chuỗi ({len(xong) * 100 // tong}%)  "
           + "  ".join(f"{l}: {x}/{n}" for l, (n, x) in sorted(theo.items())))
-    print(f"  {len(ban_copy)} chuỗi vá bản copy (hành động, thoại lỗi)")
+    print(f"  {len(ma_hanh_dong())} hành động vá theo mã, {len(ban_copy)} thoại lỗi vá theo giá trị")
     return 0
 
 

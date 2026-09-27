@@ -115,13 +115,24 @@ lối với các mod dịch khác trong kho.
 
 Upload xong nhớ điền Workshop ID vào bảng mod trong `README.md` ở gốc kho.
 
-## Tiến độ — 856/856 (100%)
+## Tiến độ — 1813/1813 (100%, v0.2.0)
 
 | | |
 |---|---|
-| 386 | tên vật phẩm |
-| 166 | mô tả công thức |
-| 304 | lời nhân vật khi soi đồ |
+| 389 | tên vật phẩm |
+| 164 | mô tả công thức |
+| 329 | lời nhân vật khi soi đồ |
+| 686 | giao diện, hành động, nhiệm vụ, trang phục, thoại (tiên tri, giao hàng, lỗi hành động…) |
+| 245 | đề thi Huân chương Trí Tuệ (49 câu, bản tiếng Anh) |
+
+⚠ Con số "856/856 (100%)" của bản 0.1.x là **sai**: bộ rút chuỗi cũ dò regex
+`STRINGS.X.Y = "..."` nên lọt mọi bảng khai kiểu `STRINGS.X = { ... }`. Giờ
+`tools/rut_chuoi.lua` **chạy thẳng** file chuỗi của mod gốc trong hộp cát rồi
+in mọi chuỗi lá — mod gốc gán gì thấy nấy.
+
+Dịch tiếp khi mod gốc cập nhật: `python3 tools/extract_strings.py` →
+`./tools/ap_dich.py --xem <tiền tố>` xem chuỗi chưa dịch → dán TSV
+`khoá<TAB>bản dịch` vào `./tools/ap_dich.py` → `python3 tools/build.py`.
 
 Bảng thuật ngữ bám theo bản dịch game gốc trong
 `translations/dst-tieng-viet/vietnamese.po`: Đá cẩm thạch, Nhân Sâm, Củ Thịt,
@@ -206,4 +217,16 @@ mục gộp vào DST Tiếng Việt), nhưng `modmain` **không phụ thuộc v�
 `tools/build.py` từ chối dựng nếu **placeholder lệch**. Chuỗi gốc có
 `{medal}` `{level}` `{food}` `{product}` `{item}` `{chest}` `{backpack}`
 `{trap}`; dịch đánh rơi hoặc viết sai thì người chơi thấy nguyên chữ `{food}`
-giữa câu. Hiện **0 lỗi trên 856 chuỗi**, 0 chuỗi còn sót chữ Hán, 0 chuỗi rỗng.
+giữa câu. Hiện **0 lỗi trên 1813 chuỗi**.
+
+## ⚠ Bẫy thứ ba: mod gốc COPY chuỗi đi lúc nạp
+
+Ghi vào `STRINGS.MEDAL_NEWACTION` là chưa đủ — `AddAction(id, str, fn)` đã
+chép chữ sang `STRINGS.ACTIONS[id]` từ trước, và 27/97 `id` **khác tên khoá**
+(vá theo bảng mã rút từ `medal_actions.lua`). `MEDAL_ACTIONFAIL_SPEECH` cũng bị
+chép sang `CHARACTERS.*.ACTIONFAIL` (vá theo giá trị tiếng Anh). Đề thi nằm
+trong bảng `require` dùng chung → sửa thẳng bảng đó.
+
+`tools/thu_modmain.lua` nạp chuỗi tiếng Anh THẬT của mod gốc, dựng lại đúng
+các bản copy này rồi kiểm từng chuỗi đã tới nơi, đúng kiểu khoá (nhiều bảng
+thoại là mảng), và bảng trạng thái (`DESCRIBE.MEDAL_BEEBOX`…) không bị ghi đè.
