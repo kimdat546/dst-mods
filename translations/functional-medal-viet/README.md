@@ -115,6 +115,19 @@ lối với các mod dịch khác trong kho.
 
 Upload xong nhớ điền Workshop ID vào bảng mod trong `README.md` ở gốc kho.
 
+## Bản server — `functional-medal-vi-server`
+
+Bản client không dịch được chữ do **server** ghép: câu nhân vật nói (vd. đáp án
+đúng khi trả lời sai đề thi), thông tin khi rê chuột (qua RPC `Showinfo`),
+thông báo. World **có hang** — kể cả host trên chính máy mình — là server
+dedicated ẩn, không nạp mod client, nên những chữ đó ra tiếng Anh.
+
+`build.py` dựng thêm `build/functional-medal-vi-server`: **cùng `modmain.lua`**,
+chỉ khác `modinfo` (`client_only_mod = false`, `all_clients_require_mod = false`,
+tên thêm `[Server]`). Chủ server bật; người chơi không phải tải. Upload thành
+Workshop item riêng. Chi tiết và danh sách mod dịch khác cần làm tương tự:
+`docs/dst-knowledge/analysis/mod-dich-ban-server.md`.
+
 ## Tiến độ — 1813/1813 (100%, v0.2.0)
 
 | | |

@@ -23,8 +23,8 @@ finder_rm() {
 [[ -d "$MODS" ]] || { echo "✗ không thấy thư mục mod của game: $MODS"; exit 1; }
 
 if [[ "${1:-}" == "--clean" ]]; then
-    finder_rm "$MODS/$MOD"
-    echo "✓ đã gỡ $MOD khỏi game"
+    finder_rm "$MODS/$MOD"; finder_rm "$MODS/$MOD-server"
+    echo "✓ đã gỡ $MOD và $MOD-server khỏi game"
     exit 0
 fi
 
@@ -32,9 +32,12 @@ echo "▸ Dựng mod…"
 python3 "$SRC/tools/build.py" | sed 's/^/  /'
 
 echo "▸ Cài vào game (qua Finder)…"
-finder_rm "$MODS/$MOD"
-osascript -e "tell application \"Finder\" to duplicate (POSIX file \"$SRC/build/$MOD\" as alias) to (POSIX file \"$MODS\" as alias) with replacing" >/dev/null
-echo "✓ đã cài $MOD"
+for b in "$MOD" "$MOD-server"; do
+    finder_rm "$MODS/$b"
+    osascript -e "tell application \"Finder\" to duplicate (POSIX file \"$SRC/build/$b\" as alias) to (POSIX file \"$MODS\" as alias) with replacing" >/dev/null
+    echo "✓ đã cài $b"
+done
 echo
 echo "Trong game: Mods → Client Mods → bật \"Functional Medal - Đừng Chết Đói :)\" (bản LOCAL)"
+echo "World có hang: lúc tạo/sửa world → tab Mods (Server Mods) → bật thêm \"… [Server]\"."
 echo "Mod gốc (workshop-1909182187) để language_switch = eng."

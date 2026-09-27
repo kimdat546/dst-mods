@@ -11,6 +11,7 @@
 - **Kiến thức DST API / pitfalls / hot-reload / kiến trúc 登仙:** `docs/dst-knowledge/analysis/`.
 - **Skill dựng nội dung DST** (nhân vật, vật phẩm, công trình, đan dược, mob AI): `.claude/skills/`.
 - **Hai pattern dịch:** (a) mod bytecode → hook runtime, `priority=-10000`, ghi đè `STRINGS.*` trong `AddSimPostInit` + hook `TextWidget.SetString`; (b) game gốc → file `.po` qua `LoadPOFile()` + textfix cho text động.
+- **Mod dịch client không dịch được chữ do SERVER ghép** (thoại, hover qua RPC, thông báo) khi world có hang/server riêng → làm thêm bản `[Server]` từ cùng modmain: `docs/dst-knowledge/analysis/mod-dich-ban-server.md`. Test bản client thì dùng world KHÔNG hang.
 - **Upload Workshop:** rsync sang thư mục build sạch → tăng version → Don't Starve Mod Tools → Upload Existing Mod → nhập Workshop ID.
 
 ## Dọn tài nguyên máy — BẮT BUỘC

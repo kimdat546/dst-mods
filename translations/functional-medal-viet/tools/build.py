@@ -12,6 +12,8 @@ import sys
 
 GOC = pathlib.Path(__file__).resolve().parent.parent
 RA = GOC / "build" / "functional-medal-vi"
+# Bản SERVER: cùng modmain, chỉ khác modinfo. Xem mục "Bản server" trong README.
+RA_SV = GOC / "build" / "functional-medal-vi-server"
 
 UU_TIEN = -10002
 PHIEN_BAN = "0.2.0"
@@ -100,8 +102,31 @@ def main():
         + cap("exam") + "\n },\n}\n", encoding="utf-8")
 
     # ── modinfo ────────────────────────────────────────────────────────
-    (RA / "modinfo.lua").write_text(
-        f'''name = "Functional Medal - Đừng Chết Đói :)"
+    def modinfo(server):
+        ten_them = " [Server]" if server else ""
+        yeu_cau = ("""- Mod này là MOD SERVER: chủ server bật ở tab Mods khi tạo world.
+  Người vào chơi KHÔNG phải tải gì thêm.
+- Dịch phần chữ do SERVER tạo ra: câu nhân vật nói, đáp án đề thi,
+  thông tin khi rê chuột, thông báo. Mọi người trong server đều thấy tiếng Việt.
+- Giao diện, tên đồ, mô tả thì do máy người chơi vẽ: người chơi bật thêm
+  bản client "Functional Medal - Đừng Chết Đói :)" (không có [Server]).
+- World có hang động hoặc server riêng thì CẦN bản này; host không hang
+  thì chỉ bản client là đủ.
+""" if server else """- Mod này là MOD CLIENT, chỉ đổi chữ hiện trên máy bạn
+- Server có hang động / server riêng: câu nhân vật nói và thông tin khi rê
+  chuột do server tạo ra, nên vẫn tiếng Anh — trừ khi chủ server bật thêm
+  bản "Functional Medal - Đừng Chết Đói :) [Server]"
+""")
+        kieu_mod = ("""-- Mod SERVER: chạy trong tiến trình server để chữ server ghép (MedalSay,
+-- getMedalInfo, thông báo) ra tiếng Việt. Người chơi không phải tải.
+-- ⚠ Host có hang động = game tự bật server dedicated ẩn (Master + Caves);
+--   hai tiến trình đó KHÔNG nạp mod client, nên cần bản này.
+all_clients_require_mod = false
+client_only_mod = false""" if server else """-- Chữ hiện ở máy người chơi, nên đây là mod client. Server không cần bật.
+-- Chữ do SERVER ghép (thoại, thông tin hover…) cần bản [Server] đi kèm.
+all_clients_require_mod = false
+client_only_mod = true""")
+        return f'''name = "Functional Medal - Đừng Chết Đói :){ten_them}"
 description = [[Bản dịch tiếng Việt cho mod Functional Medal (能力勋章).
 
 Mod gốc của tác giả 恒子 — chủ đề "trưởng thành": huân chương trao năng lực,
@@ -110,8 +135,7 @@ kèm hệ nhiệm vụ, gia vị nấu ăn, cây ghép, tượng và đạn ná.
 YÊU CẦU
 - Phải sub và bật mod gốc trước: Functional Medal, Workshop ID 1909182187
 - Trong cấu hình mod gốc để ngôn ngữ = English (language_switch)
-- Mod này là MOD CLIENT, chỉ đổi chữ hiện trên máy bạn
-
+{yeu_cau}
 BẢN THỬ NGHIỆM
 Đã dịch toàn bộ: tên, công thức, lời soi đồ, tên hành động, giao diện,
 nhiệm vụ, thoại, tên trang phục và 49 câu đề thi khảo hạch. Gặp chữ dịch sai,
@@ -133,9 +157,7 @@ dst_compatible = true
 dont_starve_compatible = false
 reign_of_giants_compatible = false
 
--- Chữ hiện ở máy người chơi, nên đây là mod client. Server không cần bật.
-all_clients_require_mod = false
-client_only_mod = true
+{kieu_mod}
 
 icon_atlas = "modicon.xml"
 icon = "modicon.tex"
@@ -153,8 +175,13 @@ server_filter_tags = {{"vn", "vietnam", "vietnamese", "medal", "kimdat546"}}
 
 configuration_options = {{}}
 '''
-        , encoding="utf-8",
-    )
+
+    for ra, server in ((RA, False), (RA_SV, True)):
+        if server:
+            if ra.exists():
+                shutil.rmtree(ra)
+            shutil.copytree(RA, ra)
+        (ra / "modinfo.lua").write_text(modinfo(server), encoding="utf-8")
 
     # ── ảnh ────────────────────────────────────────────────────────────
     #
@@ -165,7 +192,8 @@ configuration_options = {{}}
     for ten in ("modicon.tex", "modicon.xml", "preview.png"):
         nguon_anh = GOC / "assets" / ten
         if nguon_anh.exists():
-            shutil.copy2(nguon_anh, RA / ten)
+            for ra in (RA, RA_SV):
+                shutil.copy2(nguon_anh, ra / ten)
         else:
             thieu.append(ten)
     if thieu:
@@ -176,6 +204,7 @@ configuration_options = {{}}
     for v in nguon.values():
         a = theo.setdefault(v["loai"], [0, 0]); a[0] += 1; a[1] += bool(v.get("vi"))
     print(f"đã dựng {RA}")
+    print(f"        {RA_SV}  (bản server, cùng modmain)")
     print(f"  {len(xong)}/{tong} chuỗi ({len(xong) * 100 // tong}%)  "
           + "  ".join(f"{l}: {x}/{n}" for l, (n, x) in sorted(theo.items())))
     print(f"  {len(ma_hanh_dong())} hành động vá theo mã, {len(ban_copy)} thoại lỗi vá theo giá trị")
