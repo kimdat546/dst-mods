@@ -11,7 +11,23 @@
 - **Kiến thức DST API / pitfalls / hot-reload / kiến trúc 登仙:** `docs/dst-knowledge/analysis/`.
 - **Skill dựng nội dung DST** (nhân vật, vật phẩm, công trình, đan dược, mob AI): `.claude/skills/`.
 - **Hai pattern dịch:** (a) mod bytecode → hook runtime, `priority=-10000`, ghi đè `STRINGS.*` trong `AddSimPostInit` + hook `TextWidget.SetString`; (b) game gốc → file `.po` qua `LoadPOFile()` + textfix cho text động.
+- **Mod dịch client không dịch được chữ do SERVER ghép** (thoại, hover qua RPC, thông báo) khi world có hang/server riêng → làm thêm bản `[Server]` từ cùng modmain: `docs/dst-knowledge/analysis/mod-dich-ban-server.md`. Test bản client thì dùng world KHÔNG hang.
 - **Upload Workshop:** rsync sang thư mục build sạch → tăng version → Don't Starve Mod Tools → Upload Existing Mod → nhập Workshop ID.
+
+## Dọn tài nguyên máy — BẮT BUỘC
+
+Máy làm việc là **MacBook của user**, không phải máy chủ. Chạy xong bất cứ thứ
+gì nặng thì **dừng ngay trong cùng lượt đó**, đừng đợi được nhắc:
+
+- Đọc xong kết quả `chay_tu_kiem.sh` → `docker stop dst-ailang-test` ngay.
+  **`stop`, KHÔNG `rm`** — giữ nguyên container và data.
+- Dừng mọi việc nền còn treo, đừng để vòng `until ... sleep` chạy mãi.
+- Trước khi kết thúc lượt: `docker ps` phải trống.
+- Còn cần container cho lượt sau thì **nói rõ** là đang để chạy và vì sao.
+
+Đã xảy ra thật (2026-09-15): container DST test chạy nền nhiều tiếng sau khi bộ
+kiểm xong — nó là server game đầy đủ, ăn CPU liên tục, máy user nóng lên. Đây là
+lần lặp lại thứ hai của cùng một lỗi.
 
 ## Lịch sử
 Gom về đây 2026-07-26 từ các folder rải trên Desktop. Không có session Claude cũ nào được lưu; context được tái dựng từ file dự án.

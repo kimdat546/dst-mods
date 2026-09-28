@@ -3,6 +3,15 @@
 #
 #   ./tools/test/chay_tu_kiem.sh          # dựng lại server sạch rồi kiểm
 #   ./tools/test/chay_tu_kiem.sh --nhanh  # dùng lại server đang chạy
+#   ./tools/test/chay_tu_kiem.sh --giu    # kiểm xong ĐỂ server chạy tiếp
+#
+# ⚠ MẶC ĐỊNH DỪNG CONTAINER SAU KHI KIỂM XONG. Đây là server game đầy đủ, ăn
+#   CPU liên tục, và máy làm việc là MacBook chứ không phải máy chủ. Đã để quên
+#   nó chạy nền nhiều tiếng sau khi kiểm xong và làm nóng máy — hai lần. Dừng
+#   bằng `stop` chứ không `rm`, nên data và container vẫn còn nguyên.
+#
+#   Cần soi thế giới sau khi kiểm (gửi lệnh qua console) thì dùng --giu, và nhớ
+#   tự `docker stop` khi xong.
 #
 # ⚠ MẶC ĐỊNH PHẢI DỰNG LẠI CONTAINER. Bản đầu dùng lại container đang chạy cho
 #   nhanh, và đúng một lần đó đã để lọt lỗi chí mạng: mã mới vi phạm strict
@@ -14,7 +23,23 @@ set -euo pipefail
 MOD="$(cd "$(dirname "$0")/../.." && pwd)"
 CT=dst-ailang-test
 NHANH=0
-[[ "${1:-}" == "--nhanh" ]] && NHANH=1
+GIU=0
+for cd in "$@"; do
+    [[ "$cd" == "--nhanh" ]] && NHANH=1
+    [[ "$cd" == "--giu"   ]] && GIU=1
+done
+
+# ⚠ Dừng qua `trap` chứ không phải một dòng ở cuối file: script này `exit 1`
+#   giữa chừng khi mod không nạp được, và đúng lúc đó cũng phải dừng container.
+#   Đặt ở cuối thì nhánh lỗi bỏ qua và container chạy nền tiếp.
+don_dep() {
+    if [[ $GIU -eq 1 ]]; then
+        echo "… --giu: để server chạy tiếp. Nhớ tự \`docker stop $CT\` khi xong."
+        return
+    fi
+    docker stop "$CT" >/dev/null 2>&1 && echo "… đã dừng $CT (data vẫn giữ nguyên)"
+}
+trap don_dep EXIT
 
 cd "$MOD/tools/test"
 [[ -f test.env ]] || cp test.env.example test.env
