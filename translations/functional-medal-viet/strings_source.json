@@ -4336,7 +4336,7 @@
   "en": "Amberosia",
   "loai": "exam",
   "p": "n:13/s:options/n:1",
-  "vi": "Cao Lương",
+  "vi": "Mỹ Vị Hổ Phách",
   "zh": ""
  },
  "EXAM[13].options[2]": {
@@ -4609,7 +4609,7 @@
   "en": "【DST】Hand over a heavy enough Fallounder to Crabby Hermit, and she'll send you blueprints of what bait?",
   "loai": "exam",
   "p": "n:20/s:content",
-  "vi": "【DST】Đưa một con Cá Lưỡi Ngựa đủ nặng cho Cua Ẩn Sĩ, bà sẽ tặng bản vẽ mồi câu nào?",
+  "vi": "【DST】Đưa một con Cá Bơn Lá Thu đủ nặng cho Cua Ẩn Sĩ, bà sẽ tặng bản vẽ mồi câu nào?",
   "zh": ""
  },
  "EXAM[20].options[1]": {
@@ -4770,7 +4770,7 @@
   "en": "Restore 1 grid of electricity by eating electric goat milk",
   "loai": "exam",
   "p": "n:24/s:options/n:3",
-  "vi": "Uống Sữa dê diện hồi 1 vạch điện",
+  "vi": "Uống Sữa Dê Điện hồi 1 vạch điện",
   "zh": ""
  },
  "EXAM[24].options[4]": {
@@ -4938,7 +4938,7 @@
   "en": "Cut down the Lunar Mushtree",
   "loai": "exam",
   "p": "n:29/s:options/n:2",
-  "vi": "Chặt Nấm Cây Lam Nguyệt",
+  "vi": "Chặt Cây Nấm Lam Nguyệt",
   "zh": ""
  },
  "EXAM[29].options[3]": {
@@ -4952,7 +4952,7 @@
   "en": "Cut down Totally Normal Tree",
   "loai": "exam",
   "p": "n:29/s:options/n:4",
-  "vi": "Chặt Cây toàn thường",
+  "vi": "Chặt Cây Hoàn Toàn Bình Thường",
   "zh": ""
  },
  "EXAM[2].content": {
@@ -5092,7 +5092,7 @@
   "en": "Ratatouille",
   "loai": "exam",
   "p": "n:32/s:options/n:4",
-  "vi": "Nộm rau",
+  "vi": "Rau Củ Hầm",
   "zh": ""
  },
  "EXAM[33].content": {
@@ -5799,7 +5799,7 @@
   "en": "【DST】How many ropes does it take to make a fire pump without the construction amulet?",
   "loai": "exam",
   "p": "n:6/s:content",
-  "vi": "【DST】Không dùng Bùa Kết Cấu thì làm Bơm Cứu Hỏa cần bao nhiêu Dây thừng?",
+  "vi": "【DST】Không dùng Bùa Xây Dựng thì làm Bơm Cứu Hỏa cần bao nhiêu Dây thừng?",
   "zh": ""
  },
  "EXAM[6].options[1]": {
