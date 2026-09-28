@@ -18,4 +18,8 @@ mods.VietnameseLang = {
 -- Load the main scripts
 modimport("scripts/main.lua")
 
+-- Font game có thêm chữ tiếng Việt (fonts/vi_*.zip, tools/tao_font.py). Tắt được trong cấu hình.
+Assets = Assets or {}
+modimport("scripts/font_vi.lua")
+
 -- The rest of the setup is handled in scripts/main.lua and scripts/textfix/

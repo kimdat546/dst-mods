@@ -21,6 +21,10 @@ python3 "$SRC/tools/sync_check.py" | grep -q "placeholder lệch *0" || { echo "
 echo "▸ Sinh textfix từ .po…"
 python3 "$SRC/tools/tao_textfix.py" | sed 's/^/  /'
 
+echo "▸ Dựng font tiếng Việt từ font của game…"
+python3 "$SRC/tools/tao_font.py" | tail -2 | sed 's/^/  /'
+[[ $(ls "$SRC"/fonts/vi_*.zip | wc -l) -eq 17 ]] || { echo "✗ thiếu font"; exit 1; }
+
 echo "▸ Kiểm cú pháp Lua…"
 for f in "$SRC"/modinfo.lua "$SRC"/modmain.lua "$SRC"/scripts/*.lua "$SRC"/scripts/textfix/*.lua; do
     luajit -bl "$f" >/dev/null || { echo "✗ lỗi cú pháp: $f"; exit 1; }
@@ -31,6 +35,8 @@ echo "▸ Chép sang upload/…"
 rm -rf "$OUT"; mkdir -p "$OUT"
 cp "$SRC"/{modinfo.lua,modmain.lua,vietnamese.po,DST_Vietnamese.tex,DST_Vietnamese.xml,preview.png} "$OUT/"
 rsync -a "$SRC/scripts/" "$OUT/scripts/"
+rsync -a "$SRC/fonts/" "$OUT/fonts/" --include='vi_*.zip' --exclude='*'
+
 NGAY="$(date +%d/%m/%Y)"
 python3 - "$OUT/modinfo.lua" "$VER" "$NGAY" <<'PY'
 import re,sys
@@ -41,6 +47,9 @@ open(p,'w',encoding='utf-8').write(s)
 PY
 grep -E '^version|Cập nhật' "$OUT/modinfo.lua" | sed 's/^/  /'
 P=$(( $(stat -f%z "$OUT/preview.png") / 1024 )); [[ $P -le 1024 ]] || { echo "✗ preview.png ${P}KB > 1MB"; exit 1; }
+echo "▸ Nạp thử bằng bộ đọc .po của game…"
+"$SRC/tools/thu_po_game.sh" "$OUT/vietnamese.po" | sed 's/^/  /' || { echo "✗ game đọc .po lỗi"; exit 1; }
+
 echo
 echo "✓ Sẵn sàng: $OUT"
 echo "  Don't Starve Mod Tools → Upload Existing Mod → chọn thư mục trên → Workshop ID 3683660917"

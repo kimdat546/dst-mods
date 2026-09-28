@@ -31,6 +31,9 @@ _KHONG_CAN_DICH = re.compile(r"^[\W\d_]*$|^[A-Z][a-z]+$|^(?:[A-Z0-9-]+\s?)+$")
 
 
 def la_chua_dich(m):
+    # only_used_by_* / not_used_by_*: mã giữ chỗ trong speech_*.lua, game không hiện ra → giữ nguyên
+    if m.id.startswith(("only_used_by", "not_used_by")):
+        return False
     if not m.str.strip():
         return bool(re.search(r"[A-Za-z]", m.id))
     if m.str == m.id and re.search(r"[a-z]{3,}", m.id):

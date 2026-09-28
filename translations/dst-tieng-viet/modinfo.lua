@@ -22,3 +22,16 @@ client_only_mod = true
 --   có trong mod.manifest. Manifest cũ không có scripts/textfix/ngoai_po.lua →
 --   "module not found". Mod không cần manifest nên tắt hẳn, và không upload nó.
 forcemanifest = false
+
+configuration_options = {
+    {
+        name = "FONT_VIET",
+        label = "Font tiếng Việt",
+        hover = "Dùng font game đã thêm đủ chữ tiếng Việt (ơ ư ạ ả ọ ế…) cho nét chữ đồng bộ. Tắt nếu chữ hiển thị lỗi.",
+        options = {
+            { description = "Bật", data = true },
+            { description = "Tắt", data = false },
+        },
+        default = true,
+    },
+}

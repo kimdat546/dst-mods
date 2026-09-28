@@ -57,8 +57,14 @@ game chỉ thấy file có trong manifest; manifest cũ thiếu file mới → `
 - **Chất lượng nền:** phần lớn bản cũ là dịch máy. Đã soát NAMES, RECIPE_DESC, ACTIONS,
   SCRAPBOOK, SKILLTREE, SKIN_NAMES, SKIN_DESCRIPTIONS (09/2026). **Chưa soát ~62.000 câu thoại
   nhân vật** (`STRINGS.CHARACTERS.*`) — mẫu 40 câu có ~15% sai hẳn nghĩa.
-- **Font:** 5 font chính của game chỉ có ~326 glyph — có ă â đ à á nhưng THIẾU ơ ư và mọi chữ
-  dấu kép (ạ ả ọ ế ờ ự…) → game lấy từ font dự phòng, lệch kiểu chữ (người chơi đã phản ánh).
+- **Font:** font của game chỉ có ~326 glyph — có ă â đ à á nhưng THIẾU ơ ư và mọi chữ dấu riêng
+  (ạ ả ọ ế ờ ự…) → game lấy từ font dự phòng, lệch nét (người chơi phản ánh trên Workshop).
+  Cách chữa: `tools/tao_font.py` GHÉP 94–101 chữ Việt từ chính glyph của từng font (á−a = dấu sắc,
+  "." = chấm dưới, nửa trên "?" = dấu hỏi, "," xoay 180° = râu) cho 17 font → `fonts/vi_*.zip`;
+  `scripts/font_vi.lua` nạp trong AddSimPostInit dưới alias `vi_*` rồi mới trỏ TALKINGFONT, UIFONT…
+  sang — nạp lỗi thì giữ font gốc (trỏ sang alias chưa nạp = chữ trống). Tắt được bằng tuỳ chọn
+  "Font tiếng Việt". ⚠ `fonts/` sinh từ font CỦA GAME (dữ liệu Klei) → gitignore, không lên repo
+  public; `make_upload.sh` sinh lại. Menu chính vẫn dùng font gốc (chỉ đổi khi vào world).
 
 ## Không upload
 

@@ -3,6 +3,8 @@
 
     python3 tools/xuat_viec.py soat_names   [co_lo]   # soát STRINGS.NAMES
     python3 tools/xuat_viec.py soat_khac    [co_lo]   # soát RECIPE_DESC + ACTIONS
+    python3 tools/xuat_viec.py soat_con_lai [co_lo]   # mọi khoá chưa từng vào lô nào (UI, sân khấu, Lucy…)
+    python3 tools/xuat_viec.py soat_thoai   [co_lo]   # soát STRINGS.CHARACTERS.* (thoại, ~62k)
     python3 tools/xuat_viec.py soat_skin    [co_lo]   # thống nhất SKIN_NAMES theo bảng bộ sưu tập
     python3 tools/xuat_viec.py soat_skin_mo_ta [co_lo] # soát SKIN_DESCRIPTIONS + SKIN_QUOTES (dịch máy)
     python3 tools/xuat_viec.py soat_mo_ta   [co_lo]   # soát SCRAPBOOK + SKILLTREE (dịch máy, nhiều lỗi)
@@ -79,11 +81,28 @@ def main():
                     f.write(f"{k}\t{esc(m.id)}\t{esc(V[k].str)}\n")
         print("viec/tu_dien.tsv")
         return
+    # Khoá đã dịch/soát mới trong viec/*.ra.tsv thì không đưa vào lô soát nữa.
+    da_lam = set()
+    if lenh.startswith("soat_"):
+        for f in VIEC.glob("*.ra.tsv"):
+            da_lam |= {d.split("\t", 1)[0] for d in open(f, encoding="utf-8") if "\t" in d}
+    # soat_con_lai: mọi khoá CHƯA nằm trong bất kỳ lô nào (vào hay ra) của viec/
+    trong_lo = set()
+    if lenh == "soat_con_lai":
+        for f in VIEC.glob("*.tsv"):
+            if f.name != "tu_dien.tsv":
+                trong_lo |= {d.split("\t", 1)[0] for d in open(f, encoding="utf-8") if "\t" in d}
     dong = []
     for k, p in sorted(P.items()):
+        if k in da_lam:
+            continue
         v = V.get(k)
         if lenh == "soat_names" and k.startswith("STRINGS.NAMES.") and v and v.str:
             dong.append((k, p.id, v.str, ""))
+        elif lenh == "soat_con_lai" and v and v.str and v.str != p.id and k not in trong_lo:
+            dong.append((k, p.id, v.str, ""))
+        elif lenh == "soat_thoai" and k.startswith("STRINGS.CHARACTERS.") and v and v.str and v.str != p.id:
+            dong.append((k, p.id, v.str, goi_y(k, P, V)))
         elif lenh == "soat_skin" and k.startswith("STRINGS.SKIN_NAMES.") and v and v.str:
             dong.append((k, p.id, v.str, ""))
         elif lenh == "soat_skin_mo_ta" and k.startswith(("STRINGS.SKIN_DESCRIPTIONS.", "STRINGS.SKIN_QUOTES.")) and v and v.str:
