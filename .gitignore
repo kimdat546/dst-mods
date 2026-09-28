@@ -53,3 +53,6 @@ translations/dst-tieng-viet/upload/
 
 # Font sinh từ font CỦA GAME (tools/tao_font.py) — dữ liệu Klei, không đưa lên repo public
 translations/dst-tieng-viet/fonts/
+
+# Bảng chi tiết của tools/sync_check.py — sinh lại mỗi lần chạy, bản tóm tắt .md mới commit
+translations/dst-tieng-viet/sync_reports/*.tsv
