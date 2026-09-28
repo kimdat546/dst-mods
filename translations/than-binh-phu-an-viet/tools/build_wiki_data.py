@@ -39,8 +39,13 @@ except FileNotFoundError:
     pass
 
 def t(s):
-    """Dịch nếu có, không thì trả nguyên bản."""
-    return VI.get(s, s) if isinstance(s, str) else s
+    """Dịch nếu có, không thì trả nguyên bản — rồi đổi ký hiệu DÀNH CHO GAME sang dạng đọc
+    được trên wiki: `\\n` (xuống dòng cho khung chữ trong game) → dấu cách, `%%` (thoát %
+    của string.format) → `%`. Không đổi thì wiki in nguyên chữ "\\n", "%%" ra trang."""
+    if not isinstance(s, str):
+        return s
+    r = VI.get(s, s)
+    return re.sub(r"\s*\\n\s*", " ", r).replace("%%", "%")
 
 # ── bảng tên/mô tả phù ấn từ hh_tunning ───────────────────────────────────
 def tunning_block(name):

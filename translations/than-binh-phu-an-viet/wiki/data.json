@@ -23,7 +23,7 @@
   {
    "key": "absorb_small",
    "ten": "",
-   "mo_ta": "Giảm %s%% sát thương nhận vào"
+   "mo_ta": "Giảm %s% sát thương nhận vào"
   },
   {
    "key": "add_com_damage",
@@ -33,17 +33,17 @@
   {
    "key": "add_critical_hit_effect",
    "ten": "",
-   "mo_ta": "%s%% hiệu quả bạo kích"
+   "mo_ta": "%s% hiệu quả bạo kích"
   },
   {
    "key": "add_critical_hit_rate",
    "ten": "",
-   "mo_ta": "%s%% tỉ lệ bạo kích"
+   "mo_ta": "%s% tỉ lệ bạo kích"
   },
   {
    "key": "add_critical_hit_rate_damage",
    "ten": "",
-   "mo_ta": "Bạo kích +%s%%, hiệu quả bạo kích +100%%"
+   "mo_ta": "Bạo kích +%s%, hiệu quả bạo kích +100%"
   },
   {
    "key": "add_day_damage",
@@ -58,7 +58,7 @@
   {
    "key": "add_extra_damage_percent",
    "ten": "",
-   "mo_ta": "Tăng sát thương %s%%"
+   "mo_ta": "Tăng sát thương %s%"
   },
   {
    "key": "add_hit_damage_boss",
@@ -98,7 +98,7 @@
   {
    "key": "add_hit_damage_pig",
    "ten": "",
-   "mo_ta": "Tăng %s sát thương lên loài lợn"
+   "mo_ta": "Tăng %s sát thương lên loài heo"
   },
   {
    "key": "add_hit_damage_plant",
@@ -193,12 +193,12 @@
   {
    "key": "add_poisonProtection",
    "ten": "",
-   "mo_ta": "Sát thương độc giảm %s%%"
+   "mo_ta": "Sát thương độc giảm %s%"
   },
   {
    "key": "add_speed_percent",
    "ten": "",
-   "mo_ta": "Tăng tốc chạy %s%%"
+   "mo_ta": "Tăng tốc chạy %s%"
   },
   {
    "key": "armor_immune_amount",
@@ -208,7 +208,7 @@
   {
    "key": "armor_reduce_amount",
    "ten": "",
-   "mo_ta": "Hao mòn giáp giảm %s%% (khi trúng đòn)"
+   "mo_ta": "Hao mòn giáp giảm %s% (khi trúng đòn)"
   },
   {
    "key": "atk_10s_health",
@@ -223,32 +223,32 @@
   {
    "key": "atk_add_poison",
    "ten": "",
-   "mo_ta": "%s%% cơ hội khiến quái trúng độc (mỗi 2 giây mất 5 máu, kéo dài 60 giây)"
+   "mo_ta": "%s% cơ hội khiến quái trúng độc (mỗi 2 giây mất 5 máu, kéo dài 60 giây)"
   },
   {
    "key": "atk_add_san",
    "ten": "",
-   "mo_ta": "Hồi tinh thần %s%%"
+   "mo_ta": "Hồi tinh thần %s%"
   },
   {
    "key": "atk_blood_01",
    "ten": "",
-   "mo_ta": "Hút máu %s%%"
+   "mo_ta": "Hút máu %s%"
   },
   {
    "key": "atk_blood_suck_02",
    "ten": "",
-   "mo_ta": "Hút máu %s%%"
+   "mo_ta": "Hút máu %s%"
   },
   {
    "key": "atk_blood_suck_03",
    "ten": "",
-   "mo_ta": "Hút máu %s%%"
+   "mo_ta": "Hút máu %s%"
   },
   {
    "key": "atk_speed",
    "ten": "",
-   "mo_ta": "Tăng tốc đánh %s%% ("
+   "mo_ta": "Tăng tốc đánh %s% ("
   },
   {
    "key": "attack_fire_impact",
@@ -258,12 +258,12 @@
   {
    "key": "autumn_god",
    "ten": "",
-   "mo_ta": "Sát thương gây ra vào mùa thu +50, tỉ lệ bạo kích 10%%"
+   "mo_ta": "Sát thương gây ra vào mùa thu +50, tỉ lệ bạo kích 10%"
   },
   {
    "key": "black_monkey",
    "ten": "",
-   "mo_ta": "Mỗi món trang sức bị nguyền trong túi đồ tăng %s%% sát thương"
+   "mo_ta": "Mỗi món trang sức bị nguyền trong túi đồ tăng %s% sát thương"
   },
   {
    "key": "blood_outburst",
@@ -288,7 +288,7 @@
   {
    "key": "health_suppress_num",
    "ten": "",
-   "mo_ta": "Có %s%% cơ hội khiến mục tiêu dính Chế Tài trong 10 giây"
+   "mo_ta": "Có %s% cơ hội khiến mục tiêu dính Chế Tài trong 10 giây"
   },
   {
    "key": "hunger_assault",
@@ -333,17 +333,17 @@
   {
    "key": "more_damage_15_300",
    "ten": "",
-   "mo_ta": "15%% cơ hội gây %s%% sát thương (bạo kích được)"
+   "mo_ta": "15% cơ hội gây %s% sát thương (bạo kích được)"
   },
   {
    "key": "more_damage_20_200",
    "ten": "",
-   "mo_ta": "20%% cơ hội gây %s%% sát thương (bạo kích được)"
+   "mo_ta": "20% cơ hội gây %s% sát thương (bạo kích được)"
   },
   {
    "key": "more_damage_8_500",
    "ten": "",
-   "mo_ta": "8%% cơ hội gây %s%% sát thương (bạo kích được)"
+   "mo_ta": "8% cơ hội gây %s% sát thương (bạo kích được)"
   },
   {
    "key": "porter",
@@ -353,7 +353,7 @@
   {
    "key": "reduce_bramble_percent",
    "ten": "",
-   "mo_ta": "Giảm %s%% sát thương phản giáp nhận vào"
+   "mo_ta": "Giảm %s% sát thương phản giáp nhận vào"
   },
   {
    "key": "reduce_com_attacked_damage",
@@ -363,7 +363,7 @@
   {
    "key": "reduce_fire_damage",
    "ten": "",
-   "mo_ta": "Giảm %s%% sát thương lửa"
+   "mo_ta": "Giảm %s% sát thương lửa"
   },
   {
    "key": "reduce_good_damage",
@@ -378,7 +378,7 @@
   {
    "key": "san_replace_damage",
    "ten": "",
-   "mo_ta": "%s%% cơ hội tiêu tinh thần để chặn sát thương nhận vào"
+   "mo_ta": "%s% cơ hội tiêu tinh thần để chặn sát thương nhận vào"
   },
   {
    "key": "shadow_camp",
@@ -388,7 +388,7 @@
   {
    "key": "special_bhtg",
    "ten": "",
-   "mo_ta": "Hồi tinh thần 3%% · Hút máu 3%% · Sát thương +50 · Tăng 10%% · Chế Tài"
+   "mo_ta": "Hồi tinh thần 3% · Hút máu 3% · Sát thương +50 · Tăng 10% · Chế Tài"
   },
   {
    "key": "special_immune_control",
@@ -398,7 +398,7 @@
   {
    "key": "special_sgsy",
    "ten": "",
-   "mo_ta": "Giảm sát thương 35, né sát thương 45%%, miễn phản đòn"
+   "mo_ta": "Giảm sát thương 35, né sát thương 45%, miễn phản đòn"
   },
   {
    "key": "special_true_damage",
@@ -418,7 +418,7 @@
   {
    "key": "target_percent_damage",
    "ten": "",
-   "mo_ta": "Sát thương + %s%% máu hiện tại của mục tiêu"
+   "mo_ta": "Sát thương + %s% máu hiện tại của mục tiêu"
   },
   {
    "key": "tga_robot",
@@ -643,7 +643,7 @@
    "key": "add_hit_damage_pig",
    "id": 19,
    "ten": "",
-   "mo_ta": "Tăng %s sát thương lên loài lợn",
+   "mo_ta": "Tăng %s sát thương lên loài heo",
    "sao": 4,
    "chi_mot": false,
    "tex": null
@@ -742,7 +742,7 @@
    "key": "add_extra_damage_percent",
    "id": 30,
    "ten": "",
-   "mo_ta": "Tăng sát thương %s%%",
+   "mo_ta": "Tăng sát thương %s%",
    "sao": 5,
    "chi_mot": false,
    "tex": null
@@ -751,7 +751,7 @@
    "key": "add_critical_hit_rate",
    "id": 31,
    "ten": "",
-   "mo_ta": "%s%% tỉ lệ bạo kích",
+   "mo_ta": "%s% tỉ lệ bạo kích",
    "sao": 5,
    "chi_mot": false,
    "tex": null
@@ -760,7 +760,7 @@
    "key": "add_critical_hit_effect",
    "id": 32,
    "ten": "",
-   "mo_ta": "%s%% hiệu quả bạo kích",
+   "mo_ta": "%s% hiệu quả bạo kích",
    "sao": 5,
    "chi_mot": false,
    "tex": null
@@ -769,7 +769,7 @@
    "key": "atk_blood_01",
    "id": 34,
    "ten": "",
-   "mo_ta": "Hút máu %s%%",
+   "mo_ta": "Hút máu %s%",
    "sao": 5,
    "chi_mot": false,
    "tex": null
@@ -778,7 +778,7 @@
    "key": "atk_blood_suck_02",
    "id": 35,
    "ten": "",
-   "mo_ta": "Hút máu %s%%",
+   "mo_ta": "Hút máu %s%",
    "sao": 10,
    "chi_mot": false,
    "tex": null
@@ -787,7 +787,7 @@
    "key": "atk_blood_suck_03",
    "id": 36,
    "ten": "",
-   "mo_ta": "Hút máu %s%%",
+   "mo_ta": "Hút máu %s%",
    "sao": 5,
    "chi_mot": true,
    "tex": null
@@ -814,7 +814,7 @@
    "key": "atk_add_san",
    "id": 39,
    "ten": "",
-   "mo_ta": "Hồi tinh thần %s%%",
+   "mo_ta": "Hồi tinh thần %s%",
    "sao": 5,
    "chi_mot": false,
    "tex": null
@@ -823,7 +823,7 @@
    "key": "add_speed_percent",
    "id": 40,
    "ten": "",
-   "mo_ta": "Tăng tốc chạy %s%%",
+   "mo_ta": "Tăng tốc chạy %s%",
    "sao": 5,
    "chi_mot": false,
    "tex": null
@@ -877,7 +877,7 @@
    "key": "add_critical_hit_rate_damage",
    "id": 46,
    "ten": "",
-   "mo_ta": "Bạo kích +%s%%, hiệu quả bạo kích +100%%",
+   "mo_ta": "Bạo kích +%s%, hiệu quả bạo kích +100%",
    "sao": 5,
    "chi_mot": true,
    "tex": null
@@ -940,7 +940,7 @@
    "key": "san_replace_damage",
    "id": 53,
    "ten": "",
-   "mo_ta": "%s%% cơ hội tiêu tinh thần để chặn sát thương nhận vào",
+   "mo_ta": "%s% cơ hội tiêu tinh thần để chặn sát thương nhận vào",
    "sao": 10,
    "chi_mot": true,
    "tex": null
@@ -949,7 +949,7 @@
    "key": "atk_add_poison",
    "id": 54,
    "ten": "",
-   "mo_ta": "%s%% cơ hội khiến quái trúng độc (mỗi 2 giây mất 5 máu, kéo dài 60 giây)",
+   "mo_ta": "%s% cơ hội khiến quái trúng độc (mỗi 2 giây mất 5 máu, kéo dài 60 giây)",
    "sao": 3,
    "chi_mot": false,
    "tex": null
@@ -958,7 +958,7 @@
    "key": "reduce_bramble_percent",
    "id": 55,
    "ten": "",
-   "mo_ta": "Giảm %s%% sát thương phản giáp nhận vào",
+   "mo_ta": "Giảm %s% sát thương phản giáp nhận vào",
    "sao": 3,
    "chi_mot": false,
    "tex": null
@@ -985,7 +985,7 @@
    "key": "health_suppress_num",
    "id": 58,
    "ten": "",
-   "mo_ta": "Có %s%% cơ hội khiến mục tiêu dính Chế Tài trong 10 giây",
+   "mo_ta": "Có %s% cơ hội khiến mục tiêu dính Chế Tài trong 10 giây",
    "sao": 5,
    "chi_mot": true,
    "tex": null
@@ -994,7 +994,7 @@
    "key": "more_damage_20_200",
    "id": 59,
    "ten": "",
-   "mo_ta": "20%% cơ hội gây %s%% sát thương (bạo kích được)",
+   "mo_ta": "20% cơ hội gây %s% sát thương (bạo kích được)",
    "sao": 4,
    "chi_mot": true,
    "tex": null
@@ -1003,7 +1003,7 @@
    "key": "more_damage_15_300",
    "id": 60,
    "ten": "",
-   "mo_ta": "15%% cơ hội gây %s%% sát thương (bạo kích được)",
+   "mo_ta": "15% cơ hội gây %s% sát thương (bạo kích được)",
    "sao": 5,
    "chi_mot": true,
    "tex": null
@@ -1012,7 +1012,7 @@
    "key": "more_damage_8_500",
    "id": 61,
    "ten": "",
-   "mo_ta": "8%% cơ hội gây %s%% sát thương (bạo kích được)",
+   "mo_ta": "8% cơ hội gây %s% sát thương (bạo kích được)",
    "sao": 5,
    "chi_mot": true,
    "tex": null
@@ -1039,7 +1039,7 @@
    "key": "target_percent_damage",
    "id": 64,
    "ten": "",
-   "mo_ta": "Sát thương + %s%% máu hiện tại của mục tiêu",
+   "mo_ta": "Sát thương + %s% máu hiện tại của mục tiêu",
    "sao": 12,
    "chi_mot": true,
    "tex": null
@@ -1102,7 +1102,7 @@
    "key": "armor_reduce_amount_small",
    "id": 71,
    "ten": "",
-   "mo_ta": "Hao mòn giáp giảm %s%% (khi trúng đòn)",
+   "mo_ta": "Hao mòn giáp giảm %s% (khi trúng đòn)",
    "sao": 8,
    "chi_mot": true,
    "tex": null
@@ -1111,7 +1111,7 @@
    "key": "armor_reduce_amount",
    "id": 72,
    "ten": "",
-   "mo_ta": "Hao mòn giáp giảm %s%% (khi trúng đòn)",
+   "mo_ta": "Hao mòn giáp giảm %s% (khi trúng đòn)",
    "sao": 8,
    "chi_mot": true,
    "tex": null
@@ -1129,7 +1129,7 @@
    "key": "atk_speed_small",
    "id": 74,
    "ten": "",
-   "mo_ta": "Tăng tốc đánh %s%% (",
+   "mo_ta": "Tăng tốc đánh %s% (",
    "sao": 8,
    "chi_mot": true,
    "tex": null
@@ -1138,7 +1138,7 @@
    "key": "atk_speed_big",
    "id": 75,
    "ten": "",
-   "mo_ta": "Tăng tốc đánh %s%% (",
+   "mo_ta": "Tăng tốc đánh %s% (",
    "sao": 8,
    "chi_mot": true,
    "tex": null
@@ -1156,7 +1156,7 @@
    "key": "absorb_small",
    "id": 77,
    "ten": "",
-   "mo_ta": "Giảm %s%% sát thương nhận vào",
+   "mo_ta": "Giảm %s% sát thương nhận vào",
    "sao": 8,
    "chi_mot": false,
    "tex": null
@@ -1165,7 +1165,7 @@
    "key": "absorb_middle",
    "id": 78,
    "ten": "",
-   "mo_ta": "Giảm %s%% sát thương nhận vào",
+   "mo_ta": "Giảm %s% sát thương nhận vào",
    "sao": 8,
    "chi_mot": false,
    "tex": null
@@ -1174,7 +1174,7 @@
    "key": "absorb_big",
    "id": 79,
    "ten": "",
-   "mo_ta": "Giảm %s%% sát thương nhận vào",
+   "mo_ta": "Giảm %s% sát thương nhận vào",
    "sao": 8,
    "chi_mot": false,
    "tex": null
@@ -1183,7 +1183,7 @@
    "key": "autumn_god",
    "id": 80,
    "ten": "",
-   "mo_ta": "Sát thương gây ra vào mùa thu +50, tỉ lệ bạo kích 10%%",
+   "mo_ta": "Sát thương gây ra vào mùa thu +50, tỉ lệ bạo kích 10%",
    "sao": 8,
    "chi_mot": false,
    "tex": null
@@ -1192,7 +1192,7 @@
    "key": "black_monkey",
    "id": 81,
    "ten": "",
-   "mo_ta": "Mỗi món trang sức bị nguyền trong túi đồ tăng %s%% sát thương",
+   "mo_ta": "Mỗi món trang sức bị nguyền trong túi đồ tăng %s% sát thương",
    "sao": 8,
    "chi_mot": false,
    "tex": null
@@ -1237,7 +1237,7 @@
    "key": "special_bhtg",
    "id": 901,
    "ten": "",
-   "mo_ta": "Hồi tinh thần 3%% · Hút máu 3%% · Sát thương +50 · Tăng 10%% · Chế Tài",
+   "mo_ta": "Hồi tinh thần 3% · Hút máu 3% · Sát thương +50 · Tăng 10% · Chế Tài",
    "sao": 8,
    "chi_mot": true,
    "tex": null
@@ -1264,7 +1264,7 @@
    "key": "special_sgsy",
    "id": 904,
    "ten": "",
-   "mo_ta": "Giảm sát thương 35, né sát thương 45%%, miễn phản đòn",
+   "mo_ta": "Giảm sát thương 35, né sát thương 45%, miễn phản đòn",
    "sao": 8,
    "chi_mot": false,
    "tex": null
@@ -1838,7 +1838,7 @@
   {
    "key": "healthSuppressNum",
    "ten": "Bị hạn chế",
-   "mo_ta": "Bị áp chế hồi máu %s%%"
+   "mo_ta": "Bị áp chế hồi máu %s%"
   },
   {
    "key": "iceLaser",
@@ -1914,76 +1914,76 @@
   },
   {
    "key": "hh_beetle_pig",
-   "ten": "Lợn Rừng Giáp Bọ",
-   "mo_ta": "Lợn Rừng Giáp Bọ"
+   "ten": "Heo Rừng Bọ Cánh Cứng",
+   "mo_ta": "Heo Rừng Bọ Cánh Cứng"
   },
   {
    "key": "hh_dual_wield_pig",
-   "ten": "Lợn Rừng Song Đao",
-   "mo_ta": "Lợn Rừng Song Đao"
+   "ten": "Heo Rừng Song Đao",
+   "mo_ta": "Heo Rừng Song Đao"
   }
  ],
  "quai": [],
  "quai_kho_bau": [
   {
    "key": "treasure_kps",
-   "ten": "Đại Vương Klaus Siêu Cấp · Sao: ∞ · Chịu trên 1000 sát thương thì rơi Đá Phù Ấn"
+   "ten": "Đại Vương Krampus Siêu Cấp Sao: ∞ Chịu trên 1000 sát thương thì rơi Đá Phù Ấn"
   },
   {
    "key": "treasure_cat_you",
-   "ten": "Đại Vương Miêu Du Siêu Cấp · Sao: ∞ · Chịu trên 1000 sát thương thì rơi Ngọc Phù Ấn"
+   "ten": "Đại Vương Miêu Du Siêu Cấp Sao: ∞ Chịu trên 1000 sát thương thì rơi Ngọc Phù Ấn"
   },
   {
    "key": "pig_tank",
-   "ten": "★★ Lợn Tăng ★★ · Phòng thủ cực mạnh"
+   "ten": "★★ Heo Tăng ★★ Phòng thủ cực mạnh"
   },
   {
    "key": "pig_attack",
-   "ten": "★★ Lợn Bạo Lực ★★ · Sát thương được cường hoá"
+   "ten": "★★ Heo Bạo Lực ★★ Sát thương được cường hoá"
   },
   {
    "key": "pig_buff",
-   "ten": "★★ Lợn Làm Thuê ★★ · Tôi sắp nổ tung rồi"
+   "ten": "★★ Heo Làm Thuê ★★ Tôi sắp nổ tung rồi"
   },
   {
    "key": "pig_wsz",
-   "ten": "★★ Cột Thời Gian ★★ · Ngươi là người tốt, ta theo ngươi"
+   "ten": "★★ Cột Thời Gian ★★ Ngươi là người tốt, ta theo ngươi"
   },
   {
    "key": "super_pig",
-   "ten": "★★★ Lợn Quán Quân ★★★ · Ta đấu mười tên một lúc"
+   "ten": "★★★ Heo Quán Quân ★★★ Ta đấu mười tên một lúc"
   },
   {
    "key": "mutateddeerclops_boss",
-   "ten": "★★★★★★ Đại Vương Nai Sừng Tấm ★★★★★★ · Chết rơi Đá Phù Ấn Chu Tước (miễn sát thương vũ khí tầm xa)"
+   "ten": "★★★★★★ Đại Vương Nai Sừng Tấm ★★★★★★ Chết rơi Đá Phù Ấn Chu Tước (miễn sát thương vũ khí tầm xa)"
   },
   {
    "key": "mutatedbearger_boss",
-   "ten": "★★★★★★ Gấu Voi Siêu Cấp ★★★★★★ · Chết rơi Đá Phù Ấn Bạch Hổ (miễn sát thương vũ khí tầm xa)"
+   "ten": "★★★★★★ Gấu Voi Siêu Cấp ★★★★★★ Chết rơi Đá Phù Ấn Bạch Hổ (miễn sát thương vũ khí tầm xa)"
   },
   {
    "key": "hh_sharkboi_boss",
-   "ten": "★★★★★★ Cá Mập Siêu Cấp ★★★★★★ · Chết rơi Đá Phù Ấn Khoá Giáp (miễn sát thương vũ khí tầm xa)"
+   "ten": "★★★★★★ Cá Mập Siêu Cấp ★★★★★★ Chết rơi Đá Phù Ấn Khoá Giáp (miễn sát thương vũ khí tầm xa)"
   },
   {
    "key": "mutatedwarg_boss",
-   "ten": "★★★★★★ Vương Sói Phụ Thân ★★★★★★ · Chết rơi Đá Phù Ấn Thần Quy Thủ Ngự (miễn sát thương vũ khí tầm xa)"
+   "ten": "★★★★★★ Vương Sói Phụ Thân ★★★★★★ Chết rơi Đá Phù Ấn Thần Quy Thủ Ngự (miễn sát thương vũ khí tầm xa)"
   },
   {
    "key": "hh_beetle_pig_boss",
-   "ten": "★★★★★★ Đại Trư Tri Phi ★★★★★★ · Chết rơi Đá Phù Ấn Miễn Khống Chế (miễn sát thương vũ khí tầm xa)"
+   "ten": "★★★★★★ Đại Trư Tri Phi ★★★★★★ Chết rơi Đá Phù Ấn Miễn Khống Chế (miễn sát thương vũ khí tầm xa)"
   },
   {
    "key": "hh_dual_wield_pig_boss",
-   "ten": "★★★★★★ Lợn Rừng Ngốc ★★★★★★ · Chết rơi Đá Phù Ấn Chân Thương (miễn sát thương vũ khí tầm xa)"
+   "ten": "★★★★★★ Lợn Rừng Ngốc ★★★★★★ Chết rơi Đá Phù Ấn Chân Thương (miễn sát thương vũ khí tầm xa)"
   },
   {
    "key": "leif_hot",
-   "ten": "★★ Tinh Cây ★★ · Xác suất thấp rơi Miễn Quá Nóng"
+   "ten": "★★ Tinh Cây ★★ Xác suất thấp rơi Miễn Quá Nóng"
   },
   {
    "key": "leif_cold",
-   "ten": "★★ Tinh Cây ★★ · Xác suất thấp rơi Miễn Quá Lạnh"
+   "ten": "★★ Tinh Cây ★★ Xác suất thấp rơi Miễn Quá Lạnh"
   }
  ],
  "buff": [
@@ -2290,7 +2290,7 @@
   },
   {
    "key": "hh_treasure_kps",
-   "ten": "Klaus Siêu Cấp"
+   "ten": "Krampus Siêu Cấp"
   },
   {
    "key": "hh_treasure_warg",
@@ -2302,7 +2302,7 @@
   },
   {
    "key": "hh_treasure_lz",
-   "ten": "Lợn Rừng Song Đao"
+   "ten": "Heo Rừng Song Đao"
   },
   {
    "key": "hh_cat_box",
@@ -2336,8 +2336,8 @@
   },
   {
    "key": "hh_treasure_kps",
-   "ten": "Điểm Kho Báu — Klaus Siêu Cấp",
-   "mo_ta": "Điểm Kho Báu — Klaus Siêu Cấp"
+   "ten": "Điểm Kho Báu — Krampus Siêu Cấp",
+   "mo_ta": "Điểm Kho Báu — Krampus Siêu Cấp"
   },
   {
    "key": "hh_treasure_warg",
@@ -2346,13 +2346,13 @@
   },
   {
    "key": "hh_treasure_zf",
-   "ten": "Điểm Kho Báu — Lợn Giáp Bọ",
-   "mo_ta": "Điểm Kho Báu — Lợn Giáp Bọ"
+   "ten": "Điểm Kho Báu — Heo Bọ Cánh Cứng",
+   "mo_ta": "Điểm Kho Báu — Heo Bọ Cánh Cứng"
   },
   {
    "key": "hh_treasure_lz",
-   "ten": "Điểm Kho Báu — Lợn Song Đao",
-   "mo_ta": "Điểm Kho Báu — Lợn Song Đao"
+   "ten": "Điểm Kho Báu — Heo Song Đao",
+   "mo_ta": "Điểm Kho Báu — Heo Song Đao"
   },
   {
    "key": "hh_treasure_text",
@@ -3192,7 +3192,7 @@
   },
   {
    "key": "wildbore",
-   "ten": "Lợn Rừng"
+   "ten": "Heo Rừng"
   },
   {
    "key": "bunnyman",
@@ -3236,7 +3236,7 @@
   },
   {
    "key": "little_walrus",
-   "ten": "Hải Mã Con"
+   "ten": "MacTusk Con"
   },
   {
    "key": "walrus",
@@ -3492,7 +3492,7 @@
   },
   {
    "key": "krampus",
-   "ten": "Klaus Nhỏ"
+   "ten": "Krampus"
   },
   {
    "key": "ghost",
@@ -3826,7 +3826,7 @@
   },
   {
    "key": "hoverer_effect",
-   "nhan": "Bảng chỉ hiện dòng thuộc tính"
+   "nhan": "Bảng chỉ hiện phù ấn thuộc tính"
   },
   {
    "key": "key_config",
@@ -3878,7 +3878,7 @@
   },
   {
    "key": "worm_config",
-   "nhan": "Giun đất có rơi thêm chiến lợi phẩm không"
+   "nhan": "Sâu Đất có rơi thêm chiến lợi phẩm không"
   },
   {
    "key": "show_stone_text",
@@ -4369,7 +4369,7 @@
    },
    {
     "key": "krampus",
-    "ten": "Klaus Nhỏ"
+    "ten": "Krampus"
    },
    {
     "key": "ghost",
@@ -4589,7 +4589,7 @@
    },
    {
     "key": "little_walrus",
-    "ten": "Hải Mã Con"
+    "ten": "MacTusk Con"
    },
    {
     "key": "jellyfish_planted",
