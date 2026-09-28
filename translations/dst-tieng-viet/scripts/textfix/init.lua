@@ -10,7 +10,8 @@ textfix = {}
 
 -- Load các sub-module theo thứ tự
 env.modimport("scripts/textfix/ui_gamesetup.lua")
-env.modimport("scripts/textfix/character_speech.lua")
+env.modimport("scripts/textfix/character_speech.lua")  -- sinh từ vietnamese.po
+env.modimport("scripts/textfix/ngoai_po.lua")          -- câu ngoài .po, sửa tay
 
 -- Hook vào TextWidget.SetString để dịch text động trong UI
 -- (Những string không đi qua hệ thống STRINGS.* / .po)
