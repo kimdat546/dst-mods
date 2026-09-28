@@ -1,7 +1,7 @@
 -- This information tells other players more about the mod
 name = "DST Tiếng Việt - Đừng Chết Đói :)"
-version = "2026.5"
-description = "Việt hóa toàn bộ Don't Starve Together sang tiếng Việt.\n\nDựa trên bản dịch gốc của Khoa.ga, được cải thiện chất lượng và sửa lỗi.\n\nCập nhật lần cuối ngày 17/04/2026"
+version = "2026.9"
+description = "Việt hóa toàn bộ Don't Starve Together sang tiếng Việt.\n\nDựa trên bản dịch gốc của Khoa.ga, đã soát lại toàn bộ: sửa bản dịch máy sai nghĩa, dịch nội dung mới của game, thống nhất tên vật phẩm và giọng từng nhân vật.\n\nFont tiếng Việt: chữ ơ ư ạ ả ọ ế… cùng nét với font game (tắt được trong cấu hình mod).\n\nCách dùng: bấm Đăng ký, khởi động lại game, vào Mods → Client Mods và bật mod.\n\nCập nhật lần cuối ngày 28/09/2026"
 author = "Datgavl"
 
 forumthread = ""
