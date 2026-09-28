@@ -3,3 +3,8 @@ tools/test/data/
 tam-tri/.env
 tam-tri/__pycache__/
 tools/test/game/
+
+# Gói đẩy Workshop — dựng lại bằng tools/make_upload.sh
+upload/
+# Ảnh nguồn nặng; bản đã nén trong assets/ là đủ
+assets/*_source.png

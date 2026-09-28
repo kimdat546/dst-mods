@@ -23,6 +23,26 @@ function nen.log(...)  ghi(1, "",       ...) end
 function nen.chitiet(...) ghi(2, "[ct]", ...) end
 function nen.loi(...)  ghi(0, "[LỖI]", ...) end
 
+-- Như nen.chitiet nhưng CHỈ IN KHI NỘI DUNG ĐỔI.
+--
+-- ⚠ Cây hành vi xét lại mỗi 0,5 giây, nên mọi thứ ghi trong vòng quyết định
+--   đều in vài lần mỗi giây cho MỖI dân làng. Nhật ký ngập tới mức không soi
+--   nổi — đã mất thời gian đọc nhầm "đi kiếm log" lặp lại thành dấu hiệu kẹt,
+--   trong khi nó chỉ là cùng một quyết định được in lại.
+local lan_truoc = setmetatable({}, { __mode = "k" })
+
+function nen.doi(chu_the, ...)
+    if muc < 2 then return end
+    local phan = {}
+    for i = 1, select("#", ...) do
+        table.insert(phan, tostring((select(i, ...))))
+    end
+    local dong = table.concat(phan, " ")
+    if lan_truoc[chu_the] == dong then return end
+    lan_truoc[chu_the] = dong
+    print("[ailang][ct] " .. dong)
+end
+
 -- pcall có báo lỗi kèm ngữ cảnh, thay cho pcall trần nuốt lỗi im lặng.
 function nen.thu(ngucanh, fn, ...)
     local ok, err = pcall(fn, ...)

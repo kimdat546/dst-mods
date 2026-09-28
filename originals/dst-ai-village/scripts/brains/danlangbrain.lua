@@ -24,11 +24,27 @@ local nhu_cau  = require("ailang/nhu_cau")
 local sinh_ton = require("ailang/sinh_ton")
 local than_thiet = require("ailang/than_thiet")
 local viec = require("ailang/viec")
+local muc_tieu = require("ailang/muc_tieu")
 local lang = require("ailang/lang")
 
 local TAM_NHIN      = 20    -- bán kính nhìn quanh mình
 local TAM_VE_NHA    = 30
 local VE_NHA_XA     = 50   -- xa nhà quá bấy nhiêu thì bỏ việc, về đã
+
+-- ⚠ HAI CON SỐ NÀY TỪNG ĐÁ NHAU. sinh_ton tìm nguyên liệu cho nhu cầu gấp
+--   trong bán kính rộng, nhưng node "đi quá xa nhà" kéo về ở 50 — nên vòng
+--   tìm khẩn cấp CHƯA BAO GIỜ dùng được, dân làng bị trói trong đúng 50 đơn vị
+--   quanh Đài dù thứ chúng cần nằm ngay ngoài đó.
+--
+--   Đo trên server, làng dựng giữa rừng rậm: trong bán kính 80 có 250 cây gỗ
+--   nhưng chỉ 3 BỤI CỎ và KHÔNG MỘT BỤI CÂY CON nào trong cả bán kính 150.
+--   Cỏ thì có 86 bụi — ở bán kính 150. Đuốc cần 2 cỏ + 2 cành, lửa trại cần
+--   3 cỏ: cả ba dân làng chết đêm với 2 khúc gỗ trong túi, ngồi trên một mỏ
+--   gỗ mà không đổi ra được ánh sáng.
+--
+--   Nên khi còn nhu cầu GẤP chưa giải được thì nới dây ra. Vẫn có trần cứng để
+--   không quay lại bệnh trôi vô hạn (đã đo: từng trôi tới 158, chết ở 235).
+local VE_NHA_XA_GAP = 140
 local THEO_GAN      = 3
 local THEO_VUA      = 6
 local THEO_XA       = 12    -- lang thang quanh nhà trong bán kính này
@@ -145,10 +161,29 @@ end
 
 -- Tới nơi rồi thì hồi sinh. Dây chuyền hồi sinh nằm dưới đất thì dùng luôn
 -- và mất đi — đúng như khi người chơi dùng nó.
+-- ⚠ ĐỪNG HỒI SINH VÀO ĐÚNG THỨ VỪA GIẾT MÌNH. Chạy thử ×16 không người trông
+--   bắt được vòng lặp vô hạn ngay trong MỘT đêm:
+--       chết -> hồn ma -> bò về Đài -> sống lại với 50% máu
+--       -> vẫn đang đêm, không đèn -> Charlie đánh 100 -> chết -> lặp
+--   Đài không có thời gian chờ nên vòng này quay mãi, đốt CPU và nhìn như mod
+--   hỏng. Ba dân làng chết và sống lại hàng chục lần trong đêm ngày 6.
+--
+--   Nên chỉ hồi sinh khi có cơ hội sống sót thật: trời đã sáng, hoặc đang
+--   đứng trong vùng sáng của một đống lửa. Còn lại thì hồn ma cứ chờ ở Đài —
+--   nhánh StandStill lo phần đứng đợi.
+local function DuAnToanDeSongLai(inst)
+    if not TheWorld.state.isnight then return true end
+    return FindEntity(inst, 8, function(v)
+               return v.components.burnable ~= nil
+                  and v.components.burnable:IsBurning()
+           end, { "campfire" }, { "INLIMBO", "burnt" }) ~= nil
+end
+
 local function ThuHoiSinh(inst)
     local b = BiaGanNhat(inst)
     if b == nil then return false end
     if inst:GetDistanceSqToInst(b) > GAN_BIA * GAN_BIA then return false end
+    if not DuAnToanDeSongLai(inst) then return false end
 
     if not dan_lang.HoiSinh(inst) then return false end
 
@@ -162,38 +197,39 @@ end
 
 -- ── ánh sáng ────────────────────────────────────────────────────────────
 
+-- ⚠ 66 chứ không phải 70. Ngưỡng quá nhiệt của DST là 70, nhưng đi tới gốc
+--   cây cũng mất thời gian — đợi chạm 70 mới đi là đã mất máu trên đường.
+local NONG_THI_TRU = 66
+
+-- ⚠ PHẢI CÓ TRỄ NGƯỠNG, không thì dân làng RUNG quanh mốc 70 và mất máu đều.
+--   Đo được: vào bóng cây xong là nhánh nhả lượt NGAY, node làm việc lôi đi
+--   trước khi kịp nguội, rồi lại nóng, lại quay vào — máu 85% -> 77% -> 72%
+--   trong khi nhiệt lẩn quẩn 67-70.
+--
+-- ⚠ Mức nhả KHÔNG được đặt dưới 63: bóng cây chỉ hạ nhiệt khi đang TRÊN
+--   TREE_SHADE_COOLING_THRESHOLD (63), nên đòi xuống 58 là dân làng đứng dưới
+--   gốc cây tới sáng mà không bao giờ đạt. 65 thì vừa: đo được chúng ghim ở
+--   63-64 khi đứng trong bóng râm.
+local NONG_DA_NGUOI = 65
+local BO_QUA_BONG_RAM = { "FX", "NOCLICK", "DECOR", "INLIMBO", "stump", "burnt" }
+
+local function ViTriBongRam(inst)
+    local cay = FindEntity(inst, 40, nil, { "shelter" }, BO_QUA_BONG_RAM)
+    if cay == nil then return nil end
+    local x, _, z = cay.Transform:GetWorldPosition()
+    return Vector3(x, 0, z)
+end
+
 local function ToiHan()
     return TheWorld.state.isnight
 end
 
--- ⚠ Không có dấu hiệu CHUNG nào cho "món này phát sáng". Đã đo:
---     torch      tag "lighter"     tay
---     lighter    tag "lighter"     tay
---     lantern    tag "light"       tay
---     minerhat   KHÔNG có tag nào  đầu
---     nightstick KHÔNG có tag nào  tay
---   Và `inst.Light` phía server là nil cho TẤT CẢ — ánh sáng là thứ client vẽ.
---   Nên phải vừa xét tag vừa có danh sách trắng, và phải xét CẢ Ô ĐẦU: người
---   chơi báo thấy một dân làng vừa đội mũ thợ mỏ vừa cầm đuốc, vì bản đầu chỉ
---   nhìn mỗi ô tay.
-local PHAT_SANG = { minerhat = true, nightstick = true }
-
-local function MonPhatSang(mon)
-    if mon == nil then return false end
-    if mon.components.fueled ~= nil and mon.components.fueled:GetPercent() <= 0 then
-        return false
-    end
-    return mon:HasTag("lighter") or mon:HasTag("light") or PHAT_SANG[mon.prefab] == true
-end
-
-local function DangCoAnhSang(inst)
-    local tui = inst.components.inventory
-    if tui == nil then return false end
-    for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
-        if MonPhatSang(tui:GetEquippedItem(o)) then return true end
-    end
-    return false
-end
+-- ⚠ ĐỪNG viết lại phép thử "món này phát sáng" ở đây. Nó từng có một bản SAO
+--   trong file này (PHAT_SANG / MonPhatSang / DangCoAnhSang), song song với
+--   bản thật trong nhu_cau.lua — hai bản logic cho cùng một câu hỏi là mầm
+--   sai lệch, và đúng là chúng đã lệch: bản ở đây coi đuốc còn 1% nhiên liệu
+--   là vẫn sáng, còn nhu_cau coi dưới 25% là hết. Bản duy nhất còn lại là
+--   nhu_cau.MonPhatSang.
 
 local function LuaGanNhat(inst)
     return FindEntity(inst, TIM_BIA, function(v)
@@ -244,8 +280,10 @@ function DanLangBrain:OnStart()
             --   kính 60 là dân làng kẹt vĩnh viễn ở nhánh đánh nhau, không bao
             --   giờ tới được nhánh làm việc — đo được: một con hound cách 30
             --   làm hỏng cả năm phép kiểm về đuốc và nhặt đồ.
-            local as = nhu_cau.Tim("anh_sang")
-            if as ~= nil and as.can(inst) and not as.du(inst) then return false end
+            -- ⚠ LO THÂN TRƯỚC KHI GIỮ LÀNG. Mọi lý do "chết tại chỗ đang
+            --   đứng" gom trong lang.LoThanTruoc — xem chú thích ở đó, nhánh
+            --   này đã gây hoạ ba lần vì mỗi lần chỉ vá thêm một cửa thoát.
+            if lang.LoThanTruoc(inst, NONG_THI_TRU) then return false end
             local dich = lang.DichTrongLang(inst)
             if dich == nil then return false end
             if inst.components.combat ~= nil
@@ -255,7 +293,19 @@ function DanLangBrain:OnStart()
             return true
         end, "Giữ làng", ChaseAndAttack(inst, 15)),
 
-        ChaseAndAttack(inst, 10),
+        -- ĐÁNH TRẢ khi bị đụng tới. Nhưng cũng phải LO THÂN TRƯỚC.
+        --
+        -- ⚠ Đây là LẦN THỨ TƯ của cùng một lỗi, và lần này là do vá sót: đã
+        --   gắn chốt lo-thân cho nhánh "Giữ làng" ngay trên nhưng QUÊN nhánh
+        --   tự vệ nằm ngay dưới, mà nó cũng cao hơn mọi nhánh tự lo.
+        --
+        --   Đo được: dân làng đứng CÁCH BỤI CỎ ĐÚNG 17 ĐƠN VỊ, việc đang giữ
+        --   là "mát", mà suốt 24 giây chỉ nhích được 6 đơn vị — quá nửa số
+        --   nhịp bị ChaseAndAttack giành lượt, nhiệt leo 70 -> 76 và máu tụt
+        --   đều. Nó không chết vì xa tài nguyên; nó chết vì mải đánh nhau.
+        WhileNode(function()
+            return not lang.LoThanTruoc(inst, NONG_THI_TRU)
+        end, "Đánh trả", ChaseAndAttack(inst, 10)),
 
         IfNode(function() return DangDoi(inst) end, "Đói",
             DoAction(inst, HanhDongAn, "ăn", true)),
@@ -286,12 +336,85 @@ function DanLangBrain:OnStart()
         --   cách nhà 95, 155 và 235 đơn vị — lang thang vào chỗ nguy hiểm,
         --   không lửa, không đường lui.
         WhileNode(function()
-            return ChuDeTheo(inst) == nil and XaNha(inst) > VE_NHA_XA
+            if ChuDeTheo(inst) ~= nil then return false end
+            local nguong = sinh_ton.CoNhuCauGap(inst) ~= nil
+                           and VE_NHA_XA_GAP or VE_NHA_XA
+            return XaNha(inst) > nguong
         end, "Đi quá xa nhà",
             Leash(inst, function() return ViTriNha(inst) end, TAM_VE_NHA, TAM_VE_NHA - 10)),
 
-        IfNode(function() return sinh_ton.Giai(inst) == "xong" end,
-            "Lo nhu cầu tức thì", ActionNode(function() end, "xong")),
+        -- CHEN NGANG việc đang chạy dở khi có nhu cầu gấp NẶNG HƠN nó.
+        --
+        -- ⚠ Phép thử ở đây phải SẠCH (không tác dụng phụ). Bản trước dùng
+        --   `sinh_ton.Giai(inst) == "xong"` — mà Giai mặc đồ, chế đồ, trừ
+        --   nguyên liệu — nên cộng với lần gọi bên trong viec.HanhDong là Giai
+        --   chạy HAI LẦN mỗi nhịp. Đúng cái bẫy chú thích ngay dưới đã ghi.
+        --
+        --   Chỉ cần BỎ việc là đủ: nhịp sau node làm việc thành READY, gọi lại
+        --   viec.HanhDong, và chính nó gọi Giai (một lần) để mặc/chế thứ đang
+        --   thiếu. Trễ nửa giây, đổi lấy việc không còn chế đồ trùng lặp.
+        -- NÓNG QUÁ THÌ VÀO BÓNG CÂY.
+        --
+        -- ⚠ Lời giải mùa hè rẻ nhất, và nó KHÔNG TỐN GÌ CẢ. Tìm ra bằng cách
+        --   soi vì sao ba dân làng có đồ đạc GIỐNG HỆT nhau mà nhiệt độ lệch
+        --   hẳn: An và Binh 64 độ (đứng dưới tán cây), Cuong 83 độ rồi CHẾT.
+        --   temperature.lua: `sheltered` và nhiệt trên
+        --   TREE_SHADE_COOLING_THRESHOLD (63) thì kéo mạnh về TREE_SHADE_COOLER
+        --   (45) — nên An/Binh ghim đúng ở 64-65 suốt cả ngày hè 84 độ.
+        --
+        --   sheltered.lua đo bằng CountEntities bán kính 2 quanh chân, tag
+        --   "shelter", loại trừ stump/burnt. Làng nằm giữa rừng nên chỗ nào
+        --   cũng có cây.
+        --
+        -- ⚠ Điều kiện gồm cả `chưa ở trong bóng râm`, và đó cũng là VAN AN
+        --   TOÀN: cây có va chạm nên Leash có thể không bao giờ tới đúng cự ly
+        --   đặt ra, nhưng chỉ cần vào trong bán kính 2 là `sheltered` bật lên
+        --   và cả nhánh tự nhường lượt.
+        WhileNode(function()
+            return lang.CanTruNong(inst, NONG_THI_TRU, NONG_DA_NGUOI) == true
+        end, "Nóng quá thì vào bóng cây",
+            -- StandStill giữ chân dưới gốc cây cho tới khi thật sự nguội.
+            -- Không có nó thì Leash xong là nhánh nhả lượt ngay và dân làng
+            -- bị lôi đi khi vẫn còn 69 độ.
+            PriorityNode({
+                Leash(inst, function() return ViTriBongRam(inst) end, 1.8, 1.2),
+                StandStill(inst),
+            }, 0.5)),
+
+        -- ĐÊM THÌ VỀ BÊN LỬA CỦA LÀNG.
+        --
+        -- ⚠ PHẢI nằm TRÊN node làm việc. Bản trước để nó ở dưới cùng, nên nó
+        --   KHÔNG BAO GIỜ chạy trong lúc dân làng đang đi tới mục tiêu —
+        --   DoAction giữ RUNNING suốt quãng đường và PriorityNode không xét
+        --   tới nhánh dưới. Đúng loại lỗi đã gặp với nhánh "về nhà".
+        --
+        -- ⚠ Và phải về NGAY KHI TRỜI TỐI, không đợi tới lúc tay trắng. Bản
+        --   trước chỉ kéo về khi trên người không còn đèn nào, mà cây đuốc sắp
+        --   tàn cũng tính là "có sáng" — nên dân làng lang thang cả đêm cho tới
+        --   lúc đuốc tắt hẳn rồi mới chạy về, và thường là không kịp.
+        --
+        --   Về bên lửa còn tự gỡ một cái bẫy nữa: nhu cầu ánh sáng coi là ĐỦ
+        --   khi có lửa trại đang cháy trong vòng 10. Đứng cạnh lửa thì không
+        --   còn nhu cầu gấp nào, nên dây trói về nhà giữ mức chặt (50) thay vì
+        --   nới ra 140 — hết chuyện chạy 130 đơn vị vào bóng tối tìm cỏ.
+        --
+        --   Leash trả FAILED khi đã ở trong bán kính, nên tới nơi rồi thì nó
+        --   nhường lượt cho node làm việc; còn vùng làm việc ban đêm đã bị bó
+        --   quanh đống lửa trong lang.LamDuocLucNay nên không giằng nhau.
+        -- ⚠ TRỪ KHI ĐANG QUÁ NHIỆT. Mùa hè, đống lửa toả nhiệt cộng thêm vào
+        --   cái nóng vốn đã quá ngưỡng — bảo chúng về bên lửa lúc đó là bảo
+        --   chúng đi chết. Đo được ngày 57: nhiệt môi trường 71.6 trong khi
+        --   ngưỡng quá nhiệt là 70, cả ba chết giữa ban ngày không cần Charlie.
+        WhileNode(function()
+            if not ToiHan() then return false end
+            local t = inst.components.temperature
+            return t == nil or not t:IsOverheating()
+        end, "Đêm thì về bên lửa",
+            Leash(inst, function() return ViTriLua(inst) end, 8, 5)),
+
+        IfNode(function() return viec.CanChenNgang(inst) end,
+            "Chen nhu cầu gấp",
+            ActionNode(function() viec.BoViec(inst) end, "bỏ việc đang làm")),
 
         -- ⚠ CHỈ gọi sinh_ton.Giai ở MỘT chỗ. Trước đây có thêm một IfNode
         --   `Giai(inst) == "xong"` ngay trên đây, nên mỗi nhịp Giai chạy HAI
@@ -299,12 +422,20 @@ function DanLangBrain:OnStart()
         --   Hậu quả: dân làng chế đuốc rồi lại chế tiếp, và bốn phép kiểm về
         --   đuốc/nhặt đồ hỏng cùng lúc. viec.HanhDong đã gọi Giai bên trong
         --   và trả nil khi Giai vừa làm xong một việc tức thì.
-        DoAction(inst, function() return viec.HanhDong(inst) end, "làm việc", true),
+        -- MỤC TIÊU DO TẦNG SUY NGHĨ ĐẶT — trên việc thường, dưới mọi phản xạ.
+        --
+        -- ⚠ Vị trí này là cả thiết kế. Đặt CAO hơn thì Gemini bảo đi đào đá
+        --   giữa đêm và dân làng đi thật, bỏ đuốc lại — tầng suy nghĩ có độ
+        --   trễ vài giây, nó không thấy con ếch đang cắn hay cây đuốc sắp tàn.
+        --   Đặt THẤP hơn node làm việc thì không bao giờ tới lượt: DoAction
+        --   giữ RUNNING suốt quãng đường đi, đúng cái bẫy đã dính ba lần với
+        --   nhánh về nhà, nhánh về bên lửa và nhánh nóng quá.
+        --
+        --   Nên: giữ mạng > mục tiêu chiến lược > chính sách mặc định.
+        DoAction(inst, function() return muc_tieu.HanhDong(inst) end,
+                 "mục tiêu tầng suy nghĩ", true),
 
-        -- Tối hẳn mà vẫn chưa có sáng: bám lấy đống lửa gần nhất.
-        WhileNode(function() return ToiHan() and not DangCoAnhSang(inst) end,
-                  "Đêm mà chưa có sáng",
-            Leash(inst, function() return ViTriLua(inst) end, 4, 3)),
+        DoAction(inst, function() return viec.HanhDong(inst) end, "làm việc", true),
 
         -- ĐI THEO CHỦ khi được đặt chế độ "theo chân" và đủ thiện cảm.
         -- Ở chế độ này thì bỏ qua nhánh về nhà — chủ đi đâu thì theo đó.

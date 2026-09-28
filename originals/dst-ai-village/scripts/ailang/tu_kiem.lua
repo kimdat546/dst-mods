@@ -38,6 +38,8 @@ end
 
 for _, m in ipairs({ "ailang/nen", "ailang/dan_lang", "ailang/than_thiet",
                      "ailang/lang", "ailang/nhu_cau", "ailang/sinh_ton", "ailang/viec",
+                     "ailang/ban_ve", "ailang/nhat_ky", "ailang/hanh_dong", "ailang/kho_lang",
+                     "ailang/muc_tieu",
                      "ailang/lenh", "brains/danlangbrain" }) do
     package.loaded[m] = nil
 end
@@ -174,9 +176,20 @@ local function ThuDem(tiep)
     end
     Nhip(nao, 4, function()
         local sau = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+        -- ⚠ Bài này từng chập chờn khoảng 50% và chẩn đoán trơ trọi
+        --   "đang cầm=nil" không đủ để lần ra. Kể luôn trong túi có gì, đang
+        --   lo nhu cầu nào, đang làm việc gì, và giờ là mấy.
+        local o = {}
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil then table.insert(o, m.prefab) end
+        end
         KT("giữa đêm có nguyên liệu thì chế và cầm đuốc",
            sau ~= nil and sau.prefab == "torch",
-           "đang cầm=" .. tostring(sau and sau.prefab))
+           "đang cầm=" .. tostring(sau and sau.prefab)
+           .. " | túi=" .. table.concat(o, ",")
+           .. " | lo=" .. tostring(e.ailang.dang_lo)
+           .. " | làm=" .. tostring(e.ailang.dang_lam)
+           .. " | pha=" .. tostring(TheWorld.state.phase))
         tiep()
     end)
 end
@@ -187,29 +200,45 @@ local function ThuHonMa(tiep)
     dan_lang.ThanhHonMa(e)
     KT("chết thì thành hồn ma, mang notarget, ghi vị trí chết",
        e.ailang.la_hon_ma and e:HasTag("notarget") and e.ailang.noi_chet ~= nil)
+
     local x, y, z = e.Transform:GetWorldPosition()
     local bia = SpawnPrefab("resurrectionstone")
     bia.Transform:SetPosition(x + 2, y, z)
-    Nhip(nao, 4, function()
+
+    -- ⚠ ĐỪNG để bài kiểm phụ thuộc PHA TRỜI. Từ khi hồi sinh có điều kiện an
+    --   toàn (không sống lại giữa đêm để rồi chết ngay), bài này hỏng oan khi
+    --   bài chạy TRƯỚC để lại trạng thái đêm — đo được "pha=night" dù đã đẩy
+    --   ms_setphase("day"). Dựng hẳn đống lửa cạnh bia thì điều kiện an toàn
+    --   thoả bất kể trời ngày hay đêm, và đó cũng chính là cảnh chơi thật:
+    --   hồi sinh bên đống lửa của làng.
+    local lo = SpawnPrefab("campfire")
+    lo.Transform:SetPosition(x + 1, y, z)
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(1) end
+
+    Nhip(nao, 6, function()
         KT("hồn ma tới bia đá thì hồi sinh",
            e.ailang.la_hon_ma == false,
-           "la_hon_ma=" .. tostring(e.ailang.la_hon_ma))
+           "la_hon_ma=" .. tostring(e.ailang.la_hon_ma)
+           .. " | pha=" .. tostring(TheWorld.state.phase)
+           .. " | lửa cháy=" .. tostring(lo.components.burnable ~= nil
+                 and lo.components.burnable:IsBurning()))
         KT("hồi sinh xong bỏ notarget", not e:HasTag("notarget"))
+
         -- Cờ "về nhặt đồ" KHÔNG kiểm ở đây được: bia đá đặt sát chỗ chết nên
         -- cây hành vi thấy đã tới nơi và xoá cờ ngay — đúng như thiết kế.
-        -- Kiểm hợp đồng của HoiSinh() riêng, không lệ thuộc khoảng cách.
         local e2 = dan_lang.Sinh({ ten = "ThuCo", nhan_vat = "wilson" })
         dan_lang.ThanhHonMa(e2, { 9999, 9999 })
         dan_lang.HoiSinh(e2)
         KT("hồi sinh xong đặt cờ quay về chỗ chết nhặt đồ",
-           e2.ailang.ve_nhat_do ~= nil
-           and e2.ailang.ve_nhat_do[1] == 9999)
+           e2.ailang.ve_nhat_do ~= nil and e2.ailang.ve_nhat_do[1] == 9999)
         e2:Remove()
+        lo:Remove()
+        bia:Remove()
         tiep()
     end)
 end
 
--- ── 4. hồn ma KHÔNG đi làm việc ─────────────────────────────────────────
+
 local function ThuHonMaKhongLamViec(tiep)
     local e, nao = DanLangSach(Goc())
     dan_lang.ThanhHonMa(e)
@@ -228,17 +257,57 @@ end
 -- ⚠ Phải cho THOẢ HẾT nhu cầu trước. Nhánh "nhặt" nằm DƯỚI nhánh sinh tồn,
 --   nên còn nhu cầu nào chưa xong là dân làng đi gom nguyên liệu cho nhu cầu
 --   đó chứ không nhặt vu vơ — đã hỏng oan với "nhắm=grass".
+-- ⚠ Thêm nhu cầu mới vào bảng thì PHẢI thoả nó ở đây, không thì mọi bài kiểm
+--   dựa vào khuôn này hỏng theo kiểu khó đoán. Đã gặp thật khi thêm "xưởng":
+--   bài "thấy đồ dưới đất thì đi nhặt" chuyển sang HỎNG với "hành động=MINE",
+--   vì dân làng đi đào đá làm Máy Khoa Học thay vì nhặt món trước mặt.
+local function nhu_cau_mod() return require("ailang/nhu_cau") end
+
+local MAY_THU   -- máy khoa học của khuôn, dọn ở lần gọi sau
+local RUONG_THU -- rương của khuôn, dọn ở lần gọi sau
+local NOI_THU   -- nồi của khuôn, dọn ở lần gọi sau
+
 local function ThoaHetNhuCau(e)
+    if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
+    if RUONG_THU ~= nil and RUONG_THU:IsValid() then RUONG_THU:Remove() end
+    if NOI_THU ~= nil and NOI_THU:IsValid() then NOI_THU:Remove() end
     local tui = e.components.inventory
-    for _, m in ipairs({ "spear", "armorgrass", "torch" }) do
+    -- ⚠ ĐUỐC PHẢI TRANG BỊ SAU CÙNG. Giáo cũng chiếm Ô TAY, nên trang bị nó
+    --   sau đuốc là đẩy đuốc vào túi — và từ khi bỏ lối thoát "đứng cạnh lửa
+    --   thì coi như có sáng", chập tối `anh_sang` sẽ CHƯA THOẢ và giành lượt
+    --   của thứ bài kiểm muốn đo. Đã hỏng đúng vậy với "việc=nil".
+    --   Giáo để trong túi là đủ: vu_khi.mac_khi trả false, dân làng không tự
+    --   cầm vũ khí lên để khỏi vướng tay.
+    tui:GiveItem(SpawnPrefab("spear"))
+    local giap = SpawnPrefab("armorgrass")
+    if giap ~= nil then tui:GiveItem(giap) tui:Equip(giap) end
+    local duoc = SpawnPrefab("torch")
+    if duoc ~= nil then tui:GiveItem(duoc) tui:Equip(duoc) end
+    -- Rìu và cuốc: nằm TRONG TÚI chứ không trang bị, đúng như nhu cầu
+    -- "dụng cụ"/"cuốc" mong đợi (mac_khi trả false để khỏi vướng tay cầm đuốc).
+    for _, m in ipairs({ "axe", "pickaxe" }) do
         local mon = SpawnPrefab(m)
-        if mon ~= nil then tui:GiveItem(mon) tui:Equip(mon) end
+        if mon ~= nil then tui:GiveItem(mon) end
     end
     tui:GiveItem(SpawnPrefab("carrot"))
     local x, y, z = e.Transform:GetWorldPosition()
     e.ailang.nha = { x, z }
     local lua = SpawnPrefab("campfire")
     lua.Transform:SetPosition(x + 5, y, z)
+    MAY_THU = SpawnPrefab("researchlab")
+    if MAY_THU ~= nil then MAY_THU.Transform:SetPosition(x + 7, y, z) end
+    -- ⚠ Hai nhu cầu kinh tế mới cũng phải thoả, không thì mọi bài dựa vào
+    --   khuôn này hỏng theo kiểu khó đoán — đúng như đã dính khi thêm "xưởng".
+    --   "dự trữ" cần đủ bẫy, "kho" cần một cái rương ở làng.
+    -- Bẫy không chồng đống được (finiteuses), nên phải đưa từng cái một.
+    for _ = 1, nhu_cau_mod().DU_BAY do
+        local bay = SpawnPrefab("trap")
+        if bay ~= nil then tui:GiveItem(bay) end
+    end
+    RUONG_THU = SpawnPrefab("treasurechest")
+    if RUONG_THU ~= nil then RUONG_THU.Transform:SetPosition(x + 9, y, z) end
+    NOI_THU = SpawnPrefab("cookpot")
+    if NOI_THU ~= nil then NOI_THU.Transform:SetPosition(x + 11, y, z) end
     return lua
 end
 
@@ -567,9 +636,18 @@ local function ThuKhongDoiRiuDuoc(tiep)
         DoiPha("day", function()
         Nhip(nao, 8, function()
             local tay2 = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
-            KT("sang ngày thì mới cầm rìu đi chặt",
-               tay2 ~= nil and tay2.prefab == "axe",
-               "đang cầm=" .. tostring(tay2 and tay2.prefab))
+            -- ⚠ Kỳ vọng ĐÚNG ở đây KHÔNG phải "cầm rìu". Sang ngày, việc
+            --   hợp lý có thể là đi hái cỏ cho đống lửa — việc đó không cần
+            --   tay nào cả. Thứ BẮT BUỘC là BỎ ĐUỐC XUỐNG: đuốc cháy hao ngay
+            --   trên tay, cầm suốt ngày thì tới đêm là tắt ngóm, đúng lúc cần
+            --   nhất. Đo được: dân làng cầm đuốc cả ngày chỉ để đi hái cỏ.
+            KT("sang ngày thì BỎ ĐUỐC XUỐNG (khỏi cháy phí tới đêm)",
+               tay2 == nil or tay2.prefab ~= "torch",
+               "đang cầm=" .. tostring(tay2 and tay2.prefab)
+               .. " việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao))
+            KT("bỏ xuống là CẤT VÀO TÚI, không vứt đi",
+               require("ailang/nhu_cau").CoTrongTui(e, "torch") ~= nil
+               or (tay2 ~= nil and tay2.prefab == "torch"))
             tiep()
         end)
         end)
@@ -899,6 +977,35 @@ local function ThuRaNgoaiLang(tiep)
     KT("nhu cầu gấp thì VỚI TỚI được thứ ngoài vùng làng", ngoai_lang,
        "nhắm=" .. tostring(gap and gap.target and gap.target.prefab))
     bui:Remove()
+
+    -- ⚠ VÀ PHẢI VỚI TỚI TẬN 120. Đây là chỗ hai con số từng đá nhau: bán kính
+    --   tìm khẩn cấp là 80 trong khi node "đi quá xa nhà" kéo về ở 50, nên
+    --   vòng tìm khẩn cấp CHƯA BAO GIỜ dùng được. Đo trên server, làng dựng
+    --   giữa rừng rậm: bán kính 80 có 250 cây gỗ nhưng chỉ 3 BỤI CỎ và KHÔNG
+    --   MỘT bụi cây con nào trong cả bán kính 150 — cỏ thì có 86 bụi, ở 150.
+    --   Cả ba chết đêm với 2 khúc gỗ trong túi, ngồi trên mỏ gỗ mà không đổi
+    --   ra nổi ánh sáng.
+    for _, v in ipairs(TheSim:FindEntities(nx + 120, 0, nz, 40)) do
+        if v.prefab == "cutgrass" and v.Remove ~= nil then v:Remove() end
+    end
+    local xa = SpawnPrefab("grass")
+    xa.Transform:SetPosition(nx + 120, 0, nz)
+    e.Transform:SetPosition(nx + 110, 0, nz)
+    local rat_gap = st.DiKiem(e, "cutgrass", nil, 130)
+    -- Khẳng định theo KHOẢNG CÁCH, không theo đúng cái bụi vừa dựng: bản đồ
+    -- thật có thể còn bụi khác gần đó, và nhắm bụi nào cũng được miễn là nó
+    -- nằm ngoài tầm mà dây trói về nhà từng chặn.
+    local xa_nha = -1
+    if rat_gap ~= nil and rat_gap.target ~= nil then
+        local tx, _, tz = rat_gap.target.Transform:GetWorldPosition()
+        xa_nha = math.sqrt((tx - nx) ^ 2 + (tz - nz) ^ 2)
+    end
+    KT("nhu cầu gấp với tới được tài nguyên cách nhà hơn 100",
+       xa_nha > 100,
+       "nhắm=" .. tostring(rat_gap and rat_gap.target and rat_gap.target.prefab)
+       .. " cách nhà " .. string.format("%.0f", xa_nha))
+    xa:Remove()
+    e:Remove()
     tiep()
 end
 
@@ -1014,7 +1121,2409 @@ local function ThuGiuLang(tiep)
     tiep()
 end
 
+-- ── mất rìu thì phải CHẾ LẠI được ───────────────────────────────────────
+--
+-- ⚠ Đây là bài kiểm của vòng xoáy tử thần đã làm cả làng chết đi chết lại.
+--   Chết một lần là rơi sạch đồ, kể cả cây rìu trong bộ khởi đầu. Trước khi có
+--   nhu cầu "dụng cụ" thì KHÔNG nhu cầu nào biết chế lại rìu, nên dân làng tay
+--   trắng không bao giờ chặt được gỗ nữa — dù đứng giữa rừng. Đo trên server:
+--   `DiKiem("log")` trả nil ở CẢ hai bán kính với 12 cây chặt được trong vòng
+--   30. Không gỗ -> không lửa trại -> chết đêm -> lại rơi rìu.
+local function ThuMatRiu(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local tui = e.components.inventory
+    tui:DropEverything()
+
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(gx + 6, 0, gz)
+
+    KT("tay trắng thì KHÔNG chặt nổi cây dù cây ngay cạnh",
+       st.DiKiem(e, "log", nil, 30) == nil)
+
+    local dc = nc.Tim("dung_cu")
+    KT("có nhu cầu \"dụng cụ\" trong bảng", dc ~= nil)
+    KT("tay trắng thì nhu cầu dụng cụ CHƯA thoả",
+       dc ~= nil and not dc.du(e))
+    KT("dụng cụ xếp TRÊN nhà (rìu là điều kiện của đống lửa)",
+       nc.ChiSo("dụng cụ") < nc.ChiSo("nhà"),
+       "dụng cụ=" .. tostring(nc.ChiSo("dụng cụ")) .. " nhà=" .. tostring(nc.ChiSo("nhà")))
+
+    -- ⚠ PHẢI thoả ánh sáng và chống nóng trước. Từ khi sinh_ton.Giai lặp ƯU
+    --   TIÊN ở vòng ngoài, nhu cầu hạng cao hơn sẽ giành lượt và Giai không
+    --   bao giờ xuống tới "dụng cụ" — bài này hỏng oan với "túi=khong co".
+    tui:GiveItem(SpawnPrefab("torch"))
+    e.components.temperature:SetTemperature(20)
+    -- Cho đúng nguyên liệu chế rìu rồi bắt nó tự chế.
+    tui:GiveItem(SpawnPrefab("twigs"))
+    tui:GiveItem(SpawnPrefab("flint"))
+    KT("có cành + đá lửa thì chế được rìu",
+       e.components.builder:CanBuild("axe"))
+    st.Giai(e)
+    KT("dân làng TỰ chế lại rìu khi mất rìu", dc ~= nil and dc.du(e),
+       "túi=" .. TenCua(nc.CoTrongTui(e, "axe")))
+    KT("có rìu rồi thì chặt được cây ngay cạnh",
+       st.DiKiem(e, "log", nil, 30) ~= nil)
+
+    cay:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── hồn ma phải ĐI ĐƯỢC ─────────────────────────────────────────────────
+--
+-- ⚠ Trạng thái "death" của stategraph là trạng thái CUỐI: không lối ra, và bỏ
+--   qua mọi lệnh di chuyển. Đo trên server: cả ba hồn ma có sg="death", não
+--   vẫn chạy đúng nhánh hồn ma và vẫn ra lệnh đi tới Đài cách 51 đơn vị — mà
+--   thân thể không nhích một bước suốt nhiều ngày. Người chơi chỉ thấy xác
+--   nằm ì. Hồi sinh cũng vậy: không rời "death" thì được cái xác biết nói.
+local function ThuHonMaDiDuoc(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    -- ⚠ RỜI TRẠNG THÁI CHẾT PHẢI ĐI ĐÚNG LỐI. SGwilson.lua:3839 có
+    --   `assert(false, "Left death state.")` ngay trong onexit — gọi thẳng
+    --   sg:GoToState("idle") là ném LỖI CỨNG mỗi lần hồn ma cử động, nhật ký
+    --   ngập stack traceback. Đo trên server: lỗi nổ đúng lúc An hồi sinh và
+    --   bắt đầu đi kiếm cỏ. Lối hợp lệ là cờ `statemem.vinesaving`.
+    local loi_truoc = 0
+    local print_that = print
+    print = function(...)
+        local d = tostring((...))
+        if d:find("Left death state") then loi_truoc = loi_truoc + 1 end
+        return print_that(...)
+    end
+    dan_lang.ThanhHonMa(e)
+    print = print_that
+    KT("rời trạng thái chết KHÔNG ném lỗi \"Left death state\"",
+       loi_truoc == 0, "số lỗi=" .. loi_truoc)
+    KT("thành hồn ma thì RỜI trạng thái chết (đi lại được)",
+       e.sg == nil or e.sg.currentstate == nil or e.sg.currentstate.name ~= "death",
+       "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
+    KT("thành hồn ma thì bỏ luôn việc đang làm dở",
+       e.ailang.viec == nil)
+
+    local bia = SpawnPrefab("resurrectionstatue")
+    if bia ~= nil then bia.Transform:SetPosition(gx + 1, 0, gz) end
+    dan_lang.HoiSinh(e)
+    KT("hồi sinh thì cũng RỜI trạng thái chết",
+       e.sg == nil or e.sg.currentstate == nil or e.sg.currentstate.name ~= "death",
+       "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
+    if bia ~= nil then bia:Remove() end
+    e:Remove()
+    tiep()
+end
+
+-- ── chen ngang theo THỨ HẠNG, không theo tên ────────────────────────────
+--
+-- ⚠ `sinh_ton.Giai` duyệt HẾT bảng nhu cầu, nên khi nhu cầu gấp giải không nổi
+--   ở bán kính gần, nó trả về việc của một nhu cầu THẤP HƠN. Bản trước so nhãn
+--   việc với nhãn nhu cầu gấp, thấy lệch là vứt việc — mỗi 0,5 giây một lần,
+--   mãi mãi. Dân làng nhận đi nhận lại cùng một việc và không chặt xong cây
+--   nào. Đo được: dang_lo="hồi máu" trong khi nhu cầu gấp là "ánh sáng".
+local function ThuChenTheoHang(tiep)
+    local nc = require("ailang/nhu_cau")
+    KT("thứ hạng nhu cầu tra được theo tên",
+       nc.ChiSo("ánh sáng") == 1 and nc.ChiSo("nhà") ~= nil,
+       "ánh sáng=" .. tostring(nc.ChiSo("ánh sáng")))
+    KT("việc thường KHÔNG có thứ hạng (để nhu cầu nào cũng chen được)",
+       nc.ChiSo("chặt cây") == nil and nc.ChiSo("hái lượm") == nil)
+    KT("ánh sáng NẶNG HƠN nhà", nc.ChiSo("ánh sáng") < nc.ChiSo("nhà"))
+
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    -- Đang làm việc của nhu cầu NẶNG hơn thứ vừa nổi lên -> phải GIỮ.
+    -- ⚠ Việc giả vẫn phải có `hanh_dong` thật: viec.HanhDong dựng
+    --   BufferedAction từ nó, và BufferedAction nil action là nổ ngay.
+    e.ailang.viec = { vi_sao = "ánh sáng", muc_tieu = nil,
+                      hanh_dong = ACTIONS.EQUIP, mon = SpawnPrefab("torch") }
+    e.components.inventory:GiveItem(e.ailang.viec.mon)
+    e.ailang.viec_tu = GetTime()
+    vi.HanhDong(e)
+    KT("nhu cầu nhẹ hơn KHÔNG cướp được việc đang làm",
+       e.ailang.viec ~= nil and e.ailang.viec.vi_sao == "ánh sáng",
+       "việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao))
+    e:Remove()
+    tiep()
+end
+
+-- ── nuôi lửa cho khỏi tắt giữa đêm ──────────────────────────────────────
+--
+-- ⚠ Lửa trại KHÔNG cháy mãi: hết nhiên liệu là nó nhả tro rồi BIẾN MẤT HẲN
+--   (campfire.lua: accepting=false, thêm tag NOCLICK, ErodeAway sau 1 giây).
+--   Tắt giữa đêm là lúc tệ nhất — dân làng đang bị cấm cầm rìu nên không đi
+--   chặt gỗ mới được. Phải nuôi lửa từ lúc còn sáng.
+local function ThuTiepLua(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    -- ⚠ PHẢI thoả hết nhu cầu trước. Tiếp lửa là VIỆC THƯỜNG, mà viec.NhanViec
+    --   xét nhu cầu sinh tồn xong mới tới việc thường — còn thiếu cái giáp là
+    --   nó đi gom cỏ chứ không ngó tới đống lửa. Đã hỏng oan với "việc=giáp".
+    local lo = ThoaHetNhuCau(e)
+    local tui = e.components.inventory
+
+    lo.components.fueled:SetPercent(0.2)
+    KT("lửa gần tàn mà không có củi thì KHÔNG nhận việc tiếp lửa",
+       (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL,
+       "việc=" .. tostring((vi.NhanViec(e) or {}).vi_sao))
+
+    tui:GiveItem(SpawnPrefab("log"))
+    vi.BoViec(e)
+    local v = vi.NhanViec(e)
+    KT("lửa gần tàn + có gỗ thì đi tiếp lửa",
+       v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL and v.muc_tieu == lo,
+       "việc=" .. tostring(v and v.vi_sao))
+    KT("ném GỖ vào lửa, không ném đuốc",
+       v ~= nil and v.mon ~= nil and v.mon.prefab == "log",
+       "ném=" .. TenCua(v and v.mon))
+
+    lo.components.fueled:SetPercent(0.95)
+    vi.BoViec(e)
+    KT("lửa còn đầy thì thôi, không phí củi",
+       (vi.NhanViec(e) or {}).hanh_dong ~= ACTIONS.ADDFUEL)
+
+    lo:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── giữ làng phải thắng nhu cầu không gấp ───────────────────────────────
+--
+-- ⚠ "vũ khí" và "giáp" có `can` luôn trả true, nên hễ quanh đó còn một bụi cỏ
+--   là sinh_ton.Giai LUÔN trả về việc — và viec.NhanViec không bao giờ xuống
+--   tới dập lửa hay tiếp lửa. Đo trên server: lửa của làng tụt còn 17% nhiên
+--   liệu rồi TẮT HẲN trong khi cả ba dân làng đứng hái cỏ làm áo giáp. Chập
+--   tối hôm đó nhật ký ghi lua=0.
+local function ThuGiuLangTruocGiap(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    local st = require("ailang/sinh_ton")
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    local lo = ThoaHetNhuCau(e)
+    local tui = e.components.inventory
+
+    -- Cởi giáp ra: giờ "giáp" chưa thoả và quanh đây đầy cỏ, đúng cảnh đã gặp.
+    local giap = tui:GetEquippedItem(EQUIPSLOTS.BODY)
+    if giap ~= nil then tui:DropItem(giap) giap:Remove() end
+    SpawnPrefab("grass").Transform:SetPosition(gx + 3, 0, gz)
+    KT("dựng đúng cảnh: giáp CHƯA thoả",
+       #st.ConThieuGi(e, function(n) return n.ma == "giap" end) == 1)
+
+    lo.components.fueled:SetPercent(0.2)
+    tui:GiveItem(SpawnPrefab("log"))
+    vi.BoViec(e)
+    local v = vi.NhanViec(e)
+    KT("nuôi lửa của làng THẮNG việc đi hái cỏ làm giáp",
+       v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL,
+       "việc=" .. tostring(v and v.vi_sao))
+
+    -- Nhưng nhu cầu GẤP thì vẫn phải thắng việc nuôi lửa.
+    lo.components.fueled:SetPercent(0.2)
+    for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
+        local m = tui:GetEquippedItem(o)
+        if m ~= nil then tui:DropItem(m) m:Remove() end
+    end
+    local duoc = require("ailang/nhu_cau").CoTrongTui(e, "torch")
+    if duoc ~= nil then duoc:Remove() end
+    lo:Remove()                      -- mất luôn chỗ trú sáng
+    vi.BoViec(e)
+    local v2 = vi.NhanViec(e)
+    KT("nhưng nhu cầu GẤP vẫn thắng việc nuôi lửa",
+       v2 == nil or v2.hanh_dong ~= ACTIONS.ADDFUEL,
+       "việc=" .. tostring(v2 and v2.vi_sao))
+
+    e:Remove()
+    tiep()
+end
+
+-- ── vũ khí và giáp là việc của lúc đã yên thân ──────────────────────────
+--
+-- ⚠ Áo cỏ tốn MƯỜI bó cỏ, đuốc chỉ tốn hai. Khi `can` của giáp luôn trả true,
+--   ba dân làng vặt sạch cỏ quanh làng để làm áo — rồi tới chập tối thì đứng
+--   TAY KHÔNG với đúng 1 bó cỏ. Đo được: cả ba vào đêm tay không, kẹt ở cu1
+--   nhiều nhịp liền vì quanh làng không còn bụi cỏ nào chưa hái.
+local function ThuGiapSauCung(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local st = require("ailang/sinh_ton")
+    local giap, vu_khi = nc.Tim("giap"), nc.Tim("vu_khi")
+    e.components.inventory:DropEverything()
+
+    KT("chưa có lửa, chưa có sáng thì KHÔNG lo giáp", not giap.can(e))
+    KT("chưa yên thân thì cũng KHÔNG lo vũ khí", not vu_khi.can(e))
+    KT("và giáp KHÔNG nằm trong danh sách phải lo",
+       #st.ConThieuGi(e, function(n) return n.ma == "giap" end) == 0)
+
+    -- Yên thân: có đuốc đầy trong tay và có lửa ở làng.
+    ThoaHetNhuCau(e)
+    KT("đã có lửa và có sáng thì MỚI lo giáp", giap.can(e))
+    e:Remove()
+    tiep()
+end
+
+-- ── chập tối thì nạp lửa tới gần đầy ────────────────────────────────────
+--
+-- ⚠ Lửa đầy cháy được 360 giây, mà chập tối + đêm là 240 giây. Nạp tới nửa
+--   bình rồi bỏ đi là nó CHẾT ngay trước bình minh. Đo trên server: cả ba ôm
+--   2 khúc gỗ mỗi đứa mà lua=0 giữa đêm, một đứa đứng tay không trong bóng tối.
+local function ThuNapDayTruocDem(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    TheWorld:PushEvent("ms_setphase", "day")
+    local lo = ThoaHetNhuCau(e)
+    local tui = e.components.inventory
+    tui:GiveItem(SpawnPrefab("log"))
+    tui:GiveItem(SpawnPrefab("log"))
+
+    -- ⚠ Kiểm THẲNG ViecTiepLua, đừng kiểm qua viec.NhanViec. NhanViec chạy
+    --   sinh_ton.Giai trước, mà Giai CÓ TÁC DỤNG PHỤ (mặc đồ, chế đồ) và có
+    --   thể trả "xong" rồi nuốt luôn lượt — lúc đó NhanViec trả nil vì lý do
+    --   chẳng liên quan gì tới ngưỡng tiếp lửa. Đã mất mấy vòng chẩn đoán vì
+    --   phép kiểm đo quá xa nguồn: mọi điều kiện của đống lửa đều đúng, gọi
+    --   thẳng thì ra việc, mà qua NhanViec thì nil.
+    --   Thứ tự "giữ làng trước nhu cầu không gấp" đã có ThuGiuLangTruocGiap lo.
+    lo.components.fueled:SetPercent(0.7)
+    KT("ban ngày lửa hơn nửa bình thì thôi, để dành củi",
+       vi.ViecTiepLua(e) == nil,
+       "việc=" .. tostring((vi.ViecTiepLua(e) or {}).vi_sao))
+
+    DoiPha("dusk", function()
+        local v = vi.ViecTiepLua(e)
+        KT("nhưng CHẬP TỐI thì cùng mức đó phải nạp thêm cho gần đầy",
+           v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL,
+           "việc=" .. tostring(v and v.vi_sao)
+           .. " | lửa=" .. string.format("%.2f", lo.components.fueled:GetPercent()))
+
+        lo.components.fueled:SetPercent(0.98)
+        KT("đã gần đầy thì thôi, không nhồi vô ích",
+           vi.ViecTiepLua(e) == nil)
+
+        lo:Remove()
+        e:Remove()
+        DoiPha("day", function() tiep() end)
+    end)
+end
+
+-- ── bảng kho của làng ───────────────────────────────────────────────────
+local function ThuKho(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local l = require("ailang/lenh")
+    local tui = e.components.inventory
+    tui:DropEverything()
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("log")) end
+    local riu = SpawnPrefab("axe") tui:GiveItem(riu) tui:Equip(riu)
+
+    local ok, tong = pcall(l.Kho)
+    KT("c_ailang_kho chạy không nổ", ok, tostring(tong))
+    KT("bảng kho cộng đúng 3 khúc gỗ",
+       type(tong) == "table" and tong.log == 3,
+       "gỗ=" .. tostring(type(tong) == "table" and tong.log))
+    KT("bảng kho đếm cả đồ ĐANG CẦM, không chỉ đồ trong túi",
+       type(tong) == "table" and tong.axe == 1,
+       "rìu=" .. tostring(type(tong) == "table" and tong.axe))
+    e:Remove()
+    tiep()
+end
+
+-- ── túi hàng mở được ────────────────────────────────────────────────────
+--
+-- ⚠ Túi ĐỒ của một prefab người chơi thì người chơi khác KHÔNG mở được — nên
+--   phải gắn hẳn một `container` lên chính entity dân làng, đúng cách Chester
+--   và Glommer làm. Đây là hộp MỘT CHIỀU cố ý: inventory:GetOverflowContainer
+--   chỉ nhìn món mặc ở ô BODY, nên đồ trong túi hàng không chế đồ được.
+local function ThuTuiHang(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local tui, hang = e.components.inventory, e.components.container
+    KT("dân làng có túi hàng mở được", hang ~= nil and hang.canbeopened)
+    KT("túi hàng có ô chứa", hang ~= nil and (hang.numslots or 0) > 0,
+       "ô=" .. tostring(hang and hang.numslots))
+
+    tui:DropEverything()
+    tui:GiveItem(SpawnPrefab("petals"))
+    KT("túi chính CHƯA đầy thì không dồn đi đâu cả",
+       not dan_lang.CatVaoTuiHang(e))
+
+    -- ⚠ Nhồi cho đầy phải dùng NHIỀU LOẠI món khác nhau. Đổ 20 cánh hoa thì
+    --   chúng chồng hết vào ĐÚNG MỘT Ô và túi không bao giờ đầy — phép kiểm
+    --   hỏng oan, nhìn như tính năng hỏng.
+    for _, m in ipairs({ "petals", "berries", "carrot", "ash", "charcoal",
+                         "seeds", "acorn", "foliage", "cutreeds", "red_cap",
+                         "blue_cap", "green_cap", "butterflywings", "honey",
+                         "smallmeat", "petals_evil", "boards", "rocks" }) do
+        if tui:IsFull() then break end
+        local mon = SpawnPrefab(m)
+        if mon ~= nil then tui:GiveItem(mon) end
+    end
+    KT("dựng đúng cảnh: túi chính đã đầy", tui:IsFull())
+    KT("túi đầy thì dồn đồ dư sang túi hàng", dan_lang.CatVaoTuiHang(e))
+    local n = 0
+    for _, m in pairs(hang.slots or {}) do if m ~= nil then n = n + 1 end end
+    KT("đồ đã nằm trong túi hàng", n > 0, "trong túi hàng=" .. n)
+
+    -- Nguyên liệu sống còn thì TUYỆT ĐỐI không được dồn đi.
+    tui:DropEverything()
+    -- Đầy túi nhưng TOÀN nguyên liệu sống còn: không được dồn món nào đi cả.
+    for _, m in ipairs({ "cutgrass", "twigs", "log", "flint" }) do
+        for _ = 1, 6 do
+            if tui:IsFull() then break end
+            local mon = SpawnPrefab(m)
+            -- Mỗi món một ô: chồng được thì ô sau không tính, nên phải cho
+            -- từng cái rồi tách ra. Đơn giản hơn: chồng tới giới hạn là đủ đầy.
+            if mon ~= nil then tui:GiveItem(mon) end
+        end
+    end
+    -- Nếu vẫn chưa đầy thì nhồi thêm cho đủ ô, vẫn chỉ bằng bốn món trên.
+    KT("dựng đúng cảnh: túi toàn nguyên liệu sống còn",
+       require("ailang/nhu_cau").CoTrongTui(e, "cutgrass") ~= nil)
+    local truoc = 0
+    for _, m in pairs(hang.slots or {}) do if m ~= nil then truoc = truoc + 1 end end
+    dan_lang.CatVaoTuiHang(e)
+    local sau = 0
+    for _, m in pairs(hang.slots or {}) do if m ~= nil then sau = sau + 1 end end
+    KT("KHÔNG dồn cỏ/cành/gỗ/đá lửa đi — đó là nguyên liệu sống còn",
+       sau == truoc, "trước=" .. truoc .. " sau=" .. sau)
+
+    -- Hồ sơ phải chép túi hàng, nếu không restart là đồ người chơi gửi bay hết.
+    local hs = dan_lang.ChupHoSo(e)
+    KT("hồ sơ có chép túi hàng",
+       hs ~= nil and hs.tui ~= nil and #(hs.tui.tui_hang or {}) > 0,
+       "chép được " .. tostring(hs and hs.tui and #(hs.tui.tui_hang or {})))
+    e:Remove()
+
+    local moi = dan_lang.Sinh(hs)
+    local n2 = 0
+    if moi ~= nil and moi.components.container ~= nil then
+        for _, m in pairs(moi.components.container.slots or {}) do
+            if m ~= nil then n2 = n2 + 1 end
+        end
+    end
+    KT("dựng lại dân làng thì đồ trong túi hàng còn nguyên", n2 > 0,
+       "còn=" .. n2)
+    if moi ~= nil then moi:Remove() end
+    tiep()
+end
+
+-- ── đuốc phải phát sáng THẬT phía server ────────────────────────────────
+--
+-- ⚠ PHÉP KIỂM QUAN TRỌNG NHẤT CỦA CẢ MOD. Đuốc của DST gắn ánh sáng bằng FX
+--   `torchfire` (torch.lua: onequip -> fx:AttachLightTo(owner)), mà FX là thứ
+--   CLIENT VẼ — trên server chuyên dụng nó KHÔNG tạo nguồn sáng nào. Đo trực
+--   tiếp giữa đêm, cách mọi đống lửa 40 đơn vị, tay cầm đuốc đang cháy:
+--       ánh sáng = 0.000  ->  "enterdark"  ->  Charlie đánh 100.05
+--   Nhật ký trận chết ghi rõ: Binh chết với `tay = torch`.
+--
+--   Cách chữa: bật `inst.Light` của chính dân làng (player_common.lua dựng sẵn
+--   rồi Enable(false)). Phép kiểm này canh đúng chỗ đó.
+local function ThuDenThat(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local tui = e.components.inventory
+    tui:DropEverything()
+    KT("dân làng có thực thể đèn của riêng nó", e.Light ~= nil)
+
+    dan_lang.CapNhatDen(e)
+    KT("tay không thì đèn TẮT", e.Light ~= nil and not e.Light:IsEnabled())
+
+    local duoc = SpawnPrefab("torch")
+    tui:GiveItem(duoc) tui:Equip(duoc)
+    dan_lang.CapNhatDen(e)
+    KT("cầm đuốc đang cháy thì đèn BẬT — đây là thứ cứu mạng",
+       e.Light ~= nil and e.Light:IsEnabled())
+
+    -- ⚠ Đuốc 20% vẫn đang cháy và vẫn cứu mạng. Ngưỡng 25% của MonPhatSang là
+    --   ngưỡng KẾ HOẠCH (đi làm cây mới), không được dùng để tắt đèn thật.
+    duoc.components.fueled:SetPercent(0.2)
+    dan_lang.CapNhatDen(e)
+    KT("đuốc còn 20% vẫn sáng thật (đừng lẫn ngưỡng kế hoạch)",
+       e.Light ~= nil and e.Light:IsEnabled())
+
+    duoc.components.fueled:SetPercent(0)
+    dan_lang.CapNhatDen(e)
+    KT("đuốc cháy hết thì đèn tắt",
+       e.Light ~= nil and not e.Light:IsEnabled())
+
+    duoc.components.fueled:SetPercent(1)
+    dan_lang.CapNhatDen(e)
+    tui:Unequip(EQUIPSLOTS.HANDS)
+    dan_lang.CapNhatDen(e)
+    KT("cởi đuốc ra thì đèn tắt",
+       e.Light ~= nil and not e.Light:IsEnabled())
+
+    -- Hồn ma không cầm gì và cũng không sáng.
+    tui:Equip(duoc)
+    dan_lang.CapNhatDen(e)
+    dan_lang.ThanhHonMa(e)
+    dan_lang.CapNhatDen(e)
+    KT("hồn ma thì đèn tắt", e.Light ~= nil and not e.Light:IsEnabled())
+
+    e:Remove()
+    tiep()
+end
+
+-- ── mùa hè giết dân làng giữa ban ngày ──────────────────────────────────
+--
+-- ⚠ Không cần Charlie. Đo trên server ngày 57 (mùa hè): nhiệt độ MÔI TRƯỜNG
+--   đã là 71.6 trong khi TUNING.OVERHEAT_TEMP = 70 — chỉ đứng ngoài trời là
+--   đủ chết. Máu tụt đều suốt ngày mà KHÔNG có sự kiện "attacked" nào, nên
+--   ban đầu nhìn như lỗi ma. Tương quan thì thẳng tưng:
+--       An 67.6 độ -> 56% máu | Cuong 71.3 -> 1% | Binh 72.4 -> CHẾT
+local function ThuChongNong(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local st = require("ailang/sinh_ton")
+    local n = nc.Tim("mat_me")
+    KT("có nhu cầu chống nóng trong bảng", n ~= nil)
+
+    local t = e.components.temperature
+    t:SetTemperature(20)
+    KT("mát trời thì KHÔNG lo chống nóng", n ~= nil and not n.can(e))
+
+    t:SetTemperature(65)
+    KT("nóng 65 độ là đã phải lo, đừng đợi chạm 70",
+       n ~= nil and n.can(e), "nhiệt=" .. string.format("%.0f", t:GetCurrent()))
+    e.components.inventory:DropEverything()
+    KT("chưa có đồ chống nóng thì CHƯA thoả", n ~= nil and not n.du(e))
+
+    local mu = SpawnPrefab("strawhat")
+    e.components.inventory:GiveItem(mu)
+    e.components.inventory:Equip(mu)
+    KT("đội mũ cỏ vào thì thoả", n ~= nil and n.du(e))
+    KT("mũ cỏ đúng là đồ cách nhiệt mùa hè",
+       mu.components.insulator ~= nil
+       and mu.components.insulator.type == SEASONS.SUMMER)
+
+    -- ⚠ `gap` ở đây KHÔNG phải để chen ngang cho vui — nó là thứ nới dây trói
+    --   về nhà từ 50 lên 140. Cỏ làm mũ thì đo được: 1 bụi trong bán kính 30,
+    --   39 bụi trong bán kính 130. Không có `gap` thì dân làng bị trói trong
+    --   50 đơn vị và không bao giờ với tới chỗ có cỏ.
+    --   Chuyện "chen ngang mỗi nhịp" chặn ở chỗ khác: viec.CanChenNgang bỏ qua
+    --   mọi nhu cầu đang BÓ TAY.
+    KT("chống nóng là nhu cầu GẤP (để nới được dây trói về nhà)",
+       n ~= nil and n.gap == true)
+    KT("chống nóng xếp trên dụng cụ và nhà",
+       nc.ChiSo("mát") < nc.ChiSo("dụng cụ")
+       and nc.ChiSo("mát") < nc.ChiSo("nhà"),
+       "mát=" .. tostring(nc.ChiSo("mát")))
+
+    e.components.inventory:DropEverything()
+    t:SetTemperature(65)
+    KT("đang nóng mà chưa có đồ thì nó nằm trong danh sách phải lo",
+       #st.ConThieuGi(e, function(m) return m.ma == "mat_me" end) == 1)
+    -- ⚠ Ô TAY là ô của đuốc. Bỏ hẳn grass_umbrella dù nó cách nhiệt gấp đôi:
+    --   hai nhu cầu giành nhau một ô là quay lại đúng bệnh rìu↔đuốc.
+    local co_o_tay = false
+    for _, b in ipairs(n.bac or {}) do
+        if b.mon == "grass_umbrella" then co_o_tay = true end
+    end
+    KT("KHÔNG dùng ô che tay — ô đó dành cho đuốc", not co_o_tay)
+
+    t:SetTemperature(20)
+    e:Remove()
+    tiep()
+end
+
+-- ── bóng cây: lời giải mùa hè không tốn gì ──────────────────────────────
+--
+-- ⚠ Tìm ra bằng cách soi một điều bất thường: ba dân làng có ĐỒ ĐẠC GIỐNG HỆT
+--   NHAU mà nhiệt độ lệch hẳn — An và Binh 64 độ trong khi môi trường 84, còn
+--   Cuong 83 độ rồi CHẾT. Khác biệt duy nhất là CHỖ ĐỨNG.
+--   temperature.lua: `sheltered` và nhiệt trên TREE_SHADE_COOLING_THRESHOLD
+--   (63) thì kéo mạnh về TREE_SHADE_COOLER (45) — nên hai đứa kia ghim đúng
+--   ngay trên 63. Rời bóng cây đi chặt gỗ là nhảy lên 75 rồi 81 rồi chết.
+--   sheltered.lua đo bằng CountEntities bán kính 2, tag "shelter", trừ stump.
+local function ThuBongCay(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local la = require("ailang/lang")
+    local mat = nc.Tim("mat_me")
+    local t = e.components.temperature
+    e.components.inventory:DropEverything()
+    t:SetTemperature(68)
+
+    local che = e.components.sheltered
+    KT("dân làng có bộ phận nhận biết bóng râm", che ~= nil)
+    KT("ngưỡng mát của DST đúng như đã đo",
+       TUNING.TREE_SHADE_COOLING_THRESHOLD == 63
+       and TUNING.TREE_SHADE_COOLER == 45,
+       "ngưỡng=" .. tostring(TUNING.TREE_SHADE_COOLING_THRESHOLD)
+       .. " kéo về=" .. tostring(TUNING.TREE_SHADE_COOLER))
+
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(gx + 30, 0, gz)
+    KT("cây thông mang tag shelter", cay:HasTag("shelter"))
+
+    if che ~= nil then che.sheltered = false end
+    KT("đứng xa cây thì CHƯA mát", mat ~= nil and not mat.du(e))
+
+    -- ⚠ Bóng râm là chỗ TRÚ TẠM, KHÔNG tính là "đã mát". Dân làng phải rời gốc
+    --   cây mới làm được việc, và mỗi vòng ra-vào lại nhích qua mốc 70 một
+    --   nhịp — đo được nhiệt ổn định 67-71 mà máu vẫn tụt 99% -> 93% -> 80%.
+    --   Coi bóng râm là đủ thì chúng KHÔNG BAO GIỜ chế cái mũ.
+    if che ~= nil then che.sheltered = true end
+    KT("đứng dưới tán cây vẫn CHƯA tính là đủ mát (còn phải lo cái mũ)",
+       mat ~= nil and not mat.du(e))
+    local mu = SpawnPrefab("strawhat")
+    e.components.inventory:GiveItem(mu)
+    e.components.inventory:Equip(mu)
+    KT("đội mũ cỏ vào thì mới thật sự đủ", mat ~= nil and mat.du(e))
+
+    -- ⚠ Kiểm THẲNG lang.CanTruNong, ĐỪNG tick não rồi soi inst.ailang. Cây
+    --   hành vi TỰ GHI ĐÈ `a.viec` và `a.dang_lo` mỗi nhịp, nên mọi giá trị
+    --   bài kiểm đặt vào đó đều bay mất ngay nhịp sau — đã hỏng hai lần liền
+    --   với "trú=true" trong khi mã chạy đúng.
+    e.ailang.tru_nong = nil
+    e.ailang.viec = nil
+    t:SetTemperature(67)
+    KT("nóng 67 độ thì bật chế độ đi trú",
+       la.CanTruNong(e, 66, 65) == true)
+    t:SetTemperature(66)
+    KT("mới xuống 66 thì CHƯA nhả — không thì rung quanh mốc 70",
+       la.CanTruNong(e, 66, 65) == true)
+    t:SetTemperature(64)
+    KT("xuống 64 rồi mới nhả, quay lại làm việc",
+       la.CanTruNong(e, 66, 65) == nil)
+
+    -- ⚠ ĐỪNG CHẶN ĐÚNG VIỆC SẼ CHẤM DỨT TÌNH TRẠNG CẤP CỨU. Đo trên server:
+    --   dân làng báo lo "mát" suốt hàng chục nhịp mà số cỏ trong túi KHÔNG HỀ
+    --   TĂNG — cỏ ở cách 110 đơn vị, vừa rời bóng cây là nhiệt vượt 66 trong
+    --   vài giây, nhánh trú lôi về, nhả ở 65, đi tiếp, lại bị lôi về. Nó KHÔNG
+    --   BAO GIỜ đi nổi tới nơi, và cứ thế mất máu 99% -> 51%.
+    e.ailang.tru_nong = nil
+    e.ailang.viec = { vi_sao = "mát" }
+    t:SetTemperature(67)
+    local kq = la.CanTruNong(e, 66, 65)
+    KT("đang đi lo chính chuyện chống nóng thì 67 độ CHƯA kéo về",
+       kq == nil,
+       "trú=" .. tostring(kq)
+       .. " | việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao)
+       .. " | nhiệt=" .. string.format("%.1f", t:GetCurrent())
+       .. " | ngưỡng quá nhiệt=" .. tostring(TUNING.OVERHEAT_TEMP))
+    t:SetTemperature(71)
+    KT("nhưng chạm mức quá nhiệt thật thì vẫn kéo về",
+       la.CanTruNong(e, 66, 65) == true)
+
+    e.ailang.tru_nong = nil
+    e.ailang.viec = { vi_sao = "nhà" }
+    t:SetTemperature(67)
+    KT("việc khác thì 67 độ là kéo về ngay",
+       la.CanTruNong(e, 66, 65) == true)
+
+    e.ailang.tru_nong = nil
+    e.ailang.viec = nil
+    if che ~= nil then che.sheltered = false end
+    t:SetTemperature(20)
+    cay:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── một cái máy mở khoá cả một tầng ─────────────────────────────────────
+--
+-- ⚠ researchlab là TECH 0 (goldnugget×1 log×4 rocks×4) nên dân làng tự dựng
+--   được, và từ lúc có nó mọi nhu cầu khác TỰ LÊN BẬC mà không phải sửa gì —
+--   builder:CanBuild xét cấp công nghệ hộ. Đây là đường thoát của mùa hè: mũ
+--   cỏ (cách nhiệt 60) không cứu nổi khi nhiệt môi trường lên 78, phải có lửa
+--   lạnh, mà lửa lạnh là tech 1.
+local function ThuXuong(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local nc = require("ailang/nhu_cau")
+    local n = nc.Tim("xuong")
+    KT("có nhu cầu xưởng trong bảng", n ~= nil)
+    KT("chưa có máy thì CHƯA thoả", n ~= nil and not n.du(e))
+
+    -- ⚠ Con quạ lễ hội (carnival_host) cũng mang tag "prototyper" và nó BIẾT
+    --   ĐI. Bộ kiểm này từng hỏng vì có một con lảng vảng gần điểm sinh —
+    --   đúng cái bẫy mà `du` phải chặn bằng cách đòi thêm tag "structure".
+    local gia = SpawnPrefab("carnival_host")
+    if gia ~= nil then
+        gia.Transform:SetPosition(gx + 3, 0, gz)
+        KT("thứ biết đi mang tag prototyper KHÔNG tính là xưởng",
+           n ~= nil and not n.du(e),
+           "quạ có prototyper=" .. tostring(gia:HasTag("prototyper")))
+        gia:Remove()
+    end
+
+    local may = SpawnPrefab("researchlab")
+    may.Transform:SetPosition(gx + 5, 0, gz)
+    KT("máy khoa học mang tag prototyper", may:HasTag("prototyper"))
+    KT("dựng máy cạnh nhà thì thoả", n ~= nil and n.du(e))
+
+    KT("xưởng xếp DƯỚI nhà (có chỗ trú đã rồi mới tính chuyện máy móc)",
+       nc.ChiSo("xưởng") > nc.ChiSo("nhà"))
+    KT("nhưng TRÊN vũ khí và giáp",
+       nc.ChiSo("xưởng") < nc.ChiSo("vũ khí")
+       and nc.ChiSo("xưởng") < nc.ChiSo("giáp"))
+    KT("xưởng KHÔNG chen ngang (dựng máy là việc dài hơi)", n ~= nil and n.gap ~= true)
+
+    -- Lửa lạnh phải là bậc CAO NHẤT của nhu cầu chống nóng.
+    local mat = nc.Tim("mat_me")
+    KT("lửa lạnh là bậc cao nhất của chống nóng",
+       mat ~= nil and mat.bac[1] ~= nil and mat.bac[1].mon == "coldfire",
+       "bậc 1=" .. tostring(mat and mat.bac[1] and mat.bac[1].mon))
+    KT("lửa lạnh dựng Ở LÀNG, không dựng dưới chân",
+       mat ~= nil and mat.bac[1] ~= nil and mat.bac[1].o_nha == true)
+
+    -- Đứng cạnh lửa lạnh đang cháy thì coi như đã mát.
+    e.components.inventory:DropEverything()
+    e.components.temperature:SetTemperature(65)
+    KT("đang nóng, chưa có gì thì CHƯA mát", mat ~= nil and not mat.du(e))
+    local lanh = SpawnPrefab("coldfire")
+    if lanh ~= nil then
+        local ex, _, ez = e.Transform:GetWorldPosition()
+        lanh.Transform:SetPosition(ex + 2, 0, ez)
+        if lanh.components.fueled ~= nil then lanh.components.fueled:SetPercent(1) end
+        KT("đứng cạnh lửa lạnh đang cháy thì tính là mát",
+           mat ~= nil and mat.du(e),
+           "cháy=" .. tostring(lanh.components.burnable
+                               and lanh.components.burnable:IsBurning()))
+        lanh:Remove()
+    end
+    e.components.temperature:SetTemperature(20)
+    may:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── lo thân trước khi giữ làng ──────────────────────────────────────────
+--
+-- ⚠ Nhánh "giữ làng" nằm rất cao trong cây, nên hễ nó giành được lượt là mọi
+--   nhánh tự-lo bên dưới KHÔNG BAO GIỜ chạy. Đã gây hoạ BA LẦN, lần gần nhất
+--   bắt được tận tay: cả ba dân làng khoá cứng ở đây để đuổi MỘT CON ẾCH quanh
+--   làng giữa mùa hè — nhiệt độ leo 77 -> 84 -> 87, máu tụt 94% -> 28% -> chết,
+--   trong khi có 21 gốc cây rợp bóng trong bán kính 40 ngay cạnh đó.
+local function ThuLoThanTruoc(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local la = require("ailang/lang")
+    local lo = ThoaHetNhuCau(e)
+    e.components.temperature:SetTemperature(20)
+    KT("bình thường thì KHÔNG phải lo thân, cứ giữ làng",
+       not la.LoThanTruoc(e, 66))
+
+    e.components.temperature:SetTemperature(70)
+    KT("đang nóng thì bỏ giữ làng mà đi trú — chết vì nóng thì giữ được gì",
+       la.LoThanTruoc(e, 66))
+
+    e.components.temperature:SetTemperature(20)
+    KT("mát trở lại thì quay về giữ làng", not la.LoThanTruoc(e, 66))
+
+    -- ⚠ CẢ HAI NHÁNH ĐÁNH NHAU đều phải dùng chung chốt này. Đã vá sót một
+    --   lần: gắn cho "Giữ làng" mà QUÊN nhánh tự vệ ngay dưới, mà nó cũng cao
+    --   hơn mọi nhánh tự lo. Đo được hậu quả: dân làng đứng CÁCH BỤI CỎ ĐÚNG
+    --   17 ĐƠN VỊ, việc đang giữ là "mát", mà suốt 24 giây chỉ nhích được 6
+    --   đơn vị — quá nửa số nhịp bị ChaseAndAttack giành lượt, nhiệt leo
+    --   70 -> 76, máu tụt đều. Nó không chết vì xa tài nguyên; nó chết vì mải
+    --   đánh nhau.
+    -- ⚠ Khẳng định theo BẤT BIẾN, không theo nhãn: WhileNode đặt tên node là
+    --   "Parallel" chứ không giữ nhãn mình truyền vào, nên tìm theo nhãn là
+    --   hỏng oan. Thứ cần bảo đảm là KHÔNG CÒN ChaseAndAttack nào để TRẦN ở
+    --   tầng gốc — mọi nhánh đánh nhau đều phải nằm dưới một chốt lo-thân.
+    local nao2 = Brain(e)
+    nao2:OnStart()
+    local ten_nhanh, tran = {}, 0
+    local goc = nao2.bt and nao2.bt.root
+    for _, c in ipairs((goc and goc.children) or {}) do
+        table.insert(ten_nhanh, tostring(c.name))
+        if tostring(c.name) == "ChaseAndAttack" then tran = tran + 1 end
+    end
+    KT("KHÔNG còn nhánh đánh nhau nào để trần ở tầng gốc",
+       tran == 0, "để trần=" .. tran .. " | các nhánh=" .. table.concat(ten_nhanh, ","))
+
+    -- Thiếu ánh sáng giữa đêm cũng là lý do bỏ giữ làng.
+    local tui = e.components.inventory
+    for _, o in ipairs({ EQUIPSLOTS.HANDS, EQUIPSLOTS.HEAD }) do
+        local m = tui:GetEquippedItem(o)
+        if m ~= nil then tui:DropItem(m) m:Remove() end
+    end
+    local duoc = require("ailang/nhu_cau").CoTrongTui(e, "torch")
+    if duoc ~= nil then duoc:Remove() end
+    -- ⚠ Phải dọn cả ĐỐNG LỬA mà khuôn ThoaHetNhuCau dựng sẵn: đứng cạnh lửa
+    --   đang cháy thì `anh_sang.du` vẫn trả true và cảnh "tối om" không dựng
+    --   được. Phép kiểm này từng hỏng oan đúng vì bỏ sót nó.
+    if lo ~= nil and lo:IsValid() then lo:Remove() end
+    DoiPha("night", function()
+        KT("chưa có sáng giữa đêm thì cũng bỏ giữ làng",
+           la.LoThanTruoc(e, 66))
+        e:Remove()
+        -- ⚠ TRẢ LẠI BAN NGÀY. Bài kiểm nào đổi pha thì phải đổi về, không thì
+        --   bài CHẠY SAU thừa hưởng trời tối và hỏng oan vì lý do chẳng liên
+        --   quan gì tới nó — đã xảy ra với bài "ưu tiên thắng khoảng cách".
+        DoiPha("day", function() tiep() end)
+    end)
+end
+
+-- ── ưu tiên phải thắng khoảng cách ──────────────────────────────────────
+--
+-- ⚠ sinh_ton.Giai từng lặp BÁN KÍNH ở vòng ngoài, ƯU TIÊN ở vòng trong — quét
+--   hết mọi nhu cầu ở gần rồi mới nới rộng. Cách đó LẶNG LẼ ĐẢO NGƯỢC thứ tự
+--   ưu tiên: một nhu cầu quan trọng ở xa thua một nhu cầu vặt ở gần.
+--   Đo trên server giữa mùa hè: DiKiem("cutgrass") trả nil ở 30 nhưng PICK ở
+--   130 (1 bụi cỏ trong vòng 30, 39 bụi trong vòng 130). "Mát" hạng 4 cần đi
+--   xa, "nhà" hạng 6 xong tại chỗ — dân làng đi dựng lửa trại trong khi đang
+--   mất máu vì nóng, và không bao giờ chế nổi cái mũ.
+local function ThuUuTienThangKhoangCach(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local tui = e.components.inventory
+    tui:DropEverything()
+    DonQuanh(gx, gz, 140)
+
+    -- Cảnh dựng lại đúng số đo trên server: thứ cho nhu cầu HẠNG CAO thì ở xa,
+    -- thứ cho nhu cầu HẠNG THẤP thì ngay dưới chân.
+    -- ⚠ Phải thoả ÁNH SÁNG trước: nó hạng 1, không thoả thì nó thắng cả "mát"
+    --   và bài kiểm đo nhầm thứ. Bài này từng hỏng với "đang lo=ánh sáng" —
+    --   mà đó chính là bộ giải chạy ĐÚNG, chỉ là cảnh dựng sai.
+    local duoc = SpawnPrefab("torch")
+    tui:GiveItem(duoc)
+    tui:Equip(duoc)   -- cầm hẳn lên: thoả ánh sáng bất kể trời ngày hay đêm
+    e.components.temperature:SetTemperature(68)   -- "mát" (hạng cao) vào cuộc
+    local co = SpawnPrefab("grass")
+    co.Transform:SetPosition(gx + 110, 0, gz)
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(gx + 6, 0, gz)
+    tui:GiveItem(SpawnPrefab("axe"))
+
+    KT("dựng đúng cảnh: cỏ chỉ với tới được ở bán kính xa",
+       st.DiKiem(e, "cutgrass", nil, 30) == nil
+       and st.DiKiem(e, "cutgrass", nil, 130) ~= nil)
+    KT("và mát xếp trên nhà", nc.ChiSo("mát") < nc.ChiSo("nhà"))
+
+    st.Giai(e)
+    KT("nhu cầu ƯU TIÊN CAO ở xa phải thắng nhu cầu thấp ở gần",
+       e.ailang.dang_lo == "mát",
+       "đang lo=" .. tostring(e.ailang.dang_lo))
+
+    e.components.temperature:SetTemperature(20)
+    co:Remove()
+    cay:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── nhu cầu bó tay thì đừng cho cướp lượt ───────────────────────────────
+--
+-- ⚠ Một nhu cầu GẤP mà giải không ra — thử cả hai bán kính đều tay trắng — nếu
+--   vẫn giữ quyền chen ngang thì nó cướp lượt MỖI NHỊP: dân làng bỏ việc liên
+--   tục, chẳng làm xong gì, mà nhu cầu kia vẫn không nhúc nhích.
+local function ThuBoTayThiThoi(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+
+    -- ⚠ DỰNG XONG CẢNH RỒI MỚI ĐỌC nhu cầu gấp. Bài này từng hỏng vì đọc
+    --   trước: cây đuốc cấp cho việc giả rơi vào túi và làm THOẢ luôn nhu cầu
+    --   ánh sáng, nên nhu cầu gấp đổi từ "ánh sáng" sang "nhà" và khoá bó tay
+    --   ghi sẵn không còn khớp với gì cả.
+    local mon = SpawnPrefab("torch")
+    e.components.inventory:GiveItem(mon)
+
+    -- ⚠ Và ĐỪNG cố định tên nhu cầu gấp: nó đổi theo pha trời, đồ trong túi và
+    --   cả những bài chạy trước. Cứ lấy đúng thứ bộ giải trả về.
+    local gap = st.CoNhuCauGap(e)
+    if gap == nil then
+        KT("dựng được cảnh có nhu cầu gấp", false, "không có nhu cầu gấp nào")
+        e:Remove() tiep() return
+    end
+
+    -- Việc đang làm phải xếp THẤP HƠN nhu cầu gấp kia, không thì nó vốn đã
+    -- không có quyền cướp lượt và bài kiểm chẳng chứng minh được gì.
+    local thap
+    for i = #nc.DANH_SACH, 1, -1 do
+        if nc.DANH_SACH[i].ten ~= gap.ten then thap = nc.DANH_SACH[i].ten break end
+    end
+    e.ailang.viec = { vi_sao = thap, muc_tieu = nil,
+                      hanh_dong = ACTIONS.EQUIP, mon = mon }
+    e.ailang.viec_tu = GetTime()
+
+    e.ailang.bo_tay = nil
+    KT("nhu cầu gấp giải được thì chen ngang được như thường",
+       vi.CanChenNgang(e),
+       "gấp=" .. tostring(gap.ten) .. " việc=" .. tostring(thap))
+
+    e.ailang.bo_tay = { [gap.ten] = true }
+    KT("nhưng khi nó đang BÓ TAY thì không cướp được việc đang làm",
+       not vi.CanChenNgang(e),
+       "gấp giờ=" .. tostring((st.CoNhuCauGap(e) or {}).ten))
+
+    e.ailang.bo_tay = nil
+    e:Remove()
+    tiep()
+end
+
+-- ── nhu cầu không tiến triển thì NGHỈ một lúc ───────────────────────────
+--
+-- ⚠ Một nhu cầu có thể GIẢI ĐƯỢC VỀ LÝ THUYẾT mà KHÔNG BAO GIỜ XONG, và khi đó
+--   nó chặn đứng mọi nhu cầu xếp dưới. Đo trên server: cả ba kẹt vĩnh viễn ở
+--   "mát" — mũ cỏ cần 12 bó, quanh làng chỉ 3 bụi, hái xong phải chờ mọc lại.
+--   Bộ giải vẫn tìm ra bụi cỏ mỗi nhịp nên không bao giờ coi là bó tay, trong
+--   khi số cỏ đứng im suốt nhiều phút. Chuỗi tử thần:
+--       "mát" không xong -> chặn "nhà" -> KHÔNG có lửa trại (lua=0)
+--       -> sống bằng đuốc -> hết cành cây -> tối -> Charlie
+--   Máu 87% tụt xuống 21% trong một nhịp, cả ba tay không.
+local function ThuNghiNhuCau(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local st = require("ailang/sinh_ton")
+    local tui = e.components.inventory
+    tui:DropEverything()
+    DonQuanh(gx, gz, 140)
+    -- Thoả ánh sáng để nó không giành lượt của thứ ta muốn đo.
+    tui:GiveItem(SpawnPrefab("torch"))
+    e.components.temperature:SetTemperature(20)
+    e.ailang.nghi, e.ailang.moc_tien = nil, nil
+
+    -- Lần đầu: nhu cầu nào giành được lượt thì ghi mốc, chưa nghỉ ai cả.
+    st.Giai(e)
+    KT("lần đầu chưa cho nhu cầu nào nghỉ",
+       e.ailang.nghi == nil or next(e.ailang.nghi) == nil)
+
+    -- ⚠ Mốc CHỈ ghi cho nhu cầu ĐƯỢC CẦM LƯỢT, không ghi cho mọi nhu cầu được
+    --   quét. Bản đầu đo tất cả, nên một nhu cầu hoàn toàn giải được vẫn bị
+    --   phạt chỉ vì nhu cầu xếp trên giành lượt suốt — đo trên server: "nhà"
+    --   đứng im 208 giây và bị cho nghỉ, trong khi DiKiem("log") trả PICKUP
+    --   ngay ở bán kính 30. Nó chưa bao giờ được thử, chứ không phải làm
+    --   không nổi. Hậu quả: cả hai nhu cầu gấp cùng nghỉ, làng không có lửa.
+    local so_moc = 0
+    for _ in pairs(e.ailang.moc_tien or {}) do so_moc = so_moc + 1 end
+    KT("chỉ ghi mốc cho nhu cầu ĐƯỢC CẦM LƯỢT, không ghi cho cả bảng",
+       so_moc <= 1, "số mốc=" .. so_moc)
+
+    -- Giả lập đã đứng im quá lâu: lùi mốc về quá khứ.
+    for _, m in pairs(e.ailang.moc_tien or {}) do m.tu = GetTime() - 1000 end
+    st.Giai(e)
+    local so_nghi = 0
+    for _ in pairs(e.ailang.nghi or {}) do so_nghi = so_nghi + 1 end
+    KT("đứng im quá lâu thì cho nhu cầu đó NGHỈ, nhường lượt xuống dưới",
+       so_nghi > 0 or so_moc == 0, "đang nghỉ=" .. so_nghi .. " mốc=" .. so_moc)
+
+    e.ailang.nghi, e.ailang.moc_tien = nil, nil
+    e:Remove()
+    tiep()
+end
+
+-- ── gom đủ rồi thì DỪNG GOM ─────────────────────────────────────────────
+--
+-- ⚠ Việc bám dai là thứ đã chữa cảnh "chặt vài nhát rồi bỏ sang cây khác",
+--   nhưng nó KHÔNG BIẾT LÚC NÀO NÊN BUÔNG. Đo trên server: Cuong gom được 14
+--   bó cỏ (mũ chống nóng cần 12), CanBuild=true, thiếu=0 — mà vẫn ôm việc hái
+--   cỏ và đứng im ở đó suốt nhiều phút. Bộ giải không bao giờ chạy lại để tới
+--   bước CHẾ, nên nó hái cỏ mãi trong khi cái mũ đã nằm trong tầm tay.
+local function ThuGomDuThiDung(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local vi = require("ailang/viec")
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local mat = nc.Tim("mat_me")
+    local tui = e.components.inventory
+    tui:DropEverything()
+    -- ⚠ Phải thoả ÁNH SÁNG trước: nó hạng 1 và `gap`, không thoả thì nó chen
+    --   ngang việc "mát" (hạng 4) và bài kiểm đo nhầm thứ — đã hỏng đúng vậy
+    --   với "việc=ánh sáng", mà đó chính là bộ giải chạy ĐÚNG.
+    tui:GiveItem(SpawnPrefab("torch"))
+    e.components.temperature:SetTemperature(68)
+
+    KT("chưa có cỏ thì CHƯA chế được mũ",
+       not st.ChePDuocRoi(e, mat))
+
+    -- Ôm sẵn một việc gom cỏ cho nhu cầu "mát", đúng cảnh đã gặp.
+    local bui = SpawnPrefab("grass")
+    bui.Transform:SetPosition(gx + 4, 0, gz)
+    e.ailang.viec = { vi_sao = "mát", muc_tieu = bui,
+                      hanh_dong = ACTIONS.PICK }
+    e.ailang.viec_tu = GetTime()
+    vi.HanhDong(e)
+    KT("chưa đủ cỏ thì cứ ôm việc gom mà làm tiếp",
+       e.ailang.viec ~= nil and e.ailang.viec.vi_sao == "mát",
+       "việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao))
+
+    -- Giờ cho đủ nguyên liệu: phải BUÔNG việc gom để còn đi chế.
+    for _ = 1, 14 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+    KT("đủ 12 bó cỏ thì chế được mũ", st.ChePDuocRoi(e, mat))
+    e.ailang.viec = { vi_sao = "mát", muc_tieu = bui,
+                      hanh_dong = ACTIONS.PICK }
+    e.ailang.viec_tu = GetTime()
+    vi.HanhDong(e)
+    KT("đủ nguyên liệu rồi thì BUÔNG việc gom, để còn đi chế",
+       e.ailang.viec == nil or e.ailang.viec.vi_sao ~= "mát"
+       or e.ailang.viec.hanh_dong ~= ACTIONS.PICK,
+       "việc=" .. tostring(e.ailang.viec and e.ailang.viec.vi_sao)
+       .. "/" .. tostring(e.ailang.viec and e.ailang.viec.hanh_dong
+                          and e.ailang.viec.hanh_dong.id))
+
+    e.components.temperature:SetTemperature(20)
+    bui:Remove()
+    e:Remove()
+    tiep()
+end
+
+-- ── hồn ma không được kẹt trạng thái chết ───────────────────────────────
+--
+-- ⚠ Đẩy sang "idle" NGAY TRONG sự kiện "death" là VÔ ÍCH: stategraph xử lý sự
+--   kiện của chính nó SAU đó và đưa ngược về "death". Đo trên server sau một
+--   lượt chạy dài: cả ba nằm làm hồn ma từ ngày 60 tới NGÀY 102 với sg="death",
+--   trong khi não vẫn chạy đúng nhánh hồn ma và vẫn ra lệnh đi tới Đài CÁCH
+--   ĐÚNG 28 ĐƠN VỊ. Làng chết là mất hẳn.
+local function ThuHonMaKhongLiet(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    dan_lang.ThanhHonMa(e)
+
+    -- Giả lập đúng cảnh đã gặp: có thứ đẩy nó về "death" sau khi mình gỡ ra.
+    --
+    -- ⚠ PHẢI đặt `deathcause` trước. SGwilson.lua:3593 có
+    --   `assert(inst.deathcause ~= nil, "Entered death state without cause.")`
+    --   — đẩy vào trạng thái chết mà không khai lý do là ném lỗi cứng, và bộ
+    --   tự kiểm DỪNG GIỮA CHỪNG. Đã hỏng đúng vậy ở lần chạy trước.
+    e.deathcause = e.deathcause or "thu nghiem"
+    if e.sg ~= nil then e.sg:GoToState("death") end
+    KT("dựng đúng cảnh: hồn ma đang kẹt trạng thái chết",
+       e.sg ~= nil and e.sg.currentstate ~= nil
+       and e.sg.currentstate.name == "death")
+
+    -- Nhịp tự chữa phải gỡ nó ra trong vòng vài giây.
+    e:DoTaskInTime(2.5, function()
+        KT("nhịp tự chữa gỡ hồn ma khỏi trạng thái chết",
+           e.sg == nil or e.sg.currentstate == nil
+           or e.sg.currentstate.name ~= "death",
+           "sg=" .. tostring(e.sg and e.sg.currentstate and e.sg.currentstate.name))
+
+        -- ⚠ RỜI TRẠNG THÁI CHẾT CHƯA ĐỦ — phải ĐI ĐƯỢC. locomotor.lua:1457
+        --   đọc thẳng health:IsDead() rồi XOÁ ĐÍCH và thoát, nên thực thể mà
+        --   engine coi là đã chết thì mọi lệnh di chuyển rơi vào hư vô. Đo
+        --   trên server: ra lệnh GoToPoint THẲNG tới Đài cách 91 đơn vị, sau 3
+        --   giây hồn ma nhích đúng 0.0 — trong khi sg đã là "idle" và não vẫn
+        --   ra lệnh đi suốt từ ngày 60 tới ngày 102.
+        KT("engine KHÔNG còn coi hồn ma là đã chết (không thì nó liệt)",
+           e.components.health ~= nil and not e.components.health:IsDead(),
+           "máu=" .. tostring(e.components.health and e.components.health.currenthealth))
+        KT("và vẫn bất tử, để Charlie bỏ qua",
+           e.components.health ~= nil and e.components.health:IsInvincible())
+
+        local x, _, z = e.Transform:GetWorldPosition()
+        e.components.locomotor:GoToPoint(Vector3(x + 25, 0, z), nil, true)
+        e:DoTaskInTime(3, function()
+            local nx, _, nz = e.Transform:GetWorldPosition()
+            local da_di = math.sqrt((nx - x) ^ 2 + (nz - z) ^ 2)
+            KT("hồn ma ĐI ĐƯỢC khi được ra lệnh", da_di > 2,
+               "đi được " .. string.format("%.1f", da_di) .. " đơn vị")
+            e:Remove()
+            tiep()
+        end)
+    end)
+end
+
+-- ── trời tối thì bỏ dụng cụ xuống ───────────────────────────────────────
+--
+-- ⚠ Luật "đêm không cầm dụng cụ" mới chỉ chặn việc NHẬN thêm việc cần dụng cụ,
+--   chứ không gỡ cây rìu đã cầm từ ban ngày. Đo trên server: hai dân làng chết
+--   giữa đêm với `tay = axe`. Rìu trong tay còn chiếm mất ô mà đuốc cần.
+local function ThuCatDungCuKhiToi(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local tui = e.components.inventory
+    tui:DropEverything()
+    local riu = SpawnPrefab("axe")
+    tui:GiveItem(riu) tui:Equip(riu)
+
+    TheWorld:PushEvent("ms_setphase", "day")
+    DoiPha("day", function()
+        KT("ban ngày thì cứ cầm rìu mà làm",
+           not dan_lang.CatDungCuKhiToi(e)
+           and tui:GetEquippedItem(EQUIPSLOTS.HANDS) ~= nil)
+
+        DoiPha("night", function()
+            KT("trời tối thì BỎ RÌU XUỐNG, trả ô tay cho cây đuốc",
+               dan_lang.CatDungCuKhiToi(e),
+               "tay=" .. tostring(tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+                                  and tui:GetEquippedItem(EQUIPSLOTS.HANDS).prefab))
+            KT("và rìu vào TÚI chứ không vứt đi",
+               require("ailang/nhu_cau").CoTrongTui(e, "axe") ~= nil)
+            e:Remove()
+            DoiPha("day", function() tiep() end)
+        end)
+    end)
+end
+
+-- ── đừng hồi sinh vào đúng thứ vừa giết mình ────────────────────────────
+--
+-- ⚠ Chạy thử ×16 không người trông bắt được vòng lặp vô hạn trong MỘT đêm:
+--       chết -> hồn ma -> bò về Đài -> sống lại 50% máu
+--       -> vẫn đang đêm, không đèn -> Charlie đánh 100 -> chết -> lặp
+--   Đài không có thời gian chờ nên vòng quay mãi, đốt CPU và nhìn như mod
+--   hỏng. Ba dân làng chết/sống lại hàng chục lần trong đêm ngày 6.
+local function ThuKhongHoiSinhVaoChoChet(tiep)
+    local gx, gz = Goc()
+    local e = DanLangSach(gx, gz)
+    local dai = SpawnPrefab("ailang_dai")
+    dai.Transform:SetPosition(gx + 1, 0, gz)
+    e.Transform:SetPosition(gx, 0, gz)
+    e.ailang.nha = { gx, gz }
+    dan_lang.ThanhHonMa(e)
+    e:StopBrain()
+
+    DoiPha("night", function()
+        KT("giữa đêm, không lửa: hồn ma CHỜ chứ không sống lại",
+           dan_lang.LaHonMa(e),
+           "đã sống lại=" .. tostring(not dan_lang.LaHonMa(e)))
+
+        -- Có lửa cạnh Đài thì sống lại được.
+        local lo = SpawnPrefab("campfire")
+        lo.Transform:SetPosition(gx + 2, 0, gz)
+        if lo.components.fueled then lo.components.fueled:SetPercent(1) end
+        KT("dựng đúng cảnh: lửa đang cháy cạnh Đài",
+           lo.components.burnable ~= nil and lo.components.burnable:IsBurning())
+
+        lo:Remove()
+        DoiPha("day", function()
+            KT("sang ngày thì hồi sinh được", dan_lang.HoiSinh(e))
+            dai:Remove()
+            e:Remove()
+            tiep()
+        end)
+    end)
+end
+
 -- ── chạy tuần tự ────────────────────────────────────────────────────────
+
+-- ── 40. tầng động từ chung ──────────────────────────────────────────────
+--
+-- ⚠ Bài này kiểm CÁI CỔNG, không kiểm từng động từ. Cả điểm của hanh_dong.lua
+--   là không phải viết tay 200 động từ; kiểm từng cái là quay lại đúng thứ nó
+--   thay thế. Cần biết là: tên có thật thì ra BufferedAction đúng động từ đúng
+--   mục tiêu, tên bịa thì trả nil KÈM LÝ DO ĐỌC ĐƯỢC.
+local function ThuDongTu(tiep)
+    local hanh_dong = require("ailang/hanh_dong")
+    local e, nao = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+
+    KT("động từ có thật thì tra được", hanh_dong.Tra("CHOP") == ACTIONS.CHOP)
+    KT("tra không phân biệt hoa thường", hanh_dong.Tra("chop") == ACTIONS.CHOP)
+    local a, loi = hanh_dong.Tra("BAY_LEN_TROI")
+    KT("động từ bịa thì trả nil kèm lý do",
+       a == nil and type(loi) == "string" and loi:find("BAY_LEN_TROI") ~= nil,
+       "lý do=" .. tostring(loi))
+
+    -- Lệnh đủ: có cây, có rìu trong túi.
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(x + 4, y, z)
+    e.components.inventory:GiveItem(SpawnPrefab("axe"))
+
+    local ba, vs = hanh_dong.Chay(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe" })
+    KT("lệnh đủ liệu thì sinh ra hành động đúng",
+       ba ~= nil and ba.action == ACTIONS.CHOP and ba.target == cay,
+       "lý do=" .. tostring(vs) .. " động từ=" .. tostring(ba and ba.action and ba.action.id))
+    KT("lệnh có `dung` thì tự cầm món lên",
+       e.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS) ~= nil
+       and e.components.inventory:GetEquippedItem(EQUIPSLOTS.HANDS).prefab == "axe")
+
+    -- Nhắm bằng TAG cũng phải chạy, không chỉ bằng tên prefab.
+    local ba2 = hanh_dong.Chay(e, { hanh_dong = "CHOP", nham = "CHOP_workable", dung = "axe" })
+    KT("nhắm bằng tag cũng tìm được mục tiêu",
+       ba2 ~= nil and ba2.target == cay,
+       "mục tiêu=" .. TenCua(ba2 and ba2.target))
+
+    -- Thiếu món thì phải nói THIẾU GÌ, không im lặng.
+    local _, vs3 = hanh_dong.Chay(e, { hanh_dong = "SHAVE", nham = "evergreen", dung = "razor" })
+    KT("thiếu món thì báo đúng món thiếu",
+       vs3 ~= nil and vs3:find("razor") ~= nil, "lý do=" .. tostring(vs3))
+
+    -- Không thấy mục tiêu thì cũng phải nói rõ.
+    local _, vs4 = hanh_dong.Chay(e, { hanh_dong = "CHOP", nham = "beefalo", dung = "axe" })
+    KT("không thấy mục tiêu thì báo rõ",
+       vs4 ~= nil and vs4:find("beefalo") ~= nil, "lý do=" .. tostring(vs4))
+
+    cay:Remove()
+    tiep()
+end
+
+
+-- ── 41. mục tiêu của tầng suy nghĩ ──────────────────────────────────────
+--
+-- ⚠ Đây là bài quan trọng nhất của đợt này. Trước bản này `muc_tieu` được GÁN
+--   ở cau_noi, được XOÁ ở dan_lang, và KHÔNG MỘT DÒNG NÀO ĐỌC — một cái ống
+--   dẫn ra hư không. Bài kiểm phải đo tới tận cây hành vi, không dừng ở chỗ
+--   "đã gán được".
+local function ThuMucTieu(tiep)
+    local muc_tieu = require("ailang/muc_tieu")
+    local e, nao = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local lua = ThoaHetNhuCau(e)
+    local x, y, z = e.Transform:GetWorldPosition()
+
+    -- Lệnh sai bị chặn NGAY, không nằm lì trong đầu dân làng.
+    local ok, loi = muc_tieu.Dat(e, { hanh_dong = "KHONG_CO_DONG_TU_NAY" })
+    KT("mục tiêu sai bị từ chối ngay lúc nhận",
+       not ok and e.ailang.muc_tieu == nil, "lý do=" .. tostring(loi))
+    KT("từ chối xong vẫn giữ lý do để báo ngược lên",
+       e.ailang.muc_tieu_loi ~= nil and e.ailang.muc_tieu_loi ~= "")
+
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(x + 5, y, z)
+
+    -- ⚠ ĐẶT `lan` THẬT CAO. Bản đầu để lan=2 và bài này HỎNG với "hành động=nil,
+    --   lỗi=nil" — nhìn y như cây hành vi không đọc mục tiêu. Thật ra nó đọc
+    --   ĐÚNG và chạy quá tốt: trong 5 nhịp dân làng bổ được hai nhát, mục tiêu
+    --   HOÀN THÀNH rồi tự xoá, nên lúc đo thì chẳng còn gì. Lỗi nằm ở bài kiểm.
+    local ok2 = muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 99 })
+    KT("mục tiêu hợp lệ thì nhận", ok2 and e.ailang.muc_tieu ~= nil)
+
+    local con_lai = cay.components.workable ~= nil and cay.components.workable.workleft or 0
+    Nhip(nao, 5, function()
+        -- Đo tới CÂY HÀNH VI: nó có thật sự rẽ sang mục tiêu không.
+        -- Khẳng định theo KẾT QUẢ chứ không theo khoảnh khắc — GetBufferedAction
+        -- trả nil ngay giữa hai nhát bổ. Cái cây có mẻ đi là đủ bằng chứng.
+        local ba = e:GetBufferedAction()
+        local con = cay:IsValid() and cay.components.workable ~= nil
+                    and cay.components.workable.workleft or -1
+        KT("cây hành vi CÓ đọc mục tiêu và đi làm",
+           (ba ~= nil and ba.action == ACTIONS.CHOP) or con < con_lai,
+           "hành động=" .. tostring(ba and ba.action and ba.action.id)
+           .. " cây " .. tostring(con_lai) .. "->" .. tostring(con)
+           .. " lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+        -- Hỏng LÚC TÍNH (không thấy mục tiêu) thì đếm, đủ số là bỏ cuộc.
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "beefalo", dung = "axe" })
+        for _ = 1, 8 do muc_tieu.HanhDong(e) end
+        KT("hỏng lúc TÍNH liên tiếp thì bỏ mục tiêu chứ không quay vòng",
+           e.ailang.muc_tieu == nil,
+           "còn=" .. tostring(e.ailang.muc_tieu ~= nil)
+           .. " hỏng=" .. tostring(e.ailang.muc_tieu_hong))
+
+        -- ⚠ NHƯNG ENGINE TỪ CHỐI THÌ ĐỪNG ĐẾM. Kiểm trên server thật bắt được
+        --   cảnh dân làng đang CHOP đúng lệnh, mục tiêu vẫn còn, mà muc_tieu_loi
+        --   đã là "hành động bị từ chối" — cây vừa đổ, hoặc một phản xạ giữ
+        --   mạng cắt ngang. Gộp hai loại thì sáu lần chập tối là một mục tiêu
+        --   hoàn toàn đúng bị vứt oan.
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 99 })
+        for _ = 1, 10 do
+            local ba = muc_tieu.HanhDong(e)
+            if ba ~= nil then ba:Fail() end
+        end
+        KT("engine từ chối nhiều lần thì VẪN GIỮ mục tiêu",
+           e.ailang.muc_tieu ~= nil,
+           "còn=" .. tostring(e.ailang.muc_tieu ~= nil)
+           .. " hỏng=" .. tostring(e.ailang.muc_tieu_hong))
+        KT("nhưng vẫn ghi lại lý do để báo ngược lên",
+           e.ailang.muc_tieu_loi ~= nil,
+           "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+        -- Van chặn vòng lặp vô tận là ĐỒNG HỒ, không phải bộ đếm.
+        e.ailang.muc_tieu_tu = GetTime() - 1000
+        muc_tieu.HanhDong(e)
+        KT("ôm mãi một mục tiêu không tiến được thì hết giờ là buông",
+           e.ailang.muc_tieu == nil,
+           "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+        -- ⚠ VÀ PHẢI BUÔNG ĐƯỢC KỂ CẢ KHI CÂY HÀNH VI KHÔNG GỌI TỚI. DoAction
+        --   giữ RUNNING suốt quãng đường đi, nên HanhDong không được gọi lại.
+        --   Đo trên server: dân làng cách tảng đá 3 đơn vị, cầm cuốc, đã phát
+        --   lệnh MINE, trạng thái "run" — mà 8 giây đi được 0,0 đơn vị, kẹt
+        --   cứng vào vật cản, và ôm mục tiêu 264 giây mà không buông.
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 9 })
+        e.ailang.muc_tieu_tu = GetTime() - 1000
+        muc_tieu.SoatHan(e)
+        KT("kẹt cứng không gọi tới cây hành vi thì nhịp định kỳ vẫn buông được",
+           e.ailang.muc_tieu == nil,
+           "lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+        -- ⚠ ĐÀO VÀ CHẶT LÀM RƠI ĐỒ XUỐNG ĐẤT, KHÔNG BỎ VÀO TÚI. Đo trên server
+        --   thật: lệnh ba bước "MINE rock2 ×6 -> CHOP ×8 -> chế researchlab"
+        --   chạy hết hai bước đầu ĐÚNG, rồi bước chế báo "chưa đủ nguyên liệu"
+        --   với vàng=0 đá=0 gỗ=0 — tất cả nằm ngay dưới chân, không ai nhặt.
+        muc_tieu.Dat(e, { hanh_dong = "MINE", nham = "rock1", dung = "pickaxe", lan = 9 })
+        local x2, y2, z2 = e.Transform:GetWorldPosition()
+        local roi = SpawnPrefab("goldnugget")
+        roi.Transform:SetPosition(x2 + 2, y2, z2)
+        local hd = muc_tieu.HanhDong(e)
+        KT("đang đào mà có đồ rơi quanh chân thì NHẶT trước",
+           hd ~= nil and hd.action == ACTIONS.PICKUP and hd.target == roi,
+           "hành động=" .. tostring(hd and hd.action and hd.action.id))
+        KT("nhặt KHÔNG tính vào số lượt phải làm",
+           e.ailang.muc_tieu ~= nil and e.ailang.muc_tieu.lan == 9,
+           "lan=" .. tostring(e.ailang.muc_tieu and e.ailang.muc_tieu.lan))
+        roi:Remove()
+        muc_tieu.Bo(e, nil)
+
+        -- ⚠ `lan` ĐẾM CÂY ĐỔ, KHÔNG ĐẾM NHÁT RÌU. ACTIONS.CHOP trả true cho
+        --   MỖI NHÁT, mà hạ một cây thông cần khoảng mười nhát. Đo trên server:
+        --   bước "CHOP ×8" chạy đủ tám lượt, KHÔNG cây nào đổ, gỗ=0.
+        -- ⚠ DỌN CÂY CŨ TRƯỚC. Bài phía trên đã dựng một cây, và bộ tìm mục
+        --   tiêu có thể nhắm vào CÂY ĐÓ — thế là đo trên một cây trong khi
+        --   đang xoá một cây khác, và kết quả vô nghĩa. Đã hỏng đúng vậy.
+        if cay:IsValid() then cay:Remove() end
+        local cay2 = SpawnPrefab("evergreen")
+        cay2.Transform:SetPosition(x2 + 3, y2, z2)
+        muc_tieu.Dat(e, { hanh_dong = "CHOP", nham = "evergreen", dung = "axe", lan = 4 })
+        local hc = muc_tieu.HanhDong(e)
+        KT("dựng đúng cảnh: có hành động chặt nhắm vào cây",
+           hc ~= nil and hc.action == ACTIONS.CHOP and hc.target == cay2,
+           "hành động=" .. tostring(hc and hc.action and hc.action.id)
+           .. " mục tiêu=" .. TenCua(hc and hc.target))
+        if hc ~= nil then hc:Succeed() end
+        KT("một nhát mà cây chưa đổ thì CHƯA trừ lượt",
+           e.ailang.muc_tieu ~= nil and e.ailang.muc_tieu.lan == 4,
+           "lan=" .. tostring(e.ailang.muc_tieu and e.ailang.muc_tieu.lan))
+
+        -- Hạ hẳn cây rồi thì mới tính một lượt.
+        local hc2 = muc_tieu.HanhDong(e)
+        if cay2:IsValid() then cay2:Remove() end
+        if hc2 ~= nil then hc2:Succeed() end
+        -- (mục tiêu bị xoá giữa chừng = cây đổ, đúng cảnh cần đo)
+        KT("cây đổ hẳn rồi thì mới trừ một lượt",
+           e.ailang.muc_tieu ~= nil and e.ailang.muc_tieu.lan == 3,
+           "lan=" .. tostring(e.ailang.muc_tieu and e.ailang.muc_tieu.lan))
+        muc_tieu.Bo(e, nil)
+
+        if lua ~= nil and lua:IsValid() then lua:Remove() end
+        tiep()
+    end)
+end
+
+
+-- ── 42. mục tiêu nhiều bước ─────────────────────────────────────────────
+local function ThuMucTieuNhieuBuoc(tiep)
+    local muc_tieu = require("ailang/muc_tieu")
+    local e, nao = DanLangSach(Goc())
+    local tui = e.components.inventory
+
+    -- Hai bước chế đồ: chế xong bước một thì PHẢI tự sang bước hai.
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("twigs")) end
+    for _ = 1, 12 do tui:GiveItem(SpawnPrefab("cutgrass")) end
+
+    local ok = muc_tieu.Dat(e, { buoc = {
+        { che = "torch" },
+        { che = "strawhat" },
+    } })
+    KT("nhận được mục tiêu nhiều bước", ok and e.ailang.muc_tieu_i == 1)
+
+    muc_tieu.HanhDong(e)
+    KT("chế xong bước một thì sang bước hai",
+       e.ailang.muc_tieu_i == 2,
+       "bước=" .. tostring(e.ailang.muc_tieu_i)
+       .. " lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+
+    muc_tieu.HanhDong(e)
+    KT("làm hết các bước thì xoá mục tiêu",
+       e.ailang.muc_tieu == nil,
+       "còn bước=" .. tostring(e.ailang.muc_tieu_i)
+       .. " lỗi=" .. tostring(e.ailang.muc_tieu_loi))
+    tiep()
+end
+
+
+-- ── 43. kiểm kê toàn làng ───────────────────────────────────────────────
+--
+-- ⚠ Đo bằng NGÀY ĂN chứ không bằng số món. "có 12 berry" không quyết định được
+--   gì; "được 0,4 ngày" thì quyết định được ngay. Và phải gom cả rương — nhìn
+--   riêng túi từng người thì ba người mỗi người hai quả trông như sắp chết đói
+--   trong khi rương đầy thịt viên.
+local function ThuKhoLang(tiep)
+    local kho_lang = require("ailang/kho_lang")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    local tui = e.components.inventory
+
+    local truoc = kho_lang.Kiem()
+    KT("kiểm kê đếm đúng số dân", truoc.so_dan == 1, "đếm=" .. tostring(truoc.so_dan))
+
+    -- Một suất thịt viên = 62,5 calo, đủ 0,8 ngày cho một người (đốt 75/ngày).
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("meatballs")) end
+    local sau = kho_lang.Kiem()
+    KT("đồ ăn trong túi được quy ra ngày ăn",
+       sau.ngay_an > truoc.ngay_an and sau.ngay_an >= 2 and sau.ngay_an <= 3,
+       "ngày ăn=" .. tostring(sau.ngay_an) .. " calo=" .. tostring(sau.calo))
+
+    -- Rương của làng cũng là kho. Đây là chỗ bản cũ nhìn không thấy.
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 3, y, z)
+    ruong.components.container:GiveItem(SpawnPrefab("meatballs"))
+    local co_ruong = kho_lang.Kiem()
+    KT("đồ trong rương của làng cũng được tính",
+       co_ruong.calo > sau.calo,
+       "calo trước=" .. tostring(sau.calo) .. " sau=" .. tostring(co_ruong.calo))
+    KT("thấy công trình của làng và suy ra cấp máy",
+       co_ruong.cong_trinh.treasurechest ~= nil)
+
+    -- Thuốc men đếm riêng máu hồi được, không lẫn vào calo.
+    tui:GiveItem(SpawnPrefab("healingsalve"))
+    local co_thuoc = kho_lang.Kiem()
+    KT("thuốc được quy ra máu hồi được",
+       co_thuoc.mau_hoi > co_ruong.mau_hoi,
+       "máu hồi=" .. tostring(co_thuoc.mau_hoi))
+
+    -- Nút thắt phải chỉ đúng thứ ĐẦU TIÊN đang chặn, không kể lể tất cả.
+    KT("có nút thắt khi làng còn thiếu thứ gì đó",
+       co_thuoc.nut_that ~= nil, "nút thắt=" .. tostring(co_thuoc.nut_that))
+    KT("chưa có rìu thì nút thắt chính là rìu",
+       co_thuoc.riu == 0 and co_thuoc.nut_that:find("rìu") ~= nil,
+       "rìu=" .. tostring(co_thuoc.riu) .. " nút=" .. tostring(co_thuoc.nut_that))
+
+    -- Câu hỏi người dùng đặt ra: đủ ăn + đủ thuốc + đủ vũ khí thì đi đánh được.
+    KT("thiếu vũ khí thì CHƯA đủ sức đánh", not co_thuoc.du_suc_danh)
+
+    -- ⚠ Rìu và cuốc CÓ component `weapon` trong DST. Đếm thô thì cả làng "đủ
+    --   vũ khí" ngay ngày đầu và du_suc_danh bật lên dù chẳng ai có giáo.
+    tui:GiveItem(SpawnPrefab("axe"))
+    tui:GiveItem(SpawnPrefab("pickaxe"))
+    local co_dung_cu = kho_lang.Kiem()
+    KT("rìu và cuốc KHÔNG được tính là vũ khí",
+       co_dung_cu.vu_khi == co_thuoc.vu_khi,
+       "vũ khí trước=" .. tostring(co_thuoc.vu_khi)
+       .. " sau=" .. tostring(co_dung_cu.vu_khi))
+    KT("nhưng chúng được đếm đúng vào rìu và cuốc",
+       co_dung_cu.riu > co_thuoc.riu and co_dung_cu.cuoc > co_thuoc.cuoc)
+    for _ = 1, 20 do tui:GiveItem(SpawnPrefab("meatballs")) end
+    for _ = 1, 3 do tui:GiveItem(SpawnPrefab("healingsalve")) end
+    tui:GiveItem(SpawnPrefab("spear"))
+    local san_sang = kho_lang.Kiem()
+    KT("đủ ăn + đủ thuốc + đủ vũ khí + đủ máu thì đi đánh được",
+       san_sang.du_suc_danh,
+       string.format("ăn=%s(%.1f) thuốc=%s(%d) vũ khí=%s(%d) máu=%d",
+           tostring(san_sang.du_an), san_sang.ngay_an,
+           tostring(san_sang.du_thuoc), san_sang.mau_hoi,
+           tostring(san_sang.du_vu_khi), san_sang.vu_khi, san_sang.mau_tb))
+
+    -- ⚠ ĐỒ RƠI TRÊN ĐẤT TRONG LÀNG CŨNG PHẢI ĐƯỢC TÍNH. Bản đầu bỏ sót, và cái
+    --   lỗ đó làm bản kiểm kê nói dối đúng lúc quan trọng nhất: đào vỡ ba tảng
+    --   đá vàng xong, vàng nằm ngay dưới chân mà bảng vẫn báo vang=0.
+    --   (Mượn mô hình ColonyStock của GrimWorld.)
+    local truoc_dat = kho_lang.Kiem()
+    local vang = SpawnPrefab("goldnugget")
+    vang.Transform:SetPosition(x + 4, y, z)
+    local sau_dat = kho_lang.Kiem()
+    KT("vàng rơi dưới đất trong làng vẫn được tính vào kho",
+       (sau_dat.goldnugget or 0) > (truoc_dat.goldnugget or 0),
+       "trước=" .. tostring(truoc_dat.goldnugget) .. " sau=" .. tostring(sau_dat.goldnugget))
+
+    -- ⚠ Nhưng ĐỒ ĐANG CẦM thì đừng đếm hai lần. Vòng túi đã đếm rồi; không xét
+    --   `IsHeld` thì mọi món trong tay bị cộng đôi và "ngày ăn" tăng gấp đôi
+    --   một cách âm thầm.
+    local truoc_cam = kho_lang.Kiem()
+    local cu = SpawnPrefab("carrot")
+    tui:GiveItem(cu)
+    local sau_cam = kho_lang.Kiem()
+    KT("đồ trong túi KHÔNG bị đếm hai lần",
+       sau_cam.calo - truoc_cam.calo <= cu.components.edible.hungervalue + 0.01,
+       "chênh calo=" .. tostring(sau_cam.calo - truoc_cam.calo)
+       .. " (một củ = " .. tostring(cu.components.edible.hungervalue) .. ")")
+    vang:Remove()
+
+    -- Bản gọn gửi cho tầng suy nghĩ phải JSON hoá được, không kèm entity.
+    local gon = kho_lang.BanGon()
+    local ok_json = pcall(json.encode, gon)
+    KT("bản gọn gửi cho tầng suy nghĩ JSON hoá được",
+       ok_json and gon ~= nil and gon.mon == nil,
+       "có bảng mon=" .. tostring(gon ~= nil and gon.mon ~= nil))
+
+    ruong:Remove()
+    tiep()
+end
+
+
+-- ── 44. nguồn vàng ──────────────────────────────────────────────────────
+--
+-- ⚠ Bài này canh MỘT DÒNG BẢNG TRA đã chặn cả tech 1. Bản trước để goldnugget
+--   nhắm mọi thứ MINE_workable, nên dân làng đập tảng đá thường mãi mà không
+--   bao giờ ra vàng — mà Máy Khoa Học cần đúng một cục. Bảng rơi trong
+--   scripts/prefabs/rocks.lua: rock1 KHÔNG cho vàng, chỉ rock2 mới cho.
+local function ThuNguonVang(tiep)
+    local nhu_cau = require("ailang/nhu_cau")
+    local sinh_ton = require("ailang/sinh_ton")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.components.inventory:GiveItem(SpawnPrefab("pickaxe"))
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    KT("bảng tra ghim vàng vào đúng tảng đá vàng",
+       nhu_cau.NGUON.goldnugget.prefab == "rock2",
+       "prefab=" .. tostring(nhu_cau.NGUON.goldnugget.prefab))
+
+    -- Chỉ có đá THƯỜNG: đi kiếm vàng phải trả nil, chứ không đập bừa.
+    local thuong = SpawnPrefab("rock1")
+    thuong.Transform:SetPosition(x + 4, y, z)
+    KT("chỉ có đá thường thì KHÔNG đi đập bừa để tìm vàng",
+       sinh_ton.DiKiem(e, "goldnugget") == nil)
+    KT("nhưng vẫn đào được đá thường khi cần đá",
+       sinh_ton.DiKiem(e, "rocks") ~= nil)
+
+    -- Có đá vàng thì phải nhắm ĐÚNG nó.
+    local vang = SpawnPrefab("rock2")
+    vang.Transform:SetPosition(x + 6, y, z)
+    local hd = sinh_ton.DiKiem(e, "goldnugget")
+    KT("có đá vàng thì nhắm đúng tảng đá vàng",
+       hd ~= nil and hd.target == vang and hd.action == ACTIONS.MINE,
+       "mục tiêu=" .. TenCua(hd and hd.target))
+
+    thuong:Remove() vang:Remove()
+    tiep()
+end
+
+
+-- ── 45. kinh tế đồ ăn: nấu, bẫy, cất kho ────────────────────────────────
+--
+-- ⚠ Đây là phần thay cho bài toán lương thực KHÔNG CÓ LỜI GIẢI của bản trước:
+--   ba dân làng đốt 225 calo/ngày, một bụi berry cho 0,33 quả/ngày — cần
+--   khoảng 70 bụi. Nấu chín, bẫy thỏ và rương là ba lời giải thật.
+local function ThuKinhTeDoAn(tiep)
+    local viec = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    TheWorld:PushEvent("ms_setphase", "day")
+    local x, y, z = e.Transform:GetWorldPosition()
+    local tui = e.components.inventory
+    e.ailang.nha = { x, z }
+
+    -- NẤU CHÍN: có thịt sống + lửa đang cháy thì phải đem nướng.
+    KT("chưa có lửa thì không nhận việc nấu", viec.ViecNauChin(e) == nil)
+    local thit = SpawnPrefab("smallmeat")
+    tui:GiveItem(thit)
+    local lua = SpawnPrefab("campfire")
+    lua.Transform:SetPosition(x + 3, y, z)
+    if lua.components.fueled ~= nil then lua.components.fueled:SetPercent(1) end
+    local v = viec.ViecNauChin(e)
+    KT("có thịt sống và lửa cháy thì đem nướng",
+       v ~= nil and v.hanh_dong == ACTIONS.COOK and v.muc_tieu == lua
+       and v.mon == thit,
+       "việc=" .. tostring(v and v.vi_sao))
+    thit:Remove()
+    KT("hết đồ sống thì thôi nấu", viec.ViecNauChin(e) == nil)
+
+    -- ⚠ MỘT quả berry thì ĐỪNG cuốc bộ về lửa. Nướng thịt được +12,5 calo,
+    --   nướng berry chỉ +3,1 — mà quãng đường thì như nhau, và lửa nướng từng
+    --   món một. Không phân biệt thì dân làng hái một quả là chạy về nướng,
+    --   rồi quay ra hái quả nữa, cả ngày đi đi về về.
+    local mot_qua = SpawnPrefab("berries")
+    tui:GiveItem(mot_qua)
+    KT("một quả rau sống thì KHÔNG bỏ việc chạy về lửa nướng",
+       viec.ViecNauChin(e) == nil)
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("berries")) end
+    local vr = viec.ViecNauChin(e)
+    KT("gom đủ mấy quả rồi thì nướng một thể",
+       vr ~= nil and vr.hanh_dong == ACTIONS.COOK,
+       "việc=" .. tostring(vr and vr.vi_sao))
+
+    -- Nhưng thịt thì MỘT miếng cũng đáng đi.
+    local thit2 = SpawnPrefab("smallmeat")
+    tui:GiveItem(thit2)
+    local vm = viec.ViecNauChin(e)
+    KT("có thịt thì ưu tiên nướng thịt trước rau",
+       vm ~= nil and vm.mon == thit2,
+       "món=" .. TenCua(vm and vm.mon))
+    for _, m in ipairs({ mot_qua, thit2 }) do
+        if m:IsValid() then m:Remove() end
+    end
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m.prefab == "berries" then m:Remove() end
+    end
+
+    -- ĐẶT BẪY: bẫy trong túi + hang thỏ chưa có bẫy.
+    KT("chưa có bẫy trong túi thì không đi đặt", viec.ViecDatBay(e) == nil)
+    local bay = SpawnPrefab("trap")
+    tui:GiveItem(bay)
+    KT("có bẫy nhưng không có hang thỏ thì cũng thôi", viec.ViecDatBay(e) == nil)
+
+    local hang = SpawnPrefab("rabbithole")
+    hang.Transform:SetPosition(x + 5, y, z)
+    local vb = viec.ViecDatBay(e)
+    KT("có bẫy và hang thỏ trống thì đi đặt",
+       vb ~= nil and vb.hanh_dong == ACTIONS.DROP and vb.mon == bay,
+       "việc=" .. tostring(vb and vb.vi_sao))
+    KT("và thả ĐÚNG lên miệng hang, không thả dưới chân mình",
+       vb ~= nil and vb.diem ~= nil
+       and math.abs(vb.diem.x - (x + 5)) < 0.5,
+       "điểm=" .. tostring(vb and vb.diem))
+
+    -- ⚠ Hang ĐÃ CÓ BẪY thì thôi. Không xét thì cả làng chồng bẫy lên một hang
+    --   trong khi mười hang khác bỏ trống.
+    local bay_dat = SpawnPrefab("trap")
+    bay_dat.Transform:SetPosition(x + 5, y, z)
+    KT("hang đã có bẫy rồi thì không đặt chồng lên",
+       viec.ViecDatBay(e) == nil)
+
+    -- THU BẪY: chỉ thu bẫy đã sập và có đồ.
+    KT("bẫy chưa sập thì chưa có gì để thu", viec.ViecThuBay(e) == nil)
+    if bay_dat.components.trap ~= nil then
+        bay_dat.components.trap.issprung = true
+        bay_dat.components.trap.lootprefabs = { "smallmeat" }
+    end
+    local vt = viec.ViecThuBay(e)
+    KT("bẫy sập và có đồ thì đi thu",
+       vt ~= nil and vt.hanh_dong == ACTIONS.CHECKTRAP and vt.muc_tieu == bay_dat,
+       "việc=" .. tostring(vt and vt.vi_sao))
+
+    -- CẤT KHO: dư đồ ăn thì cất, kể cả khi túi CHƯA đầy.
+    -- ⚠ Phải là HAI LOẠI. Năm củ cà rốt dồn hết vào MỘT ô, mà cất thì cất
+    --   nguyên chồng — dân làng đem đi hết rồi còn tay không. Việc cất cố ý
+    --   đợi tới khi có món thứ hai.
+    for _ = 1, 4 do tui:GiveItem(SpawnPrefab("carrot")) end
+    tui:GiveItem(SpawnPrefab("berries"))
+    KT("chưa có rương thì có dư cũng chẳng cất được",
+       viec.ViecCatDoAn(e) == nil)
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 2, y, z)
+    local vc = viec.ViecCatDoAn(e)
+    KT("dư đồ ăn và có rương thì cất bớt dù túi CHƯA đầy",
+       vc ~= nil and vc.hanh_dong == ACTIONS.STORE and vc.muc_tieu == ruong,
+       "việc=" .. tostring(vc and vc.vi_sao) .. " túi đầy=" .. tostring(tui:IsFull()))
+    -- ⚠ ĐỪNG khẳng định CỤ THỂ cất món nào. Cà rốt và berry đều tươi 100%,
+    --   thứ tự sắp xếp giữa hai món hoà nhau là tuỳ bộ sort — bám vào tên món
+    --   là bài kiểm hỏng ngẫu nhiên. Tính chất cần giữ: cất một ô, còn lại ít
+    --   nhất một ô đồ ăn trong người.
+    local con_an = 0
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m ~= (vc and vc.mon) and m.components.edible ~= nil
+           and m.components.edible.foodtype ~= FOODTYPE.INEDIBLE then
+            con_an = con_an + 1
+        end
+    end
+    KT("cất xong vẫn còn đồ ăn trong người, không cất sạch",
+       vc ~= nil and vc.mon ~= nil and con_an >= 1,
+       "còn lại " .. tostring(con_an) .. " ô đồ ăn")
+
+    lua:Remove() hang:Remove() bay_dat:Remove() ruong:Remove()
+    tiep()
+end
+
+
+-- ── 46. bảng nhu cầu có đường kinh tế ───────────────────────────────────
+local function ThuDuongKinhTe(tiep)
+    local nhu_cau = require("ailang/nhu_cau")
+    local e = DanLangSach(Goc())
+    local x, _, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+
+    local du_tru = nhu_cau.Tim("du_tru")
+    local kho    = nhu_cau.Tim("kho_chua")
+    KT("bảng nhu cầu có mục dự trữ (bẫy thỏ)", du_tru ~= nil)
+    KT("bảng nhu cầu có mục kho (rương)", kho ~= nil)
+
+    -- ⚠ Thứ tự mới phải giữ đúng: sống qua đêm trước, kinh tế sau, đánh nhau
+    --   sau cùng. Đảo thứ tự là quay lại cảnh dân làng đan bẫy trong bóng tối.
+    KT("dự trữ xếp DƯỚI nhà và ánh sáng",
+       nhu_cau.ChiSo("dự trữ") > nhu_cau.ChiSo("nhà")
+       and nhu_cau.ChiSo("dự trữ") > nhu_cau.ChiSo("ánh sáng"),
+       "dự trữ=" .. tostring(nhu_cau.ChiSo("dự trữ"))
+       .. " nhà=" .. tostring(nhu_cau.ChiSo("nhà")))
+    KT("dự trữ xếp TRÊN vũ khí và giáp",
+       nhu_cau.ChiSo("dự trữ") < nhu_cau.ChiSo("vũ khí")
+       and nhu_cau.ChiSo("dự trữ") < nhu_cau.ChiSo("giáp"))
+    KT("dự trữ KHÔNG chen ngang (đầu tư, không phải cứu hoả)",
+       du_tru.gap ~= true)
+
+    KT("chưa có bẫy nào thì dự trữ CHƯA đủ", not du_tru.du(e))
+    -- ⚠ Bẫy có `finiteuses` nên KHÔNG chồng đống được — mỗi cái một ô túi.
+    --   Bản đầu của bài này gọi SetStackSize(4) và nó lặng lẽ không làm gì.
+    for _ = 1, nhu_cau.DU_BAY do
+        e.components.inventory:GiveItem(SpawnPrefab("trap"))
+    end
+    KT("đủ bẫy trong túi thì dự trữ coi là đủ", du_tru.du(e),
+       "cần=" .. tostring(nhu_cau.DU_BAY))
+
+    KT("chưa có rương thì nhu cầu kho CHƯA đủ", not kho.du(e))
+    local ruong = SpawnPrefab("treasurechest")
+    local y = 0
+    ruong.Transform:SetPosition(x + 2, y, z)
+    KT("dựng rương ở làng thì nhu cầu kho xong", kho.du(e))
+
+    ruong:Remove()
+    tiep()
+end
+
+
+-- ── 47. vòng khoá củi ───────────────────────────────────────────────────
+--
+-- ⚠ BÀI NÀY CANH ĐÚNG THỨ ĐÃ CHẶN VIỆC DỰNG MÁY KHOA HỌC. Bản trước ném BẰNG
+--   HẾT gỗ vào lửa, rồi ViecGomCui thấy còn 0 khúc (dưới DU_CUI) lại đẩy đi
+--   chặt, chặt xong lại ném vào lửa — vòng khép kín. Mà bậc giữ làng nằm TRÊN
+--   các nhu cầu không gấp, nên chừng nào "gom củi" chưa xong thì lượt KHÔNG
+--   BAO GIỜ xuống tới "cuốc", "xưởng", "kho".
+--
+--   Đo trên server thật: ba dân làng, ba tảng đá vàng đặt sẵn trong tầm, cuốc
+--   trong tay — bốn lần soi liên tiếp vẫn vang=0 da=0 gỗ=0, cả ba "gom củi",
+--   đá vàng không sứt một mảnh.
+local function ThuVongKhoaCui(tiep)
+    local viec = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local tui = e.components.inventory
+
+    local lo = SpawnPrefab("campfire")
+    lo.Transform:SetPosition(x + 2, y, z)
+    -- ⚠ 0,45 là cố ý: DƯỚI ngưỡng tiếp lửa ban ngày (0,5) nên việc có kích
+    --   hoạt, nhưng TRÊN mức nguy (0,35) nên dự trữ vẫn được giữ. Đặt 0,3 là
+    --   rơi vào vùng nguy và bài kiểm đo nhầm thứ khác.
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(0.45) end
+
+    local pha_cu = TheWorld.state.phase
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    -- Ít hơn dự trữ: ban ngày thì GIỮ LẠI, đừng ném vào lửa.
+    for _ = 1, 2 do tui:GiveItem(SpawnPrefab("log")) end
+    KT("lửa còn khoẻ, ban ngày, củi dưới mức dự trữ thì KHÔNG đốt",
+       viec.ViecTiepLua(e) == nil,
+       "việc=" .. tostring((viec.ViecTiepLua(e) or {}).vi_sao))
+
+    -- Dư ra thì mới đốt.
+    for _ = 1, 5 do tui:GiveItem(SpawnPrefab("log")) end
+    local v = viec.ViecTiepLua(e)
+    KT("củi dư ra ngoài dự trữ thì mới tiếp lửa",
+       v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL,
+       "việc=" .. tostring(v and v.vi_sao))
+
+    -- ⚠ Chập tối thì ĐỐT SẠCH. Dự trữ sinh ra chính là để dành cho đêm; giữ
+    --   khư khư lúc đó là để lửa tắt giữa đêm với một túi đầy củi.
+    -- Gom rồi mới xoá: xoá ngay trong vòng pairs là sửa bảng đang duyệt.
+    local bo = {}
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m.prefab == "log" then table.insert(bo, m) end
+    end
+    for _, m in ipairs(bo) do m:Remove() end
+
+    -- ⚠ LỬA SẮP TẮT THÌ ĐỐT NGAY, GIỜ NÀO CŨNG VẬY. Bản sửa đầu khoá theo giờ
+    --   trong ngày, và ba bài kiểm cũ hỏng ngay: lửa còn 20% giữa ban ngày mà
+    --   dân làng ôm củi đứng nhìn.
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(0.15) end
+    tui:GiveItem(SpawnPrefab("log"))
+    local vn = viec.ViecTiepLua(e)
+    KT("lửa sắp tắt thì đốt cả dự trữ dù đang giữa ban ngày",
+       vn ~= nil and vn.hanh_dong == ACTIONS.ADDFUEL,
+       "việc=" .. tostring(vn and vn.vi_sao))
+
+    -- ⚠ ĐỢI MỘT NHỊP SAU KHI ĐỔI GIỜ. `TheWorld.state.isdusk` là biến trạng
+    --   thái mạng, component đồng hồ cập nhật ở khung SAU `ms_setphase` — đọc
+    --   ngay trong cùng khung thì vẫn thấy "ngày", và bài kiểm hỏng oan với
+    --   "việc=nil" trong khi mã hoàn toàn đúng. Mọi bài đổi giờ khác đều đi
+    --   qua Nhip (0,6 giây) nên chưa ai dẫm phải.
+    if lo.components.fueled ~= nil then lo.components.fueled:SetPercent(0.6) end
+    TheWorld:PushEvent("ms_setphase", "dusk")
+    TheWorld:DoTaskInTime(0.6, function()
+        local bo2 = {}
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil and m.prefab == "log" then table.insert(bo2, m) end
+        end
+        for _, m in ipairs(bo2) do m:Remove() end
+        tui:GiveItem(SpawnPrefab("log"))
+
+        local vt = viec.ViecTiepLua(e)
+        KT("chập tối thì đốt cả củi dự trữ, không giữ khư khư",
+           vt ~= nil and vt.hanh_dong == ACTIONS.ADDFUEL,
+           "việc=" .. tostring(vt and vt.vi_sao)
+           .. " pha=" .. tostring(TheWorld.state.phase))
+
+        lo:Remove()
+        TheWorld:PushEvent("ms_setphase", pha_cu)
+        tiep()
+    end)
+end
+
+
+-- ── 48. trần thu gom của cả làng ────────────────────────────────────────
+--
+-- ⚠ Đủ rồi thì thôi gom — VÀ PHẢI ĐẾM CẢ LÀNG. Trước đây mấy con số này nằm
+--   rải rác mỗi chỗ một kiểu (DU_CUI=4, DU_ROI=20, GIU_LAM_DUOC=4) và tất cả
+--   đều chỉ nhìn túi CỦA MỘT NGƯỜI: ba dân làng mỗi đứa ôm 19 quả berry thì
+--   không ai thấy làng đang có 57 quả, và cả ba vẫn hái tiếp.
+--   (Mượn worklimits/ResourceCapped/AutoWorkAllowed của GrimWorld.)
+local function ThuTranThuGom(tiep)
+    local kho_lang = require("ailang/kho_lang")
+    local sinh_ton = require("ailang/sinh_ton")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    kho_lang.XoaDem()
+    KT("kho trống thì chưa chạm trần gỗ", not kho_lang.DaDu("log"))
+    KT("và việc chặt cây vẫn còn đáng làm",
+       kho_lang.ViecConCan(ACTIONS.CHOP))
+
+    -- Đổ đủ trần vào RƯƠNG của làng, không nhét túi ai cả: trần là của LÀNG.
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 3, y, z)
+    local con = kho_lang.TRAN.log
+    while con > 0 do
+        local go = SpawnPrefab("log")
+        local n = math.min(con, go.components.stackable ~= nil
+                                and go.components.stackable.maxsize or 1)
+        if go.components.stackable ~= nil then go.components.stackable:SetStackSize(n) end
+        ruong.components.container:GiveItem(go)
+        con = con - n
+    end
+
+    kho_lang.XoaDem()
+    KT("đổ đủ trần vào rương thì làng coi là đã đủ gỗ",
+       kho_lang.DaDu("log"),
+       "gỗ=" .. tostring((kho_lang.Kiem().mon or {}).log) ..
+       " trần=" .. tostring(kho_lang.TRAN.log))
+    KT("và việc chặt cây TỰ PHÁT thôi không đáng làm nữa",
+       not kho_lang.ViecConCan(ACTIONS.CHOP))
+
+    -- ⚠ NHƯNG TRẦN KHÔNG ĐƯỢC CHẶN NHU CẦU. Dân làng cần 4 khúc gỗ dựng Máy
+    --   Khoa Học thì vẫn phải đi chặt, dù kho đã đầy gỗ — đường của nhu cầu đi
+    --   qua sinh_ton.DiKiem chứ không qua bộ chọn việc. Đây là ranh giới
+    --   GrimWorld cũng tách: lệnh ra thì trần không áp.
+    local cay = SpawnPrefab("evergreen")
+    cay.Transform:SetPosition(x + 5, y, z)
+    e.components.inventory:GiveItem(SpawnPrefab("axe"))
+
+    -- ⚠ ĐỢI MỘT NHỊP SAU `ms_setphase`. `TheWorld.state` là biến trạng thái
+    --   mạng, đồng hồ cập nhật ở khung SAU — đọc ngay trong cùng khung thì vẫn
+    --   thấy giờ CŨ. Bài trước để lại giờ chập tối, mà chập tối thì
+    --   `nhu_cau.KhongRanhTay` cấm cầm rìu nên DiKiem trả nil, và bài này hỏng
+    --   oan với "hành động=nil" trong khi trần hoàn toàn không dính dáng.
+    --   Đã dẫm đúng cái bẫy này ở bài vòng khoá củi.
+    TheWorld:DoTaskInTime(0.6, function()
+        KT("dựng đúng cảnh: đang ban ngày nên rảnh tay cầm rìu",
+           not require("ailang/nhu_cau").KhongRanhTay(e),
+           "pha=" .. tostring(TheWorld.state.phase))
+
+        local hd = sinh_ton.DiKiem(e, "log")
+        KT("trần KHÔNG chặn nhu cầu đi kiếm gỗ",
+           hd ~= nil and (hd.action == ACTIONS.CHOP or hd.action == ACTIONS.PICKUP),
+           "hành động=" .. tostring(hd and hd.action and hd.action.id)
+           .. " pha=" .. tostring(TheWorld.state.phase))
+
+        -- Việc không rõ sản phẩm thì không bao giờ bị chặn.
+        KT("việc không rõ sản phẩm thì luôn còn đáng làm",
+           kho_lang.ViecConCan(ACTIONS.PICKUP) and kho_lang.ViecConCan(ACTIONS.PICK))
+
+        cay:Remove() ruong:Remove()
+        kho_lang.XoaDem()
+        tiep()
+    end)
+end
+
+
+-- ── 49. bản vẽ công trình: cả làng góp liệu ─────────────────────────────
+--
+-- ⚠ BÀI NÀY CANH GIỚI HẠN NẶNG NHẤT CỦA MÔ HÌNH "MỖI NGƯỜI TỰ LO".
+--   `builder:DoBuild` đòi MỘT người cầm ĐỦ CẢ bộ nguyên liệu. Máy Khoa Học cần
+--   vàng 1 + gỗ 4 + đá 4, nên ba dân làng mỗi đứa ôm một phần thì KHÔNG BAO
+--   GIỜ dựng nổi dù cộng lại thừa. Đo trên server ngày 15/09: vàng 3, đá 6 nằm
+--   rải trong túi nhiều người, máy vẫn không lên.
+--   (Mẫu mượn từ grim_blueprint.lua của GrimWorld.)
+local function ThuBanVe(tiep)
+    local ban_ve = require("ailang/ban_ve")
+    local vi = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    TheWorld:PushEvent("ms_setphase", "day")
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+
+    KT("lửa trại KHÔNG dùng bản vẽ (cần là cần ngay)",
+       not ban_ve.Dung("campfire"))
+    KT("Máy Khoa Học thì có", ban_ve.Dung("researchlab"))
+
+    local bv = ban_ve.Dat(e, "researchlab")
+    KT("đặt được bản vẽ ở làng", bv ~= nil and bv:IsValid())
+    KT("và tìm lại được nó", ban_ve.Tim(e, "researchlab") == bv)
+
+    -- ⚠ MỘT BẢN VẼ MỘT LÚC. Cho đặt nhiều thì làng chia liệu ra khắp nơi và
+    --   không cái nào xong — đúng bệnh mà bản vẽ sinh ra để chữa.
+    KT("không đặt bản vẽ thứ hai khi đang còn dở",
+       ban_ve.Dat(e, "treasurechest") == nil)
+
+    -- ⚠ Bản vẽ KHÔNG được tính là công trình đã xong, không thì làng tưởng đã
+    --   có xưởng và chẳng ai mang liệu tới nữa.
+    local nc = require("ailang/nhu_cau")
+    KT("bản vẽ CHƯA xong thì nhu cầu xưởng vẫn còn thiếu",
+       not nc.Tim("xuong").du(e))
+
+    local thieu_bv, thieu, con = ban_ve.DangThieu(e)
+    KT("bản vẽ báo được đang thiếu gì",
+       thieu_bv == bv and thieu ~= nil and con > 0,
+       "thiếu=" .. tostring(thieu) .. " x" .. tostring(con))
+
+    -- Cầm sẵn thứ đang thiếu thì nhận việc mang qua.
+    local tui = e.components.inventory
+    tui:GiveItem(SpawnPrefab(thieu))
+    local v = vi.ViecGopBanVe(e)
+    KT("có sẵn thứ đang thiếu thì đi góp ngay",
+       v ~= nil and v.hanh_dong == ACTIONS.GIVE and v.muc_tieu == bv,
+       "việc=" .. tostring(v and v.vi_sao))
+
+    -- ⚠ ĐÂY LÀ PHÉP KIỂM CHÍNH: HAI NGƯỜI, MỖI NGƯỜI MỘT PHẦN.
+    --   Không ai đủ để tự dựng, nhưng góp chung thì công trình lên.
+    local e2 = dan_lang.Sinh({ ten = "NguoiGop", nhan_vat = "wilson",
+                              vi_tri = { x + 2, z } })
+    e2:StopBrain()
+    e2.ailang.nha = { x, z }
+
+    KT("dựng đúng cảnh: KHÔNG ai tự chế nổi Máy Khoa Học",
+       not e.components.builder:CanBuild("researchlab")
+       and not e2.components.builder:CanBuild("researchlab"))
+
+    -- Chia đôi bảng giá cho hai người, rồi cho cả hai cùng góp.
+    local nguoi, i = { e, e2 }, 0
+    for prefab, can in pairs(bv.banve.can) do
+        for _ = 1, can - (bv.banve.da_gop[prefab] or 0) do
+            i = i + 1
+            local ai = nguoi[(i % 2) + 1]
+            local mon = SpawnPrefab(prefab)
+            if mon ~= nil and bv:IsValid() then
+                ai.components.inventory:GiveItem(mon)
+                bv.components.trader:AcceptGift(ai, mon)
+            end
+        end
+    end
+
+    local may = FindEntity(e, 30, function(w)
+        return w.prefab == "researchlab"
+    end, nil, { "INLIMBO" })
+    KT("hai người góp chung thì Máy Khoa Học ĐƯỢC DỰNG",
+       may ~= nil, "thấy máy=" .. TenCua(may))
+    KT("góp đủ rồi thì bản vẽ biến mất", not bv:IsValid())
+    KT("và nhu cầu xưởng coi như xong",
+       may ~= nil and nc.Tim("xuong").du(e))
+
+    if may ~= nil and may:IsValid() then may:Remove() end
+    e2:Remove()
+
+    -- ⚠ KHÂU NỐI: chính NHU CẦU phải tự đặt bản vẽ, chứ không phải chờ ai gọi
+    --   tay. Đây là chỗ sinh_ton.GiaiMot được sửa, và nếu nó không chạy thì cả
+    --   cơ chế bản vẽ nằm im — dân làng quay lại cảnh mỗi người ôm một phần và
+    --   Máy Khoa Học không bao giờ lên.
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, nil, { "INLIMBO" })) do
+        if v:HasTag("prototyper") then v:Remove() end
+    end
+    local st = require("ailang/sinh_ton")
+    KT("dựng đúng cảnh: chưa có xưởng và chưa có bản vẽ nào",
+       not nc.Tim("xuong").du(e) and ban_ve.Tim(e, nil) == nil)
+    st.Giai(e, function(n) return n.ma == "xuong" end)
+    KT("nhu cầu xưởng TỰ đặt bản vẽ khi một mình không dựng nổi",
+       ban_ve.Tim(e, "researchlab") ~= nil,
+       "bản vẽ=" .. TenCua(ban_ve.Tim(e, nil)))
+
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+    tiep()
+end
+
+
+-- ── 50. một lượt đưa là đủ, và không lấy thừa ───────────────────────────
+--
+-- ⚠ `trader:AcceptGift` MẶC ĐỊNH CHỈ LẤY MỘT MÓN (`count = count or 1`), mà
+--   ACTIONS.GIVE không truyền `count` được. Để nguyên thì bản vẽ cần 4 khúc gỗ
+--   là bốn lượt đi lại. Nên bản vẽ tự moi thêm trong túi người đưa cho đủ —
+--   nhưng CHỈ phần còn thiếu, không được vét sạch túi người ta.
+local function ThuBanVeTraDu(tiep)
+    local ban_ve = require("ailang/ban_ve")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+
+    local bv = ban_ve.Dat(e, "treasurechest")
+    KT("dựng đúng cảnh: có bản vẽ rương", bv ~= nil and bv:IsValid())
+
+    local thieu, con = bv.ConThieu(bv)
+    local tui = e.components.inventory
+    local chong = SpawnPrefab(thieu)
+    local du = 6
+    if chong.components.stackable ~= nil then
+        chong.components.stackable:SetStackSize(con + du)
+    else
+        du = 0
+    end
+    tui:GiveItem(chong)
+    bv.components.trader:AcceptGift(e, chong)
+
+    local con_lai = 0
+    for _, m in pairs(tui.itemslots or {}) do
+        if m ~= nil and m.prefab == thieu then
+            con_lai = con_lai + (m.components.stackable ~= nil
+                                 and m.components.stackable:StackSize() or 1)
+        end
+    end
+    KT("một lượt đưa là góp đủ, không phải đi lại nhiều lần",
+       bv.banve.da_gop[thieu] == con,
+       "đã góp " .. tostring(bv.banve.da_gop[thieu]) .. "/" .. tostring(con))
+    KT("và chỉ lấy phần còn thiếu, không vét sạch túi",
+       du == 0 or con_lai == du,
+       "thiếu " .. tostring(con) .. ", đưa " .. tostring(con + du)
+       .. ", còn lại " .. tostring(con_lai) .. " (mong " .. tostring(du) .. ")")
+
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+    local ruong = FindEntity(e, 30, function(w) return w.prefab == "treasurechest" end,
+                             nil, { "INLIMBO" })
+    if ruong ~= nil then ruong:Remove() end
+    tiep()
+end
+
+
+-- ── 51. gom liệu làm đuốc từ lúc còn sáng ───────────────────────────────
+--
+-- ⚠ THỨ ĐÃ CHẶN CẢ LÀNG KHỎI MỌI TIẾN BỘ. `ánh sáng` là nhu cầu ưu tiên SỐ
+--   MỘT và đuốc cháy hết liên tục, nên hễ quanh làng thiếu cỏ/cành là nó chiếm
+--   lượt VĨNH VIỄN. Đo trên server: ba lượt thử Máy Khoa Học liên tiếp đều tắc
+--   ở đây, cả ba dân làng báo dang_lam="ánh sáng" suốt 26 lần soi — mà soi
+--   trực tiếp thì chúng chạy bình thường, chỉ là cung không đuổi kịp cầu.
+local function ThuGomLieuDem(tiep)
+    local vi = require("ailang/viec")
+    local kho_lang = require("ailang/kho_lang")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local pha_cu = TheWorld.state.phase
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    for i = 1, 6 do
+        local c = SpawnPrefab("grass")
+        c.Transform:SetPosition(x + 4 + i, y, z + 3)
+    end
+
+    TheWorld:DoTaskInTime(0.6, function()
+        kho_lang.XoaDem()
+        local v = vi.ViecGomLieuDem(e)
+        KT("ban ngày, làng thiếu liệu làm đuốc thì đi gom trước",
+           v ~= nil and v.vi_sao == "gom liệu cho đêm",
+           "việc=" .. tostring(v and v.vi_sao) .. " pha=" .. tostring(TheWorld.state.phase))
+
+        -- ⚠ CHẬP TỐI TRỞ ĐI THÌ THÔI. Vùng làm việc đã bị bó quanh đống lửa,
+        --   ra xa lúc đó là chết — và đó chính là lý do phải gom trước.
+        TheWorld:PushEvent("ms_setphase", "dusk")
+        TheWorld:DoTaskInTime(0.6, function()
+            kho_lang.XoaDem()
+            KT("chập tối thì KHÔNG đi gom liệu nữa",
+               vi.ViecGomLieuDem(e) == nil,
+               "pha=" .. tostring(TheWorld.state.phase))
+
+            -- Đủ liệu rồi thì thôi, khỏi vơ vét mãi.
+            TheWorld:PushEvent("ms_setphase", "day")
+            TheWorld:DoTaskInTime(0.6, function()
+                local ruong = SpawnPrefab("treasurechest")
+                ruong.Transform:SetPosition(x + 2, y, z)
+                for _, lieu in ipairs({ "cutgrass", "twigs" }) do
+                    local m = SpawnPrefab(lieu)
+                    if m.components.stackable ~= nil then
+                        m.components.stackable:SetStackSize(40)
+                    end
+                    ruong.components.container:GiveItem(m)
+                end
+                kho_lang.XoaDem()
+                KT("gom đủ rồi thì thôi, không vơ vét mãi",
+                   vi.ViecGomLieuDem(e) == nil)
+                ruong:Remove()
+                TheWorld:PushEvent("ms_setphase", pha_cu)
+                tiep()
+            end)
+        end)
+    end)
+end
+
+
+-- ── 52. nghề nghiệp: cả làng không dồn cục ──────────────────────────────
+--
+-- ⚠ Đo trên server: cả ba dân làng báo dang_lam="gom củi" 11 lần soi liên
+--   tiếp, rồi cả ba cùng "ánh sáng" 26 lần liên tiếp. Ba người làm việc của
+--   một người. GrimWorld chữa bằng hồ sơ ưu tiên khác nhau cho từng pawn.
+local function ThuNgheNghiep(tiep)
+    local vi = require("ailang/viec")
+    local e = DanLangSach(Goc())
+
+    KT("dân làng mới sinh có nghề", e.ailang.nghe ~= nil
+       and vi.NGHE[e.ailang.nghe] ~= nil,
+       "nghề=" .. tostring(e.ailang.nghe))
+
+    -- ⚠ XOAY VÒNG chứ không random: random thì ba người hoàn toàn có thể trúng
+    --   cùng một nghề, mà nghề sinh ra chính là để chúng đừng dồn cục.
+    local thay = {}
+    local them = {}
+    for i = 1, #vi.THU_TU_NGHE do
+        local d = dan_lang.Sinh({ ten = "Nghe" .. i, nhan_vat = "wilson" })
+        table.insert(them, d)
+        thay[d.ailang.nghe] = true
+    end
+    local dem = 0
+    for _ in pairs(thay) do dem = dem + 1 end
+    KT("sinh liên tiếp thì mỗi người một nghề khác nhau",
+       dem == #vi.THU_TU_NGHE,
+       "thấy " .. dem .. "/" .. #vi.THU_TU_NGHE .. " nghề")
+
+    -- Nghề đổi THỨ TỰ VIỆC, nhưng KHÔNG đổi bảng nhu cầu — sinh tồn thì ai
+    -- cũng như ai.
+    local nc = require("ailang/nhu_cau")
+    KT("nghề KHÔNG đụng tới bảng nhu cầu",
+       nc.ChiSo("ánh sáng") == 1,
+       "ánh sáng hạng " .. tostring(nc.ChiSo("ánh sáng")))
+
+    -- Thứ tự việc của hai nghề phải KHÁC nhau thật.
+    KT("hai nghề có thứ tự việc khác nhau",
+       table.concat(vi.NGHE.kiem_an, ",") ~= table.concat(vi.NGHE.tho_mo, ","))
+
+    -- Mọi nghề phải phủ ĐỦ các việc, không được rơi mất việc nào.
+    local du = true
+    local chuan = #vi.NGHE.giu_nha
+    for ten, ds in pairs(vi.NGHE) do
+        if #ds ~= chuan then du = false end
+    end
+    KT("nghề nào cũng phủ đủ các việc, không rơi mất việc nào", du)
+
+    for _, d in ipairs(them) do d:Remove() end
+    tiep()
+end
+
+
+-- ── 53. chọn kho bằng điểm, và nhóm lại lửa đã tắt ──────────────────────
+local function ThuChonKhoVaNhomLua(tiep)
+    local lang = require("ailang/lang")
+    local vi = require("ailang/viec")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local pha_cu = TheWorld.state.phase
+    TheWorld:PushEvent("ms_setphase", "day")
+
+    -- ⚠ ĐỒ HỎNG ĐƯỢC PHẢI VÀO CHỖ LẠNH. perishable.lua nhân hệ số theo chỗ
+    --   cất: ngoài trời ×1,5, rương ×1,0, tủ lạnh ×0,5. Lấy bừa rương đầu tiên
+    --   chứa được thì thịt nằm trong rương gỗ trong khi tủ lạnh ngay bên cạnh
+    --   còn trống.
+    local ruong = SpawnPrefab("treasurechest")
+    ruong.Transform:SetPosition(x + 3, y, z)
+    local tu = SpawnPrefab("icebox")
+    tu.Transform:SetPosition(x + 6, y, z)
+
+    local thit = SpawnPrefab("smallmeat")
+    KT("đồ hỏng được thì chọn TỦ LẠNH, dù rương gần hơn",
+       lang.RuongTrongLang(e, thit) == tu,
+       "chọn=" .. TenCua(lang.RuongTrongLang(e, thit)))
+
+    local da = SpawnPrefab("rocks")
+    KT("đồ KHÔNG hỏng thì không chiếm chỗ lạnh",
+       lang.RuongTrongLang(e, da) == ruong,
+       "chọn=" .. TenCua(lang.RuongTrongLang(e, da)))
+
+    -- ⚠ Gộp chồng: rương đã có sẵn cùng loại thì hơn, đỡ xé ô ra khắp nơi.
+    local ruong2 = SpawnPrefab("treasurechest")
+    ruong2.Transform:SetPosition(x + 1, y, z)     -- GẦN HƠN ruong
+    ruong.components.container:GiveItem(SpawnPrefab("rocks"))
+    KT("rương đã có sẵn cùng loại thì hơn rương trống gần hơn",
+       lang.RuongTrongLang(e, da) == ruong,
+       "chọn=" .. TenCua(lang.RuongTrongLang(e, da)))
+
+    thit:Remove() da:Remove() tu:Remove() ruong:Remove() ruong2:Remove()
+
+    -- ⚠ LỬA ĐÃ TẮT VẪN NHÓM LẠI ĐƯỢC. `firepit` không biến mất khi hết củi,
+    --   nên làng thường có một cái bếp nguội mà không ai đổ củi vào —
+    --   ViecTiepLua đòi IsBurning() nên bỏ qua sạch, và dân làng đi dựng lửa
+    --   MỚI tốn thêm 2 gỗ trong khi cái cũ chỉ cần một khúc là sống lại.
+    local bep = SpawnPrefab("firepit")
+    bep.Transform:SetPosition(x + 4, y, z)
+    bep.components.fueled:SetPercent(0)
+    e.components.inventory:GiveItem(SpawnPrefab("log"))
+
+    TheWorld:DoTaskInTime(0.6, function()
+        KT("dựng đúng cảnh: bếp đã tắt hẳn",
+           bep.components.burnable ~= nil and not bep.components.burnable:IsBurning())
+        KT("tìm được lửa đã tắt của làng", lang.LuaTatCuaLang(e) == bep)
+        local v = vi.ViecTiepLua(e)
+        KT("có củi thì đi NHÓM LẠI bếp nguội, không dựng lửa mới",
+           v ~= nil and v.hanh_dong == ACTIONS.ADDFUEL and v.muc_tieu == bep,
+           "việc=" .. tostring(v and v.vi_sao) .. " mục tiêu=" .. TenCua(v and v.muc_tieu))
+        bep:Remove()
+        TheWorld:PushEvent("ms_setphase", pha_cu)
+        tiep()
+    end)
+end
+
+
+-- ── 54. chấm điểm đồ ăn theo CHÍNH nhân vật ─────────────────────────────
+--
+-- ⚠ `edible.healthvalue` là giá trị GỐC; từng nhân vật đọc nó khác nhau.
+--   `edible:GetHealth(eater)` đã tính sẵn phần đó. Và có lúc nhân vật MIỄN
+--   NHIỄM hẳn tác dụng phụ — với họ món "hại" chẳng hại gì, chỉ còn phần no.
+--   (Mượn GrimCook.Immune/ItemCost của GrimWorld.)
+local function ThuChamDiemAn(tiep)
+    local nc = require("ailang/nhu_cau")
+    local e = DanLangSach(Goc())
+
+    local ngon = SpawnPrefab("carrot")
+    local hai  = SpawnPrefab("monstermeat")
+    local d_ngon = nc.ChamDiemAn(e, ngon)
+    local d_hai  = nc.ChamDiemAn(e, hai)
+    KT("món hại bị chấm thấp hơn món lành",
+       d_hai ~= nil and d_ngon ~= nil and d_hai < d_ngon,
+       "hại=" .. tostring(d_hai) .. " lành=" .. tostring(d_ngon))
+
+    -- Miễn nhiễm tác dụng phụ thì món hại chỉ còn phần no.
+    local an = e.components.eater
+    local cu = an.DoFoodEffects
+    an.DoFoodEffects = function() return false end
+    local d_mien = nc.ChamDiemAn(e, hai)
+    an.DoFoodEffects = cu
+    KT("miễn nhiễm tác dụng phụ thì không chê món hại nữa",
+       d_mien ~= nil and d_mien > d_hai,
+       "miễn nhiễm=" .. tostring(d_mien) .. " thường=" .. tostring(d_hai))
+
+    ngon:Remove() hai:Remove()
+    tiep()
+end
+
+
+-- ── 55. chế nguyên liệu trung gian ──────────────────────────────────────
+--
+-- ⚠ ĐÂY LÀ MỘT LỖ THẬT, KHÔNG PHẢI TÍNH NĂNG THÊM. `ConThieu` đọc bảng nguyên
+--   liệu MỘT TẦNG, và `NGUON` chỉ có thứ nhặt/chặt/đào được. Nên rương
+--   (boards×3 <- log×4) và nồi (cutstone×3 <- rocks×3) KHÔNG BAO GIỜ dựng nổi:
+--   dân làng đi tìm "boards" mọc dưới đất, tìm mãi không ra, nhu cầu bị ghi bó
+--   tay rồi cho nghỉ. Nằm im từ lúc thêm nhu cầu "kho" tới giờ.
+local function ThuCheTrungGian(tiep)
+    local st = require("ailang/sinh_ton")
+    local nc = require("ailang/nhu_cau")
+    local ban_ve = require("ailang/ban_ve")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    TheWorld:PushEvent("ms_setphase", "day")
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+
+    KT("dựng đúng cảnh: boards là ĐỒ CHẾ, không nhặt được dưới đất",
+       AllRecipes["boards"] ~= nil and nc.NGUON["boards"] == nil)
+
+    -- Cho đủ gỗ và một cái máy, rồi bảo nó lo nhu cầu "kho" (cần rương).
+    local may = SpawnPrefab("researchlab")
+    may.Transform:SetPosition(x + 5, y, z)
+    local tui = e.components.inventory
+    local go = SpawnPrefab("log")
+    go.components.stackable:SetStackSize(8)
+    tui:GiveItem(go)
+
+    TheWorld:DoTaskInTime(0.6, function()
+        local truoc = 0
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil and m.prefab == "boards" then
+                truoc = truoc + (m.components.stackable ~= nil
+                                 and m.components.stackable:StackSize() or 1)
+            end
+        end
+        KT("dựng đúng cảnh: chưa có tấm ván nào", truoc == 0)
+
+        -- Bản vẽ đứng chắn ở bước 2b, nên tạm cấm bản vẽ để đo đúng bước 3a.
+        local cu = ban_ve.DUNG_BAN_VE.treasurechest
+        ban_ve.DUNG_BAN_VE.treasurechest = nil
+        st.Giai(e, function(n) return n.ma == "kho_chua" end)
+        ban_ve.DUNG_BAN_VE.treasurechest = cu
+
+        local sau = 0
+        for _, m in pairs(tui.itemslots or {}) do
+            if m ~= nil and m.prefab == "boards" then
+                sau = sau + (m.components.stackable ~= nil
+                             and m.components.stackable:StackSize() or 1)
+            end
+        end
+        KT("có gỗ thì tự CHẾ tấm ván, không đi tìm ván dưới đất",
+           sau > truoc, "ván trước=" .. truoc .. " sau=" .. sau)
+
+        may:Remove()
+        for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, { "ailang_banve" })) do v:Remove() end
+        tiep()
+    end)
+end
+
+
+-- ── 56. nồi và đường lấy than ───────────────────────────────────────────
+--
+-- ⚠ THAN KHÔNG NHẶT ĐƯỢC DƯỚI ĐẤT — chỉ ra từ cây bị ĐỐT rồi chặt
+--   (evergreens.lua: chop_down_burnt_tree gọi SpawnLootPrefab("charcoal")).
+--   Và lửa thì LAN: làng cháy là mất sạch, nên việc đốt có ba chốt an toàn.
+local function ThuLayThan(tiep)
+    local vi = require("ailang/viec")
+    local nc = require("ailang/nhu_cau")
+    local kho_lang = require("ailang/kho_lang")
+    local e = DanLangSach(Goc())
+    local x, y, z = e.Transform:GetWorldPosition()
+    e.ailang.nha = { x, z }
+    local mua_cu = TheWorld.state.season
+    TheWorld:PushEvent("ms_setphase", "day")
+    TheWorld:PushEvent("ms_setseason", "autumn")
+
+    -- ⚠ DỌN NỒI VÀ THAN CŨ. Khuôn ThoaHetNhuCau dựng một cái nồi và chỉ xoá nó
+    --   ở LẦN GỌI SAU, nên nó còn đứng đó khi bài này chạy — mà có nồi rồi thì
+    --   ViecLayThan thôi luôn (đốt rừng làm gì nữa). Đã hỏng oan đúng vậy.
+    for _, v in ipairs(TheSim:FindEntities(x, y, z, 90, nil, { "INLIMBO" })) do
+        if v.prefab == "cookpot" or v.prefab == "charcoal" then v:Remove() end
+    end
+
+    KT("bảng nhu cầu có mục nồi", nc.Tim("noi") ~= nil)
+    KT("nồi xếp SAU xưởng và kho (cần tech 1 mới chế được)",
+       nc.ChiSo("nồi") > nc.ChiSo("xưởng") and nc.ChiSo("nồi") > nc.ChiSo("kho"))
+
+    local tui = e.components.inventory
+    local duoc = SpawnPrefab("torch")
+    tui:GiveItem(duoc) tui:Equip(duoc)
+    tui:GiveItem(SpawnPrefab("axe"))
+
+    TheWorld:DoTaskInTime(0.6, function()
+        kho_lang.XoaDem()
+        -- ⚠ CÂY GẦN LÀNG THÌ KHÔNG ĐỐT. Lửa lan tới nhà là mất sạch.
+        local gan = SpawnPrefab("evergreen")
+        gan.Transform:SetPosition(x + 6, y, z)
+        KT("cây sát làng thì KHÔNG châm lửa",
+           vi.ViecLayThan(e) == nil,
+           "việc=" .. tostring((vi.ViecLayThan(e) or {}).vi_sao))
+
+        -- Cây đủ xa thì mới đốt.
+        -- ⚠ 35 là cố ý: NGOÀI mức 30 (sát làng thì cấm) nhưng TRONG mức 45
+        --   (xa hơn thì dân làng bị dây trói về nhà lôi lại giữa đường).
+        local xa = SpawnPrefab("evergreen")
+        xa.Transform:SetPosition(x + 35, y, z)
+        local bk = kho_lang.Kiem()
+        local tay = tui:GetEquippedItem(EQUIPSLOTS.HANDS)
+        -- ⚠ CÂY CHỈ CÓ `burnable` KHI NÓ THỨC. evergreens.lua gắn nó trong
+        --   OnEntityWake và GỠ RA trong OnEntitySleep để đỡ tốn — mà server
+        --   chuyên dụng không có client thì gần như mọi thứ đều ngủ. Lọc cây
+        --   theo `components.burnable` là loại sạch mọi cái cây.
+        KT("cây đang ngủ thì CHƯA có burnable — đừng lọc theo nó",
+           xa.components.burnable == nil,
+           "burnable=" .. tostring(xa.components.burnable ~= nil))
+        local v = vi.ViecLayThan(e)
+        KT("cây đủ xa thì châm lửa lấy than",
+           v ~= nil and v.hanh_dong == ACTIONS.LIGHT and v.muc_tieu == xa,
+           "việc=" .. tostring(v and v.vi_sao)
+           .. " | nồi=" .. tostring(bk.cong_trinh and bk.cong_trinh.cookpot)
+           .. " than=" .. tostring(bk.mon and bk.mon.charcoal)
+           .. " tay=" .. tostring(tay and tay.prefab)
+           .. " lighter=" .. tostring(tay ~= nil and tay.components.lighter ~= nil)
+           .. " mùa=" .. tostring(TheWorld.state.season)
+           .. " túi=" .. (function()
+                  local o = {}
+                  for _, m in pairs(tui.itemslots or {}) do
+                      if m ~= nil then
+                          table.insert(o, m.prefab .. (m.components.lighter ~= nil and "*" or ""))
+                      end
+                  end
+                  return table.concat(o, ",")
+              end)()
+           .. " xa=" .. tostring(math.floor(math.sqrt(e:GetDistanceSqToInst(xa)))))
+
+        -- ⚠ MÙA HÈ THÌ TUYỆT ĐỐI KHÔNG. Mùa đó đồ tự bốc cháy sẵn rồi.
+        TheWorld:PushEvent("ms_setseason", "summer")
+        TheWorld:DoTaskInTime(0.6, function()
+            KT("mùa hè thì KHÔNG đốt cây, dù có cần than",
+               vi.ViecLayThan(e) == nil,
+               "mùa=" .. tostring(TheWorld.state.season))
+            TheWorld:PushEvent("ms_setseason", "autumn")
+
+            TheWorld:DoTaskInTime(0.6, function()
+                -- Cây đã cháy thì chặt lấy than, lúc nào cũng an toàn.
+                gan:Remove() xa:Remove()
+                -- ⚠ Cây đang ngủ KHÔNG có `burnable`, nên gọi thẳng
+                --   `burnable:Ignite()` là NỔ — đã làm sập cả bộ kiểm giữa
+                --   chừng, không in nổi dòng XONG nào. Tự gắn vào trước.
+                local chay = SpawnPrefab("evergreen")
+                chay.Transform:SetPosition(x + 5, y, z)
+                if chay.components.burnable == nil then
+                    pcall(MakeLargeBurnable, chay, 3)
+                end
+                if chay.components.burnable ~= nil then
+                    pcall(function() chay.components.burnable:Ignite() end)
+                end
+                TheWorld:DoTaskInTime(2, function()
+                    -- Cây cháy xong mang tag "burnt" và vẫn chặt được — đó là
+                    -- lúc ra than (evergreens.lua: chop_down_burnt_tree).
+                    local v2 = vi.ViecLayThan(e)
+                    KT("có cây đã cháy thì đi chặt lấy than",
+                       v2 ~= nil and v2.hanh_dong == ACTIONS.CHOP,
+                       "việc=" .. tostring(v2 and v2.vi_sao)
+                       .. " cây_burnt=" .. tostring(chay:IsValid() and chay:HasTag("burnt")))
+                    if chay:IsValid() then chay:Remove() end
+                    TheWorld:PushEvent("ms_setseason", mua_cu)
+                    kho_lang.XoaDem()
+                    tiep()
+                end)
+            end)
+        end)
+    end)
+end
+
+
+-- ── 57. nhật ký làng: trí nhớ dài hạn cho tầng suy nghĩ ─────────────────
+--
+-- ⚠ TRƯỚC BẢN NÀY MỖI NHỊP HỎI LÀ MỘT LẦN HỎI ĐỘC LẬP. Gói hỏi chỉ chụp HIỆN
+--   TẠI, nên tầng suy nghĩ không biết đêm qua ai chết, không biết nó đã ra
+--   lệnh gì mười nhịp trước — và ra lại đúng một lệnh đã hỏng, hỏng lại đúng
+--   cách cũ. `muc_tieu_loi` chỉ cứu được một nhịp.
+local function ThuNhatKy(tiep)
+    local nk = require("ailang/nhat_ky")
+    TheWorld.ailang_nhat_ky = nil     -- bắt đầu từ sổ trắng
+
+    nk.Ghi("thử một")
+    nk.Ghi("thử hai")
+    local ds = nk.BanGon()
+    KT("ghi được việc vào nhật ký", #ds == 2, "số mục=" .. #ds)
+    KT("mỗi mục có kèm ngày", ds[1]:find("ngày") == 1, "mục=" .. tostring(ds[1]))
+
+    -- ⚠ Đừng ghi trùng liên tiếp. "lửa tắt" lặp mười lần trong một phút thì
+    --   nhật ký chỉ còn mỗi nó, và mọi thứ đáng nhớ khác bị đẩy ra ngoài.
+    for _ = 1, 5 do nk.Ghi("thử hai") end
+    ds = nk.BanGon()
+    KT("việc lặp liên tiếp thì gộp lại, không chiếm hết sổ",
+       #ds == 2 and ds[2]:find("x6") ~= nil,
+       "số mục=" .. #ds .. " mục cuối=" .. tostring(ds[2]))
+
+    -- Sổ có trần: quá thì đẩy mục cũ nhất ra.
+    for i = 1, 30 do nk.Ghi("việc " .. i) end
+    ds = nk.BanGon()
+    KT("nhật ký có trần, không phình vô hạn", #ds <= 12, "số mục=" .. #ds)
+
+    -- Ghi nhớ của chính tầng suy nghĩ: mod giữ hộ nguyên văn.
+    KT("chưa có ghi nhớ thì trả nil", nk.GhiNho() == nil or nk.GhiNho() == "")
+    nk.DatGhiNho("đang gom đá làm Máy Khoa Học")
+    KT("giữ nguyên văn ghi nhớ của tầng suy nghĩ",
+       nk.GhiNho() == "đang gom đá làm Máy Khoa Học")
+    nk.DatGhiNho(string.rep("x", 5000))
+    KT("ghi nhớ quá dài thì cắt bớt, không để nó nuốt cả gói hỏi",
+       #nk.GhiNho() <= 2000, "dài=" .. #nk.GhiNho())
+    nk.DatGhiNho(nil)
+    KT("xoá được ghi nhớ", nk.GhiNho() == nil)
+
+    -- Nút thắt đổi là việc đáng nhớ, không ai báo thì tự soát.
+    TheWorld.ailang_nhat_ky = nil
+    nk.SoatDoiThay({ nut_that = "thiếu rìu" })
+    nk.SoatDoiThay({ nut_that = "thiếu rìu" })
+    nk.SoatDoiThay({ nut_that = "thiếu cuốc" })
+    local ds2 = nk.BanGon()
+    KT("nút thắt đổi thì ghi, không đổi thì thôi",
+       #ds2 == 2, "số mục=" .. #ds2)
+
+    -- Chết là việc đáng nhớ nhất.
+    TheWorld.ailang_nhat_ky = nil
+    local e = DanLangSach(Goc())
+    dan_lang.ThanhHonMa(e)
+    local ds3 = nk.BanGon()
+    KT("có người chết thì nhật ký ghi lại",
+       #ds3 >= 1 and ds3[#ds3]:find("chết") ~= nil,
+       "mục=" .. tostring(ds3[#ds3]))
+    dan_lang.HoiSinh(e)
+    local ds4 = nk.BanGon()
+    KT("sống lại cũng ghi",
+       ds4[#ds4]:find("sống lại") ~= nil, "mục=" .. tostring(ds4[#ds4]))
+
+    TheWorld.ailang_nhat_ky = nil
+    tiep()
+end
+
 local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuDanhTra, ThuHoangHon, ThuMuThoMo,
                ThuNamDoc, ThuDiKiem, ThuThuTu, ThuHonMaKeu,
@@ -1023,7 +3532,23 @@ local buoc = { ThuNam, ThuDem, ThuHonMa, ThuHonMaKhongLamViec, ThuNhat,
                ThuKhongTroi, ThuHonMaTimXa, ThuHonMaCoHinh,
                ThuThienCam, ThuCheDo, ThuKhongNgu, ThuGiuViec,
                ThuKhongTrom, ThuRaNgoaiLang,
-               ThuDaiTrieuHoi, ThuGiuLang }
+               ThuDaiTrieuHoi, ThuGiuLang,
+               ThuMatRiu, ThuHonMaDiDuoc, ThuChenTheoHang,
+               ThuTiepLua, ThuGiuLangTruocGiap, ThuGiapSauCung,
+               ThuNapDayTruocDem, ThuKho, ThuTuiHang, ThuDenThat,
+               ThuChongNong, ThuBongCay, ThuXuong,
+               ThuLoThanTruoc,
+               ThuUuTienThangKhoangCach, ThuBoTayThiThoi,
+               ThuNghiNhuCau, ThuGomDuThiDung,
+               ThuHonMaKhongLiet, ThuCatDungCuKhiToi,
+               ThuKhongHoiSinhVaoChoChet,
+               ThuDongTu, ThuMucTieu, ThuMucTieuNhieuBuoc, ThuKhoLang,
+               ThuNguonVang, ThuKinhTeDoAn, ThuDuongKinhTe,
+               ThuVongKhoaCui, ThuTranThuGom,
+               ThuBanVe, ThuBanVeTraDu,
+               ThuGomLieuDem, ThuNgheNghiep,
+               ThuChonKhoVaNhomLua, ThuChamDiemAn,
+               ThuCheTrungGian, ThuLayThan, ThuNhatKy }
 local i = 0
 local function tiep()
     i = i + 1
@@ -1031,6 +3556,9 @@ local function tiep()
         buoc[i](tiep)
     else
         TraLaiGio()
+        if MAY_THU ~= nil and MAY_THU:IsValid() then MAY_THU:Remove() end
+        if RUONG_THU ~= nil and RUONG_THU:IsValid() then RUONG_THU:Remove() end
+        if NOI_THU ~= nil and NOI_THU:IsValid() then NOI_THU:Remove() end
         KhoiPhucLang()
         print(string.format("[TU-KIEM] ===== XONG: %d đạt, %d hỏng =====", dat, hong))
     end

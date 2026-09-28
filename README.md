@@ -63,14 +63,15 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 
 | Mod | Thư mục | Loại | Version | Tác giả | Workshop ID |
 |---|---|---|---|---|---|
-| DST Tiếng Việt | `translations/dst-tieng-viet` | Dịch game gốc | 2026.5 (git) | Datgavl | **3683660917** |
+| DST Tiếng Việt | `translations/dst-tieng-viet` | Dịch game gốc + font tiếng Việt | 2026.9 | Datgavl | **3683660917** |
 | Đăng Tiên VN | `translations/dang-tien-viet` | Dịch mod 登仙 | 1.2.0 (git) / **1.0.0 trên Workshop** | kimdat546 | **3719981130** (mod nguồn: 3235319974) |
 | Myth Words VN | `translations/myth-words-viet` | Dịch mod | 1.2 | Datgavl | **3709269092** |
 | NewConstant Việt (Core/Base/Nightmare) | `translations/newconstant-viet` | Dựng lại i18n + dịch | 1.0.2 (upstream 0.9.41) | kimdat546 | Core **3778107626** · Base **3778108141** · Nightmare **3778108374** |
 | Food Buff | `originals/food-buff-hud` | Tự làm | 1.0.0 | kimdat546 | **3774466732** |
 | Thần Binh Phù Ấn | `translations/than-binh-phu-an-viet` | Dịch + phát triển tiếp mod mã nguồn mở | 0.0.3 | kimdat546 | **3792863569** (nguồn: 3096210166) |
 | Montfluv Việt | `translations/montfluv-viet` | Dịch mod 山河表里 bằng **mod client riêng**, KHÔNG fork | 1.1.2 | kimdat546 | **3797940738** (mod nguồn: 3401927745) |
-| Functional Medal Việt | `translations/functional-medal-viet` | Dịch mod 能力勋章 bằng **mod client riêng** + **bản [Server]** cho chữ do server ghép, KHÔNG fork | 0.2.2 (bản thử, đang nhận góp ý) | kimdat546 | client **3802626143**, server **3809137709** (mod nguồn: 1909182187) |
+| AI NPC | `originals/dst-ai-village` | Tự làm — dân làng NPC có não | 0.2.0 (bản thử nghiệm) | kimdat546 | **3809084975** |
+| Functional Medal Việt | `translations/functional-medal-viet` | Dịch mod 能力勋章 bằng **mod client riêng** + **bản [Server]** cho chữ do server ghép, KHÔNG fork | 0.2.3 (bản thử, đang nhận góp ý) | kimdat546 | client **3802626143**, server **3809137709** (mod nguồn: 1909182187) |
 
 
 ---
@@ -80,12 +81,12 @@ Repo cũ `github.com/kimdat546/dst-tieng-viet` giữ lại làm lưu trữ; côn
 ### 1. DST Tiếng Việt — `translations/dst-tieng-viet/`
 Dịch **toàn bộ game DST gốc** sang tiếng Việt. Bản trưởng thành nhất, đã ra v1.0+ và có quy trình vận hành đầy đủ.
 - **Kỹ thuật (2 lớp):**
-  1. `vietnamese.po` (~85.000 string, 17MB) — nạp qua API sẵn có `LoadPOFile()`, phủ text tĩnh lúc khởi động.
-  2. `scripts/textfix/` — hook `TextWidget.SetString` phủ text động (skill tree, speech, UI) mà `.po` không tới.
-- **Công cụ:** `tools/sync_check.py` (phát hiện string mới khi game update), `tools/quality_check.py` (kiểm lỗi format `%s`, `{winner}`). Báo cáo trong `sync_reports/`.
-- **Git:** `git@github.com:kimdat546/dst-tieng-viet.git` (branch `main`). Có thay đổi chưa commit.
-- **Đọc thêm:** `CLAUDE.md` + `README.md` trong folder (quy trình sync + upload).
-- ⚠️ Bản upload cuối là **v2026.7** nhưng git repo mới ở **v2026.5** — nội dung `.po` giống hệt, chỉ lệch số version.
+  1. `vietnamese.po` (~87.700 khoá, 18MB) — nạp qua API sẵn có `LoadPOFile()`, phủ text tĩnh lúc khởi động.
+  2. `scripts/textfix/` — hook `TextWidget.SetString` phủ text động (thoại server gửi về, UI). `character_speech.lua` **sinh từ `.po`** (`tools/tao_textfix.py`).
+- **Font tiếng Việt:** `tools/tao_font.py` ghép chữ Việt từ glyph của 17 font game → `fonts/vi_*.zip` (gitignore, dữ liệu Klei; `make_upload.sh` sinh lại).
+- **Công cụ:** `tools/sync_check.py` (so với `strings.pot` khi game cập nhật), `xuat_viec.py` / `ap_viec.py` (chia lô dịch–soát rồi áp), `thu_po_game.sh` (nạp .po bằng bộ đọc của game), `make_upload.sh`, `sync_local.sh`.
+- **Đọc thêm:** `CLAUDE.md` trong folder (quy trình + bẫy) và `tools/HUONG_DAN.md` (quy tắc dịch, giọng nhân vật).
+- 09/2026: soát lại TOÀN BỘ bản dịch (bản cũ phần lớn dịch máy, có rác chèn vào) — PR #45.
 
 ### 2. Đăng Tiên VN — `translations/dang-tien-viet/`
 Dịch mod tu tiên tiếng Trung **【登仙】** (nguồn Workshop `3235319974`).

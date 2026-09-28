@@ -39,8 +39,8 @@ def main():
             goi = giao_thuc.doc_hoi(thu_muc)
             if goi is not None and goi.get("nhip") != nhip_cu:
                 nhip_cu = goi.get("nhip")
-                ra = nao.nghi(goi)
-                giao_thuc.ghi_dap(thu_muc, ra)
+                ra, ghi_nho = nao.nghi(goi)
+                giao_thuc.ghi_dap(thu_muc, ra, ghi_nho)
                 tom = ", ".join(
                     f"{d.get('ten', d['ma'])}->{y.get('muc_tieu')}"
                     for d, y in zip(goi.get("dan_lang", []), ra))

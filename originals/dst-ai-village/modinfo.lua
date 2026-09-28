@@ -8,19 +8,45 @@
 --  DST hiện tại (xem README, mục "Vì sao không dùng lại").
 -- ═══════════════════════════════════════════════════════════════════════
 
-name = "AI Làng - Đừng Chết Đói :)"
-description = [[Dân làng NPC tự sống, tự làm việc, và biết nói chuyện.
+name = "AI NPC - Đừng Chết Đói :)"
+description = [[Dân làng NPC tự sống, tự làm việc cùng bạn.
 
-Có gì:
-- Dân làng là nhân vật thật (mặc giáp, cầm vũ khí, ăn cơm như người chơi)
-- Não phản xạ chạy thẳng trong game: chặt cây, nhặt đồ, đánh trả, chạy trốn,
-  ăn khi đói, về nhà khi tối
-- Tầng "suy nghĩ" tuỳ chọn: nối ra dịch vụ ngoài (Gemini hoặc model local)
-  để dân làng có mục tiêu riêng và biết trò chuyện
+BẢN THỬ NGHIỆM — mod còn mới, dân làng có lúc làm chuyện ngớ ngẩn hoặc chết
+lãng xẹt. Gặp lỗi, thấy chúng kẹt, hay game báo lỗi khi bật mod thì báo giúp ở
+phần bình luận bên dưới. Kèm file client_log.txt (Documents/Klei/
+DoNotStarveTogether) ngay sau khi lỗi — trước khi mở lại game, vì game xoá
+log mỗi lần khởi động.
 
-Không bật dịch vụ ngoài thì dân làng vẫn sống và làm việc bình thường.]]
+BẮT ĐẦU
+- Thế giới mới sẽ có sẵn 3 dân làng (đổi số lượng trong cấu hình mod)
+- Chưa có nhà thì dân làng đi theo bạn
+- Dựng ĐÀI TRIỆU HỒI (2 vàng + 8 gỗ + 6 đá, không cần máy) — đó là NHÀ của
+  cả làng, và là chỗ gọi thêm dân làng mới
+
+DÂN LÀNG BIẾT LÀM GÌ
+- Tự chặt cây, đào đá, hái cỏ, nhặt đồ; cầm đuốc khi tối, dựng và giữ lửa trại
+- Tự lo ăn: đặt bẫy thỏ, nướng thịt, cất đồ ăn vào rương
+- Góp chung nguyên liệu để dựng Máy Khoa Học, rương, nồi
+- Mỗi người một nghề (kiếm ăn / thợ mỏ / giữ nhà) nên không dồn cục
+- Đánh trả khi bị tấn công, trốn nắng mùa hè, về bên lửa khi đêm xuống
+- Chết thì thành hồn ma, tự tìm Đài để sống lại
+
+TƯƠNG TÁC
+- Cho ăn để tăng thân thiết; đủ thân thì chúng chịu đi theo bạn
+- Mở túi hàng của dân làng để lấy đồ chúng gom được
+- Lệnh console cho chủ server: c_ailang_bang() xem danh sách,
+  c_ailang_chienluoc() xem kho và nút thắt của làng
+
+TẦNG SUY NGHĨ (tuỳ chọn, cho người rành kỹ thuật)
+Mặc định TẮT. Bật lên thì cần chạy thêm một dịch vụ ngoài (Gemini hoặc model
+chạy máy nhà) để dân làng tự lên kế hoạch và trò chuyện. Không bật thì dân
+làng vẫn sống và làm việc bình thường.
+
+LƯU Ý
+- Mod server: mọi người vào server đều cần bật mod
+- Mỗi dân làng tốn CPU gần bằng một người chơi — đừng gọi quá đông]]
 author = "kimdat546"
-version = "0.1.0"
+version = "0.2.0"
 
 forumthread = ""
 api_version = 10
@@ -43,8 +69,17 @@ reign_of_giants_compatible = false
 all_clients_require_mod = true
 client_only_mod = false
 
-icon_atlas = "modicon.xml"
-icon = "modicon.tex"
+-- ⚠ KHÔNG KHAI BÁO ICON CHỪNG NÀO CHƯA CÓ FILE THẬT. Mod vốn khai
+--   icon_atlas/icon trỏ tới modicon.xml + modicon.tex mà hai file đó CHƯA BAO
+--   GIỜ tồn tại, nên mỗi lần nạp mod là một dòng cảnh báo. Khai một thứ không
+--   có còn tệ hơn là không khai: người đọc log phải đi xác minh xem nó có
+--   nghĩa gì không.
+--
+--   Muốn có icon thì cần `ktech` của Don't Starve Mod Tools chuyển PNG sang
+--   .tex — máy này chưa có. Làm xong ảnh thì đặt modicon.png cạnh modinfo.lua,
+--   chạy ktech, rồi mở lại hai dòng dưới:
+--       icon_atlas = "modicon.xml"
+--       icon = "modicon.tex"
 
 server_filter_tags = { "ai", "npc", "village" }
 
