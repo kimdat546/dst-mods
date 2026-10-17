@@ -81,6 +81,10 @@ def main():
         "end",
         "",
     ]
+    # Thân file chia thành các hàm con ~800 dòng. Một hàm chính dài quá thì
+    # LuaJIT báo "function too long for return fixup" (lệnh `return` sớm ở
+    # đầu file phải nhảy tới cuối hàm, vượt tầm nhảy cho phép).
+    body = []
     for path, cn in entries:
         vn = vn_map.get(cn)
         if vn is None:
@@ -88,7 +92,7 @@ def main():
             continue
         # Convert path: "ACTIONFAIL.APPRAISE.NOTNOW" → STRINGS.CHARACTERS.XD_WUKONG.ACTIONFAIL.APPRAISE.NOTNOW
         # array indices like FOO[3] need adjustment
-        out_lines.append(f'S(CHAR .. ".{path}", "{lua_escape(vn)}")')
+        body.append(f'S(CHAR .. ".{path}", "{lua_escape(vn)}")')
 
     # ── Lớp đỡ: nạp cặp CN→VN vào từ điển textfix ────────────────────────
     # Thoại nhân vật do SERVER phân giải rồi gửi chuỗi đã thành hình xuống
@@ -97,13 +101,15 @@ def main():
     # theo NGUYÊN VĂN chữ Hán, nên phải nạp sẵn cặp CN→VN vào đây.
     # Nhờ vậy mod vẫn dịch được thoại khi chơi trên server không cài mod.
     out_lines.append("")
-    out_lines.append('local textfix = rawget(_G, "dangtien_viet_textfix")')
-    out_lines.append("if textfix ~= nil then")
+    out_lines.append('local textfix = rawget(_G, "dangtien_viet_textfix") or {}')
     for cn, vn in sorted(vn_map.items()):
         if "\n" in cn:
             continue  # chuỗi nhiều dòng không khớp nguyên văn lúc render
-        out_lines.append(f'    textfix["{lua_escape(cn)}"] = "{lua_escape(vn)}"')
-    out_lines.append("end")
+        body.append(f'textfix["{lua_escape(cn)}"] = "{lua_escape(vn)}"')
+    for i in range(0, len(body), 800):
+        out_lines.append("do local function chunk()")
+        out_lines.extend("    " + l for l in body[i:i + 800])
+        out_lines.append("end chunk() end")
 
     out_lines.append("")
     out_lines.append(

@@ -40,7 +40,7 @@ fi
 # đừng để vào tận trong game mới phát hiện.
 FAILED=0
 while IFS= read -r -d '' f; do
-    luac -p "$f" || { echo "✗ Lỗi cú pháp: $f"; FAILED=1; }
+    luajit -bl "$f" >/dev/null || { echo "✗ Lỗi cú pháp: $f"; FAILED=1; }
 done < <(find "$SRC/scripts" "$SRC/modmain.lua" "$SRC/modinfo.lua" -name "*.lua" -print0)
 [[ $FAILED -eq 1 ]] && { echo "✗ Dừng lại, sửa cú pháp trước đã."; exit 1; }
 
@@ -48,7 +48,7 @@ done < <(find "$SRC/scripts" "$SRC/modmain.lua" "$SRC/modinfo.lua" -name "*.lua"
 mkdir -p "$STAGE"
 rsync -a \
     --exclude '.git' --exclude '.gitignore' --exclude '.claude' \
-    --exclude 'tools' --exclude 'translation_pipeline' \
+    --exclude 'tools' --exclude 'translation_pipeline' --exclude 'build' \
     --exclude '*.txt' --exclude '.DS_Store' \
     "$SRC"/ "$STAGE"/
 

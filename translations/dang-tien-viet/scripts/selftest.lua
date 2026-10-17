@@ -85,9 +85,13 @@ else
     -- Ghi danh sách ĐẦY ĐỦ (phần ngoài thoại) ra persistent string để đọc từ
     -- ngoài container: file nằm trong thư mục persistent_storage_root đã mount.
     -- Đây là kênh đưa dữ liệu từ trong game ra ngoài mà không cần console.
+    -- Thoại của nhân vật ĐÃ dịch xong cũng ghi ra: phần sót ở đó là chuỗi mod
+    -- gốc chèn lúc chạy, không nằm trong file speech nên extractor không thấy.
+    local DA_DICH = { XD_WANGMAZI = true, XD_CHENPINGAN = true, XD_GYFY = true }
     local dump = {}
     for _, entry in ipairs(remaining) do
-        if not entry:find("^STRINGS%.CHARACTERS%.XD_") then dump[#dump + 1] = entry end
+        local char = entry:match("^STRINGS%.CHARACTERS%.(XD_[A-Z0-9_]+)%.")
+        if not char or DA_DICH[char] then dump[#dump + 1] = entry end
     end
     if TheSim ~= nil and TheSim.SetPersistentString ~= nil then
         TheSim:SetPersistentString("dangtien_missing.txt", table.concat(dump, "\n"), false)
@@ -145,3 +149,40 @@ local src_loaded = STRINGS.NAMES ~= nil and STRINGS.NAMES.XD_LINGSHI1 ~= nil
 log("MOD_GỐC_ĐÃ_NẠP: " .. tostring(src_loaded))
 log(src_loaded and (fail == 0 and "KẾT_QUẢ: PASS" or "KẾT_QUẢ: FAIL")
     or "KẾT_QUẢ: KHÔNG_XÁC_ĐỊNH (mod 登仙 chưa nạp)")
+
+-- =========================================================================
+-- 4. Chuỗi Hán trong bảng dữ liệu của mod gốc (không nằm trong STRINGS).
+--    Vd. hiệu ứng cổ trùng trong xd_gyfy_gu_defs.lua — file mã hoá, chỉ đọc
+--    được sau khi game giải mã và nạp. Ghi ra dangtien_moddata.txt.
+-- =========================================================================
+do
+    for _, m in ipairs({ "xd_gyfy_gu_defs", "xd_gyfy_baolian_defs", "xd_gyfy_mengdie" }) do
+        pcall(require, m)
+    end
+    local out, seen = {}, {}
+    local function han(s) return s:find("[\228-\233][\128-\191][\128-\191]") ~= nil end
+    local function scan(t, path, depth)
+        if depth > 7 or seen[t] or t == _G or t == STRINGS then return end
+        seen[t] = true
+        for k, v in pairs(t) do
+            local p = path .. "." .. tostring(k)
+            if type(v) == "string" then
+                if han(v) then out[#out + 1] = p .. " = " .. v:gsub("\n", "\\n") end
+            elseif type(v) == "table" then
+                scan(v, p, depth + 1)
+            end
+        end
+    end
+    local names = {}
+    for name, mod in pairs(package.loaded) do
+        if type(mod) == "table" and (name:find("xd_") or name:find("gyfy")) then
+            names[#names + 1] = name
+        end
+    end
+    table.sort(names)
+    for _, name in ipairs(names) do scan(package.loaded[name], name, 0) end
+    if TheSim ~= nil and TheSim.SetPersistentString ~= nil then
+        TheSim:SetPersistentString("dangtien_moddata.txt", table.concat(out, "\n"), false)
+    end
+    log(string.format("DỮ_LIỆU_MOD: %d module, %d chuỗi Hán → dangtien_moddata.txt", #names, #out))
+end

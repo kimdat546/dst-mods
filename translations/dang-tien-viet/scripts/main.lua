@@ -25,7 +25,16 @@ rawset(_G, "dangtien_viet_textfix_patterns", textfix_patterns)
 -- =========================================================================
 local function set_str(path, value)
     local parts = {}
-    for p in path:gmatch("[^%.]+") do parts[#parts + 1] = p end
+    for p in path:gmatch("[^%.]+") do
+        -- "KEY[0]" do extract_speech.py sinh ra: phần tử mảng, chỉ số đếm từ 0
+        local key, idx = p:match("^(.-)%[(%d+)%]$")
+        if key then
+            parts[#parts + 1] = key
+            parts[#parts + 1] = tonumber(idx) + 1
+        else
+            parts[#parts + 1] = p
+        end
+    end
     if parts[1] == "STRINGS" then table.remove(parts, 1) end
     local tbl = STRINGS
     for i = 1, #parts - 1 do
@@ -236,6 +245,7 @@ mod_env.AddSimPostInit(function()
     modimport("scripts/phase2_strings.lua")
     modimport("scripts/phase3_speech_wangmazi.lua")
     modimport("scripts/phase8_speech_chenpingan.lua")
+    modimport("scripts/phase10_speech_gyfy.lua")
     modimport("scripts/phase4_mod_private.lua")
     modimport("scripts/phase5_book_strings_data.lua")
     modimport("scripts/phase5_book_strings.lua")
@@ -245,6 +255,8 @@ mod_env.AddSimPostInit(function()
     -- phase7: chuỗi chỉ lộ ra khi chạy thật (đăng ký từ file đã mã hóa của
     -- mod gốc), tìm bằng selftest.lua trên dedicated server headless.
     modimport("scripts/phase7_runtime_gaps.lua")
+    -- phase9: nhân vật mới Cổ Nguyệt Phương Nguyên + món ăn của mod gốc v20.0.
+    modimport("scripts/phase9_v20_strings.lua")
 
     if DEBUG_SCANNER then
         modimport("scripts/strings_scanner.lua")
