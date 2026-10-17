@@ -1,0 +1,9 @@
+[
+  {"op": "block", "box": [1041, 721, 1600, 808], "erase": [1036, 724, 1619, 808], "line_h": 34, "pitch": 27.6,
+   "note": "Gemini viết \"Vô Lượng Lưng Kiếp\" → \"Vô Lượng Lượng Kiếp\"; viết lại 3 dòng để không cắt chân/dấu chữ dòng kề",
+   "lines": [
+     [["Lượng Kiếp.", null, "b"]],
+     [["Kích hoạt bằng Linh thạch thượng phẩm: tỉ lệ cao gặp", null, "b"]],
+     [["Sinh Tử Lượng Kiếp, tỉ lệ thấp gặp Vô Lượng Lượng Kiếp.", null, "b"]]
+   ]}
+]

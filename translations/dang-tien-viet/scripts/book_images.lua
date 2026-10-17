@@ -13,6 +13,18 @@ local PAGES = {
     "xd_info_dy_5",    -- trang 9-10: Vạn Vật Thăng Cách, Hóa Thần kỳ
     "xd_info_dy_7",    -- trang 13-14: đan dược theo phẩm
     "xd_info_dy_8",    -- trang 15-16: đan dược theo phẩm, Phản Hư kỳ
+    "xd_info_lb_1", -- Linh Bảo trang 1-2
+    "xd_info_lb_2", -- Linh Bảo trang 3-4
+    "xd_info_lb_3", -- Linh Bảo trang 5-6
+    "xd_info_lb_4", -- Linh Bảo trang 7-8
+    "xd_info_lb_5", -- Linh Bảo trang 9-10
+    "xd_info_lb_6", -- Linh Bảo trang 11-12
+    "xd_info_lb_7", -- Linh Bảo trang 13-14
+    "xd_info_xy_1", -- Nhàn Vân Dã Hạc trang 1-2
+    "xd_info_xy_2", -- Nhàn Vân Dã Hạc trang 3-4
+    "xd_info_xy_3", -- Nhàn Vân Dã Hạc trang 5-6
+    "xd_info_xy_4", -- Nhàn Vân Dã Hạc trang 7-8
+    "xd_info_xy_5", -- Nhàn Vân Dã Hạc trang 9-10
     "xd_info_ys_21",   -- trang 41-42: Cổ Nguyệt Phương Nguyên
 }
 

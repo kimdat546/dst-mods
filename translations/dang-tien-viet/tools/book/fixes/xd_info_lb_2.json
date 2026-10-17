@@ -1,0 +1,12 @@
+[
+  {"op": "paper", "box": [576, 480, 926, 515], "note": "xoá đoạn khung xám T3 theo dải mỏng (dải cao quá thì màu nền nội suy không lan tới giữa, để lại vệt tối)"},
+  {"op": "paper", "box": [576, 515, 926, 550], "note": "(tiếp)"},
+  {"op": "paper", "box": [576, 550, 926, 584], "note": "(tiếp)"},
+  {"op": "block", "box": [584, 484, 912, 580], "erase": [584, 484, 586, 486], "line_h": 30, "pitch": 31.5,
+   "note": "Gemini viết \"<Chướng Thiên Bình>\" → \"<Chưởng Thiên Bình>\"; viết lại cả 3 dòng trong khung xám để không mất dấu dòng kề",
+   "lines": [
+     "• Thần mộc Côn Lôn mọc lên",
+     "khi dùng <Chưởng Thiên Bình>",
+     "tưới <Rễ Cây Sa Đường>."
+   ]}
+]
