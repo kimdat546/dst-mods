@@ -1,0 +1,14 @@
+[
+  {"op": "paper", "box": [390, 767, 956, 797], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 797, 956, 827], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 827, 956, 857], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 857, 956, 887], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 887, 956, 917], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 917, 956, 947], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 947, 956, 977], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 977, 956, 1007], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 1007, 956, 1037], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [390, 1037, 956, 1054], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "block", "box": [397, 772, 950, 1052], "line_h": 28, "pitch": 25, "note": "Gemini bỏ mất gạch đầu \"Côn Bằng Tiên Đảo có các trạng thái...\" và viết \"Tên Hạc\" thay \"Tiên Hạc\"; viết lại cả khối 4 gạch (xoá trước bằng các dải paper cao ~30px vì paper_patch không phủ nổi vùng lớn — giữa vùng bị đen)", "lines": [[["• Côn Bằng Tiên Đảo có các trạng thái: Bình Tĩnh,", null, "b"]], [["Bực Bội, Bạo Nộ, Xoa Dịu.", null, "b"]], [["• Bực Bội: Tiêm Vũ của Tiên Hạc ở trạng thái tỏa", null, "b"]], [["tán, báo hiệu sắp vào Bạo Nộ.", null, "b"]], [["• Bạo Nộ: chim không còn đậu xuống Côn Bằng", null, "b"]], [["Tiên Đảo, Tiêm Vũ chuyển sang trạng thái vỡ nát,", null, "b"]], [["sinh vật trên đảo bị ma hóa. Tu sĩ mất tinh thần", null, "b"]], [["nhanh liên tục và dễ sinh Tâm Ma hơn.", null, "b"]], [["• Xoa Dịu: Côn Bằng sắp trở lại Bình Tĩnh nên tốc", null, "b"]], [["độ mất tinh thần giảm một nửa. Tiêm Vũ trở về", null, "b"]], [["trạng thái tỏa tán.", null, "b"]]], "erase": [390, 767, 391, 768]},
+  {"op": "orig_art", "box": [1005, 922, 1125, 1082], "note": "Gemini vẽ Hộ Giáp Tà Sát thành bộ giáp đầy đủ, khác hẳn icon gốc (ngọn lửa tím)"}
+]

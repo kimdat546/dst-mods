@@ -26,3 +26,12 @@
    và XEM LẠI ảnh tới khi sạch (không vụn chữ cũ, không mất dấu dòng bên cạnh, cỡ chữ hợp lý).
 4. Lỗi lớn (mất cả đoạn/hàng icon, bố cục lệch hẳn, sai nhiều dòng) → KHÔNG vá; đánh dấu cần chạy
    lại Gemini và thêm vào prompt <trang>.txt một câu dặn cụ thể đúng lỗi đó.
+
+## Thêm (2026-10-17)
+- Watermark ✦ của Gemini (góc dưới phải ảnh Gemini): thường nằm ngoài sách nên tự bị bỏ. Nếu ảnh
+  bị cắt/phóng sát vào trang thì ✦ có thể rơi vào trong trang → xoá bằng op "paper".
+- Ảnh Gemini vẽ sách lệch tỉ lệ / cắt sát: nếu ảnh ghép thấy hai lớp chồng nhau ở mép trang thì căn
+  tay: đo mép giấy (trái/phải ở hàng giữa trang, trên/dưới ở cột trang trái) trên cả ảnh Gemini và
+  build/book/export/<trang>.png, ghi tools/book/align/<trang>.json {kx, ky, ox, oy, note}
+  (kx = rộng giấy gốc / rộng giấy Gemini, ox = mép trái gốc − mép trái Gemini × kx; tương tự y).
+- Số trang bị cắt nửa ở mép ghép → orig_art / move_art số trang gốc (không đè dòng chữ cuối).

@@ -1,0 +1,6 @@
+[
+  {"op": "text", "box": [1082, 933, 1092, 955], "band": [934, 946], "text": [[".", null, "b"]],
+   "note": "Kỹ năng 4: Gemini viết \"chơi, Ma Ngẫu\" → dấu chấm như prompt"},
+  {"op": "text", "box": [1127, 1019, 1363, 1057], "band": [1018, 1050], "text": [["Ma Ngẫu Linh Khoáng", "#45100a", "b"]],
+   "note": "nhãn cạnh golem nhỏ: Gemini viết \"Ma Ngẫn\" → \"Ma Ngẫu\""}
+]

@@ -26,6 +26,17 @@ local PAGES = {
     "xd_info_xy_3", -- Nhàn Vân Dã Hạc trang 5-6
     "xd_info_xy_4", -- Nhàn Vân Dã Hạc trang 7-8
     "xd_info_xy_5", -- Nhàn Vân Dã Hạc trang 9-10
+    "xd_info_ys_1",   -- Dị Thú trang 1-2
+    "xd_info_ys_2",   -- Dị Thú trang 3-4
+    "xd_info_ys_3",   -- Dị Thú trang 5-6
+    "xd_info_ys_4",   -- Dị Thú trang 7-8
+    "xd_info_ys_5",   -- Dị Thú trang 9-10: Tôn Ngộ Không
+    "xd_info_ys_6",   -- Dị Thú trang 11-12
+    "xd_info_ys_7",   -- Dị Thú trang 13-14: Côn Bằng Tiên Đảo, Tử Vân Ma Quân
+    "xd_info_ys_8",   -- Dị Thú trang 15-16
+    "xd_info_ys_9",   -- Dị Thú trang 17-18
+    "xd_info_ys_10",  -- Dị Thú trang 19-20
+    "xd_info_ys_11",  -- Dị Thú trang 21-22: Tinh Vệ
     "xd_info_ys_21",   -- trang 41-42: Cổ Nguyệt Phương Nguyên
 }
 

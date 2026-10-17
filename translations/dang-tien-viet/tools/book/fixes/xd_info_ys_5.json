@@ -1,0 +1,9 @@
+[
+  {"op": "paper", "box": [1222, 443, 1606, 473], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [1222, 473, 1606, 503], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [1222, 503, 1606, 533], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [1222, 533, 1606, 563], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [1222, 563, 1606, 593], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "paper", "box": [1222, 593, 1606, 616], "note": "xoá chữ cũ theo dải, trước khi viết lại block bên dưới"},
+  {"op": "block", "box": [1228, 444, 1602, 616], "line_h": 25, "pitch": 21.4, "note": "ô xám: Gemini làm mất \"hiệu quả. • Mở khóa hết Căn Khí thì\" (ra \"nhận i vòng Kim Cô\"); viết lại 4 gạch đầu dòng (gạch \"Tay không...\" Gemini đã dời vào ô xám, giữ chỗ đó vì dưới ô không còn chỗ) (xoá trước bằng các dải paper cao ~30px vì paper_patch không phủ nổi vùng lớn — giữa vùng bị đen)", "lines": [[["• Giết yêu thú tương ứng để mở khóa Căn", null, "b"]], [["  Khí tương ứng và nhận hiệu quả.", null, "b"]], [["• Mở khóa hết Căn Khí thì vòng Kim Cô", null, "b"]], [["  hiện trạng thái vỡ nát.", null, "b"]], [["• Vũ khí cầm tay không bị đánh rơi.", null, "b"]], [["• Tay không, giữ Alt + chuột phải nhắm vào", null, "b"]], [["  vật phẩm hoặc sinh vật bất kỳ để biến hoá,", null, "b"]], [["  đồng thời có hiệu quả ẩn nấp nhất định.", null, "b"]]], "erase": [1222, 443, 1223, 444]}
+]
