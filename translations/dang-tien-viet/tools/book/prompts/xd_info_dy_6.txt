@@ -34,13 +34,13 @@ LEFT PAGE (11) — 9 blocks, top to bottom
 RIGHT PAGE (12) — 7 blocks, top to bottom
 1) Section title at the top, above the grey box (replaces 灵丹妙药), centered:
    Linh Đan Diệu Dược
-2) Inside the grey box, the bullet line BELOW the two rows of pill icons:
+2) Inside the grey box, the bullet line BELOW the two rows of pill icons. The grey box MUST keep BOTH rows of pill icons exactly as in the original (6 icons on the top row, 5 icons on the bottom row) and keep its original height; do not move any other text into this box:
    • Công thức luyện chế chi tiết và công dụng của đan dược xem ở trang sau.
 3) Next to the pale-purple flowering branch icon:
    • Cành Hái Thuốc Nguyệt Hoa: thu hoạch Linh Thảo từ cự ly ngắn mà không kích hoạt hiệu ứng phụ, đồng thời tăng nhẹ tỉ lệ nhận được hạt.
 4) Next to the green pagoda building icon:
    • Kho Huyền Ngọc Lộ: công trình chuyên chứa Linh Thảo và hạt Linh Thảo. Có chức năng hồi lại độ tươi và không giới hạn số lượng xếp chồng.
-5) Next to the gourd icon:
+5) Next to the small gourd icon (keep the ONE original gourd at its original size and position; do not draw a second gourd):
    • Huyền Thiên Bảo Hồ: hồ lô mang theo người, chuyên để chứa đan dược.
 6) Section title in the middle of the page (replaces 化劫尖芒), centered:
    Mũi Nhọn Hóa Kiếp

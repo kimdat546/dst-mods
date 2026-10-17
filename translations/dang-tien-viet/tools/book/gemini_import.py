@@ -89,6 +89,176 @@ def register(gen, ref):
     return best[1:]
 
 
+# Gemini hay dùng chữ không chân đậm, hẹp ngang. Font gần nhất có đủ dấu tiếng Việt
+# trên máy: Helvetica Neue Condensed Bold; vẽ theo chiều cao dòng rồi NÉN NGANG cho
+# vừa ô (thay vì thu nhỏ cả chữ) để nét chữ vá không mảnh hơn chữ Gemini bên cạnh.
+PATCH_FONT = ('/System/Library/Fonts/HelveticaNeue.ttc', 4)
+
+
+def erase_line(img, paper_big, box, band=None, pad=14):
+    """Xoá dòng chữ cũ mà không cắt dấu/chân chữ của dòng trên-dưới: tách các mảng
+    mực trong vùng box (nới pad px), mảng nào có tâm nằm trong box thì thuộc dòng
+    cũ → thay bằng giấy; mảng của dòng bên cạnh giữ nguyên."""
+    x0, y0, x1, y1 = box
+    band = band or (y0, y1)      # mảng có tâm trong dải này mới bị xoá (chỉnh khi dòng sát nhau)
+    Y0, Y1 = max(0, y0 - pad), min(img.height, y1 + pad)
+    reg = np.asarray(img.crop((x0, Y0, x1, Y1))).astype(int)
+    ink = reg.mean(-1) < 120
+    h, w = ink.shape
+    seen = np.zeros_like(ink)
+    kill = np.zeros_like(ink)
+    for sy, sx in zip(*np.nonzero(ink)):
+        if seen[sy, sx]:
+            continue
+        stack, comp = [(sy, sx)], []
+        seen[sy, sx] = True
+        while stack:
+            y, x = stack.pop()
+            comp.append((y, x))
+            for dy in (-1, 0, 1):
+                for dx in (-1, 0, 1):
+                    yy, xx = y + dy, x + dx
+                    if 0 <= yy < h and 0 <= xx < w and ink[yy, xx] and not seen[yy, xx]:
+                        seen[yy, xx] = True
+                        stack.append((yy, xx))
+        cy = sum(c[0] for c in comp) / len(comp) + Y0
+        top = min(c[0] for c in comp) + Y0
+        # thuộc dòng cũ: tâm nằm trong dải, HOẶC chữ có đuôi (y, g, p) — đỉnh trong dải,
+        # tâm lệch xuống. Dấu thanh của dòng dưới có đỉnh nằm dưới dải → giữ.
+        if band[0] <= cy <= band[1] or (band[0] <= top <= band[1] - 6 and cy > band[1]):
+            for y, x in comp:
+                kill[y, x] = True
+    # nới mask 2px để ăn hết viền mờ của chữ cũ, nhưng KHÔNG đè lên mực của dòng giữ lại
+    grow = np.asarray(Image.fromarray((kill * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(5))) > 0
+    m = Image.fromarray(((grow & ~(ink & ~kill)) * 255).astype(np.uint8))
+    img.paste(paper_big.crop((x0, Y0, x1, Y1)), (x0, Y0), m)
+
+
+def draw_line(img, box, text, color):
+    """Viết một dòng vừa khít box. text là chuỗi, hoặc list [[đoạn, màu|None], ...]
+    để tô màu riêng từng đoạn (None = color). Vẽ theo chiều cao dòng rồi nén ngang
+    cho vừa ô, để nét chữ không mảnh hơn chữ Gemini xung quanh."""
+    from PIL import ImageDraw, ImageFont
+    spans = [[text, None]] if isinstance(text, str) else text
+    x0, y0, x1, y1 = box
+    h = y1 - y0
+    f = ImageFont.truetype(PATCH_FONT[0], int(h * 0.92), index=PATCH_FONT[1])
+    full = ''.join(t for t, _ in spans)
+    l, t, r, b = f.getbbox(full)
+    tw, th = int(f.getlength(full)) + 4, b - t + 4
+    layer = Image.new('RGBA', (tw, th), (0, 0, 0, 0))
+    d = ImageDraw.Draw(layer)
+    x = 2
+    for seg, c in spans:
+        d.text((x, 2 - t), seg, font=f, fill=c or color)
+        x += f.getlength(seg)
+    k = min(1.0, h / th)
+    nw, nh = max(1, int(tw * k)), max(1, int(th * k))
+    nw = min(nw, x1 - x0)
+    layer = layer.resize((nw, nh), Image.LANCZOS)
+    img.paste(layer.convert('RGB'), (x0, y0 + (h - nh) // 2), layer.split()[3])
+
+
+def paper_patch(out, paper_big, box, ring=10):
+    """Miếng giấy để vá: lấy MÀU/ĐỘ SÁNG từ giấy Gemini xung quanh (nội suy mượt
+    từ viền vào trong) + VÂN giấy từ giấy gốc (phần chi tiết cao tần). Vá thẳng giấy
+    gốc thì lộ ô vuông vì Gemini vẽ giấy ấm/mịn khác bản gốc."""
+    x0, y0, x1, y1 = box
+    X0, Y0 = max(0, x0 - ring), max(0, y0 - ring)
+    X1, Y1 = min(out.width, x1 + ring), min(out.height, y1 + ring)
+    o = np.asarray(out.crop((X0, Y0, X1, Y1))).astype(float)
+    known = np.ones(o.shape[:2], bool)
+    known[y0 - Y0:y1 - Y0, x0 - X0:x1 - X0] = False
+    known &= o.mean(-1) > 110                   # bỏ mực ở viền
+    # nội suy màu nền: lặp làm mờ có trọng số, giữ cố định điểm đã biết
+    base = np.where(known[..., None], o, 0.0)
+    acc, aw = base.copy(), known.astype(float)
+    for _ in range(40):
+        acc = _blur(acc)
+        aw = _blur(aw[..., None])[..., 0]
+        acc = np.where(known[..., None], base, acc)
+        aw = np.where(known, 1.0, aw)
+    fill = _blur(acc / np.maximum(aw[..., None], 1e-3), 6)
+    pg = np.asarray(paper_big.crop((X0, Y0, X1, Y1))).astype(float)
+    grain = pg - _blur(_blur(pg))
+    res = np.clip(fill + grain, 0, 255).astype(np.uint8)
+    return Image.fromarray(res[y0 - Y0:y1 - Y0, x0 - X0:x1 - X0])
+
+
+def _blur(a, r=3):
+    """Làm mờ hộp (float, giữ kênh)."""
+    k = 2 * r + 1
+    pad = np.pad(a, ((r, r), (r, r), (0, 0)), mode='edge')
+    c = pad.cumsum(0).cumsum(1)
+    c = np.pad(c, ((1, 0), (1, 0), (0, 0)))
+    return (c[k:, k:] - c[:-k, k:] - c[k:, :-k] + c[:-k, :-k]) / (k * k)
+
+
+def apply_fixes(name, out):
+    """Sửa tay theo từng trang, khai ở fixes/<trang>.json (toạ độ ảnh xuất 2048x1300):
+      {"op": "paper",    "box": [x0,y0,x1,y1], "note": "..."}  phủ nền giấy gốc (xoá thứ Gemini vẽ thêm)
+      {"op": "orig_art", "box": [x0,y0,x1,y1], "note": "..."}  phủ giấy rồi dán lại hình GỐC theo đúng
+                                                               đường viền của nó (icon bị Gemini vẽ lại)
+      {"op": "move_art", "box": [...], "to": [x, y]}           dán hình GỐC ở box sang chỗ khác
+      {"op": "text", "box": [...], "text": "...", "band": [ytop, ybot], "keep": [[box]...]}
+                                                               xoá rồi viết lại MỘT dòng chữ
+                                                               (Gemini viết sai/cụt chữ); cỡ chữ tự co cho vừa box
+    Box của orig_art không được chứa chữ Hán gốc — chỉ khoanh quanh icon."""
+    import json
+    f = os.path.join(HERE, 'fixes', name + '.json')
+    if not os.path.exists(f):
+        return out
+    W, H = out.size
+    paper = page_io.load('xd_info_0')
+    page = page_io.load(name)
+    paper_big = Image.alpha_composite(Image.new('RGBA', paper.size, (0, 0, 0, 255)), paper) \
+        .crop(page_io.CROP).resize((W, H), Image.LANCZOS).convert('RGB')
+    orig_big = Image.alpha_composite(Image.new('RGBA', paper.size, (0, 0, 0, 255)),
+                                     Image.alpha_composite(paper, page)) \
+        .crop(page_io.CROP).resize((W, H), Image.LANCZOS).convert('RGB')
+    art = page.split()[3].crop(page_io.CROP).resize((W, H), Image.LANCZOS) \
+        .point(lambda v: 255 if v > 20 else 0).filter(ImageFilter.MaxFilter(3))
+    out = out.copy()
+    for fx in json.load(open(f, encoding='utf-8')):
+        box = tuple(fx['box'])
+        if fx['op'] == 'block':
+            # cả một đoạn Gemini viết hỏng nhiều chỗ: phủ giấy cả khối rồi viết lại từng dòng
+            eb = tuple(fx.get('erase', box))     # vùng xoá có thể rộng hơn vùng viết
+            out.paste(paper_patch(out, paper_big, eb), eb[:2])
+            x0, y0, x1, _ = box
+            lh, gap = fx['line_h'], fx.get('pitch', fx['line_h'])
+            for i, ln in enumerate(fx['lines']):
+                draw_line(out, (x0, int(y0 + i * gap), x1, int(y0 + i * gap) + lh), ln, fx.get('color', '#1c1812'))
+            print(f"  sửa block {box}: {fx.get('note', '')}")
+            continue
+        if fx['op'] == 'text':
+            before = out.copy()
+            erase_line(out, paper_big, box, fx.get('band'))
+            for kb in fx.get('keep', []):        # trả lại mực bị xoá oan (dấu của dòng bên cạnh)
+                kb = tuple(kb)
+                out.paste(before.crop(kb), kb[:2])
+            draw_line(out, box, fx['text'], fx.get('color', '#1c1812'))
+            print(f"  sửa text {box}: {fx.get('note', '')}")
+            continue
+        if fx['op'] == 'move_art':
+            # dán hình GỐC ở box sang vị trí "to" (Gemini dời chỗ icon / vẽ thêm bản sao)
+            tx, ty = fx['to']
+            # chỉ lấy điểm khác hẳn màu giấy (bản thân icon); lớp trang gốc có nền
+            # giấy đục quanh icon, dán cả nền đó sẽ lộ thành ô sáng màu
+            o = np.asarray(orig_big.crop(box)).astype(int)
+            pp = np.asarray(paper_big.crop(box)).astype(int)
+            m = Image.fromarray(((np.abs(o - pp).sum(-1) > 60) * 255).astype(np.uint8)) \
+                .filter(ImageFilter.MaxFilter(3)).filter(ImageFilter.GaussianBlur(0.8))
+            out.paste(orig_big.crop(box), (tx, ty), m)
+            print(f"  sửa move_art {box} → {tx},{ty}: {fx.get('note', '')}")
+            continue
+        out.paste(paper_patch(out, paper_big, box), box[:2])
+        if fx['op'] == 'orig_art':
+            out.paste(orig_big.crop(box), box[:2], art.crop(box))
+        print(f"  sửa {fx['op']} {box}: {fx.get('note', '')}")
+    return out
+
+
 def main(name, gen_path):
     ref_path = os.path.join(page_io.EXPORT, name + '.png')
     if not os.path.exists(ref_path):
@@ -107,6 +277,7 @@ def main(name, gen_path):
         d.rectangle(box, fill=255)
     mask = mask.filter(ImageFilter.GaussianBlur(3))
     out = Image.composite(placed, ref, mask)
+    out = apply_fixes(name, out)
     os.makedirs(os.path.dirname(ref_path), exist_ok=True)
     check = os.path.join(os.path.dirname(page_io.EXPORT), name + '_gemini_check.png')
     out.save(check)

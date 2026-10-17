@@ -1,0 +1,53 @@
+[
+  {
+    "op": "block",
+    "box": [
+      1356,
+      652,
+      1612,
+      962
+    ],
+    "line_h": 30,
+    "pitch": 32.4,
+    "note": "viết lại cả cột chữ cạnh kiếm: Gemini bỏ sót \"ứng\", sửa riêng một dòng thì dấu thanh dính dòng kề bị xoá theo",
+    "lines": [
+      [
+        [
+          "Khi kích hoạt ",
+          null
+        ],
+        [
+          "Tiên Kiếm",
+          "#f3e6a2"
+        ],
+        [
+          " hoặc",
+          null
+        ]
+      ],
+      "Ma Kiếm, kiếm sẽ đánh phối",
+      "hợp theo số lần tấn công của",
+      "người chơi. Khi bấm phím <X>,",
+      "có thể thi triển kỹ năng tương ứng.",
+      [
+        [
+          "Tiên Kiếm",
+          "#f3e6a2"
+        ],
+        [
+          " thi triển kỹ năng 3",
+          null
+        ]
+      ],
+      "lần, sau đó bấm lần nữa để thi",
+      "triển thần thông cuối cùng.",
+      "Ma Kiếm thì là 2 lần."
+    ],
+    "erase": [
+      1354,
+      650,
+      1632,
+      964
+    ]
+  }
+]

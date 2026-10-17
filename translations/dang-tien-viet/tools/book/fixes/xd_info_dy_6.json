@@ -1,0 +1,69 @@
+[
+  {
+    "op": "paper",
+    "box": [
+      1028,
+      700,
+      1118,
+      802
+    ],
+    "note": "bỏ hồ lô Gemini tự vẽ thêm (to, khác hình gốc)"
+  },
+  {
+    "op": "paper",
+    "box": [
+      986,
+      786,
+      1038,
+      886
+    ],
+    "note": "bỏ hồ lô gốc ở chỗ cũ (lệch xuống dòng Mũi Nhọn Hóa Kiếp)"
+  },
+  {
+    "op": "move_art",
+    "box": [
+      986,
+      786,
+      1038,
+      886
+    ],
+    "to": [
+      1034,
+      710
+    ],
+    "note": "đặt hồ lô GỐC cạnh dòng Huyền Thiên Bảo Hồ"
+  },
+  {
+    "op": "paper",
+    "box": [
+      1236,
+      846,
+      1404,
+      884
+    ],
+    "note": "bỏ chữ Hán 化劫尖芒 Gemini để sót dưới tiêu đề"
+  },
+  {
+    "op": "block",
+    "box": [
+      443,
+      783,
+      942,
+      864
+    ],
+    "erase": [
+      438,
+      783,
+      950,
+      866
+    ],
+    "line_h": 29,
+    "pitch": 26,
+    "note": "viết lại mục Sương Hàn Thảo: Gemini lặp chữ \"trực tiếp:lục tiếp\"",
+    "lines": [
+      "• Sương Hàn Thảo: chỉ mọc vào mùa đông, hái sẽ",
+      "khiến người chơi bị tích một phần độ đóng băng, ăn",
+      "trực tiếp sẽ giảm thân nhiệt 10 độ."
+    ]
+  }
+]

@@ -9,6 +9,8 @@ local PAGES = {
     "xd_info_dy_1",    -- trang 1-2: bìa, lời tựa
     "xd_info_dy_2",    -- trang 3-4: Luyện Khí kỳ
     "xd_info_dy_3",    -- trang 5-6: Trúc Cơ kỳ
+    "xd_info_dy_4",    -- trang 7-8: Kết Đan kỳ, Nguyên Anh kỳ
+    "xd_info_dy_5",    -- trang 9-10: Vạn Vật Thăng Cách, Hóa Thần kỳ
     "xd_info_ys_21",   -- trang 41-42: Cổ Nguyệt Phương Nguyên
 }
 
