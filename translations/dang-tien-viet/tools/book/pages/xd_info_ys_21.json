@@ -1,0 +1,102 @@
+{
+  "src": "xd_info_ys_21",
+  "note": "Trang 41-42: Cổ Nguyệt Phương Nguyên (mod gốc v20.0). Toạ độ theo ảnh 1024; render_page.py tự nhân đôi.",
+  "boxes": [
+    {
+      "erase": [199, 205, 219, 440],
+      "erase_only": true, "mode": "all",
+      "note": "cột dọc 逆命残躯：降低血量时增加防御 — gộp vào danh sách bên dưới"
+    },
+    {
+      "erase": [234, 212, 250, 232],
+      "erase_only": true, "drop_large": false,
+      "note": "đầu chữ 食 dính vào viền trên của khung"
+    },
+    {
+      "erase": [228, 353, 243, 389],
+      "erase_only": true, "drop_large": false,
+      "note": "减少 nằm sát mép tóc: ô hẹp dừng trước viền tóc (x=243), tắt lọc mảng lớn vì nét chữ dính vào viền"
+    },
+    {
+      "erase": [225, 205, 322, 353],
+      "draw": [224, 207, 318, 356],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Nghịch Mệnh Tàn Khu:", "#8a1c1c"],
+        [" máu càng thấp, phòng ngự càng cao\nĂn thức ăn không bị mất máu\nTinh thần thấp thì tăng nhẹ sát thương\nTinh thần giảm dần\nBị sinh vật trung lập tấn công", null]
+      ]
+    },
+    {
+      "erase": [262, 466, 372, 502],
+      "draw": [222, 469, 446, 501],
+      "font": "title", "size": 17, "min": 12, "align": "center",
+      "text": "Cổ Nguyệt Phương Nguyên"
+    },
+    {
+      "erase": [238, 506, 476, 558],
+      "draw": [238, 505, 480, 562],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Thiên Nguyên Bảo Hoàng Liên:", "#8a1c1c"],
+        [" lớn lên nhờ nuốt cổ trùng. Mỗi lần lên một bậc, tăng số lượng và giới hạn tài nguyên hoang dã sinh ra xung quanh mỗi 7 ngày.", null]
+      ]
+    },
+    {
+      "erase": [563, 203, 806, 284],
+      "draw": [565, 204, 804, 281],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Tiên Khiếu:", "#8a1c1c"],
+        [" bấm để mở giao diện Tiên Khiếu của nhân vật. Cất cổ trùng vào rồi kích hoạt hiệu quả của chúng tại đây. Mỗi cổ trùng kích hoạt thêm khiến tinh thần giảm nhanh hơn. Xuân Thu Thiền và Chí Tôn Tiên Thai Cổ tự kích hoạt, không thể tháo ra.", null]
+      ]
+    },
+    {
+      "erase": [535, 285, 802, 365],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Mộng Điệp Cổ:", "#6a2c96"],
+        [" sau khi kích hoạt tăng tốc chạy, đói chậm hơn, giảm nhẹ sát thương nhận vào. Không bị thôi miên, quái không chủ động tấn công. Bị đánh hoặc chủ động tấn công sẽ mất trạng thái này và phải chờ hồi chiêu.", null]
+      ]
+    },
+    {
+      "erase": [535, 366, 802, 397],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Vô Túc Điểu:", "#8a1c1c"],
+        [" cổ tiêu hao, giúp nhân vật bay vọt một đoạn.", null]
+      ]
+    },
+    {
+      "erase": [535, 399, 802, 428],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Tiêu Lôi Đậu Mẫu Cổ:", "#8a1c1c"],
+        [" đặt xuống đất, sinh vật lại gần sẽ phát nổ gây sát thương.", null]
+      ]
+    },
+    {
+      "erase": [535, 430, 806, 449],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Định Tiên Du:", "#8a1c1c"],
+        [" ngao du tới một số nơi đã từng đến.", null]
+      ]
+    },
+    {
+      "erase": [538, 450, 802, 499],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Canh lá Sinh Cơ:", "#a8332a"],
+        [" nấu với ít nhất 1 cỏ Sinh Cơ + rau. Hồi 25 no, 40 máu, 5 tinh thần. Trong 1 ngày sau khi ăn, sát thương nhận vào giảm nhẹ.", null]
+      ]
+    },
+    {
+      "erase": [538, 502, 806, 566],
+      "size": 13, "min": 10,
+      "spans": [
+        ["Bánh Cửu Diệp Sinh Cơ:", "#a8332a"],
+        [" nấu với ít nhất 2 cỏ Sinh Cơ + 1 mật ong + 1 phụ liệu (không thịt, rau, trứng). Hồi 20 no, 60 máu, 10 tinh thần. Trong 1 ngày sau khi ăn, miễn nhiễm đóng băng và bốc cháy.", null]
+      ]
+    }
+  ]
+}
