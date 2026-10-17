@@ -14,7 +14,7 @@
 | Trái, khối 2 tam phẩm | 三品：赤阳花x4、火龙果x6、怪物肉x6、凤髓x1 | Tam phẩm: Xích Dương Hoa x4, Thanh long x6, Thịt quái vật x6, Tủy Phượng x1 |
 | Trái, khối 2 nhị phẩm | 二品：赤阳花x8、火龙果x8、怪物肉x8、凤髓x2 | Nhị phẩm: Xích Dương Hoa x8, Thanh long x8, Thịt quái vật x8, Tủy Phượng x2 |
 | Trái, khối 2 nhất phẩm (2 dòng) | 一品：赤阳花x16、火龙果x12、涅槃血髓竹x2、凤髓x4 | Nhất phẩm: Xích Dương Hoa x16, Thanh long x12, Niết Bàn Huyết Tủy Trúc x2, Tủy Phượng x4 |
-| Trái, khối 3 tiêu đề | 寒髓辟火丹：使修士不会过热，炼制如下 | Hàn Tủy Tỵ Hỏa Đan: giúp tu sĩ không bị quá nóng. Luyện chế như sau |
+| Trái, khối 3 tiêu đề | 寒髓辟火丹：使修士不会过热，炼制如下 | Hàn Tủy Tịch Hỏa Đan: giúp tu sĩ không bị quá nóng. Luyện chế như sau |
 | Trái, khối 3 ngũ phẩm | 五品：霜寒草x1、西瓜x2、冰x2、蓝宝石x1 | Ngũ phẩm: Sương Hàn Thảo x1, Dưa hấu x2, Băng đá x2, Ngọc Lam x1 |
 | Trái, khối 3 tứ phẩm | 四品：霜寒草x2、西瓜x4、冰x4、蓝宝石x1 | Tứ phẩm: Sương Hàn Thảo x2, Dưa hấu x4, Băng đá x4, Ngọc Lam x1 |
 | Trái, khối 3 tam phẩm | 三品：霜寒草x4、西瓜x6、冰x6、巨鹿眼球x1 | Tam phẩm: Sương Hàn Thảo x4, Dưa hấu x6, Băng đá x6, Mắt Deerclops x1 |
@@ -26,7 +26,7 @@
 | Phải, cạnh Ngọc Lam | 百劫魔身：召唤后持续480秒，冷却960秒。当玩家使用魔剑技能时也会进行协同攻击。 | Bách Kiếp Ma Thân: duy trì 480 giây sau khi triệu hồi, hồi chiêu 960 giây. Khi người chơi dùng kỹ năng Ma Kiếm, nó cũng cùng tấn công. |
 | Phải, cạnh mặt trời vàng (nhãn vàng nhạt) | 昊天上帝法身：触发后持续120秒，内置冷却240秒。当玩家触发功德金身，或使用仙剑技能时会进行协同攻击。 | Pháp Thân Hạo Thiên Thượng Đế: duy trì 120 giây sau khi kích hoạt, hồi chiêu nội tại 240 giây. Khi người chơi kích hoạt Công Đức Kim Thân hoặc dùng kỹ năng Tiên Kiếm, nó sẽ cùng tấn công. |
 | Phải, cạnh đan xoáy tím | 扣虚丹：化神后期 → 返虚前期 / 炼制公式：涅槃血髓竹*1、上品灵石*1、二品血饕餮元丹*1、二品磐石护身丹*1 | Khấu Hư Đan: Hóa Thần hậu kỳ → Phản Hư sơ kỳ / Công thức: Niết Bàn Huyết Tủy Trúc*1, Linh thạch thượng phẩm*1, Nhị Phẩm Huyết Thao Thiết Nguyên Đan*1, Nhị Phẩm Bàn Thạch Hộ Thân Đan*1 |
-| Phải, khối huyết đan tiêu đề | 血饕餮元丹：一定时间攻击吸血。炼制如下 | Huyết Đào Thiết Nguyên Đan: hút máu khi tấn công trong một thời gian. Luyện chế như sau |
+| Phải, khối huyết đan tiêu đề | 血饕餮元丹：一定时间攻击吸血。炼制如下 | Huyết Thao Thiết Nguyên Đan: hút máu khi tấn công trong một thời gian. Luyện chế như sau |
 | Phải, ngũ phẩm | 五品：幽魂花x1、番茄x2、蝙蝠翅膀x1、蚊子血囊x1 | Ngũ phẩm: U Hồn Hoa x1, Cà Chua x2, Cánh dơi x1, Túi Máu Muỗi x1 |
 | Phải, tứ phẩm | 四品：幽魂花x2、番茄x4、蝙蝠翅膀x2、紫宝石x1 | Tứ phẩm: U Hồn Hoa x2, Cà Chua x4, Cánh dơi x2, Ngọc Tím x1 |
 | Phải, tam phẩm | 三品：幽魂花x4、番茄x6、蝙蝠翅膀x3、紫姹魔羽x1 | Tam phẩm: U Hồn Hoa x4, Cà Chua x6, Cánh dơi x3, Ma Vũ Tử Xá x1 |
@@ -38,7 +38,7 @@
 ## Ghi chú
 - 扣虚丹: trên ảnh rõ là chữ 扣, glossary chỉ có 叩虚丹 = Khấu Hư Đan (cùng âm "khấu") → dùng "Khấu Hư Đan".
 - 返虚期: glossary có 反虚 = Phản Hư → "Phản Hư kỳ".
-- 千机巧手丹 → "Thiên Cơ Xảo Thủ Đan", 寒髓辟火丹 → "Hàn Tủy Tỵ Hỏa Đan", 血饕餮元丹 → "Huyết Đào Thiết Nguyên Đan" (lấy từ các mục "X phẩm ..." trong glossary).
+- 千机巧手丹 → "Thiên Cơ Xảo Thủ Đan", 寒髓辟火丹 → "Hàn Tủy Tịch Hỏa Đan", 血饕餮元丹 → "Huyết Thao Thiết Nguyên Đan" (lấy từ các mục "X phẩm ..." trong glossary).
 - 过热 dịch "quá nóng" (overheat DST).
 - 内置冷却 = hồi chiêu nội tại.
 - Câu 功德金身则会在触发金身协同攻击召唤昊天上帝法身 hơi lủng củng trong gốc; hiểu là: khi Kim Thân phát động đòn đánh phối hợp thì triệu hồi Pháp Thân Hạo Thiên Thượng Đế. Không chắc 100%.

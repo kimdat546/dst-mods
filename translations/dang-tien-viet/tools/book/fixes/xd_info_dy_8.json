@@ -1,0 +1,11 @@
+[
+  {"op": "text", "box": [345, 862, 880, 894], "band": [864, 892],
+   "text": [["• Hàn Tủy Tịch Hỏa Đan:", null, "b"], [" giúp tu sĩ không bị quá nóng. Luyện chế", null]],
+   "note": "tên trong game là Tịch Hỏa (Gemini theo prompt cũ ghi Tỵ Hỏa)"},
+  {"op": "text", "box": [345, 1035, 975, 1063], "band": [1037, 1060],
+   "text": [["Nhất phẩm:", null, "b"], [" Sương Hàn Thảo x16, Dưa hấu x12, Niết Bàn Huyết Tủy Trúc x2, Mắt Deerclops x3", null]],
+   "note": "Gemini cụt dòng sau chữ \"Mắt\""},
+  {"op": "text", "box": [1055, 866, 1610, 900], "band": [868, 898],
+   "text": [["Huyết Thao Thiết Nguyên Đan:", null, "b"], [" hút máu khi tấn công trong một", null]],
+   "note": "tên trong game là Huyết Thao Thiết"}
+]

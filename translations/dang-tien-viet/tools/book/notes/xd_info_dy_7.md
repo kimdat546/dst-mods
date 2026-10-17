@@ -21,7 +21,7 @@
 | Trái, khối 4 tam phẩm | 三品：地脉参x4、蜘蛛腺x6、犁地草x6、蜂王浆x3 | Tam phẩm: Địa Mạch Sâm x4, Hạch nhện x6, Cỏ Thìa Lìa x6, Sữa Ong Chúa x3 |
 | Trái, khối 4 nhị phẩm | 二品：地脉参x8、蜘蛛腺x8、曼德拉草x1、蜂王浆x6 | Nhị phẩm: Địa Mạch Sâm x8, Hạch nhện x8, Nhân Sâm x1, Sữa Ong Chúa x6 |
 | Trái, khối 4 nhất phẩm | 一品：地脉参x16、涅槃血髓竹x2、曼德拉草x1、蜂王浆x12 | Nhất phẩm: Địa Mạch Sâm x16, Niết Bàn Huyết Tủy Trúc x2, Nhân Sâm x1, Sữa Ong Chúa x12 |
-| Phải, khối 1 tiêu đề | 清心涤魂丹：一定时间内回复精神。炼制如下 | Thanh Tâm Tẩy Hồn Đan: hồi tinh thần trong một thời gian. Luyện chế như sau |
+| Phải, khối 1 tiêu đề | 清心涤魂丹：一定时间内回复精神。炼制如下 | Thanh Tâm Địch Hồn Đan: hồi tinh thần trong một thời gian. Luyện chế như sau |
 | Phải, khối 1 ngũ phẩm | 五品：幽魂花x1、噩梦燃料x5、绿蘑菇x2、蓝蘑菇x2 | Ngũ phẩm: U Hồn Hoa x1, Nhiên liệu Ác Mộng x5, Nấm Lục x2, Nấm Lam x2 |
 | Phải, khối 1 tứ phẩm | 四品：幽魂花x2、噩梦燃料x10、绿蘑菇x4、蘑菇蛋糕x2 | Tứ phẩm: U Hồn Hoa x2, Nhiên liệu Ác Mộng x10, Nấm Lục x4, Bánh Kem Nấm x2 |
 | Phải, khối 1 tam phẩm | 三品：幽魂花x4、噩梦燃料x20、绿蘑菇x6、纯粹辉煌x1 | Tam phẩm: U Hồn Hoa x4, Nhiên liệu Ác Mộng x20, Nấm Lục x6, Quang Thạch Tinh Khiết x1 |
@@ -43,7 +43,7 @@
 
 ## Ghi chú
 - Trang rất dày: mỗi hàng công thức đã kín bề ngang, bản Việt dài hơn → nhắc Gemini thu nhỏ chữ, giữ 1 hàng/1 dòng. Kiểm kỹ khi nhận ảnh xem có rớt hàng hay cắt chữ không.
-- Tên đan theo glossary (bản không kèm phẩm): Đan Phủ Tinh Tôi, Xích Dương Phần Huyết Đan, Lôi Minh Sát Khí Đan, Địa Mạch Hồi Sinh Đan, Thanh Tâm Tẩy Hồn Đan, Bàn Thạch Hộ Thân Đan, Ngự Phong Thần Hành Đan. Phẩm: 五/四/三/二/一品 = Ngũ/Tứ/Tam/Nhị/Nhất phẩm (glossary dùng dạng "Nhất phẩm ...").
+- Tên đan theo glossary (bản không kèm phẩm): Đan Phủ Tinh Tôi, Xích Dương Phần Huyết Đan, Lôi Minh Sát Khí Đan, Địa Mạch Hồi Sinh Đan, Thanh Tâm Địch Hồn Đan, Bàn Thạch Hộ Thân Đan, Ngự Phong Thần Hành Đan. Phẩm: 五/四/三/二/一品 = Ngũ/Tứ/Tam/Nhị/Nhất phẩm (glossary dùng dạng "Nhất phẩm ...").
 - 5品升4品 viết bằng số → "Phẩm 5 lên phẩm 4" (giữ số như gốc).
 - 魔将钳骨 không có trong glossary → tự đặt "Ma Tướng Kiềm Cốt" (theo 魔怪钳骨 = Xương Càng Ma Quái, 魔将 = Ma Tướng).
 - 位面伤害 = "sát thương vị diện" (khớp DST Tiếng Việt: PLANAR DAMAGE).

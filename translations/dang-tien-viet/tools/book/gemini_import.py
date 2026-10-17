@@ -58,6 +58,30 @@ def _ncc_all(r, t):
     return float(n[i]), int(i[1]), int(i[0])
 
 
+def register_by_paper(gen, ref):
+    """Căn theo MÉP GIẤY của cuốn sách (trái/phải ở hàng giữa trang, trên/dưới ở cột
+    trang trái). Dùng khi Gemini phóng to + cắt sát quanh sách và kéo méo hai chiều
+    khác nhau — tương quan cạnh khi đó cho điểm thấp, dễ khớp nhầm."""
+    g = np.asarray(gen.convert('L')).astype(int)
+    r = np.asarray(ref.convert('L')).astype(int)
+
+    def span(a, axis):
+        prof = (a > 110).mean(axis=axis)
+        idx = np.nonzero(prof > 0.6)[0]
+        return int(idx.min()), int(idx.max())
+    rx = span(r[450:550], 0)
+    ry = span(r[:, 500:600], 1)
+    gh, gw = g.shape
+    gx = span(g[int(gh * 0.2):int(gh * 0.26)], 0)
+    gy = span(g[:, int(gw * 0.2):int(gw * 0.23)], 1)
+    kx = (rx[1] - rx[0]) / (gx[1] - gx[0])
+    ky = (ry[1] - ry[0]) / (gy[1] - gy[0])
+    ox = round(rx[0] - gx[0] * kx)
+    oy = round(ry[0] - gy[0] * ky)
+    print(f'  khớp theo mép giấy: tỉ lệ {kx:.3f} x {ky:.3f}, lệch ({ox}, {oy})')
+    return kx, ky, ox, oy
+
+
 def register(gen, ref):
     """Trả (kx, ky, ox, oy): resize gen theo kx, ky rồi đặt tại (ox, oy) trên ref."""
     gen, ref = gen.convert('L'), ref.convert('L')
@@ -65,7 +89,8 @@ def register(gen, ref):
     D = 4
     r = _masked_ref(ref, D)
     best = (-1,)
-    for k in np.arange(0.40, 1.001, 0.01):
+    # Gemini có lúc phóng to (cắt bớt quanh sách) → tỉ lệ thu nhỏ có thể tới ~0.3
+    for k in np.arange(0.30, 1.001, 0.01):
         w, h = int(gen.width * k / D), int(gen.height * k / D)
         if w > r.shape[1] or h > r.shape[0]:
             continue
@@ -86,6 +111,9 @@ def register(gen, ref):
             if sc > best[0]:
                 best = (sc, float(kx), float(ky), x * D, y * D)
     print(f'  khớp: điểm {best[0]:.3f}, tỉ lệ {best[1]:.3f} x {best[2]:.3f}, lệch ({best[3]}, {best[4]})')
+    if best[0] < 0.15:
+        print('  ⚠ điểm khớp thấp (ảnh Gemini bị phóng/cắt?) → căn theo mép giấy')
+        return register_by_paper(gen, ref)
     return best[1:]
 
 
@@ -93,6 +121,8 @@ def register(gen, ref):
 # trên máy: Helvetica Neue Condensed Bold; vẽ theo chiều cao dòng rồi NÉN NGANG cho
 # vừa ô (thay vì thu nhỏ cả chữ) để nét chữ vá không mảnh hơn chữ Gemini bên cạnh.
 PATCH_FONT = ('/System/Library/Fonts/HelveticaNeue.ttc', 4)
+PATCH_BOLD = ('/System/Library/Fonts/HelveticaNeue.ttc', 9)    # Condensed Black, cho nhãn đậm
+# span: [chữ, màu|None] hoặc [chữ, màu|None, "b"] để in đậm
 
 
 def erase_line(img, paper_big, box, band=None, pad=14):
@@ -143,15 +173,18 @@ def draw_line(img, box, text, color):
     x0, y0, x1, y1 = box
     h = y1 - y0
     f = ImageFont.truetype(PATCH_FONT[0], int(h * 0.92), index=PATCH_FONT[1])
-    full = ''.join(t for t, _ in spans)
+    fb = ImageFont.truetype(PATCH_BOLD[0], int(h * 0.92), index=PATCH_BOLD[1])
+    fonts = [fb if len(sp) > 2 and sp[2] == 'b' else f for sp in spans]
+    full = ''.join(sp[0] for sp in spans)
     l, t, r, b = f.getbbox(full)
-    tw, th = int(f.getlength(full)) + 4, b - t + 4
+    tw = int(sum(fo.getlength(sp[0]) for fo, sp in zip(fonts, spans))) + 4
+    th = b - t + 4
     layer = Image.new('RGBA', (tw, th), (0, 0, 0, 0))
     d = ImageDraw.Draw(layer)
     x = 2
-    for seg, c in spans:
-        d.text((x, 2 - t), seg, font=f, fill=c or color)
-        x += f.getlength(seg)
+    for fo, sp in zip(fonts, spans):
+        d.text((x, 2 - t), sp[0], font=fo, fill=sp[1] or color)
+        x += fo.getlength(sp[0])
     k = min(1.0, h / th)
     nw, nh = max(1, int(tw * k)), max(1, int(th * k))
     nw = min(nw, x1 - x0)

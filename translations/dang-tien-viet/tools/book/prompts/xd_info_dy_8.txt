@@ -27,7 +27,7 @@ LEFT PAGE (15) — 4 blocks, top to bottom
    Nhị phẩm: Xích Dương Hoa x8, Thanh long x8, Thịt quái vật x8, Tủy Phượng x2
    Nhất phẩm: Xích Dương Hoa x16, Thanh long x12, Niết Bàn Huyết Tủy Trúc x2, Tủy Phượng x4
 3) Third block, with the blue frosty-tree pill icon on the right edge (heading + 5 rows):
-   • Hàn Tủy Tỵ Hỏa Đan: giúp tu sĩ không bị quá nóng. Luyện chế như sau
+   • Hàn Tủy Tịch Hỏa Đan: giúp tu sĩ không bị quá nóng. Luyện chế như sau
    Ngũ phẩm: Sương Hàn Thảo x1, Dưa hấu x2, Băng đá x2, Ngọc Lam x1
    Tứ phẩm: Sương Hàn Thảo x2, Dưa hấu x4, Băng đá x4, Ngọc Lam x1
    Tam phẩm: Sương Hàn Thảo x4, Dưa hấu x6, Băng đá x6, Mắt Deerclops x1
@@ -51,7 +51,7 @@ RIGHT PAGE (16) — 7 blocks, top to bottom
    Công thức: Niết Bàn Huyết Tủy Trúc*1, Linh thạch thượng phẩm*1,
    Nhị Phẩm Huyết Thao Thiết Nguyên Đan*1, Nhị Phẩm Bàn Thạch Hộ Thân Đan*1
 6) Heading right of the pink-purple winged pill icon, then 5 rows:
-   Huyết Đào Thiết Nguyên Đan: hút máu khi tấn công trong một thời gian. Luyện chế như sau
+   Huyết Thao Thiết Nguyên Đan: hút máu khi tấn công trong một thời gian. Luyện chế như sau
    Ngũ phẩm: U Hồn Hoa x1, Cà Chua x2, Cánh dơi x1, Túi Máu Muỗi x1
    Tứ phẩm: U Hồn Hoa x2, Cà Chua x4, Cánh dơi x2, Ngọc Tím x1
    Tam phẩm: U Hồn Hoa x4, Cà Chua x6, Cánh dơi x3, Ma Vũ Tử Xá x1
