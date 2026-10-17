@@ -11,33 +11,33 @@ LEFT PAGE (5) — 5 blocks, top to bottom
 1) The small dark label plate under the meditating-figure badge (inside the grey box, left), white text, centered:
    Trúc Cơ kỳ
 2) Inside the grey box, right of the badge, 2 bullet paragraphs:
-   • Khi tu sĩ ở Trúc Cơ kỳ, có thể ngưng luyện thần thức trên <Thần Thức Khôi Lỗi> để tạo ra [light yellow] Thân Ngoại Hoá Thân[black].
+   • Khi tu sĩ ở Trúc Cơ kỳ, có thể ngưng luyện thần thức trên <Khôi Lỗi Thần Thức> để tạo ra [light yellow] Thân Ngoại Hóa Thân[black].
    • Bấm phím <V> để gọi về vật triệu hồi đang được thần thức nhập vào.
 3) The paragraph between the two decorative dividers, below the grey box, 2 notes:
-   *Duy trì Thân Ngoại Hoá Thân cần tiêu hao linh thạch mang trên người tu sĩ.
-   *Thân Ngoại Hoá Thân có thể ăn một số nguyên liệu yêu thú để tăng tu vi.
+   *Duy trì Thân Ngoại Hóa Thân cần tiêu hao linh thạch mang trên người tu sĩ.
+   *Thân Ngoại Hóa Thân có thể ăn một số nguyên liệu yêu thú để tăng tu vi.
 4) Next to the green orb icon, 2 lines:
    Tẩy Tủy Hoàn: Trúc Cơ sơ kỳ → Trúc Cơ trung kỳ
-   Công thức: Quả phát sáng*3, Trái Đèn*10, Vỏ ốc vỡ*3, Hạ Phẩm Linh Thạch*20
+   Công thức: Quả phát sáng*3, Trái Đèn*10, Vỏ ốc vỡ*3, Linh thạch hạ phẩm*20
 5) Next to the blue-purple crystal orb icon (bottom), 2 lines:
-   Hoá Tinh Đan: Trúc Cơ trung kỳ → Trúc Cơ hậu kỳ
-   Công thức: Râu Bóng Tối*3, Tử Bảo Thạch*3, Thulecite*3, Hạ Phẩm Linh Thạch*50
+   Hóa Tinh Đan: Trúc Cơ trung kỳ → Trúc Cơ hậu kỳ
+   Công thức: Râu Bóng Tối*3, Ngọc Tím*3, Thulecite*3, Linh thạch hạ phẩm*50
 
 RIGHT PAGE (6) — 5 blocks, top to bottom
 1) The small white label under the skull-with-golden-hat icon (inside the grey box, left), centered:
    Hoá Thân Khôi Lỗi
 2) Inside the grey box, right of the skull, 2 bullet lines:
-   • Vật nương tựa của [light yellow] Thân Ngoại Hoá Thân[black].
-   • Công thức: Phượng Tủy*1, Cục vàng*7, Hồng Bảo Thạch*1, Hạ Phẩm Linh Thạch*30
+   • Vật nương tựa của [light yellow] Thân Ngoại Hóa Thân[black].
+   • Công thức: Tủy Phượng*1, Cục vàng*7, Ngọc Đỏ*1, Linh thạch hạ phẩm*30
 3) The paragraph between the two decorative dividers, below the grey box, 2 notes:
-   *Thân Ngoại Hoá Thân có thể mặc trang bị để nhận hiệu quả của trang bị.
+   *Thân Ngoại Hóa Thân có thể mặc trang bị để nhận hiệu quả của trang bị.
    *Khi người chơi chọn lại nhân vật, cảnh giới sẽ rơi về Trúc Cơ kỳ.
 4) Next to the blue orb on mountains icon, 2 lines:
    Vân Trung Đan: Trúc Cơ hậu kỳ → Kết Đan sơ kỳ
-   Công thức: Sừng Kỳ Lân*1, Bào tử nấm*10, Đuôi thỏ*5, Trung Phẩm Linh Thạch*2
+   Công thức: Nhung Kỳ Lân*1, Bào tử nấm*10, Đuôi thỏ*5, Linh thạch trung phẩm*2
 5) The 3 note lines at the bottom of the page (no icon):
    *Râu Bóng Tối: rơi ra khi giết <Splumonkey>.
-   *Phượng Tủy: rơi ra khi giết <Kim Phượng Thần Niệm>.
-   *Sừng Kỳ Lân: rơi ra khi giết <Tàn Hồn Kỳ Lân>.
+   *Tủy Phượng: rơi ra khi giết <Thần Niệm Kim Phượng>.
+   *Nhung Kỳ Lân: rơi ra khi giết <Tàn Hồn Kỳ Lân>.
 
 Do not write the color tags like "[light yellow]" in the image — they only tell you the color.

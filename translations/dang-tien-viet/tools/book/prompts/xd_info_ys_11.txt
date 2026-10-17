@@ -15,7 +15,7 @@ LEFT PAGE (21)
 1) Character name, top-left inside the grey frame (replaces 精卫), white with dark outline:
    Tinh Vệ
 2) Left area inside the grey frame, below the name and beside the portrait (replaces the TWO vertical Chinese columns: the column inside the frame next to the portrait AND the column outside the frame on the far left — erase that outer column completely). Write horizontally, one item per line, as a list:
-   Thích ăn bánh thanh long
+   Thích ăn Bánh Thanh Long
    Có thể lấp biển bằng địa bì riêng
    Mở bản đồ có thể bay tới điểm nhìn thấy trên đất liền
 
@@ -23,7 +23,7 @@ RIGHT PAGE (22) — title, grey box, 2 lines, 4 item blocks, top to bottom
 1) Title centered at the very top, above the grey box (replaces 玄鸟伴身):
    Huyền Điểu Tùy Thân
 2) Inside the grey box, 3 bullet points:
-   • Có tùy tùng riêng, mạnh lên theo cảnh giới tu sĩ. Ban đầu có ô đồ giữ tươi mãi, ăn quả phát sáng thì tỏa sáng được.
+   • Có tùy tùng riêng, mạnh lên theo cảnh giới tu sĩ. Ban đầu có ô đồ giữ tươi mãi, ăn Trái Đèn thì tỏa sáng được.
    • Trúc Cơ sơ kỳ: Huyền Điểu đổi hình dạng, mở khoá giữ nhiệt ổn định quanh mình và hồi tinh thần.
    • Kết Đan sơ kỳ: hoá thành hình người, giúp tu sĩ làm việc, thỉnh thoảng cho tu sĩ ăn.
 3) Just below the grey box, above the decorative divider, 2 bullet points:
@@ -33,9 +33,9 @@ RIGHT PAGE (22) — title, grey box, 2 lines, 4 item blocks, top to bottom
    Chế tạo bằng cách trừ 30 máu của Tinh Vệ. Đổi qua lại giữa các loại lông vũ, chế tạo một số vật phẩm hồi sinh và vài vật phẩm riêng.
 5) Next to the green fan/leaf staff icon (caption under it replaces 青出于蓝 → "Thanh Xuất Ư Lam"):
    Khi cầm, bấm chuột phải phóng lốc xoáy. Lốc xoáy thu hoạch, giữ nhiệt ổn định, dập lửa trong phạm vi nhỏ, chuyên phá cây, quặng đá và băng.
-6) Bottom-left, next to the green feathered armor icon (caption under it replaces 翠羽仙踪 → "Thúy Vũ Tiên Tung"):
+6) Bottom-left, next to the green feathered armor icon (caption under it replaces 翠羽仙踪 → "Tung Tích Tiên Lông Biếc"):
    Giữ ấm, chống nước, tăng nhẹ tốc chạy, vá sửa được.
-7) Bottom-right, next to the crossed blowgun icon (caption under it replaces 玄鸟吹箭 → "Huyền Vũ Xuy Tiễn"):
+7) Bottom-right, next to the crossed blowgun icon (caption under it replaces 玄鸟吹箭 → "Ống Phi Tiêu Huyền Vũ"):
    Tấn công mục tiêu và tạo một bóng ảo Huyền Điểu có hiệu ứng khiêu khích.
 
 Do not write the color tags like "[dark red]" in the image — they only tell you the color.

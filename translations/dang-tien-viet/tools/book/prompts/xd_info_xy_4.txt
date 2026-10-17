@@ -19,11 +19,11 @@ LEFT PAGE (7)
    *Mọc trên Côn Bằng Tiên Đảo.
    *Đứng gần Túy Xuân Yên đã trưởng thành sẽ từ từ hồi máu.
 5) Next to the blue crystal ore icon:
-   Mỏ Linh Thạch: sinh ra trên Địa bì Côn Bằng linh mạch.
-   Khai thác ngoài Cục đá và Đá lửa còn rơi thêm Hạ Phẩm Linh Thạch.
+   Mỏ Linh Thạch: sinh ra trên Đất Linh Mạch Côn Bằng.
+   Khai thác ngoài Cục đá và Đá lửa còn rơi thêm Linh thạch hạ phẩm.
 6) Next to the purple crystal ore icon at the bottom:
-   Mỏ Linh Thạch Hiếm: sinh ra trên Địa bì Côn Bằng linh mạch.
-   Khai thác ngoài Cục đá và Đá lửa còn rơi thêm Trung Phẩm Linh Thạch; tỉ lệ xuất hiện khá thấp.
+   Mỏ Linh Thạch Hiếm: sinh ra trên Đất Linh Mạch Côn Bằng.
+   Khai thác ngoài Cục đá và Đá lửa còn rơi thêm Linh thạch trung phẩm; tỉ lệ xuất hiện khá thấp.
 
 RIGHT PAGE (8)
 1) White title inside the grey frame, above the text, right of the crane bird's head (replaces 仙鹤), centered:
@@ -32,15 +32,15 @@ RIGHT PAGE (8)
    • Chỉ xuất hiện trên địa bì của Côn Bằng Tiên Đảo.
    • Giết nó sẽ tăng điểm nghịch ngợm, gấp 6 lần các loài chim khác.
 3) Text between the two divider lines, just below the grey frame:
-   • Không thể bắt; Lông Vũ Mảnh rơi ra dùng để dò trạng thái bạo động của Côn Bằng Tiên Đảo.
+   • Không thể bắt; Tiêm Vũ rơi ra dùng để dò trạng thái bạo động của Côn Bằng Tiên Đảo.
 4) Next to the black-white feather icon (one item per line):
    Tiên Hạc chết có tỉ lệ nhỏ rơi ra.
    Khi ở dạng bình thường: Côn Bằng Tiên Đảo đang ở giai đoạn yên tĩnh.
    Khi ở dạng tỏa ra: Côn Bằng Tiên Đảo đang ở giai đoạn bồn chồn hoặc được xoa dịu.
    Khi ở dạng vỡ vụn: Côn Bằng Tiên Đảo đang ở giai đoạn cuồng nộ.
 5) White label under the feather (replaces 纤羽), centered:
-   Lông Vũ Mảnh
+   Tiêm Vũ
 6) Next to the rainbow ore icon at the bottom:
-   Mỏ Linh Thạch Tuyệt Phẩm: sinh ra trên Địa bì Côn Bằng linh mạch. Khai thác ngoài Cục đá và Đá lửa còn rơi thêm Trung Phẩm Linh Thạch và 1 vật phẩm cơ duyên; tỉ lệ xuất hiện cực thấp.
+   Mỏ Linh Thạch Tuyệt Phẩm: sinh ra trên Đất Linh Mạch Côn Bằng. Khai thác ngoài Cục đá và Đá lửa còn rơi thêm Linh thạch trung phẩm và 1 vật phẩm cơ duyên; tỉ lệ xuất hiện cực thấp.
 7) White label under the rainbow ore (replaces 绝品灵石矿), centered:
    Mỏ Linh Thạch Tuyệt Phẩm

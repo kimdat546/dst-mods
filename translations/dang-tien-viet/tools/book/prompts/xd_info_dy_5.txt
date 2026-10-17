@@ -15,11 +15,11 @@ LEFT PAGE (9) — 5 blocks, top to bottom
 3) The paragraph between the two decorative dividers, below the grey box:
    *Sau khi thế giới thăng cách, một số quái vật thậm chí có Yêu Linh Thánh Thể, trở nên càng khó lường hơn, gây thêm [cyan] sát thương thần thức[black], loại sát thương này có khả năng xuyên giáp.
 4) Next to the orange orb on a stand icon, 2 lines:
-   Hoá Thần Đan: Nguyên Anh hậu kỳ → Hóa Thần sơ kỳ
-   Công thức: Da hổ gấm*1, Kinh Dị Thuần Túy*8, Quang Thạch Tinh Khiết*8, Thượng Phẩm Linh Thạch*1
+   Hóa Thần Đan: Nguyên Anh hậu kỳ → Hóa Thần sơ kỳ
+   Công thức: Da Hổ Gấm*1, Kinh Dị Thuần Túy*8, Quang Thạch Tinh Khiết*8, Linh thạch thượng phẩm*1
 5) Next to the green lotus orb icon (bottom), 2 lines:
    Hồi Nguyên Hoàn: Hóa Thần sơ kỳ → Hóa Thần trung kỳ
-   Công thức: Tà Sát Bộ Túc*1, Đuôi Linh Hồ*3, Lông Vũ Mảnh*2, Thượng Phẩm Linh Thạch*1
+   Công thức: Chân Bước Tà Sát*1, Đuôi Linh Hồ*3, Tiêm Vũ*2, Linh thạch thượng phẩm*1
 
 RIGHT PAGE (10) — 5 blocks, top to bottom
 1) The small dark label plate under the golden meditating-figure badge (inside the grey box, left), white text, centered:
@@ -36,6 +36,6 @@ RIGHT PAGE (10) — 5 blocks, top to bottom
    Khi kích hoạt [light yellow] Tiên Kiếm [black] hoặc [extra-bold black] Ma Kiếm[black], kiếm sẽ đánh phối hợp theo số lần tấn công của người chơi. Khi bấm phím <X>, có thể thi triển kỹ năng tương ứng. [light yellow] Tiên Kiếm [black] thi triển kỹ năng 3 lần, sau đó bấm lần nữa để thi triển thần thông cuối cùng. [extra-bold black] Ma Kiếm [black] thì là 2 lần.
 5) Next to the yin-yang orb icon (bottom), 2 lines:
    Hợp Linh Hoàn: Hóa Thần trung kỳ → Hóa Thần hậu kỳ
-   Công thức: Tử Sát Ma Vũ*1, Ma Quái Kiềm Cốt*1, Tâm Nhĩ Hắc Ám*1, Thượng Phẩm Linh Thạch*1
+   Công thức: Ma Vũ Tử Xá*1, Xương Càng Ma Quái*1, Tâm Nhĩ Hắc Ám*1, Linh thạch thượng phẩm*1
 
 Do not write the color tags like "[light yellow]" in the image — they only tell you the color.

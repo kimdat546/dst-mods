@@ -996,11 +996,11 @@ do local function chunk()
     S(CHAR .. ".DESCRIBE.ORANGEAMULET", "Dịch chuyển tức thời có rất nhiều công dụng.")
     S(CHAR .. ".DESCRIBE.YELLOWSTAFF", "Phát minh thiên tài... gắn đá quý lên đầu gậy.")
     S(CHAR .. ".DESCRIBE.YELLOWGEM", "Viên đá quý này màu vàng.")
-    S(CHAR .. ".DESCRIBE.ORANGEGEM", "Một viên đá quý màu cam.")
+    S(CHAR .. ".DESCRIBE.ORANGEGEM", "Một viên Ngọc Cam.")
     S(CHAR .. ".DESCRIBE.OPALSTAFF", "Khoa học đã chứng minh, đá quý trên đầu gậy trông chói lọi hơn.")
     S(CHAR .. ".DESCRIBE.OPALPRECIOUSGEM", "Viên đá quý này trông rất đặc biệt.")
     S(CHAR .. ".DESCRIBE.TELEBASE.VALID", "Nó đã sẵn sàng.")
-    S(CHAR .. ".DESCRIBE.TELEBASE.GEMS", "Nó cần thêm đá quý tím.")
+    S(CHAR .. ".DESCRIBE.TELEBASE.GEMS", "Nó cần thêm Ngọc Tím.")
     S(CHAR .. ".DESCRIBE.GEMSOCKET.VALID", "Trông đã sẵn sàng.")
     S(CHAR .. ".DESCRIBE.GEMSOCKET.GEMS", "Nó cần thêm một viên đá quý.")
     S(CHAR .. ".DESCRIBE.STAFFLIGHT", "Thứ đó trông vô cùng nguy hiểm.")
@@ -4164,7 +4164,7 @@ do local function chunk()
     textfix["一顶精致礼帽。"] = "Một chiếc mũ chóp cao tinh tế."
     textfix["一项日常的研磨工作。"] = "Một công việc xay nghiền thường ngày."
     textfix["一颗普通的小鸟蛋。"] = "Một quả trứng chim nhỏ bình thường."
-    textfix["一颗橙宝石。"] = "Một viên đá quý màu cam."
+    textfix["一颗橙宝石。"] = "Một viên Ngọc Cam."
     textfix["一颗比例惊人的番茄。"] = "Một quả cà chua to đến kinh ngạc."
     textfix["一颗火辣辣的辣椒。"] = "Một quả ớt cay xè."
     textfix["一颗生萝卜。"] = "Một củ cải sống."
@@ -5072,7 +5072,7 @@ do local function chunk()
     textfix["它还在休眠。"] = "Nó vẫn còn đang ngủ."
     textfix["它还在土里休眠。"] = "Nó vẫn còn ngủ trong đất."
     textfix["它还需要一颗宝石。"] = "Nó cần thêm một viên đá quý."
-    textfix["它还需要更多紫宝石。"] = "Nó cần thêm đá quý tím."
+    textfix["它还需要更多紫宝石。"] = "Nó cần thêm Ngọc Tím."
     textfix["它钻进了我的心里。"] = "Nó chui tọt vào tim ta rồi."
     textfix["它长久以来都与水流相连。"] = "Từ lâu nó đã gắn liền với dòng nước."
     textfix["它随时都会破壳而出。"] = "Nó có thể phá vỏ chui ra bất cứ lúc nào."

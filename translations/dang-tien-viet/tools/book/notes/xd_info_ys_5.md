@@ -21,6 +21,6 @@
 - Hai cột dọc bên trái rất hẹp (~80px) và cột dài 16 chữ → bản Việt phải xếp ~10 dòng ngắn; đây là chỗ Gemini dễ làm xấu nhất, cần soát kỹ ảnh ra.
 - 根器 (căn cơ/khí chất tu luyện; ở đây là các ô "căn" mở khóa bằng giết yêu thú) → "Căn Khí" — trùng âm với 根气 = Căn Khí trong glossary, chấp nhận được. 金箍 → "vòng Kim Cô".
 - 变化之法: glossary có 变化之术 = Biến Hóa Chi Thuật; ở đây chữ là 法 nên dịch "Biến Hóa Chi Pháp". Nếu muốn đồng bộ với tên kỹ năng trong game thì đổi thành "Biến Hóa Chi Thuật".
-- 身外身法 → "Thân Ngoại Thân Pháp" (glossary chỉ có 身外化身 = Thân Ngoại Hoá Thân).
+- 身外身法 → "Thân Ngoại Thân Pháp" (glossary chỉ có 身外化身 = Thân Ngoại Hóa Thân).
 - 大圣皮肤 → "trang phục Đại Thánh" (skin).
 - Thuật ngữ mới: 根器 = Căn Khí; 奇术 = Kỳ Thuật; 灵技 = Linh Kỹ; 身外身法 = Thân Ngoại Thân Pháp; 变化之法 = Biến Hóa Chi Pháp; 隐蔽 = ẩn nấp.

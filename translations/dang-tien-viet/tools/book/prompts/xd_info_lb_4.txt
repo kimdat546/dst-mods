@@ -9,9 +9,9 @@ STRICT RULES
 
 LEFT PAGE (7)
 1) White title centered under the illustration, just below the thin divider (replaces 灵石抽奖机):
-   Máy Quay Thưởng Linh Thạch
+   Máy Rút Thưởng Linh Thạch
 2) Paragraph below that title, left-aligned (replaces the 3 Chinese lines):
-   Tương truyền vị đại năng để lại vật này là một "người xuyên không". Bỏ vào 1 Trung Phẩm Linh Thạch hoặc 60 Hạ Phẩm Linh Thạch để kích hoạt.
+   Tương truyền vị đại năng để lại vật này là một "người xuyên không". Bỏ vào 1 Linh thạch trung phẩm hoặc 60 Linh thạch hạ phẩm để kích hoạt.
 
 RIGHT PAGE (8) — 3 centered lines, each under its own row of icons
 1) Under the row of three orange gems:

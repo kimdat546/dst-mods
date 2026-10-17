@@ -18,9 +18,9 @@ LEFT PAGE (13) — 5 blocks, top to bottom
    • Khi Côn Bằng bay qua, mọi tu sĩ ở gần nghe tiếng gầm của nó và bị giảm 20 tinh thần.
 4) Main block below the second divider (four bullets):
    • Côn Bằng Tiên Đảo có các trạng thái: Bình Tĩnh, Bực Bội, Bạo Nộ, Xoa Dịu.
-   • Bực Bội: Lông Vũ Mảnh của Tiên Hạc ở trạng thái tỏa tán, báo hiệu sắp vào Bạo Nộ.
-   • Bạo Nộ: chim không còn đậu xuống Côn Bằng Tiên Đảo, Lông Vũ Mảnh chuyển sang trạng thái vỡ nát, sinh vật trên đảo bị ma hóa. Tu sĩ mất tinh thần nhanh liên tục và dễ sinh Tâm Ma hơn.
-   • Xoa Dịu: Côn Bằng sắp trở lại Bình Tĩnh nên tốc độ mất tinh thần giảm một nửa. Lông Vũ Mảnh trở về trạng thái tỏa tán.
+   • Bực Bội: Tiêm Vũ của Tiên Hạc ở trạng thái tỏa tán, báo hiệu sắp vào Bạo Nộ.
+   • Bạo Nộ: chim không còn đậu xuống Côn Bằng Tiên Đảo, Tiêm Vũ chuyển sang trạng thái vỡ nát, sinh vật trên đảo bị ma hóa. Tu sĩ mất tinh thần nhanh liên tục và dễ sinh Tâm Ma hơn.
+   • Xoa Dịu: Côn Bằng sắp trở lại Bình Tĩnh nên tốc độ mất tinh thần giảm một nửa. Tiêm Vũ trở về trạng thái tỏa tán.
 5) Bottom line below the short divider:
    • Trên Côn Bằng Tiên Đảo, tinh thần về 0 sẽ kích hoạt Tâm Ma.
 
@@ -31,16 +31,16 @@ RIGHT PAGE (14) — 7 blocks, top to bottom
    • Ở trong hàn xá của mình trên Côn Bằng Tiên Đảo.
    • Đang đấu tranh với tâm ma của chính mình.
 3) Below the grey box, one bullet of 3 lines:
-   • Khi người chơi giúp Tử Vân Ma Quân đánh bại hóa thân mất kiểm soát của y và trao Tử Sát Ma Vũ cho y, Ma Quân sẽ tặng người chơi bản thiết kế Tử Sát Diện Giáp và Tà Sát Hộ Giáp.
+   • Khi người chơi giúp Tử Vân Ma Quân đánh bại hóa thân mất kiểm soát của y và trao Ma Vũ Tử Xá cho y, Ma Quân sẽ tặng người chơi bản thiết kế Mặt Giáp Tử Xá và Hộ Giáp Tà Sát.
 4) Right of the purple-flamed demon mask icon:
    Có 90% phòng thủ, 10 điểm phòng thủ vị diện, thêm 0.2 hệ số tấn công.
-   Sau khi ôn dưỡng bằng Trung Phẩm Linh Thạch, dùng một viên Trung Phẩm Linh Thạch hồi được 20% độ bền. Đồng thời cứ 10 giây tự hồi 1% độ bền.
+   Sau khi ôn dưỡng bằng Linh thạch trung phẩm, dùng một viên Linh thạch trung phẩm hồi được 20% độ bền. Đồng thời cứ 10 giây tự hồi 1% độ bền.
 5) Small label directly under the demon mask icon (replaces 紫姹面甲), centered, [white with dark outline]:
-   Tử Sát Diện Giáp
+   Mặt Giáp Tử Xá
 6) Right of the purple-flamed dark armor icon (bottom):
    Phòng thủ và khả năng hồi độ bền giống mặt giáp, thêm 10% tốc độ di chuyển.
    Khi mặc cùng mặt giáp, lúc bị tấn công sẽ chặn hoàn toàn mọi sát thương trong 2 giây; hiệu ứng này hồi chiêu 10 giây.
 7) Small label directly under the dark armor icon (replaces 邪煞护甲), centered, [white with dark outline]:
-   Tà Sát Hộ Giáp
+   Hộ Giáp Tà Sát
 
 Do not write the color tags like "[white with dark outline]" in the image — they only tell you the color.

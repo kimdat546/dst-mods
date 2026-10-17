@@ -13,10 +13,10 @@ LEFT PAGE (19) — 4 blocks
 2) Two-line text just below the picture frame:
    Xuất hiện ở vùng linh mạch của Côn Bằng Tiên Đảo; bị giết thì bảy ngày sau sẽ làm mới lại.
 3) Small label directly under the dark claw-bone icon, bottom-left (replaces 魔怪钳骨), [white with dark outline]:
-   Ma Quái Kiềm Cốt
+   Xương Càng Ma Quái
 4) Right of the claw-bone icon, three bullets:
-   • Cho Thân Ngoại Hoá Thân ăn để tăng tu vi.
-   • Nguyên liệu bắt buộc để chế tạo Tà Sát Hộ Giáp.
+   • Cho Thân Ngoại Hóa Thân ăn để tăng tu vi.
+   • Nguyên liệu bắt buộc để chế tạo Hộ Giáp Tà Sát.
    • Nguyên liệu bắt buộc để luyện Hợp Linh Hoàn.
 
 RIGHT PAGE (20) — 6 blocks, top to bottom, separated by the divider lines. Each starts with a short label [white with dark outline], followed by black text.
@@ -27,10 +27,10 @@ RIGHT PAGE (20) — 6 blocks, top to bottom, separated by the divider lines. Eac
 3) Third paragraph:
    [white with dark outline] Kỹ năng 2 [black] Gai đá mọc lên tại vị trí của tối đa bốn người chơi, gây sát thương nhỏ. Sau đó cột đá cộng hưởng với người chơi, liên tục gây sát thương; khi cột đá bị phá cũng gây thêm một lần sát thương nhỏ. Sát thương cộng hưởng và sát thương khi phá của nhiều cột đá có thể cộng dồn.
 4) Fourth paragraph:
-   [white with dark outline] Kỹ năng 3 [black] Tung sát thương hình quạt diện rộng ra phía trước, rồi quay về phía người chơi tung thêm lần nữa. Đòn này có thể đập vỡ gai đá do chính Ma Tướng triệu hồi và cả Linh Khoáng Ma Ngẫu.
+   [white with dark outline] Kỹ năng 3 [black] Tung sát thương hình quạt diện rộng ra phía trước, rồi quay về phía người chơi tung thêm lần nữa. Đòn này có thể đập vỡ gai đá do chính Ma Tướng triệu hồi và cả Ma Ngẫu Linh Khoáng.
 5) Fifth paragraph:
-   [white with dark outline] Kỹ năng 4 [black] Cứ cách một khoảng thời gian, Ma Tướng sinh ra một Linh Khoáng Ma Ngẫu tấn công người chơi. Ma Ngẫu này do thần niệm của Ma Tướng điều khiển nên không dễ giết.
+   [white with dark outline] Kỹ năng 4 [black] Cứ cách một khoảng thời gian, Ma Tướng sinh ra một Ma Ngẫu Linh Khoáng tấn công người chơi. Ma Ngẫu này do thần niệm của Ma Tướng điều khiển nên không dễ giết.
 6) Right of the small grey crystal golem icon (bottom):
-   [white with dark outline] Linh Khoáng Ma Ngẫu [black] Đòn đánh có hiệu ứng hất văng, đồng thời bắn gai đá nhỏ từ xa tấn công người chơi.
+   [white with dark outline] Ma Ngẫu Linh Khoáng [black] Đòn đánh có hiệu ứng hất văng, đồng thời bắn gai đá nhỏ từ xa tấn công người chơi.
 
 Do not write the color tags like "[white with dark outline]" or "[black]" in the image — they only tell you the color.

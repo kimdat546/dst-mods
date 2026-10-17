@@ -20,13 +20,13 @@ LEFT PAGE (5) — 2 blocks, inside the portrait frame
 
 RIGHT PAGE (6) — 7 blocks, top to bottom
 1) Inside the grey box at the top, right of the red jade pendant icon (two bullets, then recipe):
-   • Ấp ủ hồn phách của Trụ Vương; có thể ôn dưỡng bằng Mảnh Nguyên Thần Yêu Thú.
+   • Ấp ủ hồn phách của Trụ Vương; có thể ôn dưỡng bằng Mảnh Tàn Nguyên Thần Yêu Thú.
    • Mỗi lần thi triển thần thông tiêu hao 10% độ bền để cường hoá thần thông (đồng thời tiêu hao máu).
-   Công thức luyện: Hồng Bảo Thạch*3, Cục vàng*20, Dây thừng*1, Trung Phẩm Linh Thạch*3
+   Công thức luyện: Ngọc Đỏ*3, Cục vàng*20, Dây thừng*1, Linh thạch trung phẩm*3
 2) Small label directly under the red jade pendant icon (replaces 养魂灵玉), centered, [white with dark outline]:
-   Dưỡng Hồn Linh Ngọc
+   Linh Ngọc Dưỡng Hồn
 3) Just below the grey box, a bullet line of 2 lines:
-   • Khi độ bền Dưỡng Hồn Linh Ngọc từ 50% trở lên, thần thông được cường hoá thêm; đồng thời Tô Đát Kỷ được tăng nhẹ tốc độ di chuyển và hồi tinh thần.
+   • Khi độ bền Linh Ngọc Dưỡng Hồn từ 50% trở lên, thần thông được cường hoá thêm; đồng thời Tô Đát Kỷ được tăng nhẹ tốc độ di chuyển và hồi tinh thần.
 4) Between the two decorative dividers, two lines each starting with "*":
    *Tô Đát Kỷ mạnh hơn một chút khi đối đầu sinh vật của cả hai phe.
    *Đuôi cáo của Tô Đát Kỷ có tác dụng giữ ấm nhất định.
@@ -34,10 +34,10 @@ RIGHT PAGE (6) — 7 blocks, top to bottom
    Ảnh hưởng của máu lên thần thông của Tô Đát Kỷ
 6) Paragraph under the heading (3 items, each starts on a new line):
    Máu trên 70%: thả hồn hỏa xoay quanh hỗ trợ tấn công.
-   Máu trên 40% đến 70%: triệu hồi Trụ Vương Pháp Thân trợ chiến. (Cần độ bền Dưỡng Hồn Linh Ngọc trên 10%)
-   Máu từ 40% trở xuống: triệu hồi bản tôn Trụ Vương trợ chiến. (Cần độ bền Dưỡng Hồn Linh Ngọc trên 10%)
+   Máu trên 40% đến 70%: triệu hồi Pháp Thân Trụ Vương trợ chiến. (Cần độ bền Linh Ngọc Dưỡng Hồn trên 10%)
+   Máu từ 40% trở xuống: triệu hồi bản tôn Trụ Vương trợ chiến. (Cần độ bền Linh Ngọc Dưỡng Hồn trên 10%)
 7) Bottom of the page, below the short divider, lines starting with "*":
-   *Khi Tô Đát Kỷ kích hoạt hợp kích Công Đức Kim Thân hoặc Vô Thượng Ma Thể, Trụ Vương Pháp Thân hoặc bản tôn cũng hợp kích một lần.
+   *Khi Tô Đát Kỷ kích hoạt hợp kích Công Đức Kim Thân hoặc Vô Thượng Ma Thể, Pháp Thân Trụ Vương hoặc bản tôn cũng hợp kích một lần.
    *Khi Tô Đát Kỷ dùng linh kỹ, bản tôn Trụ Vương cũng hợp kích.
 
 Do not write the color tags like "[white with dark outline]" in the image — they only tell you the color.

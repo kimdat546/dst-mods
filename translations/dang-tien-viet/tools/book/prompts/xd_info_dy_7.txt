@@ -11,10 +11,10 @@ This page pair is dense: each pill has one heading line followed by 5 recipe row
 
 LEFT PAGE (13) — 4 blocks, top to bottom
 1) Inside the grey box at the top, right of the green vase icon (heading + 4 lines):
-   • Tinh Tế Đan Phủ: có thể dùng linh thạch để nâng phẩm cấp đan dược. Nguyên liệu cụ thể như sau:
-   Phẩm 5 lên phẩm 4: 1 ngày, 10 viên Hạ Phẩm Linh Thạch
-   Phẩm 4 lên phẩm 3: 5 ngày, 3 viên Trung Phẩm Linh Thạch
-   Phẩm 3 lên phẩm 2: 20 ngày, 1 viên Thượng Phẩm Linh Thạch
+   • Đan Phủ Tinh Tôi: có thể dùng linh thạch để nâng phẩm cấp đan dược. Nguyên liệu cụ thể như sau:
+   Phẩm 5 lên phẩm 4: 1 ngày, 10 viên Linh thạch hạ phẩm
+   Phẩm 4 lên phẩm 3: 5 ngày, 3 viên Linh thạch trung phẩm
+   Phẩm 3 lên phẩm 2: 20 ngày, 1 viên Linh thạch thượng phẩm
 2) Just below the grey box, beside the orange flame-flower pill icon on the left edge (heading + 5 rows):
    • Xích Dương Phần Huyết Đan: tăng sát thương trong một thời gian. Luyện chế như sau
    Ngũ phẩm: Xích Dương Hoa x1, Quả phát sáng x1, Ớt x2, Miếng thịt x2
@@ -24,18 +24,18 @@ LEFT PAGE (13) — 4 blocks, top to bottom
    Nhất phẩm: Xích Dương Hoa x16, Niết Bàn Huyết Tủy Trúc x2, Ớt x12, Vảy x4
 3) Middle block, with the blue mushroom-orb pill icon on the right edge (heading of 2 lines + 5 rows):
    Lôi Minh Sát Khí Đan: trong một thời gian, đòn đánh chuyển thành đòn mang điện, kèm thêm sát thương vị diện. Luyện chế như sau
-   Ngũ phẩm: Lôi Minh Cốc x1, Sừng Vôn Dương x1, Măng Tây x2, Cục vàng x2
-   Tứ phẩm: Lôi Minh Cốc x2, Sừng Vôn Dương x1, Măng Tây x4, Len Thép x1
-   Tam phẩm: Lôi Minh Cốc x4, Sừng Vôn Dương x2, Măng Tây x6, Sừng Kỳ Lân x1
-   Nhị phẩm: Lôi Minh Cốc x8, Sừng Vôn Dương x2, Măng Tây x8, Sừng Kỳ Lân x2
-   Nhất phẩm: Lôi Minh Cốc x16, Măng Tây x12, Niết Bàn Huyết Tủy Trúc x2, Sừng Kỳ Lân x4
+   Ngũ phẩm: Nấm Lôi Minh x1, Sừng Vôn Dương x1, Măng Tây x2, Cục vàng x2
+   Tứ phẩm: Nấm Lôi Minh x2, Sừng Vôn Dương x1, Măng Tây x4, Len Thép x1
+   Tam phẩm: Nấm Lôi Minh x4, Sừng Vôn Dương x2, Măng Tây x6, Nhung Kỳ Lân x1
+   Nhị phẩm: Nấm Lôi Minh x8, Sừng Vôn Dương x2, Măng Tây x8, Nhung Kỳ Lân x2
+   Nhất phẩm: Nấm Lôi Minh x16, Măng Tây x12, Niết Bàn Huyết Tủy Trúc x2, Nhung Kỳ Lân x4
 4) Bottom block, with the red-orb-with-teal-leaves pill icon on the right edge (heading + 5 rows):
    • Địa Mạch Hồi Sinh Đan: hồi máu trong một thời gian. Luyện chế như sau
-   Ngũ phẩm: Địa Mạch Tham x1, Hạch nhện x2, Cỏ Thìa Lìa x2, Trứng x2
-   Tứ phẩm: Địa Mạch Tham x2, Hạch nhện x4, Cỏ Thìa Lìa x4, Thịt Lá x7
-   Tam phẩm: Địa Mạch Tham x4, Hạch nhện x6, Cỏ Thìa Lìa x6, Sữa Ong Chúa x3
-   Nhị phẩm: Địa Mạch Tham x8, Hạch nhện x8, Nhân Sâm x1, Sữa Ong Chúa x6
-   Nhất phẩm: Địa Mạch Tham x16, Niết Bàn Huyết Tủy Trúc x2, Nhân Sâm x1, Sữa Ong Chúa x12
+   Ngũ phẩm: Địa Mạch Sâm x1, Hạch nhện x2, Cỏ Thìa Lìa x2, Trứng x2
+   Tứ phẩm: Địa Mạch Sâm x2, Hạch nhện x4, Cỏ Thìa Lìa x4, Thịt Lá x7
+   Tam phẩm: Địa Mạch Sâm x4, Hạch nhện x6, Cỏ Thìa Lìa x6, Sữa Ong Chúa x3
+   Nhị phẩm: Địa Mạch Sâm x8, Hạch nhện x8, Nhân Sâm x1, Sữa Ong Chúa x6
+   Nhất phẩm: Địa Mạch Sâm x16, Niết Bàn Huyết Tủy Trúc x2, Nhân Sâm x1, Sữa Ong Chúa x12
 
 RIGHT PAGE (14) — 3 blocks, top to bottom
 1) Top block, heading right of the purple spiky pill icon (heading + 5 rows):
@@ -47,15 +47,15 @@ RIGHT PAGE (14) — 3 blocks, top to bottom
    Nhất phẩm: U Hồn Hoa x16, Niết Bàn Huyết Tủy Trúc x2, Nấm Lục x12, Quang Thạch Tinh Khiết x6
 2) Middle block, heading right of the red-brown rock pill icon (heading + 5 rows):
    Bàn Thạch Hộ Thân Đan: tăng phòng ngự trong một thời gian. Luyện chế như sau
-   Ngũ phẩm: Địa Mạch Tham x1, Khoai tây x2, Thulecite x1, Cục đá x2
-   Tứ phẩm: Địa Mạch Tham x2, Khoai tây x4, Thulecite x2, Đá cẩm thạch x4
-   Tam phẩm: Địa Mạch Tham x4, Khoai tây x6, Thulecite x3, Ma Tướng Kiềm Cốt x1
-   Nhị phẩm: Địa Mạch Tham x8, Khoai tây x8, Thulecite x4, Ma Tướng Kiềm Cốt x2
-   Nhất phẩm: Địa Mạch Tham x16, Niết Bàn Huyết Tủy Trúc x2, Khoai tây x12, Ma Tướng Kiềm Cốt x4
+   Ngũ phẩm: Địa Mạch Sâm x1, Khoai tây x2, Thulecite x1, Cục đá x2
+   Tứ phẩm: Địa Mạch Sâm x2, Khoai tây x4, Thulecite x2, Đá cẩm thạch x4
+   Tam phẩm: Địa Mạch Sâm x4, Khoai tây x6, Thulecite x3, Ma Tướng Kiềm Cốt x1
+   Nhị phẩm: Địa Mạch Sâm x8, Khoai tây x8, Thulecite x4, Ma Tướng Kiềm Cốt x2
+   Nhất phẩm: Địa Mạch Sâm x16, Niết Bàn Huyết Tủy Trúc x2, Khoai tây x12, Ma Tướng Kiềm Cốt x4
 3) Bottom block, heading right of the white-flowers-on-blue-orb pill icon (heading + 5 rows; the last row may wrap to a second line exactly like the original):
    • Ngự Phong Thần Hành Đan: tăng tốc độ di chuyển trong một thời gian. Luyện chế như sau
-   Ngũ phẩm: Thanh Phong Tụ x1, Cà rốt x2, Đuôi thỏ x2, Lông chim Đen x1
-   Tứ phẩm: Thanh Phong Tụ x2, Cà rốt x4, Đuôi thỏ x4, Lông chim vàng x2
-   Tam phẩm: Thanh Phong Tụ x4, Cà rốt x6, Đuôi thỏ x6, Lông Malbatross x8
-   Nhị phẩm: Thanh Phong Tụ x8, Cà rốt x8, Đuôi thỏ x8, Lông Malbatross x16
-   Nhất phẩm: Thanh Phong Tụ x16, Niết Bàn Huyết Tủy Trúc x2, Cà rốt x12, Lông Malbatross x32
+   Ngũ phẩm: Thanh Phong Nhứ x1, Cà rốt x2, Đuôi thỏ x2, Lông chim Đen x1
+   Tứ phẩm: Thanh Phong Nhứ x2, Cà rốt x4, Đuôi thỏ x4, Lông chim vàng x2
+   Tam phẩm: Thanh Phong Nhứ x4, Cà rốt x6, Đuôi thỏ x6, Lông Malbatross x8
+   Nhị phẩm: Thanh Phong Nhứ x8, Cà rốt x8, Đuôi thỏ x8, Lông Malbatross x16
+   Nhất phẩm: Thanh Phong Nhứ x16, Niết Bàn Huyết Tủy Trúc x2, Cà rốt x12, Lông Malbatross x32

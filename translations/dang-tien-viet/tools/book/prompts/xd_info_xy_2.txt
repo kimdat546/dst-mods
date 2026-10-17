@@ -10,8 +10,8 @@ STRICT RULES
 LEFT PAGE (3)
 1) Inside the grey frame at the top: five white labels, each centered under its own flower, left to right:
    - under the water-lily vase (replaces 水芙蓉): Thủy Phù Dung
-   - under the sunflowers (replaces 朝阳花): Triều Dương Hoa
-   - under the white roses (replaces 白玫瑰): Hồng Bạch
+   - under the sunflowers (replaces 朝阳花): Hoa Triều Dương
+   - under the white roses (replaces 白玫瑰): Hoa Hồng Trắng
    - under the lily-of-the-valley bonsai (replaces 铃兰): Linh Lan
    - under the white orchid (replaces 幽兰): U Lan
 2) Text block just below the grey frame:
@@ -26,9 +26,9 @@ RIGHT PAGE (4)
    - under the pink peony (replaces 牡丹): Mẫu Đơn
    - under the white lilies (replaces 百合): Bách Hợp
    - under the dandelions (replaces 蒲公英): Bồ Công Anh
-   - under the white flower in a teal vase (replaces 木梨花): Mộc Lê Hoa
+   - under the white flower in a teal vase (replaces 木梨花): Hoa Mộc Lê
 2) Next to the jewel box icon:
-   Hộp Trang Sức Lưu Quang: cất linh thạch và các loại bảo thạch, tự hút đồ trong một phạm vi nhất định, và dùng được Bộ Mở Rộng Không Gian.
+   Hộp Châu Báu Lưu Quang: cất linh thạch và các loại bảo thạch, tự hút đồ trong một phạm vi nhất định, và dùng được Bộ Mở Rộng Không Gian.
 3) Next to the honey jar icon:
    Hũ Mật: chứa các vật phẩm liên quan đến mật ong, kể cả Kẹo dẻo.
    Đồ bên trong từ từ tươi lại, và dùng được Bộ Mở Rộng Không Gian.

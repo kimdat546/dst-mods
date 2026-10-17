@@ -12,12 +12,12 @@ LEFT PAGE (7) — 4 blocks, top to bottom
    *Rơi ra khi giết sinh vật.
    *Dùng để nạp độ bền cho các kỳ trân của Tô Đát Kỷ.
 2) Small label directly under the pink swirl orb icon (replaces 妖兽元神残片), centered, [white with dark outline]:
-   Mảnh Nguyên Thần Yêu Thú
+   Mảnh Tàn Nguyên Thần Yêu Thú
 3) Right of the brown fox statue icon:
-   Mộc Điêu Thế Thân: tạo ảo ảnh tại chỗ; dùng mộc điêu lần nữa để đổi chỗ người chơi tới vị trí ảo ảnh.
+   Tượng Gỗ Thế Thân: tạo ảo ảnh tại chỗ; dùng mộc điêu lần nữa để đổi chỗ người chơi tới vị trí ảo ảnh.
    Mỗi lần đổi chỗ tốn 25% máu.
 4) Right of the golden fish-dragon lantern icon (bottom):
-   Đăng Ngư Long: nạp độ bền bằng Mảnh Nguyên Thần Yêu Thú. Vừa chiếu sáng, vừa giữ nhiệt độ ổn định trong một phạm vi.
+   Đèn Ngư Long: nạp độ bền bằng Mảnh Tàn Nguyên Thần Yêu Thú. Vừa chiếu sáng, vừa giữ nhiệt độ ổn định trong một phạm vi.
 
 RIGHT PAGE (8) — 5 blocks, top to bottom
 1) Inside the grey box at the top, right of the red umbrella icon (three lines each starting with "*"):
@@ -27,10 +27,10 @@ RIGHT PAGE (8) — 5 blocks, top to bottom
 2) Small label at the bottom-left of the grey box, under the red umbrella (replaces 一舞芳华), [white with dark outline]:
    Nhất Vũ Phương Hoa
 3) Centered line between the two decorative dividers:
-   *Nhất Vũ Phương Hoa cũng sửa độ bền bằng Mảnh Nguyên Thần Yêu Thú.
+   *Nhất Vũ Phương Hoa cũng sửa độ bền bằng Mảnh Tàn Nguyên Thần Yêu Thú.
 4) Right of the red pouch icon:
-   Bội Nang Bách Vị: có 6 ô; thức ăn bỏ vào sẽ từ từ tươi lại. Mỗi tu sĩ chỉ được sở hữu tối đa một cái.
+   Túi Đeo Thập Cẩm: có 6 ô; thức ăn bỏ vào sẽ từ từ tươi lại. Mỗi tu sĩ chỉ được sở hữu tối đa một cái.
 5) Right of the ornate food shrine icon (bottom):
-   Thực Khám Thiên Vị: mỗi ngày nhận một hoặc hai món ăn đã thêm gia vị do đại thần tiến cống.
+   Khám Thức Ăn Ngàn Vị: mỗi ngày nhận một hoặc hai món ăn đã thêm gia vị do đại thần tiến cống.
 
 Do not write the color tags like "[white with dark outline]" in the image — they only tell you the color.

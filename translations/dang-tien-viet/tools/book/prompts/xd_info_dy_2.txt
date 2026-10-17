@@ -19,24 +19,24 @@ LEFT PAGE (3) — 5 blocks, top to bottom
    *Mỗi lần đột phá tiểu cảnh giới, giới hạn máu và no của tu sĩ đều tăng, đồng thời tăng lượng no nhận được khi ăn. Đột phá đại cảnh giới còn ban thêm thần thông và một phần tốc độ di chuyển.
 4) Next to the orange flame orb icon, 2 lines (first line on top, recipe below):
    Tụ Khí Hoàn: Luyện Khí sơ kỳ → Luyện Khí trung kỳ
-   Công thức: Gai ong*10, Hạch nhện*5, Trứng chim Cao*1, Hạ Phẩm Linh Thạch*10
+   Công thức: Gai ong*10, Hạch nhện*5, Trứng chim Cao*1, Linh thạch hạ phẩm*10
 5) Next to the orange orb on a wooden stand (bottom), 2 lines:
    Đoán Thể Hoàn: Luyện Khí trung kỳ → Luyện Khí hậu kỳ
-   Công thức: Vòi voi*1, Da lợn*3, Hồng Bảo Thạch*3, Hạ Phẩm Linh Thạch*30
+   Công thức: Vòi voi*1, Da lợn*3, Ngọc Đỏ*3, Linh thạch hạ phẩm*30
 
 RIGHT PAGE (4) — 5 blocks, top to bottom
 1) The small white label under the teal cauldron icon (inside the grey box, left), centered:
-   Lò Đan
+   Lò Luyện Đan
 2) Inside the grey box, right of the cauldron, 2 bullet lines:
    • Dùng để luyện chế đan dược và pháp bảo.
-   • Công thức luyện sai sẽ khiến Lò Đan nhả ra toàn bộ nguyên liệu.
+   • Công thức luyện sai sẽ khiến Lò Luyện Đan nhả ra toàn bộ nguyên liệu.
 3) The paragraph between the two decorative dividers, below the grey box:
-   *Nếu đạo hữu làm mất bản mệnh pháp bảo, có thể cho các nguyên liệu sau vào Lò Đan để luyện lại.
-   Công thức: Mảnh xương*3, Gỗ sống*3, Hồng Bảo Thạch*5, Hạ Phẩm Linh Thạch*30
+   *Nếu đạo hữu làm mất bản mệnh pháp bảo, có thể cho các nguyên liệu sau vào Lò Luyện Đan để luyện lại.
+   Công thức: Mảnh xương*3, Gỗ sống*3, Ngọc Đỏ*5, Linh thạch hạ phẩm*30
 4) Next to the blue orb held by silver claws, 2 lines:
    Trúc Cơ Đan: Luyện Khí hậu kỳ → Trúc Cơ sơ kỳ
-   Công thức: Vảy*1, Răng chó*10, Gỗ sống*3, Trung Phẩm Linh Thạch*1
+   Công thức: Vảy*1, Răng chó*10, Gỗ sống*3, Linh thạch trung phẩm*1
 5) Next to the purple crystal icon (bottom):
-   Trung Phẩm Linh Thạch: rơi ra khi giết yêu thú mạnh. Có thể dùng để uẩn dưỡng linh lực cho mọi loại giáp, giúp [blue] tăng mạnh độ bền[black].
+   Linh thạch trung phẩm: rơi ra khi giết yêu thú mạnh. Có thể dùng để uẩn dưỡng linh lực cho mọi loại giáp, giúp [blue] tăng mạnh độ bền[black].
 
 Do not write the color tags like "[purple]" in the image — they only tell you the color.

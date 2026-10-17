@@ -14,13 +14,9 @@ LEFT PAGE (1)
    Mật
    Quyển
 
-RIGHT PAGE (2) — 2 blocks
+RIGHT PAGE (2) — 1 text block + 1 area to erase
 1) The vertical brush-written columns filling the upper part of the page (from below the top divider down to just above the printed lines at the bottom). Erase all the vertical columns and write the text as horizontal lines in the same area, left-aligned, black brush-style font (or bold sans-serif if brush style is not readable), as one paragraph:
    Các ngươi, hoặc vì tham dục, hoặc vì sân niệm, hoặc vì si tình, hoặc vì ác nghiệp, mà bị vây khốn trong tiểu càn khôn này, mệnh đồ lắm gian truân, sống chết do trời. Nhưng tiên đồ đằng đẵng, vạn đạo đều do tâm tạo, vạn pháp đều không, nhân quả chẳng không. Hoặc thành Công Đức Kim Thân, hoặc thành Vô Thượng Ma Thể. Đạo hữu hãy ghi nhớ: bọn ta cần gì càn khôn định, nghịch thiên cải mệnh, tự do thân.
-2) The 3 printed lines at the bottom of the page (just above the bottom divider, partly over the cloud). Keep them centered, bold black serif with a thin light outline like the original, 3 lines:
-   Tìm “Chân Giới” trong danh sách máy chủ và vào đúng máy chủ
-   hoặc vào nhóm 1097251955
-   nhận miễn phí hơn mười trang phục như [yellow] Tôn Hành Giả
-   (only the words "Tôn Hành Giả" are yellow, like the original 孙行者; the rest of the line is black)
+2) The 3 printed lines at the bottom of the page (just above the bottom divider, partly over the cloud) are an advertisement for a Chinese server. ERASE all 3 lines completely and leave that area as plain paper and cloud, exactly like the surrounding background. Do NOT write any text there.
 
 Do not write the color tags like "[yellow]" in the image — they only tell you the color.

@@ -26,13 +26,13 @@ RIGHT PAGE (24) — grey box with 3 small portraits, then 5 item blocks, top to 
    • Quỳnh Tiêu: thêm hệ số tấn công, tốc chạy, tầm đánh; tích Giá trị Hiếu Chiến để tăng hiệu quả tấn công.
 2) Next to the golden chest icon (caption under it replaces 混元金斗 → "Hỗn Nguyên Kim Đấu"):
    Có không gian riêng rộng rãi, giúp nhân vật dịch chuyển tới điểm chỉ định, còn truyền tống được sinh vật và hút vật phẩm.
-3) Next to the blue crystal staff icon (caption under it replaces 浮骨法器 → "Phù Cốt Pháp Khí"):
-   Phá mạnh cây, quặng đá, băng trên diện rộng phía trước; sửa một phần độ bền bằng ngọc lam hoặc ngọc lục bảo.
-4) The caption without icon on the left (replaces 缚龙锁 → "Phược Long Tỏa"), text to its right:
+3) Next to the blue crystal staff icon (caption under it replaces 浮骨法器 → "Pháp Khí Phù Cốt"):
+   Phá mạnh cây, quặng đá, băng trên diện rộng phía trước; sửa một phần độ bền bằng Ngọc Lam hoặc Ngọc Lục.
+4) The caption without icon on the left (replaces 缚龙锁 → "Tỏa Trói Rồng"), text to its right:
    Khống chế mục tiêu trong một khoảng thời gian; sửa được độ bền cho vũ khí riêng.
-5) Bottom-left, next to the white fur armor icon (caption under it replaces 云幕上装 → "Vân Mạc Thượng Trang"):
+5) Bottom-left, next to the white fur armor icon (caption under it replaces 云幕上装 → "Áo Trên Màn Mây"):
    Giữ ấm, 85% phòng ngự, phát sáng nhẹ, độ bền giảm theo thời gian, vá được.
-6) Bottom-right, next to the green twisted cane icon (caption under it replaces 馥郁手杖 → "Phức Uẩn Thủ Trượng"):
+6) Bottom-right, next to the green twisted cane icon (caption under it replaces 馥郁手杖 → "Trượng Tay Hương Ngát"):
    Tăng tốc, thuấn di; cầm trên tay mở bản đồ để dịch chuyển tầm ngắn; sửa độ bền bằng Đá Cát.
 
 Do not write the color tags like "[dark red]" in the image — they only tell you the color.

@@ -16,9 +16,9 @@ LEFT PAGE (27)
    Thạch Cơ Nương Nương
 2) Left area inside the grey frame, below the name and beside the portrait (replaces ALL FOUR vertical Chinese columns: the three columns inside the frame AND the column outside the frame on the far left — erase that outer column completely). Write horizontally, one item per line, as a list:
    Sẵn có giảm 25% sát thương
-   Thạch Tôm quanh mình chết sẽ làm giảm tinh thần
+   Tôm Đá quanh mình chết sẽ làm giảm tinh thần
    Đào mỏ chậm hơn, thân nhiệt tăng nhanh hơn
-   Khi bị đánh, Thạch Tôm xung quanh sẽ thù ghét kẻ tấn công
+   Khi bị đánh, Tôm Đá xung quanh sẽ thù ghét kẻ tấn công
 
 RIGHT PAGE (28) — grey box with 2 small portraits, then 6 item blocks, top to bottom
 1) Inside the grey box at the top, to the right of the two small child portraits, 2 bullet points (one per portrait):
@@ -27,14 +27,14 @@ RIGHT PAGE (28) — grey box with 2 small portraits, then 6 item blocks, top to 
 2) Next to the purple skull-mountain icon (caption under it replaces 骷髅山 → "Khô Lâu Sơn"):
    Thạch Cơ Nương Nương dùng thần thức điều khiển Bộ Xương ở điểm chỉ định; Bộ Xương thu hoạch, chặt cây, di chuyển nhanh hơn nhưng ít máu và chịu sát thương tăng.
 3) Next to the dark spiked helmet icon (caption under it replaces 蚀心胄 → "Thực Tâm Trụ"):
-   85% phòng ngự, mặc vào không bị quá nóng nhưng tinh thần giảm dần. Nạp độ bền bằng Hạ Phẩm Linh Thạch; khi bị đánh có tỉ lệ chặn một lần sát thương.
-4) Middle-left, next to the teal cloud-handkerchief icon (caption under it replaces 八卦云光帕 → "Bát Quái Vân Quang Phách"):
-   Gọi Hoàng Cân Lực Sĩ thay Thân Ngoại Hoá Thân chiến đấu.
-5) Middle-right, next to the scroll icon (caption under it replaces 八卦龙须帕 → "Bát Quái Long Tu Phách"):
-   Thu gom đồ, bắt thú nhỏ, thu hoạch cây trồng trong phạm vi nhỏ, đồng thời giữ tươi. Nạp đầy độ bền bằng Trung Phẩm Linh Thạch.
-6) Bottom-left, next to the dark rock-flame icon (caption under it replaces 通灵石窍 → "Thông Linh Thạch Khiếu"):
-   Đặt xuống đất sẽ sinh một Thạch Tôm trung thành với Thạch Cơ Nương Nương trong 7 ngày.
-7) Bottom-right, next to the red-topped staff icon (caption under it replaces 醒石谒道杖 → "Tỉnh Thạch Yết Đạo Trượng"):
-   Thuê Thạch Tôm trong phạm vi suốt 7 ngày, chúng có phòng ngự vị diện và kỹ năng nhất định. Còn biến các loại quặng, tổ nhện đá thành Thạch Tôm.
+   85% phòng ngự, mặc vào không bị quá nóng nhưng tinh thần giảm dần. Nạp độ bền bằng Linh thạch hạ phẩm; khi bị đánh có tỉ lệ chặn một lần sát thương.
+4) Middle-left, next to the teal cloud-handkerchief icon (caption under it replaces 八卦云光帕 → "Bát Quái Vân Quang Mạt"):
+   Gọi Hoàng Cân Lực Sĩ thay Thân Ngoại Hóa Thân chiến đấu.
+5) Middle-right, next to the scroll icon (caption under it replaces 八卦龙须帕 → "Bát Quái Long Tu Mạt"):
+   Thu gom đồ, bắt thú nhỏ, thu hoạch cây trồng trong phạm vi nhỏ, đồng thời giữ tươi. Nạp đầy độ bền bằng Linh thạch trung phẩm.
+6) Bottom-left, next to the dark rock-flame icon (caption under it replaces 通灵石窍 → "Thạch Khiếu Thông Linh"):
+   Đặt xuống đất sẽ sinh một Tôm Đá trung thành với Thạch Cơ Nương Nương trong 7 ngày.
+7) Bottom-right, next to the red-topped staff icon (caption under it replaces 醒石谒道杖 → "Trượng Tỉnh Thạch Yết Đạo"):
+   Thuê Tôm Đá trong phạm vi suốt 7 ngày, chúng có phòng ngự vị diện và kỹ năng nhất định. Còn biến các loại quặng, tổ nhện đá thành Tôm Đá.
 
 Do not write the color tags like "[dark red]" in the image — they only tell you the color.

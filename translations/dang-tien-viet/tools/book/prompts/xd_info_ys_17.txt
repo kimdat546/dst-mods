@@ -15,18 +15,18 @@ LEFT PAGE (33)
 1) Title centered at the very top of the page, on the decorative line above the frame (replaces 洛神):
    Lạc Thần
 2) Three lines at the top-left, over the frame edge, left of the portrait, one per line:
-   Tiêu hao 30 máu để chế tạo thịt lá
-   Có hai dạng: Sinh chi Hoa và Diệt chi Hoa
+   Tiêu hao 30 máu để chế tạo Thịt Lá
+   Có hai dạng: Hoa Sự Sống và Hoa Hủy Diệt
    Không bị Killer Bee thù ghét
 3) Paragraph at the bottom of the left page, below the red flower icon (same 6-line area as the original; keep the line breaks between sentences):
-   Sinh chi Hoa: mùa xuân, hạ hồi tinh thần chậm; mùa thu, đông giảm chậm. Thân thiện với sinh vật trung lập, tự chăm sóc cây trồng.
+   Hoa Sự Sống: mùa xuân, hạ hồi tinh thần chậm; mùa thu, đông giảm chậm. Thân thiện với sinh vật trung lập, tự chăm sóc cây trồng.
    Thu hoạch một số cây trồng có tỉ lệ nhận gấp đôi.
    Có hào quang trị thương yếu; dùng vật phẩm trị thương thì chữa cả vùng.
    Túi đồ có hiệu quả giữ tươi.
 
 RIGHT PAGE (34) — grey box, 1 line, then 3 item blocks, top to bottom
 1) Inside the grey box at the top, starting next to the purple flower icon and continuing below it (keep the line breaks between sentences):
-   Diệt chi Hoa: mùa thu, đông hồi tinh thần chậm; mùa hạ, xuân giảm chậm.
+   Hoa Hủy Diệt: mùa thu, đông hồi tinh thần chậm; mùa hạ, xuân giảm chậm.
    Đào mỏ, chặt cây, thu hoạch nhanh hơn. Có thêm hệ số tấn công và hệ số giảm sát thương.
    Giết sinh vật hồi một ít máu, tinh thần và no.
    Bị một số sinh vật trung lập thù ghét.
@@ -36,8 +36,8 @@ RIGHT PAGE (34) — grey box, 1 line, then 3 item blocks, top to bottom
    Tưới bằng Chưởng Thiên Bình để lớn lên.
    Giai đoạn 3: giữ nhiệt độ ổn định trong phạm vi nhỏ, hồi chậm tinh thần.
    Giai đoạn 4: tự tưới nước bón phân trong 3 ô đất, cứ một lúc lại tự thúc chín một lần.
-   Giai đoạn 5: mỗi ngày hái được Lạc Thần Hoa Nhân. Các cây Hoa Lạc Thần dùng chung một kho rễ, đồ trong đó dần tươi lại. Có thể làm điểm đến cho Lạc Thần Dẫn.
-4) Next to the pink petal icon (caption under it replaces 洛神花裀 → "Lạc Thần Hoa Nhân"):
+   Giai đoạn 5: mỗi ngày hái được Đệm Hoa Lạc Thần. Các cây Hoa Lạc Thần dùng chung một kho rễ, đồ trong đó dần tươi lại. Có thể làm điểm đến cho Lạc Thần Dẫn.
+4) Next to the pink petal icon (caption under it replaces 洛神花裀 → "Đệm Hoa Lạc Thần"):
    Một loại cánh hoa ăn trực tiếp được, nguyên liệu bắt buộc để chế tạo nhiều vật phẩm riêng của Lạc Thần.
 5) Next to the purple scroll icon (caption under it replaces 洛神引 → "Lạc Thần Dẫn"):
    Tiêu hao 50 tinh thần để dịch chuyển tới bất kỳ cây Hoa Lạc Thần đã lớn hẳn nào trên bản đồ.

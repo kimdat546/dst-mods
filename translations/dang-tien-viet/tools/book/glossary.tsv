@@ -1,231 +1,231 @@
-# Thuật ngữ CN → VN dùng chung cho sách (tự sinh từ bản dịch STRINGS.NAMES + wiki_glossary, 2026-10-17)
+# Thuật ngữ CN → VN dùng chung cho sách: tên CUỐI CÙNG người chơi thấy trong game (nạp đúng thứ tự main.lua, phase5 đè phase2), 2026-10-17
 # Thuật ngữ chung: 理智=tinh thần, 饱食度/饥饿=no/đói, 血量/生命=máu, 仙窍=Tiên Khiếu, 蛊/蛊虫=Cổ/cổ trùng, 修为=tu vi, 境界=cảnh giới, 渡劫=độ kiếp, 灵力=linh lực, 灵气=linh khí, 法宝=pháp bảo, 丹药=đan dược, 制作栏=bảng chế tạo, 制作公式/配方=công thức, 冷却=hồi chiêu
-一品千机巧手丹	Nhất phẩm Thiên Cơ Xảo Thủ Đan
-一品地脉回生丹	Nhất phẩm Địa Mạch Hồi Sinh Đan
-一品寒髓辟火丹	Nhất phẩm Hàn Tủy Tỵ Hỏa Đan
-一品御风神行丹	Nhất phẩm Ngự Phong Thần Hành Đan
-一品清心涤魂丹	Nhất phẩm Thanh Tâm Tẩy Hồn Đan
-一品玄阳暖玉丹	Nhất phẩm Huyền Dương Noãn Ngọc Đan
-一品磐石护身丹	Nhất phẩm Bàn Thạch Hộ Thân Đan
-一品血饕餮元丹	Nhất phẩm Huyết Đào Thiết Nguyên Đan
-一品赤阳焚血丹	Nhất phẩm Xích Dương Phần Huyết Đan
-一品雷鸣煞气丹	Nhất phẩm Lôi Minh Sát Khí Đan
+一品千机巧手丹	Nhất Phẩm Thiên Cơ Xảo Thủ Đan
+一品地脉回生丹	Nhất Phẩm Địa Mạch Hồi Sinh Đan
+一品寒髓辟火丹	Nhất Phẩm Hàn Tủy Tịch Hỏa Đan
+一品御风神行丹	Nhất Phẩm Ngự Phong Thần Hành Đan
+一品清心涤魂丹	Nhất Phẩm Thanh Tâm Địch Hồn Đan
+一品玄阳暖玉丹	Nhất Phẩm Huyền Dương Noãn Ngọc Đan
+一品磐石护身丹	Nhất Phẩm Bàn Thạch Hộ Thân Đan
+一品血饕餮元丹	Nhất Phẩm Huyết Thao Thiết Nguyên Đan
+一品赤阳焚血丹	Nhất Phẩm Xích Dương Phần Huyết Đan
+一品雷鸣煞气丹	Nhất Phẩm Lôi Minh Sát Khí Đan
 一舞芳华	Nhất Vũ Phương Hoa
 万我归一	Vạn Ngã Quy Nhất
 万蛊屋	Vạn Cổ Ốc
-三品千机巧手丹	Tam phẩm Thiên Cơ Xảo Thủ Đan
-三品地脉回生丹	Tam phẩm Địa Mạch Hồi Sinh Đan
-三品寒髓辟火丹	Tam phẩm Hàn Tủy Tỵ Hỏa Đan
-三品御风神行丹	Tam phẩm Ngự Phong Thần Hành Đan
-三品清心涤魂丹	Tam phẩm Thanh Tâm Tẩy Hồn Đan
-三品玄阳暖玉丹	Tam phẩm Huyền Dương Noãn Ngọc Đan
-三品磐石护身丹	Tam phẩm Bàn Thạch Hộ Thân Đan
-三品血饕餮元丹	Tam phẩm Huyết Đào Thiết Nguyên Đan
-三品赤阳焚血丹	Tam phẩm Xích Dương Phần Huyết Đan
-三品雷鸣煞气丹	Tam phẩm Lôi Minh Sát Khí Đan
+三品千机巧手丹	Tam Phẩm Thiên Cơ Xảo Thủ Đan
+三品地脉回生丹	Tam Phẩm Địa Mạch Hồi Sinh Đan
+三品寒髓辟火丹	Tam Phẩm Hàn Tủy Tịch Hỏa Đan
+三品御风神行丹	Tam Phẩm Ngự Phong Thần Hành Đan
+三品清心涤魂丹	Tam Phẩm Thanh Tâm Địch Hồn Đan
+三品玄阳暖玉丹	Tam Phẩm Huyền Dương Noãn Ngọc Đan
+三品磐石护身丹	Tam Phẩm Bàn Thạch Hộ Thân Đan
+三品血饕餮元丹	Tam Phẩm Huyết Thao Thiết Nguyên Đan
+三品赤阳焚血丹	Tam Phẩm Xích Dương Phần Huyết Đan
+三品雷鸣煞气丹	Tam Phẩm Lôi Minh Sát Khí Đan
 三焰扇	Tam Diễm Phiến
 三霄娘娘	Tam Tiêu Nương Nương
-上品灵石	Thượng Phẩm Linh Thạch
-下品灵石	Hạ Phẩm Linh Thạch
-不以物喜，不以己悲，成就长生仙尊之法门	Không vui vì vật, không buồn vì mình, là pháp môn thành tựu trường sinh tiên tôn
+上品灵石	Linh thạch thượng phẩm
+下品灵石	Linh thạch hạ phẩm
+不以物喜，不以己悲，成就长生仙尊之法门	Không vui vì ngoại vật, không buồn vì bản thân; đây là pháp môn thành tựu Trường Sinh Tiên Tôn
 不尽神剑	Bất Tận Thần Kiếm
-不知天高地厚的小角色，本君甚是不喜！	Tiểu nhân vật không biết trời cao đất dày, bản quân vô cùng không thích!
-专武神通持续期间可以使用一次	Có thể dùng một lần trong khi chuyên vũ thần thông duy trì
-中品灵石	Trung Phẩm Linh Thạch
+不知天高地厚的小角色，本君甚是不喜！	Tiểu nhân vật không biết trời cao đất dày, bản quân rất không thích!
+专武神通持续期间可以使用一次	Trong thời gian thần thông vũ khí chuyên dụng duy trì, có thể sử dụng một lần
+中品灵石	Linh thạch trung phẩm
 中期	trung kỳ
 中毒	Trúng độc
 丹枫	Đan Phong
-丹炉	Lò Đan
+丹炉	Lò Luyện Đan
 丹药	Đan Dược
 九叶生机糕	Bánh Cửu Diệp Sinh Cơ
 九叶生机草	Cửu Diệp Sinh Cơ Thảo
-二品千机巧手丹	Nhị phẩm Thiên Cơ Xảo Thủ Đan
-二品地脉回生丹	Nhị phẩm Địa Mạch Hồi Sinh Đan
-二品寒髓辟火丹	Nhị phẩm Hàn Tủy Tỵ Hỏa Đan
-二品御风神行丹	Nhị phẩm Ngự Phong Thần Hành Đan
-二品清心涤魂丹	Nhị phẩm Thanh Tâm Tẩy Hồn Đan
-二品玄阳暖玉丹	Nhị phẩm Huyền Dương Noãn Ngọc Đan
-二品磐石护身丹	Nhị phẩm Bàn Thạch Hộ Thân Đan
-二品血饕餮元丹	Nhị phẩm Huyết Đào Thiết Nguyên Đan
-二品赤阳焚血丹	Nhị phẩm Xích Dương Phần Huyết Đan
-二品雷鸣煞气丹	Nhị phẩm Lôi Minh Sát Khí Đan
+二品千机巧手丹	Nhị Phẩm Thiên Cơ Xảo Thủ Đan
+二品地脉回生丹	Nhị Phẩm Địa Mạch Hồi Sinh Đan
+二品寒髓辟火丹	Nhị Phẩm Hàn Tủy Tịch Hỏa Đan
+二品御风神行丹	Nhị Phẩm Ngự Phong Thần Hành Đan
+二品清心涤魂丹	Nhị Phẩm Thanh Tâm Địch Hồn Đan
+二品玄阳暖玉丹	Nhị Phẩm Huyền Dương Noãn Ngọc Đan
+二品磐石护身丹	Nhị Phẩm Bàn Thạch Hộ Thân Đan
+二品血饕餮元丹	Nhị Phẩm Huyết Thao Thiết Nguyên Đan
+二品赤阳焚血丹	Nhị Phẩm Xích Dương Phần Huyết Đan
+二品雷鸣煞气丹	Nhị Phẩm Lôi Minh Sát Khí Đan
 云中丹	Vân Trung Đan
-云幕上装	Vân Mạc Thượng Trang
+云幕上装	Áo Trên Màn Mây
 云幕霓裳	Vân Mạc Thượng Trang
 云烟香料站	Trạm Gia Vị Vân Yên
 云霄	Vân Tiêu
-五品千机巧手丹	Ngũ phẩm Thiên Cơ Xảo Thủ Đan
-五品地脉回生丹	Ngũ phẩm Địa Mạch Hồi Sinh Đan
-五品寒髓辟火丹	Ngũ phẩm Hàn Tủy Tỵ Hỏa Đan
-五品御风神行丹	Ngũ phẩm Ngự Phong Thần Hành Đan
-五品清心涤魂丹	Ngũ phẩm Thanh Tâm Tẩy Hồn Đan
-五品玄阳暖玉丹	Ngũ phẩm Huyền Dương Noãn Ngọc Đan
-五品磐石护身丹	Ngũ phẩm Bàn Thạch Hộ Thân Đan
-五品血饕餮元丹	Ngũ phẩm Huyết Đào Thiết Nguyên Đan
-五品赤阳焚血丹	Ngũ phẩm Xích Dương Phần Huyết Đan
-五品雷鸣煞气丹	Ngũ phẩm Lôi Minh Sát Khí Đan
+五品千机巧手丹	Ngũ Phẩm Thiên Cơ Xảo Thủ Đan
+五品地脉回生丹	Ngũ Phẩm Địa Mạch Hồi Sinh Đan
+五品寒髓辟火丹	Ngũ Phẩm Hàn Tủy Tịch Hỏa Đan
+五品御风神行丹	Ngũ Phẩm Ngự Phong Thần Hành Đan
+五品清心涤魂丹	Ngũ Phẩm Thanh Tâm Địch Hồn Đan
+五品玄阳暖玉丹	Ngũ Phẩm Huyền Dương Noãn Ngọc Đan
+五品磐石护身丹	Ngũ Phẩm Bàn Thạch Hộ Thân Đan
+五品血饕餮元丹	Ngũ Phẩm Huyết Thao Thiết Nguyên Đan
+五品赤阳焚血丹	Ngũ Phẩm Xích Dương Phần Huyết Đan
+五品雷鸣煞气丹	Ngũ Phẩm Lôi Minh Sát Khí Đan
 五子同心魔	Ngũ Tử Đồng Tâm Ma
 井石蝎道杖	Tỉnh Thạch Yết Đạo Trượng
-什锦佩囊	Bội Nang Bách Vị
+什锦佩囊	Túi Đeo Thập Cẩm
 仙剑	Tiên Kiếm
 仙窍	Tiên Khiếu
 仙魔之剑	Tiên Ma Chi Kiếm
 仙鹤	Tiên Hạc
-以本君的手段也镇压不了这遮天之鲲鹏。	Với thủ đoạn của bản quân cũng không trấn áp được con côn bằng che trời này.
-伏特羊舍	Chuồng Vôn Dương
+以本君的手段也镇压不了这遮天之鲲鹏。	Với thủ đoạn của bản quân cũng không thể trấn áp Côn Bằng che trời này.
+伏特羊舍	Chuồng Dê Volt
 伏龙台	Phục Long Đài
 传送阵	Truyền Trận Cổ
-何方道友前来，可否助本尊斩断心之魔相？	Đạo hữu phương nào đến đây, có thể giúp bản tôn chém đứt ma tướng trong tâm chăng?
-修仙密卷	Tu Tiên Mật Quyển
+何方道友前来，可否助本尊斩断心之魔相？	Đạo hữu phương nào đến đây, có thể giúp bản tôn chém đứt ma tướng trong tâm không?
+修仙密卷	Mật Quyển Tu Tiên
 储物空间	Không Gian Trữ Vật
-储肉仓	Kho Thịt
+储肉仓	Kho Trữ Thịt
 元合五极山	Nguyên Hợp Ngũ Cực Sơn
 元婴	Nguyên Anh
 元武	Nguyên Võ
 兜率花	Đâu Suất Hoa
-八卦云光帕	Bát Quái Vân Quang Phách
+八卦云光帕	Bát Quái Vân Quang Mạt
 八卦云光法	Bát Quái Vân Quang Pháp
-八卦龙须帕	Bát Quái Long Tu Phách
+八卦龙须帕	Bát Quái Long Tu Mạt
 八卦龙须法	Bát Quái Long Tu Pháp
 六根	Lục Căn
 关闭仙窍界面	Đóng giao diện Tiên Khiếu
 养剑葫	Hồ lô dưỡng kiếm
-养魂匕首	Dưỡng Hồn Tỉ Thủ
-养魂灵玉	Dưỡng Hồn Linh Ngọc
+养魂匕首	Dưỡng Hồn Chuỷ Thủ
+养魂灵玉	Linh Ngọc Dưỡng Hồn
 养魂短枪	Dưỡng Hồn Đoản Thương
 冷却还剩%d秒	Hồi chiêu còn %d giây
 凝神丸	Ngưng Thần Hoàn
 凝神丹	Ngưng Thần Đan
-凤髓	Phượng Tủy
+凤髓	Tủy Phượng
 出口	Lối ra
 初期	sơ kỳ
-削金赤骨刀	Tiêu Kim Xích Cốt Đao
+削金赤骨刀	Tước Kim Xích Cốt Đao
 功德金身	Công Đức Kim Thân
-化劫尖芒	Hoá Kiếp Tiêm Mãng
+化劫尖芒	Mũi Nhọn Hóa Kiếp
 化劫尖蟒	Hóa Kiếp Tiêm Mãng
-化晶丹	Hoá Tinh Đan
+化晶丹	Hóa Tinh Đan
 化神	Hóa Thần
-化神丹	Hoá Thần Đan
+化神丹	Hóa Thần Đan
 化精丹	Hóa Tinh Đan
 北斗	Bắc Đẩu
-区区蝼蚁，也敢扰本君的清净！	Lũ kiến cỏ cũng dám quấy nhiễu sự thanh tịnh của bản quân!
+区区蝼蚁，也敢扰本君的清净！	Chỉ là sâu kiến mà cũng dám quấy rầy sự thanh tịnh của bản quân!
 十五	Thập Ngũ
-千味食龛	Thực Khám Thiên Vị
+千味食龛	Khám Thức Ăn Ngàn Vị
 千番万劫刀	Thiên Phiên Vạn Kiếp Đao
 反虚	Phản Hư
 变化之术	Biến Hóa Chi Thuật
 古传送阵	Cổ Truyền Tống Trận
 古神之体	Cổ Thần Chi Thể
 叩虚丹	Khấu Hư Đan
-只此青绿	Chỉ Thử Thanh Lục
+只此青绿	Chỉ Có Sắc Xanh Này
 合体	Hợp Thể
 合灵丸	Hợp Linh Hoàn
 合灵丹	Hợp Linh Đan
 后期	hậu kỳ
-噬金虫	Thực Kim Trùng
-噬金虫匣	Hộp Thực Kim Trùng
-四品千机巧手丹	Tứ phẩm Thiên Cơ Xảo Thủ Đan
-四品地脉回生丹	Tứ phẩm Địa Mạch Hồi Sinh Đan
-四品寒髓辟火丹	Tứ phẩm Hàn Tủy Tỵ Hỏa Đan
-四品御风神行丹	Tứ phẩm Ngự Phong Thần Hành Đan
-四品清心涤魂丹	Tứ phẩm Thanh Tâm Tẩy Hồn Đan
-四品玄阳暖玉丹	Tứ phẩm Huyền Dương Noãn Ngọc Đan
-四品磐石护身丹	Tứ phẩm Bàn Thạch Hộ Thân Đan
-四品血饕餮元丹	Tứ phẩm Huyết Đào Thiết Nguyên Đan
-四品赤阳焚血丹	Tứ phẩm Xích Dương Phần Huyết Đan
-四品雷鸣煞气丹	Tứ phẩm Lôi Minh Sát Khí Đan
+噬金虫	Phệ Kim Trùng
+噬金虫匣	Hộp Phệ Kim Trùng
+四品千机巧手丹	Tứ Phẩm Thiên Cơ Xảo Thủ Đan
+四品地脉回生丹	Tứ Phẩm Địa Mạch Hồi Sinh Đan
+四品寒髓辟火丹	Tứ Phẩm Hàn Tủy Tịch Hỏa Đan
+四品御风神行丹	Tứ Phẩm Ngự Phong Thần Hành Đan
+四品清心涤魂丹	Tứ Phẩm Thanh Tâm Địch Hồn Đan
+四品玄阳暖玉丹	Tứ Phẩm Huyền Dương Noãn Ngọc Đan
+四品磐石护身丹	Tứ Phẩm Bàn Thạch Hộ Thân Đan
+四品血饕餮元丹	Tứ Phẩm Huyết Thao Thiết Nguyên Đan
+四品赤阳焚血丹	Tứ Phẩm Xích Dương Phần Huyết Đan
+四品雷鸣煞气丹	Tứ Phẩm Lôi Minh Sát Khí Đan
 回元丸	Hồi Nguyên Hoàn
 回元丹	Hồi Nguyên Đan
 地听肉耳草	Địa Thính Nhục Nhĩ Thảo
-地脉参	Địa Mạch Tham
+地脉参	Địa Mạch Sâm
 地脉回生丹	Địa Mạch Hồi Sinh Đan
 地髓种子	Hạt Địa Tủy
 坚持蛊	Kiên Trì Cổ
 坤极鞭	Khôn Cực Tiên
-填海地皮	Địa bì lấp biển
+填海地皮	Đất Lấp Biển
 增加部分防御	Tăng một phần phòng ngự
 墨染	Mặc Nhiễm
-复生祠台	Phục Sinh Từ Đài
+复生祠台	Đài Từ Phục Sinh
 复生香	Hương Phục Sinh
 复郁手杖	Phức Uẩn Thủ Trượng
-多宝格	Đa Bảo Các
-多谢小友，这是本君一点绵薄的谢礼。	Đa tạ tiểu hữu, đây là chút lễ vật cảm tạ của bản quân.
+多宝格	Giá Đa Bảo
+多谢小友，这是本君一点绵薄的谢礼。	Đa tạ tiểu hữu, đây là chút lễ mọn của bản quân.
 夜游神真身符	Dạ Du Thần Chân Thân Phù
 大圣	Đại Thánh
-大圣木偶	Đại Thánh Mộc Ngẫu
-大道如渊，入口一线。老夫今日，便以身为筏，再争这一线之机！	Đại đạo như uyên, lối vào chỉ một sợi tơ. Lão phu hôm nay, lấy thân làm bè, tranh thêm một tia cơ duyên!
+大圣木偶	Mộc Ngẫu Đại Thánh
+大道如渊，入口一线。老夫今日，便以身为筏，再争这一线之机！	Đại đạo như vực sâu, lối vào chỉ một đường mỏng. Hôm nay lão phu sẽ lấy thân làm bè, tranh thêm cơ hội một đường này!
 天元宝莲	Thiên Nguyên Bảo Liên
 天元宝莲仙蛊	Thiên Nguyên Bảo Liên Tiên Cổ
 天兽食原枪	Thiên Thú Thực Nguyên Thương
 天宝壶	Thiên Bảo Hồ
 天机令牌	Thiên Cơ Lệnh Bài
 天机卷珠	Thiên Cơ Cuộn Châu
-天机卷轴	Thiên Cơ Quyển Trục
+天机卷轴	Quyển Trục Thiên Cơ
 天机屋	Thiên Cơ Ốc
-天机屋令牌	Thiên Cơ Lệnh Bài
+天机屋令牌	Lệnh Bài Thiên Cơ Ốc
 天机巧手丹	Thiên Cơ Xảo Thủ Đan
-天狩噬元枪	Thiên Thú Thực Nguyên Thương
+天狩噬元枪	Thiên Thú Phệ Nguyên Thương
 天翻万劫刀	Thiên Phiên Vạn Kiếp Đao
 天蓬蛊	Thiên Bồng Cổ
 天逆珠	Thiên Nghịch Châu
 天雷子	Thiên Lôi Tử
 太古异兽	Thái Cổ Dị Thú
 太阿剑	Thái A Kiếm
-失去灵性的法宝	Pháp Bảo mất linh tính
-奇蛛血玉	Kỳ Châu Huyết Ngọc
+失去灵性的法宝	Pháp Bảo Mất Linh Tính
+奇蛛血玉	Huyết Ngọc Kỳ Chu
 如意金箍棒	Như Ý Kim Cô Bổng
-妖兽元神残片	Mảnh Nguyên Thần Yêu Thú
+妖兽元神残片	Mảnh Tàn Nguyên Thần Yêu Thú
 妖杂魔蛛	Yêu Tạp Ma Châu
 妖煞护甲	Hộ Giáp Yêu Sát
 妲己	Đát Kỷ
 孙悟空	Tôn Ngộ Không
-孱弱的猎犬魂魄	Hồn phách Hound suy yếu
+孱弱的猎犬魂魄	Hồn Phách Chó Săn Yếu Ớt
 安身法	An Thân Pháp
 定仙游	Định Tiên Du
 定身术	Định Thân Thuật
 定身法	Định Thân Pháp
-定魂香炉	Định Hồn Hương Lư
+定魂香炉	Lò Hương Định Hồn
 寒冰灵眼	Hàn Băng Linh Nhãn
 寒天尊	Hàn Thiên Tôn
 寒髓避火丹	Hàn Tủy Tỵ Hỏa Đan
 射神战车	Xạ Thần Chiến Xa
 尊魂幡	Tôn Hồn Phiên
-尊魂幡(孤品)	Tôn Hồn Phiên (Cô Phẩm)
+尊魂幡(孤品)	Tôn Hồn Phiên(Độc phẩm)
 尊魂幡魂灵	Hồn Linh Tôn Hồn Phiên
 小光蛊	Tiểu Quang Cổ
 小友你的灵石似乎不够呀	Tiểu hữu, linh thạch của ngươi dường như không đủ rồi
-小友可否帮本君击败失控的化身，本君必予以重谢！	Tiểu hữu có thể giúp bản quân đánh bại hoá thân thất khống không, bản quân ắt sẽ trọng tạ!
-小友竟然拿天地精华，行糟粕之事！	Tiểu hữu lại lấy tinh hoa thiên địa, làm chuyện cặn bã!
-小友老夫这或许有些你需要的丹药	Tiểu hữu, lão phu nơi đây có lẽ có vài loại đan dược ngươi cần
+小友可否帮本君击败失控的化身，本君必予以重谢！	Tiểu hữu có thể giúp bản quân đánh bại hóa thân mất khống chế không, bản quân nhất định trọng tạ!
+小友竟然拿天地精华，行糟粕之事！	Tiểu hữu vậy mà lấy tinh hoa trời đất để làm chuyện cặn bã!
+小友老夫这或许有些你需要的丹药	Tiểu hữu, chỗ lão phu có lẽ có vài loại đan dược ngươi cần
 工具匣	Hộp Dụng Cụ
 左键：卸载	Chuột trái: tháo ra
-巨鹿木雕	Mộc Điêu Cự Lộc
+巨鹿木雕	Tượng gỗ Cự Lộc
 幽兰	U Lan
 幽影种子	Hạt U Ảnh
 幽魂花	U Hồn Hoa
 废丹	Phế Đan
-异化的天机屋	Thiên Cơ Ốc Dị Hoá
+异化的天机屋	Thiên Cơ Ốc Dị Hóa
 归元	Quy Nguyên
 彩云童子	Thải Vân Đồng Tử
-彩虹宝石	Bảo Thạch Cầu Vồng
+彩虹宝石	Đá Quý Ánh Kim
 御风神行丹	Ngự Phong Thần Hành Đan
-心如止水，静若安澜，道法自然。	Tâm như chỉ thủy, tĩnh như an lan, đạo pháp tự nhiên.
-心底的魔念越来越难以压制了。	Ma niệm trong tâm ngày càng khó áp chế.
+心如止水，静若安澜，道法自然。	Tâm như nước lặng, tĩnh như sóng yên, đạo pháp tự nhiên.
+心底的魔念越来越难以压制了。	Ma niệm trong đáy lòng càng ngày càng khó áp chế.
 心魔	Tâm Ma
 忘忧剑	Vong Ưu Kiếm
 悬壶	Huyền Hồ
 感谢小友惠顾	Cảm tạ tiểu hữu chiếu cố
 慈生祠台	Từ Sinh Tự Đài
-打上一场便知本仙姑岂是浪得虚名。	Đánh một trận sẽ biết bản tiên cô há phải hư danh.
-承运座	Thừa Vận Tọa
-把你挫骨扬灰只是本君的随手之劳而已。	Tán xương rải tro ngươi chỉ là việc nhẹ tay của bản quân.
-护心玉佩	Hộ Tâm Ngọc Bội
+打上一场便知本仙姑岂是浪得虚名。	Đánh một trận liền biết bản tiên cô há phải hư danh.
+承运座	Ghế Thừa Vận
+把你挫骨扬灰只是本君的随手之劳而已。	Nghiền xương ngươi thành tro chỉ là việc tiện tay của bản quân mà thôi.
+护心玉佩	Ngọc Bội Hộ Tâm
 抵御寒冷	Chống lạnh
 招魂幡	Tôn Hồn Phiên
 拜山符	Bái Sơn Phù
 指尺青箓	Chỉ Thử Thanh Lục
 掌天瓶	Chưởng Thiên Bình
-掌天瓶(孤品)	Chưởng Thiên Bình (Cô Phẩm)
+掌天瓶(孤品)	Chưởng Thiên Bình(Độc phẩm)
 撒豆成兵	Tát Đậu Thành Binh
 敖丙	Ngao Bính
 斩龙台	Trảm Long Đài
@@ -235,52 +235,52 @@
 无足鸟	Vô Túc Điểu
 日游神真身符	Nhật Du Thần Chân Thân Phù
 昆鹏仙岛	Côn Bằng Tiên Đảo
-昊天上帝法身	Hạo Thiên Thượng Đế Pháp Thân
+昊天上帝法身	Pháp Thân Hạo Thiên Thượng Đế
 明灯	Đèn Sáng
 星标	Tinh Tiêu
-星淬丹府	Tinh Tế Đan Phủ
+星淬丹府	Đan Phủ Tinh Tôi
 星罗剑	Tinh La Kiếm
 春秋蝉	Xuân Thu Thiền
-晶体独眼巨鹿魂魄	Hồn phách Tinh Thể Độc Nhãn Cự Lộc
+晶体独眼巨鹿魂魄	Hồn Phách Nai Một Mắt Tinh Thể
 智慧蛊	Trí Tuệ Cổ
 暗影玫瑰花	Hoa Hồng Bóng Tối
 暗影胡须	Râu Bóng Tối
 曜翼蛊	Diệu Dực Cổ
 替死返魂丹	Thế Tử Phản Hồn Đan
-替身木雕	Mộc Điêu Thế Thân
+替身木雕	Tượng Gỗ Thế Thân
 月亮石	Đá Mặt Trăng
 月光蛊	Nguyệt Quang Cổ
 月华十药枝	Nguyệt Hoa Thập Dược Chi
-月华摄药枝	Nguyệt Hoa Thập Dược Chi
+月华摄药枝	Cành Hái Thuốc Nguyệt Hoa
 月芒蛊	Nguyệt Mang Cổ
-有几分实力，用本君的玄宝来试试你的斤两。	Có vài phần thực lực, dùng huyền bảo của bản quân thử ngươi xem nào.
-朝阳花	Triều Dương Hoa
+有几分实力，用本君的玄宝来试试你的斤两。	Có vài phần thực lực, dùng huyền bảo của bản quân thử xem cân lượng của ngươi.
+朝阳花	Hoa Triều Dương
 木屋	Nhà Gỗ
-木梨花	Mộc Lê Hoa
+木梨花	Hoa Mộc Lê
 木雕师傅	Mộc Điêu Sư Phó
-本仙尤喜不务空名者。	Bản tiên đặc biệt yêu kẻ chân thực không hư danh.
-本君…居然……败了…	Bản quân… cư nhiên… bại rồi…
-本源碎片	Bổn Nguyên Toái Phiến
+本仙尤喜不务空名者。	Bản tiên đặc biệt thích người không chạy theo hư danh.
+本君…居然……败了…	Bản quân… vậy mà…… bại rồi…
+本源碎片	Mảnh Vỡ Bản Nguyên
 本源祭板	Bổn Nguyên Tế Bản
 朱雀	Chu Điểu
 朱鸟	Chu Điểu
 杀戮仙诀	Sát Lục Tiên Quyết
 李广弓	Lý Quảng Cung
 杏花微雨剑	Hạnh Hoa Vi Vũ Kiếm
-杏花树	Hạnh Hoa Thụ
-极品灵石	Cực Phẩm Linh Thạch
+杏花树	Cây Hoa Hạnh
+极品灵石	Linh thạch cực phẩm
 枯荣双生	Khô Vinh Song Sinh
 枯髅山	Khô Lâu Sơn
-栅栏	Hàng rào
+栅栏	Hàng Rào
 根气	Căn Khí
 桌子	Bàn
-梅香如故	Mai Hương Như Cố
+梅香如故	Hương Mai Như Cũ
 梅香如旧	Mai Hương Như Cựu
 梦蝶蛊	Mộng Điệp Cổ
 梳脉丸	Sơ Mạch Hoàn
-棘花泽	Cức Hoa Trạch
+棘花泽	Đầm Hoa Gai
 樱花树	Cây Anh Đào
-橙宝石	Cam Bảo Thạch
+橙宝石	Ngọc Cam
 残神白虎	Tàn Thần Bạch Hổ
 残魂麒麟	Tàn Hồn Kỳ Lân
 毅鳞	Nghị Lân
@@ -299,18 +299,18 @@
 洗髓丹	Tẩy Tủy Đan
 洛神	Lạc Thần
 洛神引	Lạc Thần Dẫn
-洛神清蔬	Lạc Thần Thanh Sơ
+洛神清蔬	Rau Tươi Lạc Thần
 洛神花	Hoa Lạc Thần
 洛神花匣	Hộp Hoa Lạc Thần
 洛神花种	Hạt Hoa Lạc Thần
-洛神花裀	Lạc Thần Hoa Nhân
+洛神花裀	Đệm Hoa Lạc Thần
 洛神诛	Lạc Thần Tru
-洛香烹肉	Lạc Hương Phanh Nhục
-流光珠宝盒	Hộp Trang Sức Lưu Quang
-流光花粉	Lưu Quang Hoa Phấn
-浣月池	Hồ Tẩy Nguyệt
-浣猫树屋	Nhà Cây Mèo Gấu Trúc
-浮骨法器	Phù Cốt Pháp Khí
+洛香烹肉	Thịt Nấu Hương Lạc
+流光珠宝盒	Hộp Châu Báu Lưu Quang
+流光花粉	Phấn Hoa Lưu Quang
+浣月池	Ao Hoán Nguyệt
+浣猫树屋	Nhà Cây Mèo Trúc
+浮骨法器	Pháp Khí Phù Cốt
 海象营地	Trại Hải Tượng
 涅槃血髓竹	Niết Bàn Huyết Tủy Trúc
 混元太虚跃迁台	Đài Dịch Chuyển Hỗn Nguyên Thái Hư
@@ -318,36 +318,36 @@
 混元金斗	Hỗn Nguyên Kim Đấu
 混元金斗跃迁点	Điểm Dịch Chuyển Hỗn Nguyên Kim Đấu
 清心洗魂丹	Thanh Tâm Tẩy Hồn Đan
-清风絮	Thanh Phong Tụ
+清风絮	Thanh Phong Nhứ
 清风蕖	Thanh Phong Tụ
 火灵	Hỏa Tinh
 火炭蛊	Hoả Thán Cổ
 火精	Hỏa Tinh
-灭之花	Diệt chi Hoa
+灭之花	Hoa Hủy Diệt
 灯	Đèn
-灯彩	Đèn Trang Trí
-灵宝祭炼台	Linh Bảo Tế Luyện Đài
-灵宝箱	Hòm Linh Bảo
+灯彩	Đèn màu
+灵宝祭炼台	Đài Tế Luyện Linh Bảo
+灵宝箱	Rương Linh Bảo
 灵狐	Linh Hồ
 灵狐尾	Đuôi Linh Hồ
 灵石	Linh Thạch
-灵石抽奖机	Máy Quay Thưởng Linh Thạch
+灵石抽奖机	Máy Rút Thưởng Linh Thạch
 灵石矿	Mỏ Linh Thạch
-灵矿魔偶	Linh Khoáng Ma Ngẫu
+灵矿魔偶	Ma Ngẫu Linh Khoáng
 灵矿魔影	Linh Khoáng Ma Ảo
 灵草	Linh Thảo
 炼腑	Luyện Phủ
-炽热种子	Hạt Xích Dương
-烟柳树	Yên Liễu Thụ
-焚天剑	Phẫn Thiên Kiếm
-焚寂	Phẫn Tịch
+炽热种子	Hạt Nóng Rực
+烟柳树	Cây Liễu Khói
+焚天剑	Phần Thiên Kiếm
+焚寂	Phần Tịch
 焚籍	Phẫn Tịch
 焦雷豆母蛊	Tiêu Lôi Đậu Mẫu Cổ
-熊獾木雕	Mộc Điêu Hùng Hoan
+熊獾木雕	Tượng gỗ Gấu Lửng
 熔灵丹	Dung Linh Đan
 牡丹	Mẫu Đơn
 狗屎运蛊	Cẩu Thỉ Vận Cổ
-猎犬魂魄	Hồn phách Hound
+猎犬魂魄	Hồn Phách Chó Săn
 猴毛	Râu khỉ
 猴耳	Tai Khỉ
 玄天宝葫	Huyền Thiên Bảo Hồ
@@ -355,39 +355,39 @@
 玄武吹箭	Huyền Vũ Xuy Tiễn
 玄武岩	Đá Huyền Vũ
 玄羽	Huyền Vũ
-玄羽吹箭	Huyền Vũ Xuy Tiễn
+玄羽吹箭	Ống Phi Tiêu Huyền Vũ
 玄阳暖玉丹	Huyền Dương Noãn Ngọc Đan
 玄魂花	Huyền Hồn Hoa
 玄鸟	Huyền Điểu
 玉露仙溪	Ngọc Lộ Tiên Khê
-玉露仙畦	Ngọc Lộ Tiên Khê
-玉露玄仓	Ngọc Lộ Huyền Cang
+玉露仙畦	Ruộng Tiên Ngọc Lộ
+玉露玄仓	Kho Huyền Ngọc Lộ
 玉露玄钢	Ngọc Lộ Huyền Cang
 王麻子	Vương Ma Tử
-玲珑宝箱	Bảo Rương Linh Lung
+玲珑宝箱	Rương Linh Lung
 珅魂扇	Tôn Hồn Phiến
 琼楼金阙	Quỳnh Lâu Kim Khuyết
 琼霄	Quỳnh Tiêu
 甘井	Giếng Ngọt
-生之花	Sinh chi Hoa
+生之花	Hoa Sự Sống
 生机叶羹	Canh lá Sinh Cơ
 生机草	Cỏ Sinh Cơ
 略微增加移速	Tăng nhẹ tốc độ di chuyển
 疏脉丹	Sơ Mạch Đan
 白玉蛊	Bạch Ngọc Cổ
-白玫瑰	Hồng Bạch
+白玫瑰	Hoa Hồng Trắng
 白虎	Bạch Hổ
-白虎残躯	Tàn thân Bạch Hổ
+白虎残躯	Tàn Khu Bạch Hổ
 白虹	Bạch Hồng
 百劫魔身	Bách Kiếp Ma Thân
 百合	Bách Hợp
-皮弗娄牛屋	Nhà Bò Lông Dài
+皮弗娄牛屋	Nhà Bò Beefalo
 石矶	Thạch Cơ
 石矶娘娘	Thạch Cơ Nương Nương
-石虾	Thạch Tôm
+石虾	Tôm Đá
 砍柴刀	Dao chặt củi
 破灭法目	Phá Diệt Pháp Mục
-破碎蜘蛛	Nhện Phá Giới
+破碎蜘蛛	Nhện Vỡ Nát
 破虚	Phá Hư
 破障符	Phá Chướng Phù
 碧云童子	Bích Vân Đồng Tử
@@ -396,71 +396,73 @@
 磐岳石傀	Bàn Nhạc Thạch Khôi
 磐石护身丹	Bàn Thạch Hộ Thân Đan
 神力	Thần Lực
-神识傀儡	Thần Thức Khôi Lỗi
-祭坛	Đàn Tế
+神识傀儡	Khôi Lỗi Thần Thức
+祭坛	Tế Đàn
 稀有灵石矿	Mỏ Linh Thạch Hiếm
-穴居悬蛛	Huyệt Cư Huyền Chu
+穴居悬蛛	Nhện Treo Hang
 符骨法器	Phù Cốt Pháp Khí
 筑基	Trúc Cơ
 筑基丹	Trúc Cơ Đan
 精卫	Tinh Vệ
 精炼丹炉	Tinh Tế Đan Phủ
-紫云的魔心	Ma Tâm Tử Vân
+紫云的魔心	Ma Tâm Của Tử Vân
 紫云阁	Tử Vân Các
 紫云魔君	Tử Vân Ma Quân
-紫姹面甲	Tử Sát Diện Giáp
-紫姹魔羽	Tử Sát Ma Vũ
-紫宝石	Tử Bảo Thạch
+紫姹面甲	Mặt Giáp Tử Xá
+紫姹魔羽	Ma Vũ Tử Xá
+紫宝石	Ngọc Tím
 紫煞魔羽	Tử Sát Ma Vũ
 紫赤面具	Mặt Nạ Tử Xích
 紫赤魔羽	Lông Ma Tử Xích
-红宝石	Hồng Bảo Thạch
+红宝石	Ngọc Đỏ
 纣王	Trụ Vương
-纣王法身	Trụ Vương Pháp Thân
-纤羽	Lông Vũ Mảnh
+纣王法身	Pháp Thân Trụ Vương
+纤羽	Tiêm Vũ
 纸	Giấy
 练体	Luyện Thể
 练气	Luyện Khí
 结丹	Kết Đan
 结婴丹	Kết Anh Đan
-绛刃	Giáng Nhận
+绛刃	Lưỡi Đỏ Thẫm
 绝品灵石矿	Mỏ Linh Thạch Tuyệt Phẩm
-绣墙	Tường thêu
+绣墙	Tường Thêu
 绯翼金棘蜂	Phi Dực Kim Cức Phong
-绿宝石	Lục Bảo Thạch
+绿宝石	Ngọc Lục
 缓慢回复血量	Từ từ hồi máu
 缓慢生成食物	Từ từ sinh ra thức ăn
 缓灵塔	Hoãn Linh Tháp
 缚龙索	Phược Long Tỏa
-缚龙锁	Phược Long Tỏa
+缚龙锁	Tỏa Trói Rồng
 羽毛碎片	Lông Vũ Mảnh
-翠羽仙踪	Thúy Vũ Tiên Tung
-翠荷光盏	Thúy Hà Quang Trản
+翠羽仙踪	Tung Tích Tiên Lông Biếc
+翠荷光盏	Chén Đèn Sen Biếc
 老剑条	Lão Kiếm Điều
-考拉象屋	Nhà Voi
+考拉象屋	Nhà Koalefant
+耐久:	Độ bền:
+耐久度:	Độ bền:
 聚形散气	Tụ Hình Tán Khí
 聚气丸	Tụ Khí Hoàn
 聚气丹	Tụ Khí Đan
-肉身消亡	Nhục thân tiêu vong
-能把本君逼到这个境地，确是个惊才绝艳之辈。	Có thể bức bản quân đến mức này, quả là kẻ kinh tài tuyệt diễm.
+肉身消亡	Nhục Thân Tiêu Vong
+能把本君逼到这个境地，确是个惊才绝艳之辈。	Có thể ép bản quân đến cảnh này, quả là hạng tài hoa tuyệt thế.
 至尊仙胎蛊	Chí Tôn Tiên Thai Cổ
 芙蓉玄旗伞	Phù Dung Huyền Kỳ Tản
-芙蓉玄机伞	Phù Dung Huyền Cơ Tản
-芳菲栅栏	Hàng rào Phương Phỉ
+芙蓉玄机伞	Phù Dung Huyền Cơ Tán
+芳菲栅栏	Hàng Rào Phương Phi
 苏妲己	Tô Đát Kỷ
 莲叶东	Liên Diệp Đông
 蒲公英	Bồ Công Anh
-蓝宝石	Lam Bảo Thạch
+蓝宝石	Ngọc Lam
 蓝杉	Lam Sam
 蔬果仓	Kho Rau Quả
-蕴灵花盆	Bồn Hoa Uẩn Linh
+蕴灵花盆	Chậu Hoa Uẩn Linh
 蕴血丸	Uẩn Huyết Hoàn
 蕴血丹	Uẩn Huyết Đan
 藤蔓	Dây leo
 蘑菇篓子	Giỏ Nấm
 虚天鼎	Hư Thiên Đỉnh
 蚀心胄	Thực Tâm Trụ
-蜘蛛女王	Nhện Nữ Vương
+蜘蛛女王	Nữ Vương Nhện
 蜜罐	Hũ Mật
 融灵丸	Dung Linh Hoàn
 血月蛊	Huyết Nguyệt Cổ
@@ -468,49 +470,49 @@
 血淡元丹	Huyết Đạm Nguyên Đan
 血煞剑	Huyết Sát Kiếm
 血玉珠	Huyết Ngọc Chu
-血玉蜘蛛	Huyết Ngọc Châu
-血玉蜘蛛卵	Trứng Huyết Ngọc Châu
-行之于途而应于心……	Hành trên đường mà ứng tại tâm…
-装甲熊獾巢穴	Ổ Hùng Hoan Trang Giáp
-覆冰种子	Hạt Phú Băng
-见识见识本仙姑的手段吧。	Lĩnh giáo thủ đoạn của bản tiên cô đi.
-豆兵傀儡	Đậu Binh Khôi Lỗi
+血玉蜘蛛	Huyết Ngọc Tri Chu
+血玉蜘蛛卵	Trứng Huyết Ngọc Tri Chu
+行之于途而应于心……	Đi trên đường mà ứng với tâm……
+装甲熊獾巢穴	Hang Gấu Lửng Giáp
+覆冰种子	Hạt Phủ Băng
+见识见识本仙姑的手段吧。	Hãy mở mắt xem thủ đoạn của bản tiên cô đi.
+豆兵傀儡	Khôi Lỗi Đậu Binh
 赤阳焚血丹	Xích Dương Phần Huyết Đan
 赤阳花	Xích Dương Hoa
 赤龙	Xích Long
 跳跳草	Khiêu Khiêu Thảo
-身外化身	Thân Ngoại Hoá Thân
-身外化身(戮默分身)	Thân Ngoại Hoá Thân (Lục Mặc Phân Thân)
-身外化身(黄巾力士核心)	Thân Ngoại Hoá Thân (Hoàng Cân Lực Sĩ)
-辟谷丹	Bích Cốc Đan
-返生香	Hương Phục Sinh
+身外化身	Thân Ngoại Hóa Thân
+身外化身(戮默分身)	Thân Ngoại Hóa Thân(Phân thân Lục Mặc)
+身外化身(黄巾力士核心)	Thân Ngoại Hóa Thân(Hạch tâm Hoàng Cân Lực Sĩ)
+辟谷丹	Tịch Cốc Đan
+返生香	Hương Phản Sinh
 返魂木	Cây Phản Hồn
 返魂果	Quả Phản Hồn
 返魂果脯	Mứt Quả Phản Hồn
 返魂果藤	Dây Quả Phản Hồn
 返魂果酱	Mứt Quả Phản Hồn
 返魂树	Cây Phản Hồn
-远古织影者木雕	Mộc Điêu Viễn Cổ Chức Ảnh Giả
+远古织影者木雕	Tượng gỗ Kẻ Dệt Bóng Cổ Đại
 逆鳞	Nghịch Lân
 通灵石哨	Thông Linh Thạch Khiếu
-通灵石窍	Thông Linh Thạch Khiếu
+通灵石窍	Thạch Khiếu Thông Linh
 通脉	Thông Mạch
 逝子返魂丹	Thế Tử Phản Hồn Đan
-邪煞护甲	Tà Sát Hộ Giáp
+邪煞护甲	Hộ Giáp Tà Sát
 邪煞步族	Tà Sát Bộ Túc
-邪煞步足	Tà Sát Bộ Túc
+邪煞步足	Chân Bước Tà Sát
 邪煞纣王	Tà Sát Chu Vương
-邪煞蛛王	Tà Sát Châu Vương
-邪诈魔蛛	Yêu Trá Ma Châu
+邪煞蛛王	Tà Sát Chu Vương
+邪诈魔蛛	Tà Trá Ma Chu
 醉春烟	Túy Xuân Yên
-醉春烟树苗	Cây Con Túy Xuân Yên
+醉春烟树苗	Mầm Cây Túy Xuân Yên
 醉梅	Túy Mai
-醒石谒道杖	Tỉnh Thạch Yết Đạo Trượng
+醒石谒道杖	Trượng Tỉnh Thạch Yết Đạo
 金	Vàng
-金乌腾彩灯	Đèn Kim Ô Tung Thái
+金乌腾彩灯	Đèn Kim Ô Đằng Thải
 金凤	Kim Phượng
-金凤木雕	Mộc Điêu Kim Phượng
-金凤神念	Kim Phượng Thần Niệm
+金凤木雕	Tượng gỗ Kim Phượng
+金凤神念	Thần Niệm Kim Phượng
 金箍棒	Kim Cô Bổng
 金精铜钱	Kim Tinh Đồng Tiền
 金蛟剪	Kim Giao Tiễn
@@ -518,28 +520,28 @@
 金鳞	Kim Lân
 铃兰	Linh Lan
 铜头铁臂	Đồng Đầu Thiết Tý
-银杏	Ngân Hạnh
+银杏	Bạch Quả
 销金赤骨刀	Tiêu Kim Xích Cốt Đao
-锦毛虎皮	Da hổ gấm
-锦门	Cẩm Môn
+锦毛虎皮	Da Hổ Gấm
+锦门	Cổng Gấm
 锻体丸	Đoán Thể Hoàn
 锻体丹	Đoán Thể Đan
 锻骨	Đoán Cốt
 长气剑	Trường Khí Kiếm
 问世	Vấn Thế
 问道丹劫	Vấn Đạo Đan Kiếp
-闲步之时莫打扰本君。	Khi nhàn bộ xin chớ làm phiền bản quân.
+闲步之时莫打扰本君。	Khi bản quân đang nhàn bước thì chớ quấy rầy.
 阳气挑灯符	Dương Khí Khiêu Đăng Phù
-附身座狼木雕	Mộc Điêu Warg phụ thân
-附身座狼魂魄	Hồn phách Warg phụ thân
+附身座狼木雕	Tượng gỗ Tọa Lang Nhập Thân
+附身座狼魂魄	Hồn Phách Sói Tọa Lang Nhập Thân
 除魔	Trừ Ma
 隐官笠	Nón Ẩn Quan
 隐官袍	Áo bào Ẩn Quan
 雷翼蛊	Lôi Dực Cổ
 雷鸣杀气丹	Lôi Minh Sát Khí Đan
-雷鸣菇	Lôi Minh Cốc
+雷鸣菇	Nấm Lôi Minh
 雷鸣谷	Lôi Minh Cốc
-需要手持专属武器才能使用	Cần cầm vũ khí chuyên dụng để sử dụng
+需要手持专属武器才能使用	Cần cầm vũ khí chuyên dụng mới có thể sử dụng
 霜寒草	Sương Hàn Thảo
 青丘坊	Thanh Khâu Phường
 青出于蓝	Thanh Xuất Ư Lam
@@ -552,42 +554,42 @@
 青梅树苗	Cây thanh mai con
 青梅酒	Rượu thanh mai
 青犀裂甲蛊	Thanh Tê Liệt Giáp Cổ
-青玉案	Thanh Ngọc Án
+青玉案	Án Thanh Ngọc
 青竹凤云剑	Thanh Trúc Phong Vân Kiếm
 青竹蜂云剑	Thanh Trúc Phong Vân Kiếm
 青萍	Thanh Bình
-靛菌种子	Hạt Điện Khuẩn
+靛菌种子	Hạt Nấm Chàm
 风雷翼	Phong Lôi Dực
-飞剑符宝	Phi Kiếm Phù Bảo
+飞剑符宝	Phù Bảo Phi Kiếm
 食心坠	Thực Tâm Trụy
 食金虫	Thực Kim Trùng
 饭袋草	Phạn Đại Thảo
-馥郁手杖	Phức Uẩn Thủ Trượng
+馥郁手杖	Trượng Tay Hương Ngát
 骷髅	Bộ Xương
 骷髅山	Khô Lâu Sơn
 魂狼	Hồn Lang
 魔剑	Ma Kiếm
 魔将浮屠	Ma Tướng Phù Đồ
 魔将蒲牢	Ma Tướng Phù Đồ
-魔怪钳骨	Ma Quái Kiềm Cốt
+魔怪钳骨	Xương Càng Ma Quái
 魔蛛巢	Hang Ma Châu
-魔蛛巢穴	Hang Ma Châu
+魔蛛巢穴	Sào Huyệt Ma Chu
 魔骸	Ma Hài
-鱼龙灯	Đăng Ngư Long
-鲲鹏灵脉地皮	Địa bì Côn Bằng linh mạch
-鲲鹏葱郁地皮	Địa bì Côn Bằng xanh tốt
-鲲鹏魔化地皮	Địa bì Côn Bằng ma hoá
-麋鹿鹅木雕	Mộc Điêu Mi Lộc Nga
+鱼龙灯	Đèn Ngư Long
+鲲鹏灵脉地皮	Đất Linh Mạch Côn Bằng
+鲲鹏葱郁地皮	Đất Côn Bằng Xanh Tốt
+鲲鹏魔化地皮	Đất Côn Bằng Ma Hóa
+麋鹿鹅木雕	Tượng gỗ Nai Ngỗng
 麒麟	Kỳ Lân
-麒麟木雕	Mộc Điêu Kỳ Lân
+麒麟木雕	Tượng gỗ Kỳ Lân
 麒麟残魂	Tàn Hồn Kỳ Lân
-麒麟茸	Sừng Kỳ Lân
+麒麟茸	Nhung Kỳ Lân
 麒麟角	Sừng Kỳ Lân
-黄宝石	Hoàng Bảo Thạch
-黄花梨木桌	Bàn Gỗ Hoàng Hoa Lý
+黄宝石	Ngọc Vàng
+黄花梨木桌	Bàn Gỗ Hoàng Hoa Lê
 龙太子	Long Thái Tử
 龙珠	Long Châu
-龙蝇巢穴	Tổ Long Nhặng
-龙蝇木雕	Mộc Điêu Long Nhặng
+龙蝇巢穴	Tổ Chuồn Chuồn Rồng
+龙蝇木雕	Tượng gỗ Chuồn Chuồn Rồng
 龙魂问道珠	Long Hồn Vấn Đạo Chu
-龙魂问道锤	Long Hồn Vấn Đạo Chuỳ
+龙魂问道锤	Long Hồn Vấn Đạo Chùy

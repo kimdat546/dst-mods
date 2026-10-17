@@ -36,10 +36,10 @@ RIGHT PAGE (30) — grey box with two items, a skill line, then 4 blocks, top to
    • Có thể đặt thẳng xuống đất.
    • Giết sinh vật gần đó sinh ra linh hồn; phiên hút linh hồn rồi gọi Hồn Linh cùng tấn công.
 4) Inside the grey box, one centered line below both columns:
-   Nếu bị mất, cả hai đều luyện lại được bằng lò đan.
+   Nếu bị mất, cả hai đều luyện lại được bằng Lò Luyện Đan.
 5) Inside the grey box, bottom: two recipe lines, left one under the left item, right one under the right item:
-   Left: Tử Sát Ma Vũ*2, thỏi vàng*5, ngọc lục bảo*10, Thượng Phẩm Linh Thạch*3
-   Right: Tử Sát Ma Vũ*1, giấy cói*5, ngọc đỏ*5, Thượng Phẩm Linh Thạch*1
+   Left: Ma Vũ Tử Xá*2, Cục vàng*5, Ngọc Lục*10, Linh thạch thượng phẩm*3
+   Right: Ma Vũ Tử Xá*1, Giấy Cói*5, Ngọc Đỏ*5, Linh thạch thượng phẩm*1
 6) Below the grey box, two labels on the left (stacked, one per line) and a description to their right:
    Labels:
    Linh kỹ: Định Thân Thuật
@@ -56,6 +56,6 @@ RIGHT PAGE (30) — grey box with two items, a skill line, then 4 blocks, top to
 9) Bottom-left, next to the blue whip icon (caption under it replaces 坤极鞭 → "Khôn Cực Tiên"):
    Làm mục tiêu dễ bị thương, chém chết sinh vật dưới 7% máu.
 10) Bottom-right, next to the pink-and-red figure icon (caption under it replaces 杀戮仙诀 → "Sát Lục Tiên Quyết"):
-   Khi kích hoạt Thân Ngoại Hoá Thân, hoá thân tấn công có tỉ lệ phát động huyết kiếm.
+   Khi kích hoạt Thân Ngoại Hóa Thân, hoá thân tấn công có tỉ lệ phát động huyết kiếm.
 
 Do not write the color tags like "[dark red]" in the image — they only tell you the color.

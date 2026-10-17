@@ -9,27 +9,27 @@ STRICT RULES
 
 LEFT PAGE (1)
 1) Inside the grey frame at the top: four white labels, each centered under its own icon, left to right:
-   - under the red lantern on a stump (replaces 灯彩): Đèn Trang Trí
-   - under the golden three-flame lamp tree (replaces 金乌腾彩灯): Đèn Kim Ô Tung Thái
+   - under the red lantern on a stump (replaces 灯彩): Đèn màu
+   - under the golden three-flame lamp tree (replaces 金乌腾彩灯): Đèn Kim Ô Đằng Thải
    - under the blue pagoda lamp post (replaces 琼楼金阙): Quỳnh Lâu Kim Khuyết
    - under the lotus-leaf rock (replaces 莲叶东): Liên Diệp Đông
 2) Centered line between the two divider lines, below the grey frame:
    *Tiêu hao linh thạch để chiếu sáng với phạm vi khác nhau.
 3) Next to the moon pond icon (purple tree over glowing water):
-   Hồ Tẩy Nguyệt: không cần linh thạch vẫn chiếu sáng, đồng thời thả được cá giống. Thả tối đa 3 con, sau 7 ngày mỗi con cá giống cho thu hoạch 4 con.
+   Ao Hoán Nguyệt: không cần linh thạch vẫn chiếu sáng, đồng thời thả được cá giống. Thả tối đa 3 con, sau 7 ngày mỗi con cá giống cho thu hoạch 4 con.
 4) Next to the well icon at the bottom:
    Giếng Ngọt: giếng nước ngọt để đổ đầy bình tưới, khỏi vất vả đi lại ra ao.
 
 RIGHT PAGE (2)
 1) Inside the grey frame at the top: two white labels, each centered under its own icon:
-   - under the left storehouse with meat crate (replaces 储肉仓): Kho Thịt
+   - under the left storehouse with meat crate (replaces 储肉仓): Kho Trữ Thịt
    - under the right straw storehouse (replaces 蔬果仓): Kho Rau Quả
 2) Text block just below the grey frame, above the next divider (two notes, each starting with *):
    *Đều có 6*6 ô chứa, từ từ làm tươi lại đồ bên trong, và dùng được Bộ Mở Rộng Không Gian.
-   *Kho Thịt chỉ chứa đồ thịt; Kho Rau Quả chứa được rau và hạt giống.
+   *Kho Trữ Thịt chỉ chứa đồ thịt; Kho Rau Quả chứa được rau và hạt giống.
 3) Next to the round wooden table icon, two short paragraphs (keep the blank line between them):
-   Bàn Gỗ Hoàng Hoa Lý: bày trưng các món ăn đã nấu.
+   Bàn Gỗ Hoàng Hoa Lê: bày trưng các món ăn đã nấu.
 
    Món bày lên có thể xếp chồng, từ từ tươi lại, và dùng được Bộ Mở Rộng Không Gian.
 4) Next to the display shelf icon at the bottom:
-   Đa Bảo Các: có 3*4 ô chứa, đồ ở 8 ô đầu được trưng trên giá gỗ, và dùng được Bộ Mở Rộng Không Gian.
+   Giá Đa Bảo: có 3*4 ô chứa, đồ ở 8 ô đầu được trưng trên giá gỗ, và dùng được Bộ Mở Rộng Không Gian.

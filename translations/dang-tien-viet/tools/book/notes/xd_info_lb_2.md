@@ -12,11 +12,11 @@
 | T4 nhãn dưới rễ | 沙棠树根 | Rễ Cây Sa Đường |
 | T4 giữa | *建议带上坐骑进行搬运。 | *Nên mang theo thú cưỡi để vận chuyển. |
 | T4 cạnh bình xanh | 掌天瓶：可以在夜晚凝聚天地灵气。 | Chưởng Thiên Bình: ban đêm có thể ngưng tụ linh khí trời đất. |
-| T4 cạnh bình xanh | 炼制公式：麒麟茸*1、月亮碎片*6、蓝宝石*3、下品灵石*30 | Công thức luyện chế: Sừng Kỳ Lân*1, Đá Vụn Trăng*6, Lam Bảo Thạch*3, Hạ Phẩm Linh Thạch*30 |
+| T4 cạnh bình xanh | 炼制公式：麒麟茸*1、月亮碎片*6、蓝宝石*3、下品灵石*30 | Công thức luyện chế: Nhung Kỳ Lân*1, Đá Vụn Trăng*6, Ngọc Lam*3, Linh thạch hạ phẩm*30 |
 | T4 cuối trang | *对作物浇灌有一定程度的催熟效果。 | *Tưới cho cây trồng giúp chúng chín nhanh hơn phần nào. |
 
 ## Ghi chú
 - **Không chắc:** 打捞水中木 — "水中木" không khớp tên vật nào trong bản game (疙瘩树=Knobbly Tree, 大树干=Great Tree Trunk). Có thể là cách gọi gỗ/cây trôi dưới nước của mod; dịch chung "vớt gỗ dưới nước". Nếu biết đúng vật thì sửa.
 - 两天垂落一根的沙棠果藤: hiểu là dây quả cứ 2 ngày rủ xuống một dây (Dây Quả Sa Đường là tên glossary).
-- 麒麟茸 theo glossary = Sừng Kỳ Lân; 月亮碎片 = Đá Vụn Trăng (Moon Shard, bản game); 蓝宝石 = Lam Bảo Thạch (glossary).
+- 麒麟茸 theo glossary = Nhung Kỳ Lân; 月亮碎片 = Đá Vụn Trăng (Moon Shard, bản game); 蓝宝石 = Ngọc Lam (glossary).
 - "帮助修士在进行踏水" câu gốc hơi lủng củng (thừa 在) — dịch theo nghĩa.

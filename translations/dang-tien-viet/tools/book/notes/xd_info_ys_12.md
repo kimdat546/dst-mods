@@ -11,13 +11,13 @@
 | T24 khung xám • Quỳnh Tiêu | 琼霄：有额外攻击倍率、移速、攻击距离，并且累积好斗值可增加攻击效果。 | Quỳnh Tiêu: thêm hệ số tấn công, tốc chạy, tầm đánh; tích Giá trị Hiếu Chiến để tăng hiệu quả tấn công. |
 | T24 icon rương vàng — nhãn | 混元金斗 | Hỗn Nguyên Kim Đấu |
 | T24 icon rương vàng — mô tả | 拥有宽敞专属空间，可让角色实现指定地点的空间跃迁，并且可传送生物、吸纳物品。 | Có không gian riêng rộng rãi, giúp nhân vật dịch chuyển tới điểm chỉ định, còn truyền tống được sinh vật và hút vật phẩm. |
-| T24 icon trượng pha lê — nhãn | 浮骨法器 | Phù Cốt Pháp Khí |
-| T24 icon trượng pha lê — mô tả | 朝前方大范围特化破坏树木、矿石、冰川，同时可用蓝宝石或者绿宝石修复部分耐久。 | Phá mạnh cây, quặng đá, băng trên diện rộng phía trước; sửa một phần độ bền bằng ngọc lam hoặc ngọc lục bảo. |
-| T24 nhãn không icon | 缚龙锁 | Phược Long Tỏa |
+| T24 icon trượng pha lê — nhãn | 浮骨法器 | Pháp Khí Phù Cốt |
+| T24 icon trượng pha lê — mô tả | 朝前方大范围特化破坏树木、矿石、冰川，同时可用蓝宝石或者绿宝石修复部分耐久。 | Phá mạnh cây, quặng đá, băng trên diện rộng phía trước; sửa một phần độ bền bằng Ngọc Lam hoặc Ngọc Lục. |
+| T24 nhãn không icon | 缚龙锁 | Tỏa Trói Rồng |
 | T24 mô tả cạnh nhãn đó | 可以在一定时间范围内控制住目标，可以给专属武器修复耐久。 | Khống chế mục tiêu trong một khoảng thời gian; sửa được độ bền cho vũ khí riêng. |
-| T24 icon giáp lông trắng — nhãn | 云幕上装 | Vân Mạc Thượng Trang |
+| T24 icon giáp lông trắng — nhãn | 云幕上装 | Áo Trên Màn Mây |
 | T24 icon giáp lông trắng — mô tả | 拥有保暖以及85%防御，略微发光，耐久随时间降低，可修补。 | Giữ ấm, 85% phòng ngự, phát sáng nhẹ, độ bền giảm theo thời gian, vá được. |
-| T24 icon gậy xanh — nhãn | 馥郁手杖 | Phức Uẩn Thủ Trượng |
+| T24 icon gậy xanh — nhãn | 馥郁手杖 | Trượng Tay Hương Ngát |
 | T24 icon gậy xanh — mô tả | 拥有加速、闪现功能，手持打开地图可短距离传送，用沙之石可修复耐久。 | Tăng tốc, thuấn di; cầm trên tay mở bản đồ để dịch chuyển tầm ngắn; sửa độ bền bằng Đá Cát. |
 
 ## Ghi chú / chỗ không chắc
@@ -25,5 +25,5 @@
 - 专武 → "vũ khí riêng" (chuyên vũ). 秒杀 → "giết ngay".
 - 沙之石 = Desert Stone (Antlion) → "Đá Cát" (theo wiki_reference.txt).
 - 闪现 (blink) → "thuấn di" — thuật ngữ tự đặt.
-- 冰川 → "băng" (Mini Glacier). 蓝宝石/绿宝石 → ngọc lam / ngọc lục bảo.
+- 冰川 → "băng" (Mini Glacier). 蓝宝石/绿宝石 → Ngọc Lam / Ngọc Lục.
 - 浮骨法器 chữ nhỏ dưới icon; đã phóng to xác nhận, khớp glossary.

@@ -1,4 +1,4 @@
-# xd_info_dy_1 — trang 1–2 (bìa Tu Tiên Mật Quyển + lời tựa)
+# xd_info_dy_1 — trang 1–2 (bìa Mật Quyển Tu Tiên + lời tựa)
 
 | vị trí | CN gốc | VN |
 |---|---|---|
@@ -14,3 +14,5 @@
 - 3 dòng in ở đáy là quảng cáo server Trung Quốc của tác giả (真界 = tên server, 群 = nhóm QQ). Vẫn dịch theo yêu cầu "không để sót chữ Hán"; nếu muốn bỏ hẳn thì sửa prompt thành "erase these 3 lines". Tên server để “Chân Giới” — người chơi phải tìm bằng chữ Hán 真界 thật, nên dịch ra thực tế không dùng được để tìm.
 - 孙行者 = skin Tôn Hành Giả (Tôn Ngộ Không) của server đó.
 - Câu cuối là đối ngẫu "吾辈何须乾坤定，逆天改命自由身" — dịch sát giữ nhịp: "bọn ta cần gì càn khôn định, nghịch thiên cải mệnh, tự do thân".
+
+- 2026-10-17: theo yêu cầu user, BỎ 3 dòng quảng cáo server (真界, nhóm QQ, skin 孙行者) — prompt dặn Gemini xoá trắng vùng đó.

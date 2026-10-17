@@ -9,15 +9,15 @@ STRICT RULES
 
 LEFT PAGE (11) — 4 blocks
 1) Top-left inside the picture frame, left of the tiger's head (replaces 白虎残躯), [white with dark outline]:
-   Tàn thân Bạch Hổ
+   Tàn Khu Bạch Hổ
 2) Two-line text just below the picture frame:
    Xuất hiện ở thảo nguyên; chỉ khi có người chơi đạt Nguyên Anh sơ kỳ mới có thể tấn công nó.
 3) Small label directly under the folded tiger pelt icon, bottom-left (replaces 锦毛虎皮), [white with dark outline]:
-   Da hổ gấm
+   Da Hổ Gấm
 4) Right of the tiger pelt icon, three bullets:
-   • Cho Thân Ngoại Hoá Thân ăn để tăng tu vi.
-   • Nguyên liệu bắt buộc để chế tạo Tử Sát Diện Giáp.
-   • Nguyên liệu bắt buộc để luyện Hoá Thần Đan.
+   • Cho Thân Ngoại Hóa Thân ăn để tăng tu vi.
+   • Nguyên liệu bắt buộc để chế tạo Mặt Giáp Tử Xá.
+   • Nguyên liệu bắt buộc để luyện Hóa Thần Đan.
 
 RIGHT PAGE (12) — 4 blocks, top to bottom. Each starts with a short label [white with dark outline], followed by black text.
 1) Right of the orange claw-slash icon (top):
