@@ -1,0 +1,41 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every small icon (meditation badges, pill icons), the four sword illustrations, the crane, the cloud, page numbers "9" and "10", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif, EXCEPT where a block below says otherwise. Words colored differently are noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (9) — 5 blocks, top to bottom
+1) The small dark label plate under the blue meditating-figure badge (inside the grey box, left), white text, centered:
+   Vạn Vật Thăng Cách
+2) Inside the grey box, right of the badge:
+   • Khi có một người chơi đạt Nguyên Anh sơ kỳ, thế giới sẽ thăng cách. Sau khi thăng cách, quái vật trở nên mạnh hơn, và tu sĩ chưa đạt Kết Đan khi tấn công đều có xác suất kích hoạt [yellow] Tiên Quân Pháp Thân trợ chiến[black].
+3) The paragraph between the two decorative dividers, below the grey box:
+   *Sau khi thế giới thăng cách, một số quái vật thậm chí có Yêu Linh Thánh Thể, trở nên càng khó lường hơn, gây thêm [cyan] sát thương thần thức[black], loại sát thương này có khả năng xuyên giáp.
+4) Next to the orange orb on a stand icon, 2 lines:
+   Hoá Thần Đan: Nguyên Anh hậu kỳ → Hóa Thần sơ kỳ
+   Công thức: Da hổ gấm*1, Kinh Dị Thuần Túy*8, Quang Thạch Tinh Khiết*8, Thượng Phẩm Linh Thạch*1
+5) Next to the green lotus orb icon (bottom), 2 lines:
+   Hồi Nguyên Hoàn: Hóa Thần sơ kỳ → Hóa Thần trung kỳ
+   Công thức: Tà Sát Bộ Túc*1, Đuôi Linh Hồ*3, Lông Vũ Mảnh*2, Thượng Phẩm Linh Thạch*1
+
+RIGHT PAGE (10) — 5 blocks, top to bottom
+1) The small dark label plate under the golden meditating-figure badge (inside the grey box, left), white text, centered:
+   Hóa Thần kỳ
+2) Inside the grey box, right of the badge:
+   • Khi tu sĩ đạt Hóa Thần kỳ, tùy theo tu sĩ là [extra-bold black] Vô Thượng Ma Thể [black] hay [light yellow] Công Đức Kim Thân[black], có thể bấm biểu tượng tương ứng trong bảng chế tạo Tiên Đồ để kích hoạt [light yellow] Tiên Kiếm [black] hoặc [extra-bold black] Ma Kiếm[black]. Bấm thêm lần nữa để thu hồi.
+3) The two brush-calligraphy sword captions among the sword illustrations (keep the same brush-calligraphy style, size and color as the original):
+   a) Under the three smaller swords on the left (replaces 仙剑, light cream/white brush strokes), one horizontal line:
+      Tiên Kiếm
+   b) Beside the big dark-blue sword (replaces the vertical 魔剑, black brush strokes), two short lines stacked:
+      Ma
+      Kiếm
+4) The narrow text column to the right of the big sword (from the top divider down to the lower divider):
+   Khi kích hoạt [light yellow] Tiên Kiếm [black] hoặc [extra-bold black] Ma Kiếm[black], kiếm sẽ đánh phối hợp theo số lần tấn công của người chơi. Khi bấm phím <X>, có thể thi triển kỹ năng tương ứng. [light yellow] Tiên Kiếm [black] thi triển kỹ năng 3 lần, sau đó bấm lần nữa để thi triển thần thông cuối cùng. [extra-bold black] Ma Kiếm [black] thì là 2 lần.
+5) Next to the yin-yang orb icon (bottom), 2 lines:
+   Hợp Linh Hoàn: Hóa Thần trung kỳ → Hóa Thần hậu kỳ
+   Công thức: Tử Sát Ma Vũ*1, Ma Quái Kiềm Cốt*1, Tâm Nhĩ Hắc Ám*1, Thượng Phẩm Linh Thạch*1
+
+Do not write the color tags like "[light yellow]" in the image — they only tell you the color.

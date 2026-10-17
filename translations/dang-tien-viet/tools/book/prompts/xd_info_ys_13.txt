@@ -1,0 +1,35 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "25" and "26", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- The character name at the top-left of the grey frame and the small item names under icons on the right page are white letters with a thin dark outline, exactly like the original. Keep that style. Item names stay centered under their own icon.
+- This page has no colored labels: all other text is dark brown/black.
+- The grey box at the top of the right page contains 8 round skill icons and NO text — leave it exactly as it is.
+
+LEFT PAGE (25)
+1) Character name, top-left inside the grey frame (replaces 韩天尊), white with dark outline:
+   Hàn Thiên Tôn
+2) Left area inside the grey frame, below the name and beside the portrait/flying swords (replaces ALL THREE vertical Chinese columns: the two columns inside the frame AND the column outside the frame on the far left — erase that outer column completely). Write horizontally, one item per line, as a list:
+   Thêm chút tốc chạy
+   Có Chưởng Thiên Bình (Cô Phẩm)
+   Có nhiều kỹ năng và vật phẩm riêng.
+
+RIGHT PAGE (26) — 1 paragraph under the icon box, then 4 item blocks, top to bottom
+1) Paragraph directly under the grey box of 8 round icons, above the first divider:
+   Đạt cảnh giới tương ứng thì tiêu hao linh lực để thi triển thần thông. (Khi dùng Phong Lôi Dực có thể đi trên mặt nước. Mở khoá Huyền Thiên Trảm Linh Kiếm sẽ tăng tiêu hao thần thông phím Z thêm 10 linh lực; chỉ trong lúc thần thông phím Z còn hiệu lực mới dùng được kỹ năng Huyền Thiên Trảm Linh Kiếm mà không tốn linh lực.)
+2) Next to the yellow paper talisman icon (caption under it replaces 飞剑符宝 → "Phi Kiếm Phù Bảo"):
+   Có sẵn từ đầu, gọi phi kiếm tấn công, không thể chế tạo lại.
+3) Next to the round golden orb icon (caption under it replaces 天雷子 → "Thiên Lôi Tử"):
+   Ném ra gây sát thương diện rộng, nguyên liệu chế tạo rất quý.
+4) Bottom-left, next to the pale spider icon (caption under it replaces 血玉蜘蛛 → "Huyết Ngọc Châu"):
+   Chế tạo Trứng Huyết Ngọc Châu, cho ăn 10 linh thạch để tạo Kỳ Châu Huyết Ngọc, rồi gọi ra trợ chiến.
+5) Bottom-right, next to the yellow glowing insect icon (caption under it replaces 噬金虫 → "Thực Kim Trùng"):
+   Liên tục cho Hộp Thực Kim Trùng ăn nguyên liệu yêu thú để lớn lên. Khi lớn, số lượng tăng, tiêu hao linh lực tăng. Bậc 5 sẽ biến đổi về chất.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

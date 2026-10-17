@@ -1,0 +1,36 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, the red-orange tree, the tree-root creature, the red fruit, the blue vase, the crane, the cloud, page numbers "3" and "4", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels/titles that are white with a thin dark outline in the original stay white with a thin dark outline.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (3)
+1) White title inside the grey frame, right of the tree (replaces 沙棠树):
+   Cây Sa Đường
+2) Directly below that title, inside the grey frame (replaces the 3 Chinese lines):
+   • Thần mộc Côn Lôn mọc lên khi dùng <Chưởng Thiên Bình> tưới <Rễ Cây Sa Đường>.
+3) Text between the two divider lines, below the grey frame:
+   *Cây Sa Đường không phải gỗ thường: có nhà gỗ che mưa chắn gió, đồng thời ra quả ăn vào có thể đi trên nước.
+4) Next to the red fruit icon, two short paragraphs (keep the blank line between them):
+   Quả Sa Đường: giúp tu sĩ đi trên mặt nước.
+
+   Hái từ Dây Quả Sa Đường, cứ 2 ngày rủ xuống một dây.
+5) Bottom text block, below the thin divider:
+   *Quả Sa Đường giúp tu sĩ đi trên nước trong 1 ngày, và 2 ngày mới được ăn một quả.
+
+RIGHT PAGE (4)
+1) Inside the grey frame at the top, right of the tree-root creature (replaces the 2 Chinese lines):
+   • Khi vớt gỗ dưới nước có thể vớt được Rễ Cây Sa Đường.
+2) White label under the tree-root creature (replaces 沙棠树根), centered:
+   Rễ Cây Sa Đường
+3) Centered line between the two divider lines, below the grey frame:
+   *Nên mang theo thú cưỡi để vận chuyển.
+4) Next to the blue vase icon, two short paragraphs (keep the blank line between them):
+   Chưởng Thiên Bình: ban đêm có thể ngưng tụ linh khí trời đất.
+
+   Công thức luyện chế: Sừng Kỳ Lân*1, Đá Vụn Trăng*6, Lam Bảo Thạch*3, Hạ Phẩm Linh Thạch*30
+5) Centered line at the bottom, below the thin divider:
+   *Tưới cho cây trồng giúp chúng chín nhanh hơn phần nào.

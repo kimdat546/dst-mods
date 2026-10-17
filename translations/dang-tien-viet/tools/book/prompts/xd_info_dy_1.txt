@@ -1,0 +1,26 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the crane, the cloud, page numbers "1" and "2", the black background. Do not redraw, move, resize or restyle any illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif, EXCEPT where a block below says otherwise. The words colored differently are noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (1)
+1) The big vertical brush-calligraphy title in the middle of the page (replaces 修仙密卷). Keep it as a large black brush-calligraphy title in the same tall column, one word per line, centered, stacked top to bottom:
+   Tu
+   Tiên
+   Mật
+   Quyển
+
+RIGHT PAGE (2) — 2 blocks
+1) The vertical brush-written columns filling the upper part of the page (from below the top divider down to just above the printed lines at the bottom). Erase all the vertical columns and write the text as horizontal lines in the same area, left-aligned, black brush-style font (or bold sans-serif if brush style is not readable), as one paragraph:
+   Các ngươi, hoặc vì tham dục, hoặc vì sân niệm, hoặc vì si tình, hoặc vì ác nghiệp, mà bị vây khốn trong tiểu càn khôn này, mệnh đồ lắm gian truân, sống chết do trời. Nhưng tiên đồ đằng đẵng, vạn đạo đều do tâm tạo, vạn pháp đều không, nhân quả chẳng không. Hoặc thành Công Đức Kim Thân, hoặc thành Vô Thượng Ma Thể. Đạo hữu hãy ghi nhớ: bọn ta cần gì càn khôn định, nghịch thiên cải mệnh, tự do thân.
+2) The 3 printed lines at the bottom of the page (just above the bottom divider, partly over the cloud). Keep them centered, bold black serif with a thin light outline like the original, 3 lines:
+   Tìm “Chân Giới” trong danh sách máy chủ và vào đúng máy chủ
+   hoặc vào nhóm 1097251955
+   nhận miễn phí hơn mười trang phục như [yellow] Tôn Hành Giả
+   (only the words "Tôn Hành Giả" are yellow, like the original 孙行者; the rest of the line is black)
+
+Do not write the color tags like "[yellow]" in the image — they only tell you the color.

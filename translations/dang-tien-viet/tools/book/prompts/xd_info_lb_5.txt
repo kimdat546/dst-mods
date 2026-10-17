@@ -1,0 +1,48 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, the red-gold treasure chest, the pink-swirl portal, the shrine, the red-gold dragon altar, the crane, the cloud, page numbers "9" and "10", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels under icons stay white with a thin dark outline, centered under the icon, exactly like the original labels.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (9)
+1) Inside the grey frame at the top, right of the treasure chest (3 bullet points, one per bullet):
+   • Mọi phần thưởng khi vượt lịch luyện đều tụ về rương này.
+   • Lần đầu mở rương nhận được một phần thưởng phúc duyên.
+   • Mỗi người chơi chỉ thấy phần thưởng của riêng mình trong rương.
+2) White label under the treasure chest (replaces 玲珑宝箱), centered:
+   Bảo Rương Linh Lung
+3) Next to the pink-swirl portal icon, three short paragraphs (keep the blank lines between them):
+   • Kích hoạt bằng 1 Trung Phẩm Linh Thạch để truyền tống tới vùng đất lịch luyện.
+
+   Có thể tìm thấy trận truyền tống này ở đầm lầy.
+
+   Mọi cảnh giới đều kích hoạt được.
+4) White label under the portal (replaces 古传送阵), centered:
+   Cổ Truyền Tống Trận
+5) Next to the shrine icon at the bottom, three short paragraphs (keep the blank lines between them):
+   • Có thể tái tạo nhục thân cho đạo hữu.
+
+   Có 3 lượt ngưng kết nhục thân.
+
+   Cứ 2 ngày hồi lại 1 lượt.
+6) White label under the shrine (replaces 复生祠台), centered:
+   Phục Sinh Từ Đài
+
+RIGHT PAGE (10)
+1) Inside the grey frame at the top, right of the dragon altar (2 bullet points):
+   • Chỉ từ Nguyên Anh kỳ trở lên mới dùng được nguyên liệu đặc biệt để kích hoạt.
+   • Phần thưởng khi vượt ải sẽ xuất hiện trong Bảo Rương Linh Lung.
+2) White label under the dragon altar (replaces 祭坛), centered:
+   Đàn Tế
+3) Large text block below the grey frame, three paragraphs (keep the blank lines between them):
+   Kích hoạt bằng Trung Phẩm Linh Thạch: tỉ lệ cao gặp Tiên Pháp Lượng Kiếp, tỉ lệ thấp gặp Sinh Tử Lượng Kiếp.
+   Kích hoạt bằng Thượng Phẩm Linh Thạch: tỉ lệ cao gặp Sinh Tử Lượng Kiếp, tỉ lệ thấp gặp Vô Lượng Lượng Kiếp.
+
+   Vượt Tiên Pháp Lượng Kiếp và Sinh Tử Lượng Kiếp có tỉ lệ nhận Thượng Phẩm Linh Thạch; Vô Lượng Lượng Kiếp có thêm tỉ lệ nhận Cực Phẩm Linh Thạch. Các phần thưởng phụ khác cũng tăng dần.
+
+   Trong lượng kiếp, ngoài yêu thú còn có yếu tố môi trường gây nhiễu.
+4) Line at the bottom, below the thin divider:
+   *Mọi phần thưởng vượt ải của Đàn Tế đều tụ về Bảo Rương Linh Lung.

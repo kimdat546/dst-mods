@@ -1,0 +1,44 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, the flaming sword, the coiled-dragon altar, the purple banner, the orange gem, the crane, the cloud, page numbers "11" and "12", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels under icons stay white with a thin dark outline, centered under the icon, exactly like the original labels.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (11)
+1) Inside the grey frame at the top, right of the flaming sword (3 bullet points):
+   • Một trong các Huyền Thiên Linh Bảo, có thể nuốt Trung Phẩm Linh Thạch để hồi độ bền.
+   • Mở khóa chế tạo ở Nguyên Anh kỳ.
+   • Trên Linh Bảo Tế Luyện Đài ở vùng đất lịch luyện chắc chắn có một món Huyền Thiên Linh Bảo.
+2) White label under the flaming sword (replaces 焚天剑), centered:
+   Phẫn Thiên Kiếm
+3) Next to the coiled-dragon altar icon, two bullet paragraphs (keep the blank line between them):
+   • Dùng để tế luyện Huyền Thiên Linh Bảo, nhờ đó điều khiển thần thông của huyền bảo tốt hơn.
+
+   • Khi tế luyện cần tiêu hao nguyên liệu tương ứng.
+4) White label under the coiled-dragon altar (replaces 灵宝祭炼台), centered:
+   Linh Bảo Tế Luyện Đài
+5) Bottom text block, below the thin divider, two bullet paragraphs (keep the blank line between them):
+   • Pháp bảo tế luyện lên phẩm cấp càng cao, hình thái kỹ năng sẽ thay đổi.
+
+   • Lần đầu mở Bảo Rương Linh Lung nhận được một số nguyên liệu.
+
+RIGHT PAGE (12)
+1) Inside the grey frame at the top, right of the purple banner (3 bullet points):
+   • Một trong các Huyền Thiên Linh Bảo, có thể nuốt Trung Phẩm Linh Thạch để hồi độ bền.
+   • Mở khóa chế tạo ở Nguyên Anh kỳ.
+   • Trên Linh Bảo Tế Luyện Đài ở vùng đất lịch luyện chắc chắn có một món Huyền Thiên Linh Bảo.
+2) White label under the purple banner (replaces 尊魂幡), centered:
+   Tôn Hồn Phiên
+3) Next to the orange gem icon (3 bullet points):
+   • Hợp thành từ Trung Phẩm Linh Thạch.
+   • Vượt lượng kiếp ở vùng đất lịch luyện có tỉ lệ nhận được.
+   • Dùng để tế luyện Huyền Thiên Linh Bảo.
+4) White label under the orange gem (replaces 上品灵石), centered:
+   Thượng Phẩm Linh Thạch
+5) Bottom text block, below the thin divider, two bullet paragraphs (keep the blank line between them):
+   • Tế luyện Huyền Thiên Linh Bảo lên phẩm cấp càng cao càng tốn nhiều Thượng Phẩm Linh Thạch.
+
+   • Tỉ lệ tế luyện thành công là 100%.

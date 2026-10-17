@@ -1,0 +1,42 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every small icon (meditation badges, pill icons), the crane, the cloud, page numbers "7" and "8", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Words colored differently are noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (7) — 6 blocks, top to bottom
+1) The small dark label plate under the meditating-figure badge (inside the grey box, left), white text, centered:
+   Kết Đan kỳ
+2) Inside the grey box, right of the badge, 2 bullet paragraphs:
+   • Khi tu sĩ sắp đạt Kết Đan kỳ, tùy theo điểm Tâm Ma trước khi kết đan, lúc kết đan sẽ sinh ra [light yellow] Công Đức Kim Thân [black] hoặc [extra-bold black] Vô Thượng Ma Thể[black].
+   • Điểm Tâm Ma hiển thị ở phía trên Tu Tiên Mật Quyển.
+3) The paragraph between the two decorative dividers, below the grey box:
+   *Trước khi kết đan, mỗi lần có tu sĩ hoặc chính mình chết trong phạm vi 6 ô đất thì tích 1 điểm Tâm Ma. Khi Tâm Ma đạt 7 điểm, lúc kết đan sẽ sinh ra [extra-bold black] Vô Thượng Ma Thể[black].
+4) Next to the green orb on leaves icon, 2 lines:
+   Sơ Mạch Hoàn: Kết Đan sơ kỳ → Kết Đan trung kỳ
+   Công thức: Sữa Ong Chúa*1, Tinh Thể Muối*15, Quả Vả*10, Hạ Phẩm Linh Thạch*30
+5) Next to the blue spirit-flame icon, 2 lines:
+   Dung Linh Hoàn: Kết Đan trung kỳ → Kết Đan hậu kỳ
+   Công thức: Hoa Hồng Bóng Tối*1, Sừng Cá Voi*1, Vỏ Cá Xì Gà*7, Trung Phẩm Linh Thạch*1
+6) The single note line at the bottom of the page (just above the bottom divider):
+   *Hoa Hồng Bóng Tối: rơi ra khi giết <Ancient Fuelweaver>.
+
+RIGHT PAGE (8) — 5 blocks, top to bottom
+1) The small dark label plate under the blue meditating-figure badge (inside the grey box, left), white text, centered:
+   Nguyên Anh kỳ
+2) Inside the grey box, right of the badge:
+   • Khi tu sĩ đạt Nguyên Anh kỳ, có thể dùng [yellow] Huyền Thiên Linh Bảo [black] để giúp bản thân phá địch, đồng thời có thể tế luyện linh bảo để điều khiển thần thông trong linh bảo thuần thục hơn.
+3) Next to the red-gold claw icon, 2 lines:
+   Kết Anh Đan: Kết Đan hậu kỳ → Nguyên Anh sơ kỳ
+   Công thức: Phượng Tủy*1, Da Nấm*1, Bơ*1, Trung Phẩm Linh Thạch*3
+4) Next to the red orb in a brown sack icon, 2 lines:
+   Uẩn Huyết Hoàn: Nguyên Anh sơ kỳ → Nguyên Anh trung kỳ
+   Công thức: Chùy Vua Thỏ*1, Vụn Vải Bóng Đêm*8, Lắc Nguyền Rủa*5, Thượng Phẩm Linh Thạch*1
+5) Next to the swirling blue-water orb icon (bottom), 2 lines:
+   Ngưng Thần Hoàn: Nguyên Anh trung kỳ → Nguyên Anh hậu kỳ
+   Công thức: Mảnh khai sáng*1, Vỏ Ánh Sáng*4, Củng Mạc Sữa*3, Thượng Phẩm Linh Thạch*1
+
+Do not write the color tags like "[yellow]" in the image — they only tell you the color.

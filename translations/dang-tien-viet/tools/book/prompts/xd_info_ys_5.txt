@@ -1,0 +1,44 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait (monkey king with golden staff), every small icon (round wheel of seven small medallions, finger-gesture medallion, golden shield medallion, beast-transformation medallion), the crane, the cloud, page numbers "9" and "10", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Names, titles and labels keep their original look (white letters with a thin dark outline) where noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (9) — 2 blocks, inside the portrait frame
+1) Top-left inside the portrait frame, above the staff (replaces 孙悟空), horizontal, [white with dark outline]:
+   Tôn Ngộ Không
+2) Narrow strip along the left edge of the portrait frame, left of the monkey's body and tail (replaces BOTH vertical columns 喜食香蕉 and 根器奇术灵技全解锁后切换为大圣皮肤). Write horizontally in small text as short stacked lines (1–2 words per line) running down the same strip, [white with dark outline]:
+   Thích ăn
+   chuối
+   Mở khóa
+   đủ Căn Khí,
+   Kỳ Thuật,
+   Linh Kỹ
+   sẽ đổi
+   sang
+   trang phục
+   Đại Thánh
+
+RIGHT PAGE (10) — 7 blocks, top to bottom
+1) Title centered at the top of the grey box, right of the round medallion wheel (replaces 根器解锁), [white with dark outline]:
+   Mở Khóa Căn Khí
+2) Inside the grey box, under that title, right of the medallion wheel (three bullets):
+   • Giết yêu thú tương ứng để mở khóa Căn Khí tương ứng và nhận hiệu quả.
+   • Mở khóa hết Căn Khí thì vòng Kim Cô hiện trạng thái vỡ nát.
+   • Vũ khí cầm tay không bị đánh rơi.
+3) Just below the grey box, one bullet of 2 lines:
+   • Tay không, giữ Alt + chuột phải nhắm vào vật phẩm hoặc sinh vật bất kỳ để biến hoá, đồng thời có hiệu quả ẩn nấp nhất định.
+4) Between the two decorative dividers, two lines each starting with "*":
+   *Thần thông là Thân Ngoại Thân Pháp, cũng dùng được Định Thân Pháp và An Thân Pháp.
+   *Tay không Alt + chuột phải để biến thành mục tiêu và có hiệu quả ẩn nấp.
+5) Right of the finger-gesture medallion icon. Label first [white with dark outline], then black text:
+   [white with dark outline] Kỳ Thuật [black] Cầm Như Ý Kim Cô Bổng, giữ Alt + chuột phải để thi triển. Ban đầu có Định Thân Pháp; tới Kết Đan tự kích hoạt An Thân Pháp.
+6) Right of the golden shield medallion icon:
+   [white with dark outline] Linh Kỹ [black] Cầm Như Ý Kim Cô Bổng, bấm chuột phải để thi triển ngay. Ban đầu có Tụ Hình Tán Khí; tới Trúc Cơ tự mở khóa Đồng Đầu Thiết Tý.
+7) Right of the beast-transformation medallion icon (bottom):
+   [white with dark outline] Biến Hóa Chi Pháp [black] Cầm Như Ý Kim Cô Bổng, bấm phím R để thi triển ngay. Giết yêu thú nào sẽ mở khóa phép biến hoá thành yêu thú đó.
+
+Do not write the color tags like "[white with dark outline]" or "[black]" in the image — they only tell you the color.

@@ -1,0 +1,38 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "23" and "24", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- The character name at the top of the grey frame and the small item names under icons on the right page are white letters with a thin dark outline, exactly like the original. Keep that style. Item names stay centered under their own icon.
+- This page has no colored labels: all other text is dark brown/black.
+
+LEFT PAGE (23)
+1) Character name, top of the grey frame left of the hair ornament (replaces 三霄娘娘), white with dark outline:
+   Tam Tiêu Nương Nương
+2) Left area inside the grey frame, below the name and beside the portrait (replaces ALL THREE vertical Chinese columns: the two columns inside the frame AND the column outside the frame on the far left — erase that outer column completely). Write horizontally, one item per line, as a list:
+   Không bị bão cát cản trở
+   Tiêu hao no tăng 25%
+   Vũ khí riêng có tỉ lệ giết ngay sinh vật còn dưới 5% máu
+
+RIGHT PAGE (24) — grey box with 3 small portraits, then 5 item blocks, top to bottom
+1) Inside the grey box at the top, to the right of the three small character portraits, 3 bullet points (one per portrait, top to bottom):
+   • Vân Tiêu: chế tạo và dùng được một số sách; có trạm gia vị riêng để rắc gia vị hàng loạt; nấu ăn, chế tạo nhanh hơn, hồi tinh thần chậm. Nhưng hệ số tấn công thấp.
+   • Bích Tiêu: đào mỏ, chặt cây, thu hoạch nhanh hơn; đi ngang cây trồng sẽ tự chăm sóc.
+   • Quỳnh Tiêu: thêm hệ số tấn công, tốc chạy, tầm đánh; tích Giá trị Hiếu Chiến để tăng hiệu quả tấn công.
+2) Next to the golden chest icon (caption under it replaces 混元金斗 → "Hỗn Nguyên Kim Đấu"):
+   Có không gian riêng rộng rãi, giúp nhân vật dịch chuyển tới điểm chỉ định, còn truyền tống được sinh vật và hút vật phẩm.
+3) Next to the blue crystal staff icon (caption under it replaces 浮骨法器 → "Phù Cốt Pháp Khí"):
+   Phá mạnh cây, quặng đá, băng trên diện rộng phía trước; sửa một phần độ bền bằng ngọc lam hoặc ngọc lục bảo.
+4) The caption without icon on the left (replaces 缚龙锁 → "Phược Long Tỏa"), text to its right:
+   Khống chế mục tiêu trong một khoảng thời gian; sửa được độ bền cho vũ khí riêng.
+5) Bottom-left, next to the white fur armor icon (caption under it replaces 云幕上装 → "Vân Mạc Thượng Trang"):
+   Giữ ấm, 85% phòng ngự, phát sáng nhẹ, độ bền giảm theo thời gian, vá được.
+6) Bottom-right, next to the green twisted cane icon (caption under it replaces 馥郁手杖 → "Phức Uẩn Thủ Trượng"):
+   Tăng tốc, thuấn di; cầm trên tay mở bản đồ để dịch chuyển tầm ngắn; sửa độ bền bằng Đá Cát.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

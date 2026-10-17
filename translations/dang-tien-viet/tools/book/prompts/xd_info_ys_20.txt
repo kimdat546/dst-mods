@@ -1,0 +1,51 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every illustration, every small icon, the crane, the cloud, page numbers "39" and "40", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- The heading inside the grey box on the left page is white with a thin dark outline, exactly like the original. Keep that style.
+- All other text is dark brown/black (the item name before each colon is part of the sentence, same color). No colored labels on this page. No captions under icons.
+
+LEFT PAGE (39) — grey box, then 6 item blocks, top to bottom
+1) Heading centered at the top of the grey box, between the tree icon and the fruit icon (replaces 青梅树):
+   Cây thanh mai
+2) Inside the grey box, under the heading, between the tree icon and the fruit icon (2 lines):
+   Mọc trong rừng bạch dương. Quả thanh mai thuộc loại trái cây, giúp hạ nhiệt nhẹ.
+3) Next to the blue bottle icon:
+   Rượu thanh mai: món riêng của Trần Bình An, cần ít nhất thanh mai*1, mật ong*1, băng*1, không có thịt, trứng, rau; là món chay. Ăn xong trong 2 ngày đòn đánh kèm hiệu ứng sấm sét.
+4) Next to the plate of ribs icon (indented, just above the divider):
+   Sườn xào thanh mai: mọi nhân vật đều nấu được, cần ít nhất thanh mai*1, độ thịt lớn hơn 0. Là món mặn.
+5) Next to the standing woman figure icon (below the divider):
+   Thanh Bình: chế tạo ở bảng chế tạo; trong một phạm vi giữ nhiệt độ ổn định, hồi tinh thần nhanh hơn, đói chậm hơn, hồi một chút máu, mỗi 3 ngày thúc chín cây trồng một lần. Liên tục tốn độ bền; hồi độ bền bằng Thượng Phẩm Linh Thạch hoặc Trung Phẩm Linh Thạch.
+6) Next to the blue sword icon:
+   Bắc Đẩu: đặt được 3 Tinh Tiêu phát sáng; khi cầm, mở bản đồ để dịch chuyển tới Tinh Tiêu. Hồi độ bền bằng ngọc lam.
+7) Next to the red sword icon:
+   Trường Khí Kiếm: khi dùng hồi sinh đồng đội trong 2 ô đất; hồi độ bền bằng ngọc đỏ.
+8) Next to the red gourd icon (last):
+   Hồ lô dưỡng kiếm: vũ khí đặt bên trong sẽ từ từ hồi độ bền.
+
+RIGHT PAGE (40) — grey box with 5 talismans, then 5 item blocks, top to bottom
+1) Inside the grey box, one line per talisman icon, top to bottom (the last two lines are 2-line blocks as in the original):
+   Bái Sơn Phù: trong 1 ngày quái không chủ động tấn công người chơi.
+   Dương Khí Khiêu Đăng Phù: trong 3 ngày phát sáng, miễn nhiễm giá lạnh.
+   Phá Chướng Phù: soi sáng một vùng trên bản đồ.
+   Nhật Du Thần Chân Thân Phù: trong 3 ngày tăng 20% sát thương lên sinh vật bóng tối, tăng nhẹ tốc chạy.
+   Dạ Du Thần Chân Thân Phù: trong 3 ngày tăng 20% sát thương lên sinh vật Brightshade, tăng nhẹ tốc chạy.
+2) Next to the blue dragon altar icon:
+   Trảm Long Đài: mài vũ khí để thêm sát thương vị diện.
+3) Next to the green hairpin icon:
+   Trâm Bích Ngọc: để trong túi đồ thì liên tục hồi một ít tinh thần.
+4) Next to the dark hat icon (below the divider):
+   Nón Ẩn Quan: 90% phòng ngự, +5% tốc chạy, đảo ngược hiệu ứng giảm tinh thần; hồi độ bền bằng Hạ Phẩm Linh Thạch.
+5) Next to the dark robe icon:
+   Áo bào Ẩn Quan: 90% phòng ngự, +15% tốc chạy; hồi độ bền bằng Hạ Phẩm Linh Thạch.
+   Bộ trang bị: giết một số sinh vật hồi 5 máu và 5 tinh thần.
+6) Next to the gold coins icon (last, below the divider):
+   Kim Tinh Đồng Tiền: mỗi lần đột phá cảnh giới nhận một đồng; đưa cho Đan Tiên hoặc Tử Vân Ma Quân để nhận vật phẩm ngẫu nhiên.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

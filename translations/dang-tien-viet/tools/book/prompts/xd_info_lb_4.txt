@@ -1,0 +1,22 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frame, borders, decorative divider lines, the big dragon-and-slot-machine illustration (including the small "仙" sign painted on the machine — it is part of the artwork, do NOT change it), the three rows of icons on the right page (orange gems, gold nuggets, skulls), the crane, the cloud, page numbers "7" and "8", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character except the "仙" sign inside the illustration.
+- Every text block stays in the SAME position as the Chinese block it replaces. All body text is horizontal, dark brown/black, in a clean bold sans-serif. The title under the illustration stays white with a thin dark outline, centered.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (7)
+1) White title centered under the illustration, just below the thin divider (replaces 灵石抽奖机):
+   Máy Quay Thưởng Linh Thạch
+2) Paragraph below that title, left-aligned (replaces the 3 Chinese lines):
+   Tương truyền vị đại năng để lại vật này là một "người xuyên không". Bỏ vào 1 Trung Phẩm Linh Thạch hoặc 60 Hạ Phẩm Linh Thạch để kích hoạt.
+
+RIGHT PAGE (8) — 3 centered lines, each under its own row of icons
+1) Under the row of three orange gems:
+   Một phen tạo hóa: cây khô gặp xuân.
+2) Under the row of three gold nuggets:
+   Một chút cơ duyên, có còn hơn không.
+3) Under the row of three skulls:
+   Một kiếp số đã định trong mệnh đạo hữu.

@@ -1,0 +1,62 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every small icon (meditation badge, all pill icons, the blue gem, the golden sun, the dark waste-pill), the crane, the cloud, page numbers "15" and "16", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Words colored differently are noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+This page pair is dense: each pill has one heading line followed by recipe rows (one row per grade). Keep exactly ONE line per row, same row order and spacing as the original; shrink the font so each row fits on one line between the page margins.
+
+LEFT PAGE (15) — 4 blocks, top to bottom
+1) Top block, with the blue-teal orb pill icon on the right edge (heading of 2 lines + 5 rows):
+   • Thiên Cơ Xảo Thủ Đan: trong một thời gian giảm hao mòn độ bền công cụ, tăng hiệu suất làm việc. Luyện chế như sau
+   Ngũ phẩm: Thanh Phong Tụ x1, Bánh răng x1, Ngô x2, Đá lửa x1
+   Tứ phẩm: Thanh Phong Tụ x2, Bánh răng x2, Ngô x4, Đá Vụn Trăng x2
+   Tam phẩm: Thanh Phong Tụ x4, Bánh răng x3, Ngô x6, Da Nấm x1
+   Nhị phẩm: Thanh Phong Tụ x8, Bánh răng x4, Ngô x8, Da Nấm x2
+   Nhất phẩm: Thanh Phong Tụ x16, Niết Bàn Huyết Tủy Trúc x2, Ngô x12, Da Nấm x4
+2) Second block, heading right of the red-flame pill icon on the left edge (heading + 5 rows; the last row wraps to a second line exactly like the original):
+   • Huyền Dương Noãn Ngọc Đan: có hiệu quả giữ ấm. Luyện chế như sau
+   Ngũ phẩm: Xích Dương Hoa x1, Thanh long x2, Thịt quái vật x2, Dâu Rừng x3
+   Tứ phẩm: Xích Dương Hoa x2, Thanh long x4, Thịt quái vật x4, Hồng Bảo Thạch x1
+   Tam phẩm: Xích Dương Hoa x4, Thanh long x6, Thịt quái vật x6, Phượng Tủy x1
+   Nhị phẩm: Xích Dương Hoa x8, Thanh long x8, Thịt quái vật x8, Phượng Tủy x2
+   Nhất phẩm: Xích Dương Hoa x16, Thanh long x12, Niết Bàn Huyết Tủy Trúc x2, Phượng Tủy x4
+3) Third block, with the blue frosty-tree pill icon on the right edge (heading + 5 rows):
+   • Hàn Tủy Tỵ Hỏa Đan: giúp tu sĩ không bị quá nóng. Luyện chế như sau
+   Ngũ phẩm: Sương Hàn Thảo x1, Dưa hấu x2, Băng đá x2, Lam Bảo Thạch x1
+   Tứ phẩm: Sương Hàn Thảo x2, Dưa hấu x4, Băng đá x4, Lam Bảo Thạch x1
+   Tam phẩm: Sương Hàn Thảo x4, Dưa hấu x6, Băng đá x6, Mắt Deerclops x1
+   Nhị phẩm: Sương Hàn Thảo x8, Dưa hấu x8, Băng đá x8, Mắt Deerclops x2
+   Nhất phẩm: Sương Hàn Thảo x16, Dưa hấu x12, Niết Bàn Huyết Tủy Trúc x2, Mắt Deerclops x3
+4) Bottom block, right of the orange flame-swirl pill icon (2 lines):
+   Thế Tử Phản Hồn Đan: chọn lại nhân vật mà vẫn giữ cảnh giới. Luyện chế như sau
+   Sừng Kỳ Lân x3, Phượng Tủy x3, Vảy x5, Thượng Phẩm Linh Thạch x3
+
+RIGHT PAGE (16) — 7 blocks, top to bottom
+1) The small dark label plate under the flame-figure badge (inside the grey box, left), white text, centered:
+   Phản Hư kỳ
+2) Inside the grey box, right of the badge:
+   • Khi tu sĩ đạt Phản Hư kỳ, [extra-bold black] Vô Thượng Ma Thể [black] có thể triệu hồi [extra-bold black] Bách Kiếp Ma Thân [black] trong bảng chế tạo Tiên Đồ để cùng tấn công. [light yellow] Công Đức Kim Thân [black] thì khi kích hoạt Kim Thân cùng tấn công sẽ triệu hồi [light yellow] Hạo Thiên Thượng Đế Pháp Thân [black] hỗ trợ chiến đấu.
+3) Next to the small blue gem icon (just below the grey box):
+   • [extra-bold black] Bách Kiếp Ma Thân: [black] duy trì 480 giây sau khi triệu hồi, hồi chiêu 960 giây. Khi người chơi dùng kỹ năng Ma Kiếm, nó cũng cùng tấn công.
+4) Next to the golden sun/star icon:
+   • [light yellow] Hạo Thiên Thượng Đế Pháp Thân: [black] duy trì 120 giây sau khi kích hoạt, hồi chiêu nội tại 240 giây. Khi người chơi kích hoạt Công Đức Kim Thân hoặc dùng kỹ năng Tiên Kiếm, nó sẽ cùng tấn công.
+5) Next to the purple-blue swirl pill icon (3 lines):
+   Khấu Hư Đan: Hóa Thần hậu kỳ → Phản Hư sơ kỳ
+   Công thức: Niết Bàn Huyết Tủy Trúc*1, Thượng Phẩm Linh Thạch*1,
+   Nhị phẩm Huyết Đào Thiết Nguyên Đan*1, Nhị phẩm Bàn Thạch Hộ Thân Đan*1
+6) Heading right of the pink-purple winged pill icon, then 5 rows:
+   Huyết Đào Thiết Nguyên Đan: hút máu khi tấn công trong một thời gian. Luyện chế như sau
+   Ngũ phẩm: U Hồn Hoa x1, Cà Chua x2, Cánh dơi x1, Túi Máu Muỗi x1
+   Tứ phẩm: U Hồn Hoa x2, Cà Chua x4, Cánh dơi x2, Tử Bảo Thạch x1
+   Tam phẩm: U Hồn Hoa x4, Cà Chua x6, Cánh dơi x3, Tử Sát Ma Vũ x1
+   Nhị phẩm: U Hồn Hoa x8, Cà Chua x8, Cánh dơi x4, Tử Sát Ma Vũ x2
+   Nhất phẩm: U Hồn Hoa x16, Cà Chua x12, Niết Bàn Huyết Tủy Trúc x2, Tử Sát Ma Vũ x4
+7) Next to the dark blue waste-pill icon at the bottom (2 lines):
+   Phế Đan: sinh ra khi luyện đan thất bại
+   Ăn: no +10, tinh thần -50, máu -100
+
+Do not write the color tags like "[light yellow]" in the image — they only tell you the color.
