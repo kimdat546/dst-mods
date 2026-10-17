@@ -6,6 +6,9 @@
 -- Chạy trong env của mod (modimport từ modmain) để khai báo Assets.
 
 local PAGES = {
+    "xd_info_dy_1",    -- trang 1-2: bìa, lời tựa
+    "xd_info_dy_2",    -- trang 3-4: Luyện Khí kỳ
+    "xd_info_dy_3",    -- trang 5-6: Trúc Cơ kỳ
     "xd_info_ys_21",   -- trang 41-42: Cổ Nguyệt Phương Nguyên
 }
 
