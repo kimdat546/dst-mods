@@ -11,6 +11,7 @@ local PAGES = {
     "xd_info_dy_3",    -- trang 5-6: Trúc Cơ kỳ
     "xd_info_dy_4",    -- trang 7-8: Kết Đan kỳ, Nguyên Anh kỳ
     "xd_info_dy_5",    -- trang 9-10: Vạn Vật Thăng Cách, Hóa Thần kỳ
+    "xd_info_dy_7",    -- trang 13-14: đan dược theo phẩm
     "xd_info_dy_8",    -- trang 15-16: đan dược theo phẩm, Phản Hư kỳ
     "xd_info_ys_21",   -- trang 41-42: Cổ Nguyệt Phương Nguyên
 }

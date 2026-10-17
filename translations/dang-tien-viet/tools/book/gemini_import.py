@@ -299,7 +299,15 @@ def main(name, gen_path):
     ref = Image.open(ref_path).convert('RGB')
     gen = Image.open(gen_path).convert('RGB')
     print(f'  ảnh Gemini {gen.width}x{gen.height}, ảnh gốc {ref.width}x{ref.height}')
-    kx, ky, ox, oy = register(gen, ref)
+    af = os.path.join(HERE, 'align', name + '.json')
+    if os.path.exists(af):
+        # căn tay (Gemini cắt sát vào trong trang, không còn mép giấy để tự căn)
+        import json
+        a = json.load(open(af, encoding='utf-8'))
+        kx, ky, ox, oy = a['kx'], a['ky'], a['ox'], a['oy']
+        print(f"  căn tay theo align/{name}.json: {a.get('note', '')}")
+    else:
+        kx, ky, ox, oy = register(gen, ref)
     g = gen.resize((round(gen.width * kx), round(gen.height * ky)), Image.LANCZOS)
     placed = ref.copy()
     placed.paste(g, (ox, oy))
