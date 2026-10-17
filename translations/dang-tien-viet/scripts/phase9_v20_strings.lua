@@ -384,3 +384,24 @@ end
 if patterns then
     table.insert(patterns, 1, {"效果被(.-)抑制", "Hiệu quả bị %1 áp chế"})
 end
+
+-- =========================================================================
+-- 11. Chuỗi còn sót trong log MISSING_CN khi chơi thật (2026-10-17)
+-- =========================================================================
+if textfix and word_fix and patterns then
+    -- "通脉十二层": pattern chung "二层" chạy trước "十层" nên ra "Thông Mạch十tầng 2".
+    -- Chèn bản 11-29 lên ĐẦU danh sách để khớp trước.
+    local so = { "一", "二", "三", "四", "五", "六", "七", "八", "九" }
+    for i = #so, 1, -1 do
+        table.insert(patterns, 1, { "二十" .. so[i] .. "层", " tầng " .. (20 + i) })
+        table.insert(patterns, 1, { "十" .. so[i] .. "层", " tầng " .. (10 + i) })
+    end
+    table.insert(patterns, 1, { "二十层", " tầng 20" })
+    -- tooltip thuộc tính bản nguyên của pháp bảo (phần sau dấu ":" đã được dịch sẵn)
+    word_fix["本源倾斜"] = "Thiên hướng bản nguyên"
+    word_fix["倾斜程度"] = "Mức thiên lệch"
+    -- lời NPC lão phu bán đan: chuỗi do server ghép, word_fix "丹药" chạy trước textfix
+    textfix["小友老夫这或许有些你需要的丹药"] = "Tiểu hữu, chỗ lão phu có lẽ có vài loại đan dược ngươi cần"
+    table.insert(patterns, 1, { "小友老夫这或许有些你需要的丹药", "Tiểu hữu, chỗ lão phu có lẽ có vài loại đan dược ngươi cần" })
+    textfix["选择蛊虫后点击仙窍装配；右键库存蛊虫取出"] = "Chọn cổ trùng rồi bấm vào Tiên Khiếu để lắp; chuột phải cổ trùng trong kho để lấy ra"
+end
