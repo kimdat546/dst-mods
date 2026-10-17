@@ -3,6 +3,8 @@ Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text gi
 STRICT RULES
 - Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every small icon (pink swirl orb, brown fox statue, golden fish-dragon lantern, red umbrella, red pouch, ornate food shrine), the crane, the cloud, page numbers "7" and "8", the black background. Do not redraw, move, resize or restyle any icon or illustration.
 - Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
 - Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
 - Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Small labels under icons keep their original look (white letters with a thin dark outline).
 - Text must fit inside its area; use a smaller font if needed rather than moving it.
