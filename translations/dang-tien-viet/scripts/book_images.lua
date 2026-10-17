@@ -42,7 +42,9 @@ local PAGES = {
     "xd_info_ys_14",   -- trang 27-28: Thạch Cơ
     "xd_info_ys_15",   -- trang 29-30: Vương Ma Tử
     "xd_info_ys_16",   -- trang 31-32: Thanh Tụ Đan Tiên
+    "xd_info_ys_17",   -- trang 33-34: Lạc Thần (bố cục nửa dưới trang phải hơi chật, user chấp nhận)
     "xd_info_ys_18",   -- trang 35-36: Lạc Thần
+    "xd_info_ys_19",   -- trang 37-38: Trần Bình An
     "xd_info_ys_20",   -- trang 39-40: Trần Bình An
     "xd_info_ys_21",   -- trang 41-42: Cổ Nguyệt Phương Nguyên
 }
