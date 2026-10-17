@@ -12,6 +12,8 @@ STRICT RULES
 STYLE NOTES FOR THIS PAGE
 - White-with-thin-dark-outline style (keep exactly like the original) for: the title at the top of the left page, the 3 lines at the top-left, the long paragraph at the bottom of the left page, the paragraph inside the grey box on the right page, and the small item names under icons on the right page (item names centered under their icon).
 - All other text is dark brown/black. No colored labels on this page.
+- RIGHT PAGE, the 3 item blocks under the divider (Hoa Lạc Thần, Đệm Hoa Lạc Thần, Lạc Thần Dẫn): the right page has TWO dashed horizontal divider lines between these blocks (one under the Hoa Lạc Thần block, one under the Đệm Hoa Lạc Thần block). Keep both divider lines fully visible. Each text block must fit ENTIRELY between its own divider lines, like the original: use a noticeably SMALLER font for these 3 blocks (smaller than the grey-box text) so no line touches or covers a divider line, and no word touches the right page border.
+- Keep the purple scroll icon (Lạc Thần Dẫn) at its ORIGINAL size and position, not squashed or shrunk, with its caption "Lạc Thần Dẫn" fully visible under it and above the bottom divider of the page.
 
 LEFT PAGE (33)
 1) Title centered at the very top of the page, on the decorative line above the frame (replaces 洛神):

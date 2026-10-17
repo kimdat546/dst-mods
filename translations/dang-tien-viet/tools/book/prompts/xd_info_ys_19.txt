@@ -20,6 +20,7 @@ LEFT PAGE (37)
    Thích rượu thanh mai
    Câu cá, đọc sách hồi tinh thần
    Trường Sinh Kiều đứt gãy: ở Luyện Khí kỳ liên tục mất một ít máu
+   IMPORTANT (a previous attempt got this wrong): these three lines must be HORIZONTAL, normal left-to-right reading text. Do NOT rotate the text and do NOT write it vertically like the Chinese columns. The space is narrow, so wrap each item onto several short lines with a small font (each item starts on a new line), and place the list in the empty grey area at the upper-left of the frame: below the name, left of the character's hair, above the golden weapon. Write "một ít máu" exactly (do not drop or garble "ít").
 
 RIGHT PAGE (38) — grey box, then 3 groups separated by divider lines, top to bottom
 1) Inside the grey box, to the right of the round blue sword emblem icon (and continuing below it):
@@ -39,5 +40,8 @@ RIGHT PAGE (38) — grey box, then 3 groups separated by divider lines, top to b
    Thập Ngũ: kích hoạt khi người chơi bị sát thương, tạo cho người chơi một tấm khiên. Khi bật Kiếm Thế, khiên nhiều máu hơn và bị đánh sẽ phản đòn.
 8) Next to the golden sword icon (last):
    Dạ Du: khi người chơi tấn công có tỉ lệ cùng đánh, được Kiếm Thế cường hoá. Sau khi cường hoá có hiệu ứng kết liễu và phá phòng mục tiêu 5 giây.
+IMPORTANT for the right page (a previous attempt got this wrong):
+- There are FOUR sword icons below the machete group, and each gets its OWN block: the long thin purple sword between the two dividers gets "Lão Kiếm Điều: ..." (block 5, 2 lines + 1 line) — do NOT skip it. Then the purple sword gets "Sơ Nhất", the green sword gets "Thập Ngũ", the golden sword gets "Dạ Du". Never shift a block onto the next icon.
+- Keep every line inside the page with a clear margin before the right edge of the paper: wrap earlier instead of letting words like "điểm", "Bóng Tối", "cây trồng" touch or cross the right edge.
 
 Do not write the color tags like "[dark red]" in the image — they only tell you the color.

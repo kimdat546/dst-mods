@@ -1,0 +1,121 @@
+[
+ {
+  "op": "block",
+  "erase": [
+   1130,
+   403,
+   1167,
+   439
+  ],
+  "box": [
+   1132,
+   404,
+   1166,
+   0
+  ],
+  "line_h": 33,
+  "lines": [
+   [
+    [
+     "phải",
+     null,
+     "b"
+    ]
+   ]
+  ],
+  "note": "Thiên Nghịch Châu: Gemini viết \"Chuột phỏi\" → \"phải\" (trong khung xám nên dùng block, text op dán giấy trắng)"
+ },
+ {
+  "op": "block",
+  "erase": [
+   996,
+   646,
+   1258,
+   717
+  ],
+  "box": [
+   1002,
+   648,
+   1254,
+   0
+  ],
+  "line_h": 0,
+  "lines": [],
+  "note": "xoá 2 nhãn Linh kỹ/Thần thông (Gemini viết \"Thanh Quang Tấu\")"
+ },
+ {
+  "op": "text",
+  "box": [
+   1002,
+   650,
+   1250,
+   677
+  ],
+  "band": [
+   648,
+   678
+  ],
+  "text": "Linh kỹ: Định Thân Thuật",
+  "note": "viết lại, màu nâu đen như bản gốc"
+ },
+ {
+  "op": "text",
+  "box": [
+   1002,
+   680,
+   1254,
+   712
+  ],
+  "band": [
+   679,
+   716
+  ],
+  "text": "Thần thông: Thanh Quang Thuẫn",
+  "note": "viết lại, \"Thuẫn\" đúng prompt"
+ },
+ {
+  "op": "text",
+  "box": [
+   1074,
+   768,
+   1665,
+   832
+  ],
+  "band": [
+   768,
+   831
+  ],
+  "text": " ",
+  "note": "xoá 2 dòng Tát Đậu / Xạ Thần (dòng đầu cụt \"tục.\", dòng sau tràn ra mép trang)"
+ },
+ {
+  "op": "text",
+  "box": [
+   1100,
+   765,
+   1617,
+   800
+  ],
+  "band": [
+   768,
+   799
+  ],
+  "text": "Tát Đậu Thành Binh: ném đậu binh vào điểm chỉ định, tấn công liên tục.",
+  "note": "viết lại"
+ },
+ {
+  "op": "text",
+  "box": [
+   1100,
+   798,
+   1617,
+   833
+  ],
+  "band": [
+   801,
+   831
+  ],
+  "text": "Xạ Thần Chiến Xa: gọi hồn linh bướm ngẫu nhiên tấn công mục tiêu.",
+  "note": "viết lại"
+ }
+]

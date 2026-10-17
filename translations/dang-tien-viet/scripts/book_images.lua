@@ -37,6 +37,13 @@ local PAGES = {
     "xd_info_ys_9",   -- Dị Thú trang 17-18
     "xd_info_ys_10",  -- Dị Thú trang 19-20
     "xd_info_ys_11",  -- Dị Thú trang 21-22: Tinh Vệ
+    "xd_info_ys_12",   -- trang 23-24: Tam Tiêu
+    "xd_info_ys_13",   -- trang 25-26: Hàn Thiên Tôn
+    "xd_info_ys_14",   -- trang 27-28: Thạch Cơ
+    "xd_info_ys_15",   -- trang 29-30: Vương Ma Tử
+    "xd_info_ys_16",   -- trang 31-32: Thanh Tụ Đan Tiên
+    "xd_info_ys_18",   -- trang 35-36: Lạc Thần
+    "xd_info_ys_20",   -- trang 39-40: Trần Bình An
     "xd_info_ys_21",   -- trang 41-42: Cổ Nguyệt Phương Nguyên
 }
 
