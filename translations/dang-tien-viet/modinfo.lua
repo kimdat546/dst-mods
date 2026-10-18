@@ -15,8 +15,10 @@ MỚI Ở BẢN NÀY (1.3.0)
 - Món ăn mới: cỏ Sinh Cơ, canh lá Sinh Cơ, bánh Cửu Diệp Sinh Cơ.
 - Vá thêm thoại Vương Ma Tử, Trần Bình An còn sót.
 - Giao diện Tiên Khiếu (lắp cổ trùng): tên, hiệu ứng, hồi chiêu đều tiếng Việt.
-- Bắt đầu dịch Tu Tiên Mật Quyển (sách hướng dẫn dạng ảnh): đã có trang 41-42
-  của Phương Nguyên, các trang khác dịch dần.
+- Dịch TRỌN BỘ Tu Tiên Mật Quyển (sách hướng dẫn dạng ảnh): đủ 41 trang —
+  cảnh giới & đan dược, Linh Bảo, Nhàn Vân Dã Hạc, Dị Thú và các nhân vật.
+- Thống nhất tên theo DST Tiếng Việt (Ngọc Đỏ/Lam/Lục/Tím…), sửa vài tên
+  Hán-Việt sai âm (Phần Thiên Kiếm, Tà Trá Ma Chu, Dưỡng Hồn Chuỷ Thủ).
 
 ĐÃ DỊCH
 - Tên item, recipe, mô tả khi inspect — khoảng 2000 dòng.
@@ -30,8 +32,6 @@ MỚI Ở BẢN NÀY (1.3.0)
 CHƯA DỊCH
 - Thoại 8 nhân vật còn lại: Hàn Thiên Tôn, Long Thái Tử, Tinh Vệ, Tô Đát Kỷ,
   Ngộ Không, Lạc Thần, Vân Tiêu, Thi Cơ. Mỗi người ~3000 dòng, dịch dần.
-- Phần còn lại của Tu Tiên Mật Quyển (40 trang). Sách là ảnh nên phải vẽ lại
-  từng trang, đang làm dần.
 - Một số nhãn nướng sẵn trong ảnh giao diện (Ngoại trang, Nhân vật, Đổi...).
 
 LƯU Ý
@@ -42,7 +42,7 @@ LƯU Ý
 
 Cảm ơn tác giả 登仙 đã làm ra một mod hay như vậy. Nếu thấy hữu ích thì cho mình 1 like.
 
-Cập nhật: 2026-10-15 — v20.0 + trọn bộ thoại Cổ Nguyệt Phương Nguyên]]
+Cập nhật: 2026-10-18 — v20.0 + trọn bộ thoại Cổ Nguyệt Phương Nguyên + trọn bộ Tu Tiên Mật Quyển]]
 author = "kimdat546"
 version = "1.3.0"
 
