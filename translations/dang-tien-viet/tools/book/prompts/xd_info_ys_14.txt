@@ -1,0 +1,42 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "27" and "28", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- The character name at the top-left of the grey frame and the small item names under icons on the right page are white letters with a thin dark outline, exactly like the original. Keep that style. Item names stay centered under their own icon.
+- This page has no colored labels: all other text is dark brown/black.
+
+LEFT PAGE (27)
+1) Character name, top-left inside the grey frame (replaces 石矶娘娘), white with dark outline:
+   Thạch Cơ Nương Nương
+2) Left area inside the grey frame, below the name and beside the portrait (replaces ALL FOUR vertical Chinese columns: the three columns inside the frame AND the column outside the frame on the far left — erase that outer column completely). Write horizontally, one item per line, as a list:
+   Sẵn có giảm 25% sát thương
+   Tôm Đá quanh mình chết sẽ làm giảm tinh thần
+   Đào mỏ chậm hơn, thân nhiệt tăng nhanh hơn
+   Khi bị đánh, Tôm Đá xung quanh sẽ thù ghét kẻ tấn công
+
+RIGHT PAGE (28) — grey box with 2 small portraits, then 6 item blocks, top to bottom
+1) Inside the grey box at the top, to the right of the two small child portraits, 2 bullet points (one per portrait):
+   • Bích Vân Đồng Tử: gọi ra tồn tại 4 ngày; trong bán kính 5 ô đất giúp thu hoạch, trò chuyện với cây trồng, tưới nước bón phân, phân loại đồ; mỗi sáng tặng Thạch Cơ Nương Nương một món ăn.
+   • Thải Vân Đồng Tử: đi theo Thạch Cơ Nương Nương giúp chặt cây, đào mỏ và thu hoạch.
+2) Next to the purple skull-mountain icon (caption under it replaces 骷髅山 → "Khô Lâu Sơn"):
+   Thạch Cơ Nương Nương dùng thần thức điều khiển Bộ Xương ở điểm chỉ định; Bộ Xương thu hoạch, chặt cây, di chuyển nhanh hơn nhưng ít máu và chịu sát thương tăng.
+3) Next to the dark spiked helmet icon (caption under it replaces 蚀心胄 → "Thực Tâm Trụ"):
+   85% phòng ngự, mặc vào không bị quá nóng nhưng tinh thần giảm dần. Nạp độ bền bằng Linh thạch hạ phẩm; khi bị đánh có tỉ lệ chặn một lần sát thương.
+4) Middle-left, next to the teal cloud-handkerchief icon (caption under it replaces 八卦云光帕 → "Bát Quái Vân Quang Mạt"):
+   Gọi Hoàng Cân Lực Sĩ thay Thân Ngoại Hóa Thân chiến đấu.
+5) Middle-right, next to the scroll icon (caption under it replaces 八卦龙须帕 → "Bát Quái Long Tu Mạt"):
+   Thu gom đồ, bắt thú nhỏ, thu hoạch cây trồng trong phạm vi nhỏ, đồng thời giữ tươi. Nạp đầy độ bền bằng Linh thạch trung phẩm.
+6) Bottom-left, next to the dark rock-flame icon (caption under it replaces 通灵石窍 → "Thạch Khiếu Thông Linh"):
+   Đặt xuống đất sẽ sinh một Tôm Đá trung thành với Thạch Cơ Nương Nương trong 7 ngày.
+7) Bottom-right, next to the red-topped staff icon (caption under it replaces 醒石谒道杖 → "Trượng Tỉnh Thạch Yết Đạo"):
+   Thuê Tôm Đá trong phạm vi suốt 7 ngày, chúng có phòng ngự vị diện và kỹ năng nhất định. Còn biến các loại quặng, tổ nhện đá thành Tôm Đá.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

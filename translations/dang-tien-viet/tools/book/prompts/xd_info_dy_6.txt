@@ -1,0 +1,49 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every small icon (the row of 6 seed icons, the 11 pill icons, all plant/item icons), the crane, the cloud, page numbers "11" and "12", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif, EXCEPT the section titles (see below). Words colored differently are noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+Section titles (3 of them) keep their original look: white letters with a dark outline, centered, same size.
+
+LEFT PAGE (11) — 9 blocks, top to bottom
+1) Section title on the top divider line of the page (replaces 丹劫问道), centered:
+   Đan Kiếp Vấn Đạo
+2) Inside the grey box, the bullet text BELOW the row of 6 seed icons:
+   • Khi cây trồng khổng lồ bị đập vỡ, có 40% xác suất ngẫu nhiên sinh ra một hạt Linh Thảo.
+3) Next to the blue pond / garden-bed icon (just below the grey box):
+   • Ruộng Tiên Ngọc Lộ: dùng để trồng Linh Thảo. Có thể tưới bằng Chưởng Thiên Bình để tăng nồng độ linh dịch bên trong. 1 điểm nồng độ linh dịch đủ nuôi Linh Thảo sinh trưởng một ngày.
+4) Next to the yellow-orange flame flower icon:
+   • Xích Dương Hoa: chỉ mọc vào mùa hè, hái sẽ làm thân nhiệt tăng 20 độ, ăn trực tiếp thì tăng thân nhiệt 15 độ.
+5) Next to the pale-blue feather-like leaf icon:
+   • Sương Hàn Thảo: chỉ mọc vào mùa đông, hái sẽ khiến người chơi bị tích một phần độ đóng băng, ăn trực tiếp sẽ giảm thân nhiệt 10 độ.
+6) Next to the blue-and-gold mushroom icon:
+   • Nấm Lôi Minh: chỉ mọc vào mùa xuân, hái sẽ khiến người chơi bị sét đánh, ăn trực tiếp cũng bị sét đánh.
+7) Next to the white puffball icon:
+   • Thanh Phong Nhứ: chỉ mọc vào mùa thu, thời gian giữ tươi khá ngắn.
+8) Next to the red root icon:
+   • Địa Mạch Sâm: chỉ mọc vào ban ngày, ngừng sinh trưởng khi mưa hoặc tuyết rơi, ăn trực tiếp sẽ hồi máu từ từ một lượng nhỏ.
+9) Next to the purple star-shaped flower icon (bottom):
+   • U Hồn Hoa: chỉ mọc vào ban đêm, hái hoặc mang theo quả và hạt của nó đều làm giảm nhẹ tinh thần.
+
+RIGHT PAGE (12) — 7 blocks, top to bottom
+1) Section title at the top, above the grey box (replaces 灵丹妙药), centered:
+   Linh Đan Diệu Dược
+2) Inside the grey box, the bullet line BELOW the two rows of pill icons. The grey box MUST keep BOTH rows of pill icons exactly as in the original (6 icons on the top row, 5 icons on the bottom row) and keep its original height; do not move any other text into this box:
+   • Công thức luyện chế chi tiết và công dụng của đan dược xem ở trang sau.
+3) Next to the pale-purple flowering branch icon:
+   • Cành Hái Thuốc Nguyệt Hoa: thu hoạch Linh Thảo từ cự ly ngắn mà không kích hoạt hiệu ứng phụ, đồng thời tăng nhẹ tỉ lệ nhận được hạt.
+4) Next to the green pagoda building icon:
+   • Kho Huyền Ngọc Lộ: công trình chuyên chứa Linh Thảo và hạt Linh Thảo. Có chức năng hồi lại độ tươi và không giới hạn số lượng xếp chồng.
+5) Next to the small gourd icon (keep the ONE original gourd at its original size and position; do not draw a second gourd):
+   • Huyền Thiên Bảo Hồ: hồ lô mang theo người, chuyên để chứa đan dược.
+6) Section title in the middle of the page (replaces 化劫尖芒), centered:
+   Mũi Nhọn Hóa Kiếp
+7) Next to the green spire / tower icon, below that title, 2 bullet paragraphs:
+   • Khi dùng Lò Luyện Đan luyện đan dược phẩm cấp khác nhau, phẩm cấp càng cao thì nguyên liệu càng phức tạp. Luyện đan dược từ tứ phẩm trở lên phải trải qua lôi kiếp. Mỗi lần lôi kiếp đánh trúng Lò Luyện Đan sẽ giảm 5% tỉ lệ luyện thành công, cuối cùng có thể ra Phế Đan.
+   • Khi người chơi ở quanh Lò Luyện Đan, có thể chịu lôi kiếp thay Lò Luyện Đan. Khi bật Mũi Nhọn Hóa Kiếp, có thêm 50% xác suất chịu lôi kiếp thay người chơi và Lò Luyện Đan. Dùng linh thạch để bổ sung độ bền.

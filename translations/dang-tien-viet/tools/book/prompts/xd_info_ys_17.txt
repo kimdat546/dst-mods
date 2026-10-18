@@ -1,0 +1,49 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "33" and "34", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- White-with-thin-dark-outline style (keep exactly like the original) for: the title at the top of the left page, the 3 lines at the top-left, the long paragraph at the bottom of the left page, the paragraph inside the grey box on the right page, and the small item names under icons on the right page (item names centered under their icon).
+- All other text is dark brown/black. No colored labels on this page.
+- RIGHT PAGE, the 3 item blocks under the divider (Hoa Lạc Thần, Đệm Hoa Lạc Thần, Lạc Thần Dẫn): the right page has TWO dashed horizontal divider lines between these blocks (one under the Hoa Lạc Thần block, one under the Đệm Hoa Lạc Thần block). Keep both divider lines fully visible. Each text block must fit ENTIRELY between its own divider lines, like the original: use a noticeably SMALLER font for these 3 blocks (smaller than the grey-box text) so no line touches or covers a divider line, and no word touches the right page border.
+- Keep the purple scroll icon (Lạc Thần Dẫn) at its ORIGINAL size and position, not squashed or shrunk, with its caption "Lạc Thần Dẫn" fully visible under it and above the bottom divider of the page.
+
+LEFT PAGE (33)
+1) Title centered at the very top of the page, on the decorative line above the frame (replaces 洛神):
+   Lạc Thần
+2) Three lines at the top-left, over the frame edge, left of the portrait, one per line:
+   Tiêu hao 30 máu để chế tạo Thịt Lá
+   Có hai dạng: Hoa Sự Sống và Hoa Hủy Diệt
+   Không bị Killer Bee thù ghét
+3) Paragraph at the bottom of the left page, below the red flower icon (same 6-line area as the original; keep the line breaks between sentences):
+   Hoa Sự Sống: mùa xuân, hạ hồi tinh thần chậm; mùa thu, đông giảm chậm. Thân thiện với sinh vật trung lập, tự chăm sóc cây trồng.
+   Thu hoạch một số cây trồng có tỉ lệ nhận gấp đôi.
+   Có hào quang trị thương yếu; dùng vật phẩm trị thương thì chữa cả vùng.
+   Túi đồ có hiệu quả giữ tươi.
+
+RIGHT PAGE (34) — grey box, 1 line, then 3 item blocks, top to bottom
+1) Inside the grey box at the top, starting next to the purple flower icon and continuing below it (keep the line breaks between sentences):
+   Hoa Hủy Diệt: mùa thu, đông hồi tinh thần chậm; mùa hạ, xuân giảm chậm.
+   Đào mỏ, chặt cây, thu hoạch nhanh hơn. Có thêm hệ số tấn công và hệ số giảm sát thương.
+   Giết sinh vật hồi một ít máu, tinh thần và no.
+   Bị một số sinh vật trung lập thù ghét.
+2) One line just below the grey box, above the decorative divider:
+   Hai dạng khác nhau thi triển thần thông sẽ có hiệu quả khác nhau.
+3) Next to the large purple flower bush icon (caption under it replaces 洛神花 → "Hoa Lạc Thần"), keep the line breaks:
+   Tưới bằng Chưởng Thiên Bình để lớn lên.
+   Giai đoạn 3: giữ nhiệt độ ổn định trong phạm vi nhỏ, hồi chậm tinh thần.
+   Giai đoạn 4: tự tưới nước bón phân trong 3 ô đất, cứ một lúc lại tự thúc chín một lần.
+   Giai đoạn 5: mỗi ngày hái được Đệm Hoa Lạc Thần. Các cây Hoa Lạc Thần dùng chung một kho rễ, đồ trong đó dần tươi lại. Có thể làm điểm đến cho Lạc Thần Dẫn.
+4) Next to the pink petal icon (caption under it replaces 洛神花裀 → "Đệm Hoa Lạc Thần"):
+   Một loại cánh hoa ăn trực tiếp được, nguyên liệu bắt buộc để chế tạo nhiều vật phẩm riêng của Lạc Thần.
+5) Next to the purple scroll icon (caption under it replaces 洛神引 → "Lạc Thần Dẫn"):
+   Tiêu hao 50 tinh thần để dịch chuyển tới bất kỳ cây Hoa Lạc Thần đã lớn hẳn nào trên bản đồ.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

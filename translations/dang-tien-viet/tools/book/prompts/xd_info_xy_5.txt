@@ -1,0 +1,44 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, the orange fox, the pink-blossom pavilion, the white-purple spider, the spider den, the crane, the cloud, page numbers "9" and "10", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels and titles that are white with a thin dark outline in the original stay white with a thin dark outline.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (9)
+1) White title inside the grey frame, top right of the fox (replaces 灵狐), centered:
+   Linh Hồ
+2) Inside the grey frame, below that title, right of the fox (5 bullet points, one per line):
+   • Sinh vật trung lập.
+   • Sinh ra trong Thanh Khâu Phường.
+   • Ban đêm ra ngoài, chiều tối về nhà nghỉ.
+   • Khi tấn công sẽ kích hoạt thần thông của bản thân.
+   • Thích ăn thịt và các món nấu.
+3) Text between the two divider lines, below the grey frame:
+   *Khi Côn Bằng Tiên Đảo bạo động, Linh Hồ chuyển sang hình thái ảnh hóa và sẽ chủ động tấn công người chơi.
+4) Text block below the second divider:
+   *Cơ chế thuê: cho 2 miếng Thịt hoặc 1 món nấu từ thịt thì thuê được 1 ngày. Khi được thuê sẽ giúp người chơi thu hoạch mọi loại cây có thể hái.
+5) Next to the pink-blossom pavilion icon at the bottom:
+   Thanh Khâu Phường: chế tạo trong bảng chế tạo Tiên Đồ.
+   Công thức chế tạo: Đuôi Linh Hồ*3, Ván Gỗ*4, Đá xẻ*3
+
+RIGHT PAGE (10)
+1) White title inside the grey frame, right of the spider (replaces 邪诈魔蛛), centered:
+   Tà Trá Ma Chu
+2) Inside the grey frame, below that title (2 bullet points):
+   • Loài nhện trên Côn Bằng Tiên Đảo.
+   • So với nhện thường thì hung hãn hơn và khó đối phó hơn.
+3) Text between the two divider lines, below the grey frame:
+   • Khi Côn Bằng Tiên Đảo bạo động, chúng sẽ ảnh hóa; lúc này nếu đánh trúng người chơi sẽ gây thêm hiệu ứng trúng độc.
+4) Next to the spider den icon (one item per line):
+   Xung quanh có mạng nhện, khi bị quấy động sẽ thả Tà Trá Ma Chu bên trong ra.
+   Có thể chế tạo.
+   Công thức chế tạo: Chân Bước Tà Sát*1, Tơ*12, Cục đá*6
+5) White label under the spider den (replaces 魔蛛巢穴), centered:
+   Sào Huyệt Ma Chu
+6) Centered line at the bottom, below the thin divider:
+   Sào Huyệt Ma Chu cứ cách một khoảng thời gian lại sinh ra Tà Trá Ma Chu.

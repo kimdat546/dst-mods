@@ -1,0 +1,43 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, the blue spirit wolf, the dagger, the jade pendant, the yellow pill on the lotus, the crane, the cloud, page numbers "1" and "2", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels under icons stay white with a thin dark outline, centered under the icon, exactly like the original labels.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (1)
+1) Inside the grey frame at the top, right of the blue wolf (replaces the 3 Chinese lines):
+   • Dùng <Dưỡng Hồn Chuỷ Thủ> gọi ra một tia tàn hồn của yêu thú này, phần nào đạt được thuật súc địa thành thốn.
+2) White label under the wolf (replaces 魂狼), centered:
+   Hồn Lang
+3) Centered line between the two divider lines, below the grey frame:
+   *Hồn Lang cũng có thể đi trên mặt biển.
+4) Next to the teal jade pendant icon, two short paragraphs (keep the blank line between them):
+   Ngọc Bội Hộ Tâm: giúp tu sĩ thoát thân khi cận kề cái chết.
+
+   Công thức luyện chế: Hạch nhện*3, Gỗ sống*15, Cục vàng*10, Linh thạch hạ phẩm*30
+5) Bottom text block, below the thin divider (two notes, each starting with *):
+   *Mỗi lần thoát thân khi cận kề cái chết sẽ tiêu hao linh thạch làm cái giá; cảnh giới càng cao cái giá càng lớn, và 3 ngày chỉ có hiệu lực một lần.
+   *Khi nhân vật ở Hóa Thần kỳ, mỗi lần Ngọc Bội Hộ Tâm giúp thoát thân tiêu hao 3 Linh thạch trung phẩm.
+
+RIGHT PAGE (2)
+1) Inside the grey frame at the top, right of the dagger. Keep the same layout: the heading on the first line, then the 4 ingredients stacked one per line and aligned under each other:
+   • Công thức luyện chế:
+   Tâm Nhĩ Hắc Ám*1
+   Nhiên liệu Ác Mộng*10
+   Gỗ sống*5
+   Linh thạch hạ phẩm*30
+2) White label under the dagger (replaces 养魂匕首), centered:
+   Dưỡng Hồn Chuỷ Thủ
+3) Centered line between the two divider lines, below the grey frame:
+   *Mỗi lần gọi Hồn Lang tiêu hao Linh thạch hạ phẩm*5.
+4) Next to the yellow pill on the lotus, two short paragraphs (keep the blank line between them):
+   Tịch Cốc Đan: giúp tu sĩ tịch cốc (nhịn ăn) ở mức độ nhất định.
+
+   Công thức luyện chế: Vòi voi*1, Cỏ khô*3, Mật ong*3, Linh thạch hạ phẩm*5
+5) Centered line at the bottom, below the thin divider:
+   *Làm chậm cơn đói của tu sĩ trong 5 ngày.

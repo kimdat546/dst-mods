@@ -1,0 +1,43 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "21" and "22", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- The character name at the top-left of the grey frame and the small item names under icons on the right page are white letters with a thin dark outline, exactly like the original. Keep that style. Item names stay centered under their own icon.
+- This page has no colored labels: all other text is dark brown/black.
+
+LEFT PAGE (21)
+1) Character name, top-left inside the grey frame (replaces 精卫), white with dark outline:
+   Tinh Vệ
+2) Left area inside the grey frame, below the name and beside the portrait (replaces the TWO vertical Chinese columns: the column inside the frame next to the portrait AND the column outside the frame on the far left — erase that outer column completely). Write horizontally, one item per line, as a list:
+   Thích ăn Bánh Thanh Long
+   Có thể lấp biển bằng địa bì riêng
+   Mở bản đồ có thể bay tới điểm nhìn thấy trên đất liền
+
+RIGHT PAGE (22) — title, grey box, 2 lines, 4 item blocks, top to bottom
+1) Title centered at the very top, above the grey box (replaces 玄鸟伴身):
+   Huyền Điểu Tùy Thân
+2) Inside the grey box, 3 bullet points:
+   • Có tùy tùng riêng, mạnh lên theo cảnh giới tu sĩ. Ban đầu có ô đồ giữ tươi mãi, ăn Trái Đèn thì tỏa sáng được.
+   • Trúc Cơ sơ kỳ: Huyền Điểu đổi hình dạng, mở khoá giữ nhiệt ổn định quanh mình và hồi tinh thần.
+   • Kết Đan sơ kỳ: hoá thành hình người, giúp tu sĩ làm việc, thỉnh thoảng cho tu sĩ ăn.
+3) Just below the grey box, above the decorative divider, 2 bullet points:
+   • Tinh Vệ không bị tích độ ẩm ướt.
+   • Tinh Vệ không làm chim và thú nhỏ hoảng sợ; chim, thú nhỏ quanh mình bị giết sẽ làm giảm tinh thần.
+4) Next to the green feather icon (caption under it replaces 玄羽 → "Huyền Vũ"):
+   Chế tạo bằng cách trừ 30 máu của Tinh Vệ. Đổi qua lại giữa các loại lông vũ, chế tạo một số vật phẩm hồi sinh và vài vật phẩm riêng.
+5) Next to the green fan/leaf staff icon (caption under it replaces 青出于蓝 → "Thanh Xuất Ư Lam"):
+   Khi cầm, bấm chuột phải phóng lốc xoáy. Lốc xoáy thu hoạch, giữ nhiệt ổn định, dập lửa trong phạm vi nhỏ, chuyên phá cây, quặng đá và băng.
+6) Bottom-left, next to the green feathered armor icon (caption under it replaces 翠羽仙踪 → "Tung Tích Tiên Lông Biếc"):
+   Giữ ấm, chống nước, tăng nhẹ tốc chạy, vá sửa được.
+7) Bottom-right, next to the crossed blowgun icon (caption under it replaces 玄鸟吹箭 → "Ống Phi Tiêu Huyền Vũ"):
+   Tấn công mục tiêu và tạo một bóng ảo Huyền Điểu có hiệu ứng khiêu khích.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

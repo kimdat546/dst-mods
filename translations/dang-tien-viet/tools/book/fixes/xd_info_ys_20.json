@@ -1,0 +1,15 @@
+[
+  {"op": "paper", "box": [1080, 580, 1567, 604], "note": "Nhật Du Thần Chân Thân Phù: Gemini viết dòng 2 tràn qua viền phải khung xám → xoá dòng (dải mỏng, giữ màu xám)"},
+  {"op": "paper", "box": [1080, 570, 1110, 580], "note": "(tiếp: phần trên dòng cũ, chừa đuôi g/y và dấu chấm của dòng trên)"},
+  {"op": "paper", "box": [1123, 570, 1423, 580], "note": "(tiếp: phần trên dòng cũ, chừa đuôi g/y và dấu chấm của dòng trên)"},
+  {"op": "paper", "box": [1450, 570, 1484, 580], "note": "(tiếp: phần trên dòng cũ, chừa đuôi g/y và dấu chấm của dòng trên)"},
+  {"op": "paper", "box": [1499, 571, 1553, 575], "note": "(tiếp)"},
+  {"op": "paper", "box": [1499, 575, 1561, 580], "note": "(tiếp, chừa đuôi g \"tăng\" dòng trên)"},
+  {"op": "text", "box": [1577, 568, 1650, 608], "band": [568, 608], "text": " ", "note": "xoá phần chữ \"chạy.\" tràn ra lề ngoài khung xám (chỉ xoá mảng mực)"},
+  {"op": "move_art", "box": [1559, 522, 1579, 552], "to": [1559, 576], "note": "vá lại viền phải khung xám chỗ chữ tràn đè lên (lấy đoạn viền gốc phía trên)"},
+  {"op": "move_art", "box": [1571, 516, 1579, 522], "to": [1571, 570], "note": "(tiếp, chừa đuôi g \"tăng\" dòng trên)"},
+  {"op": "block", "box": [1082, 573, 1556, 606], "erase": [1082, 573, 1084, 575], "line_h": 32, "note": "viết lại dòng 2 gọn trong khung", "lines": ["20% sát thương lên sinh vật bóng tối, tăng nhẹ tốc chạy."]},
+  {"op": "orig_art", "box": [998, 845, 1084, 908], "note": "Nón Ẩn Quan: Gemini vẽ thành mũ đen rộng vành → dán icon gốc"},
+  {"op": "orig_art", "box": [998, 908, 1084, 1012], "note": "Áo bào Ẩn Quan: Gemini vẽ áo đen khác hẳn → dán icon gốc"},
+  {"op": "orig_art", "box": [996, 1038, 1084, 1102], "note": "Kim Tinh Đồng Tiền: Gemini vẽ thành đống xu → dán icon gốc"}
+]

@@ -1,0 +1,40 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait (silver-haired swordsman with a giant purple sword), every small icon (purple feather, dark ornate sword, dark spider-like creature, purple banner, flaming orange sword, black ink-heart drop), the crane, the cloud, page numbers "15" and "16", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Titles and labels keep their original look as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (15) — 5 blocks
+1) Big golden calligraphy title in the upper-left of the portrait frame (replaces the vertical golden 天骄). Write horizontally, one word per line, stacked in the same spot, same golden-yellow brush style with dark outline, large:
+   Thiên
+   Kiêu
+2) Thin vertical column at the far left inside the portrait frame (replaces 紫云魔君的化身). Write horizontally in small text as short stacked lines down the same strip, [white with dark outline]:
+   Hóa thân
+   của
+   Tử Vân
+   Ma Quân
+3) Two-line text just below the portrait frame:
+   Xuất hiện ở vùng trung tâm Côn Bằng Tiên Đảo, 7 ngày làm mới một lần. Phá hủy Thiên Cơ Ốc Dị Hóa để khiêu chiến.
+4) Right of the purple feather icon (bottom-left). Label first [white with dark outline], then black text, then two bullets:
+   [white with dark outline] Ma Vũ Tử Xá [black] Cho Thân Ngoại Hóa Thân ăn để tăng tu vi.
+   • Nguyên liệu bắt buộc để chế tạo Mặt Giáp Tử Xá.
+   • Nguyên liệu bắt buộc để luyện Hợp Linh Hoàn.
+
+RIGHT PAGE (16) — 5 blocks, top to bottom. Each starts with a short label [white with dark outline], followed by black text.
+1) Right of the dark ornate sword icon (top):
+   [white with dark outline] Bị động [black] Bên cạnh hóa thân Tử Vân luôn có Ma Kiếm đi theo. Khi máu người chơi dưới 10% sẽ rơi vào trạng thái mê man, lúc đó Ma Kiếm sẽ trực tiếp chém giết người chơi.
+2) Right of the dark spider-like creature icon, first paragraph:
+   [white with dark outline] Kỹ năng 1 [black] Cứ 3 đòn đánh thường sẽ kích hoạt hợp kích Vô Thượng Ma Thể.
+3) Right of the same creature icon, second paragraph:
+   [white with dark outline] Giai đoạn 1 [black] 5 giây sau khi giao chiến, triệu hồi Kẻ Dệt Bóng Cổ Đại hợp kích.
+4) Right of the purple banner and flaming orange sword icons:
+   [white with dark outline] Giai đoạn 2 [black] Khi máu của chính nó còn 1, bay lên không trung và dùng Tôn Hồn Phiên triệu hồi Hồn Phách Nai Một Mắt Tinh Thể tấn công người chơi. Đồng thời hóa thân Tử Vân trên không liên tục thi triển thần thông của Tôn Hồn Phiên và Phần Thiên Kiếm để quấy nhiễu người chơi. Đánh bại Hồn Phách Nai Một Mắt Tinh Thể để vào giai đoạn kế tiếp.
+5) Right of the black ink-heart drop icon (bottom):
+   [white with dark outline] Giai đoạn 3 [black] Hóa thân Tử Vân đáp xuống đất và sinh ra Ma Tâm Của Tử Vân. Chỉ khi đánh bại hẳn Ma Tâm mới đánh bại được hóa thân Tử Vân; ở giai đoạn này hóa thân thi triển bí pháp nên trở nên mạnh hơn nữa.
+
+Do not write the color tags like "[white with dark outline]" or "[black]" in the image — they only tell you the color.

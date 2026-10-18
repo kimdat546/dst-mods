@@ -8,3 +8,7 @@ scanner_nonspeech_cn.txt
 translation_pipeline/cp_batches/
 translation_pipeline/cp_src.txt
 translation_pipeline/cp_vn.txt
+translation_pipeline/gy_batches/
+
+# Ảnh xem trước khi vẽ lại trang sách (tools/book/render_page.py)
+build/

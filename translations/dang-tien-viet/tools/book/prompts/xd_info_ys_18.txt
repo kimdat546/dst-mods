@@ -1,0 +1,52 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every illustration, every small icon, the crane, the cloud, page numbers "35" and "36", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- White-with-thin-dark-outline style (keep exactly like the original) for: the heading inside the grey box on the left page, and every small item name under an icon (centered under its own icon).
+- All other text is dark brown/black. No colored labels on this page.
+
+LEFT PAGE (35) — grey box, then 4 item blocks, top to bottom
+1) Heading centered at the top of the grey box (replaces 生之花、灭之花神通效果):
+   Hiệu quả thần thông của Hoa Sự Sống, Hoa Hủy Diệt
+2) Inside the grey box, next to the RED flower icon, 2 lines:
+   *Thần thông gây sát thương thưa hơn.
+   *Hồi máu chậm và tạo một tấm khiên nhỏ.
+3) Inside the grey box, next to the PURPLE flower icon, 2 lines:
+   *Thần thông gây sát thương dày hơn, mục tiêu ít máu có thể bị kết liễu.
+   *Có tỉ lệ miễn một lần sát thương; khi tấn công tạo xúc tu bóng tối dưới chân mục tiêu.
+4) Next to the blue vegetable dish icon (caption under it replaces 洛神清蔬 → "Rau Tươi Lạc Thần"):
+   Nấu mà có, là món chay; nguyên liệu cần có Đệm Hoa Lạc Thần và không có thịt.
+5) Next to the meat dish icon (caption under it replaces 洛香烹肉 → "Thịt Nấu Hương Lạc"):
+   Nấu mà có, là món mặn; nguyên liệu cần có Đệm Hoa Lạc Thần và độ thịt lớn hơn 0.
+   Ăn xong được hút máu nhẹ khi tấn công trong 1 ngày.
+6) Next to the golden censer icon with purple flowers (caption under it replaces 定魂香炉 → "Lò Hương Định Hồn"):
+   Cầm trên tay tăng 15% tốc chạy, có thể tốn độ bền để dịch chuyển tức thời tới điểm chỉ định. Nạp độ bền bằng Nhiên liệu Ác Mộng.
+   Khi cầm sẽ liên tục tốn độ bền và vào trạng thái Hư Linh, không bị sinh vật phát hiện và tấn công.
+7) Bottom, next to the blue thorny pillar icon (caption under it replaces 棘花泽 → "Đầm Hoa Gai"):
+   Đặt xuống đất tạo bẫy hoa diện rộng, kéo dài 7 ngày, mỗi lần kích hoạt gây 120 sát thương vị diện.
+
+RIGHT PAGE (36) — grey box with 3 structures, then 3 item blocks, top to bottom
+1) Inside the grey box: three captions, each centered under its own structure icon:
+   Under the left fence icon (replaces 芳菲栅栏): Hàng Rào Phương Phi
+   Under the middle gate icon (replaces 锦门): Cổng Gấm
+   Under the right leafy wall icon (replaces 绣墙): Tường Thêu
+   Then one centered line at the bottom of the grey box:
+   Công trình trang trí, không bị cháy và khó bị phá hơn.
+2) Next to the red curved blade icon (caption under it replaces 绛刃 → "Lưỡi Đỏ Thẫm"), keep the line breaks:
+   200 sát thương vị diện. Mỗi đòn hút một ít máu; khi cầm trên tay máu giảm dần.
+   Đòn đánh gây hiệu ứng dễ bị thương.
+   Có thể dùng lên người chơi khác, trừ một phần máu của mình để chữa thương cho họ.
+3) Next to the purple-and-orange flower pollen icon (caption under it replaces 流光花粉 → "Phấn Hoa Lưu Quang"):
+   Dùng xong vào trạng thái Linh Hoá Tự Nhiên trong 1 ngày: giữ nhiệt độ ổn định, tăng 10% tốc chạy, phát sáng và né được một lần sát thương. Nhưng khi né lần đó, trạng thái kết thúc sớm.
+4) Next to the purple flower box icon (caption under it replaces 洛神花匣 → "Hộp Hoa Lạc Thần"):
+   Túi đeo lưng 16 ô, giữ tươi đồ bên trong. Cần 99 cánh hoa để chế tạo.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

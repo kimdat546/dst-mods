@@ -1,0 +1,12 @@
+[
+  {"op": "paper", "box": [396, 1010, 952, 1047], "note": "xoá đoạn cuối T5 theo dải mỏng (dải cao quá thì màu nền nội suy không lan tới giữa)"},
+  {"op": "paper", "box": [396, 1047, 952, 1084], "note": "(tiếp)"},
+  {"op": "paper", "box": [396, 1084, 952, 1121], "note": "(tiếp)"},
+  {"op": "block", "box": [404, 1018, 940, 1116], "erase": [404, 1018, 406, 1020], "line_h": 31, "pitch": 33,
+   "note": "Gemini viết \"Chường Thiên Bình\" → \"Chưởng Thiên Bình\"; viết lại cả 3 dòng",
+   "lines": [
+     "*Sau 2 lần trồng, bồn sẽ mờ đi; cho linh",
+     "thạch vào để nạp lại linh khí. Chưởng Thiên",
+     "Bình cũng có tác dụng với nó."
+   ]}
+]

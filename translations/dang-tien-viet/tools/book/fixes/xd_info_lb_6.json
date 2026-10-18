@@ -1,0 +1,8 @@
+[
+  {"op": "block", "box": [1084, 960, 1540, 1021], "erase": [1080, 960, 1550, 1021], "line_h": 32, "pitch": 29,
+   "note": "Gemini viết \"càng cap càng\" → \"càng cao càng\"; viết lại cả dòng dưới để không mất dấu \"phẩm\"",
+   "lines": [
+     [["cấp càng cao càng tốn nhiều Linh thạch", null, "b"]],
+     [["thượng phẩm.", null, "b"]]
+   ]}
+]

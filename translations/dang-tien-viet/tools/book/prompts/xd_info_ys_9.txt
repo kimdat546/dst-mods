@@ -1,0 +1,36 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the white-and-purple spider illustration, every small icon (white-purple spider leg, pink spider-web icon, pink wave icon, pink crown-like icon), the crane, the cloud, page numbers "17" and "18", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Names and labels keep their original look (white letters with a thin dark outline) where noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (17) — 4 blocks
+1) Top-right inside the picture frame, above the spider (replaces 邪煞蛛王), [white with dark outline]:
+   Tà Sát Chu Vương
+2) Two-line text just below the picture frame:
+   Xuất hiện tại một địa điểm cố định trên Côn Bằng Tiên Đảo; bị giết thì bảy ngày sau sẽ làm mới lại.
+3) Small label directly under the spider leg icon, bottom-left (replaces 邪煞步足), [white with dark outline]:
+   Chân Bước Tà Sát
+4) Right of the spider leg icon, three bullets:
+   • Cho Thân Ngoại Hóa Thân ăn để tăng tu vi.
+   • Nguyên liệu bắt buộc để chế tạo Hộ Giáp Tà Sát.
+   • Nguyên liệu bắt buộc để luyện Hồi Nguyên Hoàn.
+
+RIGHT PAGE (18) — 5 blocks, top to bottom. Each starts with a short label [white with dark outline], followed by black text.
+1) Top paragraph, starting at the left margin (no icon):
+   [white with dark outline] Bị động [black] Trong 30 giây, nếu đòn đánh thường trúng người chơi lần thứ ba, sẽ tạo một vùng mạng nhện tại vị trí người chơi, gây làm chậm và sát thương.
+2) Right of the pink spider-web icon:
+   [white with dark outline] Kỹ năng 1 [black] Đánh dấu tối đa 4 người chơi; sau một lúc, mạng nhện xuất hiện tại vị trí họ. So với mạng nhện của đòn đánh thường thì phạm vi rộng hơn, sát thương cao hơn, và cũng gây làm chậm như vậy.
+3) Right of the pink wave icon:
+   [white with dark outline] Kỹ năng 2 [black] Thi triển lên tối đa hai người chơi: dưới chân họ hiện mũi tên chỉ một hướng, sau một lúc phóng sóng độc theo hướng đó. Sóng độc trúng chính người chơi, nhưng đồng thời dọn sạch mạng nhện do đòn đánh thường và Kỹ năng 1 tạo ra, để lại màn sương độc tồn tại khá ngắn.
+4) Right of the pink crown-like icon:
+   [white with dark outline] Kỹ năng 3 [black] Chu Vương nhảy tới gần người chơi và tạo hai khối đá đặc biệt gần đó để chắn tầm nhìn của nó. Sau một lúc, Chu Vương phun tơ nhện về phía mọi người chơi; trúng thì kéo người chơi tới trước mặt Chu Vương và tấn công, gây sát thương lớn.
+5) Bottom paragraph, starting at the left margin (no icon):
+   [white with dark outline] Kỹ năng 4 [black] Cứ cách một khoảng thời gian, Chu Vương sinh ra một Tà Trá Ma Chu tấn công người chơi.
+
+Do not write the color tags like "[white with dark outline]" or "[black]" in the image — they only tell you the color.

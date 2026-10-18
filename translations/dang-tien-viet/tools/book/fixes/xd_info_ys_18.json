@@ -1,0 +1,16 @@
+[
+  {"op": "paper", "box": [450, 513, 923, 539], "note": "khối hoa tím: Gemini bỏ \"có thể bị kết liễu\"; xoá theo dải mỏng"},
+  {"op": "paper", "box": [450, 539, 923, 565], "note": "(tiếp)"},
+  {"op": "paper", "box": [450, 565, 902, 590], "note": "(tiếp, chừa hoa văn góc khung xám)"},
+  {"op": "paper", "box": [450, 590, 888, 615], "note": "(tiếp)"},
+  {"op": "text", "box": [931, 510, 964, 556], "band": [510, 556], "text": " ", "note": "xoá chữ \"u.\" Gemini viết tràn ra lề ngoài khung xám (chỉ xoá mảng mực, giữ vân lề)"},
+  {"op": "move_art", "box": [916, 432, 933, 472], "to": [916, 514], "note": "vá lại viền phải khung xám chỗ chữ tràn đè lên (lấy đoạn viền gốc ngay trên)"},
+  {"op": "block", "box": [456, 511, 921, 618], "erase": [456, 511, 458, 513], "line_h": 30, "pitch": 25.5, "note": "viết lại khối hoa tím thành 4 dòng cho đủ câu", "lines": ["*Thần thông gây sát thương dày hơn, mục tiêu ít", "máu có thể bị kết liễu.", "*Có tỉ lệ miễn một lần sát thương; khi tấn công", "tạo xúc tu bóng tối dưới chân mục tiêu."]},
+  {"op": "orig_art", "box": [1058, 392, 1178, 524], "note": "Hàng Rào Phương Phi: Gemini vẽ lại khác gốc → dán icon gốc"},
+  {"op": "orig_art", "box": [1236, 392, 1352, 526], "note": "Cổng Gấm: dán icon gốc"},
+  {"op": "orig_art", "box": [1432, 390, 1540, 526], "note": "Tường Thêu: dán icon gốc"},
+  {"op": "paper", "box": [464, 957, 978, 983], "note": "Lò Hương Định Hồn: Gemini để \"tấn\" tràn mép trang bị cắt; xoá 3 dòng cuối theo dải"},
+  {"op": "paper", "box": [464, 983, 978, 1013], "note": "(tiếp)"},
+  {"op": "paper", "box": [464, 1013, 552, 1042], "note": "(tiếp: chữ \"công.\" lẻ dòng)"},
+  {"op": "block", "box": [470, 955, 976, 1016], "erase": [470, 955, 472, 957], "line_h": 32, "pitch": 29, "note": "viết lại 2 dòng cuối, dồn \"tấn công.\" lên cho khỏi tràn mép", "lines": ["Khi cầm sẽ liên tục tốn độ bền và vào trạng thái", "Hư Linh, không bị sinh vật phát hiện và tấn công."]}
+]

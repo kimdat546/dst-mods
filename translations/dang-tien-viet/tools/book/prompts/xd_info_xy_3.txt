@@ -1,0 +1,45 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, every small icon (the five trees, the teal-gold chest, the tree house, the three animal houses, the dragonfly lair, the armored bear lair), the crane, the cloud, page numbers "5" and "6", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels under icons stay white with a thin dark outline, centered under their icon, exactly like the original labels (use a smaller font so neighbouring labels do not touch).
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (5)
+1) Inside the grey frame at the top: five white labels, each centered under its own tree, left to right:
+   - under the purple tree (replaces 樱花树): Cây Anh Đào
+   - under the red-orange tree (replaces 丹枫): Đan Phong
+   - under the yellow tree (replaces 银杏): Bạch Quả
+   - under the green willow (replaces 烟柳树): Cây Liễu Khói
+   - under the white-blossom tree (replaces 杏花树): Cây Hoa Hạnh
+2) Text between the two divider lines, below the grey frame:
+   *Quanh các loại cây, trong một phạm vi nhất định đông ấm hạ mát, và cứ 7 ngày sẽ sinh ra bảo thạch quanh gốc.
+3) Next to the teal-gold chest icon:
+   Rương Linh Bảo: rương có linh tính, chứa được một số nguyên liệu yêu thú. Khi đồ vượt quá 12 ô, cứ 15 ngày sẽ nhân bản một chồng đồ trong đó vào ô trống.
+4) Next to the orange tree-house icon at the bottom:
+   Nhà Cây Mèo Trúc: có một con Mèo Trúc sống bên trong, nhà cây không bị sập. Mỗi ngày đều thu được ít vật phẩm từ nhà cây.
+
+RIGHT PAGE (6)
+1) Inside the grey frame at the top: three white labels, each centered under its own house, left to right:
+   - under the house with big horns (replaces 皮弗娄牛屋): Nhà Bò Beefalo
+   - under the white goat skull with yellow lightning horns (replaces 伏特羊舍): Chuồng Dê Volt
+   - under the pagoda house (replaces 考拉象屋): Nhà Koalefant
+2) Text block just below the grey frame (4 lines, keep one item per line):
+   *Nuôi nhốt linh thú tương ứng.
+   Nhà bò: mỗi 3 ngày thu Lông bò*8, 50% được Sừng Bò Lai*1.
+   Chuồng dê: mỗi ngày thu Sữa Dê Điện*1, 25% được Sừng Vôn Dương*1.
+   Nhà voi: mỗi 3 ngày thu Vòi voi*1.
+3) Next to the fiery dragonfly lair icon:
+   Mỗi 10 ngày thu từ ổ: Vảy*1, Ngọc Vàng*1, Ngọc Lục*1, Ngọc Cam*1, Ngọc Đỏ*2, Ngọc Lam*2, Ngọc Tím*2.
+   Cho linh thú Long Nhặng 1 Vảy để nó đi theo người chơi trong 2 ngày.
+4) White label under the dragonfly lair (replaces 龙蝇巢穴), centered:
+   Tổ Chuồn Chuồn Rồng
+5) Next to the icy armored-bear lair icon at the bottom:
+   Mỗi 10 ngày thu từ ổ: Quang Thạch Tinh Khiết*2.
+   Cho linh thú Hùng Hoan Trang Giáp 1 Quang Thạch Tinh Khiết để nó đi theo người chơi trong 3 ngày.
+6) White label under the armored-bear lair (replaces 装甲熊獾巢穴), centered:
+   Hang Gấu Lửng Giáp

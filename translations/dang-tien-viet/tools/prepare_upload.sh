@@ -30,6 +30,9 @@ FILES=(
     scripts/phase5_book_strings.lua
     scripts/phase6_v19_strings.lua        # chuỗi mới của mod gốc v19.0
     scripts/phase7_runtime_gaps.lua       # chuỗi chỉ lộ ra lúc chạy
+    scripts/phase9_v20_strings.lua        # mod gốc v20.0: Phương Nguyên, cổ trùng, Tiên Khiếu
+    scripts/phase10_speech_gyfy.lua       # thoại Cổ Nguyệt Phương Nguyên
+    scripts/book_images.lua               # tráo ảnh trang sách bản tiếng Việt
 
     # Nạp theo option người dùng bật trong settings — THIẾU là mod crash
     scripts/diag_speech.lua               # option "Log string thiếu"
@@ -46,10 +49,21 @@ for f in "${FILES[@]}"; do
     cp "$SRC/$f" "$DEST/$f"
 done
 
+# Trang sách vẽ lại (tools/book/). Mỗi trang khai trong PAGES của
+# book_images.lua phải có đủ .tex + .xml, thiếu là game báo lỗi asset.
+mkdir -p "$DEST/images/vn_book"
+while read -r page; do
+    for ext in tex xml; do
+        [[ -f "$SRC/images/vn_book/$page.$ext" ]] || { echo "✗ Thiếu images/vn_book/$page.$ext"; exit 1; }
+        cp "$SRC/images/vn_book/$page.$ext" "$DEST/images/vn_book/"
+    done
+done < <(sed -n '/^local PAGES/,/^}/p' "$SRC/scripts/book_images.lua" | grep -oE '"xd_info_[a-z0-9_]+"' | tr -d '"')
+
 # ── Kiểm 1: cú pháp ──────────────────────────────────────────────────────────
 FAILED=0
 while IFS= read -r -d '' f; do
-    luac -p "$f" || { echo "✗ Lỗi cú pháp: $f"; FAILED=1; }
+    # luajit = Lua 5.1 như DST; luac trên máy là 5.5, nhận cả cú pháp DST từ chối
+    luajit -bl "$f" >/dev/null || { echo "✗ Lỗi cú pháp: $f"; FAILED=1; }
 done < <(find "$DEST" -name "*.lua" -print0)
 [[ $FAILED -eq 1 ]] && exit 1
 
@@ -61,7 +75,7 @@ MISS=0
 while read -r target; do
     [[ " $NOT_SHIPPED " == *" $target "* ]] && continue
     [[ -f "$DEST/$target" ]] || { echo "✗ main.lua gọi modimport(\"$target\") nhưng bản build KHÔNG có file này"; MISS=1; }
-done < <(grep -vE '^\s*--' "$DEST/scripts/main.lua" | grep -oE 'modimport\("[^"]+"\)' | sed 's/modimport("//;s/")//')
+done < <(grep -hvE '^\s*--' "$DEST/scripts/main.lua" "$DEST/modmain.lua" | grep -oE 'modimport\("[^"]+"\)' | sed 's/modimport("//;s/")//')
 [[ $MISS -eq 1 ]] && exit 1
 
 # ── Kiểm 3: không lẫn dấu vết bản dev ────────────────────────────────────────

@@ -1,0 +1,24 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the qilin illustration, the phoenix illustration, the crane, the cloud, page numbers "1" and "2", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Names keep their original look (white letters with a thin dark outline), centered.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (1) — 2 blocks
+1) Name centered just below the picture frame, between the divider lines (replaces 麒麟残魂), [white with dark outline]:
+   Tàn Hồn Kỳ Lân
+2) Two-line text below the name:
+   Xuất hiện ở rừng bạch dương, là yêu thú có thể triệu hồi Thân Ngoại Hóa Thân. Khi bị giết sẽ rơi thiên tài địa bảo Nhung Kỳ Lân.
+
+RIGHT PAGE (2) — 2 blocks
+1) Name centered just below the picture frame (replaces 金凤神念), [white with dark outline]:
+   Thần Niệm Kim Phượng
+2) Two-line text below the name:
+   Xuất hiện ở vùng mỏ đá hoặc vùng hỗn hợp. Là một tia thần niệm của Kim Phượng còn sót lại ở giới này, có tính công kích. Khi bị giết rơi thiên tài địa bảo Tủy Phượng.
+
+Do not write the color tags like "[white with dark outline]" in the image — they only tell you the color.

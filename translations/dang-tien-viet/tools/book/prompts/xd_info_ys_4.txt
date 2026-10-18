@@ -1,0 +1,38 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every small icon (pink swirl orb, brown fox statue, golden fish-dragon lantern, red umbrella, red pouch, ornate food shrine), the crane, the cloud, page numbers "7" and "8", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Small labels under icons keep their original look (white letters with a thin dark outline).
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (7) — 4 blocks, top to bottom
+1) Inside the grey box at the top, right of the pink swirl orb icon (two lines each starting with "*"):
+   *Rơi ra khi giết sinh vật.
+   *Dùng để nạp độ bền cho các kỳ trân của Tô Đát Kỷ.
+2) Small label directly under the pink swirl orb icon (replaces 妖兽元神残片), centered, [white with dark outline]:
+   Mảnh Tàn Nguyên Thần Yêu Thú
+3) Right of the brown fox statue icon:
+   Tượng Gỗ Thế Thân: tạo ảo ảnh tại chỗ; dùng mộc điêu lần nữa để đổi chỗ người chơi tới vị trí ảo ảnh.
+   Mỗi lần đổi chỗ tốn 25% máu.
+4) Right of the golden fish-dragon lantern icon (bottom):
+   Đèn Ngư Long: nạp độ bền bằng Mảnh Tàn Nguyên Thần Yêu Thú. Vừa chiếu sáng, vừa giữ nhiệt độ ổn định trong một phạm vi.
+
+RIGHT PAGE (8) — 5 blocks, top to bottom
+1) Inside the grey box at the top, right of the red umbrella icon (three lines each starting with "*"):
+   *Chiếc ô chống mưa tuyết, mưa axit và mưa đá mặt trăng, lại cách nhiệt.
+   *Đặt xuống đất thì có tác dụng theo vùng.
+   *Cầm trên tay bấm chuột phải để làm khô mục tiêu và giữ khô trong nửa ngày.
+2) Small label at the bottom-left of the grey box, under the red umbrella (replaces 一舞芳华), [white with dark outline]:
+   Nhất Vũ Phương Hoa
+3) Centered line between the two decorative dividers:
+   *Nhất Vũ Phương Hoa cũng sửa độ bền bằng Mảnh Tàn Nguyên Thần Yêu Thú.
+4) Right of the red pouch icon:
+   Túi Đeo Thập Cẩm: có 6 ô; thức ăn bỏ vào sẽ từ từ tươi lại. Mỗi tu sĩ chỉ được sở hữu tối đa một cái.
+5) Right of the ornate food shrine icon (bottom):
+   Khám Thức Ăn Ngàn Vị: mỗi ngày nhận một hoặc hai món ăn đã thêm gia vị do đại thần tiến cống.
+
+Do not write the color tags like "[white with dark outline]" in the image — they only tell you the color.

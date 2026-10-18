@@ -1,0 +1,48 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the small portrait of the purple-robed demon lord, every small icon (purple-flamed demon mask, purple-flamed dark armor), the crane, the cloud, page numbers "13" and "14", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Titles and labels keep their original look (white letters with a thin dark outline) where noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (13) — 5 blocks, top to bottom
+1) Title centered at the top of the grey box (replaces 鲲鹏仙岛), [white with dark outline]:
+   Côn Bằng Tiên Đảo
+2) Inside the grey box, under the title:
+   • Cứ 7 ngày sẽ có Côn Bằng bay ngang bầu trời.
+   • Khi tu sĩ đạt Nguyên Anh, lần Côn Bằng bay qua kế tiếp sẽ tự bay vọt lên thử đánh rơi Côn Bằng.
+   Côn Bằng Tiên Đảo hình thành ở một vị trí ngẫu nhiên trên biển.
+3) Below the grey box, between the first two decorative dividers (one bullet, 2 lines):
+   • Khi Côn Bằng bay qua, mọi tu sĩ ở gần nghe tiếng gầm của nó và bị giảm 20 tinh thần.
+4) Main block below the second divider (four bullets):
+   • Côn Bằng Tiên Đảo có các trạng thái: Bình Tĩnh, Bực Bội, Bạo Nộ, Xoa Dịu.
+   • Bực Bội: Tiêm Vũ của Tiên Hạc ở trạng thái tỏa tán, báo hiệu sắp vào Bạo Nộ.
+   • Bạo Nộ: chim không còn đậu xuống Côn Bằng Tiên Đảo, Tiêm Vũ chuyển sang trạng thái vỡ nát, sinh vật trên đảo bị ma hóa. Tu sĩ mất tinh thần nhanh liên tục và dễ sinh Tâm Ma hơn.
+   • Xoa Dịu: Côn Bằng sắp trở lại Bình Tĩnh nên tốc độ mất tinh thần giảm một nửa. Tiêm Vũ trở về trạng thái tỏa tán.
+5) Bottom line below the short divider:
+   • Trên Côn Bằng Tiên Đảo, tinh thần về 0 sẽ kích hoạt Tâm Ma.
+
+RIGHT PAGE (14) — 7 blocks, top to bottom
+1) Title at the top of the grey box, right of the small demon-lord portrait (replaces 紫云魔君), [white with dark outline]:
+   Tử Vân Ma Quân
+2) Inside the grey box, under the title, right of the portrait (two bullets):
+   • Ở trong hàn xá của mình trên Côn Bằng Tiên Đảo.
+   • Đang đấu tranh với tâm ma của chính mình.
+3) Below the grey box, one bullet of 3 lines:
+   • Khi người chơi giúp Tử Vân Ma Quân đánh bại hóa thân mất kiểm soát của y và trao Ma Vũ Tử Xá cho y, Ma Quân sẽ tặng người chơi bản thiết kế Mặt Giáp Tử Xá và Hộ Giáp Tà Sát.
+4) Right of the purple-flamed demon mask icon:
+   Có 90% phòng thủ, 10 điểm phòng thủ vị diện, thêm 0.2 hệ số tấn công.
+   Sau khi ôn dưỡng bằng Linh thạch trung phẩm, dùng một viên Linh thạch trung phẩm hồi được 20% độ bền. Đồng thời cứ 10 giây tự hồi 1% độ bền.
+5) Small label directly under the demon mask icon (replaces 紫姹面甲), centered, [white with dark outline]:
+   Mặt Giáp Tử Xá
+6) Right of the purple-flamed dark armor icon (bottom):
+   Phòng thủ và khả năng hồi độ bền giống mặt giáp, thêm 10% tốc độ di chuyển.
+   Khi mặc cùng mặt giáp, lúc bị tấn công sẽ chặn hoàn toàn mọi sát thương trong 2 giây; hiệu ứng này hồi chiêu 10 giây.
+7) Small label directly under the dark armor icon (replaces 邪煞护甲), centered, [white with dark outline]:
+   Hộ Giáp Tà Sát
+
+Do not write the color tags like "[white with dark outline]" in the image — they only tell you the color.

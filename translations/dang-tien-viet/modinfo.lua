@@ -7,18 +7,24 @@ YÊU CẦU
 - Phải sub và bật mod 登仙 gốc trước (Workshop ID: 3235319974).
 - Mod này phải load sau mod gốc.
 
-MỚI Ở BẢN NÀY (1.2.0)
-- Bắt kịp mod gốc v19.0.
-- Dịch TRỌN BỘ nhân vật mới Trần Bình An: 3447 dòng thoại, cùng toàn bộ vật phẩm
-  (Bắc Đẩu, Thanh Bình, Thập Ngũ, Trảm Long Đài, Nón/Áo bào Ẩn Quan, cây thanh mai...).
-- Sửa lỗi lớn: thoại nhân vật do server gửi xuống trước đây vẫn hiện tiếng Trung dù
-  đã dịch. Nay dịch được cả khi bạn chơi trên server KHÔNG cài mod này.
-- Bổ sung tên nhân vật, danh hiệu, 25 tên ngoại trang và các nhãn menu còn sót.
+MỚI Ở BẢN NÀY (1.3.0)
+- Bắt kịp mod gốc v20.0.
+- Dịch TRỌN BỘ nhân vật mới Cổ Nguyệt Phương Nguyên (Đại Ái Tiên Tôn): 3964 dòng
+  thoại, cùng toàn bộ cổ trùng (Xuân Thu Thiền, Định Tiên Du, Vô Túc Điểu,
+  Thiên Nguyên Bảo Liên, Vạn Cổ Ốc...) và skin mới.
+- Món ăn mới: cỏ Sinh Cơ, canh lá Sinh Cơ, bánh Cửu Diệp Sinh Cơ.
+- Vá thêm thoại Vương Ma Tử, Trần Bình An còn sót.
+- Giao diện Tiên Khiếu (lắp cổ trùng): tên, hiệu ứng, hồi chiêu đều tiếng Việt.
+- Dịch TRỌN BỘ Tu Tiên Mật Quyển (sách hướng dẫn dạng ảnh): đủ 41 trang —
+  cảnh giới & đan dược, Linh Bảo, Nhàn Vân Dã Hạc, Dị Thú và các nhân vật.
+- Thống nhất tên theo DST Tiếng Việt (Ngọc Đỏ/Lam/Lục/Tím…), sửa vài tên
+  Hán-Việt sai âm (Phần Thiên Kiếm, Tà Trá Ma Chu, Dưỡng Hồn Chuỷ Thủ).
 
 ĐÃ DỊCH
 - Tên item, recipe, mô tả khi inspect — khoảng 2000 dòng.
 - Toàn bộ thoại Vương Ma Tử (giọng kiêu ngạo "bổn tôn", "Vương Mỗ"...) — 2951 dòng.
 - Toàn bộ thoại Trần Bình An (giọng mộc mạc chân chất) — 3447 dòng.
+- Toàn bộ thoại Cổ Nguyệt Phương Nguyên (giọng lạnh lùng, thực dụng) — 3964 dòng.
 - Mô tả skill, buff của pháp bảo.
 - NPC dialogue (Tử Vân chân quân, lão phu Khúc Tiên...).
 - Một số UI tooltip hay gặp.
@@ -26,8 +32,6 @@ MỚI Ở BẢN NÀY (1.2.0)
 CHƯA DỊCH
 - Thoại 8 nhân vật còn lại: Hàn Thiên Tôn, Long Thái Tử, Tinh Vệ, Tô Đát Kỷ,
   Ngộ Không, Lạc Thần, Vân Tiêu, Thi Cơ. Mỗi người ~3000 dòng, dịch dần.
-- Nội dung Tu Tiên Mật Quyển. Tác giả mod gốc đóng gói thành ảnh nên phải vẽ lại,
-  đang tìm cách xử lý.
 - Một số nhãn nướng sẵn trong ảnh giao diện (Ngoại trang, Nhân vật, Đổi...).
 
 LƯU Ý
@@ -38,9 +42,9 @@ LƯU Ý
 
 Cảm ơn tác giả 登仙 đã làm ra một mod hay như vậy. Nếu thấy hữu ích thì cho mình 1 like.
 
-Cập nhật: 2026-07-27 — v19.0 + trọn bộ thoại Trần Bình An]]
+Cập nhật: 2026-10-18 — v20.0 + trọn bộ thoại Cổ Nguyệt Phương Nguyên + trọn bộ Tu Tiên Mật Quyển]]
 author = "kimdat546"
-version = "1.2.0"
+version = "1.3.0"
 
 forumthread = ""
 api_version = 10

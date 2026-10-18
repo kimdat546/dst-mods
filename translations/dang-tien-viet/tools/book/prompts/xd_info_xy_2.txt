@@ -1,0 +1,38 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, every small icon (the nine potted flowers, the sword rack, the tool box, the jewel box, the honey jar, the mushroom basket), the crane, the cloud, page numbers "3" and "4", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels under icons stay white with a thin dark outline, centered under their icon, exactly like the original labels (use a smaller font so neighbouring labels do not touch).
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (3)
+1) Inside the grey frame at the top: five white labels, each centered under its own flower, left to right:
+   - under the water-lily vase (replaces 水芙蓉): Thủy Phù Dung
+   - under the sunflowers (replaces 朝阳花): Hoa Triều Dương
+   - under the white roses (replaces 白玫瑰): Hoa Hồng Trắng
+   - under the lily-of-the-valley bonsai (replaces 铃兰): Linh Lan
+   - under the white orchid (replaces 幽兰): U Lan
+2) Text block just below the grey frame:
+   *Các loại hoa là công trình trang trí; đứng gần sẽ hồi tinh thần, và mỗi sáng có tỉ lệ sinh ra một con bướm.
+3) Next to the fan-shaped sword rack icon:
+   Hộp Kiếm Vô Song: cất giữ thần binh lợi khí, tự hút vũ khí trong một phạm vi nhất định.
+4) Next to the tool box icon at the bottom:
+   Hộp Dụng Cụ: hộp để cất dụng cụ, tự hút dụng cụ trong một phạm vi nhất định.
+
+RIGHT PAGE (4)
+1) Inside the grey frame at the top: four white labels, each centered under its own flower, left to right:
+   - under the pink peony (replaces 牡丹): Mẫu Đơn
+   - under the white lilies (replaces 百合): Bách Hợp
+   - under the dandelions (replaces 蒲公英): Bồ Công Anh
+   - under the white flower in a teal vase (replaces 木梨花): Hoa Mộc Lê
+2) Next to the jewel box icon:
+   Hộp Châu Báu Lưu Quang: cất linh thạch và các loại bảo thạch, tự hút đồ trong một phạm vi nhất định, và dùng được Bộ Mở Rộng Không Gian.
+3) Next to the honey jar icon:
+   Hũ Mật: chứa các vật phẩm liên quan đến mật ong, kể cả Kẹo dẻo.
+   Đồ bên trong từ từ tươi lại, và dùng được Bộ Mở Rộng Không Gian.
+4) Next to the mushroom basket icon at the bottom:
+   Giỏ Nấm: chứa các vật phẩm liên quan đến nấm, đồ bên trong từ từ tươi lại, và dùng được Bộ Mở Rộng Không Gian.

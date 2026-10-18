@@ -1,0 +1,146 @@
+[
+ {
+  "op": "orig_art",
+  "box": [
+   345,
+   741,
+   975,
+   795
+  ],
+  "note": "T7: dòng \"hồi máu.\" đè lên đường kẻ → phủ giấy, dán lại đường kẻ gốc"
+ },
+ {
+  "op": "block",
+  "box": [
+   350,
+   669,
+   972,
+   0
+  ],
+  "erase": [
+   345,
+   664,
+   975,
+   741
+  ],
+  "line_h": 31,
+  "pitch": 36,
+  "lines": [
+   [
+    [
+     "*Mọc trên Côn Bằng Tiên Đảo.",
+     null,
+     "b"
+    ]
+   ],
+   [
+    [
+     "*Đứng gần Túy Xuân Yên đã trưởng thành sẽ từ từ hồi máu.",
+     null,
+     "b"
+    ]
+   ]
+  ],
+  "note": "T7: viết lại 2 ghi chú gọn 2 dòng để không chạm đường kẻ"
+ },
+ {
+  "op": "orig_art",
+  "box": [
+   1000,
+   985,
+   1142,
+   1089
+  ],
+  "note": "T8: Gemini vẽ mỏ Tuyệt Phẩm thành khối cầu vồng → dán lại icon gốc"
+ },
+ {
+  "op": "text",
+  "box": [
+   1145,
+   1095,
+   1555,
+   1150
+  ],
+  "band": [
+   1095,
+   1150
+  ],
+  "text": "",
+  "note": "T8: dòng cuối \"hiện cực thấp.\" đè lên đường kẻ/hoa văn đáy → xoá, trả lại đường kẻ gốc"
+ },
+ {
+  "op": "paper",
+  "box": [
+   1145,
+   984,
+   1618,
+   1028
+  ],
+  "note": "T8: xoá đoạn cũ (dải 1)"
+ },
+ {
+  "op": "paper",
+  "box": [
+   1145,
+   1028,
+   1618,
+   1072
+  ],
+  "note": "T8: xoá đoạn cũ (dải 2)"
+ },
+ {
+  "op": "block",
+  "box": [
+   1150,
+   989,
+   1600,
+   0
+  ],
+  "erase": [
+   1145,
+   1072,
+   1618,
+   1112
+  ],
+  "line_h": 26,
+  "pitch": 26,
+  "lines": [
+   [
+    [
+     "Mỏ Linh Thạch Tuyệt Phẩm: sinh ra trên Đất",
+     null,
+     "b"
+    ]
+   ],
+   [
+    [
+     "Linh Mạch Côn Bằng. Khai thác ngoài Cục đá",
+     null,
+     "b"
+    ]
+   ],
+   [
+    [
+     "và Đá lửa còn rơi thêm Linh thạch trung",
+     null,
+     "b"
+    ]
+   ],
+   [
+    [
+     "phẩm và 1 vật phẩm cơ duyên; tỉ lệ xuất",
+     null,
+     "b"
+    ]
+   ],
+   [
+    [
+     "hiện cực thấp.",
+     null,
+     "b"
+    ]
+   ]
+  ],
+  "note": "T8: viết lại đoạn mỏ Tuyệt Phẩm dày hơn để kết thúc trên đường kẻ đáy"
+ }
+]

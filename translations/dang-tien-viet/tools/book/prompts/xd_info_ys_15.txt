@@ -1,0 +1,63 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "29" and "30", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- On the left page, ALL text inside the grey frame (name, top-right lines, bottom lines) is white with a thin dark outline, exactly like the original. Keep that style.
+- On the right page, the small item names under icons are white with a thin dark outline; keep them centered under their own icon. All other right-page text is dark brown/black. No colored labels on this page.
+
+LEFT PAGE (29)
+1) Character name, top-center of the grey frame (replaces 王麻子):
+   Vương Ma Tử
+2) Three short lines at the top-right of the frame, right-aligned like the original (replaces 拥有25%额外减伤 / 5点位面减伤 / 5点位面攻击):
+   Thêm 25% giảm sát thương
+   5 điểm giảm sát thương vị diện
+   5 điểm tấn công vị diện
+3) Four lines at the bottom of the frame, below the portrait, left-aligned, one per line:
+   Tấn công hoặc bị đánh khiến mục tiêu xung quanh sợ hãi
+   Đánh bằng vũ khí riêng có tỉ lệ làm mục tiêu chảy máu
+   Ăn đồ không bị phạt trừ máu
+   Dễ đói hơn
+
+RIGHT PAGE (30) — grey box with two items, a skill line, then 4 blocks, top to bottom
+1) Two headings above the grey box, each centered above its own item:
+   Left heading (replaces 天逆珠): Thiên Nghịch Châu
+   Right heading (replaces 尊魂幡（孤品）): Tôn Hồn Phiên (Cô Phẩm)
+2) Inside the grey box, left column next to the green dragon-orb icon, 3 bullet points:
+   • Chuột phải để vào không gian bên trong.
+   • Ở bên trong hồi chậm máu, tinh thần và no.
+   • Tự hồi độ bền theo thời gian.
+3) Inside the grey box, right column next to the red banner icon, 2 bullet points:
+   • Có thể đặt thẳng xuống đất.
+   • Giết sinh vật gần đó sinh ra linh hồn; phiên hút linh hồn rồi gọi Hồn Linh cùng tấn công.
+4) Inside the grey box, one centered line below both columns:
+   Nếu bị mất, cả hai đều luyện lại được bằng Lò Luyện Đan.
+5) Inside the grey box, bottom: two recipe lines, left one under the left item, right one under the right item:
+   Left: Ma Vũ Tử Xá*2, Cục vàng*5, Ngọc Lục*10, Linh thạch thượng phẩm*3
+   Right: Ma Vũ Tử Xá*1, Giấy Cói*5, Ngọc Đỏ*5, Linh thạch thượng phẩm*1
+6) Below the grey box, two labels on the left (stacked, one per line) and a description to their right:
+   Labels:
+   Linh kỹ: Định Thân Thuật
+   Thần thông: Thanh Quang Thuẫn
+   Description:
+   Định Thân Thuật tạm giữ chặt mục tiêu. Thanh Quang Thuẫn kéo dài 60 giây, có lượng máu bằng 40% bản thể.
+7) Next to the round skill-bar emblem icon (caption under it replaces 技能栏 → "Thanh kỹ năng"), 4 lines:
+   Lý Quảng Cung: sát thương tầm xa theo đường thẳng.
+   Tát Đậu Thành Binh: ném đậu binh vào điểm chỉ định, tấn công liên tục.
+   Xạ Thần Chiến Xa: gọi hồn linh bướm ngẫu nhiên tấn công mục tiêu.
+   Tàn Dạ: liên tục gây sát thương bóng tối diện rộng lên mục tiêu.
+8) Next to the wooden statue icon (caption under it replaces 木雕 → "Mộc điêu"):
+   Giết sinh vật tương ứng để mở khoá chế tạo mộc điêu của nó. Làm xong đặt xuống đất; khi sinh vật lại gần, mộc điêu bị tiêu hao và hoá thành sinh vật đó để tấn công.
+9) Bottom-left, next to the blue whip icon (caption under it replaces 坤极鞭 → "Khôn Cực Tiên"):
+   Làm mục tiêu dễ bị thương, chém chết sinh vật dưới 7% máu.
+10) Bottom-right, next to the pink-and-red figure icon (caption under it replaces 杀戮仙诀 → "Sát Lục Tiên Quyết"):
+   Khi kích hoạt Thân Ngoại Hóa Thân, hoá thân tấn công có tỉ lệ phát động huyết kiếm.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

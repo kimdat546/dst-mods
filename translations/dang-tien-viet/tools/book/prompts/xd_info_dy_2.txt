@@ -1,0 +1,44 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, every small icon (meditation badge, cauldron, pill icons, purple crystal), the crane, the cloud, page numbers "3" and "4", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Words colored differently are noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (3) — 5 blocks, top to bottom
+1) The small dark label plate under the meditating-figure badge (inside the grey box, left), white text, centered:
+   Luyện Khí kỳ
+2) Inside the grey box, right of the badge, 4 bullet lines:
+   • Khi tu sĩ ở Luyện Khí kỳ, lúc cầm pháp bảo sẽ có cả [white] Linh Kỹ [black] và [purple] Thần Thông[black].
+   • [white] Linh Kỹ[black]: bấm chuột phải để thi triển.
+   • [purple] Thần Thông[black]: bấm phím <Z> để thi triển.
+   • Pháp bảo chuyên dụng nuốt vũ khí thường để hồi phục.
+3) The paragraph between the two decorative dividers, below the grey box:
+   *Mỗi lần đột phá tiểu cảnh giới, giới hạn máu và no của tu sĩ đều tăng, đồng thời tăng lượng no nhận được khi ăn. Đột phá đại cảnh giới còn ban thêm thần thông và một phần tốc độ di chuyển.
+4) Next to the orange flame orb icon, 2 lines (first line on top, recipe below):
+   Tụ Khí Hoàn: Luyện Khí sơ kỳ → Luyện Khí trung kỳ
+   Công thức: Gai ong*10, Hạch nhện*5, Trứng chim Cao*1, Linh thạch hạ phẩm*10
+5) Next to the orange orb on a wooden stand (bottom), 2 lines:
+   Đoán Thể Hoàn: Luyện Khí trung kỳ → Luyện Khí hậu kỳ
+   Công thức: Vòi voi*1, Da lợn*3, Ngọc Đỏ*3, Linh thạch hạ phẩm*30
+
+RIGHT PAGE (4) — 5 blocks, top to bottom
+1) The small white label under the teal cauldron icon (inside the grey box, left), centered:
+   Lò Luyện Đan
+2) Inside the grey box, right of the cauldron, 2 bullet lines:
+   • Dùng để luyện chế đan dược và pháp bảo.
+   • Công thức luyện sai sẽ khiến Lò Luyện Đan nhả ra toàn bộ nguyên liệu.
+3) The paragraph between the two decorative dividers, below the grey box:
+   *Nếu đạo hữu làm mất bản mệnh pháp bảo, có thể cho các nguyên liệu sau vào Lò Luyện Đan để luyện lại.
+   Công thức: Mảnh xương*3, Gỗ sống*3, Ngọc Đỏ*5, Linh thạch hạ phẩm*30
+4) Next to the blue orb held by silver claws, 2 lines:
+   Trúc Cơ Đan: Luyện Khí hậu kỳ → Trúc Cơ sơ kỳ
+   Công thức: Vảy*1, Răng chó*10, Gỗ sống*3, Linh thạch trung phẩm*1
+5) Next to the purple crystal icon (bottom):
+   Linh thạch trung phẩm: rơi ra khi giết yêu thú mạnh. Có thể dùng để uẩn dưỡng linh lực cho mọi loại giáp, giúp [blue] tăng mạnh độ bền[black].
+
+Do not write the color tags like "[purple]" in the image — they only tell you the color.

@@ -1,0 +1,47 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "31" and "32", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+STYLE NOTES FOR THIS PAGE
+- White-with-thin-dark-outline style (keep exactly like the original) for: the character name at the top-left of the grey frame, the item name under the red bamboo icon, the skill labels at the left edge of the right page ("Kỹ năng 1"… "Chuyển giai đoạn"), and the two item names next to the gourd and the mushroom seat.
+- All other text is dark brown/black. No colored labels on this page.
+
+LEFT PAGE (31)
+1) Character name, top-left inside the grey frame (replaces 青岫丹仙):
+   Thanh Tụ Đan Tiên
+2) Paragraph directly below the grey frame (3 lines in the original):
+   Ưu tiên xuất hiện ở vùng đồng cỏ của Bee Queen, có thể giao dịch với người chơi. Nếu đưa một viên Phế Đan sẽ chuyển sang trạng thái tấn công. Khi bị giết, 20 ngày sau sẽ xuất hiện lại.
+3) Bottom, item name under the red bamboo icon (replaces 涅槃血髓竹):
+   Niết Bàn Huyết Tủy Trúc
+4) Bottom, 3 bullet points to the right of the red bamboo icon:
+   • Cho Thân Ngoại Hóa Thân ăn để tăng tu vi.
+   • Một trong các nguyên liệu bắt buộc để làm đan dược nhất phẩm.
+   • Một trong các nguyên liệu bắt buộc để luyện Khấu Hư Đan.
+
+RIGHT PAGE (32) — 6 skill rows separated by divider lines, then 2 items, top to bottom.
+Each skill row: a short white-outlined label at the left, then the description to its right on the same line.
+1) Label (replaces 技能一): Kỹ năng 1
+   Description: Ở trạng thái tấn công sẽ gọi Tiên Kiếm cùng tấn công.
+2) Label (replaces 技能二): Kỹ năng 2
+   Description: Đánh thường sẽ gọi Công Đức Kim Thân cùng tấn công.
+3) Label (replaces 转阶段): Chuyển giai đoạn
+   Description (2 lines): Khi máu dưới 65% sẽ nuốt một viên Khấu Hư Đan, đột phá lên Phản Hư kỳ và gọi Pháp Thân Hạo Thiên Thượng Đế cùng tấn công.
+4) Label (replaces 技能三): Kỹ năng 3
+   Description: Sau khi vào cảnh giới Phản Hư, cường hoá đòn đánh thường.
+5) Label (replaces 技能四): Kỹ năng 4
+   Description (2 lines): Bay lên rồi đáp xuống đất, gây sát thương lửa diện rộng.
+6) Label (replaces 技能五): Kỹ năng 5
+   Description: Giam người chơi xung quanh, sau đó kích hoạt dung nham diện rộng.
+7) Next to the brown gourd icon: item name (replaces 悬壶) "Huyền Hồ", then description to its right:
+   Túi đeo lưng có 18 ô.
+8) Next to the mushroom-and-leaf seat icon: item name (replaces 承运座) "Ghế Thừa Vận", then description to its right (3 lines):
+   Chế tạo ở mục Trang trí và Đăng Tiên của bảng chế tạo. Người chơi ngồi trên Ghế Thừa Vận sẽ hồi một chút máu, tinh thần và no.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

@@ -1,0 +1,40 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait, every small icon, the crane, the cloud, page numbers "41" and "42", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. The label before the colon is colored as noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (41)
+1) Inside the grey frame, top-left area beside the portrait (replaces all the vertical Chinese columns, including the column outside the frame on the far left — erase that column completely). One item per line, as a list:
+   [dark red] Nghịch Mệnh Tàn Khu: [black] máu càng thấp, phòng ngự càng cao
+   Ăn thức ăn không bị mất máu
+   Tinh thần thấp thì tăng nhẹ sát thương
+   Tinh thần giảm dần
+   Bị sinh vật trung lập tấn công
+2) Name under the portrait (replaces 古月方源), centered:
+   Cổ Nguyệt Phương Nguyên
+3) Bottom text next to the yellow lotus icon:
+   [dark red] Thiên Nguyên Bảo Hoàng Liên: [black] lớn lên nhờ nuốt cổ trùng. Mỗi lần lên một bậc, tăng số lượng và giới hạn tài nguyên hoang dã sinh ra xung quanh mỗi 7 ngày.
+
+RIGHT PAGE (42) — 7 blocks, top to bottom, each beside its own original icon
+1) Inside the grey box at the top, next to the dark ornament icon:
+   [dark red] Tiên Khiếu: [black] bấm để mở giao diện Tiên Khiếu của nhân vật. Cất cổ trùng vào rồi kích hoạt hiệu quả của chúng tại đây. Mỗi cổ trùng kích hoạt thêm khiến tinh thần giảm nhanh hơn. Xuân Thu Thiền và Chí Tôn Tiên Thai Cổ tự kích hoạt, không thể tháo ra.
+2) Next to the small purple butterfly icon (just below the grey box):
+   [purple] Mộng Điệp Cổ: [black] sau khi kích hoạt tăng tốc chạy, đói chậm hơn, giảm nhẹ sát thương nhận vào. Không bị thôi miên, quái không chủ động tấn công. Bị đánh hoặc chủ động tấn công sẽ mất trạng thái này và phải chờ hồi chiêu.
+3) Next to the black bird icon:
+   [dark red] Vô Túc Điểu: [black] cổ tiêu hao, giúp nhân vật bay vọt một đoạn.
+4) Next to the orange flame icon:
+   [dark red] Tiêu Lôi Đậu Mẫu Cổ: [black] đặt xuống đất, sinh vật lại gần sẽ phát nổ gây sát thương.
+5) Next to the green icon:
+   [dark red] Định Tiên Du: [black] ngao du tới một số nơi đã từng đến.
+6) Next to the soup bowl icon:
+   [red] Canh lá Sinh Cơ: [black] nấu với ít nhất 1 cỏ Sinh Cơ + rau. Hồi 25 no, 40 máu, 5 tinh thần. Trong 1 ngày sau khi ăn, sát thương nhận vào giảm nhẹ.
+7) Next to the pink cake icon:
+   [red] Bánh Cửu Diệp Sinh Cơ: [black] nấu với ít nhất 2 cỏ Sinh Cơ + 1 mật ong + 1 phụ liệu (không thịt, rau, trứng). Hồi 20 no, 60 máu, 10 tinh thần. Trong 1 ngày sau khi ăn, miễn nhiễm đóng băng và bốc cháy.
+
+Do not write the color tags like "[dark red]" in the image — they only tell you the color.

@@ -1,0 +1,52 @@
+[
+ {
+  "op": "paper",
+  "box": [
+   1040,
+   801,
+   1185,
+   813
+  ],
+  "note": "Gemini vẽ thêm vạch chia dưới dòng Nhà voi (bản gốc không có); chừa chân chữ g/y"
+ },
+ {
+  "op": "paper",
+  "box": [
+   1201,
+   801,
+   1208,
+   814
+  ],
+  "note": "vạch chia thêm"
+ },
+ {
+  "op": "paper",
+  "box": [
+   1219,
+   801,
+   1565,
+   814
+  ],
+  "note": "vạch chia thêm"
+ },
+ {
+  "op": "paper",
+  "box": [
+   1100,
+   967,
+   1137,
+   982
+  ],
+  "note": "Gemini vẽ thêm vạch chia giữa hai ổ (bản gốc không có)"
+ },
+ {
+  "op": "paper",
+  "box": [
+   1149,
+   967,
+   1565,
+   982
+  ],
+  "note": "vạch chia thêm (chừa chân chữ g của dòng trên)"
+ }
+]

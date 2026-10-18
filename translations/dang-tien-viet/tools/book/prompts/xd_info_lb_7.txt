@@ -1,0 +1,37 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, the big pale-blue spirit tree illustration (with its glowing orb, mushrooms and door), the glowing fruit, the two food plates, the crane, the cloud, page numbers "13" and "14", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Name labels/titles that are white with a thin dark outline in the original stay white with a thin dark outline. Body text on the right page is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (13) — tree illustration with vertical text on both sides of the trunk
+1) Large white title on the right side of the trunk, just below the tree crown (replaces 返魂树):
+   Cây Phản Hồn
+2) LEFT of the trunk (replaces the 3 vertical Chinese columns there). Convert to HORIZONTAL lines, left-aligned, white text with a thin dark outline like the original, filling the narrow area between the left frame edge and the trunk, below the crown:
+   Chỉ xuất hiện ở Côn Bằng Tiên Đảo. Ngoài công dụng hạ nhiệt, che mưa, tránh sét, còn giúp ngưng kết nhục thân.
+3) RIGHT of the trunk, below the title "Cây Phản Hồn" (replaces the 3 vertical Chinese columns there). Convert to HORIZONTAL lines, left-aligned, white text with a thin dark outline like the original, filling the area between the trunk and the right frame edge:
+   Nhiệt độ trong nhà cây luôn ổn định, còn từ từ hồi máu và tinh thần. Đồng thời lưu lại di trạch của tiền bối.
+   Erase all the original vertical Chinese columns completely; do not paint over the tree.
+
+RIGHT PAGE (14)
+1) Inside the grey frame at the top, right of the glowing fruit (2 bullet points):
+   • Ăn vào hồi 15 no, 20 tinh thần, 5 máu.
+   • Từ từ hồi máu và tinh thần trong 1 ngày.
+2) White label under the glowing fruit (replaces 返魂果), centered:
+   Quả Phản Hồn
+3) Next to the first food plate (dark dish with crystals), one text block:
+   Công thức nấu: cần Quả Phản Hồn*1, thịt*1, rau*1, trứng*1.
+   Ăn vào hồi 67.5 no, 25 tinh thần, 45 máu, kèm hiệu quả từ từ hồi máu và tinh thần như Quả Phản Hồn.
+   Hồn ma người chơi ám vào bộ xương mình để lại khi chết thì có thể hồi sinh.
+4) White label under the first food plate (replaces 返生香), centered:
+   Hương Phản Sinh
+5) Next to the second food plate (icy shards), below the thin divider, one text block:
+   Công thức nấu: cần Quả Phản Hồn*1, không thịt, còn lại là phụ liệu.
+   Ăn vào hồi 20 no, 22 tinh thần, 7 máu; hiệu quả từ từ hồi máu cao hơn Quả Phản Hồn.
+6) White label under the second food plate (replaces 返魂果脯), centered:
+   Mứt Quả Phản Hồn

@@ -1,0 +1,36 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the white tiger illustration, every small icon (folded tiger pelt, orange claw-slash icon, orange paw icon, orange fist icon), the crane, the cloud, page numbers "11" and "12", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Names and labels keep their original look (white letters with a thin dark outline) where noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (11) — 4 blocks
+1) Top-left inside the picture frame, left of the tiger's head (replaces 白虎残躯), [white with dark outline]:
+   Tàn Khu Bạch Hổ
+2) Two-line text just below the picture frame:
+   Xuất hiện ở thảo nguyên; chỉ khi có người chơi đạt Nguyên Anh sơ kỳ mới có thể tấn công nó.
+3) Small label directly under the folded tiger pelt icon, bottom-left (replaces 锦毛虎皮), [white with dark outline]:
+   Da Hổ Gấm
+4) Right of the tiger pelt icon, three bullets:
+   • Cho Thân Ngoại Hóa Thân ăn để tăng tu vi.
+   • Nguyên liệu bắt buộc để chế tạo Mặt Giáp Tử Xá.
+   • Nguyên liệu bắt buộc để luyện Hóa Thần Đan.
+
+RIGHT PAGE (12) — 4 blocks, top to bottom. Each starts with a short label [white with dark outline], followed by black text.
+1) Right of the orange claw-slash icon (top):
+   [white with dark outline] Bị động [black] Khi đòn đánh thường trúng người chơi sẽ gây phá giáp 18 giây: lần kế tiếp mục tiêu trúng đòn đánh thường bị tăng 70% sát thương; lần sau nữa tăng 200% và hiệu ứng xấu này kết thúc ngay.
+2) Right of the orange paw icon (three short paragraphs, each on a new line):
+   [white with dark outline] Kỹ năng 1 [black] Lao tới tối đa 4 người chơi, chắc chắn trúng và gây sát thương, đồng thời khiến họ nhận thêm 300% sát thương từ đòn lao trong thời gian ngắn.
+   Người chơi trên đường lao cũng chịu sát thương; khi đông người, chú ý vị trí đứng để tránh trúng nhiều đòn lao.
+   Mỗi lần lao trúng người chơi sẽ để lại một hư ảnh của người đó tại chỗ, liên tục gây sát thương nhỏ, có thể cộng dồn.
+3) Right of the orange fist icon:
+   [white with dark outline] Kỹ năng 2 [black] Giáng đòn vào vị trí người chơi và phá hủy các hư ảnh trong phạm vi. Mỗi hư ảnh bị phá gây một lần sát thương nổ và để lại một vùng sát thương liên tục.
+4) Bottom paragraph starting at the left margin (no icon):
+   [white with dark outline] Kỹ năng 3 [black] Sau 6 giây ở trạng thái mệt mỏi, hất văng mọi người chơi trong phạm vi nhỏ, gây sát thương cực lớn. Sau đó dựng tường đá vây người chơi và lao nhiều lần trong vùng đó, sát thương cao nhưng né được. Cuối cùng phá hủy mọi hư ảnh, gây lượng lớn sát thương nổ có thể cộng dồn.
+
+Do not write the color tags like "[white with dark outline]" or "[black]" in the image — they only tell you the color.

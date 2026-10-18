@@ -1,0 +1,41 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, grey frames, borders, decorative divider lines, the floating-mountain house, the blue flower pot, the scroll, the token pendant, the crane, the cloud, page numbers "5" and "6", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. All body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Name labels under icons stay white with a thin dark outline, centered under the icon, exactly like the original labels.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (5)
+1) Inside the grey frame at the top, right of the floating-mountain house, two short paragraphs (keep the blank line between them):
+   • Một khoảng không gian cắt ra từ hư không.
+
+   Đặt <Quyển Trục Thiên Cơ> để tạo lối vào.
+2) White label under the floating-mountain house (replaces 天机屋), centered:
+   Thiên Cơ Ốc
+3) Text between the two divider lines, below the grey frame:
+   *Muốn trồng cây trong Thiên Cơ Ốc cần chế tạo <Chậu Hoa Uẩn Linh>.
+4) Next to the blue flower pot icon, two short paragraphs (keep the blank line between them):
+   Giúp tu sĩ trồng trọt trong Thiên Cơ Ốc.
+
+   Công thức chế tạo: Đá xẻ*2, Gỗ sống*1, Linh thạch hạ phẩm*3
+5) Bottom text block, below the thin divider:
+   *Sau 2 lần trồng, bồn sẽ mờ đi; cho linh thạch vào để nạp lại linh khí. Chưởng Thiên Bình cũng có tác dụng với nó.
+
+RIGHT PAGE (6)
+1) Inside the grey frame at the top, right of the scroll (replaces the 3 Chinese lines):
+   • Đặt xuống sẽ tạo ra Thiên Cơ Ốc.
+   Có thể thu hồi Thiên Cơ Ốc bằng <Lệnh Bài Thiên Cơ Ốc>.
+2) White label under the scroll (replaces 天机卷轴), centered:
+   Quyển Trục Thiên Cơ
+3) Text between the two divider lines, below the grey frame:
+   Công thức luyện chế: Giấy Cói*7, Đá cẩm thạch*15, Gỗ sống*6, Linh thạch hạ phẩm*45
+4) Next to the token pendant icon, two short paragraphs (keep the blank line between them):
+   Lệnh Bài Thiên Cơ Ốc: sinh ra sau khi đặt Thiên Cơ Ốc.
+
+   Là vật chứng để thu hồi Thiên Cơ Ốc.
+5) Centered line at the bottom, below the thin divider:
+   *Mọi Thiên Cơ Ốc của cùng một tu sĩ đều dẫn tới cùng một không gian.

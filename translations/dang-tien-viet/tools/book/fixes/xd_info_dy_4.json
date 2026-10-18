@@ -1,0 +1,37 @@
+[
+  {
+    "op": "orig_art",
+    "box": [
+      996,
+      810,
+      1122,
+      962
+    ],
+    "note": "Gemini vẽ lại icon Uẩn Huyết Hoàn thành túi vải → dán lại ngọc đỏ bốc lửa gốc"
+  },
+  {
+    "op": "orig_art",
+    "box": [
+      1122,
+      928,
+      1152,
+      962
+    ],
+    "note": "tua đỏ góc phải của icon, nằm dưới dòng chữ cuối"
+  },
+  {
+    "op": "text",
+    "box": [
+      430,
+      731,
+      968,
+      763
+    ],
+    "text": "Tâm Ma đạt 7 điểm, kết đan sẽ sinh ra Vô Thượng Ma Thể.",
+    "note": "Gemini viết hỏng thành \"7 ıcíết đan\"",
+    "band": [
+      731,
+      772
+    ]
+  }
+]

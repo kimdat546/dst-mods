@@ -1,0 +1,5 @@
+[
+  {"op": "orig_art", "box": [618, 1148, 706, 1200], "note": "số trang 11 gốc (Gemini vẽ sách cao hơn nên số trang của nó rơi xuống mép ghép, bị cắt nửa)"},
+  {"op": "paper", "box": [1280, 1164, 1366, 1204], "note": "xoá nửa số 12 của Gemini"},
+  {"op": "move_art", "box": [1292, 1150, 1352, 1192], "to": [1292, 1166], "note": "số trang 12 gốc, hạ xuống để không đè dòng chữ cuối trang"}
+]

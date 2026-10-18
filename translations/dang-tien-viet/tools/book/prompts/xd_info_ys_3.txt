@@ -1,0 +1,45 @@
+Edit this image. Replace ONLY the Chinese text with the exact Vietnamese text given below. This is a text-replacement job, not a redesign.
+
+STRICT RULES
+- Keep EVERYTHING else pixel-identical: the book, paper texture, frames, borders, decorative divider lines, the character portrait (fox-eared lady holding a pink flame), the red jade pendant icon, the crane, the cloud, page numbers "5" and "6", the black background. Do not redraw, move, resize or restyle any icon or illustration.
+- Keep the exact same canvas size and framing. Do not crop, zoom, rotate or add borders. No watermark.
+- Do NOT add anything that is not in the original image: no new frames, boxes, panels, borders, shadows or decorations. Do not remove any existing frame, divider line or icon.
+- Write every text block exactly ONCE: never repeat a word, never cut a word off at the edge of a box (wrap to the next line instead), never drop a sentence.
+- Copy the Vietnamese text EXACTLY, character by character, with all diacritics. Do not translate, rephrase, shorten, or add words. Do not leave any Chinese character.
+- Every text block stays in the SAME position as the Chinese block it replaces, next to the SAME icon. Body text is horizontal, left-aligned, dark brown/black, in a clean bold sans-serif. Names and labels keep their original look (white letters with a thin dark outline) where noted.
+- Text must fit inside its area; use a smaller font if needed rather than moving it.
+
+LEFT PAGE (5) — 2 blocks, inside the portrait frame
+1) Top-right of the portrait frame, right of the fox ears (replaces the vertical name 苏妲己). Write it horizontally, one word per line, stacked in the same narrow spot, [white with dark outline]:
+   Tô
+   Đát
+   Kỷ
+2) Left side of the portrait frame, middle-lower area left of the character's body (replaces BOTH vertical columns 可制作奇珍 and 食物喜好太妃糖). Write horizontally as short stacked lines in small text, [white with dark outline]:
+   Chế tạo
+   được kỳ trân
+   Thích ăn
+   Kẹo Bơ Cứng
+
+RIGHT PAGE (6) — 7 blocks, top to bottom
+1) Inside the grey box at the top, right of the red jade pendant icon (two bullets, then recipe):
+   • Ấp ủ hồn phách của Trụ Vương; có thể ôn dưỡng bằng Mảnh Tàn Nguyên Thần Yêu Thú.
+   • Mỗi lần thi triển thần thông tiêu hao 10% độ bền để cường hoá thần thông (đồng thời tiêu hao máu).
+   Công thức luyện: Ngọc Đỏ*3, Cục vàng*20, Dây thừng*1, Linh thạch trung phẩm*3
+2) Small label directly under the red jade pendant icon (replaces 养魂灵玉), centered, [white with dark outline]:
+   Linh Ngọc Dưỡng Hồn
+3) Just below the grey box, a bullet line of 2 lines:
+   • Khi độ bền Linh Ngọc Dưỡng Hồn từ 50% trở lên, thần thông được cường hoá thêm; đồng thời Tô Đát Kỷ được tăng nhẹ tốc độ di chuyển và hồi tinh thần.
+4) Between the two decorative dividers, two lines each starting with "*":
+   *Tô Đát Kỷ mạnh hơn một chút khi đối đầu sinh vật của cả hai phe.
+   *Đuôi cáo của Tô Đát Kỷ có tác dụng giữ ấm nhất định.
+5) Centered heading below the second divider (replaces 血量对苏妲己神通的影响), [white with dark outline]:
+   Ảnh hưởng của máu lên thần thông của Tô Đát Kỷ
+6) Paragraph under the heading (3 items, each starts on a new line):
+   Máu trên 70%: thả hồn hỏa xoay quanh hỗ trợ tấn công.
+   Máu trên 40% đến 70%: triệu hồi Pháp Thân Trụ Vương trợ chiến. (Cần độ bền Linh Ngọc Dưỡng Hồn trên 10%)
+   Máu từ 40% trở xuống: triệu hồi bản tôn Trụ Vương trợ chiến. (Cần độ bền Linh Ngọc Dưỡng Hồn trên 10%)
+7) Bottom of the page, below the short divider, lines starting with "*":
+   *Khi Tô Đát Kỷ kích hoạt hợp kích Công Đức Kim Thân hoặc Vô Thượng Ma Thể, Pháp Thân Trụ Vương hoặc bản tôn cũng hợp kích một lần.
+   *Khi Tô Đát Kỷ dùng linh kỹ, bản tôn Trụ Vương cũng hợp kích.
+
+Do not write the color tags like "[white with dark outline]" in the image — they only tell you the color.

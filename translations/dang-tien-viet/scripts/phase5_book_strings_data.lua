@@ -65,7 +65,7 @@ STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_DANYAO_BG = "Thứ có thể trì hoãn c
 STRINGS.NAMES.XD_HXYP = "Ngọc Bội Hộ Tâm"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_HXYP = "Ngọc bội có thể bảo vệ tâm mạch"
 
-STRINGS.NAMES.XD_YHBS = "Dao Găm Dưỡng Hồn"
+STRINGS.NAMES.XD_YHBS = "Dưỡng Hồn Chuỷ Thủ"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_YHBS = "Bên trong nuôi dưỡng một sợi tàn hồn của yêu thú ở vị diện cao hơn"
 
 STRINGS.NAMES.XD_AYMG = "Hoa Hồng Bóng Tối"
@@ -537,8 +537,8 @@ STRINGS.RECIPE_DESC.XD_SGC = "Có thể cất giữ lương thực chất cao nh
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_SGC = "Có thể cất giữ lương thực chất cao như núi"
 
 STRINGS.NAMES.XD_LGZBH = "Hộp Châu Báu Lưu Quang"
-STRINGS.RECIPE_DESC.XD_LGZBH = "Có thể cất giữ các loại bảo thạch đủ màu ngoại trừ bảo thạch cầu vồng"
-STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_LGZBH = "Có thể cất giữ các loại bảo thạch đủ màu ngoại trừ bảo thạch cầu vồng"
+STRINGS.RECIPE_DESC.XD_LGZBH = "Có thể cất giữ các loại bảo thạch đủ màu ngoại trừ Đá Quý Ánh Kim"
+STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_LGZBH = "Có thể cất giữ các loại bảo thạch đủ màu ngoại trừ Đá Quý Ánh Kim"
 
 STRINGS.NAMES.XD_GJX = "Hộp Dụng Cụ"
 STRINGS.RECIPE_DESC.XD_GJX = "Dùng để chất đủ loại dụng cụ"
@@ -552,7 +552,7 @@ STRINGS.NAMES.XD_MGLZ = "Giỏ Nấm"
 STRINGS.RECIPE_DESC.XD_MGLZ = "Từ xa đã có thể ngửi thấy hương nấm"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_MGLZ = "Từ xa đã có thể ngửi thấy hương nấm"
 
-STRINGS.NAMES.XD_HMSW = "Nhà Cây Mèo Mèo"
+STRINGS.NAMES.XD_HMSW = "Nhà Cây Mèo Trúc"
 STRINGS.RECIPE_DESC.XD_HMSW = "Nhà mèo được chế tác tinh xảo"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_HMSW = "Nhà mèo được chế tác tinh xảo"
 
@@ -687,7 +687,7 @@ STRINGS.NAMES.XD_SUDAJI_REDLANTERN = "Đèn Ngư Long"
 STRINGS.RECIPE_DESC.XD_SUDAJI_REDLANTERN = "Đèn lồng xua tan giá lạnh và nóng bức"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_SUDAJI_REDLANTERN = "Đèn lồng xua tan giá lạnh và nóng bức"
 
-STRINGS.NAMES.XD_SUDAJI_YWFH = "Một Vũ Phương Hoa"
+STRINGS.NAMES.XD_SUDAJI_YWFH = "Nhất Vũ Phương Hoa"
 STRINGS.RECIPE_DESC.XD_SUDAJI_YWFH = "Dùng thứ này để che chắn một số tai họa khó tránh"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_SUDAJI_YWFH = "Dùng thứ này để che chắn một số tai họa khó tránh"
 
@@ -816,7 +816,7 @@ STRINGS.NAMES.XD_SPIDERDEN = "Sào Huyệt Ma Chu"
 STRINGS.RECIPE_DESC.XD_SPIDERDEN = "Ma chu trong đó hung ác vô cùng"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_SPIDERDEN = "Ma chu trong đó hung ác vô cùng"
 
-STRINGS.NAMES.XD_SPIDER = "Ma Chu Gian Tà"
+STRINGS.NAMES.XD_SPIDER = "Tà Trá Ma Chu"
 STRINGS.CHARACTERS.GENERIC.DESCRIBE.XD_SPIDER = "Yêu thú nhỏ tà ác và xảo trá"
 
 STRINGS.NAMES.XD_SPIDERQUEEN = "Tà Sát Chu Vương"
